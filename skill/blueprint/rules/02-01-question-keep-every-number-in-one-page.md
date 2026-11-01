@@ -15,6 +15,11 @@ tags: question, numbering, questions-page
 
 결정과 질문은 전부 `questions.md` 한 문서에 삽니다. 번호는 답하는 사람으로 가릅니다.
 
+```mermaid
+flowchart LR
+	s("화면 문서<br>Decisions 절의 번호 링크") --> q("questions.md<br>화면 절의 번호 소제목") --> r("절 끝의 접힌<br>Resolved 표")
+```
+
 | 번호 | 뜻 | 답하는 사람 |
 | --- | --- | --- |
 | D | 개발 결정 | 개발자. Dev decision으로 닫습니다 |

@@ -1,7 +1,7 @@
 # Blueprint 설계 문서 컨벤션 Rule Index
 
 - Skill: `blueprint`
-- Routing digest: `sha256:af26b7ff6c40e93f59939515597540609a5e2055518582ca6f4189b22a347a23`
+- Routing digest: `sha256:eaa62af2852442e3e53dd2bacdbcf67d52007b218f729d78b46f3977428795e9`
 
 ## Direct Companions
 

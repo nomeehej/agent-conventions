@@ -16,6 +16,13 @@ tags: testing, network, msw, playwright
 브라우저 mock과 Node 테스트는 같은 소유 handler registry를 가져옵니다.
 응답 본문을 환경마다 복사하지 않고 어느 실행 경로가 요청을 처리하는지 하나로 정합니다.
 
+```mermaid
+flowchart LR
+	reg("소유 handler registry") --> w("setupWorker<br>개발, mock 앱 E2E")
+	reg --> s("setupServer<br>Node 함수 통합")
+	reg --> b("page.route와 getResponse<br>브라우저 story 통합")
+```
+
 | 소비 환경 | 연결 방식 |
 | --- | --- |
 | 개발, mock 앱 E2E | mock 모드에서 setupWorker에 공유 registry를 연결합니다 |

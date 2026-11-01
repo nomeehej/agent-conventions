@@ -15,6 +15,13 @@ tags: testing, playwright
 화면 상태는 await expect와 locator의 재시도 가능한 matcher로 기다립니다.
 요청, 다운로드, 팝업처럼 놓칠 수 있는 이벤트는 그 이벤트를 발생시키는 액션 전에 대기를 등록합니다.
 
+```mermaid
+flowchart LR
+	q1{"요청, 다운로드, 팝업처럼<br>놓칠 수 있는 이벤트인가?"} -- 예 --> r1("액션 전에 대기 등록,<br>액션 뒤 await")
+	q1 -- 아니요 --> q2{"DOM 밖의<br>관측값인가?"} -- 예 --> r2("상한이 있는 expect.poll")
+	q2 -- 아니요 --> r3("locator의 재시도<br>가능한 matcher")
+```
+
 | 필요한 확인 | 방법 |
 | --- | --- |
 | 표시, 문구, 개수, URL | 해당 locator나 page의 비동기 matcher |

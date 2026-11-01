@@ -18,6 +18,11 @@ tags: testing, network, kubb, faker, msw
 생성기를 사용하는 프로젝트에서는 다음 순서로 실제 산출물의 계약을 조립합니다.
 생성하지 않는 프로젝트는 기존의 타입 기반 fixture와 handler를 사용합니다.
 
+```mermaid
+flowchart LR
+	g("OpenAPI 생성물<br>DTO, factory") --> b("domain builder<br>값과 관계") --> h("endpoint handler<br>요청과 상태") --> r("registry<br>소유가 fallback 앞") --> c("브라우저, Node<br>차이만 덮음")
+```
+
 1. OpenAPI와 생성 설정에서 DTO, status별 factory, handler signature를 확인합니다.
 2. 소유 domain builder에서 DTO faker를 호출하고 관찰되는 값과 관계를 고정합니다.
 3. 소유 endpoint handler에서 요청을 읽고 상태와 해당 status의 응답 factory를 선택합니다.
