@@ -160,6 +160,7 @@ export const parseSections = (source: string): SkillSection[] => {
 		const impactMatch = block.match(/^\*\*Impact:\*\*\s+(.+)$/m);
 		// Description 정규식이 탐욕적이라 TitleKo는 반드시 Description 앞
 		const titleKoMatch = block.match(/^\*\*TitleKo:\*\*\s+(.+)$/m);
+		const leadMatch = block.match(/^\*\*Lead:\*\*\s+(.+)$/m);
 		const descriptionMatch = block.match(/^\*\*Description:\*\*\s+([\s\S]+)$/m);
 
 		if (!headerMatch) {
@@ -183,6 +184,7 @@ export const parseSections = (source: string): SkillSection[] => {
 			order: Number(order),
 			title,
 			titleKo: titleKoMatch === null ? "" : titleKoMatch[1].trim(),
+			lead: leadMatch === null ? "" : leadMatch[1].trim(),
 			prefix,
 			impact: impactMatch[1].trim(),
 			description,

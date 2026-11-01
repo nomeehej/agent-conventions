@@ -9,7 +9,7 @@ import {replaceGeneratedFiles} from "./generated-files.js";
 import {normalizeHeadingTitle, readSkillDocument} from "./parser.js";
 import {snippetLinePattern} from "./snippets.js";
 import {escapeMarkdownProse, getRuleId, getRulesForSection} from "./routing.js";
-import type {LoadedSkillDocument, SkillCompanion, SkillRule, SkillSection} from "./types.js";
+import type {LoadedSkillDocument, SkillCompanion, SkillMetadata, SkillRule, SkillSection} from "./types.js";
 
 /**
  * 섹션 파일 이름 앞 번호 자릿수. `01-ownership.md`
@@ -129,6 +129,28 @@ const comparePlacement = (left: LoadedSkillDocument, right: LoadedSkillDocument)
  * @helper YAML frontmatter scalar. 콜론, 따옴표가 들어가도 깨지지 않게 JSON 문자열로
  */
 const yamlScalar = (value: string): string => JSON.stringify(value);
+
+/**
+ * @helper 섹션 페이지의 글머리. `_sections.md`의 Lead가 없으면 description 첫 문장에서 백틱만 뗀 것
+ */
+const sectionLead = (section: SkillSection): string => {
+	if (section.lead !== "") {
+		return section.lead;
+	}
+
+	const firstSentence = section.description.split(/(?<=\.)\s/)[0] ?? section.description;
+
+	return firstSentence.replace(/`/g, "");
+};
+
+/**
+ * @helper skill 개요 페이지의 글머리. `metadata.json`의 lead가 없으면 제목
+ */
+const overviewLead = (metadata: SkillMetadata): string => {
+	const lead = metadata.lead ?? "";
+
+	return lead === "" ? metadata.title : lead;
+};
 
 /**
  * @helper 섹션 페이지의 `site/` 기준 경로
@@ -449,7 +471,7 @@ const renderSectionPage = (args: SectionPageArgs): string => {
 	const lines = [
 		"---",
 		`name: ${yamlScalar(`${section.order}. ${sectionDisplayTitle(section)}`)}`,
-		`label: ${yamlScalar(`규칙 ${rules.length}개`)}`,
+		`label: ${yamlScalar(sectionLead(section))}`,
 		`group: ${placement.group}`,
 		// 파일 위치 기준 참조. 생성 폴더가 어디에 끼워져도 같은 skill 개요를 가리킴
 		`parent: ../${document.skillName}`,
@@ -503,7 +525,7 @@ const renderOverviewPage = (document: LoadedSkillDocument, locations: Map<string
 	const lines = [
 		"---",
 		`name: ${yamlScalar(placement.name)}`,
-		`label: ${yamlScalar(document.metadata.title)}`,
+		`label: ${yamlScalar(overviewLead(document.metadata))}`,
 		`group: ${placement.group}`,
 		`order: ${placement.order}`,
 		"---",

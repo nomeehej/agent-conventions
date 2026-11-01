@@ -1,5 +1,6 @@
 {
 	"title": "Figma 구현 컨벤션",
+	"lead": "MCP 읽기 순서, 디자인 의도와 빈자리, 값의 출처, 코드로 옮기기, 검증과 보고",
 	"version": "1.0.0",
 	"organization": "Agent Conventions",
 	"date": "2026년 9월",

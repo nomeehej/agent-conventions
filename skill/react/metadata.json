@@ -1,5 +1,6 @@
 {
 	"title": "React 컨벤션",
+	"lead": "레이어 소유와 가져오기, 서버 데이터와 상태, 타입 계약, 조립과 JSX, 런타임 경계, 성능, 접근성, 문서화, 도구",
 	"version": "1.0.0",
 	"organization": "Agent Conventions",
 	"date": "2026년 9월",

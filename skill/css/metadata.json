@@ -1,5 +1,6 @@
 {
 	"title": "CSS 컨벤션",
+	"lead": "클래스 이름, 소유와 경계, TSX 조합, 선택자, 토큰, 레이아웃, 접근성과 움직임, 도구",
 	"version": "1.0.0",
 	"organization": "Agent Conventions",
 	"date": "2026년 4월",

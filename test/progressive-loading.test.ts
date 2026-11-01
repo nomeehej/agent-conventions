@@ -233,8 +233,16 @@ const createRoutingDocument = (): LoadedSkillDocument => ({
 	skillName: "react",
 	metadata: {title: "React Convention", version: "2.0.0", organization: "Fixture Team", abstract: "Routing fixture."},
 	sections: [
-		{order: 2, title: "State", titleKo: "상태", prefix: "state", impact: "HIGH", description: "State rules."},
-		{order: 1, title: "Composition", titleKo: "조립", prefix: "composition", impact: "CRITICAL", description: "Composition rules."},
+		{order: 2, title: "State", titleKo: "상태", lead: "", prefix: "state", impact: "HIGH", description: "State rules."},
+		{
+			order: 1,
+			title: "Composition",
+			titleKo: "조립",
+			lead: "",
+			prefix: "composition",
+			impact: "CRITICAL",
+			description: "Composition rules.",
+		},
 	],
 	rules: [
 		{
@@ -828,6 +836,7 @@ test("rule index rejects duplicate IDs and missing or duplicate section assignme
 		order: 3,
 		title: "Duplicate State",
 		titleKo: "중복 상태",
+		lead: "",
 		prefix: "state",
 		impact: "HIGH",
 		description: "Duplicate assignment.",

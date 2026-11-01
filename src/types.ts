@@ -128,6 +128,10 @@ export interface SkillMetadata {
 	 */
 	abstract: string;
 	/**
+	 * @field 사이트 skill 개요 페이지의 글머리. 다루는 범위를 쉼표로 이은 명사구 한 줄
+	 */
+	lead?: string;
+	/**
 	 * @field 컴파일 가이드 마지막에 노출할 참고 링크 목록
 	 */
 	references?: string[];
@@ -175,6 +179,10 @@ export interface SkillSection {
 	 * @field 사람이 읽는 화면에 노출할 한국어 section 제목
 	 */
 	titleKo: string;
+	/**
+	 * @field 사이트 섹션 페이지의 글머리. 다루는 주제를 쉼표로 이은 명사구 한 줄, 없으면 빈 문자열
+	 */
+	lead: string;
 	/**
 	 * @field 규칙 파일명과 연결되는 섹션 접두사
 	 */

@@ -1,5 +1,6 @@
 {
 	"title": "Testing 컨벤션",
+	"lead": "실행 경계, 시나리오와 기대값, 데이터와 격리, Vitest, Playwright, 네트워크 경계, 기준값, 보고, Story",
 	"version": "1.1.0",
 	"organization": "Agent Conventions",
 	"date": "2026년 10월",

@@ -1,5 +1,6 @@
 {
 	"title": "TypeScript 컨벤션",
+	"lead": "타입 계약, 이름과 모듈 경계, 함수 경계, 값과 자료구조, 없는 값, JSDoc, 도구",
 	"version": "1.0.0",
 	"organization": "Agent Conventions",
 	"date": "2026년 4월",

@@ -4,6 +4,7 @@
 
 ## 1. Types and Contracts (types)
 **TitleKo:** 타입과 계약
+**Lead:** 기존 타입 재사용, 인덱스 접근 파생, 함수 변수 타입, unknown 좁히기, as const 객체, interface와 type 구분
 **Impact:** HIGH
 **Description:** 함수 시그니처와 커스텀 타입에 계약을 명시하고, 기존 콜백과 타입을 재사용합니다.
 독립된 객체 계약은 `interface`, 타입 계산과 조합은 `type`으로 선언합니다.
@@ -11,6 +12,7 @@
 
 ## 2. Naming and Module Boundaries (naming)
 **TitleKo:** 이름과 모듈 경계
+**Lead:** 루트와 소유자 상수 자리, 파일과 심볼 표기, 배럴 금지, @/ 경로, config/env, 타입 이름
 **Impact:** HIGH
 **Description:** 식별자와 경로, 가져오기, 공개 진입점, 상수 위치에 소유자와 출처를 드러냅니다.
 타입 이름은 값의 역할과 수명을 나타내고, 소유자 경로에 있는 정보를 반복하지 않습니다.
@@ -19,6 +21,7 @@
 
 ## 3. Functions and Helper Boundaries (functions)
 **TitleKo:** 함수와 보조 함수 경계
+**Lead:** const 화살표, 객체 매개변수, 보조 함수의 조건과 자리, 선언 순서, util 승격, 재할당과 push, 이름 짓기
 **Impact:** MEDIUM
 **Description:** 함수 선언 형태와 시그니처를 일관되게 유지합니다.
 보조 함수는 재사용되거나 함수 형태가 필수일 때, 또는 렌더 파일 밖으로 요청 조립을 옮길 때 이름을 붙입니다.
@@ -28,6 +31,7 @@
 
 ## 4. Values and Data Structures (values)
 **TitleKo:** 값과 자료구조
+**Lead:** 불변 정렬, Set과 Map, 체인 읽기, 상수 선언, 조회표 기준, es-toolkit, dayjs, 한 번만 판정
 **Impact:** HIGH
 **Description:** 값을 다루는 관용구를 한 가지로 고정합니다.
 넘겨받은 배열은 제자리에서 바꾸지 않고, 반복되는 조회는 `Set`과 `Map`으로 모읍니다.
@@ -40,6 +44,7 @@
 
 ## 5. Absence and Fallback Handling (absence)
 **TitleKo:** 없는 값 다루기
+**Lead:** 리터럴 기본값 금지, 경계에서 채우는 기본값, 타입이 보장하는 검사 생략, 없는 값 검사 자리
 **Impact:** HIGH
 **Description:** 값이 없을 수 있는 상태를 다루는 규칙을 모읍니다.
 값이 없다는 사실은 임의의 기본값으로 감추지 않고 사용처까지 전달합니다.
@@ -48,6 +53,7 @@
 
 ## 6. JSDoc and Comment Conventions (docs)
 **TitleKo:** JSDoc과 주석 규약
+**Lead:** 본문 주석의 내용, JSDoc 헤더 자리, 명사형 한국어, 여러 줄 블록, 예외 이유
 **Impact:** MEDIUM
 **Description:** 함수 본문 주석에는 의도와 긴 절차의 단계를 적고 코드 내용을 반복하지 않습니다.
 선언 위 문서 주석은 어디에 붙일지, 어떤 형식으로 쓸지, 태그를 붙일지를 규칙마다 따로 정합니다.
@@ -55,5 +61,6 @@
 
 ## 7. Tooling (tooling)
 **TitleKo:** 도구 설정
+**Lead:** Biome로 자동 검사할 규칙
 **Impact:** MEDIUM
 **Description:** 자동 검사할 항목은 biome으로 설정하고, 도구가 검사하지 못하는 항목은 리뷰에서 확인합니다.

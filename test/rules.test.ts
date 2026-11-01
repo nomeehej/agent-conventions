@@ -438,3 +438,17 @@ test("every mermaid fence renders as a character grid that fits the site body", 
 		);
 	}
 });
+
+test("parseSections reads Lead and leaves it empty when the line is absent", () => {
+	const withLead = [
+		"## 1. Ownership and Boundaries (ownership)",
+		"**TitleKo:** 소유와 경계",
+		"**Lead:** 레이어 구분, 가져오기 방향",
+		"**Impact:** CRITICAL",
+		"**Description:** 설명",
+	].join("\n");
+	const withoutLead = ["## 1. Ownership and Boundaries (ownership)", "**Impact:** CRITICAL", "**Description:** 설명"].join("\n");
+
+	assert.equal(parseSections(withLead)[0]?.lead, "레이어 구분, 가져오기 방향");
+	assert.equal(parseSections(withoutLead)[0]?.lead, "");
+});

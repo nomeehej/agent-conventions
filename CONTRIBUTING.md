@@ -28,7 +28,7 @@
 ```text
 skill/react/
   SKILL.md            에이전트 라우터. 변경 판정 후 규칙 선택
-  metadata.json       버전, 개요, companion 활성화 계약
+  metadata.json       버전, 개요, 사이트 글머리, companion 활성화 계약
   rules/
     _sections.md      섹션 순서, Impact, 설명. 괄호 안이 파일명 prefix
     _template.md      새 규칙 템플릿
@@ -174,9 +174,13 @@ titleKo: JSX 안 로직은 이름 붙인 핸들러로 뺍니다
 ```markdown
 ## 1. Ownership and Boundaries (ownership)
 **TitleKo:** 소유와 경계
+**Lead:** 레이어 구분, 레이어 접두사, 역할 폴더, 가져오기 방향, Outlet 그룹, 화면 전용 훅과 라이브러리 생명주기
 **Impact:** CRITICAL
 **Description:** …
 ```
+
+`**Lead:**`는 사이트 섹션 페이지의 제목 아래 글머리이자 사이드바 설명이다. 그 섹션이 다루는 주제를 쉼표로 이은 명사구 한 줄로 쓰고,
+없으면 사이트가 Description 첫 문장을 대신 쓴다. skill 개요 페이지의 글머리는 `metadata.json`의 `lead`다.
 
 ### 3.1 appliesWhen 작성 기준
 
