@@ -47,9 +47,9 @@
 		},
 		{
 			"id": "BPE02-figma-fix-roundup",
-			"prompt": "a 10-15 Figma revision batch arrived for the orders list (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=18-120, 14 annotated cards plus comments): write content/public/change/1015-figma.md with the items and captures, update the affected sections of content/public/screen/orders.md to the new truth, and add any new planner or BE questions to content/public/questions.md; the batch changes the refund column color that the user already decided on 10-07.",
+			"prompt": "a 10-15 Figma revision batch arrived for the orders list (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=18-120, 14 annotated cards plus comments): write content/public/change/261015-figma.md with the items and captures, update the affected sections of content/public/screen/orders.md to the new truth, and add any new planner or BE questions to content/public/questions.md; the batch changes the refund column color that the user already decided on 10-07.",
 			"files": [
-				"content/public/change/1015-figma.md",
+				"content/public/change/261015-figma.md",
 				"content/public/screen/orders.md",
 				"content/public/questions.md"
 			],
@@ -59,12 +59,15 @@
 			],
 			"expectedSelected": {
 				"blueprint": [
+					"material-build-the-truth-table-first",
 					"material-compare-sources-item-by-item",
 					"material-read-figma-as-ux-not-pixels",
 					"question-keep-every-number-in-one-page",
 					"question-write-cards-with-options-and-one-pick",
 					"question-filter-what-needs-another-person",
+					"question-give-be-cards-a-figure",
 					"question-close-with-a-result-and-keep-one-line",
+					"structure-keep-four-document-kinds",
 					"structure-keep-the-body-current-and-log-changes-apart",
 					"writing-use-noun-phrases-one-fact-per-line",
 					"writing-cite-at-the-end-and-link-figma-nodes",
@@ -93,7 +96,9 @@
 			],
 			"expectedSelected": {
 				"blueprint": [
+					"question-filter-what-needs-another-person",
 					"question-close-with-a-result-and-keep-one-line",
+					"writing-use-noun-phrases-one-fact-per-line",
 					"stage-split-work-into-gated-stages",
 					"stage-report-done-with-the-check-command",
 					"verify-build-the-site-before-handing-over"
@@ -111,9 +116,95 @@
 			],
 			"expectedSelected": {
 				"blueprint": [
+					"writing-use-noun-phrases-one-fact-per-line",
 					"stage-split-work-into-gated-stages",
 					"stage-report-done-with-the-check-command",
 					"verify-build-the-site-before-handing-over"
+				]
+			}
+		},
+		{
+			"id": "BPE05-design-doc-as-read-only-context",
+			"prompt": "the orders design document content/public/screen/orders.md is open for context, but only read order total from the renamed response field in src/page/orders/pg-orders.tsx; edit no design document and change no rendered copy, markup, or styling.",
+			"files": [
+				"src/page/orders/pg-orders.tsx"
+			],
+			"expectedSkills": [
+				"react",
+				"typescript"
+			],
+			"expectedSelected": {
+				"react": [
+					"data-preserve-origin-chaining"
+				],
+				"typescript": []
+			},
+			"scopeDrift": {
+				"evidence": "the user then asks to run the stage 2 check and report stage 2 done in the Remaining table of content/public/screen/orders.md; skills add blueprint with no figma companion.",
+				"files": [
+					"src/page/orders/pg-orders.tsx",
+					"content/public/screen/orders.md"
+				],
+				"expectedSkills": [
+					"react",
+					"typescript",
+					"blueprint"
+				],
+				"expectedSelected": {
+					"react": [
+						"data-preserve-origin-chaining"
+					],
+					"typescript": [],
+					"blueprint": [
+						"writing-use-noun-phrases-one-fact-per-line",
+						"stage-split-work-into-gated-stages",
+						"stage-report-done-with-the-check-command",
+						"verify-build-the-site-before-handing-over"
+					]
+				}
+			}
+		},
+		{
+			"id": "BPE06-rewrite-be-card-the-user-cannot-read",
+			"prompt": "the user says they cannot tell what B2 in content/public/questions.md asks because it only names orderStats.windowCnt; rewrite it as a BE card with a numbered capture of the customer detail stats card saved as content/public/img/customer-detail/stats.png.",
+			"files": [
+				"content/public/questions.md",
+				"content/public/img/customer-detail/stats.png"
+			],
+			"expectedSkills": [
+				"blueprint"
+			],
+			"expectedSelected": {
+				"blueprint": [
+					"question-keep-every-number-in-one-page",
+					"question-write-cards-with-options-and-one-pick",
+					"question-filter-what-needs-another-person",
+					"question-give-be-cards-a-figure",
+					"writing-use-noun-phrases-one-fact-per-line",
+					"writing-label-in-english-and-explain-in-korean",
+					"writing-cite-at-the-end-and-link-figma-nodes",
+					"writing-show-screens-as-numbered-captures",
+					"stage-report-done-with-the-check-command",
+					"verify-build-the-site-before-handing-over"
+				]
+			}
+		},
+		{
+			"id": "BPE07-restyle-and-move-sections",
+			"prompt": "restyle the sentences in content/public/screen/orders.md into noun-phrase lines and move its Data and API section, unchanged, from the Screen part into the Structure part.",
+			"files": [
+				"content/public/screen/orders.md"
+			],
+			"expectedSkills": [
+				"blueprint"
+			],
+			"expectedSelected": {
+				"blueprint": [
+					"structure-order-screen-docs-for-two-readers",
+					"writing-use-noun-phrases-one-fact-per-line",
+					"stage-report-done-with-the-check-command",
+					"verify-build-the-site-before-handing-over",
+					"verify-diff-facts-when-restyling-or-moving"
 				]
 			}
 		}

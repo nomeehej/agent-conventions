@@ -574,6 +574,29 @@
 					]
 				}
 			}
+		},
+		{
+			"id": "css-figma-color-without-design-doc",
+			"prompt": "change only the apply button background in src/page/orders/pg-orders.css to the color drawn in this Figma frame (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=12-340) by using the existing core token var(--app-color-primary); no design document under content/public is written or updated.",
+			"files": [
+				"src/page/orders/pg-orders.css"
+			],
+			"expectedSkills": [
+				"figma",
+				"css"
+			],
+			"expectedSelected": {
+				"figma": [
+					"read-start-with-screenshot-and-metadata",
+					"read-choose-the-node-each-tool-reads",
+					"source-map-figma-values-to-project-tokens",
+					"verify-measure-rendered-values-before-claiming-parity",
+					"verify-report-reads-decisions-and-gaps"
+				],
+				"css": [
+					"values-fall-back-only-outside-core-tokens"
+				]
+			}
 		}
 	]
 }

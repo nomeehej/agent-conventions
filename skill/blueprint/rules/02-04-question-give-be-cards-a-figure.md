@@ -5,7 +5,7 @@ impact: CRITICAL
 impactDescription: 값 이름만 있는 카드를 읽은 사람이 화면의 어느 자리인지 떠올리지 못하는 일을 없앱니다
 appliesWhen:
   - B 카드를 쓸 때
-  - 사용자가 카드의 뜻을 모르겠다고 할 때
+  - 사용자가 B 카드의 뜻을 모르겠다고 할 때
 tags: question, be, figure, capture
 ---
 
@@ -22,8 +22,9 @@ BE 카드는 `Meaning`, `Figure`, `Ask` 순서로 씁니다. 필드 이름으로
 | `Ask` | 묻는 것 한 줄. 값의 뜻이 아니라 기준이나 형식 |
 
 캡처는 `writing` 섹션의 캡처 규칙대로 만들고 `img/<화면>/`에 둡니다.
+링크는 `questions.md`에서 `img/<화면>/`, 화면 문서에서 `../img/<화면>/`로 겁니다.
 사용자가 뜻을 모르겠다고 한 카드는 고치지 않고 지운 뒤 `Meaning`부터 다시 씁니다.
-값의 뜻 자체는 묻지 않습니다. 그대로 그린 뒤 캡처로 대조하고, 어긋날 때만 묻습니다.
+값의 뜻을 물을지는 `question-filter-what-needs-another-person`이 정합니다. B 카드는 캡처와 어긋날 때만 묻습니다.
 
 **Incorrect 1 (필드 이름과 내부 용어만 있어 어느 자리의 값인지 알 수 없습니다):**
 

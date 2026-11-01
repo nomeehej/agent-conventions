@@ -5,7 +5,8 @@ impact: HIGH
 impactDescription: 한글이 든 ASCII 그림이 줄 어긋나는 일을 없애고 그림 종류를 뜻에 맞춥니다
 appliesWhen:
   - 설계 문서에서 흐름, 구조, 순서를 그림으로 그릴 때
-  - 설계 문서에 ASCII 상자나 손 목업을 넣으려 할 때
+  - 설계 문서에 ASCII 상자로 흐름이나 구조를 그리려 할 때
+  - 제외: 화면 모양을 보여 주는 경우
 tags: writing, mermaid, treeview, diagram
 ---
 
@@ -17,10 +18,10 @@ tags: writing, mermaid, treeview, diagram
 
 | 그리는 것 | 종류 |
 | --- | --- |
-| 판단 사슬, 순서 | `flowchart LR`. 예 사슬을 윗줄로 |
+| 판단 사슬, 순서 | `flowchart LR`. 예 갈래를 한 줄로 잇기 |
 | 요청 왕복 | `sequenceDiagram` |
 | 상태 전이 | `stateDiagram-v2` |
-| 폴더, 컴포넌트 소유 | `treeView-beta`. 주석은 줄 끝 |
+| 폴더, 컴포넌트 소유 | `treeView-beta`. 주석과 바뀐 줄 표시는 나무 아래 목록 |
 | 비교, 행렬, 열 폭 | 표 |
 
 라벨은 개조식이고 괄호를 피하며 긴 라벨은 `<br>`로 나눕니다. 선 라벨은 한 낱말입니다.

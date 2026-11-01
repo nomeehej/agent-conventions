@@ -9,6 +9,7 @@ import {getSkillPaths, isBuildableSkill, listSkillNames} from "../src/config.js"
 import {parseFrontmatter, parseSections, readSkillDocument, readSkillRules} from "../src/parser.js";
 import {parseRuleBody} from "../src/rule-body.js";
 import {getRulesForSection} from "../src/routing.js";
+import {validateRoutingEvalManifests} from "../src/routing-evals.js";
 import {generateSiteFiles} from "../src/site.js";
 import {inlineSnippets} from "../src/snippets.js";
 import type {LoadedSkillDocument} from "../src/types.js";
@@ -437,6 +438,10 @@ test("every mermaid fence renders as a character grid that fits the site body", 
 			`${report.skill}/${report.ruleId} #${report.index + 1}: ${report.columns}칸 > ${maxDiagramColumns}칸`,
 		);
 	}
+});
+
+test("every rule is selected by at least one routing scenario across all manifests", async () => {
+	await validateRoutingEvalManifests();
 });
 
 test("parseSections reads Lead and leaves it empty when the line is absent", () => {

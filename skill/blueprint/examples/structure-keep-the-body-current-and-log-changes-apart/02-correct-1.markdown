@@ -1,12 +1,11 @@
-<!-- content/public/change/1015-figma.md -->
 ---
-name: 1015 Figma
+name: 261015 Figma
 label: 10-15 Figma 수정 묶음. 주문 목록 환불 열
 group: Change
-order: 1015
+order: 261015
 ---
 
-Figma 10-15 판 ([Figma](https://www.figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=18-120)). 반영 2, 제외 1, 질문 1. Done 10-16
+Figma 10-15 판 ([Figma](https://www.figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=18-120)). 반영 2, 제외 1, 질문 1. Done 2026-10-16
 
 ## Items
 
@@ -21,8 +20,3 @@ Figma 10-15 판 ([Figma](https://www.figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/adm
 
 - [x] 커밋 `a1b2c3d4` 반영
 - [x] `screen/orders.md` 환불 열 절 고쳐 씀, `revised: 2026-10-16`
-
-<!-- content/public/screen/orders.md -->
-## Orders table
-
-12열. 금액 열은 오른쪽 정렬. 환불 열은 150 급, 빨강 글자.

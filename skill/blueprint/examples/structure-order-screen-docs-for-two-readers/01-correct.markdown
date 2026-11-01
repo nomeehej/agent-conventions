@@ -6,9 +6,9 @@ order: 10
 created: 2026-10-02
 ---
 
-주문을 조건으로 좁혀 보고 상세로 이동하는 화면. Design. Figma 10-02, spec 10-01.
+Design. Figma 10-02, spec 10-01.
 
-## Screen
+## Capture
 
 ![주문 목록 1600 캡처](../img/orders/list.png)
 
@@ -18,22 +18,32 @@ created: 2026-10-02
 
 ## Decisions
 
-| # | Decision | Link |
+| # | Decision | Ref |
 | --- | --- | --- |
-| 1 | 조건 패널은 팝오버. 모달 아님 | [D2](../questions.md#d2) |
-| 2 | 환불 주문 포함 여부는 기획 답 대기 | [Q1](../questions.md#q1) |
+| 1 | 조건 패널은 팝오버. 모달 아님 | D2 |
+| 2 | 조건은 적용 버튼에서만 목록에 반영 | — |
 | 3 | 정렬은 서버. FE 코드 0줄 | Follow-up |
 
 ## Remaining
 
-| Stage | Work | Blocked by | Check | Status |
+| Stage | Work | Blocker | Check | Status |
 | --- | --- | --- | --- | --- |
-| 0 | 준비. 부품 승격 | — | `npx tsc -b` | Done 10-03 |
+| 0 | 준비. 부품 승격 | — | `npx tsc -b` | Done 2026-10-03 |
 | 1 | 조건 패널 | — | `npm run test:integration -- orders` | Ready |
 | 2 | 주문 표 | [Q1](../questions.md#q1) | `npm run test:integration -- orders` | Blocked |
 | 3 | 연동. 환불 금액 | — | `npm run kubb:generate && npx tsc -b` | Waiting on BE |
 
-열린 질문 2. [Orders list](../questions.md#orders-list)
+열린 카드 2. [Orders list](../questions.md#orders-list)
+
+### Follow-up
+
+- 서버 기본 정렬. FE 코드 0줄. 구현 뒤 캡처로 대조
+
+### Expected from BE
+
+| Field | Use | Fallback |
+| --- | --- | --- |
+| `refundAmount` | 환불 열 | 열 숨김 |
 
 ::part[Screen]
 
@@ -43,8 +53,8 @@ created: 2026-10-02
 
 ```mermaid
 flowchart LR
-    draft("입력 중") -->|적용| applied("조회 조건") --> table("표")
-    draft -->|취소| applied
+	draft("입력 중") -->|적용| applied("조회 조건") --> table("표")
+	draft -->|취소| applied
 ```
 
 | State | Shows |
@@ -92,7 +102,7 @@ page/orders/
 
 ## Sources
 
-:::details[Read sources]
+:::details[읽은 재료]
 - Figma 10-02 [목록 프레임](https://www.figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=12-340)
 - 데모 `orders-demo (3).html` 09-30
 - spec `openapi.json` 10-01, 커밋 `e2a8cf31`

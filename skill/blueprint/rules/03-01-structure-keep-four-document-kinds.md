@@ -20,12 +20,13 @@ tags: structure, documents, for-humanity
 | `overview.md` | 프로젝트 지도. 라우트, 계층, API 정답, 재료 정답표, 규약 링크 | `Project` |
 | `questions.md` | 결정과 질문 전부 | `Project` |
 | `screen/<화면>.md` | 화면 문서. 늘 지금의 정답 | `Screen` |
-| `change/<MMDD>-<주제>.md` | 변경 문서. 전달, Figma 수정, spec 갱신 한 건 | `Change` |
+| `change/<YYMMDD>-<주제>.md` | 변경 문서. 전달, Figma 수정, spec 갱신 한 건 | `Change` |
 
 화면 하나는 문서 하나입니다. 증분 기능도 그 화면 문서 안에서 지금의 정답으로 고쳐 씁니다.
 남은 일감 문서, 증분 문서, 화면별 질문 문서는 만들지 않습니다. 그 정보는 `questions.md`와 변경 문서가 쥡니다.
 frontmatter는 `name`, `label`, `group`, `order`에 `created`, `revised`를 더합니다.
-홈 `README.md`는 문서 지도와 지금 단계만 적습니다.
+`label`은 무슨 문서인지 한 줄입니다. for-humanity 0.29.0부터 제목 아래 글머리와 사이드바 설명으로 나갑니다.
+홈 `README.md`는 문서 지도만 적고 지금 단계는 overview를 가리킵니다.
 
 **Incorrect 1 (증분 문서와 남은 일감 문서를 따로 만들어 같은 화면의 정답이 세 곳에 흩어집니다):**
 

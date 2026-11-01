@@ -8,12 +8,12 @@
 
 ```ts
 export default {
-    status: [
-        {phrase: "Done", kind: "verified", date: true},
-        {phrase: "Waiting on plan", kind: "unverified"},
-        {phrase: "Blocked", kind: "blocked"},
-        {phrase: "As recommended", kind: "neutral", date: true},
-    ],
-    refs: [{prefix: "Q", color: "violet"}, {prefix: "B", color: "amber"}, {prefix: "D"}, {prefix: "R", color: "violet"}],
+	status: [
+		{phrase: "Done", kind: "verified", date: true},
+		{phrase: "Waiting on plan", kind: "unverified"},
+		{phrase: "Blocked", kind: "blocked"},
+		{phrase: "As recommended", kind: "neutral", date: true},
+	],
+	refs: [{prefix: "Q", color: "violet"}, {prefix: "B", color: "amber"}, {prefix: "D"}, {prefix: "R", color: "violet"}],
 };
 ```

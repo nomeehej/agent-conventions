@@ -1,4 +1,4 @@
-## Screen
+## Capture
 
 <div class="mock">
   <div class="mock__panel">조건 설정 <span class="chip">Q1</span></div>

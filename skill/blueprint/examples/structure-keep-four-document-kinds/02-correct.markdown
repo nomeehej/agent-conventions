@@ -9,7 +9,7 @@ content/
     │   ├── orders.md
     │   └── customer-detail.md
     ├── change/
-    │   └── 1015-figma.md
+    │   └── 261015-figma.md
     └── img/
         └── orders/
 ```

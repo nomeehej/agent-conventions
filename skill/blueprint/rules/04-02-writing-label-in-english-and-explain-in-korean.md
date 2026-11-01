@@ -15,9 +15,14 @@ tags: writing, labels, vocabulary
 
 라벨은 영어, 내용은 한국어입니다. 한국어로 옮기면 어색한 낱말을 억지로 옮기지 않습니다.
 
-| 영어 | 한국어 |
+| 자리 | 언어 |
 | --- | --- |
-| 열쇠말 `Why`, `Now`, `Ask`, 단계 `Blocks stage 2`, 상태와 결과 알약, 표 머리, frontmatter `name`과 `group` | 제목, 본문, frontmatter `label`, 앱 화면 이름인 표 머리 |
+| 절 제목, 표 머리 | 영어 |
+| 열쇠말(`question-write-cards-with-options-and-one-pick`의 표), 단계 `Blocks stage 2` | 영어 |
+| 상태 배지 | 영어 |
+| frontmatter `name`, `group` | 영어 |
+| 본문, 캡션 | 한국어 |
+| frontmatter `label`, `:::details` 제목 | 한국어 |
 
 상태 말은 고정 목록에서 고릅니다. 새 말을 만들기 전에 이 표부터 봅니다.
 
@@ -26,10 +31,12 @@ tags: writing, labels, vocabulary
 | 질문 | `Needs answer`, `Waiting on BE`, `Waiting on plan`, `User decides`, `Follow-up` | `unverified` |
 | 결과 | `As recommended`, `Per Figma`, `Per demo`, `Per spec`, `Dev decision`, `Kept`, `Rejected`, `N/A`, `Moved` | `neutral`, 날짜 포함 |
 | 단계 | `Ready`, `Done` | `verified`. `Done`은 날짜 포함 |
+| 단계 | `Waiting on BE` | `unverified` |
 | 단계 | `Blocked` | `blocked` |
 | 문서 | `Design`, `Implemented`, `Paused` | `neutral` |
 
 배지는 프로젝트의 `for-humanity.config.ts`에 `status` 목록으로 묶고, 번호 접두는 `refs`로 칩이 되게 합니다.
+배지 뒤 날짜는 `YYYY-MM-DD`로 씁니다. for-humanity는 그 꼴만 배지에 묶습니다.
 링크와 제목 안의 문구는 배지가 되지 않으므로 상태 뒤의 번호는 링크로 따로 둡니다.
 
 **Incorrect 1 (열쇠말과 상태를 한국어와 지어낸 말로 써서 카드마다 다르게 읽힙니다):**

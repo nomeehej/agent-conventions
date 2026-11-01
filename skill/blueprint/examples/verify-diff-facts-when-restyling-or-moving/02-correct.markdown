@@ -5,8 +5,9 @@
 ## 고치기 커밋
 
 ```sh
-git show HEAD~1:content/public/screen/orders.md | grep -oE "[a-z-]+\.tsx?:[0-9]+|[0-9a-f]{8}|\"[^\"]+\"" | sort -u > old.txt
-grep -oE "[a-z-]+\.tsx?:[0-9]+|[0-9a-f]{8}|\"[^\"]+\"" content/public/screen/orders.md | sort -u > new.txt
+pattern='[a-z-]+\.tsx?:[0-9]+|[0-9a-f]{8}|node-id=[0-9-]+|[DQBR][0-9]+|[0-9]+(급|열|건)|"[^"]+"'
+git show HEAD~1:content/public/screen/orders.md | grep -oE "$pattern" | sort -u > old.txt
+grep -oE "$pattern" content/public/screen/orders.md | sort -u > new.txt
 comm -23 old.txt new.txt
 ```
 

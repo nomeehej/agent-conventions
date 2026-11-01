@@ -9,4 +9,4 @@
 
 - Why: 데모 3이 포함하고, 칩 하나가 탭 하나보다 작음
 - Now: 포함. A 꼴로 구현 중
-- Figure: [환불 행 자리](../img/orders/list.png) 2번
+- Figure: [환불 행 자리](img/orders/list.png) 2번

@@ -1,6 +1,6 @@
 ## Remaining
 
-| Stage | Work | Blocked by | Check | Status |
+| Stage | Work | Blocker | Check | Status |
 | --- | --- | --- | --- | --- |
 | 1 | 조건 패널 | — | `npm run test:integration -- orders` | Ready |
 | 2 | 주문 표 | [Q1](../questions.md#q1) | `npm run test:integration -- orders` | Blocked |

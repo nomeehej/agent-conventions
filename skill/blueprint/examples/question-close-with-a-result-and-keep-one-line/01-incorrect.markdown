@@ -12,6 +12,6 @@
 
 ## Remaining
 
-| Stage | Work | Blocked by | Status |
+| Stage | Work | Blocker | Status |
 | --- | --- | --- | --- |
 | 2 | 주문 표 | [Q1](../questions.md#q1) | Blocked |

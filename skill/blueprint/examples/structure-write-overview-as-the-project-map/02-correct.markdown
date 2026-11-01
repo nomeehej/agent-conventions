@@ -6,7 +6,7 @@ order: 10
 created: 2026-10-02
 ---
 
-화면 둘. 주문 목록은 구현 중, 고객 상세는 설계 중.
+화면 둘. 둘 다 설계 중.
 
 | Screen | Route | Doc | Status |
 | --- | --- | --- | --- |
@@ -34,7 +34,7 @@ admin/
 | --- | --- | --- |
 | Figma 10-02 | 모양, 배치, 문구, 색, 표기 | 화면 절, 캡처 |
 | 데모 `orders-demo (3).html` 09-30 | 기능, 데이터, 계산 | 화면 절 |
-| `openapi.json` 10-01 | endpoint, 응답 모양 | Data and API |
+| `openapi.json` 10-01 | endpoint, 필드 이름과 타입 | Data and API |
 
 ## Conventions
 

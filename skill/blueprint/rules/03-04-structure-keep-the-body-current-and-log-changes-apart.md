@@ -13,7 +13,7 @@ tags: structure, change, revised
 
 **Impact: HIGH (변경을 본문에 날짜 꼬리표 절로 흡수해 문서가 지금의 정답이 아니라 이력이 되는 일을 막습니다)**
 
-변경은 `change/<MMDD>-<주제>.md` 한 장으로 받습니다. 화면 문서 본문에는 날짜가 붙은 절을 만들지 않습니다.
+변경은 `change/<YYMMDD>-<주제>.md` 한 장으로 받습니다. 화면 문서 본문에는 날짜가 붙은 절을 만들지 않습니다.
 
 | 변경 문서 절 | 담는 것 |
 | --- | --- |
@@ -33,4 +33,6 @@ tags: structure, change, revised
 
 **Correct 1 (변경 문서가 받고 본문은 지금의 정답으로 고쳐 씁니다):**
 
-<<< ../examples/structure-keep-the-body-current-and-log-changes-apart/02-correct.markdown
+<<< ../examples/structure-keep-the-body-current-and-log-changes-apart/02-correct-1.markdown [change/261015-figma.md]
+
+<<< ../examples/structure-keep-the-body-current-and-log-changes-apart/02-correct-2.markdown [screen/orders.md]

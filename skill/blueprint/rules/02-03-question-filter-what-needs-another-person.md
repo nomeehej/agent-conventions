@@ -4,8 +4,8 @@ titleKo: 남의 답이 필요한 것만 남깁니다
 impact: CRITICAL
 impactDescription: 혼자 정할 수 있는 것까지 질문으로 쌓여 문서가 시작할 수 없는 것처럼 보이는 일을 막습니다
 appliesWhen:
-  - 질문 후보를 카드로 만들지 가를 때
-  - 열린 질문이 단계를 막는지 셀 때
+  - `questions.md`에 Q, B, D 카드를 새로 더할 때
+  - 단계 표의 `Blocker` 칸을 채우거나 고칠 때
 tags: question, filter, blocking, mock
 ---
 
@@ -17,24 +17,26 @@ tags: question, filter, blocking, mock
 
 ```mermaid
 flowchart LR
-	q1{"FE 코드가<br>달라지는가?"} -- 아니요 --> r1("카드 없음,<br>Follow-up이나 묻지 않음")
-	q1 -- 예 --> q2{"FE만으로<br>정할 수 있는가?"} -- 예 --> r2("D로 적고<br>Dev decision으로 닫음")
-	q2 -- 아니요 --> q3{"BE가 아직 안 준<br>endpoint나 필드인가?"} -- 예 --> r3("spec 위 mock으로 구현,<br>연동 단계에 예정 표")
-	q3 -- 아니요 --> r4("카드")
+	q1{"FE 코드가<br>한 줄이라도 있는가?"} -- 아니요 --> q2{"FE에<br>영향이 있는가?"} -- 예 --> r1("Follow-up 목록")
+	q2 -- 아니요 --> r2("묻지 않음")
+	q1 -- 예 --> q3{"FE만으로<br>정할 수 있는가?"} -- 예 --> q4{"서버 값의<br>뜻이나 집계인가?"} -- 예 --> r3("그대로 그려<br>캡처 대조, Kept")
+	q4 -- 아니요 --> r4("D로 적고<br>Dev decision")
+	q3 -- 아니요 --> q5{"BE가 아직 안 준<br>API인가?"} -- 예 --> r5("mock으로 구현,<br>Expected from BE 표")
+	q5 -- 아니요 --> r6("카드")
 ```
 
 | 후보 | 처리 |
 | --- | --- |
 | FE 코드가 0줄인 것. 서버 정렬 기본값, 서버가 거르는 규칙 | 카드 없음. 구현 뒤 대조하는 Follow-up 목록 |
-| BE가 아직 안 준 endpoint나 필드 | 지금 spec 위 mock으로 먼저 구현. 연동 단계에 "예정" 표로 |
+| BE가 아직 안 준 endpoint나 필드 | 지금 spec 위 mock으로 먼저 구현. 연동 단계의 Expected from BE 표로 |
 | FE만으로 정할 수 있는 것 | D로 적고 Dev decision으로 바로 닫음 |
 | FE에 영향이 없는 BE 사항 | 묻지 않음 |
 | 서버 문자열과 수치의 뜻 | 그대로 그리고 캡처로 대조. Kept |
 | 서버가 안 주는 집계 | FE가 계산. Kept |
 | 기능, 문구, 데이터 기준처럼 기획이나 BE만 아는 것 | 카드 |
 
-단계를 막는 질문은 그 단계의 코드가 답에 따라 달라지는 것뿐입니다.
-BE 대기는 막는 것으로 세지 않고 연동 단계로 뺍니다. 들어올 때마다 spec을 다시 생성해 깨진 곳을 고치고 칸을 켭니다.
+단계를 막는지와 BE 대기를 어느 단계에 둘지는 `stage-split-work-into-gated-stages`가 정합니다.
+BE 필드가 들어올 때마다 spec을 다시 생성해 깨진 곳을 고치고 숨긴 열을 보입니다.
 사용자가 답한 것과 정답표로 닫히는 것은 카드 없이 Resolved 표 한 줄로 끝냅니다.
 
 **Incorrect 1 (BE 대기를 화면 단계의 막는 질문으로 세어 구현을 시작할 수 없는 문서로 보입니다):**
