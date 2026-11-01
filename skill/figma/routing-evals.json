@@ -192,7 +192,7 @@
 		},
 		{
 			"id": "FGE06-fixed-frame-widths-to-fluid-table",
-			"prompt": "the Figma 1920 frame fixes order table columns at 60px and 270px with 54px rows; make src/component/widget/order-table/wg-order-table.css follow the frame without copying fixed sizes, keeping long customer names on one line.",
+			"prompt": "the Figma 1920 frame (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/...?node-id=20-110) fixes order table columns at 60px and 270px with 54px rows; make src/component/widget/order-table/wg-order-table.css follow the frame without copying fixed sizes, keeping long customer names on one line.",
 			"files": [
 				"src/component/widget/order-table/wg-order-table.css"
 			],
@@ -203,6 +203,7 @@
 			"expectedSelected": {
 				"figma": [
 					"read-start-with-screenshot-and-metadata",
+					"read-choose-the-node-each-tool-reads",
 					"intent-treat-frame-sizes-and-sample-text-as-samples",
 					"verify-measure-rendered-values-before-claiming-parity",
 					"verify-report-reads-decisions-and-gaps"
@@ -210,6 +211,156 @@
 				"css": [
 					"values-fall-back-only-outside-core-tokens",
 					"layout-reach-for-intrinsic-sizing-before-breakpoints"
+				]
+			}
+		},
+		{
+			"id": "FGE07-figjam-board-notes-then-design-link",
+			"prompt": "the review notes on this FigJam board (figma.com/board/Mn56Op78Qr90St12Uv34Wx/...?node-id=3-14) ask for the section spacing token between order summary rows; replace the rows' existing gap value with var(--app-space-section) in src/page/orders/pg-orders.css and change nothing else.",
+			"files": [
+				"src/page/orders/pg-orders.css"
+			],
+			"expectedSkills": [
+				"css"
+			],
+			"expectedSelected": {
+				"css": [
+					"values-fall-back-only-outside-core-tokens"
+				]
+			},
+			"scopeDrift": {
+				"evidence": "the user then pastes the design frame (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/...?node-id=20-120) and asks to match the same rows' padding and border color to it; skills add figma.",
+				"files": [
+					"src/page/orders/pg-orders.css"
+				],
+				"expectedSkills": [
+					"css",
+					"figma"
+				],
+				"expectedSelected": {
+					"css": [
+						"selector-declare-each-class-in-one-block",
+						"values-fall-back-only-outside-core-tokens"
+					],
+					"figma": [
+						"read-start-with-screenshot-and-metadata",
+						"read-choose-the-node-each-tool-reads",
+						"source-map-figma-values-to-project-tokens",
+						"verify-measure-rendered-values-before-claiming-parity",
+						"verify-report-reads-decisions-and-gaps"
+					]
+				}
+			}
+		},
+		{
+			"id": "FGE08-figma-link-with-behavior-only",
+			"prompt": "a Figma link for the product filter (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/...?node-id=12-343) is attached, but only change behavior: the existing reset handler in src/component/widget/product-filter/wg-product-filter.tsx must also clear the date range; change no rendered copy, markup, or styling.",
+			"files": [
+				"src/component/widget/product-filter/wg-product-filter.tsx"
+			],
+			"expectedSkills": [
+				"react",
+				"typescript"
+			],
+			"expectedSelected": {
+				"react": [],
+				"typescript": []
+			},
+			"scopeDrift": {
+				"evidence": "the user then asks to relabel the reset button with the text rendered in the attached Figma frame, whose layer name differs; skills add figma.",
+				"files": [
+					"src/component/widget/product-filter/wg-product-filter.tsx"
+				],
+				"expectedSkills": [
+					"react",
+					"typescript",
+					"figma"
+				],
+				"expectedSelected": {
+					"react": [
+						"a11y-give-interactive-elements-an-accessible-name"
+					],
+					"typescript": [],
+					"figma": [
+						"read-start-with-screenshot-and-metadata",
+						"read-choose-the-node-each-tool-reads",
+						"read-take-copy-from-the-render-not-layer-names",
+						"source-separate-static-copy-from-server-data",
+						"verify-measure-rendered-values-before-claiming-parity",
+						"verify-report-reads-decisions-and-gaps"
+					]
+				}
+			}
+		},
+		{
+			"id": "FGE09-design-screenshot-without-link",
+			"prompt": "match the padding and text colors of the order summary card in src/component/widget/order-summary/wg-order-summary.css to the attached design screenshot; it is an image only, with no Figma URL or node id.",
+			"files": [
+				"src/component/widget/order-summary/wg-order-summary.css"
+			],
+			"expectedSkills": [
+				"figma",
+				"css"
+			],
+			"expectedSelected": {
+				"figma": [
+					"source-map-figma-values-to-project-tokens",
+					"verify-measure-rendered-values-before-claiming-parity",
+					"verify-report-reads-decisions-and-gaps"
+				],
+				"css": [
+					"selector-declare-each-class-in-one-block",
+					"values-fall-back-only-outside-core-tokens"
+				]
+			}
+		},
+		{
+			"id": "FGE10-static-page-without-server-data",
+			"prompt": "implement the styles of the static shipping policy page in src/page/shipping-policy/pg-shipping-policy.css from this Figma frame (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/...?node-id=40-2): match heading spacing and text colors; the page shows only fixed copy, with no server data, inputs, or async actions.",
+			"files": [
+				"src/page/shipping-policy/pg-shipping-policy.css"
+			],
+			"expectedSkills": [
+				"figma",
+				"css"
+			],
+			"expectedSelected": {
+				"figma": [
+					"read-start-with-screenshot-and-metadata",
+					"read-choose-the-node-each-tool-reads",
+					"source-map-figma-values-to-project-tokens",
+					"verify-measure-rendered-values-before-claiming-parity",
+					"verify-report-reads-decisions-and-gaps"
+				],
+				"css": [
+					"selector-declare-each-class-in-one-block",
+					"values-fall-back-only-outside-core-tokens"
+				]
+			}
+		},
+		{
+			"id": "FGE11-filter-icon-asset-swap-on-branch",
+			"prompt": "the filter glyph in this Figma branch node (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/branch/Br12Cd34Ef56Gh78Ij90Kl/...?node-id=12-381) no longer matches UiFilterIcon; replace its svg with the Figma asset in src/component/ui/filter-icon/ui-filter-icon.tsx and commit the downloaded src/asset/icon/filter.svg without calling get_design_context.",
+			"files": [
+				"src/component/ui/filter-icon/ui-filter-icon.tsx",
+				"src/asset/icon/filter.svg"
+			],
+			"expectedSkills": [
+				"figma",
+				"react",
+				"typescript"
+			],
+			"expectedSelected": {
+				"figma": [
+					"read-start-with-screenshot-and-metadata",
+					"read-choose-the-node-each-tool-reads",
+					"transcription-use-existing-icons-or-downloaded-assets",
+					"verify-measure-rendered-values-before-claiming-parity",
+					"verify-report-reads-decisions-and-gaps"
+				],
+				"react": [],
+				"typescript": [
+					"naming-import-by-absolute-path"
 				]
 			}
 		}

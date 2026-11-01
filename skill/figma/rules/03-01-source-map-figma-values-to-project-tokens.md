@@ -28,9 +28,9 @@ Figma 변수 이름은 디자인 파일의 이름이지 프로젝트의 토큰�
 | 줄 높이, 자간 | 글꼴 크기와 짝을 이루는 타이포그래피 토큰으로 옮깁니다. 픽셀 값만 따로 옮기지 않습니다 |
 | 라이트, 다크 값이 갈린 변수 | `get_variable_defs`는 현재 모드 값 하나만 줍니다. 모드별 값은 프로젝트 토큰 정의를 따릅니다 |
 
-새 토큰을 만들지는 `css/values-tokenize-repeated-visual-values`,
+새 토큰을 만들지는 `css/values-tokenize-repeated-visual-values`가 정합니다.
 대체값을 붙일지는 `css/values-fall-back-only-outside-core-tokens`가 정합니다.
-대응표는 `get_variable_defs` 응답 하나로 만들고, 같은 값을 얻으려고 `get_design_context`를 부르지 않습니다.
+토큰 대응표는 `get_variable_defs` 응답 하나로 만들고, 같은 값을 얻으려고 `get_design_context`를 부르지 않습니다.
 
 **Incorrect 1 (Figma 변수 이름과 대체값을 그대로 옮깁니다):**
 
@@ -40,6 +40,6 @@ Figma 변수 이름은 디자인 파일의 이름이지 프로젝트의 토큰�
 
 <<< ../examples/source-map-figma-values-to-project-tokens/02-correct.css
 
-**Correct (대응표를 만들어 차이를 함께 적습니다):**
+**Correct (토큰 대응표를 만들어 차이를 함께 적습니다):**
 
 <<< ../examples/source-map-figma-values-to-project-tokens/03-correct.txt

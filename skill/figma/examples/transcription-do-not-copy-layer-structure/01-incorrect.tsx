@@ -1,7 +1,6 @@
 // [!code error]
-<div className="flex gap-[4px] items-center" data-node-id="12:380">
-{/* [!code error] */}
-	<p className="font-['Pretendard:SemiBold'] text-[16px]">{product.name}</p>
+<div className="flex gap-[12px] items-center" data-node-id="12:380">
+	<p>{product.name}</p>
 {/* [!code error] */}
 	<div className="flex h-[10px] items-center justify-center w-0">
 {/* [!code error] */}
@@ -16,5 +15,5 @@
 			</div>
 		</div>
 	</div>
-	<span className="text-[14px]">{product.stock}</span>
+	<span>{product.stock}</span>
 </div>

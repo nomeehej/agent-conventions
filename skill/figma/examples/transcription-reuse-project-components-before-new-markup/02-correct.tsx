@@ -1,1 +1,1 @@
-<UiTable columns={productColumns} rows={responseProductListSuspense.data.items} />
+<UiTable columns={productColumns} rows={products} />

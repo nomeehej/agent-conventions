@@ -5,7 +5,7 @@ impact: HIGH
 impactDescription: 디자인에 없는 로딩, 빈 목록, 오류 상태가 흰 화면이나 화면마다 다른 모양으로 남지 않습니다
 appliesWhen:
   - 서버 데이터 목록, 입력, 비동기 동작이 있는 Figma 화면을 구현할 때
-  - Figma에 로딩, 빈 목록, 오류, 비활성 상태가 그려져 있지 않을 때
+  - 제외: 서버 데이터, 입력, 비동기 동작이 없는 정적 화면인 경우
 tags: intent, states, loading, empty
 ---
 

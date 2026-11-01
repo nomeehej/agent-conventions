@@ -1,5 +1,5 @@
 검증 — 상품 목록, /products, 1회차
-요소                     속성           스펙                               실측       판정
+요소                     속성           기대                               실측       판정
 .pg_products__row        padding-left   --app-space-inline 12px            12px       PASS
 .pg_products__stock      border-left    --app-color-border, Figma #dee2e6  #d9d9d9    DRIFT
 .pg_products__name       font-size      --app-font-size-body 16px          15px 직접  HARDCODED

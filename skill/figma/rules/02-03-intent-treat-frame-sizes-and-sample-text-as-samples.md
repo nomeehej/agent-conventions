@@ -22,12 +22,11 @@ Figma 프레임은 한 기기 폭에서 샘플 데이터로 그린 한 장입니
 | 화면 프레임 폭. 1920, 1440 | 기준 폭 하나입니다. 레이아웃은 부모 폭을 따라갑니다 |
 | auto layout 없는 고정 `width` | 최소 폭이나 비율의 후보입니다. 내용이 정하는 크기를 먼저 씁니다 |
 | 고정 `height` | 대개 샘플 줄 수의 결과입니다. 내용이 높이를 정하게 둡니다 |
-| 절대 좌표 `x`, `y` | 배치 순서를 읽는 단서입니다. `position: absolute`로 옮기지 않습니다 |
+| 절대 좌표 `x`, `y` | 배치 순서를 읽는 단서입니다. 옮기는 법은 `transcription-do-not-copy-layer-structure`가 정합니다 |
 | 샘플 문구, 숫자 | 실제 값은 이보다 길 수 있습니다. 긴 값의 말줄임과 줄바꿈을 정합니다 |
 
-긴 값의 처리가 Figma에 없으면 한 줄 말줄임과 전체 값 툴팁을 기본으로 하고 보고에 적습니다.
-화면 폭에 따라 배치가 바뀌어야 하면 `css/layout-reach-for-intrinsic-sizing-before-breakpoints`에 따라
-브레이크포인트보다 고유 크기와 `grid`, `flex`를 먼저 씁니다.
+긴 값의 처리가 Figma에 없으면 한 줄 말줄임과 전체 값 툴팁을 기본으로 하고 보고의 채운 상태 항목에 적습니다.
+화면 폭에 따라 배치가 바뀌면 `css/layout-reach-for-intrinsic-sizing-before-breakpoints`를 따릅니다.
 
 **Incorrect 1 (샘플 문구에 맞춘 칸 폭과 높이를 그대로 옮깁니다):**
 
