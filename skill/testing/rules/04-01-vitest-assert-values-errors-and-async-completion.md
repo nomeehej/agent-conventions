@@ -12,13 +12,13 @@ tags: testing, vitest
 
 **Impact: HIGH (느슨한 비교와 완료되지 않은 비동기 작업으로 생기는 거짓 통과를 막습니다)**
 
-값의 동일성은 toBe, 전체 구조의 정확성이 계약이면 toStrictEqual로 확인합니다.
+값의 동일성은 `toBe`, 전체 구조의 정확성이 계약이면 `toStrictEqual`로 확인합니다.
 일부 필드만 계약이면 부분 비교를 사용하고 그 밖의 필드까지 고정하지 않습니다.
 
-동기 예외는 함수를 넘겨 toThrow로 검사하고 Promise의 성공과 거부는 resolves와 rejects를 await합니다.
-오류가 없으면 단언도 실행되지 않는 catch 블록으로 예외 검사를 대신하지 않습니다.
+동기 예외는 함수를 넘겨 `toThrow`로 검사하고 Promise의 성공과 거부는 `resolves`와 `rejects`를 `await`합니다.
+오류가 없으면 단언도 실행되지 않는 `catch` 블록으로 예외 검사를 대신하지 않습니다.
 테스트 종료 후에도 남는 Promise나 처리되지 않은 rejection이 없도록 비동기 작업을 기다립니다.
-Jest 전역이나 다른 러너의 API를 섞지 않고 vitest에서 가져온 API와 프로젝트 설정을 사용합니다.
+Jest 전역이나 다른 러너의 API를 섞지 않고 `vitest`에서 가져온 API와 프로젝트 설정을 사용합니다.
 
 참고: [공식 문서](https://vitest.dev/guide/learn/async).
 

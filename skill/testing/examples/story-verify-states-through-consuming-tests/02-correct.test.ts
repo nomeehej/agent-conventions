@@ -3,15 +3,14 @@ import { expect, test } from "@test/_fixture/test";
 
 import { createGetOrdersStatus200 } from "@/service/__kubb/mock/orders/get-orders";
 import { getOrdersHandler } from "@/service/__kubb/msw/orders/get-orders-handler";
+import { mockOrders } from "@/service/mock/mock-orders";
 
 test("빈 주문 목록에 안내가 표시된다", async ({ mockApi, mount }) => {
 	/**
 	 * GIVEN
 	 * 빈 주문 목록을 응답하는 서버
 	 */
-	mockApi.use(getOrdersHandler(createGetOrdersStatus200({
-		items: [], total: 0, page: 1, updatedAt: "2026-03-01T03:00:00Z",
-	})));
+	mockApi.use(getOrdersHandler(createGetOrdersStatus200({ ...mockOrders(), items: [], total: 0 })));
 
 	/**
 	 * WHEN

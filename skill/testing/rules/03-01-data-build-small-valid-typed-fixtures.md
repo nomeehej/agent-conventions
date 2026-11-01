@@ -4,7 +4,7 @@ titleKo: 작고 유효한 타입 기반 입력을 구성합니다
 impact: HIGH
 impactDescription: 필수 필드 누락을 숨기지 않고 검증할 차이를 입력에서 읽을 수 있습니다
 appliesWhen:
-  - 테스트 데이터, 응답 생성기, fixture 타입과 덮어쓰기 값을 추가하거나 바꿀 때
+  - 테스트 데이터, 응답 생성기, 데이터 타입과 덮어쓰기 값을 추가하거나 바꿀 때
 tags: testing, data
 ---
 
@@ -23,7 +23,7 @@ tags: testing, data
 
 반복되는 데이터만 생성기로 묶고 생성 계약과 무관한 작은 함수 입력까지 factory로 전환하지 않습니다.
 seed는 기본 작성 절차가 아니며, 생성기가 내부에서 난수를 써도 관찰되는 입력은 명시한 값으로 결정돼야 합니다.
-외부의 잘못된 입력이 대상이면 그 입력 경계에서 unknown이나 실제 수신 형식으로 전달합니다.
+외부의 잘못된 입력이 대상이면 그 입력 경계에서 `unknown`이나 실제 수신 형식으로 전달합니다.
 테스트의 표본값과 기대값은 제품 정책 상수를 가져오지 않고 직접 적을 수 있습니다.
 생성 DTO와 factory 위의 조립 순서는 `network-compose-generated-contracts-through-owned-builders`가 정합니다.
 

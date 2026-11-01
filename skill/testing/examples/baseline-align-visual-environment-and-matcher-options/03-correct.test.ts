@@ -1,24 +1,24 @@
-// test/orders/chart.integration.spec.ts
+// test/orders/chart.e2e.spec.ts
 import { expect, test } from "@playwright/test";
 
 test("차트 이미지가 기준값과 같다", async ({ page }) => {
 	/**
 	 * GIVEN
-	 * 렌더가 끝난 수량 차트
+	 * 고정 데이터로 그리는 수량 차트 화면
 	 */
 	await page.goto("/orders/chart");
 	const chart = page.getByTestId("quantity-chart");
-	await expect(chart).toHaveAttribute("data-state", "ready");
 
 	/**
 	 * WHEN
-	 * 움직임을 끈 chart 이미지 캡처
+	 * 차트의 렌더 완료 신호 대기
 	 */
-	const image = await chart.screenshot({ animations: "disabled" });
+	await expect(chart).toHaveAttribute("data-state", "ready");
 
 	/**
 	 * THEN
-	 * 동일 환경의 이미지 기준값
+	 * 연속 캡처가 같아진 뒤 비교한 동일 환경의 이미지 기준값
 	 */
-	expect(image).toMatchSnapshot("quantity-chart.png");
+	// [!code ++]
+	await expect(chart).toHaveScreenshot("quantity-chart.png");
 });

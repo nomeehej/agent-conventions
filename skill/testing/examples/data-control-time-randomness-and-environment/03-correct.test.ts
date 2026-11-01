@@ -1,4 +1,4 @@
-// test/reports/reports.integration.spec.ts
+// test/reports/reports.e2e.spec.ts
 import { expect, test } from "@playwright/test";
 import dayjs from "dayjs";
 
@@ -15,6 +15,7 @@ test("응답과 화면이 같은 기준 날짜를 사용한다", async ({ page }
 	 * 브라우저와 Node가 공유하는 날짜
 	 */
 	await page.clock.setFixedTime(dayjs(scenario_clock.instant).toDate());
+	// 생성기 없는 프로젝트의 응답 덮어쓰기
 	await page.route("**/api/reports/range", async (route) => {
 		await route.fulfill({
 			json: { startDate: scenario_clock.date, endDate: scenario_clock.date },

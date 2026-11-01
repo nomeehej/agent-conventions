@@ -2,9 +2,9 @@
 import { afterAll, afterEach, beforeAll, expect, test } from "vitest";
 import { setupServer } from "msw/node";
 
-import { mock_handlers } from "@/service/msw/handlers";
+import { mockHandlers } from "@/service/msw/handlers";
 
-const server = setupServer(...mock_handlers);
+const server = setupServer(...mockHandlers);
 
 beforeAll(() => {
 	// [!code ++]
@@ -17,10 +17,10 @@ afterAll(() => {
 	server.close();
 });
 
-test("공유 registry가 주문 목록 응답을 돌려준다", async () => {
+test("공유 handler 목록이 주문 목록 응답을 돌려준다", async () => {
 	/**
 	 * GIVEN
-	 * Node에 연결한 공유 registry
+	 * Node에 연결한 공유 handler 목록
 	 */
 	const url = "https://app.example.test/api/orders";
 

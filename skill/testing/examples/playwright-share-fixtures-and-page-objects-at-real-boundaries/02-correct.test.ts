@@ -9,7 +9,7 @@ import type { Page } from "@playwright/test";
 class OrdersPage {
 	constructor(private readonly page: Page) {}
 
-	get firstOrder() {
+	get representativeOrderRow() {
 		return this.page
 			.getByRole("table", { name: "주문 목록" })
 			.getByRole("row")
@@ -41,7 +41,7 @@ const test = base.extend<Fixtures>({
 test("목록에 주문이 표시된다", async ({ ordersPage }) => {
 	/**
 	 * GIVEN
-	 * 기본 fixture가 제공하는 order-1 주문과 화면 객체
+	 * order-1이 준비된 환경의 주문 화면 객체
 	 */
 
 	/**
@@ -54,7 +54,7 @@ test("목록에 주문이 표시된다", async ({ ordersPage }) => {
 	 * THEN
 	 * 목록의 대표 주문
 	 */
-	await expect(ordersPage.firstOrder).toBeVisible();
+	await expect(ordersPage.representativeOrderRow).toBeVisible();
 });
 
 test("주문을 누르면 상세로 이동한다", async ({ page, ordersPage }) => {
@@ -68,7 +68,7 @@ test("주문을 누르면 상세로 이동한다", async ({ page, ordersPage }) 
 	 * WHEN
 	 * 대표 주문 링크 클릭
 	 */
-	await ordersPage.firstOrder.getByRole("link").click();
+	await ordersPage.representativeOrderRow.getByRole("link").click();
 
 	/**
 	 * THEN

@@ -6,7 +6,7 @@ import type { Route } from "@playwright/test";
 import type { RequestHandler } from "msw";
 
 /**
- * API 전용 bridge. 미처리와 passthrough는 실제 호출 허용 없이 외부로 보내지 않음
+ * API 전용 page.route 콜백. 미처리와 passthrough는 실제 호출 허용 없이 외부로 보내지 않음
  */
 export const toMockRoute = (handlers: RequestHandler[]) => {
 	return async (route: Route) => {

@@ -23,10 +23,10 @@ test("주문 행이 기준값과 같다", () => {
 	// [!code ++]
 	expect(rows).toMatchInlineSnapshot(`
 		[
-			{
-				"id": "order-1",
-				"quantityLabel": "2.00",
-			},
+		  {
+		    "id": "order-1",
+		    "quantityLabel": "2.00",
+		  },
 		]
 	`);
 });

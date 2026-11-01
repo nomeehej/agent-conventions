@@ -7,6 +7,6 @@ import { mockOrders } from "@/service/mock/mock-orders";
  * 주문 조회의 성공 응답. 본문 계산은 도메인 builder 소유
  */
 // [!code ++]
-export const get_orders_handler = getOrdersHandler(() => {
+export const getOrdersMockHandler = getOrdersHandler(() => {
 	return getOrdersHandlerResponse200(createGetOrdersStatus200(mockOrders()));
 });

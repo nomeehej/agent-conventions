@@ -982,10 +982,10 @@ declare module "@/service/mock/mock-orders" {
 	export const mockOrders: typeof import("./testing/examples/network-compose-generated-contracts-through-owned-builders/02-correct").mockOrders;
 }
 declare module "@/service/msw/orders/get-orders" {
-	export const get_orders_handler: typeof import("./testing/examples/network-compose-generated-contracts-through-owned-builders/03-correct").get_orders_handler;
+	export const getOrdersMockHandler: typeof import("./testing/examples/network-compose-generated-contracts-through-owned-builders/03-correct").getOrdersMockHandler;
 }
 declare module "@/service/msw/handlers" {
-	export const mock_handlers: typeof import("./testing/examples/network-compose-generated-contracts-through-owned-builders/04-correct").mock_handlers;
+	export const mockHandlers: typeof import("./testing/examples/network-compose-generated-contracts-through-owned-builders/04-correct").mockHandlers;
 }
 declare module "@/service/msw/_constant/mock" {
 	export const mock_unhandled_api_prefix: typeof import("./testing/examples/network-detect-unhandled-api-requests/03-correct").mock_unhandled_api_prefix;

@@ -12,24 +12,29 @@ tags: testing, playwright
 
 **Impact: HIGH (임의의 대기 시간과 이벤트 등록 순서로 생기는 불안정한 실패를 줄입니다)**
 
-화면 상태는 await expect와 locator의 재시도 가능한 matcher로 기다립니다.
+화면 상태는 `await expect`와 locator의 재시도 가능한 matcher로 기다립니다.
 요청, 다운로드, 팝업처럼 놓칠 수 있는 이벤트는 그 이벤트를 발생시키는 액션 전에 대기를 등록합니다.
 
 ```mermaid
 flowchart LR
-	q1{"요청, 다운로드, 팝업처럼<br>놓칠 수 있는 이벤트인가?"} -- 예 --> r1("액션 전에 대기 등록,<br>액션 뒤 await")
-	q1 -- 아니요 --> q2{"DOM 밖의<br>관측값인가?"} -- 예 --> r2("상한이 있는 expect.poll")
-	q2 -- 아니요 --> r3("locator의 재시도<br>가능한 matcher")
+	q1{"놓칠 수 있는<br>이벤트인가?"} -- 예 --> r1("액션 전 등록,<br>액션 뒤 await")
+	q1 -- 아니요 --> q2{"web-first matcher가<br>없는 관측값인가?"} -- 예 --> r2("상한 있는<br>expect.poll")
+	q2 -- 아니요 --> q3{"준비 이벤트 없는<br>canvas인가?"} -- 예 --> r3("렌더 완료 신호나<br>안정 조건과 시간 상한")
+	q3 -- 아니요 --> r4("locator, page의<br>재시도 matcher")
 ```
 
-| 필요한 확인 | 방법 |
-| --- | --- |
-| 표시, 문구, 개수, URL | 해당 locator나 page의 비동기 matcher |
-| DOM 밖의 관측값 | 상한이 있는 expect.poll 등 조건 반복 |
-| 준비 이벤트가 없는 canvas | 렌더 완료 신호나 안정된 관측 조건과 시간 상한 |
+### 상태 대기
 
-임의의 sleep, networkidle, force 옵션으로 준비 상태를 대신하지 않습니다.
+표시, 문구, 개수, URL은 해당 locator나 page의 재시도 matcher로 기다립니다.
+web-first matcher가 없는 관측값은 상한이 있는 `expect.poll`로 기다립니다.
+준비 이벤트가 없는 canvas는 렌더 완료 신호나 안정된 관측 조건에 시간 상한을 두고 기다립니다.
+임의의 sleep, `networkidle`, `force` 옵션으로 준비 상태를 대신하지 않습니다.
 안정화에 필요한 반복 간격과 제품의 지연 시간 검증은 구분하고 실패 시 관측값을 남깁니다.
+
+### 이벤트 등록
+
+`page.waitForEvent`, `page.waitForResponse`가 돌려준 Promise를 액션 전에 만들고 액션 뒤에 `await`합니다.
+액션 뒤에 등록하면 그 사이에 끝난 이벤트를 놓칠 수 있습니다.
 
 참고: [공식 문서](https://playwright.dev/docs/best-practices#use-web-first-assertions).
 

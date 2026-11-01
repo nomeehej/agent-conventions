@@ -11,14 +11,14 @@
 
 ## 2. Scenarios and Expectations (case)
 **TitleKo:** 시나리오와 기대값
-**Lead:** GIVEN, WHEN, THEN 표기, 상태와 경계값 선택, 구현과 독립된 기대값
+**Lead:** 시나리오 표기, 상태와 경계값 선택, 구현과 독립된 기대값
 **Impact:** HIGH
 **Description:** GIVEN, WHEN, THEN으로 조건, 행동, 결과를 드러내고 상태와 경계값을 선택합니다.
 기대값은 검증 대상 구현과 독립된 계약에서 정합니다.
 
 ## 3. Test Data and Isolation (data)
 **TitleKo:** 데이터와 격리
-**Lead:** 작고 유효한 타입 기반 fixture, 시간과 환경 통제, 상태 격리와 복구
+**Lead:** 작고 유효한 타입 기반 테스트 데이터, 시간과 환경 통제, 상태 격리와 복구
 **Impact:** HIGH
 **Description:** 유효한 입력의 핵심 필드를 명시하고 시간과 실행 환경을 통제합니다.
 테스트가 바꾼 상태와 자원의 수명을 격리하고 복구합니다.
@@ -39,10 +39,10 @@
 
 ## 6. Network Boundaries (network)
 **TitleKo:** 네트워크 경계
-**Lead:** 응답 경계 교체, 미처리 요청 검출, 실제와 mock 경계 명시, 생성 계약 위의 builder와 handler, 브라우저와 Node 공유
+**Lead:** 응답 경계 교체, 미처리 요청 검출, 실제와 mock 경계 명시, 생성 계약 위의 도메인 builder와 handler, 브라우저와 Node 공유
 **Impact:** HIGH
 **Description:** 실제 화면 처리와 provider는 유지하며 응답 경계에서 필요한 상태를 만듭니다.
-생성 계약과 소유 mock을 조립해 브라우저와 Node가 함께 쓰고 미처리 요청을 검출합니다.
+생성 계약과 도메인 builder를 조립해 브라우저와 Node가 함께 쓰고 미처리 요청을 검출합니다.
 
 ## 7. Golden and Visual Baselines (baseline)
 **TitleKo:** 골든과 시각 비교

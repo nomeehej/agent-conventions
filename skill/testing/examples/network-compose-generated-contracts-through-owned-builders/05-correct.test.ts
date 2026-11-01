@@ -7,7 +7,7 @@ import { getOrdersHandler, getOrdersHandlerResponse500 } from "@/service/__kubb/
 test("주문 조회가 실패하면 오류 안내가 표시된다", async ({ mockApi, mount }) => {
 	/**
 	 * GIVEN
-	 * 정상 registry에서 주문 조회만 500으로 실패하는 서버
+	 * 공유 handler 목록에서 주문 조회만 500으로 실패하는 서버
 	 */
 	// [!code ++]
 	mockApi.use(getOrdersHandler(() => {

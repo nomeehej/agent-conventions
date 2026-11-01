@@ -8,24 +8,24 @@ const ranges = [
 ];
 
 for (const range of ranges) {
-	test(`뒤집힌 기간 ${range.start}를 보정한다`, async ({ page }) => {
+	test(`뒤집힌 기간 ${range.start}를 보정한다`, async ({ mount }) => {
 		/**
 		 * GIVEN
-		 * 입력 조합마다 다시 여는 전체 화면
+		 * 입력 조합마다 다시 여는 기간 화면
 		 */
-		const path = `/reports?startDate=${range.start}&endDate=${range.end}`;
+		const search = `?startDate=${range.start}&endDate=${range.end}`;
 
 		/**
 		 * WHEN
 		 * 날짜 보정 함수를 화면에서 반복 실행
 		 */
-		await page.goto(path);
+		const view = await mount("reports/WithSearch", { search });
 
 		/**
 		 * THEN
 		 * 같은 함수의 입력 표를 화면에서 재검사
 		 */
-		await expect(page.getByLabel("시작일")).toHaveValue(range.end);
-		await expect(page.getByLabel("종료일")).toHaveValue(range.start);
+		await expect(view.getByLabel("시작일")).toHaveValue(range.end);
+		await expect(view.getByLabel("종료일")).toHaveValue(range.start);
 	});
 }

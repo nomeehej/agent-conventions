@@ -1,4 +1,4 @@
-// test/orders/orders.integration.spec.ts
+// test/orders/orders.e2e.spec.ts
 import { expect, test } from "@playwright/test";
 
 test("빈 주문 목록에 안내가 표시된다", async ({ page }) => {

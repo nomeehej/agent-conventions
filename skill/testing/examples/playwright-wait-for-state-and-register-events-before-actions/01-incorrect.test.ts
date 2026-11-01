@@ -1,7 +1,7 @@
 // test/orders/orders.e2e.spec.ts
 import { expect, test } from "@playwright/test";
 
-test("조회 후 목록이 표시된다", async ({ page }) => {
+test("조회가 끝나면 완료 문구가 표시된다", async ({ page }) => {
 	/**
 	 * GIVEN
 	 * 주문 목록의 진입 경로

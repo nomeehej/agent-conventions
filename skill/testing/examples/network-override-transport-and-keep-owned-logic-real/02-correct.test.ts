@@ -1,4 +1,4 @@
-// test/orders/orders.integration.spec.ts
+// test/orders/orders.e2e.spec.ts
 import { expect, test } from "@playwright/test";
 
 test("빈 주문 목록에 안내가 표시된다", async ({ page }) => {
@@ -6,6 +6,7 @@ test("빈 주문 목록에 안내가 표시된다", async ({ page }) => {
 	 * GIVEN
 	 * 빈 주문 목록을 응답하는 서버
 	 */
+	// 생성기 없는 프로젝트의 응답 덮어쓰기
 	// [!code ++]
 	await page.route("**/api/orders", async (route) => {
 		await route.fulfill({ json: { items: [], total: 0 } });

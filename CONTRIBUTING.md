@@ -109,6 +109,7 @@ skill/react/
   산문이 이어지는데 문장 하나를 따로 두면 화면에서 행간이 갑자기 벌어져 끊겨 읽힌다. 앞뒤 문단에 붙인다.
   한글은 두 칸으로 센다. `.editorconfig`의 `max_line_length`도 같은 값이다.
 - 예제 파일과 코드 펜스 안 인덴트는 탭이다. `biome.json`의 `indentStyle`과 맞춘다.
+  inline snapshot 문자열 안은 러너가 직렬화한 공백 그대로 둔다. 탭으로 바꾸면 snapshot이 어긋난다.
 - `**Impact:`로 시작하는 줄은 한 줄로 유지한다. build가 그 형태로 파싱한다.
 
 ---

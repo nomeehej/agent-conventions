@@ -3,7 +3,7 @@ import { expect, test } from "vitest";
 
 import { getOrder } from "@/service/orders";
 
-test("없는 주문은 오류를 반환한다", async () => {
+test("없는 주문은 오류로 거부된다", async () => {
 	/**
 	 * GIVEN
 	 * 존재하지 않는 주문 ID
