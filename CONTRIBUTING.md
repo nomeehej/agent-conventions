@@ -96,6 +96,9 @@ skill/react/
   `rule-discipline.ts`가 잡는 교차 위반(`mutateAsync` 없는 `try`, `li onClick`, 리터럴 폴백, 손으로 쓴 `sort`, `reduce`, 한 줄 JSX 주석, 스택 밖 이름 등)은 `validate`가 막는다.
   `Correct` 예제 파일은 `npm run lint:examples`가 규칙이 보여 주는 biome, stylelint 설정 그대로 검사한다. 규칙이 lint 설정으로 표현된다는 증명이다. `Incorrect` 예제는 규칙 없이 문법만 검사한다.
   `npm run typecheck:examples`는 같은 파일을 실제 스택 패키지의 타입으로 검사한다. import 없이 쓰는 이름과 `@/` 모듈은 `skill/examples.d.ts`에 실제 타입으로 선언한다. 이 파일이 예제 세계관의 스키마다. 새 예제는 거기 있는 이름과 필드를 쓰고, 없는 것은 거기에 더한다. 파일 하나에 파일 여럿을 담지 않는다. 파일마다 예제 파일을 나누고 `<<<` 줄을 잇는다.
+  `Incorrect`는 잘못을 보여 주려고 세계관에 없는 이름을 만들어도 된다. 선언하면 잘못이 선언에 가려진다.
+  예제 세계관에는 테마가 없다. 여러 파일이 쓰는 값만 `--app-*` 토큰이고 한 파일에서만 쓰는 색은 원시 값으로 적는다. 다크 모드를 가진 세계는 css `values-switch-themes-by-changing-token-values` 예제뿐이다.
+  함수 밖 `return` 조각처럼 혼자서는 파싱되지 않는 예제는 감싸지 않는다. `skill/examples.tsconfig.json`과 `skill/examples.biome.json`의 제외 목록에 같은 파일을 적는다.
   JSX 자식 자리에서는 줄 표기를 `{/* [!code ++] */}` 로 쓴다. biome 이 `//` 글자를 JSX 텍스트로 본다.
 - 라벨 괄호 안 문장은 코드가 보여 주는 것만 말한다. 규칙 문장을 되풀이하지 않는다.
 - 라벨 괄호 안 문장은 규범 산문과 같은 합쇼체로 쓴다.
