@@ -14,7 +14,7 @@ tags: material, truth, overview
 **Impact: CRITICAL (재료가 어긋날 때마다 무엇을 따를지 다시 묻지 않고 한 표로 판정합니다)**
 
 설계 문서를 쓰기 전에 재료마다 무엇의 정답인지 `overview.md`에 표로 정합니다.
-재료는 보통 다섯이고, 프로젝트가 가진 것만 적습니다.
+재료는 보통 다섯이고 프로젝트가 가진 것만 적습니다.
 
 ```mermaid
 flowchart LR
@@ -37,7 +37,7 @@ flowchart LR
 올리는 법은 `question-close-with-a-result-and-keep-one-line`이 정합니다.
 Figma와 데모가 같은 항목을 다르게 말하면 이 표의 종류로 가릅니다. 가르기 어려우면 질문으로 남깁니다.
 
-판이 바뀌면 표의 판 번호와 날짜를 고치고, 옛 판으로 닫은 질문을 다시 대조합니다.
+판이 바뀌면 표의 판 번호와 날짜를 고치고 옛 판으로 닫은 질문을 다시 대조합니다.
 
 **Incorrect 1 (정답표 없이 Figma 샘플로 기능과 데이터까지 확정합니다):**
 

@@ -35,7 +35,7 @@ tags: writing, labels, vocabulary
 | 단계 | `Blocked` | `blocked` |
 | 문서 | `Design`, `Implemented`, `Paused` | `neutral` |
 
-배지는 프로젝트의 `for-humanity.config.ts`에 `status` 목록으로 묶고, 번호 접두는 `refs`로 칩이 되게 합니다.
+배지는 프로젝트의 `for-humanity.config.ts`에 `status` 목록으로 묶고 번호 접두는 `refs`로 칩이 되게 합니다.
 배지 뒤 날짜는 `YYYY-MM-DD`로 씁니다. for-humanity는 그 꼴만 배지에 묶습니다.
 링크와 제목 안의 문구는 배지가 되지 않으므로 상태 뒤의 번호는 링크로 따로 둡니다.
 

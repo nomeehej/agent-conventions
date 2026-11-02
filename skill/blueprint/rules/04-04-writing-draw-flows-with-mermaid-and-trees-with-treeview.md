@@ -14,7 +14,7 @@ tags: writing, mermaid, treeview, diagram
 
 **Impact: HIGH (한글이 든 ASCII 그림이 줄 어긋나는 일을 없애고 그림 종류를 뜻에 맞춥니다)**
 
-그림은 뜻에 맞는 Mermaid 종류로 그리고, 칸이 필요한 것은 표로 씁니다.
+그림은 뜻에 맞는 Mermaid 종류로 그리고 칸이 필요한 것은 표로 씁니다.
 
 | 그리는 것 | 종류 |
 | --- | --- |
