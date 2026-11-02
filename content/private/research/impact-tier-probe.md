@@ -6,9 +6,9 @@ order: 30
 ---
 
 `impact` 를 읽기 깊이로 재정의한 커밋 `4d7c012`, `3574e92` 가 실제 세션에서 어떻게 작동하는지 잰 기록이다.
-측정은 `script/measure-skill-reads.py` 로 한다. 옛 프로토콜의 기준선은 이미 남아 있는 sk-ax-gas-pp 세션 기록에서, 새 프로토콜은 읽기 전용 헤드리스 세션 한 건에서 뽑았다.
+측정은 `script/measure-skill-reads.py` 로 한다. 옛 프로토콜의 기준선은 이미 남아 있는 project-a 세션 기록에서, 새 프로토콜은 읽기 전용 헤드리스 세션 한 건에서 뽑았다.
 
-## 기준선: 옛 프로토콜 (sk-ax-gas-pp 계열 39개 세션, 2026-08-12 ~ 09-04)
+## 기준선: 옛 프로토콜 (project-a 계열 39개 세션, 2026-08-12 ~ 09-04)
 
 옛 프로토콜은 CRITICAL 만 원문 필수였고, 나머지는 "형태를 정하면 Correct 예제도 읽는다" 는 판단 문장이었다.
 원문 읽기는 전부 Bash 의 `cat`, `sed` 였고 Read 도구는 쓰지 않았다. `sed -n '/^## /,/^\*\*Incorrect/p'` 로 예제를 스스로 잘라 낸 세션도 있다.
@@ -16,30 +16,30 @@ order: 30
 ```text
 | project | session | Skill calls | index | contracts | rules | full | partial | to-Incorrect | skill-file kchars |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| sk-ax-gas-pp | 09dfcf3e | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 7 |
-| sk-ax-gas-pp | 13696443 | 9 | 6 | 2 | 7 | 5 | 2 | 0 | 196 |
-| sk-ax-gas-pp | 16bda4db | 3 | 5 | 11 | 23 | 10 | 13 | 0 | 138 |
-| sk-ax-gas-pp | 1a19b4ac | 3 | 6 | 4 | 6 | 5 | 0 | 0 | 42 |
-| sk-ax-gas-pp | 36ca66a5 | 3 | 2 | 6 | 0 | 0 | 0 | 0 | 25 |
-| sk-ax-gas-pp | 3ebc1b9b | 3 | 8 | 6 | 18 | 10 | 8 | 0 | 78 |
-| sk-ax-gas-pp | 47b1c494 | 1 | 5 | 6 | 3 | 3 | 0 | 0 | 52 |
-| sk-ax-gas-pp | 66578175 | 3 | 3 | 0 | 0 | 0 | 0 | 0 | 21 |
-| sk-ax-gas-pp | 75e00217 | 2 | 4 | 0 | 11 | 0 | 4 | 7 | 29 |
-| sk-ax-gas-pp | 84d65142 | 3 | 3 | 0 | 0 | 0 | 0 | 0 | 27 |
-| sk-ax-gas-pp | 85ad3a9c | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 45 |
-| sk-ax-gas-pp | 8ee142e4 | 1 | 1 | 12 | 9 | 9 | 0 | 0 | 45 |
-| sk-ax-gas-pp | 8eea1df1 | 3 | 7 | 4 | 0 | 0 | 0 | 0 | 31 |
-| sk-ax-gas-pp | 9274d3c6 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| sk-ax-gas-pp | 9b26443f | 3 | 4 | 0 | 6 | 4 | 2 | 0 | 60 |
-| sk-ax-gas-pp | 9cb30f15 | 1 | 0 | 0 | 22 | 4 | 15 | 3 | 38 |
-| sk-ax-gas-pp | a0bbafab | 3 | 2 | 10 | 1 | 1 | 0 | 0 | 35 |
-| sk-ax-gas-pp | d212af17 | 3 | 3 | 5 | 0 | 0 | 0 | 0 | 11 |
-| sk-ax-gas-pp | da8c783e | 0 | 3 | 11 | 3 | 3 | 0 | 0 | 47 |
-| sk-ax-gas-pp | de792981 | 0 | 0 | 0 | 11 | 7 | 4 | 0 | 28 |
-| sk-ax-gas-pp-chart-readability-v2 | 002c337f | 3 | 9 | 19 | 9 | 7 | 2 | 0 | 119 |
-| sk-ax-gas-pp-chart-readability-v2 | c00d7de1 | 0 | 2 | 0 | 6 | 3 | 3 | 0 | 18 |
-| sk-ax-gas-pp-css-convention | 1ec155d7 | 1 | 2 | 5 | 1 | 1 | 0 | 0 | 24 |
-| sk-ax-gas-pp-css-convention | 71fd7dbe | 3 | 4 | 29 | 6 | 5 | 1 | 0 | 84 |
+| project-a | 09dfcf3e | 0 | 1 | 0 | 0 | 0 | 0 | 0 | 7 |
+| project-a | 13696443 | 9 | 6 | 2 | 7 | 5 | 2 | 0 | 196 |
+| project-a | 16bda4db | 3 | 5 | 11 | 23 | 10 | 13 | 0 | 138 |
+| project-a | 1a19b4ac | 3 | 6 | 4 | 6 | 5 | 0 | 0 | 42 |
+| project-a | 36ca66a5 | 3 | 2 | 6 | 0 | 0 | 0 | 0 | 25 |
+| project-a | 3ebc1b9b | 3 | 8 | 6 | 18 | 10 | 8 | 0 | 78 |
+| project-a | 47b1c494 | 1 | 5 | 6 | 3 | 3 | 0 | 0 | 52 |
+| project-a | 66578175 | 3 | 3 | 0 | 0 | 0 | 0 | 0 | 21 |
+| project-a | 75e00217 | 2 | 4 | 0 | 11 | 0 | 4 | 7 | 29 |
+| project-a | 84d65142 | 3 | 3 | 0 | 0 | 0 | 0 | 0 | 27 |
+| project-a | 85ad3a9c | 0 | 3 | 7 | 0 | 0 | 0 | 0 | 45 |
+| project-a | 8ee142e4 | 1 | 1 | 12 | 9 | 9 | 0 | 0 | 45 |
+| project-a | 8eea1df1 | 3 | 7 | 4 | 0 | 0 | 0 | 0 | 31 |
+| project-a | 9274d3c6 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| project-a | 9b26443f | 3 | 4 | 0 | 6 | 4 | 2 | 0 | 60 |
+| project-a | 9cb30f15 | 1 | 0 | 0 | 22 | 4 | 15 | 3 | 38 |
+| project-a | a0bbafab | 3 | 2 | 10 | 1 | 1 | 0 | 0 | 35 |
+| project-a | d212af17 | 3 | 3 | 5 | 0 | 0 | 0 | 0 | 11 |
+| project-a | da8c783e | 0 | 3 | 11 | 3 | 3 | 0 | 0 | 47 |
+| project-a | de792981 | 0 | 0 | 0 | 11 | 7 | 4 | 0 | 28 |
+| project-a-chart-readability-v2 | 002c337f | 3 | 9 | 19 | 9 | 7 | 2 | 0 | 119 |
+| project-a-chart-readability-v2 | c00d7de1 | 0 | 2 | 0 | 6 | 3 | 3 | 0 | 18 |
+| project-a-css-convention | 1ec155d7 | 1 | 2 | 5 | 1 | 1 | 0 | 0 | 24 |
+| project-a-css-convention | 71fd7dbe | 3 | 4 | 29 | 6 | 5 | 1 | 0 | 84 |
 
 규칙 원문 읽기 방식: {'full': 77, 'partial': 54, 'to_incorrect': 10}
 현재 등급별 (세션, 규칙) 쌍: 연 수 / 끝까지 읽은 수
@@ -50,7 +50,7 @@ order: 30
 
 ## 새 프로토콜: 헤드리스 검토 세션 한 건
 
-sk-ax-gas-pp 에서 `src/component/ui/chart/_type/` 의 타입 파일 셋을 convention-typescript 기준으로 검토만 하게 했다.
+project-a 에서 `src/component/ui/chart/_type/` 의 타입 파일 셋을 convention-typescript 기준으로 검토만 하게 했다.
 명령은 `claude -p "<검토 지시>" --permission-mode plan --output-format stream-json --verbose --max-turns 40` 이다.
 
 ```text
@@ -67,7 +67,7 @@ turns=40 duration=328s cost=$3.33 cache_create=103284 cache_read=467081 out=2297
 
 ## 새 프로토콜: 편집이 있는 헤드리스 세션 한 건
 
-검토 세션이 찾은 위반 셋을 실제로 고치게 했다. sk-ax-gas-pp 의 worktree(브랜치 `tier-probe`)에서 도구를 Read, Edit, Grep, Glob, Skill 과 `npx tsc` 로 제한하고 `--permission-mode acceptEdits` 로 돌렸다.
+검토 세션이 찾은 위반 셋을 실제로 고치게 했다. project-a 의 worktree(브랜치 `tier-probe`)에서 도구를 Read, Edit, Grep, Glob, Skill 과 `npx tsc` 로 제한하고 `--permission-mode acceptEdits` 로 돌렸다.
 
 ```text
 도구 호출: {'skill_calls': 1, 'index': 1, 'contract': 5, 'rule': 4} | 원문 읽기 방식: {'full': 4} | 스킬 파일 글자 수: 27007 (≈9002 토큰)
@@ -106,7 +106,7 @@ turns=63 duration=219s cost=$3.20 cache_create=110262 cache_read=611883 out=1679
 ## 다시 재는 법
 
 ```sh
-python3 script/measure-skill-reads.py '*sk-ax-gas-pp*'        # 기록 전체
+python3 script/measure-skill-reads.py '*project-a*'        # 기록 전체
 python3 script/measure-skill-reads.py --probe run.jsonl         # 헤드리스 세션 한 건
 ```
 
@@ -126,7 +126,7 @@ MEDIUM 계약은 첫 Incorrect, Correct 짝까지만 싣는다. 첫 짝 뒤에 �
 
 ## 다섯 작업 회차 (2026-09-08 오후, opus, fable)
 
-sk-ax 커밋 이력의 문투로 작업 다섯 건을 만들어 worktree 마다 헤드리스로 돌렸다. 도구는 편집, `tsc`, lint 로 제한하고 Stop 훅을 걸었다.
+project-a 커밋 이력의 문투로 작업 다섯 건을 만들어 worktree 마다 헤드리스로 돌렸다. 도구는 편집, `tsc`, lint 로 제한하고 Stop 훅을 걸었다.
 fable 로 돌린 첫 회차는 사용량 한도로 1, 2, 3 이 끊겨 opus 로 다시 돌렸다(4, 5 는 fable 로 완주). 결과 diff 는 `script/review-diff.sh` 가 opus 로 검토했다.
 
 | 작업 | 모델 | 링크 계약 → 완독 | 스킬 토큰 | 턴, 비용 | tsc, 훅 | 검토 확정, 해석여지 |

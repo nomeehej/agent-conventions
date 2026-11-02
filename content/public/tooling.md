@@ -38,8 +38,8 @@ Node.js 22.12.0 이상에서 for-humanity `0.20.0`을 사용합니다. 버전은
 홈의 정본은 루트 `README.md`입니다. `npm run sync:readme`가 본문은 유지하고 링크와 이미지 경로만 변환해 사이트 홈을 생성합니다.
 `dev`와 `content:build`에서도 동기화하므로 `content/README.md`는 직접 편집하지 않습니다.
 홈은 영어, 규칙과 상세 문서는 한국어로 유지합니다. 배포 HTML에서 홈의 언어만 `en`으로 지정하고 나머지는 사이트 설정의 `ko`를 사용합니다.
-규칙 페이지와 예제 복사본은 `content/public/convention/`에 생성합니다. 연구 문서와 도구 설명도 기존 공개 범위를 유지해 `content/public/`에 둡니다.
-로컬 전용 문서가 필요하면 `content/private/`에 추가합니다. `dev`에서는 함께 읽고 `build`와 `preview`에서는 제외합니다.
+규칙 페이지와 예제 복사본은 `content/public/convention/`에 생성합니다. 로딩 설계 연구 둘과 도구 설명은 `content/public/`에 둡니다.
+측정 기록, 감사 원장, 프로젝트에서 나온 설계 노트는 `content/private/research/`에 둡니다. `dev`에서는 함께 읽고 `build`와 `preview`에서는 제외합니다. 저장소에는 남습니다.
 
 문서 페이지의 검색 설명은 각 frontmatter의 `label`입니다. 사이트 언어는 설정의 `lang: "ko"`로 지정합니다.
 

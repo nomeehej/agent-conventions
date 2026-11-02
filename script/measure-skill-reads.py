@@ -2,7 +2,7 @@
 """Claude Code 세션 기록에서 컨벤션 스킬을 어떻게 읽었는지 센다.
 
 사용법
-  python3 measure-skill-reads.py                # ~/.claude/projects 의 sk-ax-gas-pp*·agent-conventions* 세션 전부
+  python3 measure-skill-reads.py                # ~/.claude/projects 의 agent-conventions* 세션 전부
   python3 measure-skill-reads.py <프로젝트 glob>...  # 예: '*my-app*'
   python3 measure-skill-reads.py --probe run.jsonl   # `claude -p --output-format stream-json --verbose` 출력 한 건
   python3 measure-skill-reads.py --since 2026-09-07  # 그 날짜 이후 시작한 세션만
@@ -188,4 +188,4 @@ if __name__ == "__main__":
             at = args.index("--since")
             since = args[at + 1]
             args = args[:at] + args[at + 2:]
-        report_projects(args or ["*sk-ax-gas-pp*", "*agent-conventions*"], since)
+        report_projects(args or ["*agent-conventions*"], since)

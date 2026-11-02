@@ -1,17 +1,17 @@
 ---
 name: Blueprint skill design
-label: 2026-10-27 설계 문서. sk-ax-gas-pp 의 블루프린트 과정을 skill/blueprint 와 for-humanity 문서로 옮기는 설계
+label: 2026-10-27 설계 문서. 실무 프로젝트의 블루프린트 과정을 skill/blueprint 와 for-humanity 문서로 옮기는 설계
 group: Research
 order: 50
 ---
 
 :::note[기록 시점]
-2026-10-27. sk-ax-gas-pp 구현이 끝나 가는 시점에 `.ignore/blueprint/` 일곱 문서와 README, 세션 기억, for-humanity 0.23.1 의 부품과 로드맵을 읽고 정한 설계다.
+2026-10-27. 실무 프로젝트 구현이 끝나 가는 시점에 `.ignore/blueprint/` 일곱 문서와 README, 세션 기억, for-humanity 0.23.1 의 부품과 로드맵을 읽고 정한 설계다.
 대상 저장소는 셋이다. 문서 도구 for-humanity, 스킬 저장소 agent-conventions, 그리고 이 과정을 처음 적용할 다음 프로젝트.
 :::
 
 다음 프로젝트부터 팀이 같은 방식으로 화면을 설계하고 구현하기 위한 과정을 스킬로 만든다.
-sk-ax-gas-pp 에서는 손으로 짠 HTML 문서 일곱 장으로 했고, 다음부터는 for-humanity 사이트로 한다.
+그 프로젝트에서는 손으로 짠 HTML 문서 일곱 장으로 했고, 다음부터는 for-humanity 사이트로 한다.
 
 ## 결정 셋
 
@@ -31,7 +31,7 @@ sk-ax-gas-pp 에서는 손으로 짠 HTML 문서 일곱 장으로 했고, 다음
 | --- | --- |
 | 문서 | 7 (overview, 화면 4, open-items, fix-1015) |
 | 전체 크기 | 1.2MB |
-| 가장 큰 문서 | seasonal-detail 472KB, 17절, 소제목 60 이상 |
+| 가장 큰 문서 | 472KB, 17절, 소제목 60 이상 |
 | 공용 CSS 와 JS | 90KB, 부품 30종 |
 | 끝낼 때 확인 | 문서 × 네 조합, 스크립트 하나 |
 
@@ -48,7 +48,7 @@ sk-ax-gas-pp 에서는 손으로 짠 HTML 문서 일곱 장으로 했고, 다음
 | 과했던 것 | 증거 | 대체 |
 | --- | --- | --- |
 | 증분을 본문에 흡수 | "02.F 09-29", "02.G 10-01", 12절 A~L 같은 날짜 꼬리표 절. 문서가 지금의 정답이 아니라 이력이 됐다 | 변경 문서를 따로 두고, 끝나면 본문을 고쳐 쓴다 |
-| 구현 참고 가름 | CSS 실측, 더미 데이터, 테스트 목록, 설계 근거 표. realtime-list 테스트 절 혼자 12k 자 | 코드와 테스트가 정본. 출처 몇 줄과 단계 표의 확인 명령만 남긴다 |
+| 구현 참고 가름 | CSS 실측, 더미 데이터, 테스트 목록, 설계 근거 표. 한 화면 문서의 테스트 절 혼자 12k 자 | 코드와 테스트가 정본. 출처 몇 줄과 단계 표의 확인 명령만 남긴다 |
 | 풀린 질문 표와 개정 절 | 55줄짜리 표와 날짜별 개정이 문서 안에 영구 보존 | 풀린 것은 접힌 표 한 줄, 이력은 git 과 변경 문서와 `revised` |
 | 손으로 그린 HTML 목업 | 구역마다 인라인 SVG 와 표를 손으로 짰다 | Figma 프레임 캡처나 앱 캡처에 번호를 구워 넣는다 |
 | 자체 문서 도구 | 부품 30종, 질문 대화상자, 검사 20조합 | for-humanity 의 부품과 build 검사 |
@@ -75,12 +75,12 @@ content/
     ├── overview.md
     ├── questions.md
     ├── screen/
-    │   ├── realtime-list.md
-    │   └── seasonal-detail.md
+    │   ├── orders.md
+    │   └── customer-detail.md
     ├── change/
     │   └── 1015-figma.md
     └── img/
-        └── realtime-list/
+        └── orders/
 ```
 
 | 문서 | 역할 | 사이드바 group |
