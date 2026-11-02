@@ -5,7 +5,6 @@ impact: HIGH
 impactDescription: 자체 책임이 있는 부품만 분리해 소유자 안 파일 수와 구조를 읽기 쉽게 유지합니다
 appliesWhen:
   - `widget`이나 `ui` 컴포넌트 안에서 JSX 일부를 별도 컴포넌트 파일로 떼거나 되돌릴 때
-  - 제외: 라우트 진입 파일의 섹션을 나누는 경우
 reviewWith: screen-extract-local-section-components-for-runtime-boundaries, ownership-place-owner-files-in-role-folders, strategy-expose-only-assembled-compound-parts
 tags: composition, ownership
 ---
@@ -43,7 +42,7 @@ flowchart LR
 | 조립 | 사용처가 넣고 빼거나 스타일을 바꾸도록 공개하는 합성 부품 |
 
 컨텍스트를 읽어 분기만 하는 부품은 진입 파일에 남깁니다.
-라우트 진입 파일의 섹션은 `screen-extract-local-section-components-for-runtime-boundaries`가 같은 기준으로 정합니다.
+라우트 진입 파일의 섹션은 `screen-extract-local-section-components-for-runtime-boundaries`가 이 표로 정합니다.
 
 **Incorrect 1 (컨텍스트를 읽어 분기만 하는 래퍼를 파일로 뗍니다):**
 

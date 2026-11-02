@@ -267,6 +267,7 @@
 					"ownership-place-owner-files-in-role-folders",
 					"typing-take-handler-types-from-existing-contracts",
 					"composition-read-props-without-destructuring",
+					"composition-split-owner-parts-only-for-runtime-boundaries",
 					"screen-keep-route-flow-visible",
 					"screen-avoid-premature-abstraction",
 					"screen-extract-local-section-components-for-runtime-boundaries",

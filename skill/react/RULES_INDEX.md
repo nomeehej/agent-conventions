@@ -1,7 +1,7 @@
 # React 컨벤션 Rule Index
 
 - Skill: `react`
-- Routing digest: `sha256:76c18cdc941e07e2e64c799d0bb4dcc77c5037380b58b68ba8992c8a21a34f29`
+- Routing digest: `sha256:a6909d1078f95aa79e137f776fcc31e5eb3ddc2139255e316f5634576e4266c4`
 
 ## Direct Companions
 
@@ -40,7 +40,7 @@
 - R05-07 | composition-name-fragments-explicitly | JSX에서 여러 요소를 \`Fragment\`나 \`\<\>\`로 감싸는 문법을 추가, 변경할 때. \`Fragment\`에 \`key\`를 붙이거나 떼어 낼 때.
 - R05-08 | composition-render-one-branch-with-and | JSX 안에 조건부 렌더링을 추가하거나 조건식을 바꿀 때. 기존 JSX 삼항이나 \`조건 && …\`을 넣거나 뺄 때.
 - R05-09 | composition-order-hooks-handlers-effects-then-return | 컴포넌트 본문에 훅, 핸들러, 이펙트를 추가하거나 자리를 옮길 때. 본문 선언이 아래 선언을 참조해 순서를 다시 잡을 때. | reviewWith: events-run-user-actions-in-handlers-not-effects, screen-keep-derived-values-close
-- R05-10 | composition-split-owner-parts-only-for-runtime-boundaries | \`widget\`이나 \`ui\` 컴포넌트 안에서 JSX 일부를 별도 컴포넌트 파일로 떼거나 되돌릴 때. 제외: 라우트 진입 파일의 섹션을 나누는 경우. | reviewWith: ownership-place-owner-files-in-role-folders, screen-extract-local-section-components-for-runtime-boundaries, strategy-expose-only-assembled-compound-parts
+- R05-10 | composition-split-owner-parts-only-for-runtime-boundaries | \`widget\`이나 \`ui\` 컴포넌트 안에서 JSX 일부를 별도 컴포넌트 파일로 떼거나 되돌릴 때. | reviewWith: ownership-place-owner-files-in-role-folders, screen-extract-local-section-components-for-runtime-boundaries, strategy-expose-only-assembled-compound-parts
 - R06-01 | screen-keep-route-flow-visible | 라우트 진입의 search 파라미터, 화면 이동, 쿼리, 뮤테이션, 화면 전체 이펙트를 옮기거나 나눌 때. 화면 섹션 조립의 순서나 소유자를 바꿀 때. 제외: 같은 소유자 안에서 표현만 바꾸는 경우. | reviewWith: ownership-place-owner-files-in-role-folders, screen-extract-local-section-components-for-runtime-boundaries
 - R06-02 | screen-avoid-premature-abstraction | 화면 코드를 보조 함수, 훅, 컴포넌트, 모듈로 추출할 때. 한 곳에서만 쓰는 기존 추상화를 다시 접어 넣을 때. | reviewWith: screen-extract-local-section-components-for-runtime-boundaries, typescript/functions-extract-helpers-only-when-the-boundary-is-real
 - R06-03 | screen-extract-local-section-components-for-runtime-boundaries | 화면 지역 섹션 컴포넌트를 새로 추출할 때. 기존 섹션에 비동기, 지역 상태, 프로바이더, 상호작용, 외부 라이브러리, 성능 처리를 넣거나 뺄 때.
