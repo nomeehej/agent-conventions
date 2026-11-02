@@ -13,6 +13,9 @@ tags: testing, network, kubb, faker, msw
 
 **Impact: HIGH (API 재생성에 맞춰 타입과 응답 형식을 유지하고 시나리오 값을 일관되게 만듭니다)**
 
+생성기의 DTO와 factory 위에 소유 도메인 builder와 endpoint handler를 둡니다.
+브라우저와 Node는 같은 공유 handler 목록을 쓰고 story와 spec은 차이만 덮습니다.
+
 ### 작성 순서와 소유 경계
 
 생성기를 사용하는 프로젝트에서는 다음 순서로 실제 산출물의 계약을 조립합니다.
