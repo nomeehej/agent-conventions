@@ -44,5 +44,5 @@
 - T06-01 | docs-keep-body-comments-for-intent-and-steps | 함수 본문의 \`//\` 주석을 추가, 수정, 유지할 때. 도메인 규칙, 예외 방어, 외부 제약, 부수효과 순서, 긴 절차의 단계를 주석으로 설명할 때. | reviewWith: docs-justify-convention-exceptions-with-a-reason-comment, docs-write-korean-comments-about-purpose-and-constraints
 - T06-02 | docs-require-header-jsdoc-on-key-declarations | 쿼리, 뮤테이션, 원격 함수, 커스텀 훅, 스토어, 포매터 선언을 추가, 변경할 때. 분기나 \`await\`나 두 개 이상의 동작이 있는 핸들러와 이펙트를 추가, 변경할 때. 다시 쓰거나 내보낸 보조 함수를 추가, 변경할 때.
 - T06-03 | docs-write-korean-comments-about-purpose-and-constraints | TypeScript, TSX의 문서 주석이나 인라인 주석 문구를 추가, 수정, 번역하거나 검토할 때. 문서 주석에 태그를 붙이거나 뺄 때. 선언 위 문서 주석의 형식을 바꾸거나 한 줄 \`/\*\* … \*/\`, \`//\`로 선언을 설명하려 할 때.
-- T06-05 | docs-justify-convention-exceptions-with-a-reason-comment | 규칙이 허용한 예외를 코드에 남길 때. 이미 있는 예외 주석의 내용을 바꿀 때. 제외: 규칙이 요구하지 않은 일반 설명 주석인 경우. | reviewWith: docs-write-korean-comments-about-purpose-and-constraints
+- T06-04 | docs-justify-convention-exceptions-with-a-reason-comment | 규칙이 허용한 예외를 코드에 남길 때. 이미 있는 예외 주석의 내용을 바꿀 때. 제외: 규칙이 요구하지 않은 일반 설명 주석인 경우. | reviewWith: docs-write-korean-comments-about-purpose-and-constraints
 - T07-01 | tooling-configure-biome-to-enforce-these-rules | 프로젝트에 \`biome\` 설정을 처음 넣거나 lint 규칙을 바꿀 때. \`biome.json\`의 \`linter.rules\`에 항목을 추가, 삭제할 때.

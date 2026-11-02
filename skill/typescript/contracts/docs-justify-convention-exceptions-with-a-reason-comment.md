@@ -44,4 +44,4 @@ const columns = useMemo(() => {
 }, [responseTableColumnsSuspense.data.columns]);
 ```
 
-> 나머지 예시와 예외는 [full rule](../rules/06-05-docs-justify-convention-exceptions-with-a-reason-comment.md)에 있습니다.
+> 나머지 예시와 예외는 [full rule](../rules/06-04-docs-justify-convention-exceptions-with-a-reason-comment.md)에 있습니다.
