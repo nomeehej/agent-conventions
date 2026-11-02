@@ -4,6 +4,7 @@ titleKo: `get_design_context`는 대응물이 없는 작은 노드에만 부릅�
 impact: CRITICAL
 impactDescription: 가장 비싼 도구의 비용이 디자인 파일의 정리 상태를 따라 불어나지 않게 막습니다
 appliesWhen:
+  - 스크린샷과 메타데이터에서 본 요소의 저장소 대응물을 찾을 때
   - `get_design_context`를 부르거나 그 대상 노드를 고를 때
   - `get_design_context` 응답이 코드 대신 메타데이터로 오거나 성기다고 알릴 때
 tags: mcp, budget, design-context
@@ -16,6 +17,7 @@ tags: mcp, budget, design-context
 `get_design_context`는 대응물이 없는 요소를 읽을 때만 부르고, 그중 가장 작은 노드를 고릅니다.
 비용이 노드 수에 비례하고, 대응물이 있는 요소는 코드로 읽어도 쓸 곳이 없습니다.
 대응물은 저장소나 프로젝트가 쓰는 UI 라이브러리에 이미 있는 컴포넌트입니다.
+스크린샷과 메타데이터를 읽은 뒤 거기서 본 요소마다 대응물을 먼저 찾고 없는 요소만 남깁니다.
 
 ```mermaid
 flowchart LR

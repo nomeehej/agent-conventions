@@ -5,7 +5,7 @@ impact: HIGH
 impactDescription: 디자인 파일의 변수 이름이 코드에 새지 않고 테마와 토큰 변경이 화면에 그대로 반영됩니다
 appliesWhen:
   - Figma에서 읽은 간격, 모서리 반경, 색, 글꼴 값을 스타일에 넣을 때
-  - `get_variable_defs`나 `get_design_context`가 준 변수 이름을 코드에 옮길 때
+  - `get_variable_defs`를 부르거나 그 응답과 `get_design_context`가 준 변수 이름을 코드에 옮길 때
 reviewWith: css/values-fall-back-only-outside-core-tokens, css/values-tokenize-repeated-visual-values
 tags: source, tokens, variables
 ---
@@ -30,7 +30,8 @@ Figma 변수 이름은 디자인 파일의 이름이지 프로젝트의 토큰�
 
 새 토큰을 만들지는 `css/values-tokenize-repeated-visual-values`가 정합니다.
 대체값을 붙일지는 `css/values-fall-back-only-outside-core-tokens`가 정합니다.
-토큰 대응표는 `get_variable_defs` 응답 하나로 만들고, 같은 값을 얻으려고 `get_design_context`를 부르지 않습니다.
+`get_variable_defs`는 스크린샷과 메타데이터를 읽은 뒤 화면 프레임에 한 번 부릅니다.
+토큰 대응표는 그 응답 하나로 만들고, 같은 값을 얻으려고 `get_design_context`를 부르지 않습니다.
 
 **Incorrect 1 (Figma 변수 이름과 대체값을 그대로 옮깁니다):**
 

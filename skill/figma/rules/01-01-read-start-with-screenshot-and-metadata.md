@@ -14,9 +14,10 @@ tags: mcp, budget, screenshot, metadata
 
 **Impact: CRITICAL (한 화면을 읽는 비용을 레이어 정리 상태와 무관하게 예측할 수 있는 범위로 묶습니다)**
 
-Figma 노드는 `get_metadata`, `get_screenshot`, `get_variable_defs`를 먼저 부릅니다.
-`get_design_context`는 마지막에 부르고, URL이 래퍼를 가리키면 `get_metadata`가 첫 호출입니다.
-앞의 셋은 픽셀 수, 노드 수, 변수 수로 비용을 미리 가늠할 수 있습니다.
+Figma 노드는 `get_metadata`, `get_screenshot` 순서로 먼저 읽습니다.
+URL이 래퍼를 가리키면 `get_metadata`가 첫 호출입니다.
+두 도구는 노드 수와 픽셀 수로 비용을 미리 가늠할 수 있습니다.
+`get_variable_defs`와 `get_design_context`는 코드로 옮길 때만 뒤에 더합니다.
 `get_design_context`는 레이어가 정리되지 않았을수록 같은 화면에서도 노드가 몇 배로 늘어납니다.
 인자와 응답 필드 이름은 원격 서버 도구 스키마 기준입니다(2026년 9월 관측).
 
@@ -38,10 +39,10 @@ Figma 노드는 `get_metadata`, `get_screenshot`, `get_variable_defs`를 먼저 
    노드 고르기는 `read-choose-the-node-each-tool-reads`가 정합니다.
 2. `get_metadata`를 부릅니다.
 3. `get_screenshot`을 `maxDimension: 1600`으로 부릅니다.
-4. `get_variable_defs`를 부릅니다.
-5. 스크린샷과 메타데이터에서 본 요소의 대응물을 찾습니다.
-6. 대응물이 없는 요소만 `get_design_context`로 읽습니다.
-   대상은 `read-call-design-context-only-on-small-unmatched-nodes`가 정합니다.
+
+설계 문서의 재료로 읽을 때는 여기서 끝납니다.
+코드로 옮길 때는 `get_variable_defs`를 `source-map-figma-values-to-project-tokens`에 따라 한 번 부릅니다.
+대응물이 없는 요소만 `read-call-design-context-only-on-small-unmatched-nodes`에 따라 코드로 읽습니다.
 
 `get_screenshot` 응답은 수명이 짧은 URL입니다.
 바로 내려받아 파일로 읽고, 셸로 받을 수 없을 때만 `enableBase64Response`를 켭니다.
