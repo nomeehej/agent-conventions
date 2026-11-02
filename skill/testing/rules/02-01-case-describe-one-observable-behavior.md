@@ -38,7 +38,7 @@ fixture, handler, story 선언과 러너 설정 자체에는 실행 사례처럼
 
 독립적인 실패 원인이면 테스트를 나누거나 입력별로 이름이 남는 매개변수화를 사용합니다.
 같은 여정의 여러 바퀴는 시나리오 문장이 있는 `test.step`으로 나눕니다.
-trace에 단계가 필요하면 step에도 GIVEN, WHEN, THEN과 의미를 적고 주석과 중복하지 않습니다.
+step 이름이 그 바퀴의 시나리오 문장이고 step 안은 행동과 검증이라 GIVEN, WHEN, THEN 표시를 다시 붙이지 않습니다.
 주석과 step을 결과서로 읽는 프로젝트에서는 파서가 지원하는 형식을 유지합니다.
 GIVEN, WHEN, THEN 주석을 위해 Cucumber나 별도 BDD 러너를 추가하지 않습니다.
 

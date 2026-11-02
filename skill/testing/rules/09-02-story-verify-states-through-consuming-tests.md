@@ -19,7 +19,8 @@ story 파일이 있다는 이유로 자동화 integration 테스트가 있다고
 
 ### 작성과 실행 순서
 
-1. 구역의 정상, 빈 값, 로딩, 실패 중 변경 계약에 필요한 상태를 고릅니다.
+1. 구역의 대기, 빈 결과, 오류, 성공 중 변경 계약에 필요한 상태를 고릅니다.
+   설계 문서의 상태 표가 있으면 그 줄을 그대로 씁니다.
 2. 공유 handler 목록을 fixture에 연결하고 덮어쓰기 handler를 요청 시작 전에 등록합니다.
 3. 초기 props와 라우트가 있는 story를 `mount`하고 반환된 locator로 범위를 좁힙니다.
    Playwright 1.62부터 내장 `mount`는 `baseURL`의 gallery를 열고 `#root` locator를 돌려줍니다.

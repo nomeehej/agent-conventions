@@ -6,6 +6,7 @@ impactDescription: 디자이너가 이름을 바꾼 레이어 때문에 화면�
 appliesWhen:
   - Figma 화면의 문구, 컬럼 이름을 JSX에 옮기거나 컴포넌트 종류를 고를 때
   - 스크린샷과 레이어 이름이 서로 다른 글자를 보여 줄 때
+  - 설계 문서에 Figma 화면의 문구나 열 이름을 적을 때
 tags: mcp, metadata, copy
 ---
 

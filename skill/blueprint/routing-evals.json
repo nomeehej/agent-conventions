@@ -39,7 +39,9 @@
 				"figma": [
 					"read-start-with-screenshot-and-metadata",
 					"read-choose-the-node-each-tool-reads",
+					"read-take-copy-from-the-render-not-layer-names",
 					"read-collect-hidden-layers-and-annotations",
+					"intent-fill-undrawn-states-with-project-parts",
 					"verify-measure-rendered-values-before-claiming-parity",
 					"verify-report-reads-decisions-and-gaps"
 				]
@@ -78,6 +80,7 @@
 				"figma": [
 					"read-start-with-screenshot-and-metadata",
 					"read-choose-the-node-each-tool-reads",
+					"read-take-copy-from-the-render-not-layer-names",
 					"read-collect-hidden-layers-and-annotations",
 					"verify-measure-rendered-values-before-claiming-parity",
 					"verify-report-reads-decisions-and-gaps"
