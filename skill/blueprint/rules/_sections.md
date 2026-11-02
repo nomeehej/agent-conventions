@@ -36,10 +36,11 @@ BE 카드에는 그림을 붙이고, 닫을 때는 결과 한 줄만 남깁니�
 
 ## 5. Stages and Gates (stage)
 **TitleKo:** 단계와 관문
-**Lead:** 관문 있는 단계 표, 확인 명령으로 보고
+**Lead:** 관문 있는 단계 표, 확인 명령으로 보고, 상태 표에서 뽑는 검사
 **Impact:** HIGH
 **Description:** 구현은 준비, 구역, 연동, 검증 단계로 나누고 막는 질문이 있는 단계만 Blocked로 둡니다.
 완료는 확인 명령의 결과로 보고하고 단계 표를 갱신합니다.
+검사는 Screen 절의 상태 표에서 케이스로 뽑고 케이스 ID로 문서와 spec을 잇습니다.
 
 ## 6. Verification (verify)
 **TitleKo:** 확인

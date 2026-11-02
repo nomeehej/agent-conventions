@@ -36,6 +36,7 @@ ln -s "$PWD/skill" ~/.agents/skills/conventions
 - CSS 작업은 `convention-css`를 사용한다.
 - 테스트 설계, 작성, 검토는 `convention-testing`을 사용한다.
 - Figma 디자인 구현은 `convention-figma`를 사용한다.
+- 설계 문서 작성, 질문 정리, 단계 보고는 `convention-blueprint`를 사용한다.
 ```
 
 프로젝트에는 작업을 담당하는 스킬을 지정한다.
@@ -64,6 +65,7 @@ npm run dev
 - 순수 CSS 작업에서는 TypeScript를 자동으로 켜지 않는다.
 - Testing은 TypeScript를 함께 읽고, React 렌더나 실제 스타일을 바꿀 때만 해당 companion을 켠다.
 - 테스트에서 CSS를 단언하거나 locator를 쓰는 것만으로 React, CSS를 활성화하지 않는다.
+- Blueprint는 Figma를 재료로 읽을 때 Figma를, 설계 문서에서 테스트 케이스를 뽑을 때 Testing을 함께 활성화한다.
 
 테스트 규칙은 [Testing](convention/testing.md)에서 읽는다.
 테스트 추가 여부와 IA 번호, 케이스 ID, 제목 언어, 결과서 형식은 프로젝트 계약을 따른다.

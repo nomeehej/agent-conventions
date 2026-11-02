@@ -41,7 +41,7 @@ The skills declare their dependencies explicitly.
 React always activates the shared TypeScript conventions and adds CSS when styling changes.
 Figma activates React and CSS according to the implementation work involved.
 Testing activates TypeScript and adds React or CSS when a test harness or the implementation changes those areas.
-Blueprint activates Figma only when a Figma file is read as design material.
+Blueprint activates Figma only when a Figma file is read as design material, and Testing only when test cases are derived from the design document.
 This keeps common rules in one place while each area owns its specific decisions.
 
 Testing conventions live under Coding. Vitest and Playwright guidance shares the same rules for scenarios, expectations and isolation.

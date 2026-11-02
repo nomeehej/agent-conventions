@@ -1,11 +1,12 @@
 # Blueprint 설계 문서 컨벤션 Rule Index
 
 - Skill: `blueprint`
-- Routing digest: `sha256:4541e61106b33708084b4f163396e11ec3a00e580490d47ab2f70e23f51f078d`
+- Routing digest: `sha256:31b98e11eaa98da5b1be0e613815b812ed94ac9274e6a44867a47768030ed3fb`
 
 ## Direct Companions
 
 - `figma` (`conditional`) · Applies when: Figma 파일이나 노드를 설계 문서의 재료로 읽는다. · [SKILL.md](../figma/SKILL.md) · [RULES_INDEX.md](../figma/RULES_INDEX.md)
+- `testing` (`conditional`) · Applies when: 설계 문서의 상태 표에서 테스트 케이스나 story를 뽑거나 단계 표의 Check를 케이스 ID로 채운다. · [SKILL.md](../testing/SKILL.md) · [RULES_INDEX.md](../testing/RULES_INDEX.md)
 
 ## Local Rules
 
@@ -30,5 +31,6 @@
 - B04-05 | writing-show-screens-as-numbered-captures | 설계 문서에서 화면 모양이나 질문 자리를 보여 줄 때. 화면 목업을 HTML이나 표로 손수 그리려 할 때.
 - B05-01 | stage-split-work-into-gated-stages | 화면 문서의 Remaining 절을 쓸 때. 구현 순서를 정하거나 바꿀 때. 제외: 설계 문서의 단계 표가 없는 작업 계획인 경우.
 - B05-02 | stage-report-done-with-the-check-command | 설계 문서의 단계 구현을 끝내고 보고할 때. 단계 표의 상태를 Done으로 바꿀 때. | completionGate
+- B05-03 | stage-derive-checks-from-state-tables | 설계 문서의 상태 표나 흐름도에서 테스트 케이스나 story를 뽑을 때. 단계 표의 \`Check\` 칸을 케이스 ID로 채울 때.
 - B06-01 | verify-build-the-site-before-handing-over | 설계 문서 작업을 마무리하거나 넘길 때. 설계 문서를 고친 뒤 완료로 보고할 때. | completionGate
 - B06-02 | verify-diff-facts-when-restyling-or-moving | 설계 문서의 문체를 바꾸거나 절을 옮길 때. 설계 문서의 절 번호나 제목을 바꿀 때.

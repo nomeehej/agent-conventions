@@ -24,8 +24,9 @@ flowchart LR
 | 결과 | 뜻 |
 | --- | --- |
 | `As recommended` | 추천대로 |
-| `Per Figma`, `Per demo`, `Per spec` | 그 재료대로 |
+| `Per Figma`, `Per demo`, `Per spec`, `Per capture` | 그 재료대로 |
 | `Dev decision` | 개발이 정함 |
+| `User` | 사용자가 정함 |
 | `Kept` | 지금대로 |
 | `Rejected` | 하지 않음 |
 | `N/A` | 질문이 성립하지 않음 |

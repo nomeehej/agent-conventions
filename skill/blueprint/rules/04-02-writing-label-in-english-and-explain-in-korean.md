@@ -29,7 +29,7 @@ tags: writing, labels, vocabulary
 | 쓰임 | 어휘 | for-humanity 배지 `kind` |
 | --- | --- | --- |
 | 질문 | `Needs answer`, `Waiting on BE`, `Waiting on plan`, `User decides`, `Follow-up` | `unverified` |
-| 결과 | `As recommended`, `Per Figma`, `Per demo`, `Per spec`, `Dev decision`, `Kept`, `Rejected`, `N/A`, `Moved` | `neutral`, 날짜 포함 |
+| 결과 | `As recommended`, `Per Figma`, `Per demo`, `Per spec`, `Per capture`, `Dev decision`, `User`, `Kept`, `Rejected`, `N/A`, `Moved` | `neutral`, 날짜 포함 |
 | 단계 | `Ready`, `Done` | `verified`. `Done`은 날짜 포함 |
 | 단계 | `Waiting on BE` | `unverified` |
 | 단계 | `Blocked` | `blocked` |
@@ -43,6 +43,6 @@ tags: writing, labels, vocabulary
 
 <<< ../examples/writing-label-in-english-and-explain-in-korean/01-incorrect.markdown
 
-**Correct 1 (영어 항목 이름과 고정 상태 어휘, 한국어 내용으로 씁니다):**
+**Correct 1 (영어 항목 이름과 고정 상태 어휘, 한국어 내용으로 쓰고 config가 그 어휘를 배지와 칩으로 묶습니다):**
 
 <<< ../examples/writing-label-in-english-and-explain-in-korean/02-correct.markdown

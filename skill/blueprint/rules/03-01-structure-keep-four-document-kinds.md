@@ -28,6 +28,15 @@ frontmatter는 `name`, `label`, `group`, `order`에 `created`, `revised`를 더�
 `label`은 무슨 문서인지 한 줄입니다. for-humanity 0.29.0부터 제목 아래 글머리와 사이드바 설명으로 나갑니다.
 홈 `README.md`는 문서 지도만 적고 지금 단계는 overview를 가리킵니다.
 
+새 프로젝트는 아래 순서로 시작합니다.
+
+| 순서 | 일 | 정하는 규칙 |
+| --- | --- | --- |
+| 1 | `npx for-humanity init`으로 `content/`와 `for-humanity.config.ts`를 만듦 | — |
+| 2 | config의 `status`, `refs`를 고정 어휘로 채움 | `writing-label-in-english-and-explain-in-korean` |
+| 3 | `README.md`, `overview.md`, `questions.md` 틀 | `structure-write-overview-as-the-project-map`, `question-keep-every-number-in-one-page` |
+| 4 | 첫 화면 문서 | `structure-order-screen-docs-for-two-readers` |
+
 **Incorrect 1 (증분 문서와 남은 일감 문서를 따로 만들어 같은 화면의 정답이 세 곳에 흩어집니다):**
 
 <<< ../examples/structure-keep-four-document-kinds/01-incorrect.markdown

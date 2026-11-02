@@ -7,13 +7,32 @@
 - Also: 상태 칩 색
 
 ```ts
+// for-humanity.config.ts
 export default {
 	status: [
-		{phrase: "Done", kind: "verified", date: true},
+		{phrase: "Needs answer", kind: "unverified"},
+		{phrase: "Waiting on BE", kind: "unverified"},
 		{phrase: "Waiting on plan", kind: "unverified"},
-		{phrase: "Blocked", kind: "blocked"},
+		{phrase: "User decides", kind: "unverified"},
+		{phrase: "Follow-up", kind: "unverified"},
 		{phrase: "As recommended", kind: "neutral", date: true},
+		{phrase: "Per Figma", kind: "neutral", date: true},
+		{phrase: "Per demo", kind: "neutral", date: true},
+		{phrase: "Per spec", kind: "neutral", date: true},
+		{phrase: "Per capture", kind: "neutral", date: true},
+		{phrase: "Dev decision", kind: "neutral", date: true},
+		{phrase: "User", kind: "neutral", date: true},
+		{phrase: "Kept", kind: "neutral", date: true},
+		{phrase: "Rejected", kind: "neutral", date: true},
+		{phrase: "N/A", kind: "neutral", date: true},
+		{phrase: "Moved", kind: "neutral", date: true},
+		{phrase: "Ready", kind: "verified"},
+		{phrase: "Done", kind: "verified", date: true},
+		{phrase: "Blocked", kind: "blocked"},
+		{phrase: "Design", kind: "neutral"},
+		{phrase: "Implemented", kind: "neutral"},
+		{phrase: "Paused", kind: "neutral"},
 	],
-	refs: [{prefix: "Q", color: "violet"}, {prefix: "B", color: "amber"}, {prefix: "D"}, {prefix: "R", color: "violet"}],
+	refs: [{prefix: "D"}, {prefix: "Q", color: "violet"}, {prefix: "B", color: "amber"}, {prefix: "R", color: "violet"}],
 };
 ```

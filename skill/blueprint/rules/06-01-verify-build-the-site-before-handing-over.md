@@ -26,7 +26,7 @@ tags: verify, build, links
 | 눈 확인 | 바꾼 절을 밝은 테마, 어두운 테마, 390 폭으로 열어 봄 |
 
 빌드가 통과했다는 것은 링크와 부품이 멀쩡하다는 뜻이지 사실이 맞다는 근거가 아닙니다. 사실 대조는 따로 합니다.
-검사 명령은 프로젝트 문서 폴더에서 한 번에 돌릴 수 있게 스크립트로 둡니다.
+앞의 다섯 검사는 `script/check-docs.mjs` 한 번으로 돌립니다. 눈 확인만 손으로 합니다.
 
 **Incorrect 1 (빌드와 검사 없이 정리했다고 넘깁니다):**
 
@@ -35,3 +35,7 @@ tags: verify, build, links
 **Correct 1 (검사 명령과 출력으로 넘깁니다):**
 
 <<< ../examples/verify-build-the-site-before-handing-over/02-correct.markdown
+
+**Correct (다섯 검사를 한 번에 돌리는 스크립트입니다. 프로젝트의 `script/`에 복사합니다):**
+
+<<< ../examples/verify-build-the-site-before-handing-over/03-correct.mjs

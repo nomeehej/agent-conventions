@@ -1,15 +1,6 @@
 ## Checks
 
-```sh
-# scripts/check-docs.sh
-npm run docs:build
-grep -ohE "^### [DQBR][0-9]+$|^\| [DQBR][0-9]+ \|" content/public/questions.md | grep -oE "[DQBR][0-9]+" | sort | uniq -d
-awk '/^### /{if (opt && n != 1) print id; id = $2; opt = 0; n = 0} /^\| [A-C]/{opt = 1} /★/{n++} END{if (opt && n != 1) print id}' content/public/questions.md
-grep -rnE "[가-힣]+다\.?$" content/public --include="*.md"
-grep -c "^### [QBR][0-9]" content/public/questions.md
-grep -h "^열린 카드" content/public/screen/*.md
-```
-
+- `node script/check-docs.mjs` → 검사 통과
 - build: 29 files, 경고 0
 - 번호 중복: 없음
 - 추천 하나: 위반 없음

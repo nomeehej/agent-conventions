@@ -207,6 +207,37 @@
 					"verify-diff-facts-when-restyling-or-moving"
 				]
 			}
+		},
+		{
+			"id": "BPE08-derive-cases-from-state-tables",
+			"prompt": "stage 2 of the orders list blueprint is about to start: add case IDs to the State tables of content/public/screen/orders.md, set the stage 2 Check to a --grep over those IDs, and write test/orders/orders.integration.spec.ts with one case per table row, fixme until stage 3 for the error state that needs the refund field.",
+			"files": [
+				"content/public/screen/orders.md",
+				"test/orders/orders.integration.spec.ts"
+			],
+			"expectedSkills": [
+				"blueprint",
+				"testing",
+				"typescript"
+			],
+			"expectedSelected": {
+				"blueprint": [
+					"writing-use-noun-phrases-one-fact-per-line",
+					"stage-split-work-into-gated-stages",
+					"stage-report-done-with-the-check-command",
+					"stage-derive-checks-from-state-tables",
+					"verify-build-the-site-before-handing-over"
+				],
+				"testing": [
+					"scope-choose-the-smallest-reliable-boundary",
+					"scope-place-tests-by-owner-and-separate-runner-globs",
+					"case-describe-one-observable-behavior",
+					"case-cover-relevant-states-and-boundaries",
+					"network-override-transport-and-keep-owned-logic-real",
+					"story-verify-states-through-consuming-tests"
+				],
+				"typescript": []
+			}
 		}
 	]
 }

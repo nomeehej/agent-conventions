@@ -58,7 +58,7 @@ build tooling은 [content/public/tooling.md](./content/public/tooling.md).
 계층은 이 선언이 정한다. 나를 companion으로 켜는 skill이 위 계층이고,
 `typescript`는 아무 skill도 켜지 않으므로 가장 아래다.
 `figma`, `testing`은 변경 범위에 따라 `react`, `css`를 켜는 위 계층이다.
-`blueprint`는 Figma를 재료로 읽을 때 `figma`를 켜는 가장 위 계층이다.
+`blueprint`는 Figma를 재료로 읽을 때 `figma`를, 설계 문서에서 테스트 케이스를 뽑을 때 `testing`을 켜는 가장 위 계층이다.
 아래에서 위를 가리키지 않는다.
 
 ---
