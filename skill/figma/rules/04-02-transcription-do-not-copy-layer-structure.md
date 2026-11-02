@@ -14,15 +14,16 @@ tags: transcription, layers, markup
 
 **Impact: HIGH (디자이너가 도형을 쌓은 방식이 래퍼, 절대 좌표, 임의 값 클래스로 코드에 남지 않습니다)**
 
-`get_design_context` 코드는 레이어 트리를 그대로 펼친 결과라, 디자이너가 도형을 쌓은 방식이 DOM에 남습니다.
-옮기기 전에 그 묶음이 화면에서 무엇을 하는지 한 문장으로 말하고, 그 뜻을 CSS 선언이나 컴포넌트로 다시 씁니다.
+`get_design_context` 코드는 레이어 트리를 그대로 펼친 결과라 디자이너가 도형을 쌓은 방식이 DOM에 남습니다.
+옮기기 전에 그 묶음이 화면에서 무엇을 하는지 한 문장으로 말합니다.
+그 뜻을 CSS 선언이나 컴포넌트로 다시 씁니다.
 프로젝트가 Tailwind를 쓰지 않으면 출력의 클래스는 한 개도 옮기지 않습니다.
 
 | 출력에 보이는 것 | 뜻 | 옮기는 법 |
 | --- | --- | --- |
 | 회전한 선을 감싼 `div` 여러 겹과 `img` | 구분선 | `border`, `gap` |
 | `absolute`, `inset-[…]`, 좌표 | 쌓은 배치 | `flex`, `grid` 흐름 배치 |
-| `w-[270px]` 같은 임의 값 Tailwind 클래스 | 샘플 크기 | Tailwind를 쓰지 않으면 프로젝트 CSS 클래스로, 쓰면 토큰 클래스로 바꿉니다. 크기는 `intent-treat-frame-sizes-and-sample-text-as-samples`를 따릅니다 |
+| `w-[270px]` 같은 임의 값 Tailwind 클래스 | 샘플 크기 | 프로젝트 CSS 클래스로, Tailwind를 쓰면 토큰 클래스로 바꿉니다. 크기는 `intent-treat-frame-sizes-and-sample-text-as-samples`를 따릅니다 |
 | 인라인 `svg`의 선, 사각형 | 장식 도형 | `border`, `background` |
 | 자식 하나만 감싼 래퍼 | 레이어 묶음 | 없앱니다 |
 | `data-node-id`, `data-name` | Figma 추적용 속성 | 지웁니다 |
