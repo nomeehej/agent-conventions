@@ -20,7 +20,7 @@ tags: writing, capture, figure, playwright
 | Figma 프레임 | REST `GET /v1/images/{key}?ids=…&scale=1&format=png`. 토큰은 git 밖 파일, 출력에 찍지 않음 |
 | 앱 화면 | preview 빌드 위에 Playwright. 세션을 심고 구역을 clip |
 
-번호는 캡처에 굽습니다. Playwright가 구역 위에 번호 배지를 DOM으로 꽂은 뒤 찍으면 이미지 후처리가 없습니다.
+번호는 캡처에 그려 넣습니다. Playwright가 구역 위에 번호 배지를 DOM으로 꽂은 뒤 찍으면 이미지 후처리가 없습니다.
 캡처는 `img/<화면>/`에 두고 설명은 번호 목록으로 씁니다. 값은 자리 예시이고 모양 정답은 Figma입니다.
 앱 캡처 폭은 1600입니다. 긴 화면은 구역마다 찍습니다.
 

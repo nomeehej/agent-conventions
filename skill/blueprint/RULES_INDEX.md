@@ -1,7 +1,7 @@
 # Blueprint 설계 문서 컨벤션 Rule Index
 
 - Skill: `blueprint`
-- Routing digest: `sha256:dd42439670eec1fbcc2488d540438014adf524d742ae399a8ae0a7a8a00be327`
+- Routing digest: `sha256:4541e61106b33708084b4f163396e11ec3a00e580490d47ab2f70e23f51f078d`
 
 ## Direct Companions
 
@@ -24,7 +24,7 @@
 - B03-04 | structure-keep-the-body-current-and-log-changes-apart | 전달문, Figma 수정, spec 갱신을 받아 설계 문서를 고칠 때. 화면 문서에 날짜가 붙은 절이나 소제목을 더하려 할 때.
 - B03-05 | structure-write-overview-as-the-project-map | overview 문서를 쓸 때. 화면 문서에 프로젝트 전체의 라우트, 계층, 규약을 적으려 할 때.
 - B04-01 | writing-use-noun-phrases-one-fact-per-line | 설계 문서의 본문, 표, 캡션을 쓸 때. 설계 문서의 긴 문장을 고칠 때.
-- B04-02 | writing-label-in-english-and-explain-in-korean | 설계 문서의 표 머리, 상태, 열쇠말을 정할 때. 새 상태 말이나 열쇠말을 만들려 할 때.
+- B04-02 | writing-label-in-english-and-explain-in-korean | 설계 문서의 표 머리, 상태, 카드 항목 이름을 정할 때. 새 상태 말이나 카드 항목 이름을 만들려 할 때.
 - B04-03 | writing-cite-at-the-end-and-link-figma-nodes | 설계 문서에 출처, Figma 노드, 파일 위치를 적을 때. 본문에 노드 id나 파일 경로가 글자로 드러날 때.
 - B04-04 | writing-draw-flows-with-mermaid-and-trees-with-treeview | 설계 문서에서 흐름, 구조, 순서를 그림으로 그릴 때. 설계 문서에 ASCII 상자로 흐름이나 구조를 그리려 할 때. 제외: 화면 모양을 보여 주는 경우.
 - B04-05 | writing-show-screens-as-numbered-captures | 설계 문서에서 화면 모양이나 질문 자리를 보여 줄 때. 화면 목업을 HTML이나 표로 손수 그리려 할 때.

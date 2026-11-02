@@ -4,8 +4,8 @@ titleKo: 라벨은 영어, 설명은 한국어로 씁니다
 impact: HIGH
 impactDescription: 어색한 한국어 라벨과 지어낸 상태 말을 없애 표와 카드를 한눈에 읽게 합니다
 appliesWhen:
-  - 설계 문서의 표 머리, 상태, 열쇠말을 정할 때
-  - 새 상태 말이나 열쇠말을 만들려 할 때
+  - 설계 문서의 표 머리, 상태, 카드 항목 이름을 정할 때
+  - 새 상태 말이나 카드 항목 이름을 만들려 할 때
 tags: writing, labels, vocabulary
 ---
 
@@ -18,7 +18,7 @@ tags: writing, labels, vocabulary
 | 자리 | 언어 |
 | --- | --- |
 | 절 제목, 표 머리 | 영어 |
-| 열쇠말(`question-write-cards-with-options-and-one-pick`의 표), 단계 `Blocks stage 2` | 영어 |
+| 카드 항목 이름(`question-write-cards-with-options-and-one-pick`의 표), 단계 `Blocks stage 2` | 영어 |
 | 상태 배지 | 영어 |
 | frontmatter `name`, `group` | 영어 |
 | 본문, 캡션 | 한국어 |
@@ -39,10 +39,10 @@ tags: writing, labels, vocabulary
 배지 뒤 날짜는 `YYYY-MM-DD`로 씁니다. for-humanity는 그 꼴만 배지에 묶습니다.
 링크와 제목 안의 문구는 배지가 되지 않으므로 상태 뒤의 번호는 링크로 따로 둡니다.
 
-**Incorrect 1 (열쇠말과 상태를 한국어와 지어낸 말로 써서 카드마다 다르게 읽힙니다):**
+**Incorrect 1 (카드 항목 이름과 상태를 한국어와 지어낸 말로 써서 카드마다 다르게 읽힙니다):**
 
 <<< ../examples/writing-label-in-english-and-explain-in-korean/01-incorrect.markdown
 
-**Correct 1 (영어 열쇠말과 고정 상태 어휘, 한국어 내용으로 씁니다):**
+**Correct 1 (영어 항목 이름과 고정 상태 어휘, 한국어 내용으로 씁니다):**
 
 <<< ../examples/writing-label-in-english-and-explain-in-korean/02-correct.markdown

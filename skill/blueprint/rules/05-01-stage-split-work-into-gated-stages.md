@@ -19,7 +19,7 @@ tags: stage, gate, remaining
 ```mermaid
 flowchart LR
 	q1{"이 단계의 코드가 답에 따라<br>달라지는 질문이 있는가?"} -- 예 --> r1("Blocked,<br>그 질문 링크")
-	q1 -- 아니요 --> q2{"기대는 앞 단계가<br>끝났는가?"} -- 아니요 --> r2("Blocked,<br>앞 단계 번호")
+	q1 -- 아니요 --> q2{"선행 단계가<br>끝났는가?"} -- 아니요 --> r2("Blocked,<br>앞 단계 번호")
 	q2 -- 예 --> q3{"BE가 줘야<br>시작하는가?"} -- 예 --> r3("Waiting on BE,<br>연동 단계로")
 	q3 -- 아니요 --> r4("Ready, 끝나면 Check<br>명령으로 Done")
 ```
@@ -35,9 +35,9 @@ flowchart LR
 
 | 칸 | 쓰는 법 |
 | --- | --- |
-| `Blocker` | 그 단계의 코드가 답에 따라 달라지는 질문 링크. 여러 단계를 막으면 가장 이른 단계에. 기대는 앞 단계가 안 끝났으면 그 단계 번호 |
+| `Blocker` | 그 단계의 코드가 답에 따라 달라지는 질문 링크. 여러 단계를 막으면 가장 이른 단계에. 선행 단계가 안 끝났으면 그 단계 번호 |
 | `Check` | 끝났음을 보이는 명령 하나 |
-| `Status` | `Ready`, `Blocked`, `Waiting on BE`, `Done` 날짜. 기대는 앞 단계가 안 끝났으면 `Blocked` |
+| `Status` | `Ready`, `Blocked`, `Waiting on BE`, `Done` 날짜. 선행 단계가 안 끝났으면 `Blocked` |
 
 BE 대기는 막는 것으로 세지 않고 연동 단계에 둡니다. 단계 표 아래에 열린 카드 수와 `questions.md` 링크를 둡니다.
 
