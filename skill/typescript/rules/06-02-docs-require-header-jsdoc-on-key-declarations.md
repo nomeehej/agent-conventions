@@ -7,9 +7,7 @@ appliesWhen:
   - 쿼리, 뮤테이션, 원격 함수, 커스텀 훅, 스토어, 포매터 선언을 추가, 변경할 때
   - 분기나 `await`나 두 개 이상의 동작이 있는 핸들러와 이펙트를 추가, 변경할 때
   - 다시 쓰거나 내보낸 보조 함수를 추가, 변경할 때
-requiresSelected: >-
-  docs-write-korean-comments-about-purpose-and-constraints,
-  docs-write-doc-comments-as-multiline-blocks
+requiresSelected: docs-write-korean-comments-about-purpose-and-constraints
 tags: docs, jsdoc, declarations, boundaries
 ---
 

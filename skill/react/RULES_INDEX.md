@@ -1,7 +1,7 @@
 # React 컨벤션 Rule Index
 
 - Skill: `react`
-- Routing digest: `sha256:a6909d1078f95aa79e137f776fcc31e5eb3ddc2139255e316f5634576e4266c4`
+- Routing digest: `sha256:28681e57af7a45582df391d0d8c3636749e44009e839fb4d8292a78b5be542c5`
 
 ## Direct Companions
 
@@ -62,5 +62,5 @@
 - R10-03 | perf-defer-heavy-renders-with-measured-evidence | \`startTransition\`, \`useTransition\`, \`useDeferredValue\`를 추가, 삭제할 때. 목록이나 표가 커져 입력 반응이 늦다는 보고를 받았을 때. | reviewWith: perf-avoid-defensive-memoization
 - R11-01 | a11y-give-interactive-elements-an-accessible-name | 클릭이나 입력을 받는 요소를 추가, 변경할 때. 글자 없이 아이콘만 있는 버튼을 추가할 때.
 - R12-01 | docs-require-jsdoc-on-key-declarations | 쿼리, 뮤테이션이나 읽어도 의도가 안 보이는 핸들러, 이펙트를 추가, 변경할 때. 내보낸 보조 함수, 훅, 스토어 선언을 추가, 변경할 때. | reviewWith: typescript/types-document-custom-types-and-shapes
-- R12-02 | docs-write-jsx-comments-as-multiline-blocks | JSX 자식 자리에 주석을 새로 쓰거나 기존 주석의 형식을 바꿀 때. 화면을 구역으로 나누고 그 구역이 무엇을 담당하는지 적을 때. JSX에 여러 줄로 펼쳐진 형제 블록을 새로 만들거나 나눌 때. | reviewWith: typescript/docs-write-doc-comments-as-multiline-blocks, typescript/docs-write-korean-comments-about-purpose-and-constraints
+- R12-02 | docs-write-jsx-comments-as-multiline-blocks | JSX 자식 자리에 주석을 새로 쓰거나 기존 주석의 형식을 바꿀 때. 화면을 구역으로 나누고 그 구역이 무엇을 담당하는지 적을 때. JSX에 여러 줄로 펼쳐진 형제 블록을 새로 만들거나 나눌 때. | reviewWith: typescript/docs-write-korean-comments-about-purpose-and-constraints
 - R13-01 | tooling-enable-the-biome-react-domain | 프로젝트에 \`biome\` 설정을 처음 넣거나 lint 규칙을 바꿀 때. \`biome.json\`의 \`linter.domains\`나 \`linter.rules\`에 항목을 추가, 삭제할 때.

@@ -6,6 +6,7 @@ impactDescription: 몇 해 뒤에 코드를 여는 사람도 주석을 한눈에
 appliesWhen:
   - TypeScript, TSX의 문서 주석이나 인라인 주석 문구를 추가, 수정, 번역하거나 검토할 때
   - 문서 주석에 태그를 붙이거나 뺄 때
+  - 선언 위 문서 주석의 형식을 바꾸거나 한 줄 `/** … */`, `//`로 선언을 설명하려 할 때
 tags: docs, comments
 ---
 
@@ -52,11 +53,13 @@ tags: docs, comments
 
 ### 상자
 
-문서 주석은 제목 한 줄이 기본입니다.
+문서 주석은 `/**`, `*`, `*/`를 각각 다른 줄에 둔 여러 줄 블록이고 제목 한 줄이 기본입니다.
 본문이 있으면 빈 줄 뒤에 두 칸 들여쓴 목록 하나로 씁니다. 평문 줄은 쓰지 않습니다.
 
 | 자리 | 기준 |
 | --- | --- |
+| `/** 한 줄 */` | 쓰지 않습니다. 제목 하나여도 세 줄 블록입니다 |
+| 선언 위 `//` | 선언 설명에 쓰지 않습니다. `docs-justify-convention-exceptions-with-a-reason-comment`의 예외 이유에만 씁니다 |
 | 제목 | 선언이 무엇인지 명사구 한 줄. 짧은 보충 하나는 마침표 뒤 같은 줄 |
 | 본문 | 빈 줄 하나 뒤, 줄마다 `  - `로 시작하는 목록. 사실 하나면 항목 하나 |
 | 항목 | 사실 하나. 결론이 먼저이고 이유는 마침표 뒤 |
@@ -144,3 +147,15 @@ tags: docs, comments
 **Correct 6 (무엇을 조회해 무엇으로 가공하는지와 엔드포인트를 적습니다):**
 
 <<< ../examples/docs-write-korean-comments-about-purpose-and-constraints/12-correct.ts
+
+**Incorrect 7 (한 줄 블록과 `//`로 선언을 설명합니다):**
+
+<<< ../examples/docs-write-korean-comments-about-purpose-and-constraints/13-incorrect-1.ts
+
+<<< ../examples/docs-write-korean-comments-about-purpose-and-constraints/13-incorrect-2.ts
+
+**Correct 7 (같은 내용을 여러 줄 블록으로 고정합니다):**
+
+<<< ../examples/docs-write-korean-comments-about-purpose-and-constraints/14-correct-1.ts
+
+<<< ../examples/docs-write-korean-comments-about-purpose-and-constraints/14-correct-2.ts

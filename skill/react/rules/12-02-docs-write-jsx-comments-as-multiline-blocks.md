@@ -7,9 +7,7 @@ appliesWhen:
   - JSX 자식 자리에 주석을 새로 쓰거나 기존 주석의 형식을 바꿀 때
   - 화면을 구역으로 나누고 그 구역이 무엇을 담당하는지 적을 때
   - JSX에 여러 줄로 펼쳐진 형제 블록을 새로 만들거나 나눌 때
-reviewWith: >-
-  typescript/docs-write-doc-comments-as-multiline-blocks,
-  typescript/docs-write-korean-comments-about-purpose-and-constraints
+reviewWith: typescript/docs-write-korean-comments-about-purpose-and-constraints
 tags: docs, jsx, comments
 ---
 

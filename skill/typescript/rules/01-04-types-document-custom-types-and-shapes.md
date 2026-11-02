@@ -7,9 +7,7 @@ appliesWhen:
   - 타입, `interface`, 스키마 최상단, 객체 상수, 계약 필드, 파생 별칭을 추가, 변경할 때
   - 이름 붙인 형태에 호출 계약 역할을 새로 얹을 때
   - 제외: 외부, 생성된, 읽기 전용, 공용 형태를 그대로 쓰거나 반환 타입이 익명으로 추론되는 경우
-requiresSelected: >-
-  docs-write-korean-comments-about-purpose-and-constraints,
-  docs-write-doc-comments-as-multiline-blocks
+requiresSelected: docs-write-korean-comments-about-purpose-and-constraints
 tags: types, jsdoc
 ---
 

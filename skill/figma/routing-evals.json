@@ -75,8 +75,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-import-by-absolute-path",
 					"docs-require-header-jsdoc-on-key-declarations",
-					"docs-write-korean-comments-about-purpose-and-constraints",
-					"docs-write-doc-comments-as-multiline-blocks"
+					"docs-write-korean-comments-about-purpose-and-constraints"
 				],
 				"css": [
 					"naming-use-scope-slug-element-modifier-syntax",

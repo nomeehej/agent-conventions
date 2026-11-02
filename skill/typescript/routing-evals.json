@@ -57,8 +57,7 @@
 					"types-document-custom-types-and-shapes",
 					"types-narrow-unknown-instead-of-asserting",
 					"docs-require-header-jsdoc-on-key-declarations",
-					"docs-write-korean-comments-about-purpose-and-constraints",
-					"docs-write-doc-comments-as-multiline-blocks"
+					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -76,8 +75,7 @@
 					"types-document-custom-types-and-shapes",
 					"types-choose-interface-for-object-contracts-and-type-for-composition",
 					"docs-require-header-jsdoc-on-key-declarations",
-					"docs-write-korean-comments-about-purpose-and-constraints",
-					"docs-write-doc-comments-as-multiline-blocks"
+					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -96,8 +94,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-name-types-by-role-and-lifetime",
 					"docs-require-header-jsdoc-on-key-declarations",
-					"docs-write-korean-comments-about-purpose-and-constraints",
-					"docs-write-doc-comments-as-multiline-blocks"
+					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -139,8 +136,7 @@
 						"functions-promote-owner-free-functions-to-root-util",
 						"functions-name-functions-by-what-comes-out",
 						"docs-require-header-jsdoc-on-key-declarations",
-						"docs-write-korean-comments-about-purpose-and-constraints",
-						"docs-write-doc-comments-as-multiline-blocks"
+						"docs-write-korean-comments-about-purpose-and-constraints"
 					]
 				}
 			}
@@ -211,7 +207,6 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"docs-require-header-jsdoc-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints",
-					"docs-write-doc-comments-as-multiline-blocks",
 					"tooling-configure-biome-to-enforce-these-rules"
 				]
 			}
@@ -389,8 +384,7 @@
 				"typescript": [
 					"types-derive-subsets-with-indexed-access",
 					"types-document-custom-types-and-shapes",
-					"docs-write-korean-comments-about-purpose-and-constraints",
-					"docs-write-doc-comments-as-multiline-blocks"
+					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -422,8 +416,7 @@
 				"typescript": [
 					"types-document-custom-types-and-shapes",
 					"naming-use-consistent-file-and-symbol-naming",
-					"docs-write-korean-comments-about-purpose-and-constraints",
-					"docs-write-doc-comments-as-multiline-blocks"
+					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
 		},
