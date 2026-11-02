@@ -23,7 +23,7 @@ tags: testing, network, kubb, faker, msw
 
 1. OpenAPI와 생성 설정에서 DTO, status별 factory, handler signature를 확인합니다.
 2. 소유 도메인 builder에서 DTO faker를 호출하고 관찰되는 값과 관계를 고정합니다.
-3. 소유 endpoint handler에서 요청을 읽고 상태와 해당 status의 응답 factory를 선택합니다.
+3. 소유 endpoint handler에서 요청을 읽고 상태에 맞는 status 응답 factory를 고릅니다.
 4. 공유 handler 목록에서 소유 handler를 생성 fallback 앞에 둡니다.
 5. 브라우저와 Node에 같은 공유 handler 목록을 연결한 뒤 story와 spec에서 필요한 차이만 덮습니다.
 
@@ -32,9 +32,9 @@ tags: testing, network, kubb, faker, msw
 endpoint handler는 요청과 상태를 맡고 표, 정렬, 수치 계산은 도메인 builder에 둡니다.
 입력 파싱을 handler가 먼저 하거나 URL을 도메인 builder에 넘기는 방식은 프로젝트 계약에 맞춥니다.
 
-### 결정적인 응답과 재생성
+### 정해진 응답과 재생성
 
-실제 화면이 호출하는 endpoint는 소유 handler에서 관찰되는 값을 결정합니다.
+실제 화면이 호출하는 endpoint는 소유 handler에서 관찰되는 값을 정합니다.
 생성 fallback이 존재한다는 이유로 난수 응답을 정상 시나리오에 그대로 사용하지 않습니다.
 정상 응답 본문에는 성공 status factory를 쓰고 오류 사례에는 그 오류 status factory를 씁니다.
 여러 상태의 union을 만드는 범용 `Response` factory가 기본값을 합쳐 준다고 가정하지 않습니다.

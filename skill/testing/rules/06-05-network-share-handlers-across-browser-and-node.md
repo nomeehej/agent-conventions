@@ -26,7 +26,7 @@ tags: testing, network, msw, playwright
 cookie를 생략하는 `headers` 대신 `allHeaders`를 사용하고 상대 handler의 `baseUrl`도 맞춥니다.
 여러 `Set-Cookie`는 `getSetCookie`로 읽고 줄바꿈으로 이어 전달합니다.
 `route.fulfill`이 줄바꿈으로 나누는 동작은 문서에 없으므로 설치 버전에서 확인합니다.
-처리되지 않은 API 요청은 실패로 연결하고, 실제 호출 허용 목록만 명시적으로 통과시킵니다.
+처리되지 않은 API 요청은 실패로 연결하고 실제 호출 허용 목록만 통과시킵니다.
 `passthrough`를 무조건 네트워크로 보내지 않고 프로젝트의 실제 호출 계약을 확인합니다.
 MSW 2.x 기준입니다. 3.x는 `onUnhandledFrame`과 `{ frame, defaults }` 콜백을 씁니다.
 

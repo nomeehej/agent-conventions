@@ -13,7 +13,7 @@ tags: testing, playwright
 
 **Impact: HIGH (불필요한 탐색을 줄이면서 라우팅과 상태 전달의 연결을 실제로 검증합니다)**
 
-검증 전 사전조건은 fixture, API, 딥링크로 직접 준비할 수 있습니다.
+검증 전 사전조건은 fixture, API, 딥링크로 직접 준비합니다.
 검증 대상인 클릭, 이동, URL 상태 전달은 실제 UI와 앱 진입점을 통과합니다.
 
 ```mermaid

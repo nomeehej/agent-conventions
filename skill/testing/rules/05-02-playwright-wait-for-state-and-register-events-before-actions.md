@@ -25,7 +25,7 @@ flowchart LR
 
 ### 상태 대기
 
-표시, 문구, 개수, URL은 해당 locator나 page의 재시도 matcher로 기다립니다.
+표시, 문구, 개수, URL은 그 locator나 page의 재시도 matcher로 기다립니다.
 web-first matcher가 없는 관측값은 상한이 있는 `expect.poll`로 기다립니다.
 준비 이벤트가 없는 canvas는 렌더 완료 신호나 안정된 관측 조건에 시간 상한을 두고 기다립니다.
 임의의 sleep, `networkidle`, `force` 옵션으로 준비 상태를 대신하지 않습니다.

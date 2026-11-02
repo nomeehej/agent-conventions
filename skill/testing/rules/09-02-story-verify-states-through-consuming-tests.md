@@ -25,7 +25,7 @@ story 파일이 있다는 이유로 자동화 integration 테스트가 있다고
 3. 초기 props와 라우트가 있는 story를 `mount`하고 반환된 locator로 범위를 좁힙니다.
    Playwright 1.62부터 내장 `mount`는 `baseURL`의 gallery를 열고 `#root` locator를 돌려줍니다.
 4. GIVEN, WHEN, THEN으로 준비, 행동, 결과를 설명하고 DOM, URL, 파일 결과를 단언합니다.
-5. gallery를 포함한 테스트 빌드, 수집 목록과 해당 spec의 실제 실행을 확인합니다.
+5. gallery를 포함한 테스트 빌드, 수집 목록과 그 spec의 실제 실행을 확인합니다.
 
 gallery의 `baseURL`과 앱 E2E의 `baseURL`, 두 project의 수집 패턴을 구분합니다.
 브라우저 mock의 가로채기 경계는 `network-share-handlers-across-browser-and-node`를 따릅니다.
@@ -35,7 +35,7 @@ gallery의 `baseURL`과 앱 E2E의 `baseURL`, 두 project의 수집 패턴을 �
 
 구역의 상태 조합은 integration에서, 실제 앱 진입과 화면 연결은 E2E에서 확인합니다.
 story에 넣은 router만으로 production 라우트 등록과 앱 초기화까지 검증했다고 하지 않습니다.
-callback 결과는 브라우저에서 기록한 값을 읽고, 픽셀 결과는 별도 시각 비교 사례로 선택합니다.
+callback 결과는 브라우저에서 기록한 값을 읽고 픽셀 결과는 별도 시각 비교 사례로 둡니다.
 수집 목록과 실행 결과의 구분은 `verification-report-failures-flakes-and-executed-scope`를 따릅니다.
 
 참고: [Playwright의 component 소비 테스트](https://playwright.dev/docs/test-components).
