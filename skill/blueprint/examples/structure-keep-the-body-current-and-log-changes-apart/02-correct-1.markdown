@@ -13,7 +13,7 @@ Figma 10-15 판 ([Figma](https://www.figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/adm
 | --- | --- | --- | --- |
 | Orders list | 환불 열 글자 색 | 본문 색 → 빨강 | 반영 |
 | Orders list | 환불 열 폭 | 100 급 → 150 급 | 반영 |
-| Orders list | 환불 사유 툴팁 | 없음 → 있음 | [Q4](../questions.md#q4) |
+| Orders list | 환불 사유 툴팁 | 없음 → 있음 | [Q4](../screen/orders.md#q4) |
 | Customer detail | 통계 카드 그림자 | 없음 → 있음 | 제외. 프로젝트 카드 기본값 |
 
 ## Done

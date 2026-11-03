@@ -15,7 +15,7 @@ tags: material, compare, demo, figma
 
 재료가 둘 이상이면 항목마다 한 줄씩 표로 대조합니다. "데모 기준으로 전부"처럼 한쪽을 통째로 채택하지 않습니다.
 표의 칸은 항목, 데모, Figma, 지금 코드, 처리입니다. 처리는 정답표의 종류로 정합니다.
-대조표는 변경 문서면 `Items` 절 아래, 새 화면 문서면 `Sources` 절의 접힌 상세에 둡니다.
+대조표는 변경 문서면 `Items` 절 아래, 새 화면 문서면 `Reference` 부분의 `Sources` 절에 펼쳐 둡니다.
 
 ```mermaid
 flowchart LR

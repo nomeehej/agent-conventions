@@ -20,18 +20,18 @@
 					"material-compare-sources-item-by-item",
 					"material-read-figma-as-ux-not-pixels",
 					"material-confirm-response-shapes-with-captures",
-					"question-keep-every-number-in-one-page",
+					"question-keep-cards-in-the-screen-doc",
 					"question-write-cards-with-options-and-one-pick",
 					"question-filter-what-needs-another-person",
-					"structure-keep-four-document-kinds",
+					"structure-keep-five-document-kinds",
 					"structure-order-screen-docs-for-two-readers",
-					"structure-fold-only-sizes-and-contracts",
+					"structure-keep-code-owned-values-out",
 					"structure-write-overview-as-the-project-map",
 					"writing-use-noun-phrases-one-fact-per-line",
 					"writing-label-in-english-and-explain-in-korean",
 					"writing-cite-at-the-end-and-link-figma-nodes",
-					"writing-draw-flows-with-mermaid-and-trees-with-treeview",
-					"writing-show-screens-as-numbered-captures",
+					"writing-draw-flows-with-mermaid-and-trees-as-text",
+					"writing-show-regions-as-marked-figma-figures",
 					"stage-split-work-into-gated-stages",
 					"stage-report-done-with-the-check-command",
 					"verify-build-the-site-before-handing-over"
@@ -49,7 +49,7 @@
 		},
 		{
 			"id": "BPE02-figma-fix-roundup",
-			"prompt": "a 10-15 Figma revision batch arrived for the orders list (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=18-120, 14 annotated cards plus comments): write content/public/change/261015-figma.md with the items and captures, update the affected sections of content/public/screen/orders.md to the new truth, and add any new planner or BE questions to content/public/questions.md; the batch changes the refund column color that the user already decided on 10-07.",
+			"prompt": "a 10-15 Figma revision batch arrived for the orders list (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=18-120, 14 annotated cards plus comments): write content/public/change/261015-figma.md with the items and captures, update the affected sections of content/public/screen/orders.md to the new truth, and add any new planner or BE question cards to the Questions section of content/public/screen/orders.md and list them in content/public/questions.md; the batch changes the refund column color that the user already decided on 10-07.",
 			"files": [
 				"content/public/change/261015-figma.md",
 				"content/public/screen/orders.md",
@@ -64,16 +64,16 @@
 					"material-build-the-truth-table-first",
 					"material-compare-sources-item-by-item",
 					"material-read-figma-as-ux-not-pixels",
-					"question-keep-every-number-in-one-page",
+					"question-keep-cards-in-the-screen-doc",
 					"question-write-cards-with-options-and-one-pick",
 					"question-filter-what-needs-another-person",
 					"question-give-be-cards-a-figure",
-					"question-close-with-a-result-and-keep-one-line",
-					"structure-keep-four-document-kinds",
+					"question-close-cards-in-place-with-the-result",
+					"structure-keep-five-document-kinds",
 					"structure-keep-the-body-current-and-log-changes-apart",
 					"writing-use-noun-phrases-one-fact-per-line",
 					"writing-cite-at-the-end-and-link-figma-nodes",
-					"writing-show-screens-as-numbered-captures",
+					"writing-show-regions-as-marked-figma-figures",
 					"stage-report-done-with-the-check-command",
 					"verify-build-the-site-before-handing-over"
 				],
@@ -89,7 +89,7 @@
 		},
 		{
 			"id": "BPE03-close-question-with-answer",
-			"prompt": "the planner answered Q1 of the admin console: refunded orders stay in the orders list with a status chip; close Q1 in content/public/questions.md and unblock stage 2 in the Remaining table of content/public/screen/orders.md.",
+			"prompt": "the planner answered Q1 of the admin console: refunded orders stay in the orders list with a status chip; close the Q1 card in the Questions section of content/public/screen/orders.md, update the list row in content/public/questions.md, and unblock stage 2 in the Plan table of the same screen document.",
 			"files": [
 				"content/public/questions.md",
 				"content/public/screen/orders.md"
@@ -100,7 +100,7 @@
 			"expectedSelected": {
 				"blueprint": [
 					"question-filter-what-needs-another-person",
-					"question-close-with-a-result-and-keep-one-line",
+					"question-close-cards-in-place-with-the-result",
 					"writing-use-noun-phrases-one-fact-per-line",
 					"stage-split-work-into-gated-stages",
 					"stage-report-done-with-the-check-command",
@@ -169,24 +169,24 @@
 		},
 		{
 			"id": "BPE06-rewrite-be-card-the-user-cannot-read",
-			"prompt": "the user says they cannot tell what B2 in content/public/questions.md asks because it only names orderStats.windowCnt; rewrite it as a BE card with a numbered capture of the customer detail stats card saved as content/public/img/customer-detail/stats.png.",
+			"prompt": "the user says they cannot tell what B2 in the Questions section of content/public/screen/customer-detail.md asks because it only names orderStats.windowCnt; rewrite it as a BE card with a marked Figma figure of the customer detail stats card saved as content/public/img/customer-detail/question-b2.png, the screen spot, the current value and one ask.",
 			"files": [
-				"content/public/questions.md",
-				"content/public/img/customer-detail/stats.png"
+				"content/public/screen/customer-detail.md",
+				"content/public/img/customer-detail/question-b2.png"
 			],
 			"expectedSkills": [
 				"blueprint"
 			],
 			"expectedSelected": {
 				"blueprint": [
-					"question-keep-every-number-in-one-page",
+					"question-keep-cards-in-the-screen-doc",
 					"question-write-cards-with-options-and-one-pick",
 					"question-filter-what-needs-another-person",
 					"question-give-be-cards-a-figure",
 					"writing-use-noun-phrases-one-fact-per-line",
 					"writing-label-in-english-and-explain-in-korean",
 					"writing-cite-at-the-end-and-link-figma-nodes",
-					"writing-show-screens-as-numbered-captures",
+					"writing-show-regions-as-marked-figma-figures",
 					"stage-report-done-with-the-check-command",
 					"verify-build-the-site-before-handing-over"
 				]
@@ -213,10 +213,10 @@
 		},
 		{
 			"id": "BPE08-derive-cases-from-state-tables",
-			"prompt": "stage 2 of the orders list blueprint is about to start: add case IDs to the State tables of content/public/screen/orders.md, set the stage 2 Check to a --grep over those IDs, and write test/orders/orders.integration.spec.ts with one case per table row, fixme until stage 3 for the error state that needs the refund field.",
+			"prompt": "stage 2 of the orders list blueprint is about to start: write the Scenarios table and the Check column of the Loading, empty and errors table in content/public/screen/orders.md, set the stage 2 Check in the Plan table to a --grep over those IDs, and write test/1-orders/1.1-orders.integration.spec.ts with one case per scenario row, fixme until stage 3 for the error state that needs the refund field.",
 			"files": [
 				"content/public/screen/orders.md",
-				"test/orders/orders.integration.spec.ts"
+				"test/1-orders/1.1-orders.integration.spec.ts"
 			],
 			"expectedSkills": [
 				"blueprint",
@@ -240,6 +240,46 @@
 					"story-verify-states-through-consuming-tests"
 				],
 				"typescript": []
+			}
+		},
+		{
+			"id": "BPE09-shared-list-behavior",
+			"prompt": "the new customers list screen uses the same server sort cycle, page size choices and row click as the orders list: write content/public/screen/customers.md, put those shared list rules once in content/public/shared.md, and rewrite the Rules table of content/public/screen/orders.md so its sort and row click lines link to shared.md.",
+			"files": [
+				"content/public/shared.md",
+				"content/public/screen/customers.md",
+				"content/public/screen/orders.md"
+			],
+			"expectedSkills": [
+				"blueprint"
+			],
+			"expectedSelected": {
+				"blueprint": [
+					"structure-keep-five-document-kinds",
+					"structure-order-screen-docs-for-two-readers",
+					"structure-define-shared-behavior-once",
+					"writing-use-noun-phrases-one-fact-per-line",
+					"writing-label-in-english-and-explain-in-korean",
+					"stage-report-done-with-the-check-command",
+					"verify-build-the-site-before-handing-over"
+				]
+			}
+		},
+		{
+			"id": "BPE10-screen-only-rule-row",
+			"prompt": "add a Rules table row to content/public/screen/orders.md for the refund amount cell that only the orders table shows: no negative values and 0 shown as a dash, with the mapper name in the Code column.",
+			"files": [
+				"content/public/screen/orders.md"
+			],
+			"expectedSkills": [
+				"blueprint"
+			],
+			"expectedSelected": {
+				"blueprint": [
+					"writing-use-noun-phrases-one-fact-per-line",
+					"stage-report-done-with-the-check-command",
+					"verify-build-the-site-before-handing-over"
+				]
 			}
 		}
 	]

@@ -1,9 +1,9 @@
-## Remaining
+## Plan
 
-| Stage | Work | Blocker | Check | Status |
+| Stage | Work | Depends on | Check | Status |
 | --- | --- | --- | --- | --- |
 | 1 | 조건 패널 | — | `npm run test:integration -- orders` | Ready |
-| 2 | 주문 표 | [Q1](../questions.md#q1) | `npm run test:integration -- orders` | Blocked |
+| 2 | 주문 표 | [Q1](#q1) | `npm run test:integration -- orders` | Blocked |
 | 3 | 연동. 환불 금액 필드 | — | `npm run kubb:generate && npx tsc -b` | Waiting on BE |
 
 ### Follow-up

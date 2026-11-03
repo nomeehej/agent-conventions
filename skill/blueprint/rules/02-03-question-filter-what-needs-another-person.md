@@ -4,8 +4,8 @@ titleKo: 남의 답이 필요한 것만 남깁니다
 impact: CRITICAL
 impactDescription: 혼자 정할 수 있는 것까지 질문으로 쌓여 문서가 시작할 수 없는 것처럼 보이는 일을 막습니다
 appliesWhen:
-  - `questions.md`에 Q, B, D 카드를 새로 더할 때
-  - 단계 표의 `Blocker` 칸을 채우거나 고칠 때
+  - 화면 문서나 `questions.md`에 Q, B, D 카드를 새로 더할 때
+  - Plan 표의 `Depends on` 칸을 채우거나 고칠 때
 tags: question, filter, blocking, mock
 ---
 
@@ -28,8 +28,8 @@ flowchart LR
 | 후보 | 처리 |
 | --- | --- |
 | FE 코드가 0줄인 것. 서버 정렬 기본값, 서버가 거르는 규칙 | 카드 없음. 구현 뒤 대조하는 Follow-up 목록 |
-| BE가 아직 안 준 endpoint나 필드 | 지금 spec 위 mock으로 먼저 구현. 연동 단계의 Expected from BE 표로 |
-| FE만으로 정할 수 있는 것 | D로 적고 Dev decision으로 바로 닫음 |
+| BE가 아직 안 준 endpoint나 필드 | 지금 spec 위 mock으로 먼저 구현. Plan의 연동 단계와 Expected from BE 표로 |
+| FE만으로 정할 수 있는 것 | 닫힌 D 카드. Dev decision |
 | FE에 영향이 없는 BE 사항 | 묻지 않음 |
 | 서버 문자열과 수치의 뜻 | 그대로 그리고 캡처로 대조. Kept |
 | 서버가 안 주는 집계 | FE가 계산. Kept |
@@ -37,7 +37,8 @@ flowchart LR
 
 단계를 막는지와 BE 대기를 어느 단계에 둘지는 `stage-split-work-into-gated-stages`가 정합니다.
 BE 필드가 들어올 때마다 spec을 다시 생성해 깨진 곳을 고치고 숨긴 열을 보입니다.
-사용자가 답한 것과 정답표로 닫히는 것은 카드 없이 Resolved 표 한 줄로 끝냅니다.
+사용자가 답한 것과 정답표로 닫히는 것은 처음부터 닫힌 카드로 씁니다.
+닫힌 카드의 꼴은 `question-close-cards-in-place-with-the-result`가 정합니다.
 
 **Incorrect 1 (BE 대기를 화면 단계의 막는 질문으로 세어 구현을 시작할 수 없는 문서로 보입니다):**
 

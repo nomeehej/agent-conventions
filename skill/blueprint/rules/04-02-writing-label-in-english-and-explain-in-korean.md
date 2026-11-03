@@ -18,7 +18,7 @@ tags: writing, labels, vocabulary
 | 자리 | 언어 |
 | --- | --- |
 | 절 제목, 표 머리 | 영어 |
-| 카드 항목 이름(`question-write-cards-with-options-and-one-pick`의 표), 단계 `Blocks stage 2` | 영어 |
+| 카드의 대상 표 머리 `To`, `Blocks`, `Where`와 항목 이름(`question-write-cards-with-options-and-one-pick`의 표) | 영어 |
 | 상태 배지 | 영어 |
 | frontmatter `name`, `group` | 영어 |
 | 본문, 캡션 | 한국어 |
@@ -30,6 +30,7 @@ tags: writing, labels, vocabulary
 | --- | --- | --- |
 | 질문 | `Needs answer`, `Waiting on BE`, `Waiting on plan`, `User decides`, `Follow-up` | `unverified` |
 | 결과 | `As recommended`, `Per Figma`, `Per demo`, `Per spec`, `Per capture`, `Dev decision`, `User`, `Kept`, `Rejected`, `N/A`, `Moved` | `neutral`, 날짜 포함 |
+| 결과 | `Done` | `verified`, 날짜 포함 |
 | 단계 | `Ready`, `Done` | `verified`. `Done`은 날짜 포함 |
 | 단계 | `Waiting on BE` | `unverified` |
 | 단계 | `Blocked` | `blocked` |
@@ -37,7 +38,8 @@ tags: writing, labels, vocabulary
 
 배지는 프로젝트의 `for-humanity.config.ts`에 `status` 목록으로 묶고 번호 접두는 `refs`로 칩이 되게 합니다.
 배지 뒤 날짜는 `YYYY-MM-DD`로 씁니다. for-humanity는 그 꼴만 배지에 묶습니다.
-링크와 제목 안의 문구는 배지가 되지 않으므로 상태 뒤의 번호는 링크로 따로 둡니다.
+`:::details` 제목 줄 끝의 상태와 날짜는 줄 오른쪽 끝 배지가 됩니다. 링크 안의 문구는 배지가 되지 않습니다.
+표 머리와 절 제목에는 상태 어휘를 쓰지 않습니다. `Blocked by`는 `Blocked`가 배지로 바뀌므로 `Depends on`으로 씁니다.
 
 **Incorrect 1 (카드 항목 이름과 상태를 한국어와 지어낸 말로 써서 카드마다 다르게 읽힙니다):**
 

@@ -17,16 +17,21 @@ tags: structure, overview, map
 
 | 절 | 담는 것 |
 | --- | --- |
-| `Overview` | 화면 지도 표. 화면, 라우트, 문서 링크, 상태. 지금 단계 |
-| `Routes` | 라우트 나무와 공통 틀 |
+| `Overview` | 화면 지도 표. 화면, 라우트, 문서 링크, 상태. 열린 질문 수, 스택 |
+| `Routes` | 라우트 나무와 공통 틀. 세션, 토큰, 스크롤 같은 앱 전체 약속 |
 | `Layers` | 폴더 계층과 소유자 규칙 가운데 프로젝트 예외 |
 | `Data and API` | spec 판, 생성 명령, endpoint 수, 앱이 부르는 것과 안 부르는 것 |
+| `Tests` | 테스트 폴더 나무와 층. 화면 문서의 `Scenarios`가 가리키는 자리 |
 | `Materials` | 재료 정답표 |
 | `Conventions` | 적용하는 skill 이름과 프로젝트 예외만 |
+| `Known gaps` | 알고도 둔 결함과 코드 함정. 화면 문서가 링크하는 자리 |
 | `Site` | 문서 사이트 주소와 빌드 명령 |
 
 skill이 정한 규약은 베끼지 않고 skill 이름으로 가리킵니다. 프로젝트가 다르게 정한 예외만 적습니다.
 화면 문서가 라우트, 계층, 규약을 적으려 하면 여기로 링크합니다.
+화면 사이를 오가는 약속처럼 두 화면 이상이 쓰는 동작은 overview가 아니라 `shared.md`에 둡니다.
+overview에는 링크 한 줄만 둡니다.
+나무는 `writing-draw-flows-with-mermaid-and-trees-as-text`대로 주석 단 `text` 블록으로 그립니다.
 
 **Incorrect 1 (skill 규약 본문을 overview에 베껴 규약이 두 곳에서 다르게 늙습니다):**
 

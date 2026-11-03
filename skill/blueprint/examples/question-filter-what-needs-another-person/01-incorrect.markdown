@@ -1,6 +1,6 @@
-## Remaining
+## Plan
 
-| Stage | Work | Blocker | Check | Status |
+| Stage | Work | Depends on | Check | Status |
 | --- | --- | --- | --- | --- |
 | 1 | 조건 패널 | B1 B2 B3 B4 | `npm run test:integration -- orders` | Blocked |
 | 2 | 주문 표 | B5 B6 B7 B8 B9 | `npm run test:integration -- orders` | Blocked |

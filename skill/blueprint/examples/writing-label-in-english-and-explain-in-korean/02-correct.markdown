@@ -1,10 +1,13 @@
-### Q1
+:::details[Q1 환불 주문을 목록에 포함하나요? Waiting on plan]
+<a id="q1"></a>
 
-**환불 주문을 목록에 포함하나요?** Waiting on plan. Blocks stage 2
+| To | Blocks | Where |
+| --- | --- | --- |
+| 기획 | Plan 2단계 | [Orders table](#orders-table) › 환불 행 |
 
-- Ask: 운영에서 환불 건을 같은 목록에서 보나요?
-- Now: 포함으로 구현 중
-- Also: 상태 칩 색
+- Ask = 운영에서 환불 건을 같은 목록에서 보나요?
+- Now = 포함으로 구현 중
+:::
 
 ```ts
 // for-humanity.config.ts
