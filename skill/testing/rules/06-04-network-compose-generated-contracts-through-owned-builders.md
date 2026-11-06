@@ -41,7 +41,9 @@ endpoint handler는 요청과 상태를 맡고 표, 정렬, 수치 계산은 도
 
 재사용할 정상 본문은 도메인 builder에 두고 빈 목록, 401, 500 등 사례의 차이는 spec에서 덮습니다.
 spec에서 같은 정상 본문이나 endpoint URL을 반복 작성하지 않습니다.
-스펙 밖 API만 직접 handler를 만들고 생성된 endpoint와 그 이유를 구분합니다.
+스펙에 없는 API만 handler를 직접 만듭니다.
+직접 만든 handler에는 스펙에 없는 이유를 주석으로 남겨 생성된 endpoint의 handler와 구분합니다.
+주석에 적을 근거는 `typescript/docs-justify-convention-exceptions-with-a-reason-comment`를 따릅니다.
 
 재생성 뒤에는 생성물 diff, 도메인 builder의 타입, handler의 응답, 실제 소비 테스트를 확인합니다.
 factory 이름과 합치기 방식은 설치 버전과 산출물에서 확인하며 예제 이름을 그대로 추측하지 않습니다.

@@ -13,7 +13,8 @@ tags: testing, scope, smoke, sanity
 **Impact: HIGH (실행 경계와 선별 목적을 나눠 필요한 검증을 빠짐없이 선택합니다)**
 
 unit, integration, E2E는 실행 경계이고 smoke, sanity, regression은 실행 목적과 선택 범위입니다.
-이름 하나를 같은 층 목록에 섞거나 빠르게 끝났다는 이유로 smoke라고 부르지 않습니다.
+smoke, sanity, regression을 unit, integration, E2E와 나란한 층으로 두지 않습니다.
+빠르게 끝났다는 이유만으로 smoke라고 부르지도 않습니다.
 아래 선별 기준을 팀의 기본값으로 쓰고 프로젝트의 기존 정의가 다르면 그 계약을 명시합니다.
 
 | 목적 | 고르는 기준 | 통과가 말하는 범위 |
