@@ -31,7 +31,7 @@ tags: naming, constants
 함수는 동사, 상수는 주제 접두사와 `snake_case`로 종류를 드러냅니다.
 한 단어 상수는 만들지 않습니다.
 함수 파일 이름은 내보낸 이름(`format-usd.ts` → `formatUsd`), 상수 파일 이름은 공유하는 주제(`api.ts` → `api_*`)입니다.
-컴포넌트 파일 이름도 내보낸 이름(`chart-card.tsx` → `ChartCard`)이고 레이어는 이름이 아니라 폴더가 드러냅니다.
+컴포넌트 파일 이름도 내보낸 이름(`chart-card.tsx` → `ChartCard`)입니다.
 
 ### 외부 계약이 정한 이름
 

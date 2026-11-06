@@ -1,8 +1,8 @@
 return (
 	<section>
 {/* [!code ++] */}
-		{props.view === "chart" && <Chart />}
+		{props.view === "chart" && <ChartView />}
 {/* [!code ++] */}
-		{props.view === "table" && <Table />}
+		{props.view === "table" && <TableView />}
 	</section>
 );

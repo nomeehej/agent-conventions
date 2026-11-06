@@ -1,3 +1,3 @@
-shell__body    <- 역할 낱말이라 어느 화면인지 안 나옴
-doc__content   <- 라우트에 없는 줄임말
-x__root        <- 되짚을 이름이 없음
+shellPage__body     <- 역할 낱말이라 어느 화면인지 안 나옴
+docPage__content    <- 라우트에 없는 줄임말
+xPage__root         <- 되짚을 이름이 없음

@@ -31,7 +31,7 @@ Figma대로 상품 목록 화면을 구현했습니다.
 
 ```txt
 읽은 노드           get_metadata 12:340 약 10k, get_screenshot 12:341 약 3k, get_variable_defs 12:341 약 1k
-컴포넌트 대응표     표 Table, 탭 Tabs, 상태 Badge, 재고 경고 칩은 새 마크업(대응물 없음)
+컴포넌트 대응표     표 ui Table, 탭 ui Tabs, 상태 ui Badge, 재고 경고 칩은 새 마크업(대응물 없음)
 토큰 대응표         Figma 변수 5개 대응, Content/Border/Normal은 토큰 값 #d9d9d9
 get_design_context  12:377 재고 경고 칩, 대응물 없음
 출처                행과 개수는 서버 응답, 컬럼 이름과 단위는 고정 문구

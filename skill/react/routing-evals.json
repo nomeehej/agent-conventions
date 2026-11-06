@@ -57,7 +57,7 @@
 				]
 			},
 			"scopeDrift": {
-				"evidence": "in a project without a CSS Modules standard, add directly imported src/page/products/_product-tree.css, create owner-unique pg_* role-named classes, and compose the changed className contract with the existing direct clsx import; final skills add CSS with no additional React rule.",
+				"evidence": "in a project without a CSS Modules standard, add directly imported src/page/products/_product-tree.css, create owner-unique productTree__* role-named classes, and compose the changed className contract with the existing direct clsx import; final skills add CSS with no additional React rule.",
 				"files": [
 					"src/component/ui/product-tree/product-tree.tsx",
 					"src/page/products/_product-tree.tsx",

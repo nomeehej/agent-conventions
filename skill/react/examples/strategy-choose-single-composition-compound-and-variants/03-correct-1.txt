@@ -1,5 +1,5 @@
 component/widget/profile-dialog/
-├── profile-dialog.tsx              진입. 부품을 모아 내보냄
+├── profile-dialog.tsx                 진입. 부품을 모아 내보냄
 ├── _profile-dialog-root.tsx
 ├── _profile-dialog-header.tsx
 ├── _profile-dialog-body.tsx

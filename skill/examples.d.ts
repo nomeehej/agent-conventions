@@ -46,7 +46,6 @@ declare const sortBy: typeof import("es-toolkit").sortBy;
 declare const sumBy: typeof import("es-toolkit").sumBy;
 declare const uniq: typeof import("es-toolkit").uniq;
 declare const MuiButton: typeof import("@mui/material").Button;
-declare const TableCell: typeof import("@mui/material").TableCell;
 declare const MuiTableRow: typeof import("@mui/material").TableRow;
 declare const clsx: typeof import("clsx").clsx;
 declare const dayjs: typeof import("dayjs").default;
@@ -330,7 +329,7 @@ declare const editable_order_statuses: readonly OrderStatus[];
 declare const product_list: Product[];
 declare const productColumns: TableColumn[];
 
-// 예제 세계관: 컴포넌트와 프롭. 레이어 접두사 ui, wg, pg
+// 예제 세계관: 컴포넌트와 프롭. ui, widget, page 레이어 순서
 type Theme = "light" | "dark";
 interface ErrorFallbackProps {
 	error: Error;
@@ -847,8 +846,8 @@ declare module "@/page/product-detail/_section-heading" {
 declare module "@/page/product-detail/product-detail-page" {
 	export const ProductDetailPage: () => ReactElement;
 }
-declare module "@/page/product-detail/product-summary/product-summary" {
-	export const ProductSummary: (props: {heading?: ReactNode}) => ReactElement;
+declare module "@/page/product-detail/product-summary-section/product-summary-section" {
+	export const ProductSummarySection: (props: {heading?: ReactNode}) => ReactElement;
 }
 declare module "@/page/product-detail/product-table-section/_review-section" {
 	export const ReviewSection: () => ReactElement;

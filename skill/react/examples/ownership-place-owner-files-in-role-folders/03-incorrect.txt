@@ -7,6 +7,6 @@ page/product-detail/
 └── product-table-section/
     ├── product-table-section.tsx
     └── review/
-        ├── review-page.tsx
+        ├── review.tsx
         └── _function/
             └── to-review-rows.ts

@@ -1,4 +1,4 @@
-// page/product/product-table.tsx
+// page/products/_product-list-table.tsx
 /**
  * 상품들을 표에 그릴 형태로
  */

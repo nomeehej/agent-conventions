@@ -1,7 +1,7 @@
 page/product-detail/
 ├── product-detail-page.tsx
 ├── product-detail-page.css
-├── _product-summary.tsx            자기만 쓰는 파일이 없어 파일로 둠
+├── _product-summary.tsx               자기만 쓰는 파일이 없어 파일로 둠
 ├── _product-summary.css
 ├── _function/
 │   ├── to-product-summary.ts

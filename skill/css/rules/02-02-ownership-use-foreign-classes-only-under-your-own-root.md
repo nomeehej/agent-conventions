@@ -9,7 +9,7 @@ appliesWhen:
 reviewWith: >-
   ownership-change-other-owners-through-their-api, ownership-give-each-file-one-slug,
   selector-limit-nesting-block-depth
-tags: ownership, scope, third-party
+tags: ownership, third-party
 ---
 
 ## Use Foreign Classes Only Under Your Own Root
@@ -31,7 +31,7 @@ flowchart LR
 | 선택자 | 판정 |
 | --- | --- |
 | `.MuiTreeItem-label { }` | 금지. 그 라이브러리를 쓰는 앱 전체에 적용됩니다 |
-| `.chartCard__caption { }` | 금지. 그 `widget`을 쓰는 모든 화면에 적용됩니다 |
+| `.chartCard__caption { }` | 금지. 화면 CSS에 두면 그 `widget`을 쓰는 모든 화면에 적용됩니다 |
 | `.productsPage__sidebar { & .MuiTreeItem-label { } }` | 허용. 해당 인스턴스에만 적용됩니다 |
 | `.productDetailPage__root { & .chartCard__caption { } }` | 허용 |
 | `.productsPage__sidebar .MuiTreeItem-label { }` | 금지. 최상위 블록 안에서 `&`로 시작해야 합니다 |
@@ -45,7 +45,7 @@ flowchart LR
 ### 기계 검사 범위
 
 `selector-disallowed-list`는 등록된 외부 라이브러리 접두사로 시작하는 최상위 선택자만 검사합니다.
-다른 소유자의 식별자는 문법이 같아 이 검사에 걸리지 않으므로 파일 이름과 식별자를 대조합니다.
+다른 소유자의 식별자는 문법이 같아 이 검사에 걸리지 않으므로 리뷰에서 파일 이름과 식별자를 대조합니다.
 
 **Incorrect 1 (최상위 블록 없이 라이브러리 클래스를 바로 씁니다):**
 

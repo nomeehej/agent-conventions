@@ -6,7 +6,7 @@ export interface TooltipProps {
 export const Tooltip = (props: TooltipProps) => {
 	return (
 // [!code error]
-		<div className={clsx("tooltip__body", props.variant && `tooltip__body--${props.variant}`)}>
+		<div className={clsx("tooltip__root", props.variant && `tooltip__root--${props.variant}`)}>
 			{props.children}
 		</div>
 	);

@@ -10,11 +10,11 @@ export const Tooltip = (props: TooltipProps) => {
 // [!code ++]
 			className={clsx(
 // [!code ++]
-				"tooltip__body",
+				"tooltip__root",
 // [!code ++]
-				props.variant === "fit" && "tooltip__body--fit",
+				props.variant === "fit" && "tooltip__root--fit",
 // [!code ++]
-				props.variant === "plain" && "tooltip__body--plain",
+				props.variant === "plain" && "tooltip__root--plain",
 // [!code ++]
 			)}
 // [!code ++]

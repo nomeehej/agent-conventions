@@ -30,7 +30,7 @@ The conventions grow from actual project work, with changes to the rules and the
 | --- | --- |
 | [React](https://nomeehej.github.io/agent-conventions/convention/react/) | Component ownership, server data, state, composition, events, runtime boundaries and accessibility |
 | [TypeScript](https://nomeehej.github.io/agent-conventions/convention/typescript/) | Types and contracts, imports, naming, function boundaries, values, fallbacks and comments |
-| [CSS](https://nomeehej.github.io/agent-conventions/convention/css/) | Class names, ownership, selectors, design tokens, layout, responsive behavior and motion |
+| [CSS](https://nomeehej.github.io/agent-conventions/convention/css/) | BEM class names, ownership, selectors, design tokens, layout, responsive behavior and motion |
 | [Testing](https://nomeehej.github.io/agent-conventions/convention/testing/) | Test levels and suite selection, Given/When/Then, generated API mocks, stories, Vitest, Playwright, baselines, and verification |
 | [Figma](https://nomeehej.github.io/agent-conventions/convention/figma/) | Reading designs, identifying intent, tracing values and copy, implementing and comparing the result |
 | [Blueprint](https://nomeehej.github.io/agent-conventions/convention/blueprint/) | Screen design documents before and during implementation: materials and truth, numbered questions, document structure, writing, stages and verification |

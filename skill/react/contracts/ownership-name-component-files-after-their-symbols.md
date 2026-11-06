@@ -3,23 +3,27 @@
 **Impact: MEDIUM (파일 이름, 심볼, CSS 식별자가 한 이름으로 이어집니다)**
 
 파일 이름은 내보내는 컴포넌트 이름을 kebab-case로 옮겨 씁니다.
-레이어는 폴더가 드러내므로 파일 이름과 심볼에 `ui-`, `Wg` 같은 레이어 접두사를 붙이지 않습니다.
+레이어는 폴더로 드러나므로 파일 이름과 심볼에 `ui-`, `Wg` 같은 레이어 접두사를 붙이지 않습니다.
 레이어 판정은 `ownership-layer-component-boundaries`를 따릅니다.
 
 ### 이름 형태
 
-| 대상          | 파일                                         | 심볼         | CSS 식별자   |
-|---------------|----------------------------------------------|--------------|--------------|
-| `ui`          | `component/ui/button/button.tsx`             | `Button`     | `button`     |
-| `widget`      | `component/widget/chart-card/chart-card.tsx` | `ChartCard`  | `chartCard`  |
-| 화면 진입     | `page/orders/orders-page.tsx`                | `OrdersPage` | `ordersPage` |
-| 라우트 프레임 | `page/(main)/main-outlet.tsx`                | `MainOutlet` | `mainOutlet` |
+| 대상            | 파일                                                                  | 심볼                  | CSS 식별자            |
+|-----------------|-----------------------------------------------------------------------|-----------------------|-----------------------|
+| `ui`            | `component/ui/button/button.tsx`                                      | `Button`              | `button`              |
+| `widget`        | `component/widget/chart-card/chart-card.tsx`                          | `ChartCard`           | `chartCard`           |
+| 화면            | `page/orders/orders-page.tsx`                                         | `OrdersPage`          | `ordersPage`          |
+| 하위 소유자     | `page/product-detail/product-table-section/product-table-section.tsx` | `ProductTableSection` | `productTableSection` |
+| `Outlet` 프레임 | `page/(main)/main-outlet.tsx`                                         | `MainOutlet`          | `mainOutlet`          |
 
-| 대상                      | 표기                                                                                |
-|---------------------------|-------------------------------------------------------------------------------------|
-| 진입 파일이 아닌 컴포넌트 | `_unit-toggle.tsx`처럼 앞에 `_`를 붙입니다. 동반 `.css`도 같은 이름을 씁니다        |
-| 심볼                      | 진입 파일 여부와 관계없이 `_`를 붙이지 않습니다                                     |
-| 라이브러리와 같은 이름    | 라이브러리 쪽을 `import {Button as MuiButton}`처럼 `Mui` 별칭으로 바꿔 가져옵니다   |
+`Page`는 라우터가 연결하는 화면 진입에만 붙이고 하위 소유자와 부품에는 붙이지 않습니다.
+
+| 대상                      | 표기                                                                                               |
+|---------------------------|----------------------------------------------------------------------------------------------------|
+| 진입 파일이 아닌 컴포넌트 | `_unit-toggle.tsx`처럼 앞에 `_`를 붙입니다. 동반 `.css`도 같은 이름을 씁니다                       |
+| 심볼                      | 진입 파일 여부와 관계없이 `_`를 붙이지 않습니다                                                    |
+| 라이브러리와 같은 이름    | 라이브러리 쪽을 `import {Button as MuiButton}`처럼 라이브러리 이름을 앞에 붙인 별칭으로 가져옵니다 |
+| 데이터 타입과 같은 이름   | 컴포넌트 쪽에 역할 낱말을 더해 `ProductSummarySection`처럼 짓습니다                                |
 
 ### 부품 이름 짓기
 

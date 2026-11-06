@@ -1,4 +1,4 @@
 <div
-	className={clsx("productDetail__prose")}
+	className={clsx("productDescription__prose")}
 	dangerouslySetInnerHTML={{__html: product.bodyHtml}}
 />

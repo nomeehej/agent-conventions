@@ -4,7 +4,7 @@
 
 ## 1. Class Naming and Syntax (naming)
 **TitleKo:** 클래스 이름과 문법
-**Lead:** 일반 CSS 선택, 식별자__요소--수정자 문법, 역할 이름, 화면 식별자
+**Lead:** 일반 CSS 선택, BEM 문법, 역할 이름, 화면 식별자
 **Impact:** MEDIUM
 **Description:** 일반 `*.css`를 사용하고 전역에서 고유한 클래스 이름을 붙입니다.
 클래스 이름은 소유자와 역할을 드러내고, 요소와 수정자는 정해진 문법으로 구분합니다.

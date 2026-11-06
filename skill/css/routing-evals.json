@@ -242,7 +242,7 @@
 		},
 		{
 			"id": "css-rich-text-owner-block",
-			"prompt": "move top-level .productDetail__prose h2 and > :first-child into the existing owner block; the body comes from dangerouslySetInnerHTML so classes cannot be added.",
+			"prompt": "move top-level .productDescription__prose h2 and > :first-child into the existing owner block; the body comes from dangerouslySetInnerHTML so classes cannot be added.",
 			"files": [
 				"src/component/widget/product-detail/product-detail.css"
 			],
@@ -415,7 +415,7 @@
 		},
 		{
 			"id": "css-stylelint-config-setup",
-			"prompt": "add a stylelint config for this convention with per-directory prefix overrides; keep stylelint-config-standard as the base.",
+			"prompt": "add a stylelint config for this convention with a single library class prefix list; keep stylelint-config-standard as the base.",
 			"files": [
 				"stylelint.config.mjs"
 			],

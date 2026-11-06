@@ -41,7 +41,8 @@ flowchart LR
 
 ### 자기 프롭 구분
 
-`IconButtonProps`의 `icon`은 자기 프롭이지만, 안쪽 컴포넌트도 받는 `TableRowProps`의 `selected`는 아닙니다.
+`IconButtonProps`의 `icon`은 래퍼만 받는 자기 프롭입니다.
+래퍼 `TableRowProps`의 `selected`는 안쪽 `MuiTableRowProps`도 받으므로 자기 프롭이 아닙니다.
 인덱스 접근은 이미 있는 프롭을 그대로 열 때만 쓰며, 상속된 프롭도 바깥 타입 이름으로 접근합니다.
 
 | 함께 판단할 내용 | 기준 |

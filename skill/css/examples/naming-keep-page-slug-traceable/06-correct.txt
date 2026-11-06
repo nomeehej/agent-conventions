@@ -1,2 +1,2 @@
-productDetailOverviewSection__root
-productsOverviewSection__root
+productDetailOverviewSection__root  <- product-detail 화면의 부품
+productsOverviewSection__root       <- products 화면의 부품

@@ -1,7 +1,7 @@
 # React 컨벤션 Rule Index
 
 - Skill: `react`
-- Routing digest: `sha256:07c5396d15a05db7d89cfb22ee746ac674c7de15fcd87f3f2bdd220909d5419c`
+- Routing digest: `sha256:cfb1f3f4e044ec9a7d250b3e14d83b2c5b9f544161b0c28367e7418508d09741`
 
 ## Direct Companions
 
@@ -11,7 +11,7 @@
 ## Local Rules
 
 - R01-01 | ownership-layer-component-boundaries | 컴포넌트를 \`ui\`, \`widget\`, \`page\` 중 어느 소유 레이어에 둘지 정할 때. 컴포넌트를 레이어 사이에서 옮기거나 공용화할 때. | reviewWith: ownership-place-owner-files-in-role-folders
-- R01-02 | ownership-name-component-files-after-their-symbols | 컴포넌트 파일이나 심볼 이름을 새로 지을 때. 컴포넌트를 다른 레이어로 옮기면서 이름을 바꿀 때. 부품이나 하위 소유자의 이름을 짓거나 바꿀 때. | reviewWith: ownership-layer-component-boundaries, typescript/naming-use-consistent-file-and-symbol-naming
+- R01-02 | ownership-name-component-files-after-their-symbols | 컴포넌트 파일이나 심볼 이름을 새로 지을 때. 컴포넌트 파일을 다른 레이어나 소유자 폴더로 옮길 때. 부품이나 하위 소유자의 이름을 짓거나 바꿀 때. | reviewWith: ownership-layer-component-boundaries, typescript/naming-use-consistent-file-and-symbol-naming
 - R01-03 | ownership-place-owner-files-in-role-folders | 소유자 아래 \`\_constant\`, \`\_function\`, \`\_hook\`, \`\_type\` 폴더나 하위 소유자 폴더를 만들거나 옮길 때. 추출한 컴포넌트, 함수, 타입의 배치 위치를 정할 때. 제외: 기존 파일 내부 구현만 바꾸는 경우. | reviewWith: ownership-group-route-frames-with-outlets, ownership-keep-component-imports-flowing-downward
 - R01-04 | ownership-keep-component-imports-flowing-downward | 소유자 폴더 안의 컴포넌트 파일을 가져올 때. 다른 소유자나 다른 라우트의 파일을 가져오려 할 때. 여러 자식이 같은 컴포넌트를 써야 해서 배치를 다시 정할 때. 제외: 같은 소유자 안에서만 역할 폴더 네 개의 파일을 가져오는 경우. | reviewWith: ownership-group-route-frames-with-outlets, ownership-layer-component-boundaries
 - R01-05 | ownership-group-route-frames-with-outlets | 라우트 트리나 \`Outlet\` 진입 파일을 추가, 변경할 때. \`page\` 아래 라우트 그룹을 만들거나 화면을 그룹 사이로 옮길 때. | reviewWith: ownership-name-component-files-after-their-symbols, runtime-place-error-boundaries-by-blast-radius

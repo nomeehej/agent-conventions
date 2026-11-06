@@ -1,4 +1,4 @@
-// page/_layout/app-layout.tsx
+// page/root-outlet.tsx
 // [!code error]
 const permissionStore = usePermissionStore();
 

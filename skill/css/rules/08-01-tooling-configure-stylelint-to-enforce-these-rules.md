@@ -55,7 +55,8 @@ tags: tooling, stylelint, automation
 | 쉼표 묶음 자체 | `disallowInList`는 단독 재선언만 검사합니다 | `css/selector-do-not-group-classes-with-commas`로 판단합니다 |
 | 최상위 요소 선택자 | `ownMarkupPatterns`는 `&`로 시작하는 형태만 검사합니다 | `selector-max-type`은 쓰지 않고 리뷰에서 확인합니다 |
 | 파일별 소유자 하나, 다른 소유자 클래스의 블록 위치 | 다른 소유자의 식별자는 우리 문법과 같아 구분하지 못합니다 | 리뷰에서 확인합니다 |
-| 앱 상태를 잡는 `data-*` 선택자 | 라이브러리도 `data-*`로 상태를 내 이름만으로 구분하지 못합니다 | `css/selector-use-pseudo-classes-for-dom-owned-states`로 판단합니다 |
+| 식별자에 넣은 레이어 이름 | `uiButton__root`도 문법에는 맞아 통과합니다 | 리뷰에서 확인합니다 |
+| 앱 상태를 잡는 `data-*` 선택자 | 라이브러리도 `data-*`로 상태를 내므로 이름만으로는 구분하지 못합니다 | `css/selector-use-pseudo-classes-for-dom-owned-states`로 판단합니다 |
 | 중첩 `@media`와 데스크톱 퍼스트 방향 | at-rule의 최상위 배치를 강제하지 못합니다 | `css/layout-group-breakpoints-at-the-file-bottom`으로 판단합니다 |
 | 우리 마크업의 구조 선택자 | `:first-child`, `:nth-child()`는 클래스에도 붙습니다 | 표기만으로 구분하지 못해 리뷰에서 확인합니다 |
 | 역할 이름, 승격 판단, 변형 노출, 포커스 대비 | 기계가 뜻을 판단하지 못합니다 | 리뷰에서 확인합니다 |
