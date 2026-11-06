@@ -78,9 +78,9 @@
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				],
 				"css": [
-					"naming-use-slug-element-modifier-syntax",
+					"naming-use-block-element-modifier-syntax",
 					"naming-name-elements-and-modifiers-by-role",
-					"ownership-give-each-file-one-slug",
+					"ownership-give-each-file-one-block",
 					"composition-compose-classes-with-clsx",
 					"values-fall-back-only-outside-core-tokens",
 					"layout-keep-layout-intent-explicit",

@@ -11,7 +11,7 @@ const ownClassPattern = [
 	"^(?:",
 	`(?:${libraryClassPrefixes.join("|")}).*`,
 	"|",
-	// slug__element 또는 slug__element--modifier
+	// block__element 또는 block__element--modifier
 	"[a-z][a-zA-Z0-9]*__[a-z][a-zA-Z0-9]*(?:--[a-z][a-zA-Z0-9]*)?",
 	")$",
 ].join("");
@@ -32,7 +32,7 @@ export default {
 	rules: {
 		// 최상위 @media 안의 클래스는 깊이 0. 브레이크포인트 안에서 상태를 한 겹 더 쓸 수 있음
 		"max-nesting-depth": [1, {ignoreAtRules: ["media", "supports", "container"]}],
-		// @keyframes 이름은 전역이라 소유자 식별자 필수. 하이픈은 클래스 --수정자 표기와 섞여 금지
+		// @keyframes 이름은 전역이라 소유자 블록 이름 필수. 하이픈은 클래스 --수정자 표기와 섞여 금지
 		"keyframes-name-pattern": "^[a-z][a-zA-Z0-9]*__[a-z][a-zA-Z0-9]*$",
 		// 쉼표 목록에 든 선택자를 아래에서 단독으로 다시 여는 것까지 검출
 		"no-duplicate-selectors": [true, {disallowInList: true}],

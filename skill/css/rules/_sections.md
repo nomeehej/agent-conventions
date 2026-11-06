@@ -4,14 +4,14 @@
 
 ## 1. Class Naming and Syntax (naming)
 **TitleKo:** 클래스 이름과 문법
-**Lead:** 일반 CSS 선택, BEM 문법, 역할 이름, 화면 식별자
+**Lead:** 일반 CSS 선택, BEM 문법, 역할 이름, 화면 블록 이름
 **Impact:** MEDIUM
 **Description:** 일반 `*.css`를 사용하고 전역에서 고유한 클래스 이름을 붙입니다.
 클래스 이름은 소유자와 역할을 드러내고, 요소와 수정자는 정해진 문법으로 구분합니다.
 
 ## 2. Ownership and Boundaries (ownership)
 **TitleKo:** 소유와 경계
-**Lead:** 파일당 식별자 하나, 다른 소유자 클래스의 범위, 소유자 API로 바꾸기
+**Lead:** 파일당 블록 이름 하나, 다른 소유자 클래스의 범위, 소유자 API로 바꾸기
 **Impact:** CRITICAL
 **Description:** CSS 파일마다 소유자를 정하고, 다른 소유자의 스타일을 사용할 때 지킬 범위를 명시합니다.
 외부 라이브러리 DOM은 소유한 루트 아래에서만 선택해 다른 화면에 영향을 주지 않습니다.

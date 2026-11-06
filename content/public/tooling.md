@@ -108,7 +108,7 @@ Vitest, Playwright, MSW는 테스트 예제의 실제 API 타입 검사를 위�
 | 리터럴 폴백 | TypeScript 05-01 |
 | `../`와 같은 폴더 심볼 가져오기 | TypeScript 02-05 |
 | 레이어 역방향 가져오기 | React 01-04 |
-| `식별자__동작` 형식이 아닌 `@keyframes` | CSS 07-02 |
+| `블록__동작` 형식이 아닌 `@keyframes` | CSS 07-02 |
 
 사용할 프로젝트의 `.claude/settings.local.json`에 Stop 훅을 추가합니다.
 

@@ -22,7 +22,7 @@ tags: values, motion
 
 | 이름과 토큰 | 작성 기준 |
 | --- | --- |
-| `@keyframes` 이름 | `<식별자>__<동작>`으로 씁니다. 예: `productsPage__fadeIn` |
+| `@keyframes` 이름 | `<블록>__<동작>`으로 씁니다. 예: `productsPage__fadeIn` |
 | 지속 시간과 이징 | 한 파일에서 한 번만 써도 토큰으로 둡니다. 예: `var(--app-motion-duration-fast)` |
 
 지속 시간과 이징 토큰은 `values-tokenize-repeated-visual-values`의 예외입니다.

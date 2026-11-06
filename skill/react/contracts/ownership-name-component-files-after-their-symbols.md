@@ -1,6 +1,6 @@
 # Name Component Files After Their Symbols
 
-**Impact: MEDIUM (파일 이름, 심볼, CSS 식별자가 한 이름으로 이어집니다)**
+**Impact: MEDIUM (파일 이름, 심볼, CSS 블록 이름이 한 이름으로 이어집니다)**
 
 파일 이름은 내보내는 컴포넌트 이름을 kebab-case로 옮겨 씁니다.
 레이어는 폴더로 드러나므로 파일 이름과 심볼에 `ui-`, `Wg` 같은 레이어 접두사를 붙이지 않습니다.
@@ -8,7 +8,7 @@
 
 ### 이름 형태
 
-| 대상            | 파일                                                                  | 심볼                  | CSS 식별자            |
+| 대상            | 파일                                                                  | 심볼                  | CSS 블록 이름         |
 |-----------------|-----------------------------------------------------------------------|-----------------------|-----------------------|
 | `ui`            | `component/ui/button/button.tsx`                                      | `Button`              | `button`              |
 | `widget`        | `component/widget/chart-card/chart-card.tsx`                          | `ChartCard`           | `chartCard`           |
