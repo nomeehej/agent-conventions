@@ -31,7 +31,8 @@ Figma 변수 이름은 디자인 파일의 이름이지 프로젝트의 토큰�
 새 토큰을 만들지는 `css/values-tokenize-repeated-visual-values`가 정합니다.
 대체값을 붙일지는 `css/values-fall-back-only-outside-core-tokens`가 정합니다.
 `get_variable_defs`는 스크린샷과 메타데이터를 읽은 뒤 화면 프레임에 한 번 부릅니다.
-토큰 대응표는 그 응답 하나로 만듭니다. 같은 값을 얻으려고 `get_design_context`를 부르지 않습니다.
+토큰 대응표는 그 응답 하나로 만듭니다.
+같은 값을 얻으려고 `get_design_context`를 부르지 않습니다.
 
 **Incorrect 1 (Figma 변수 이름과 대체값을 그대로 옮깁니다):**
 

@@ -17,7 +17,7 @@ tags: values, dayjs
 
 ### 작업별 기준
 
-날짜는 `dayjs`로 다루고, `moment`는 새로 들이지 않습니다.
+날짜는 `dayjs`로 다루고 `moment`는 새로 들이지 않습니다.
 계산 단위, 입력 형식, 표시 타임존을 계약에 맞게 구분합니다.
 
 ```mermaid

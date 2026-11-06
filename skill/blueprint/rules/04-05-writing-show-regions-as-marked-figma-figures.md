@@ -2,7 +2,7 @@
 title: Show Regions as Marked Figma Figures
 titleKo: 구역은 표시 붙인 Figma 그림으로 보여 줍니다
 impact: HIGH
-impactDescription: 긴 그림 한 장과 멀리 떨어진 번호 목록 대신 구역마다 그림과 부분 표를 붙여 읽고, 그림을 손으로 고치는 비용을 없앱니다
+impactDescription: 긴 그림 한 장과 멀리 떨어진 번호 목록 대신 구역마다 그림과 부분 표를 붙여 읽게 하고 그림을 손으로 고치는 비용을 없앱니다
 appliesWhen:
   - 설계 문서에서 화면 모양이나 질문 자리를 그림으로 보여 줄 때
   - 화면 목업을 HTML이나 표로 손수 그리려 할 때
@@ -12,7 +12,7 @@ tags: writing, figure, figma, capture
 
 ## Show Regions as Marked Figma Figures
 
-**Impact: HIGH (긴 그림 한 장과 멀리 떨어진 번호 목록 대신 구역마다 그림과 부분 표를 붙여 읽고, 그림을 손으로 고치는 비용을 없앱니다)**
+**Impact: HIGH (긴 그림 한 장과 멀리 떨어진 번호 목록 대신 구역마다 그림과 부분 표를 붙여 읽게 하고 그림을 손으로 고치는 비용을 없앱니다)**
 
 구역 절마다 그 구역의 Figma 그림 하나를 두고 부분 표의 `#`을 그림의 표시 번호와 맞춥니다.
 설계 문서는 구현 전 문서라 그림의 정답은 Figma입니다. 앱 화면 캡처를 구역 그림으로 쓰지 않습니다.

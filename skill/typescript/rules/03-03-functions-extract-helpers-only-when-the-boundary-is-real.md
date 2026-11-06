@@ -43,7 +43,7 @@ flowchart LR
 
 분기를 줄이려면 추출 전에 `absence-check-once-at-the-boundary`와
 `values-decide-once-and-carry-the-result`를 먼저 봅니다.
-함수 배치는 `functions-give-each-function-its-own-file`,
+함수 배치는 `functions-give-each-function-its-own-file`이 정합니다.
 루트 승격은 `functions-promote-owner-free-functions-to-root-util`이 정합니다.
 
 **Incorrect 1 (한 자리에서만 쓰는 단계를 함수로 떼어 내 흐름이 파일 안에서 흩어집니다):**

@@ -34,7 +34,7 @@ flowchart LR
 | --- | --- |
 | `as`, `!` | 실행 중 값을 검증하지 않습니다 |
 | `any` | 이후 타입 검사를 약화합니다 |
-| `@ts-expect-error` | 다음 줄 오류를 억제하며, 해당 오류가 없어지면 오류를 보고합니다 |
+| `@ts-expect-error` | 다음 줄 오류를 억제합니다. 해당 오류가 없어지면 오류를 보고합니다 |
 | `as const` | 리터럴 추론과 읽기 전용 표기를 유지합니다. 금지 대상이 아닙니다 |
 | `satisfies` | 식이 계약에 맞는지 검사합니다. 대상 타입으로 전체를 넓히지는 않지만 문맥 추론에 영향을 줄 수 있습니다 |
 
@@ -42,7 +42,7 @@ flowchart LR
 
 예외 주석은 `docs-justify-convention-exceptions-with-a-reason-comment`를 따릅니다.
 "타입이 이상해서"는 확인할 수 있는 근거가 아닙니다.
-`any`와 `!`는 `tooling-configure-biome-to-enforce-these-rules`로 막고, `as`와 `@ts-expect-error`는 리뷰합니다.
+`any`와 `!`는 `tooling-configure-biome-to-enforce-these-rules`로 막고 `as`와 `@ts-expect-error`는 리뷰합니다.
 
 **Incorrect 1 (앱 밖에서 온 값을 단언으로 통과시킵니다):**
 

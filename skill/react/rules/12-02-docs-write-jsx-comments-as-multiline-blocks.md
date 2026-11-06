@@ -22,7 +22,7 @@ JSX 자식 자리의 주석은 `{/**`, ` * 내용`, ` */}`을 각각 다른 줄�
 | 주석 내용 | 기준 |
 | --- | --- |
 | 화면 구역의 역할 | 해당 구역이 맡은 책임을 설명합니다 |
-| 규칙이 허용한 예외의 이유 | `typescript/docs-justify-convention-exceptions-with-a-reason-comment`를 따르되, `//` 한 줄 대신 JSX 블록을 씁니다 |
+| 규칙이 허용한 예외의 이유 | `typescript/docs-justify-convention-exceptions-with-a-reason-comment`를 따르되 `//` 한 줄 대신 JSX 블록을 씁니다 |
 | 마크업이나 바로 아래 컴포넌트 이름 반복 | 새 정보가 없으므로 적지 않습니다 |
 
 **Incorrect 1 (주석을 한 줄로 접고 마크업 이름을 되풀이합니다):**

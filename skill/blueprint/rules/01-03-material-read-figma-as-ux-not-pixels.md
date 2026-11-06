@@ -2,7 +2,7 @@
 title: Read Figma as UX Not Pixels
 titleKo: Figma는 픽셀이 아니라 UX로 읽습니다
 impact: CRITICAL
-impactDescription: UX 안의 임의 치수를 문서에 옮겨 구현이 프로젝트 기본값과 어긋나지 않게 합니다
+impactDescription: UX 안의 임의 치수를 문서에 옮겨 적어 구현이 프로젝트 기본값과 어긋나는 일을 막습니다
 appliesWhen:
   - Figma 파일이나 노드를 설계 문서의 재료로 읽을 때
   - Figma의 폭, 간격, 줄 높이를 문서에 적으려 할 때
@@ -13,7 +13,7 @@ tags: material, figma, ux, capture
 
 ## Read Figma as UX Not Pixels
 
-**Impact: CRITICAL (UX 안의 임의 치수를 문서에 옮겨 구현이 프로젝트 기본값과 어긋나지 않게 합니다)**
+**Impact: CRITICAL (UX 안의 임의 치수를 문서에 옮겨 적어 구현이 프로젝트 기본값과 어긋나는 일을 막습니다)**
 
 기획이 그린 Figma는 UX 안입니다.
 폭 급, 정렬, 문구, 순서, 아이콘, 색, 표기를 읽고 안쪽 치수는 프로젝트 기본값에 맡깁니다.

@@ -60,10 +60,10 @@ npm run dev
 
 ## 함께 읽는 스킬
 
-- React 작업은 TypeScript를 항상 함께 읽고, 스타일을 바꾸면 CSS도 읽는다.
+- React 작업은 TypeScript를 항상 함께 읽고 스타일을 바꾸면 CSS도 읽는다.
 - Figma 작업은 바뀌는 범위에 따라 React와 CSS를 함께 활성화한다.
 - 순수 CSS 작업에서는 TypeScript를 자동으로 켜지 않는다.
-- Testing은 TypeScript를 함께 읽고, React 렌더나 실제 스타일을 바꿀 때만 해당 companion을 켠다.
+- Testing은 TypeScript를 함께 읽고 React 렌더나 실제 스타일을 바꿀 때만 해당 companion을 켠다.
 - 테스트에서 CSS를 단언하거나 locator를 쓰는 것만으로 React, CSS를 활성화하지 않는다.
 - Blueprint는 Figma를 재료로 읽을 때 Figma를, 설계 문서에서 테스트 케이스를 뽑을 때 Testing을 함께 활성화한다.
 
@@ -99,7 +99,8 @@ npm run dev
 | 3 | `contracts/<id>.md` | 해당하는 규칙의 계약 |
 | 4 | `rules/NN-MM-<id>.md` | `CRITICAL`, `HIGH`는 원문 전체, `MEDIUM`은 판단이 모호할 때 |
 
-작업 범위가 바뀌면 규칙을 다시 선택하고, 마무리할 때 변경 내용을 적용한 규칙과 대조한다.
+작업 범위가 바뀌면 규칙을 다시 선택한다.
+마무리할 때 변경 내용을 적용한 규칙과 대조한다.
 전체 검토를 요청받으면 규칙 원문을 순서대로 읽는다.
 설계 배경과 측정 결과, 검증의 한계는 [Progressive loading](research/progressive-loading.md)에 기록한다.
 

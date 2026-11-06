@@ -56,7 +56,7 @@ flowchart LR
 
 <<< ../examples/composition-inject-classes-only-at-the-entry-point/03-incorrect.tsx
 
-**Correct 2 (`className`은 최상위 클래스와 합치고, 변형은 필요한 노드마다 수정자로 붙입니다):**
+**Correct 2 (`className`은 최상위 클래스와 합치고 변형은 필요한 노드마다 수정자로 붙입니다):**
 
 <<< ../examples/composition-inject-classes-only-at-the-entry-point/04-correct.tsx
 

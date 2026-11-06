@@ -24,7 +24,8 @@ flowchart LR
 
 handler의 매칭 조건과 우선순위, 덮어쓰기 handler의 초기화를 확인합니다.
 `page.route`의 `fallback`은 앞서 등록된 handler로 넘기는 용도와 실제 네트워크로 빠지는 경우를 구분합니다.
-MSW 2.x 기준입니다. 3.x는 `onUnhandledFrame`과 `{ frame, defaults }` 콜백을 씁니다.
+MSW 2.x 기준입니다.
+3.x는 `onUnhandledFrame`과 `{ frame, defaults }` 콜백을 씁니다.
 
 오류 로그만으로 테스트 실패가 보장된다고 가정하지 않고 실행 결과에 연결되는지 확인합니다.
 MSW worker는 미처리 API를 구별할 표식을 기록합니다.

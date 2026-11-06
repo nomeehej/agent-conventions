@@ -17,7 +17,8 @@ tags: typing, wrapper, dom
 
 **Impact: HIGH (프롭 타입 충돌을 해결하면서 필요한 DOM 속성과 이벤트를 유지합니다)**
 
-공개할 계약은 `typing-narrow-library-wrapper-contracts`로 정하고, DOM 속성은 아래 순서로 엽니다.
+공개할 계약은 `typing-narrow-library-wrapper-contracts`로 정합니다.
+DOM 속성은 아래 순서로 엽니다.
 같은 요소로 `{...props}`를 전달하는 래퍼는 1, 2단계 중 컴파일되는 형태를 씁니다.
 
 ```mermaid
@@ -35,7 +36,7 @@ flowchart LR
 | --- | --- |
 | 요소 전용 타입 | 버튼은 `ButtonHTMLAttributes`, 입력은 `InputHTMLAttributes`, 셀은 `TdHTMLAttributes`를 씁니다 |
 | 전용 타입이 없는 요소 | `tr`처럼 전용 타입이 없을 때만 `HTMLAttributes`를 씁니다 |
-| 호환되는 좁히기 | `string`을 문자열 리터럴 유니언으로 좁히면 1단계가 컴파일됩니다. 숫자 `size`를 문자열 크기 이름으로 바꾸는 경우에는 2단계가 필요합니다 |
+| 호환되는 좁히기 | `string`을 문자열 리터럴 유니언으로 좁히면 1단계가 컴파일됩니다. 숫자 `size`를 문자열 크기 이름으로 바꾸면 2단계가 필요합니다 |
 | 요소 타입이 다름 | 겉은 `div`, 이벤트 대상은 `input`이면 `Omit`만으로 해결하지 않습니다 |
 
 요소 타입이 다르면 필요한 DOM 프롭을 `string`, `ChangeEventHandler<HTMLInputElement>` 같은 플랫폼 타입으로 적습니다.

@@ -32,7 +32,8 @@ flowchart LR
 | 해당 화면의 `Suspense` 경계, 폼 프로바이더, 모달을 여는 조건을 소유함 | `page` |
 
 하나도 걸리지 않으면 도메인을 아는 쪽이 `widget`, 모르는 쪽이 `ui`입니다.
-범용 셸이거나 한 화면에서만 쓴다는 사실은 `page`의 근거가 아니고, 여러 `ui` 부품을 조립해도 도메인을 모르면 `ui`입니다.
+범용 셸이거나 한 화면에서만 쓴다는 사실은 `page`의 근거가 아닙니다.
+여러 `ui` 부품을 조립해도 도메인을 모르면 `ui`입니다.
 파일 이름과 심볼에는 `ownership-name-component-files-after-their-symbols`를 적용합니다.
 
 **Incorrect 1 (라우터 훅을 부르는 화면 전용 로직이 `widget`에 남아 있습니다):**

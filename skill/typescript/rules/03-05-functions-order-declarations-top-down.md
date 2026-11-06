@@ -14,7 +14,7 @@ tags: functions, ordering
 
 **Impact: HIGH (파일을 열면 내보낸 함수가 먼저 보이고 호출부에서 호출 대상으로 이어집니다)**
 
-내보낸 계약과 대표 함수를 먼저 보여 주되, 모듈 초기화 시 필요한 선언 순서를 지킵니다.
+내보낸 계약과 대표 함수를 먼저 보여 주되 모듈 초기화 시 필요한 선언 순서를 지킵니다.
 선언은 파일 위에서 아래로 다음 순서로 놓습니다.
 
 ```mermaid
@@ -29,7 +29,7 @@ flowchart TD
 
 <<< ../examples/functions-order-declarations-top-down/01-incorrect.ts
 
-**Correct 1 (내보낸 계약 타입이 먼저, 그 계약을 받는 함수가 바로 아래에 옵니다):**
+**Correct 1 (내보낸 계약 타입이 먼저 오고 그 계약을 받는 함수가 바로 아래에 옵니다):**
 
 <<< ../examples/functions-order-declarations-top-down/02-correct.ts
 

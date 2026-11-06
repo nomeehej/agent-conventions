@@ -34,7 +34,7 @@ flowchart LR
 
 그 밖의 **지역 변수는 만들지 않습니다.**
 공통 토큰이 아니면 대체값이 필요해 사용처의 값은 남고 참조만 늘어납니다.
-조상 상태는 변수 대신 결합자 하나로 자손에 전달하며,
+조상 상태는 변수 대신 결합자 하나로 자손에 전달합니다.
 결합자 범위는 `ownership-use-foreign-classes-only-under-your-own-root`를 따릅니다.
 층 목록은 `values-declare-stacking-layers-as-tokens`, 새 토큰 이름은 `values-name-tokens-by-purpose`가 정합니다.
 

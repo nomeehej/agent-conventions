@@ -15,7 +15,8 @@ tags: functions, origin
 **Impact: HIGH (사용 횟수보다 계산 비용과 판정의 복잡성을 기준으로 변수 선언 여부를 판단합니다)**
 
 지역 변수는 재계산을 막거나 여러 항을 합친 판정에 이름을 붙일 때만 만듭니다.
-사용처 수만으로는 만들지 않으며, 아래 사유가 없으면 표현식을 쓰는 자리에 둡니다.
+사용처 수만으로는 만들지 않습니다.
+아래 사유가 없으면 표현식을 쓰는 자리에 둡니다.
 
 | 변수로 받을 사유 | 확인할 것 |
 | --- | --- |
@@ -27,7 +28,7 @@ tags: functions, origin
 | 부정이 겹친 판정 | `!row.deletedAt && !row.archivedAt`은 `isVisible`처럼 뜻을 드러내는 이름으로 받습니다 |
 
 단일 비교인 `row.dueDate < today`는 반복해서 써도 그대로 둡니다.
-객체 필드의 별칭은 `values-read-objects-through-chains`,
+객체 필드의 별칭은 `values-read-objects-through-chains`가 정합니다.
 `let` 재할당과 `push`는 `functions-avoid-imperative-assembly-in-wide-scopes`가 정합니다.
 
 **Incorrect 1 (두 번 쓴다는 이유만으로 변수로 뺍니다):**

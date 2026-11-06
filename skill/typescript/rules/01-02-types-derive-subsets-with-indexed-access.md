@@ -17,7 +17,7 @@ tags: types
 
 ### 필드를 고르는 방식
 
-기존 계약의 일부 필드는 `interface`에 `원본["필드"]`로 적고, `Pick`은 쓰지 않습니다.
+기존 계약의 일부 필드는 `interface`에 `원본["필드"]`로 적고 `Pick`은 쓰지 않습니다.
 계약 전체를 재사용할지는 `types-reuse-existing-contracts-before-new-types`가 정합니다.
 
 | 원본에 필드가 추가될 때 | 선언 방식 | 예 |

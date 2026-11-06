@@ -18,7 +18,7 @@ tags: absence
 
 **Impact: HIGH (기본값이 선언 한 곳에 남아 아래쪽 코드에서 `??`가 되풀이되지 않습니다)**
 
-기본값은 필요한지 먼저 확인하고, 필요하면 값이 들어오는 경계에서 한 번 채웁니다.
+기본값은 필요한지 먼저 확인하고 필요하면 값이 들어오는 경계에서 한 번 채웁니다.
 기본값 표현은 `absence-expose-optional-values-instead-of-silent-fallbacks`를 따릅니다.
 
 ```mermaid

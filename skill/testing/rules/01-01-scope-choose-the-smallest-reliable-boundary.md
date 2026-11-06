@@ -35,7 +35,7 @@ flowchart LR
 브라우저에서 story를 `mount`해도 앱 전체는 실행되지 않으므로 integration 경계로 봅니다.
 화면 하나의 진입, 세션 연결도 앱 경계를 검증하면 E2E이며 화면 수로 나누지 않습니다.
 
-함수의 입력 조합은 unit, 구역의 로딩, 빈 값, 실패와 조작은 integration에 둡니다.
+함수의 입력 조합은 unit에, 구역의 로딩, 빈 값, 실패와 조작은 integration에 둡니다.
 앱 E2E에는 대표 여정과 연결이 끊겼을 때 실패할 사례를 남깁니다.
 mock 서버를 쓰는 앱 E2E가 증명하는 범위는 `network-state-real-and-mocked-system-boundaries`가 정합니다.
 단순 래퍼나 서드파티 자체의 동작을 반복하는 테스트는 추가하지 않습니다.

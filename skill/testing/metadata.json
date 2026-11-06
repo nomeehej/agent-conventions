@@ -4,7 +4,7 @@
 	"version": "1.1.0",
 	"organization": "Agent Conventions",
 	"date": "2026년 10월",
-	"abstract": "테스트를 설계하고 작성, 검토하는 팀을 위한 컨벤션입니다. unit, integration, 앱 E2E의 실행 경계와 smoke, sanity의 선별 목적을 구분합니다. GIVEN, WHEN, THEN으로 조건, 행동, 결과를 드러내고 독립된 기대값과 상태 격리를 정합니다. Kubb 등의 생성 DTO, faker, MSW 위에서 도메인 builder와 handler를 조립해 브라우저와 Node가 함께 쓰는 작성 순서를 다룹니다. Story는 실제 화면과 provider로 재현 상태를 구성하고 소비 spec에서 행동과 결과를 검증합니다. Vitest, Playwright, 골든과 시각 비교, 실행 범위의 보고도 포함합니다. 폴더 번호와 케이스 ID, 결과서 형식은 프로젝트에 남깁니다. 규칙 본문의 정본은 `rules/*.md`입니다.",
+	"abstract": "테스트를 설계, 작성, 검토하는 팀을 위한 컨벤션입니다. unit, integration, 앱 E2E의 실행 경계와 smoke, sanity의 선별 목적을 구분합니다. GIVEN, WHEN, THEN으로 조건, 행동, 결과를 드러내고 독립된 기대값과 상태 격리를 정합니다. Kubb 등의 생성 DTO, faker, MSW 위에서 도메인 builder와 handler를 조립해 브라우저와 Node가 함께 쓰는 작성 순서를 다룹니다. Story는 실제 화면과 provider로 재현 상태를 구성하고 소비 spec에서 행동과 결과를 검증합니다. Vitest, Playwright, 골든과 시각 비교, 실행 범위의 보고도 포함합니다. 폴더 번호와 케이스 ID, 결과서 형식은 프로젝트에 남깁니다. 규칙 본문의 정본은 `rules/*.md`입니다.",
 	"companions": [
 		{
 			"skill": "typescript",

@@ -2,7 +2,7 @@
 title: Separate Static Copy from Server Data
 titleKo: 고정 문구와 서버 데이터를 나눠 글자의 출처를 정합니다
 impact: HIGH
-impactDescription: Figma 샘플 값을 하드코딩하지 않고, 고정 문구를 응답 필드에서 찾지도 않습니다
+impactDescription: Figma 샘플 값을 하드코딩하지 않고 고정 문구를 응답 필드에서 찾지도 않습니다
 appliesWhen:
   - Figma 텍스트 노드의 글자를 JSX나 문구 리소스에 넣을 때
   - 화면의 숫자, 이름, 날짜가 샘플인지 고정 문구인지 가려야 할 때
@@ -11,11 +11,12 @@ tags: source, copy, data
 
 ## Separate Static Copy from Server Data
 
-**Impact: HIGH (Figma 샘플 값을 하드코딩하지 않고, 고정 문구를 응답 필드에서 찾지도 않습니다)**
+**Impact: HIGH (Figma 샘플 값을 하드코딩하지 않고 고정 문구를 응답 필드에서 찾지도 않습니다)**
 
 글자마다 고정 문구인지 서버 데이터인지 가르고 출처를 아래 표로 정합니다.
 Figma 화면의 글자에는 고정 문구와 샘플 데이터가 섞여 있습니다.
-샘플을 하드코딩하면 모든 사용자에게 같은 값이 보입니다. 고정 문구를 데이터로 오해하면 없는 응답 필드를 찾게 됩니다.
+샘플을 하드코딩하면 모든 사용자에게 같은 값이 보입니다.
+고정 문구를 데이터로 오해하면 없는 응답 필드를 찾게 됩니다.
 
 | 글자 | 출처 |
 | --- | --- |

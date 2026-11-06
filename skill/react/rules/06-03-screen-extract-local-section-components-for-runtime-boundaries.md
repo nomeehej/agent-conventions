@@ -18,7 +18,8 @@ tags: screen, routes
 단순 래퍼, `className` 묶음, 들여쓰기 감소는 추출 근거가 아닙니다.
 
 분리 근거가 되는 책임 표는 `composition-split-owner-parts-only-for-runtime-boundaries`와 같습니다.
-그 규칙을 함께 적용합니다. `widget`, `ui` 전용 책임인 재사용과 조립은 라우트 진입에 쓰지 않습니다.
+그 규칙을 함께 적용합니다.
+`widget`, `ui` 전용 책임인 재사용과 조립은 라우트 진입에 쓰지 않습니다.
 
 추출한 파일의 배치는 `ownership-place-owner-files-in-role-folders`를 따릅니다.
 진입 파일의 JSX에 나타나지 않는 섹션을 다른 섹션 파일 안에서 렌더하면 과하게 나눈 것입니다.

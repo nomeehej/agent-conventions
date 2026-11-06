@@ -2,7 +2,7 @@
 title: Collect Hidden Layers and Annotations Before Building
 titleKo: 숨긴 레이어와 메모는 구현 전에 상태 목록으로 모읍니다
 impact: HIGH
-impactDescription: 한 화면에 겹쳐 둔 상태와 요구 조건이 구현에서 빠지지 않고, 버린 초안이 화면에 올라가지도 않습니다
+impactDescription: 한 화면에 겹쳐 둔 상태와 요구 조건이 구현에서 빠지지 않고 버린 초안이 화면에 올라가지도 않습니다
 appliesWhen:
   - Figma 메타데이터에 `hidden="true"` 노드가 있을 때
   - 화면 프레임 밖에 메모, 변경 이력, 상태 설명 프레임이 있을 때
@@ -11,11 +11,12 @@ tags: mcp, metadata, states, annotations
 
 ## Collect Hidden Layers and Annotations Before Building
 
-**Impact: HIGH (한 화면에 겹쳐 둔 상태와 요구 조건이 구현에서 빠지지 않고, 버린 초안이 화면에 올라가지도 않습니다)**
+**Impact: HIGH (한 화면에 겹쳐 둔 상태와 요구 조건이 구현에서 빠지지 않고 버린 초안이 화면에 올라가지도 않습니다)**
 
 숨긴 레이어와 메모는 구현 전에 아래 차례로 분류해 상태 목록으로 모읍니다.
 숨긴 레이어는 대개 디자이너가 상태나 변형을 한 화면에 겹쳐 둔 흔적입니다.
-보이는 것만 구현하면 상태가 빠집니다. 숨긴 것까지 모두 보이게 구현하면 버린 초안이 화면에 올라갑니다.
+보이는 것만 구현하면 상태가 빠집니다.
+숨긴 것까지 모두 보이게 구현하면 버린 초안이 화면에 올라갑니다.
 
 ```mermaid
 flowchart LR

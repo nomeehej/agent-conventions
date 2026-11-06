@@ -23,7 +23,8 @@ tags: testing, baseline
 두 matcher의 허용치 설정은 서로 대신 적용되지 않습니다.
 허용치는 관측한 렌더 오차와 중요한 차이를 검출할 수 있는 근거로 정합니다.
 canvas의 사용자 액션이나 레이아웃 자체가 대상이면 이미지 안정화와 DOM, 위치 단언을 함께 선택합니다.
-기준 이미지는 변경 결과를 직접 보고 승인합니다. 플랫폼별 기준을 둘지는 실행 환경에 맞게 정합니다.
+기준 이미지는 변경 결과를 직접 보고 승인합니다.
+플랫폼별 기준을 둘지는 실행 환경에 맞게 정합니다.
 
 참고: [공식 문서](https://playwright.dev/docs/api/class-testconfig#test-config-expect).
 
@@ -31,7 +32,7 @@ canvas의 사용자 액션이나 레이아웃 자체가 대상이면 이미지 �
 
 <<< ../examples/baseline-align-visual-environment-and-matcher-options/01-incorrect.config.ts
 
-**Correct 1 (Buffer를 비교하는 matcher에도 같은 허용치를 설정해 두 비교 모두 허용치가 적용됩니다):**
+**Correct 1 (Buffer를 비교하는 matcher에도 같은 허용치를 설정해 두 비교 모두에 적용합니다):**
 
 <<< ../examples/baseline-align-visual-environment-and-matcher-options/02-correct.config.ts
 

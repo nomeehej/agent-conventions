@@ -37,7 +37,7 @@
 }
 ```
 
-**Correct 1 (각 클래스가 자기 선언을 전부 가집니다):**
+**Correct 1 (각 클래스에 자기 선언이 전부 있습니다):**
 
 ```css
 .productsPage__badge--draft {

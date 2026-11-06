@@ -58,7 +58,7 @@ flowchart LR
 
 <<< ../examples/composition-use-activity-only-to-preserve-mounted-subtrees/03-incorrect-2.tsx
 
-**Correct 2 (다시 보여 줄 때 하위 트리 상태를 보존해야 하는 경우에만 씁니다):**
+**Correct 2 (다시 보여 줄 때 하위 트리 상태를 보존해야 할 때만 씁니다):**
 
 <<< ../examples/composition-use-activity-only-to-preserve-mounted-subtrees/04-correct-1.tsx
 

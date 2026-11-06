@@ -34,6 +34,6 @@ CSS 파일마다 고유한 블록 이름을 하나씩 씁니다.
 
 <<< ../examples/ownership-give-each-file-one-block/03-incorrect.txt
 
-**Correct 2 (자기 CSS 파일을 가진 컴포넌트는 자기 블록 이름을 씁니다):**
+**Correct 2 (자기 CSS 파일이 있는 컴포넌트는 자기 블록 이름을 씁니다):**
 
 <<< ../examples/ownership-give-each-file-one-block/04-correct.txt

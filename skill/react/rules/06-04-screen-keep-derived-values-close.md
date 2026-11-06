@@ -17,7 +17,7 @@ tags: screen, origin
 `useState`와 프롭스에서 나온 조건 플래그, 표시값은 사용처에서 계산합니다.
 화면 상단에 준비 코드로 모으지 않고, 훅 인자, JSX, 이펙트 내부의 좁은 스코프에 둡니다.
 이 규칙은 소유 파일 안에서 계산 위치만 정합니다.
-응답과 스토어의 출처는 `data-preserve-origin-chaining`,
+응답과 스토어의 출처는 `data-preserve-origin-chaining`이 정합니다.
 이름을 붙일지는 `typescript/functions-name-a-value-only-for-recompute-or-judgment`가 정합니다.
 
 **Incorrect 1 (쓰는 자리에서 먼 화면 상단에 플래그와 표시값을 쌓습니다):**

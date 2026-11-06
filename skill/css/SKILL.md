@@ -21,11 +21,12 @@ metadata:
 
 - read-only 문맥
 - TSX 소유자 이동에 그대로 딸려 온 클래스, 스타일, 스타일시트
-- 이름, 형태, 동작이 같은 이동. diff에 삭제+추가로 보여도 변경으로 다시 세지 않는다.
+- 이름, 형태, 동작이 같은 이동.
+  diff에 삭제+추가로 보여도 변경으로 다시 세지 않는다.
 
 적용되지 않는 규칙의 선택 사항을 새로 들여와 스스로 범위를 넓히지 않는다.
 
-TSX 컴포넌트의 `className`, `style`이 바뀌면 `convention-typescript`를 함께 활성화하고,
+TSX 컴포넌트의 `className`, `style`이 바뀌면 `convention-typescript`를 함께 활성화한다.
 그쪽에서 걸리는 규칙이 없더라도 활성화는 유지한다.
 같은 변경은 `convention-react`의 범위이기도 하지만 아래 계층인 이 skill이 위 계층을 켜지는 않는다.
 순수 CSS 변경이면 어느 쪽도 켜지 않는다.
@@ -42,7 +43,8 @@ React 상태, 핸들러는 `convention-react`가 담당한다.
 ## 3. 규칙 읽고 구현
 
 걸리는 규칙의 `contracts/<id>.md`를 읽는다.
-등급이 읽는 범위를 정하고, contract 첫머리가 그 범위를 말한다.
+등급이 읽는 범위를 정한다.
+contract 첫머리가 그 범위를 말한다.
 
 | 등급 | 읽는 범위 |
 | --- | --- |
@@ -52,9 +54,12 @@ React 상태, 핸들러는 `convention-react`가 담당한다.
 
 정확한 원문 경로는 contract의 full rule 링크가 가리킨다.
 
-- `requiresSelected` 대상은 함께 적용한다. 다른 skill의 규칙이면 그 companion도 활성화한다.
-- `reviewWith` 대상은 변경 범위에 비춰 다시 판단한다. 자동으로 적용하지는 않는다.
-- `completionGate` 규칙은 마무리 시 항상 적용한다. 인덱스가 그 표시를 달아 준다.
+- `requiresSelected` 대상은 함께 적용한다.
+  다른 skill의 규칙이면 그 companion도 활성화한다.
+- `reviewWith` 대상은 변경 범위에 비춰 다시 판단한다.
+  자동으로 적용하지는 않는다.
+- `completionGate` 규칙은 마무리 시 항상 적용한다.
+  인덱스가 그 표시를 달아 준다.
 
 걸린 규칙은 등급과 무관하게 전부 지킨다.
 등급은 지킬지 말지가 아니라 얼마나 깊이 읽는지를 정한다.
@@ -69,7 +74,8 @@ conditional companion도 다시 판정한다.
 
 ## 5. 마무리
 
-변경 diff를 적용한 규칙에 비춰 다시 훑고, 위반이 있으면 file/line과 수정안으로 보고한다.
+변경 diff를 적용한 규칙에 비춰 다시 훑는다.
+위반이 있으면 file/line과 수정안으로 보고한다.
 lint, build, 브라우저 확인 통과는 컨벤션을 지켰다는 근거가 아니다.
 
 전체 검토를 명시적으로 요청받거나 index, contract가 손상됐을 때만 `rules/*.md`를 번호 순서로 읽는다.

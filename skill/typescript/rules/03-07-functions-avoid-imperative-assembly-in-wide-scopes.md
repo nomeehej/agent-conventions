@@ -24,7 +24,7 @@ flowchart LR
 	q2 -- 아니요 --> r3("분기마다 return 으로<br>끝나는 함수로 추출")
 ```
 
-추출 여부는 `functions-extract-helpers-only-when-the-boundary-is-real`,
+추출 여부는 `functions-extract-helpers-only-when-the-boundary-is-real`을 따릅니다.
 함수 이름은 `functions-name-functions-by-what-comes-out`을 따릅니다.
 
 **Incorrect 1 (넓은 스코프에서 명령형으로 조립을 쌓습니다):**

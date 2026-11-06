@@ -33,7 +33,7 @@ flowchart LR
 | 실제 커스텀 훅 | 기능을 나타내는 `use<Capability>`로 이름 짓습니다. `useData`, `useLogic`처럼 구현 범주만 적지 않습니다 |
 | 생명주기가 있는 로직 | 분량을 줄이기 위한 추출은 허용하지 않습니다. `ownership-keep-lifecycle-in-the-owning-component`를 따릅니다 |
 
-함수 추출 여부는 `typescript/functions-extract-helpers-only-when-the-boundary-is-real`,
+함수 추출 여부는 `typescript/functions-extract-helpers-only-when-the-boundary-is-real`를 따릅니다.
 배치는 `ownership-place-owner-files-in-role-folders`를 따릅니다.
 
 **Incorrect 1 (순수 지역 계산을 커스텀 훅으로 감쌉니다):**

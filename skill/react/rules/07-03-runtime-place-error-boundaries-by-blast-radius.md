@@ -34,7 +34,8 @@ flowchart LR
 | 섹션 | `Suspense` 경계와 같은 소유자 | 같은 화면의 다른 섹션 |
 
 목록 실패 후 옆 필터로 할 수 있는 일이 없다면 화면 경계로 충분합니다.
-로딩, 오류 경계는 같은 소유자가 조립하며, 위치는 `runtime-place-suspense-boundaries-at-the-section-owner`를 따릅니다.
+로딩, 오류 경계는 같은 소유자가 조립합니다.
+위치는 `runtime-place-suspense-boundaries-at-the-section-owner`를 따릅니다.
 
 ### 실패 상황별 처리
 
@@ -47,11 +48,12 @@ flowchart LR
 
 ### 경계 구현과 재시도
 
-오류 포착 구현은 `ui`의 `ErrorBoundary`에서 한 번만 제공하며,
-`react-error-boundary` 같은 라이브러리에 맡길 수 있습니다.
+오류 포착 구현은 `ui`의 `ErrorBoundary`에서 한 번만 제공합니다.
+이 구현은 `react-error-boundary` 같은 라이브러리에 맡길 수 있습니다.
 데이터 라우터의 `errorElement`와 `ui`의 `ErrorBoundary`를 같은 실패 범위에 겹쳐 쓰지 않습니다.
-정상 화면은 유지하면서 오류 상태만 초기화하도록 URL 변경은 `resetKeys`에 연결하고, 경계의 `key`는 바꾸지 않습니다.
-재시도 버튼은 대체 화면에서 오류 경계의 재시도 함수를 호출하고,
+정상 화면은 유지하면서 오류 상태만 초기화하도록 URL 변경은 `resetKeys`에 연결합니다.
+경계의 `key`는 바꾸지 않습니다.
+재시도 버튼은 대체 화면에서 오류 경계의 재시도 함수를 호출합니다.
 경계의 `onReset`에는 `useQueryErrorResetBoundary`의 `reset`을 연결합니다.
 
 **Incorrect 1 (캐시가 있는 재조회 실패도 자동으로 경계에 전달된다고 가정합니다):**

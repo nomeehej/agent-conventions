@@ -39,8 +39,8 @@ flowchart LR
 
 다른 소유자의 DOM 경로는 우리가 정하지 않으므로 결합자 개수를 제한하지 않습니다.
 블록 중첩 깊이는 `selector-limit-nesting-block-depth`를 따릅니다.
-직접 수정할 수 있는 클래스라면 `ownership-change-other-owners-through-their-api`의 세 방법을 먼저 확인하고,
-모두 맞지 않을 때 이 규칙을 적용합니다.
+직접 수정할 수 있는 클래스라면 `ownership-change-other-owners-through-their-api`의 세 방법을 먼저 확인합니다.
+세 방법이 모두 맞지 않을 때 이 규칙을 적용합니다.
 
 ### 기계 검사 범위
 

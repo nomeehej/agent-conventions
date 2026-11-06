@@ -36,7 +36,7 @@ flowchart LR
 `useSuspenseQuery`, `useSuspenseQueries`는 `enabled`를 받지 않습니다.
 필수 입력이 없으면 쿼리를 호출하는 자식의 렌더를 보류합니다.
 독립적인 Suspense 쿼리도 같은 컴포넌트에서 따로 호출하면 앞 요청부터 순서대로 실행됩니다.
-한 쿼리만 가공하면 `data-shape-query-data-with-select`를 따르고,
+한 쿼리만 가공하면 `data-shape-query-data-with-select`를 따릅니다.
 조합을 커스텀 훅으로 옮기는 기준은 `ownership-prefer-plain-ts-for-local-react-helpers`가 정합니다.
 
 **Incorrect 1 (화면 본문에서 두 응답을 꺼내 합칩니다):**

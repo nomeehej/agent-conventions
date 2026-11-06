@@ -14,7 +14,7 @@ tags: tooling
 **Impact: MEDIUM (자동 검사 범위와 리뷰에서 판단할 범위를 구분합니다)**
 
 `biome` 2.x의 `linter.domains`에서 `react`를 켭니다.
-`package.json`에 `react@>=16`이 있을 때 React 검사가 적용되며,
+`package.json`에 `react@>=16`이 있을 때 React 검사가 적용됩니다.
 기본 설정은 `typescript/tooling-configure-biome-to-enforce-these-rules`를 따릅니다.
 
 ### 도메인 검사와 추가 설정
@@ -53,7 +53,7 @@ tags: tooling
 
 | 켜지 않는 규칙 | 이유 |
 | --- | --- |
-| `style/useFragmentSyntax` | `recommended`에 없으며, 켜면 `Fragment`를 요구하는 `react/composition-name-fragments-explicitly`와 충돌합니다 |
+| `style/useFragmentSyntax` | `recommended`에 없으며 켜면 `Fragment`를 요구하는 `react/composition-name-fragments-explicitly`와 충돌합니다 |
 | `style/useReactFunctionComponents` | 도메인 `all`에만 있고 기본 심각도가 `info`라 통과 여부를 판정하지 못합니다 |
 
 **Correct (도메인과 추가 검사를 켜고 레이어, 라우트 `overrides`를 설정합니다):**
