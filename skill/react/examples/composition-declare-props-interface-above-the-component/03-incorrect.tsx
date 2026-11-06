@@ -1,4 +1,4 @@
-export interface UiPanelHeaderProps {
+export interface PanelHeaderProps {
 	children: ReactNode;
 }
 
@@ -6,6 +6,6 @@ export interface UiPanelHeaderProps {
 /**
  * 패널 헤더 부품
  */
-export const UiPanelHeader = (props: UiPanelHeaderProps) => {
-	return <header className={clsx("ui_panel__header")}>{props.children}</header>;
+export const PanelHeader = (props: PanelHeaderProps) => {
+	return <header className={clsx("panel__header")}>{props.children}</header>;
 };

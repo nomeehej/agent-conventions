@@ -4,8 +4,8 @@ const toRowClassNames = (row: OrderRow): string[] => {
 
 	return [
 // [!code error]
-		isOverdue ? "ui_row__root--overdue" : "ui_row__root",
+		isOverdue ? "row__root--overdue" : "row__root",
 // [!code error]
-		isOverdue ? "ui_row__badge--overdue" : "ui_row__badge",
+		isOverdue ? "row__badge--overdue" : "row__badge",
 	];
 };

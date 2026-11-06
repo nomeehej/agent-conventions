@@ -1,12 +1,12 @@
 page/
-├── pg-outlet.tsx
+├── root-outlet.tsx
 ├── (main)/
-│   ├── pg-main-outlet.tsx
+│   ├── main-outlet.tsx
 │   ├── products/
-│   │   ├── pg-products.tsx
+│   │   ├── products-page.tsx
 │   │   └── product-table-section/
-│   │       └── pg-product-table-section.tsx
+│   │       └── product-table-section.tsx
 │   └── orders/
-│       └── pg-orders.tsx
+│       └── orders-page.tsx
 └── product-detail/
-    └── pg-product-detail.tsx
+    └── product-detail-page.tsx

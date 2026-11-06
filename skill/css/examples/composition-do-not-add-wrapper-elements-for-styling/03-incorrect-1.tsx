@@ -1,6 +1,6 @@
 // [!code error]
-<div className={clsx("pg_orders__collapseWrap")}>
-	<UiCollapse>
-		<PgOrderFilterFields />
-	</UiCollapse>
+<div className={clsx("ordersPage__collapseWrap")}>
+	<Collapse>
+		<OrderFilterFields />
+	</Collapse>
 </div>

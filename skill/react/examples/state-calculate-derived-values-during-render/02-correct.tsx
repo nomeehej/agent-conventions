@@ -1,4 +1,4 @@
 const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
 // [!code ++]
-return <UiSelectedCountBadge count={selectedIds.length} />;
+return <SelectedCountBadge count={selectedIds.length} />;

@@ -1,28 +1,28 @@
-// page/products/pg-products.tsx
+// page/products/products-page.tsx
 import {Fragment} from "react";
 
-import {UiPanel} from "@/component/ui/panel/ui-panel";
+import {Panel} from "@/component/ui/panel/panel";
 
-export const PgProducts = () => {
+export const ProductsPage = () => {
 	return (
 		<Fragment>
-			<UiPanel.Root>
-				<UiPanel.Header>
+			<Panel.Root>
+				<Panel.Header>
 					<h2>제품</h2>
-					<PgProductSearchField />
-				</UiPanel.Header>
-				<PgProductList />
-				<UiPanel.Footer>
-					<UiPagination />
-				</UiPanel.Footer>
-			</UiPanel.Root>
+					<ProductSearchField />
+				</Panel.Header>
+				<ProductList />
+				<Panel.Footer>
+					<Pagination />
+				</Panel.Footer>
+			</Panel.Root>
 
-			<UiPanel.Root>
-				<UiPanel.Header>
+			<Panel.Root>
+				<Panel.Header>
 					<h2>제품 등록</h2>
-				</UiPanel.Header>
-				<PgProductCreateForm />
-			</UiPanel.Root>
+				</Panel.Header>
+				<ProductCreateForm />
+			</Panel.Root>
 		</Fragment>
 	);
 };

@@ -1,11 +1,11 @@
-// component/widget/product-browse-toolbar/wg-product-browse-toolbar.tsx
-import {WgProductToolbar} from "@/component/widget/product-toolbar/wg-product-toolbar";
+// component/widget/product-browse-toolbar/product-browse-toolbar.tsx
+import {ProductToolbar} from "@/component/widget/product-toolbar/product-toolbar";
 
-export const WgProductBrowseToolbar = () => {
+export const ProductBrowseToolbar = () => {
 	return (
-		<WgProductToolbar.Root>
-			<WgProductSearchField />
-			<WgProductBrowseActions />
-		</WgProductToolbar.Root>
+		<ProductToolbar.Root>
+			<ProductSearchField />
+			<ProductBrowseActions />
+		</ProductToolbar.Root>
 	);
 };

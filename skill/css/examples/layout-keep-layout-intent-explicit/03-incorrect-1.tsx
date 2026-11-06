@@ -1,4 +1,4 @@
 // [!code error]
-<Suspense fallback={<UiLineChartSkeleton className={clsx("pg_productDetail__chartSkeleton")} />}>
-	<PgProductDetailChartSection />
+<Suspense fallback={<LineChartSkeleton className={clsx("productDetailPage__chartSkeleton")} />}>
+	<ProductDetailChartSection />
 </Suspense>

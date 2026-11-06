@@ -1,3 +1,3 @@
 const [searchParams] = useSearchParams();
 
-<UiShareLinkButton href={`/products?${searchParams.toString()}`} />;
+<ShareLinkButton href={`/products?${searchParams.toString()}`} />;

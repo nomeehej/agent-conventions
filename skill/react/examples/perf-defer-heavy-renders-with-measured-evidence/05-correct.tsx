@@ -7,4 +7,4 @@ const handleStatusFilterChange = (nextStatus: ProductStatusFilter) => {
 	});
 };
 
-return <UiFilterBar isBusy={isPending} onStatusChange={handleStatusFilterChange} />;
+return <FilterBar isBusy={isPending} onStatusChange={handleStatusFilterChange} />;

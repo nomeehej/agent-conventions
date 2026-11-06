@@ -11,4 +11,4 @@ const handleRemoveProductButtonClick: MouseEventHandler<HTMLButtonElement> = (_e
 	mutationProductRemove.mutate({params: {productId: selectedProduct.id}});
 };
 
-<UiButton onClick={handleRemoveProductButtonClick}>삭제</UiButton>;
+<Button onClick={handleRemoveProductButtonClick}>삭제</Button>;

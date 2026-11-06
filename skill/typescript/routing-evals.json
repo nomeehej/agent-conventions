@@ -266,9 +266,9 @@
 		},
 		{
 			"id": "decide-once-and-guard-real-absence",
-			"prompt": "`pg-product-detail.tsx` formats `averageRate` while building `ProductSummary` and `to-report-content.ts` formats the same field again; read the carried value instead, replace `...(isNil(stockCount) ? {} : {stockCount})` with a plain optional field, and drop the `isNil` check on the non-null `name` field. The internal display contract permits explicit undefined and no consumer distinguishes key presence; stockCount cannot be null.",
+			"prompt": "`product-detail-page.tsx` formats `averageRate` while building `ProductSummary` and `to-report-content.ts` formats the same field again; read the carried value instead, replace `...(isNil(stockCount) ? {} : {stockCount})` with a plain optional field, and drop the `isNil` check on the non-null `name` field. The internal display contract permits explicit undefined and no consumer distinguishes key presence; stockCount cannot be null.",
 			"files": [
-				"src/page/product-detail/pg-product-detail.tsx",
+				"src/page/product-detail/product-detail-page.tsx",
 				"src/page/product-detail/_function/to-report-content.ts"
 			],
 			"expectedSkills": [
@@ -284,9 +284,9 @@
 		},
 		{
 			"id": "check-absence-once-across-helpers",
-			"prompt": "`to-signed-tone.ts` and `format-signed-percent.ts` each re-check `isNil` and `Number.isFinite` on `changeRate` that `pg-detail.tsx` already narrows in `select`; take `number` in the helpers, keep the single `isNotNil` check where the badge is rendered, and drop the repeated guards.",
+			"prompt": "`to-signed-tone.ts` and `format-signed-percent.ts` each re-check `isNil` and `Number.isFinite` on `changeRate` that `detail-page.tsx` already narrows in `select`; take `number` in the helpers, keep the single `isNotNil` check where the badge is rendered, and drop the repeated guards.",
 			"files": [
-				"src/page/detail/pg-detail.tsx",
+				"src/page/detail/detail-page.tsx",
 				"src/page/detail/_function/to-badge/_to-signed-tone.ts",
 				"src/page/detail/_function/format-signed-percent.ts"
 			],

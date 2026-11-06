@@ -1,15 +1,15 @@
-.pg_products__sortBox {
+.productsPage__sortBox {
 	&::before {
 		border: 2px solid #ced4da;
 	}
 }
 
-.pg_products__sortButton {
+.productsPage__sortButton {
 	&.MuiButtonBase-root {
 		display: inline-flex;
 	}
 
-	&:hover .pg_products__sortBox::before {
+	&:hover .productsPage__sortBox::before {
 		border-color: #9fadc7;
 	}
 }

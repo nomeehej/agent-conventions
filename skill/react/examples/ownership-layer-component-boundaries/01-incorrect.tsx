@@ -1,7 +1,7 @@
 // [!code error]
-// component/widget/product-toolbar/_wg-product-toolbar-delete-button.tsx
+// component/widget/product-toolbar/_product-toolbar-delete-button.tsx
 // [!code error]
-export const WgProductToolbarDeleteButton = () => {
+export const ProductToolbarDeleteButton = () => {
 	const navigate = useNavigate();
 
 	/**
@@ -11,5 +11,5 @@ export const WgProductToolbarDeleteButton = () => {
 		void navigate("/products");
 	};
 
-	return <UiButton onClick={handleDeleteButtonClick}>삭제</UiButton>;
+	return <Button onClick={handleDeleteButtonClick}>삭제</Button>;
 };

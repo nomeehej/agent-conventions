@@ -15,9 +15,9 @@
 **Incorrect 1 (파일 분량을 줄이려고 생명주기를 훅으로 옮깁니다):**
 
 ```tsx
-// component/widget/chart-card/wg-chart-card.tsx
+// component/widget/chart-card/chart-card.tsx
 // 생성, resize, 정리가 _hook/use-chart-instance.ts로 빠져 이 파일에서는 실행 흐름이 안 보임
-export const WgChartCard = (props: WgChartCardProps) => {
+export const ChartCard = (props: ChartCardProps) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const chart = useChartInstance(containerRef);
 
@@ -28,15 +28,15 @@ export const WgChartCard = (props: WgChartCardProps) => {
 		chart?.setOption(props.option);
 	}, [chart, props.option]);
 
-	return <div ref={containerRef} className={clsx("wg_chartCard__canvas")} />;
+	return <div ref={containerRef} className={clsx("chartCard__canvas")} />;
 };
 ```
 
 **Correct 1 (생명주기를 소유 컴포넌트가 직접 가집니다):**
 
 ```tsx
-// component/widget/chart-card/wg-chart-card.tsx
-export const WgChartCard = (props: WgChartCardProps) => {
+// component/widget/chart-card/chart-card.tsx
+export const ChartCard = (props: ChartCardProps) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const chartRef = useRef<ChartInstance | null>(null);
 
@@ -71,7 +71,7 @@ export const WgChartCard = (props: WgChartCardProps) => {
 		chartRef.current?.setOption(props.option);
 	}, [props.option]);
 
-	return <div ref={containerRef} className={clsx("wg_chartCard__canvas")} />;
+	return <div ref={containerRef} className={clsx("chartCard__canvas")} />;
 };
 ```
 

@@ -9,11 +9,11 @@
 **Incorrect 1 (`Fragment` 단축 문법을 씁니다):**
 
 ```tsx
-export const PgProductScreen = () => {
+export const ProductScreen = () => {
 	return (
 		<>
-			<PgProductFilterSection />
-			<PgProductTableSection />
+			<ProductFilterSection />
+			<ProductTableSection />
 		</>
 	);
 };
@@ -24,11 +24,11 @@ export const PgProductScreen = () => {
 ```tsx
 import {Fragment} from "react";
 
-export const PgProductScreen = () => {
+export const ProductScreen = () => {
 	return (
 		<Fragment>
-			<PgProductFilterSection />
-			<PgProductTableSection />
+			<ProductFilterSection />
+			<ProductTableSection />
 		</Fragment>
 	);
 };

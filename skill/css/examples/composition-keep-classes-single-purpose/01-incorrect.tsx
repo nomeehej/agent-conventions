@@ -1,2 +1,2 @@
 // [!code error]
-<div className={clsx("pg_products__listButtonActive")} />
+<div className={clsx("productsPage__listButtonActive")} />

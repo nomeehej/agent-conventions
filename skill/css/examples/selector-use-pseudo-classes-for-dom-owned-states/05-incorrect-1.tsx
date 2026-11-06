@@ -2,7 +2,7 @@
 	type="button"
 	aria-pressed={isSelected}
 // [!code error]
-	className={clsx("pg_products__card", isDisabled && "pg_products__card--disabled")}
+	className={clsx("productsPage__card", isDisabled && "productsPage__card--disabled")}
 >
 	{product.name}
 </button>

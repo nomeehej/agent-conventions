@@ -1,11 +1,11 @@
 /* [!code ++] */
-@keyframes pg_products__fadeIn {
+@keyframes productsPage__fadeIn {
 	from {
 		opacity: 0;
 	}
 }
 
-.pg_products__panel {
+.productsPage__panel {
 /* [!code ++] */
-	animation: pg_products__fadeIn var(--app-motion-duration-fast) var(--app-motion-easing-out);
+	animation: productsPage__fadeIn var(--app-motion-duration-fast) var(--app-motion-easing-out);
 }

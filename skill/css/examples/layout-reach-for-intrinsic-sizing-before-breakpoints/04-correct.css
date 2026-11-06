@@ -1,6 +1,6 @@
 /* [!code ++] */
-/* ui-button.css: 폭 지정 없음 */
-.ui_button__root {
+/* button.css: 폭 지정 없음 */
+.button__root {
 	display: inline-flex;
 /* [!code ++] */
 	align-items: center;

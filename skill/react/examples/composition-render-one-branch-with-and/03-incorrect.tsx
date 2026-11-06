@@ -1,1 +1,1 @@
-return <section>{selectedRows.length && <PgProductBulkActionBar />}</section>;
+return <section>{selectedRows.length && <ProductBulkActionBar />}</section>;

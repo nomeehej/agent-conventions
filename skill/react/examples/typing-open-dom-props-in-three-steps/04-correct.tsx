@@ -1,5 +1,5 @@
-import {TextField} from "@mui/material";
-import type {TextFieldProps} from "@mui/material";
+import {TextField as MuiTextField} from "@mui/material";
+import type {TextFieldProps as MuiTextFieldProps} from "@mui/material";
 import {clsx} from "clsx";
 import type {ChangeEventHandler} from "react";
 
@@ -9,7 +9,7 @@ import type {ChangeEventHandler} from "react";
  * 겉은 `div`, 이벤트는 안쪽 `input`이 받아 요소 전용 타입을 그대로 못 씀
  * 입력 이름을 반드시 보이려고 label은 선택적인 ReactNode 대신 필수 문자열
  */
-export interface UiTextFieldProps {
+export interface TextFieldProps {
 	/**
 	 * 입력 위에 보이는 이름
 	 */
@@ -33,13 +33,13 @@ export interface UiTextFieldProps {
 	/**
 	 * 오류 표시 여부
 	 */
-	error?: TextFieldProps["error"];
+	error?: MuiTextFieldProps["error"];
 }
 
-export const UiTextField = (props: UiTextFieldProps) => {
+export const TextField = (props: TextFieldProps) => {
 	return (
-		<TextField
-			className={clsx("ui_textField__root", props.className)}
+		<MuiTextField
+			className={clsx("textField__root", props.className)}
 			id={props.id}
 			label={props.label}
 			value={props.value}

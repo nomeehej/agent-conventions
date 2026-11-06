@@ -1,4 +1,4 @@
-const PgProductPanel = (props: PgProductPanelProps) => {
+const ProductPanel = (props: ProductPanelProps) => {
 // [!code error]
-	return props.isVisible && <section className={clsx("pg_productPanel__root")}>{props.children}</section>;
+	return props.isVisible && <section className={clsx("productPanel__root")}>{props.children}</section>;
 };

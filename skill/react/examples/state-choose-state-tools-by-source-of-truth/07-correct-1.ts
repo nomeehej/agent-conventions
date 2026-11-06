@@ -2,7 +2,7 @@
 /**
  * 탭 부품끼리 나눠 쓰는 값
  */
-interface UiTabsContextValue {
+interface TabsContextValue {
 	/**
 	 * 지금 열린 탭 식별자
 	 */
@@ -13,4 +13,4 @@ interface UiTabsContextValue {
 	onSelect: (id: string) => void;
 }
 
-export const UiTabsContext = createContext<UiTabsContextValue | null>(null);
+export const TabsContext = createContext<TabsContextValue | null>(null);

@@ -1,4 +1,4 @@
-// page/products/pg-products.tsx
+// page/products/products-page.tsx
 import {preview_row_count} from "@/constant/preview";
 import {retry_max_attempts} from "@/constant/retry";
 

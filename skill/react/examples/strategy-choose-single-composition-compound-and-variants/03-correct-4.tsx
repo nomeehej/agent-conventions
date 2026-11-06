@@ -1,10 +1,10 @@
-// component/widget/profile-dialog/wg-profile-dialog.tsx
-import {WgProfileDialogBody} from "@/component/widget/profile-dialog/_wg-profile-dialog-body";
-import {WgProfileDialogHeader} from "@/component/widget/profile-dialog/_wg-profile-dialog-header";
-import {WgProfileDialogRoot} from "@/component/widget/profile-dialog/_wg-profile-dialog-root";
+// component/widget/profile-dialog/profile-dialog.tsx
+import {ProfileDialogBody} from "@/component/widget/profile-dialog/_profile-dialog-body";
+import {ProfileDialogHeader} from "@/component/widget/profile-dialog/_profile-dialog-header";
+import {ProfileDialogRoot} from "@/component/widget/profile-dialog/_profile-dialog-root";
 
-export const WgProfileDialog = {
-	Root: WgProfileDialogRoot,
-	Header: WgProfileDialogHeader,
-	Body: WgProfileDialogBody,
+export const ProfileDialog = {
+	Root: ProfileDialogRoot,
+	Header: ProfileDialogHeader,
+	Body: ProfileDialogBody,
 } as const;

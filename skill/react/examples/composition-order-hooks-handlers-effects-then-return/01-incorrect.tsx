@@ -1,4 +1,4 @@
-export const PgOrderToolbar = () => {
+export const OrderToolbar = () => {
 // [!code error]
 	// selectedIds가 아직 초기화 전이라 의존성 배열을 평가하는 이 줄에서 오류
 // [!code error]
@@ -22,10 +22,10 @@ export const PgOrderToolbar = () => {
 	};
 
 	return (
-		<section className={clsx("pg_orderToolbar__root")}>
-			<UiButton onClick={handleClearButtonClick}>비우기</UiButton>
-			<UiButton onClick={handlePanelOpenButtonClick}>필터</UiButton>
-			{isPanelOpen && <PgOrderFilterPanel />}
+		<section className={clsx("orderToolbar__root")}>
+			<Button onClick={handleClearButtonClick}>비우기</Button>
+			<Button onClick={handlePanelOpenButtonClick}>필터</Button>
+			{isPanelOpen && <OrderFilterPanel />}
 		</section>
 	);
 };

@@ -1,10 +1,10 @@
-// component/ui/tabs/_ui-tabs-root.tsx
-import {UiTabsContext} from "@/component/ui/tabs/_hook/use-tabs";
+// component/ui/tabs/_tabs-root.tsx
+import {TabsContext} from "@/component/ui/tabs/_hook/use-tabs";
 
 /**
  * 탭 묶음 루트 입력 계약
  */
-export interface UiTabsRootProps {
+export interface TabsRootProps {
 	/**
 	 * 처음 열어 둘 탭 식별자
 	 */
@@ -15,8 +15,8 @@ export interface UiTabsRootProps {
 	children: ReactNode;
 }
 
-export const UiTabsRoot = (props: UiTabsRootProps) => {
+export const TabsRoot = (props: TabsRootProps) => {
 	const [selectedId, setSelectedId] = useState(props.defaultId);
 
-	return <UiTabsContext value={{ selectedId, onSelect: setSelectedId }}>{props.children}</UiTabsContext>;
+	return <TabsContext value={{ selectedId, onSelect: setSelectedId }}>{props.children}</TabsContext>;
 };

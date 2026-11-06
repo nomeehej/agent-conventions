@@ -2,7 +2,7 @@
 /**
  * 대화상자 부품이 나눠 읽는 접힘 상태
  */
-interface WgProfileDialogContextValue {
+interface ProfileDialogContextValue {
 	/**
 	 * 본문이 펼쳐져 있는지
 	 */
@@ -13,4 +13,4 @@ interface WgProfileDialogContextValue {
 	toggleBody: () => void;
 }
 
-export const WgProfileDialogContext = createContext<WgProfileDialogContextValue | null>(null);
+export const ProfileDialogContext = createContext<ProfileDialogContextValue | null>(null);

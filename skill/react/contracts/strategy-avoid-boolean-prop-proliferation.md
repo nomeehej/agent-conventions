@@ -17,21 +17,21 @@
 **Incorrect 1 (불리언 프롭 조합으로 공용 컴포넌트가 비대해집니다):**
 
 ```tsx
-// component/widget/product-toolbar/wg-product-toolbar.tsx
-export interface WgProductToolbarProps {
+// component/widget/product-toolbar/product-toolbar.tsx
+export interface ProductToolbarProps {
 	isCompact?: boolean;
 	isEditing?: boolean;
 	showSearch?: boolean;
 }
 
-export const WgProductToolbar = (props: WgProductToolbarProps) => {
+export const ProductToolbar = (props: ProductToolbarProps) => {
 	return (
 		<header>
-			{props.showSearch && <WgProductSearchField />}
+			{props.showSearch && <ProductSearchField />}
 			{props.isEditing ? (
-				<WgProductEditActions compact={props.isCompact} />
+				<ProductEditActions compact={props.isCompact} />
 			) : (
-				<WgProductBrowseActions compact={props.isCompact} />
+				<ProductBrowseActions compact={props.isCompact} />
 			)}
 		</header>
 	);
@@ -41,15 +41,15 @@ export const WgProductToolbar = (props: WgProductToolbarProps) => {
 **Correct 1 (모드마다 조합을 고정한 변형 컴포넌트를 둡니다):**
 
 ```tsx
-// component/widget/product-browse-toolbar/wg-product-browse-toolbar.tsx
-import {WgProductToolbar} from "@/component/widget/product-toolbar/wg-product-toolbar";
+// component/widget/product-browse-toolbar/product-browse-toolbar.tsx
+import {ProductToolbar} from "@/component/widget/product-toolbar/product-toolbar";
 
-export const WgProductBrowseToolbar = () => {
+export const ProductBrowseToolbar = () => {
 	return (
-		<WgProductToolbar.Root>
-			<WgProductSearchField />
-			<WgProductBrowseActions />
-		</WgProductToolbar.Root>
+		<ProductToolbar.Root>
+			<ProductSearchField />
+			<ProductBrowseActions />
+		</ProductToolbar.Root>
 	);
 };
 ```

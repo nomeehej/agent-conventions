@@ -1,3 +1,3 @@
-pg_orders__root         <- orders 화면
-pg_orderDetail__body    <- order-detail 화면
-pg_settings__body       <- settings 화면
+ordersPage__root         <- orders 화면
+orderDetailPage__body    <- order-detail 화면
+settingsPage__body       <- settings 화면

@@ -31,17 +31,17 @@ flowchart LR
 
 | 프롭 종류 | 선언 방법 |
 | --- | --- |
-| 라이브러리에 이미 있는 표시 프롭 (`color`, `padding`, `size`) | `ButtonProps["color"]`처럼 인덱스 접근으로 하나씩 엽니다 |
+| 라이브러리에 이미 있는 표시 프롭 (`color`, `padding`, `size`) | `MuiButtonProps["color"]`처럼 인덱스 접근으로 하나씩 엽니다 |
 | 안쪽 컴포넌트가 받지 않는 자기 프롭 (`icon`, `label`, `helperText`) | 타입을 직접 적습니다 |
 | 라이브러리 스타일 주입 프롭 (테마 스타일, 클래스 맵, 렌더 태그 교체) | 선언하지 않습니다 |
 | DOM 속성 | `typing-open-dom-props-in-three-steps`를 따릅니다 |
 
-`export type UiButtonProps = ButtonProps`처럼 원본 프롭스 전체를 공개하지 않습니다.
+`export type ButtonProps = MuiButtonProps`처럼 원본 프롭스 전체를 공개하지 않습니다.
 스타일 주입 지점까지 열면 `css/composition-inject-classes-only-at-the-entry-point`의 경계를 지킬 수 없습니다.
 
 ### 자기 프롭 구분
 
-`UiIconButtonProps`의 `icon`은 자기 프롭이지만, 안쪽 컴포넌트도 받는 `UiTableRowProps`의 `selected`는 아닙니다.
+`IconButtonProps`의 `icon`은 자기 프롭이지만, 안쪽 컴포넌트도 받는 `TableRowProps`의 `selected`는 아닙니다.
 인덱스 접근은 이미 있는 프롭을 그대로 열 때만 쓰며, 상속된 프롭도 바깥 타입 이름으로 접근합니다.
 
 | 함께 판단할 내용 | 기준 |

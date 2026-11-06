@@ -128,9 +128,9 @@
 		},
 		{
 			"id": "BPE05-design-doc-as-read-only-context",
-			"prompt": "the orders design document content/public/screen/orders.md is open for context, but only read order total from the renamed response field in src/page/orders/pg-orders.tsx; edit no design document and change no rendered copy, markup, or styling.",
+			"prompt": "the orders design document content/public/screen/orders.md is open for context, but only read order total from the renamed response field in src/page/orders/orders-page.tsx; edit no design document and change no rendered copy, markup, or styling.",
 			"files": [
-				"src/page/orders/pg-orders.tsx"
+				"src/page/orders/orders-page.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -145,7 +145,7 @@
 			"scopeDrift": {
 				"evidence": "the user then asks to run the stage 2 check and report stage 2 done in the Remaining table of content/public/screen/orders.md; skills add blueprint with no figma companion.",
 				"files": [
-					"src/page/orders/pg-orders.tsx",
+					"src/page/orders/orders-page.tsx",
 					"content/public/screen/orders.md"
 				],
 				"expectedSkills": [

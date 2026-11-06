@@ -4,7 +4,7 @@
 // [!code ++]
 	disabled={isDisabled}
 // [!code ++]
-	className={clsx("pg_products__card", isSelected && "pg_products__card--selected")}
+	className={clsx("productsPage__card", isSelected && "productsPage__card--selected")}
 >
 	{product.name}
 </button>

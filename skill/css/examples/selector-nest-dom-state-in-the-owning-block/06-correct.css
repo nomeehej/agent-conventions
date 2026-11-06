@@ -1,5 +1,5 @@
 /* [!code ++] */
-.ui_button__root {
+.button__root {
 	&:hover {
 		background: var(--app-color-accent-strong);
 	}
@@ -10,7 +10,7 @@
 }
 
 /* [!code ++] */
-.ui_button__root--active {
+.button__root--active {
 /* [!code ++] */
 	background: var(--app-color-accent);
 /* [!code ++] */

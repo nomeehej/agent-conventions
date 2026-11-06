@@ -1,5 +1,5 @@
-// page/products/_pg-product-tree-section.tsx
-export const PgProductTreeSection = () => {
+// page/products/_product-tree-section.tsx
+export const ProductTreeSection = () => {
 	const [urlParams, setUrlParams] = useQueryStates(productUrlParsers);
 	const [expandedItems, setExpandedItems] = useState<string[]>([]);
 
@@ -14,7 +14,7 @@ export const PgProductTreeSection = () => {
 	/**
 	 * 고른 분류를 URL에 기록. 새로 고침해도 같은 화면
 	 */
-	const handleTreeSelectedItemsChange: UiTreeProps["onSelectedItemsChange"] = (itemId) => {
+	const handleTreeSelectedItemsChange: TreeProps["onSelectedItemsChange"] = (itemId) => {
 		if (itemId === null) {
 			return;
 		}
@@ -23,9 +23,9 @@ export const PgProductTreeSection = () => {
 	};
 
 	return (
-		<section className={clsx("pg_products__sidebar")}>
+		<section className={clsx("productsPage__sidebar")}>
 			{responseProductTreeSuspense.data.categoryNodes.length > 0 && (
-				<UiTree
+				<Tree
 					items={responseProductTreeSuspense.data.categoryNodes}
 					expandedItems={expandedItems}
 					selectedItems={urlParams.categoryId}
@@ -33,7 +33,7 @@ export const PgProductTreeSection = () => {
 					onSelectedItemsChange={handleTreeSelectedItemsChange}
 				/>
 			)}
-			{responseProductTreeSuspense.data.categoryNodes.length === 0 && <UiEmpty description="분류가 없습니다" />}
+			{responseProductTreeSuspense.data.categoryNodes.length === 0 && <Empty description="분류가 없습니다" />}
 		</section>
 	);
 };

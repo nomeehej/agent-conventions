@@ -1,4 +1,4 @@
-.pg_products__grid {
+.productsPage__grid {
 	display: grid;
 /* [!code error] */
 	grid-template-columns: repeat(4, 1fr);
@@ -6,21 +6,21 @@
 }
 
 @media (width < 1440px) {
-	.pg_products__grid {
+	.productsPage__grid {
 /* [!code error] */
 		grid-template-columns: repeat(3, 1fr);
 	}
 }
 
 @media (width < 1024px) {
-	.pg_products__grid {
+	.productsPage__grid {
 /* [!code error] */
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
 @media (width < 640px) {
-	.pg_products__grid {
+	.productsPage__grid {
 /* [!code error] */
 		grid-template-columns: 1fr;
 	}

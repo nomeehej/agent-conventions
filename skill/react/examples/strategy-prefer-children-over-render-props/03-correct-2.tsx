@@ -1,11 +1,11 @@
-// component/ui/panel/ui-panel.tsx
-import {UiPanelFooter} from "@/component/ui/panel/_ui-panel-footer";
-import {UiPanelHeader} from "@/component/ui/panel/_ui-panel-header";
-import {UiPanelRoot} from "@/component/ui/panel/_ui-panel-root";
+// component/ui/panel/panel.tsx
+import {PanelFooter} from "@/component/ui/panel/_panel-footer";
+import {PanelHeader} from "@/component/ui/panel/_panel-header";
+import {PanelRoot} from "@/component/ui/panel/_panel-root";
 
 // Header와 Footer도 Root와 같은 형태로 children만 받음
-export const UiPanel = {
-	Root: UiPanelRoot,
-	Header: UiPanelHeader,
-	Footer: UiPanelFooter,
+export const Panel = {
+	Root: PanelRoot,
+	Header: PanelHeader,
+	Footer: PanelFooter,
 } as const;

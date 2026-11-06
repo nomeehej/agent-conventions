@@ -29,27 +29,27 @@ flowchart LR
 **Incorrect 1 (한 파일 안 반복을 조상에 선언한 지역 변수로 감쌉니다):**
 
 ```css
-.pg_products__root {
-	--pg-products-gap: 12px;
+.productsPage__root {
+	--products-gap: 12px;
 }
 
-.pg_products__toolbar {
-	gap: var(--pg-products-gap, 12px);
+.productsPage__toolbar {
+	gap: var(--products-gap, 12px);
 }
 
-.pg_products__footer {
-	gap: var(--pg-products-gap, 12px);
+.productsPage__footer {
+	gap: var(--products-gap, 12px);
 }
 ```
 
 **Correct 1 (한 파일 안 반복은 값을 그대로 둡니다):**
 
 ```css
-.pg_products__toolbar {
+.productsPage__toolbar {
 	gap: 12px;
 }
 
-.pg_products__footer {
+.productsPage__footer {
 	gap: 12px;
 }
 ```

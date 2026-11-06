@@ -14,7 +14,7 @@ import {generateSiteFiles} from "../src/site.js";
 import {inlineSnippets} from "../src/snippets.js";
 import type {LoadedSkillDocument} from "../src/types.js";
 
-const expectedRuleCount = 197;
+const expectedRuleCount = 196;
 
 /**
  * @helper 사이트가 노출하는 skill 문서 전부
@@ -296,32 +296,14 @@ test("the example tsconfig skips exactly the fragments the example lint config s
 	assert.deepEqual(typecheck.exclude, skipped);
 });
 
-test("the example stylelint config extends the css tooling rule's own config and folds its layer patterns", async () => {
+test("the example stylelint config extends the css tooling rule's own config without redefining class rules", async () => {
 	const skillDir = path.join(getSkillPaths("css").skillDir, "..");
 	const used = (await import(path.join(skillDir, "stylelint.config.mjs"))) as {
 		default: {extends: string[]; rules: Record<string, unknown>};
-		ownClassPattern: (scope: string) => string;
-	};
-	const shown = (await import(path.join(skillDir, "css/examples/tooling-configure-stylelint-to-enforce-these-rules/01-correct.js"))) as {
-		default: {overrides: {files: string[]; rules: Record<string, unknown>}[]};
 	};
 
 	assert.deepEqual(used.default.extends, ["./css/examples/tooling-configure-stylelint-to-enforce-these-rules/01-correct.js"]);
-	assert.deepEqual(Object.keys(used.default.rules).sort(), [
-		"comment-empty-line-before",
-		"custom-property-pattern",
-		"selector-class-pattern",
-		"selector-disallowed-list",
-	]);
-
-	const folderByScope = {pg: "page", wg: "widget", ui: "ui"};
-
-	for (const [scope, folder] of Object.entries(folderByScope)) {
-		const layer = shown.default.overrides.find((override) => override.files.some((file) => file.includes(`/${folder}/`)));
-
-		assert.ok(layer, `${scope} layer override missing in the shown config`);
-		assert.equal(used.ownClassPattern(scope), layer.rules["selector-class-pattern"], `${scope} class pattern drifted`);
-	}
+	assert.deepEqual(Object.keys(used.default.rules).sort(), ["comment-empty-line-before", "custom-property-pattern"]);
 });
 
 test("readSkillRules exposes titleKo and tolerates its absence", async () => {

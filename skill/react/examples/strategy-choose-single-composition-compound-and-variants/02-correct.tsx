@@ -3,7 +3,7 @@
  *
  * 사용처가 끼워 넣을 자리가 없어 부품으로 안 쪼갬
  */
-export interface WgProfileDialogProps {
+export interface ProfileDialogProps {
 	/**
 	 * 헤더에 그릴 제목
 	 */
@@ -14,13 +14,13 @@ export interface WgProfileDialogProps {
 	profile: Profile;
 }
 
-export const WgProfileDialog = (props: WgProfileDialogProps) => {
+export const ProfileDialog = (props: ProfileDialogProps) => {
 	return (
-		<section className={clsx("wg_profileDialog__root")}>
-			<header className={clsx("wg_profileDialog__header")}>
+		<section className={clsx("profileDialog__root")}>
+			<header className={clsx("profileDialog__header")}>
 				<h3>{props.title}</h3>
 			</header>
-			<WgProfileSummary profile={props.profile} />
+			<ProfileSummary profile={props.profile} />
 		</section>
 	);
 };

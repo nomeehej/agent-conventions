@@ -1,4 +1,4 @@
-// page/_layout/pg-app-layout.tsx
+// page/_layout/app-layout.tsx
 // [!code error]
 const permissionStore = usePermissionStore();
 

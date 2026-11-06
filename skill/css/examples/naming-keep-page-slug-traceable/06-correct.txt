@@ -1,2 +1,2 @@
-pg_productDetailOverviewSection__root
-pg_productsOverviewSection__root
+productDetailOverviewSection__root
+productsOverviewSection__root

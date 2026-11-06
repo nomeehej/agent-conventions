@@ -1,8 +1,8 @@
 page/product-detail/
-├── pg-product-detail.tsx
-├── pg-product-detail.css
-├── _pg-product-summary.tsx            자기만 쓰는 파일이 없어 파일로 둠
-├── _pg-product-summary.css
+├── product-detail-page.tsx
+├── product-detail-page.css
+├── _product-summary.tsx            자기만 쓰는 파일이 없어 파일로 둠
+├── _product-summary.css
 ├── _function/
 │   ├── to-product-summary.ts
 │   └── to-trend-chart/                자기만 쓰는 보조가 있어 폴더
@@ -11,8 +11,8 @@ page/product-detail/
 ├── _type/
 │   └── product-detail-view-model.ts
 └── product-table-section/             자기만 쓰는 파일이 있어 하위 소유자 폴더가 됨
-    ├── pg-product-table-section.tsx
-    ├── pg-product-table-section.css
-    ├── _pg-review-section.tsx
+    ├── product-table-section.tsx
+    ├── product-table-section.css
+    ├── _review-section.tsx
     └── _function/
         └── to-chart-range.ts

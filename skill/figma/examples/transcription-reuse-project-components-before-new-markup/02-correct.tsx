@@ -1,1 +1,1 @@
-<UiTable columns={productColumns} rows={products} />
+<Table columns={productColumns} rows={products} />

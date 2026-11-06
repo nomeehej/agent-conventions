@@ -178,7 +178,7 @@ titleKo: JSX 안 로직은 이름 붙인 핸들러로 뺍니다
 ```markdown
 ## 1. Ownership and Boundaries (ownership)
 **TitleKo:** 소유와 경계
-**Lead:** 레이어 구분, 레이어 접두사, 역할 폴더, 가져오기 방향, Outlet 그룹, 화면 전용 훅과 라이브러리 생명주기
+**Lead:** 레이어 구분, 파일 이름, 역할 폴더, 가져오기 방향, Outlet 그룹, 화면 전용 훅과 라이브러리 생명주기
 **Impact:** CRITICAL
 **Description:** …
 ```

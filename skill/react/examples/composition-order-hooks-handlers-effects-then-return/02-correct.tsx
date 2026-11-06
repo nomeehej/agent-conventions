@@ -1,4 +1,4 @@
-export const PgOrderToolbar = () => {
+export const OrderToolbar = () => {
 	const [selectedIds, setSelectedIds] = useState<string[]>([]);
 // [!code ++]
 	const [isPanelOpen, setIsPanelOpen] = useState(false);
@@ -27,10 +27,10 @@ export const PgOrderToolbar = () => {
 	}, [selectedIds]);
 
 	return (
-		<section className={clsx("pg_orderToolbar__root")}>
-			<UiButton onClick={handleClearButtonClick}>비우기</UiButton>
-			<UiButton onClick={handlePanelOpenButtonClick}>필터</UiButton>
-			{isPanelOpen && <PgOrderFilterPanel />}
+		<section className={clsx("orderToolbar__root")}>
+			<Button onClick={handleClearButtonClick}>비우기</Button>
+			<Button onClick={handlePanelOpenButtonClick}>필터</Button>
+			{isPanelOpen && <OrderFilterPanel />}
 		</section>
 	);
 };

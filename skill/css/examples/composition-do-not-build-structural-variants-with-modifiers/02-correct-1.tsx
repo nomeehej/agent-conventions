@@ -1,1 +1,1 @@
-<div className={clsx("pg_productDetail__specSection")} />
+<div className={clsx("productDetailPage__specSection")} />

@@ -1,6 +1,6 @@
-.pg_products__row {
+.productsPage__row {
 /* [!code error] */
-	&[data-pg-expanded="true"] {
+	&[data-expanded="true"] {
 		background: #f5f5f5;
 	}
 }

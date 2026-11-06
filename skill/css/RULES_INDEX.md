@@ -1,7 +1,7 @@
 # CSS 컨벤션 Rule Index
 
 - Skill: `css`
-- Routing digest: `sha256:29732f5692859253387e8cd83c85c02d21f1f188fd8ae1febd1c78ce0821e1de`
+- Routing digest: `sha256:d672c79c55d7e87aff67e273adadddf3fccc1dd9ca446446af6e78de87dde514`
 
 ## Direct Companions
 
@@ -10,13 +10,12 @@
 ## Local Rules
 
 - C01-01 | naming-default-to-plain-css-when-no-module-convention | 표준이 정해지지 않은 상태에서 스타일시트 방식\(일반 CSS, CSS Modules\)을 고르거나 \`.module.css\`나 \`styles.\*\`로 옮길 때. 제외: 기존 일반 CSS 클래스 이름만 바꾸는 경우.
-- C01-02 | naming-use-scope-slug-element-modifier-syntax | 일반 CSS에서 프로젝트가 소유한 클래스를 새로 만들 때. 이름, 범위, 식별자, 요소, 수정자의 구분자나 대소문자 표기를 바꿀 때.
+- C01-02 | naming-use-slug-element-modifier-syntax | 일반 CSS에서 프로젝트가 소유한 클래스를 새로 만들 때. 이름, 식별자, 요소, 수정자의 구분자나 대소문자 표기를 바꿀 때.
 - C01-03 | naming-name-elements-and-modifiers-by-role | 요소나 수정자 클래스 이름을 새로 지을 때. \`container\`, \`wrapper\`, \`box\`, 치수나 간격 중심 이름을 변경할 때.
-- C01-04 | naming-keep-page-slug-traceable | \`pg\_\*\` 소유자의 클래스 식별자를 새로 만들거나 이름을 바꿀 때. 같은 이름 컴포넌트가 여러 화면에 생겨 식별자를 구분해야 할 때.
-- C02-01 | ownership-give-each-file-one-scope-slug | 새 식별자를 만들거나 기존 식별자를 복사, 이름 변경할 때. 부품에 CSS 파일을 새로 만들면서 부모 식별자를 그대로 쓸 때.
-- C02-02 | ownership-choose-scope-prefix-by-owner-layer | 새 CSS 파일을 만들면서 \`pg\_\`, \`wg\_\`, \`ui\_\` 중 하나를 고를 때. 소유자의 레이어가 바뀌어 접두사를 옮길 때. | reviewWith: ownership-give-each-file-one-scope-slug, ownership-use-foreign-classes-only-under-your-own-root
-- C02-03 | ownership-use-foreign-classes-only-under-your-own-root | \`.ant-\*\`, \`.rc-\*\`, \`.Mui-\*\` 같은 외부 라이브러리 클래스를 쓸 때. 다른 \`scope\_slug\`의 클래스를 선택자로 잡을 때. | reviewWith: ownership-change-other-owners-through-their-api, ownership-give-each-file-one-scope-slug, selector-limit-nesting-block-depth
-- C02-04 | ownership-change-other-owners-through-their-api | 다른 컴포넌트의 배치나 내부 모습을 바꿔야 할 때. 컴포넌트에 클래스 관련 프롭을 추가할 때. | reviewWith: composition-inject-classes-only-at-the-entry-point, ownership-use-foreign-classes-only-under-your-own-root
+- C01-04 | naming-keep-page-slug-traceable | \`page\` 아래 CSS 파일의 식별자를 새로 만들거나 이름을 바꿀 때. 같은 이름 컴포넌트가 여러 소유자에 생겨 식별자를 구분해야 할 때.
+- C02-01 | ownership-give-each-file-one-slug | 새 식별자를 만들거나 기존 식별자를 복사, 이름 변경할 때. 부품에 CSS 파일을 새로 만들면서 부모 식별자를 그대로 쓸 때.
+- C02-02 | ownership-use-foreign-classes-only-under-your-own-root | \`.ant-\*\`, \`.rc-\*\`, \`.Mui-\*\` 같은 외부 라이브러리 클래스를 쓸 때. 다른 식별자의 클래스를 선택자로 잡을 때. | reviewWith: ownership-change-other-owners-through-their-api, ownership-give-each-file-one-slug, selector-limit-nesting-block-depth
+- C02-03 | ownership-change-other-owners-through-their-api | 다른 컴포넌트의 배치나 내부 모습을 바꿔야 할 때. 컴포넌트에 클래스 관련 프롭을 추가할 때. | reviewWith: composition-inject-classes-only-at-the-entry-point, ownership-use-foreign-classes-only-under-your-own-root
 - C03-01 | composition-compose-classes-with-clsx | TSX의 \`className\`을 추가, 수정할 때. 기본 클래스, 수정자, 선택 클래스를 함께 엮을 때. | reviewWith: composition-write-modifiers-as-conditions, typescript/values-avoid-lookup-tables-for-simple-choices
 - C03-02 | composition-do-not-build-structural-variants-with-modifiers | 수정자를 추가, 변경할 때. 여러 곳에서 반복되는 모양인지 한 곳만의 보정인지 가릴 때. | reviewWith: naming-name-elements-and-modifiers-by-role
 - C03-03 | composition-keep-classes-single-purpose | 상태를 나타내는 낱말이 들어간 요소 클래스 이름을 추가, 변경할 때. 제외: 처음부터 기본 클래스와 수정자를 나눠 만드는 경우. 제외: 책임이 그대로인 이름 변경만 하는 경우.
@@ -42,4 +41,4 @@
 - C06-04 | layout-reach-for-intrinsic-sizing-before-breakpoints | \`@media\` 브레이크포인트를 새로 넣으려 할 때. 폭에 따라 줄바꿈, 열 개수, 크기가 달라져야 할 때. 컨테이너 폭에 따른 \`@container\` 배치 조건을 추가, 변경할 때. | reviewWith: layout-group-breakpoints-at-the-file-bottom, layout-keep-layout-intent-explicit
 - C07-01 | a11y-always-provide-a-visible-focus-indicator | \`outline\`, \`:focus\`, \`:focus-visible\` 스타일을 추가, 수정할 때. 상호작용 요소의 기본 포커스 링을 덮어쓸 때. 강제 색상 모드에서 포커스 표시가 사라져 스타일을 보완할 때. | reviewWith: selector-nest-dom-state-in-the-owning-block
 - C07-02 | a11y-namespace-keyframes-and-respect-reduced-motion | \`@keyframes\` 이름이나 애니메이션 지속 시간, 지연 시간, 이징을 선언하거나 바꿀 때. \`animation\`, \`transition\`, \`prefers-reduced-motion\` 동작을 추가, 변경할 때. | reviewWith: tooling-configure-stylelint-to-enforce-these-rules, values-tokenize-repeated-visual-values
-- C08-01 | tooling-configure-stylelint-to-enforce-these-rules | stylelint 설정을 새로 만들거나 규칙을 추가, 수정할 때. 이 컨벤션 중 어디까지 자동으로 잡히는지 확인할 때. | reviewWith: naming-use-scope-slug-element-modifier-syntax, ownership-use-foreign-classes-only-under-your-own-root, selector-limit-nesting-block-depth
+- C08-01 | tooling-configure-stylelint-to-enforce-these-rules | stylelint 설정을 새로 만들거나 규칙을 추가, 수정할 때. 이 컨벤션 중 어디까지 자동으로 잡히는지 확인할 때. | reviewWith: naming-use-slug-element-modifier-syntax, ownership-use-foreign-classes-only-under-your-own-root, selector-limit-nesting-block-depth

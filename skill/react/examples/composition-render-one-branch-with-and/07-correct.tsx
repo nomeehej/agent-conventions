@@ -1,1 +1,1 @@
-return <UiBadge tone={props.isSelected ? "accent" : "neutral"} />;
+return <Badge tone={props.isSelected ? "accent" : "neutral"} />;

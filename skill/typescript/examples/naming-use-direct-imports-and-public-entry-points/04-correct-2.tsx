@@ -1,3 +1,3 @@
-// page/settings/pg-settings.tsx
+// page/settings/settings-page.tsx
 // [!code ++]
-import {UiTabs} from "@/component/ui/tabs/ui-tabs";
+import {Tabs} from "@/component/ui/tabs/tabs";

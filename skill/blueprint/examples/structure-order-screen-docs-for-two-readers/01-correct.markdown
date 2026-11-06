@@ -78,7 +78,7 @@ Design. Figma 10-02, spec 10-01, 데모 3.
 | 2 | 적용, 초기화 | 적용 = 주소에 반영 → 목록 조회. 초기화 = 빈 칸으로 | [![](../img/figma.svg) 12:356](https://www.figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=12-356) |
 
 ```text [src/page/orders/]
-└── _pg-condition-popover.tsx   // 조건 칸, 적용, 초기화. 입력 중 값은 폼
+└── _condition-popover.tsx   // 조건 칸, 적용, 초기화. 입력 중 값은 폼
 ```
 
 ```mermaid
@@ -158,9 +158,9 @@ flowchart LR
 ## Tree
 
 ```text [src/page/orders/]
-├── pg-orders.tsx                 // 진입. 표 경계
-├── _pg-condition-popover.tsx     // 조건
-└── _pg-orders-table.tsx          // 표, 페이지
+├── orders-page.tsx            // 진입. 표 경계
+├── _condition-popover.tsx     // 조건
+└── _orders-table.tsx          // 표, 페이지
 ```
 
 ::part[Check]

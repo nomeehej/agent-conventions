@@ -1,10 +1,10 @@
-// component/widget/product-edit-toolbar/wg-product-edit-toolbar.tsx
-import {WgProductToolbar} from "@/component/widget/product-toolbar/wg-product-toolbar";
+// component/widget/product-edit-toolbar/product-edit-toolbar.tsx
+import {ProductToolbar} from "@/component/widget/product-toolbar/product-toolbar";
 
-export const WgProductEditToolbar = () => {
+export const ProductEditToolbar = () => {
 	return (
-		<WgProductToolbar.Root>
-			<WgProductEditActions />
-		</WgProductToolbar.Root>
+		<ProductToolbar.Root>
+			<ProductEditActions />
+		</ProductToolbar.Root>
 	);
 };

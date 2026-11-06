@@ -17,7 +17,7 @@
 **Incorrect 1 (층 숫자를 직접 적고 기준 컨테이너 설명이 없습니다):**
 
 ```css
-.pg_productDetail__toolbar {
+.productDetailPage__toolbar {
 	position: sticky;
 	top: 0;
 	z-index: 9999;
@@ -27,14 +27,14 @@
 **Correct 1 (기준 컨테이너와 의도를 드러냅니다):**
 
 ```css
-.pg_productDetail__toolbar {
-	/* 스크롤 컨테이너는 .pg_productDetail__content */
+.productDetailPage__toolbar {
+	/* 스크롤 컨테이너는 .productDetailPage__content */
 	position: sticky;
 	top: 0;
 	z-index: var(--app-z-index-sticky);
 }
 
-.pg_productDetail__content {
+.productDetailPage__content {
 	display: grid;
 	min-height: 0;
 	overflow-y: auto;

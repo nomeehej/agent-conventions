@@ -26,19 +26,19 @@
 **Incorrect 1 (기본 선언을 중간 폭에 맞추고 넓고 좁은 방향을 함께 씁니다):**
 
 ```css
-.pg_products__layout {
+.productsPage__layout {
 	display: grid;
 	grid-template-columns: 220px 1fr;
 }
 
 @media (width >= 1440px) {
-	.pg_products__layout {
+	.productsPage__layout {
 		grid-template-columns: 280px 1fr;
 	}
 }
 
 @media (width < 1024px) {
-	.pg_products__layout {
+	.productsPage__layout {
 		grid-template-columns: 1fr;
 	}
 }
@@ -47,19 +47,19 @@
 **Correct 1 (기본 선언은 가장 넓은 화면에 맞추고 좁아질 때만 덮어씁니다):**
 
 ```css
-.pg_products__layout {
+.productsPage__layout {
 	display: grid;
 	grid-template-columns: 280px 1fr;
 }
 
 @media (width < 1440px) {
-	.pg_products__layout {
+	.productsPage__layout {
 		grid-template-columns: 220px 1fr;
 	}
 }
 
 @media (width < 1024px) {
-	.pg_products__layout {
+	.productsPage__layout {
 		grid-template-columns: 1fr;
 	}
 }

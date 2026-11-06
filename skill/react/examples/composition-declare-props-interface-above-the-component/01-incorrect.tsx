@@ -1,16 +1,16 @@
-// component/ui/badge/ui-badge.tsx: 칩까지 한 파일에 두고 타입은 위쪽에 모음
-interface UiBadgeProps {
+// component/ui/badge/badge.tsx: 칩까지 한 파일에 두고 타입은 위쪽에 모음
+interface BadgeProps {
 	label: string;
 }
 
-interface UiChipProps {
+interface ChipProps {
 	label: string;
 }
 
-export const UiBadge = (props: UiBadgeProps) => {
-	return <span className={clsx("ui_badge__root")}>{props.label}</span>;
+export const Badge = (props: BadgeProps) => {
+	return <span className={clsx("badge__root")}>{props.label}</span>;
 };
 
-export const UiChip = (props: UiChipProps) => {
-	return <span className={clsx("ui_chip__root")}>{props.label}</span>;
+export const Chip = (props: ChipProps) => {
+	return <span className={clsx("chip__root")}>{props.label}</span>;
 };

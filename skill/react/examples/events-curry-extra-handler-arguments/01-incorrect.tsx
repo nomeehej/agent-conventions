@@ -1,1 +1,1 @@
-<UiButton onClick={() => handleListItemClick(product.id)}>{product.name}</UiButton>;
+<Button onClick={() => handleListItemClick(product.id)}>{product.name}</Button>;

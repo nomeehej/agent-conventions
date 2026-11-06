@@ -1,6 +1,6 @@
 // [!code error]
-export type UiButtonProps = ButtonProps;
+export type ButtonProps = MuiButtonProps;
 
-export const UiButton = (props: UiButtonProps) => {
-	return <Button {...props} />;
+export const Button = (props: ButtonProps) => {
+	return <MuiButton {...props} />;
 };

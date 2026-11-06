@@ -1,8 +1,8 @@
-// component/widget/user-card/_wg-user-card-avatar.tsx
+// component/widget/user-card/_user-card-avatar.tsx
 /**
  * 사용자 카드 아바타 프롭스
  */
-export interface WgUserCardAvatarProps {
+export interface UserCardAvatarProps {
 	/**
 	 * 어두운 배경에서 쓸지
 	 */
@@ -17,12 +17,12 @@ export interface WgUserCardAvatarProps {
 	alt: string;
 }
 
-export const WgUserCardAvatar = (props: WgUserCardAvatarProps) => {
+export const UserCardAvatar = (props: UserCardAvatarProps) => {
 	return (
 		<img
 			className={clsx(
-				"wg_userCardAvatar__image",
-				props.theme === "dark" && "wg_userCardAvatar__image--dark",
+				"userCardAvatar__image",
+				props.theme === "dark" && "userCardAvatar__image--dark",
 			)}
 			src={props.src}
 			alt={props.alt}

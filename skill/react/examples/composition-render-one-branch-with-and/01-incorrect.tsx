@@ -1,6 +1,6 @@
 return (
 	<section>
 // [!code error]
-		{props.view === "chart" ? <PgChart /> : <PgTable />}
+		{props.view === "chart" ? <Chart /> : <Table />}
 	</section>
 );

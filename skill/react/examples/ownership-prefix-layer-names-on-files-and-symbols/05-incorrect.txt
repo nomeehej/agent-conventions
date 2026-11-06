@@ -1,5 +1,0 @@
-component/widget/chatbot/
-├── _wg-launcher.tsx    # WgLauncher, wg_launcher
-└── panel/
-    ├── wg-panel.tsx    # WgPanel, wg_panel
-    └── _wg-header.tsx  # WgHeader, wg_header

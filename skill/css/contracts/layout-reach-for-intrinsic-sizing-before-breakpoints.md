@@ -41,26 +41,26 @@ flowchart LR
 **Incorrect 1 (열 개수를 브레이크포인트마다 직접 지정합니다):**
 
 ```css
-.pg_products__grid {
+.productsPage__grid {
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 16px;
 }
 
 @media (width < 1440px) {
-	.pg_products__grid {
+	.productsPage__grid {
 		grid-template-columns: repeat(3, 1fr);
 	}
 }
 
 @media (width < 1024px) {
-	.pg_products__grid {
+	.productsPage__grid {
 		grid-template-columns: repeat(2, 1fr);
 	}
 }
 
 @media (width < 640px) {
-	.pg_products__grid {
+	.productsPage__grid {
 		grid-template-columns: 1fr;
 	}
 }
@@ -69,7 +69,7 @@ flowchart LR
 **Correct 1 (사용 가능한 폭에 따라 열 개수를 조정합니다):**
 
 ```css
-.pg_products__grid {
+.productsPage__grid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
 	gap: 16px;

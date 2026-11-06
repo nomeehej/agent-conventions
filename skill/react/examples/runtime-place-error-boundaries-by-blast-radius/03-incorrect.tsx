@@ -1,12 +1,12 @@
-export const PgProducts = () => {
+export const ProductsPage = () => {
 	const responseProductListSuspense = useProductListSuspense();
 
 // [!code error]
 	if (responseProductListSuspense.isError) {
 // [!code error]
-		return <UiErrorState />;
+		return <ErrorState />;
 // [!code error]
 	}
 
-	return <UiTable rows={responseProductListSuspense.data.items} />;
+	return <Table rows={responseProductListSuspense.data.items} />;
 };

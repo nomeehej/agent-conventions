@@ -1,9 +1,9 @@
 // [!code error]
-// component/widget/line-chart/wg-line-chart.tsx
+// component/widget/line-chart/line-chart.tsx
 /**
  * 꺾은선 그래프 계약
  */
-export interface WgLineChartProps {
+export interface LineChartProps {
 	/**
 	 * 그래프의 접근 가능한 이름
 	 */
@@ -16,9 +16,9 @@ export interface WgLineChartProps {
 
 // 좌표 배열만 받고 도메인 타입을 모름. 조립 규모만 보고 widget에 둠
 // [!code error]
-export const WgLineChart = (props: WgLineChartProps) => {
+export const LineChart = (props: LineChartProps) => {
 	return (
-		<svg className={clsx("wg_lineChart__root")} viewBox="0 0 100 40">
+		<svg className={clsx("lineChart__root")} viewBox="0 0 100 40">
 			<title>{props.title}</title>
 			<polyline points={props.points.map((point) => `${point.x},${point.y}`).join(" ")} />
 		</svg>

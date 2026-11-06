@@ -5,9 +5,9 @@ impact: CRITICAL
 impactDescription: 다른 소유자의 스타일을 덮어써도 해당 인스턴스에만 적용되도록 제한합니다
 appliesWhen:
   - `.ant-*`, `.rc-*`, `.Mui-*` 같은 외부 라이브러리 클래스를 쓸 때
-  - 다른 `scope_slug`의 클래스를 선택자로 잡을 때
+  - 다른 식별자의 클래스를 선택자로 잡을 때
 reviewWith: >-
-  ownership-change-other-owners-through-their-api, ownership-give-each-file-one-scope-slug,
+  ownership-change-other-owners-through-their-api, ownership-give-each-file-one-slug,
   selector-limit-nesting-block-depth
 tags: ownership, scope, third-party
 ---
@@ -19,11 +19,11 @@ tags: ownership, scope, third-party
 ### 선택자 판정
 
 다른 소유자의 클래스는 **내 최상위 클래스 블록 안에서 `&`로 시작하는 선택자**로만 씁니다.
-내 `scope_slug`와 다르면 외부 라이브러리, 다른 화면, `widget` 모두 같은 기준을 적용합니다.
+내 식별자와 다르면 외부 라이브러리, 다른 화면, `widget` 모두 같은 기준을 적용합니다.
 
 ```mermaid
 flowchart LR
-	q1{"내 scope_slug<br>클래스인가?"} -- 아니요 --> q2{"내 최상위 블록 안에서<br>&로 시작하는가?"} -- 예 --> r2("허용")
+	q1{"내 식별자의<br>클래스인가?"} -- 아니요 --> q2{"내 최상위 블록 안에서<br>&로 시작하는가?"} -- 예 --> r2("허용")
 	q1 -- 예 --> r1("이 규칙의 대상 아님")
 	q2 -- 아니요 --> r3("금지")
 ```
@@ -31,11 +31,11 @@ flowchart LR
 | 선택자 | 판정 |
 | --- | --- |
 | `.MuiTreeItem-label { }` | 금지. 그 라이브러리를 쓰는 앱 전체에 적용됩니다 |
-| `.wg_chartCard__caption { }` | 금지. 그 `widget`을 쓰는 모든 화면에 적용됩니다 |
-| `.pg_products__sidebar { & .MuiTreeItem-label { } }` | 허용. 해당 인스턴스에만 적용됩니다 |
-| `.pg_productDetail__root { & .wg_chartCard__caption { } }` | 허용 |
-| `.pg_products__sidebar .MuiTreeItem-label { }` | 금지. 최상위 블록 안에서 `&`로 시작해야 합니다 |
-| `.pg_products__sidebarToolbar .pg_products__sidebarTitle { }` | 같은 소유자의 클래스끼리라 이 규칙의 대상이 아닙니다 |
+| `.chartCard__caption { }` | 금지. 그 `widget`을 쓰는 모든 화면에 적용됩니다 |
+| `.productsPage__sidebar { & .MuiTreeItem-label { } }` | 허용. 해당 인스턴스에만 적용됩니다 |
+| `.productDetailPage__root { & .chartCard__caption { } }` | 허용 |
+| `.productsPage__sidebar .MuiTreeItem-label { }` | 금지. 최상위 블록 안에서 `&`로 시작해야 합니다 |
+| `.productsPage__sidebarToolbar .productsPage__sidebarTitle { }` | 같은 소유자의 클래스끼리라 이 규칙의 대상이 아닙니다 |
 
 다른 소유자의 DOM 경로는 우리가 정하지 않으므로 결합자 개수를 제한하지 않습니다.
 블록 중첩 깊이는 `selector-limit-nesting-block-depth`를 따릅니다.
@@ -44,8 +44,8 @@ flowchart LR
 
 ### 기계 검사 범위
 
-`selector-disallowed-list`는 등록된 외부 접두사와 다른 레이어의 최상위 클래스를 검사합니다.
-같은 레이어의 다른 식별자와 미등록 라이브러리 클래스는 이 검사에 걸리지 않아 파일별 소유자를 대조해야 합니다.
+`selector-disallowed-list`는 등록된 외부 라이브러리 접두사로 시작하는 최상위 선택자만 검사합니다.
+다른 소유자의 식별자는 문법이 같아 이 검사에 걸리지 않으므로 파일 이름과 식별자를 대조합니다.
 
 **Incorrect 1 (최상위 블록 없이 라이브러리 클래스를 바로 씁니다):**
 
@@ -55,11 +55,11 @@ flowchart LR
 
 <<< ../examples/ownership-use-foreign-classes-only-under-your-own-root/02-correct.css
 
-**Incorrect 2 (최상위 블록 없이 다른 `scope_slug`의 클래스를 바로 씁니다):**
+**Incorrect 2 (최상위 블록 없이 다른 식별자의 클래스를 바로 씁니다):**
 
 <<< ../examples/ownership-use-foreign-classes-only-under-your-own-root/03-incorrect.css
 
-**Correct 2 (다른 `scope_slug`의 클래스도 내 최상위 블록 안에서 선택자로 잡습니다):**
+**Correct 2 (다른 식별자의 클래스도 내 최상위 블록 안에서 선택자로 잡습니다):**
 
 <<< ../examples/ownership-use-foreign-classes-only-under-your-own-root/04-correct.css
 

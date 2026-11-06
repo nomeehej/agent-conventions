@@ -1,15 +1,15 @@
-.pg_products__rowBadge {
+.productsPage__rowBadge {
 /* [!code error] */
-	border-color: var(--pg-products-row-accent);
+	border-color: var(--products-row-accent);
 }
 
-.pg_products__row {
+.productsPage__row {
 /* [!code error] */
-	--pg-products-row-accent: transparent;
+	--products-row-accent: transparent;
 
 /* [!code error] */
 	&:hover {
 /* [!code error] */
-		--pg-products-row-accent: #1677ff;
+		--products-row-accent: #1677ff;
 	}
 }

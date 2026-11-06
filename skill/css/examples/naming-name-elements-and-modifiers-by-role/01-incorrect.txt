@@ -1,3 +1,3 @@
-ui_card__wrapper
-ui_card__box
-ui_card__body--gap12
+card__wrapper
+card__box
+card__body--gap12

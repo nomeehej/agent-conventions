@@ -1,12 +1,12 @@
 page/product-detail/
-├── pg-product-detail.tsx
+├── product-detail-page.tsx
 ├── components/
 ├── constants/
 ├── utils/
 ├── helpers/
 └── product-table-section/
-    ├── pg-product-table-section.tsx
+    ├── product-table-section.tsx
     └── review/
-        ├── pg-review.tsx
+        ├── review-page.tsx
         └── _function/
             └── to-review-rows.ts

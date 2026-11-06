@@ -1,8 +1,8 @@
-.pg_products__toolbarField {
+.productsPage__toolbarField {
 	flex: 1;
 	margin-inline-start: 0;
 }
 
-.pg_products__toolbarButton {
+.productsPage__toolbarButton {
 	height: 32px;
 }

@@ -1,19 +1,19 @@
-export const PgProductRecommendationBoundary = () => {
+export const ProductRecommendationBoundary = () => {
 	const queryErrorResetBoundary = useQueryErrorResetBoundary();
 
 	return (
-		<UiErrorBoundary
+		<ErrorBoundary
 			onReset={queryErrorResetBoundary.reset}
 			fallbackRender={(fallbackProps) => (
-				<UiInlineErrorState
+				<InlineErrorState
 					retryLabel="다시 불러오기"
 					onRetry={fallbackProps.resetErrorBoundary}
 				/>
 			)}
 		>
-			<Suspense fallback={<UiRecommendationSkeleton />}>
-				<PgProductRecommendationSection />
+			<Suspense fallback={<RecommendationSkeleton />}>
+				<ProductRecommendationSection />
 			</Suspense>
-		</UiErrorBoundary>
+		</ErrorBoundary>
 	);
 };

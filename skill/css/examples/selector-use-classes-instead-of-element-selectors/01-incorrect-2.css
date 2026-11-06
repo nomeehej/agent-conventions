@@ -1,4 +1,4 @@
-.pg_products__toolbar {
+.productsPage__toolbar {
 /* [!code error] */
 	& button {
 		height: 32px;

@@ -1,9 +1,9 @@
-export const PgProductScreen = () => {
+export const ProductScreen = () => {
 	return (
 // [!code error]
 		<>
-			<PgProductFilterSection />
-			<PgProductTableSection />
+			<ProductFilterSection />
+			<ProductTableSection />
 // [!code error]
 		</>
 	);

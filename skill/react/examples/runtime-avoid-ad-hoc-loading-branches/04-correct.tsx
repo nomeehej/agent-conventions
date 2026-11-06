@@ -1,6 +1,6 @@
 return (
 	<Fragment>
-		<WgUserCardName value={responseUserGetItemSuspense.data.name} />
-		{responseUserGetItemSuspense.isFetching && <UiRefreshIndicator />}
+		<UserCardName value={responseUserGetItemSuspense.data.name} />
+		{responseUserGetItemSuspense.isFetching && <RefreshIndicator />}
 	</Fragment>
 );

@@ -1,12 +1,12 @@
-// page/products/pg-products.tsx
-export const PgProducts = () => {
+// page/products/products-page.tsx
+export const ProductsPage = () => {
 	return (
 		<Fragment>
-			<PgProductFilterSection />
+			<ProductFilterSection />
 {/* [!code ++] */}
-			<Suspense fallback={<UiLoadingFallback ariaLabel="product 목록을 불러오는 중" />}>
+			<Suspense fallback={<LoadingFallback ariaLabel="product 목록을 불러오는 중" />}>
 {/* [!code ++] */}
-				<PgProductListSection />
+				<ProductListSection />
 {/* [!code ++] */}
 			</Suspense>
 		</Fragment>

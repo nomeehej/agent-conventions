@@ -1,12 +1,12 @@
-.wg_siteHeader__brandMark {
+.siteHeader__brandMark {
 	transform: rotate(0deg);
 }
 
-.wg_siteHeader__brandLink {
+.siteHeader__brandLink {
 	color: #1677ff;
 
 /* [!code ++] */
-	&:hover .wg_siteHeader__brandMark {
+	&:hover .siteHeader__brandMark {
 /* [!code ++] */
 		transform: rotate(-2deg);
 	}

@@ -27,8 +27,8 @@
 	--app-space-16: 16px;
 }
 
-/* src/page/products/pg-products.css */
-.pg_products__panel {
+/* src/page/products/products-page.css */
+.productsPage__panel {
 	background-color: var(--app-color-white);
 	padding: var(--app-space-16);
 }
@@ -44,8 +44,8 @@
 	--app-space-section: 16px;
 }
 
-/* src/page/products/pg-products.css */
-.pg_products__panel {
+/* src/page/products/products-page.css */
+.productsPage__panel {
 	background-color: var(--app-color-surface);
 	padding: var(--app-space-section);
 }

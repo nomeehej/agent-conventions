@@ -1,4 +1,4 @@
-export interface UiCollapseProps {
+export interface CollapseProps {
 	className?: string;
 // [!code ++]
 	variant?: "default" | "compact";

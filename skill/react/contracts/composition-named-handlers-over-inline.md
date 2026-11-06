@@ -13,7 +13,7 @@ JSX에는 이름 붙인 핸들러 참조만 넘깁니다.
 **Incorrect 1 (분기와 비동기를 JSX 안에 숨깁니다):**
 
 ```tsx
-<UiButton
+<Button
 	onClick={() => {
 		if (!selectedProduct) {
 			return;
@@ -23,7 +23,7 @@ JSX에는 이름 붙인 핸들러 참조만 넘깁니다.
 	}}
 >
 	삭제
-</UiButton>
+</Button>
 ```
 
 **Correct 1 (로직을 이름 붙인 핸들러로 뺍니다):**
@@ -42,7 +42,7 @@ const handleRemoveProductButtonClick: MouseEventHandler<HTMLButtonElement> = (_e
 	mutationProductRemove.mutate({params: {productId: selectedProduct.id}});
 };
 
-<UiButton onClick={handleRemoveProductButtonClick}>삭제</UiButton>;
+<Button onClick={handleRemoveProductButtonClick}>삭제</Button>;
 ```
 
 > 나머지 예시와 예외는 [full rule](../rules/05-03-composition-named-handlers-over-inline.md)에 있습니다.

@@ -1,12 +1,12 @@
-// page/products/pg-products.tsx
-export const PgProducts = () => {
+// page/products/products-page.tsx
+export const ProductsPage = () => {
 // [!code ++]
 	const [keyword, setKeyword] = useState("");
 // [!code ++]
 	const [categoryId, setCategoryId] = useState<string>();
 
 	return (
-		<PgProductFilterSection
+		<ProductFilterSection
 			keyword={keyword}
 			categoryId={categoryId}
 			onKeywordChange={setKeyword}

@@ -8,7 +8,7 @@ const toProductRows = (response: ProductListResponse) =>
 // [!code error]
 	response.data.items.map((product) => ({id: product.id, name: product.name}));
 
-export const PgProductTable = (props: PgProductTableProps) => {
+export const ProductListTable = (props: ProductListTableProps) => {
 // [!code error]
 	const responseProductListSuspense = useProductListSuspense({}, {query: {select: toProductRows}});
 

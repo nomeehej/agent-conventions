@@ -1,9 +1,9 @@
-export const PgProductRows = (props: PgProductRowsProps) => {
+export const ProductListRows = (props: ProductListRowsProps) => {
 	return props.products.map((product) => (
 // [!code error]
 		<>
-			<PgProductRow product={product} />
-			<PgProductRowDivider />
+			<ProductListRow product={product} />
+			<ProductListRowDivider />
 // [!code error]
 		</>
 	));

@@ -1,1 +1,1 @@
-<div className={clsx("pg_products__row", isSelected && "pg_products__row--selected")} />
+<div className={clsx("productsPage__row", isSelected && "productsPage__row--selected")} />

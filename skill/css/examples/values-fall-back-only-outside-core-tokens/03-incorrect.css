@@ -1,4 +1,4 @@
-.pg_orderFilterDialog__collapse {
+.orderFilterDialog__collapse {
 	& .MuiAccordion-root {
 /* [!code error] */
 		border-radius: var(--mui-shape-borderRadius);

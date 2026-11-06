@@ -13,15 +13,15 @@
 | `.box` 자신의 `::before` | `.box { &::before { } }`로 씁니다 |
 | `.button`의 hover에 반응하는 `.box::before` | `.button { &:hover .box::before { } }`로 씁니다 |
 
-두 겹 이상 중첩하면 `.pg_a .pg_b .pg_c` 같은 전체 경로가 여러 블록에 흩어지고 기계 검사도 각 블록만 봅니다.
+두 겹 이상 중첩하면 `.a .b .c` 같은 전체 경로가 여러 블록에 흩어지고 기계 검사도 각 블록만 봅니다.
 `&` 없이 시작하면 자손 선택자가 별도 겹처럼 읽혀 표기에 따라 검사 결과가 달라집니다.
 기계 검사는 `max-nesting-depth: 1`이며 최상위는 0겹입니다.
 
 **Incorrect 1 (다른 요소의 가상 요소를 `&`로 다시 엽니다):**
 
 ```css
-.pg_products__sortButton {
-	&:hover .pg_products__sortBox {
+.productsPage__sortButton {
+	&:hover .productsPage__sortBox {
 		&::before {
 			border-color: #9fadc7;
 		}
@@ -32,18 +32,18 @@
 **Correct 1 (`&`는 한 번, 그다음 경로는 같은 줄에 이어 씁니다):**
 
 ```css
-.pg_products__sortBox {
+.productsPage__sortBox {
 	&::before {
 		border: 2px solid #ced4da;
 	}
 }
 
-.pg_products__sortButton {
+.productsPage__sortButton {
 	&.MuiButtonBase-root {
 		display: inline-flex;
 	}
 
-	&:hover .pg_products__sortBox::before {
+	&:hover .productsPage__sortBox::before {
 		border-color: #9fadc7;
 	}
 }

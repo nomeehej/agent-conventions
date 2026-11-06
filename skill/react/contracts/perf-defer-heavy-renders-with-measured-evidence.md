@@ -47,7 +47,7 @@ const handleCategoryClick = (nextCategoryId: string) => {
 	});
 };
 
-return <UiCategoryRows rows={categoryRows} selectedCategoryId={selectedCategoryId} />;
+return <CategoryRows rows={categoryRows} selectedCategoryId={selectedCategoryId} />;
 ```
 
 **Correct 1 (측정 근거가 있는 갱신만 트랜지션으로 감싸고 행 20개 목록은 그대로 둡니다):**

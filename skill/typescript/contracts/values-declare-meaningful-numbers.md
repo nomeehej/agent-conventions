@@ -20,7 +20,7 @@
 **Incorrect 1 (뜻이 있는 숫자를 쓰는 자리에 적거나 지역 `const`로 자리만 옮깁니다):**
 
 ```ts
-// page/products/pg-products.tsx
+// page/products/products-page.tsx
 const maxAttempts = 42;
 
 const isOverRetryLimit = (attempts: number): boolean => {

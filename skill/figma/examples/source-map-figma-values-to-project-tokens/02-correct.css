@@ -1,4 +1,4 @@
-.pg_products__row {
+.productsPage__row {
 	padding: var(--app-space-section) var(--app-space-inline);
 	border-radius: var(--app-radius-panel);
 	color: var(--app-color-text-primary);

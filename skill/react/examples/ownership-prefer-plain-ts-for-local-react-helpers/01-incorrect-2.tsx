@@ -1,8 +1,8 @@
-// page/products/_pg-media-upload-panel.tsx
+// page/products/_media-upload-panel.tsx
 // [!code error]
 import {useMediaUploadPayload} from "@/page/products/_hook/use-media-upload-payload";
 
-export const PgMediaUploadPanel = (props: PgMediaUploadPanelProps) => {
+export const MediaUploadPanel = (props: MediaUploadPanelProps) => {
 // [!code error]
 	const mediaUploadPayload = useMediaUploadPayload(props.files);
 
@@ -14,5 +14,5 @@ export const PgMediaUploadPanel = (props: PgMediaUploadPanelProps) => {
 		mutationMediaSave.mutate({data: mediaUploadPayload});
 	};
 
-	return <UiButton onClick={handleSaveButtonClick}>저장</UiButton>;
+	return <Button onClick={handleSaveButtonClick}>저장</Button>;
 };

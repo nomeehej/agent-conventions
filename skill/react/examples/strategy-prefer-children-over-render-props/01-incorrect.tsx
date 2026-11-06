@@ -1,14 +1,14 @@
-// component/ui/panel/ui-panel.tsx
-export interface UiPanelProps {
+// component/ui/panel/panel.tsx
+export interface PanelProps {
 	renderHeader?: () => ReactNode;
 	renderFooter?: () => ReactNode;
 }
 
-export const UiPanel = (props: UiPanelProps) => {
+export const Panel = (props: PanelProps) => {
 	return (
-		<section className={clsx("ui_panel__root")}>
+		<section className={clsx("panel__root")}>
 			{props.renderHeader?.()}
-			<UiItemList />
+			<ItemList />
 			{props.renderFooter?.()}
 		</section>
 	);

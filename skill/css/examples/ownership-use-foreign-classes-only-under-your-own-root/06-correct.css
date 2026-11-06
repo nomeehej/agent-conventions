@@ -1,4 +1,4 @@
-.pg_products__sidebarToolbar {
+.productsPage__sidebarToolbar {
 	& > .MuiButton-root > .MuiButton-startIcon {
 		color: #8c8c8c;
 	}

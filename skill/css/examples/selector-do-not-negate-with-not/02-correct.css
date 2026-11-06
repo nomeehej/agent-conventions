@@ -1,4 +1,4 @@
-.pg_products__cardButton {
+.productsPage__cardButton {
 /* [!code ++] */
 	&:enabled:hover {
 		background: #f5f5f5;

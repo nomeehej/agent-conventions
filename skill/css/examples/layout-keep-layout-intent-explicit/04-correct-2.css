@@ -1,4 +1,4 @@
-.pg_productDetail__chart {
+.productDetailPage__chart {
 	/* 로딩 중과 실제 차트에 같은 최소 높이 확보 */
 	min-height: 320px;
 }

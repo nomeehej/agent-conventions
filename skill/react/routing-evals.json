@@ -4,9 +4,9 @@
 	"scenarios": [
 		{
 			"id": "RTE01-import-contract-cleanup",
-			"prompt": "rename UserCard.tsx to user-card.tsx, remove index.ts barrel, replace React.MouseEvent and a duplicate API view type with existing contracts in src/component/ui/user-card/ui-user-card.tsx and src/component/ui/index.ts.",
+			"prompt": "rename UserCard.tsx to user-card.tsx, remove index.ts barrel, replace React.MouseEvent and a duplicate API view type with existing contracts in src/component/ui/user-card/user-card.tsx and src/component/ui/index.ts.",
 			"files": [
-				"src/component/ui/user-card/ui-user-card.tsx",
+				"src/component/ui/user-card/user-card.tsx",
 				"src/component/ui/index.ts"
 			],
 			"expectedSkills": [
@@ -15,7 +15,7 @@
 			],
 			"expectedSelected": {
 				"react": [
-					"ownership-prefix-layer-names-on-files-and-symbols",
+					"ownership-name-component-files-after-their-symbols",
 					"typing-take-handler-types-from-existing-contracts",
 					"events-name-handlers-predictably",
 					"events-curry-extra-handler-arguments"
@@ -33,10 +33,10 @@
 		},
 		{
 			"id": "RTE02-owner-placement-css-drift",
-			"prompt": "move a route-only tree renderer from shared UI to src/page/products/_pg-product-tree.tsx and rename it as owner-private; carry its existing className and style import through unchanged and make no styling change.",
+			"prompt": "move a route-only tree renderer from shared UI to src/page/products/_product-tree.tsx and rename it as owner-private; carry its existing className and style import through unchanged and make no styling change.",
 			"files": [
-				"src/component/ui/product-tree/ui-product-tree.tsx",
-				"src/page/products/_pg-product-tree.tsx"
+				"src/component/ui/product-tree/product-tree.tsx",
+				"src/page/products/_product-tree.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -45,7 +45,7 @@
 			"expectedSelected": {
 				"react": [
 					"ownership-layer-component-boundaries",
-					"ownership-prefix-layer-names-on-files-and-symbols",
+					"ownership-name-component-files-after-their-symbols",
 					"ownership-place-owner-files-in-role-folders"
 				],
 				"typescript": [
@@ -57,11 +57,11 @@
 				]
 			},
 			"scopeDrift": {
-				"evidence": "in a project without a CSS Modules standard, add directly imported src/page/products/_pg-product-tree.css, create owner-unique pg_* role-named classes, and compose the changed className contract with the existing direct clsx import; final skills add CSS with no additional React rule.",
+				"evidence": "in a project without a CSS Modules standard, add directly imported src/page/products/_product-tree.css, create owner-unique pg_* role-named classes, and compose the changed className contract with the existing direct clsx import; final skills add CSS with no additional React rule.",
 				"files": [
-					"src/component/ui/product-tree/ui-product-tree.tsx",
-					"src/page/products/_pg-product-tree.tsx",
-					"src/page/products/_pg-product-tree.css"
+					"src/component/ui/product-tree/product-tree.tsx",
+					"src/page/products/_product-tree.tsx",
+					"src/page/products/_product-tree.css"
 				],
 				"expectedSkills": [
 					"react",
@@ -71,7 +71,7 @@
 				"expectedSelected": {
 					"react": [
 						"ownership-layer-component-boundaries",
-						"ownership-prefix-layer-names-on-files-and-symbols",
+						"ownership-name-component-files-after-their-symbols",
 						"ownership-place-owner-files-in-role-folders"
 					],
 					"typescript": [
@@ -83,11 +83,10 @@
 					],
 					"css": [
 						"naming-default-to-plain-css-when-no-module-convention",
-						"naming-use-scope-slug-element-modifier-syntax",
+						"naming-use-slug-element-modifier-syntax",
 						"naming-name-elements-and-modifiers-by-role",
 						"naming-keep-page-slug-traceable",
-						"ownership-give-each-file-one-scope-slug",
-						"ownership-choose-scope-prefix-by-owner-layer",
+						"ownership-give-each-file-one-slug",
 						"ownership-use-foreign-classes-only-under-your-own-root",
 						"composition-compose-classes-with-clsx",
 						"composition-do-not-build-structural-variants-with-modifiers",
@@ -98,9 +97,9 @@
 		},
 		{
 			"id": "RTE03-route-support-extraction",
-			"prompt": "move one real four-argument multi-line payload boundary out of src/page/products/pg-products.tsx into src/page/products/_function/to-product-save-request.ts; do not create a hook, generic utils file, or helper soup.",
+			"prompt": "move one real four-argument multi-line payload boundary out of src/page/products/products-page.tsx into src/page/products/_function/to-product-save-request.ts; do not create a hook, generic utils file, or helper soup.",
 			"files": [
-				"src/page/products/pg-products.tsx",
+				"src/page/products/products-page.tsx",
 				"src/page/products/_function/to-product-save-request.ts"
 			],
 			"expectedSkills": [
@@ -130,8 +129,8 @@
 			"id": "RTE04-root-constant",
 			"prompt": "move a duplicated menu key set and default page size from two screens into documented flat constants in src/constant/navigation.ts and src/constant/pagination.ts and import each name directly from both route pages.",
 			"files": [
-				"src/page/products/pg-products.tsx",
-				"src/page/reports/pg-reports.tsx",
+				"src/page/products/products-page.tsx",
+				"src/page/reports/reports-page.tsx",
 				"src/constant/navigation.ts",
 				"src/constant/pagination.ts"
 			],
@@ -153,9 +152,9 @@
 		},
 		{
 			"id": "RTE05-toolbar-composition",
-			"prompt": "replace compact/edit/search/focus booleans and static render props on wg-product-toolbar.tsx with stateless compound parts plus repeated explicit variants, give the icon-only buttons accessible names, and document public parts.",
+			"prompt": "replace compact/edit/search/focus booleans and static render props on product-toolbar.tsx with stateless compound parts plus repeated explicit variants, give the icon-only buttons accessible names, and document public parts.",
 			"files": [
-				"src/component/widget/product-toolbar/wg-product-toolbar.tsx"
+				"src/component/widget/product-toolbar/product-toolbar.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -183,9 +182,9 @@
 		},
 		{
 			"id": "RTE06-nested-forwardref",
-			"prompt": "hoist an existing nested forwardRef search input that resets focus to module scope, convert it to a React 19 ref prop, and narrow UiSearchCardProps so it extends the element-specific HTMLAttributes and opens only the library props in use in ui-search-card.tsx.",
+			"prompt": "hoist an existing nested forwardRef search input that resets focus to module scope, convert it to a React 19 ref prop, and narrow SearchCardProps so it extends the element-specific HTMLAttributes and opens only the library props in use in search-card.tsx.",
 			"files": [
-				"src/component/ui/search-card/ui-search-card.tsx"
+				"src/component/ui/search-card/search-card.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -214,7 +213,7 @@
 			"id": "RTE08-delete-handler-flow",
 			"prompt": "move a row delete inline async branch, mutation, navigation, and state+effect replay into one curried named handler, handle the mutation failure and invalidate the affected list query, keep an unused React event as _event, directly import its reused callback type, and keep screen-only flow inside page.tsx.",
 			"files": [
-				"src/page/products/pg-products.tsx"
+				"src/page/products/products-page.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -244,10 +243,10 @@
 		},
 		{
 			"id": "RTE09-route-runtime-section",
-			"prompt": "extract only the tree section that owns local search and expanded state plus a tree adapter into the owner component folder, implement a named selection handler from UiTreeProps[\"onSelectedItemsChange\"], mark the remaining page sections in JSX, and keep section assembly, Suspense boundaries, and route navigation decisions visible at the route entry while the section owns its data and interaction.",
+			"prompt": "extract only the tree section that owns local search and expanded state plus a tree adapter into the owner component folder, implement a named selection handler from TreeProps[\"onSelectedItemsChange\"], mark the remaining page sections in JSX, and keep section assembly, Suspense boundaries, and route navigation decisions visible at the route entry while the section owns its data and interaction.",
 			"files": [
-				"src/page/products/pg-products.tsx",
-				"src/page/products/_pg-product-tree-section.tsx"
+				"src/page/products/products-page.tsx",
+				"src/page/products/_product-tree-section.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -283,9 +282,9 @@
 		},
 		{
 			"id": "RTE10-derived-selection-state",
-			"prompt": "extract the inline domain selection callback as a named handleSelectionToggle handler typed from UiListProps[\"onSelect\"], replace selectedIds-derived count and flag effect+state synchronization with render calculation near use, and use a functional updater; the callback receives an ID value, not a DOM event, and needs no curried arguments. Do not change navigation or styling.",
+			"prompt": "extract the inline domain selection callback as a named handleSelectionToggle handler typed from ListProps[\"onSelect\"], replace selectedIds-derived count and flag effect+state synchronization with render calculation near use, and use a functional updater; the callback receives an ID value, not a DOM event, and needs no curried arguments. Do not change navigation or styling.",
 			"files": [
-				"src/page/products/pg-products.tsx"
+				"src/page/products/products-page.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -341,7 +340,7 @@
 			"id": "RTE12-query-shaping",
 			"prompt": "move repeated raw list, items, and meta render shaping into query select, combine the product and category responses through useQueries combine, rename bindings to response... and mutation..., and remove wide aliases.",
 			"files": [
-				"src/page/products/pg-products.tsx"
+				"src/page/products/products-page.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -367,7 +366,7 @@
 			"id": "RTE13-heavy-search",
 			"prompt": "for a 50k-row search, directly import newly used React hooks, use lazy initialization, urgent input plus deferred result, a non-urgent category transition, and only evidence-backed memoization; update the constraint comment.",
 			"files": [
-				"src/page/products/_pg-product-search.tsx"
+				"src/page/products/_product-search.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -394,7 +393,7 @@
 			"id": "RTE14-subscription-effectevent",
 			"prompt": "directly import useEffectEvent, replace only a socket subscription latest-callback ref-sync hack with a named handleMessage = useEffectEvent(...), and update subscription lifecycle JSDoc; do not change click or submit actions.",
 			"files": [
-				"src/page/products/_pg-product-socket.tsx"
+				"src/page/products/_product-socket.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -420,7 +419,7 @@
 			"id": "RTE15-suspense-absence",
 			"prompt": "replace Suspense detail ?? [], || \"-\", a local pending Spinner, an isError branch, single-branch ternaries, and top-level aliases with a route error boundary, an explicit empty state, and origin chaining; remove an ungrounded explanatory comment.",
 			"files": [
-				"src/page/product-detail/pg-product-detail.tsx"
+				"src/page/product-detail/product-detail-page.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -448,9 +447,9 @@
 			"id": "RTE16-private-component-import-direction",
 			"prompt": "two sibling files under src/page/detail/product-table-section/ import each other's legend row through ../; make the panel own the shared legend row and pass it down as an element prop, and remove the sibling and @/page component imports.",
 			"files": [
-				"src/page/detail/product-table-section/pg-product-table-section.tsx",
-				"src/page/detail/product-table-section/_pg-review-section.tsx",
-				"src/page/detail/product-table-section/_pg-product-summary.tsx"
+				"src/page/detail/product-table-section/product-table-section.tsx",
+				"src/page/detail/product-table-section/_review-section.tsx",
+				"src/page/detail/product-table-section/_product-summary.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -472,7 +471,7 @@
 			"id": "RTE17-chart-lifecycle-ownership",
 			"prompt": "the ECharts init, resize listener, and dispose currently sit in src/component/widget/chart/_hook/use-chart-instance.ts only to shorten the component; fold that lifecycle back into the owning chart root and leave the domain option builder in function/.",
 			"files": [
-				"src/component/widget/chart/chart-root/wg-chart-root.tsx",
+				"src/component/widget/chart/chart-root/chart-root.tsx",
 				"src/component/widget/chart/_hook/use-chart-instance.ts",
 				"src/component/widget/chart/_function/to-chart-option.ts"
 			],
@@ -497,7 +496,7 @@
 			"id": "RTE18-url-state-naming",
 			"prompt": "move the product list page's inline URL param parser map into src/page/products/_constant/product-list-url-parsers.ts as productListUrlParsers, rename the parsed binding pair to urlParams/setUrlParams, keep the raw URLSearchParams builder named searchParams, and leave the server query and mutation bindings unchanged.",
 			"files": [
-				"src/page/products/pg-products.tsx",
+				"src/page/products/products-page.tsx",
 				"src/page/products/_constant/product-list-url-parsers.ts"
 			],
 			"expectedSkills": [
@@ -541,7 +540,7 @@
 			"id": "react-activity-preserve-draft",
 			"prompt": "Replace only the conditional rendering around the existing sidebar with Activity controlled by the existing isSidebarOpen state, preserving the sidebar draft and DOM when hidden; import Activity directly. Keep effects, handlers, component declarations, and styles unchanged.",
 			"files": [
-				"src/page/products/pg-products.tsx"
+				"src/page/products/products-page.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -559,9 +558,9 @@
 		},
 		{
 			"id": "react-query-jsx-map-near-miss",
-			"prompt": "Replace only UiProductList receiving responseProductListSuspense.data.items with a direct items.map that renders an h3 keyed by item.id and displaying item.label. The query select already provides the final items; do not reshape data, alter the query declaration, introduce aliases, or change styles.",
+			"prompt": "Replace only ProductList receiving responseProductListSuspense.data.items with a direct items.map that renders an h3 keyed by item.id and displaying item.label. The query select already provides the final items; do not reshape data, alter the query declaration, introduce aliases, or change styles.",
 			"files": [
-				"src/page/products/_pg-product-list-section.tsx"
+				"src/page/products/_product-list-section.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -578,7 +577,7 @@
 			"id": "react-user-refresh-near-miss",
 			"prompt": "Replace only the existing named refresh handler body with void responseProductListSuspense.refetch() for the user refresh button. There is no mutation or cache-writing change; preserve the handler name, type, comment, and JSX.",
 			"files": [
-				"src/page/products/_pg-product-list-section.tsx"
+				"src/page/products/_product-list-section.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -593,9 +592,9 @@
 		},
 		{
 			"id": "react-independent-disabled-prop-near-miss",
-			"prompt": "On an existing UiButton usage change only disabled={false} to disabled={true}. Keep its visible text, type, existing click handler, className, wrapper implementation, and props declarations unchanged.",
+			"prompt": "On an existing Button usage change only disabled={false} to disabled={true}. Keep its visible text, type, existing click handler, className, wrapper implementation, and props declarations unchanged.",
 			"files": [
-				"src/page/products/_pg-product-toolbar.tsx"
+				"src/page/products/_product-toolbar.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -612,7 +611,7 @@
 			"id": "react-suspense-dependent-query",
 			"prompt": "Change the existing query declarations so the second Suspense query waits for the first response ID, using the already imported useSuspenseQuery in order instead of enabled. Preserve binding names, render code, handlers, and boundaries; update the query JSDoc to describe the dependency.",
 			"files": [
-				"src/page/products/_pg-product-detail-section.tsx"
+				"src/page/products/_product-detail-section.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -634,7 +633,7 @@
 			"id": "react-suspense-cached-refetch-error",
 			"prompt": "The existing Suspense query has cached data, but this confirmation screen must stop showing stale recommendations after a failed refetch. Add only a render-time error check that throws the existing query error after isFetching is false, using the existing ancestor boundaries. Keep the query declaration, hooks, JSX, and comments unchanged.",
 			"files": [
-				"src/page/products/_pg-product-recommendation-section.tsx"
+				"src/page/products/_product-recommendation-section.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -652,11 +651,11 @@
 		},
 		{
 			"id": "react-widget-part-split-and-private-part-naming",
-			"prompt": "In the chatbot widget, move the `_wg-chatbot-content.tsx` part that only reads context and picks a branch back into `wg-chatbot.tsx`, rename the private header part `_wg-header.tsx`/`WgHeader` to `_wg-chatbot-header.tsx`/`WgChatbotHeader` so the owner name is carried, and put a multiline block comment above each multi-line JSX block in the entry file. Keep behavior, props, and hooks unchanged.",
+			"prompt": "In the chatbot widget, move the `_chatbot-content.tsx` part that only reads context and picks a branch back into `chatbot.tsx`, rename the private header part `_header.tsx`/`Header` to `_chatbot-header.tsx`/`ChatbotHeader` so the owner name is carried, and put a multiline block comment above each multi-line JSX block in the entry file. Keep behavior, props, and hooks unchanged.",
 			"files": [
-				"src/component/widget/chatbot/wg-chatbot.tsx",
-				"src/component/widget/chatbot/_wg-chatbot-content.tsx",
-				"src/component/widget/chatbot/_wg-header.tsx"
+				"src/component/widget/chatbot/chatbot.tsx",
+				"src/component/widget/chatbot/_chatbot-content.tsx",
+				"src/component/widget/chatbot/_header.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -664,7 +663,7 @@
 			],
 			"expectedSelected": {
 				"react": [
-					"ownership-prefix-layer-names-on-files-and-symbols",
+					"ownership-name-component-files-after-their-symbols",
 					"ownership-place-owner-files-in-role-folders",
 					"composition-split-owner-parts-only-for-runtime-boundaries",
 					"docs-write-jsx-comments-as-multiline-blocks"
@@ -676,12 +675,12 @@
 		},
 		{
 			"id": "react-outlet-route-group-placement",
-			"prompt": "Move the existing products and orders screen folders under src/page/(main), move the shared list frame to src/page/(main)/pg-main-outlet.tsx, and update only the matching route imports and nesting in src/route/app-routes.tsx. Preserve component bodies, styles, handlers, and runtime boundaries. Keep screen internals at one child-owner level; do not put a route group below a screen or import between sibling screens.",
+			"prompt": "Move the existing products and orders screen folders under src/page/(main), move the shared list frame to src/page/(main)/main-outlet.tsx, and update only the matching route imports and nesting in src/route/app-routes.tsx. Preserve component bodies, styles, handlers, and runtime boundaries. Keep screen internals at one child-owner level; do not put a route group below a screen or import between sibling screens.",
 			"files": [
 				"src/route/app-routes.tsx",
-				"src/page/(main)/pg-main-outlet.tsx",
-				"src/page/(main)/products/pg-products.tsx",
-				"src/page/(main)/orders/pg-orders.tsx"
+				"src/page/(main)/main-outlet.tsx",
+				"src/page/(main)/products/products-page.tsx",
+				"src/page/(main)/orders/orders-page.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -689,7 +688,7 @@
 			],
 			"expectedSelected": {
 				"react": [
-					"ownership-prefix-layer-names-on-files-and-symbols",
+					"ownership-name-component-files-after-their-symbols",
 					"ownership-place-owner-files-in-role-folders",
 					"ownership-keep-component-imports-flowing-downward",
 					"ownership-group-route-frames-with-outlets"

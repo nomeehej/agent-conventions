@@ -1,6 +1,6 @@
 component/ui/button/
-├── ui-button.tsx
-├── ui-button.css
+├── button.tsx
+├── button.css
 ├── _constant/
 ├── _function/
 ├── _hook/

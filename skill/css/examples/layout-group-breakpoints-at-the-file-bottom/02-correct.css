@@ -1,9 +1,9 @@
-.pg_products__toolbar {
+.productsPage__toolbar {
 	display: flex;
 	gap: 24px;
 }
 
-.pg_products__layout {
+.productsPage__layout {
 	display: grid;
 	grid-template-columns: 280px 1fr;
 /* [!code ++] */
@@ -11,14 +11,14 @@
 
 @media (width < 1024px) {
 /* [!code ++] */
-	.pg_products__toolbar {
+	.productsPage__toolbar {
 /* [!code ++] */
 		flex-direction: column;
 /* [!code ++] */
 	}
 
 /* [!code ++] */
-	.pg_products__layout {
+	.productsPage__layout {
 		grid-template-columns: 1fr;
 	}
 }

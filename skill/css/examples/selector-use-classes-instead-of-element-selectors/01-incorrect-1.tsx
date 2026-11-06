@@ -1,7 +1,7 @@
-<div className={clsx("pg_products__toolbar")}>
+<div className={clsx("productsPage__toolbar")}>
 // [!code error]
 	<div>
-		<UiSearchInput />
+		<SearchInput />
 	</div>
 // [!code error]
 	<button type="button">초기화</button>

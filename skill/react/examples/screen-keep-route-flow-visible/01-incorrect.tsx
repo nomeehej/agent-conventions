@@ -1,5 +1,5 @@
-// page/products/pg-products.tsx
-export const PgProducts = () => {
+// page/products/products-page.tsx
+export const ProductsPage = () => {
 // [!code error]
 	const [urlParams] = useQueryStates(productUrlParsers);
 // [!code error]
@@ -7,9 +7,9 @@ export const PgProducts = () => {
 
 	return (
 		<Fragment>
-			<PgProductFilterSection />
+			<ProductFilterSection />
 // [!code error]
-			<PgProductListSection products={responseProductListSuspense.data.items} />
+			<ProductListSection products={responseProductListSuspense.data.items} />
 		</Fragment>
 	);
 };

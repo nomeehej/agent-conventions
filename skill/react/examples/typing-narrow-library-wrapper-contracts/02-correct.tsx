@@ -1,5 +1,5 @@
-import {Button} from "@mui/material";
-import type {ButtonProps} from "@mui/material";
+import {Button as MuiButton} from "@mui/material";
+import type {ButtonProps as MuiButtonProps} from "@mui/material";
 import type {MouseEventHandler, ReactNode} from "react";
 
 /**
@@ -7,16 +7,16 @@ import type {MouseEventHandler, ReactNode} from "react";
  *
  * sx, classes, component 같은 스타일 주입 지점은 열지 않음
  */
-export interface UiButtonProps {
+export interface ButtonProps {
 	children: ReactNode;
 	/**
 	 * 강조 수준
 	 */
-	variant?: ButtonProps["variant"];
+	variant?: MuiButtonProps["variant"];
 	/**
 	 * 크기
 	 */
-	size?: ButtonProps["size"];
+	size?: MuiButtonProps["size"];
 	/**
 	 * 요청이 끝날 때까지 눌리지 않음
 	 */
@@ -24,10 +24,10 @@ export interface UiButtonProps {
 	onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export const UiButton = (props: UiButtonProps) => {
+export const Button = (props: ButtonProps) => {
 	return (
-		<Button variant={props.variant} size={props.size} disabled={props.isLoading} onClick={props.onClick}>
+		<MuiButton variant={props.variant} size={props.size} disabled={props.isLoading} onClick={props.onClick}>
 			{props.children}
-		</Button>
+		</MuiButton>
 	);
 };

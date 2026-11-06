@@ -2,10 +2,10 @@
 return (
 	<Fragment>
 		<Activity mode={isEditing ? "visible" : "hidden"}>
-			<PgProductEditorForm />
+			<ProductEditorForm />
 		</Activity>
 		<Activity mode={isEditing ? "hidden" : "visible"}>
-			<PgProductPreviewPane />
+			<ProductPreviewPane />
 		</Activity>
 	</Fragment>
 );

@@ -1,4 +1,4 @@
-// page/product-detail/pg-product-detail.tsx: 서버는 계산 전이면 null. 여기서 한 번 좁힘
+// page/product-detail/product-detail-page.tsx: 서버는 계산 전이면 null. 여기서 한 번 좁힘
 const responseSummarySuspense = useSuspenseQuery({
 	...productDetailSummaryQueryOptions(productId),
 	select: (response) => ({

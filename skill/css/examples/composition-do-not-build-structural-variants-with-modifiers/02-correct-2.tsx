@@ -1,1 +1,1 @@
-<div className={clsx("pg_productDetail__metaAside")} />
+<div className={clsx("productDetailPage__metaAside")} />

@@ -1,5 +1,5 @@
-// page/products/_pg-product-list-section.tsx
-export const PgProductListSection = () => {
+// page/products/_product-list-section.tsx
+export const ProductListSection = () => {
 	const [urlParams, setUrlParams] = useQueryStates(productUrlParsers);
 
 	/**
@@ -27,9 +27,9 @@ export const PgProductListSection = () => {
 	/**
 	 * 폼 값을 전송 형태로 바꿔 저장만 호출. 저장 뒤 흐름은 mutation 콜백이 이어 감
 	 */
-	const handleProductSave: UiTableProps["onSave"] = (formValues) => {
+	const handleProductSave: TableProps["onSave"] = (formValues) => {
 		mutationProductSave.mutate({data: toProductSaveRequest(formValues)});
 	};
 
-	return <UiTable rows={responseProductListSuspense.data.items} onSave={handleProductSave} />;
+	return <Table rows={responseProductListSuspense.data.items} onSave={handleProductSave} />;
 };

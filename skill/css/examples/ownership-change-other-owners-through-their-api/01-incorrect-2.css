@@ -1,8 +1,8 @@
-/* page/product-detail/pg-product-detail.css */
+/* page/product-detail/product-detail-page.css */
 /* [!code error] */
-.pg_productDetail__root {
+.productDetailPage__root {
 /* [!code error] */
-	& .wg_chartCard__root {
+	& .chartCard__root {
 		grid-area: chart;
 		margin-block-end: 16px;
 	}

@@ -26,13 +26,13 @@ flowchart LR
 **Incorrect 1 (인라인 래퍼로 인자를 넘깁니다):**
 
 ```tsx
-<UiButton onClick={() => handleListItemClick(product.id)}>{product.name}</UiButton>;
+<Button onClick={() => handleListItemClick(product.id)}>{product.name}</Button>;
 ```
 
 **Correct 1 (JSX에는 팩토리 호출만 두고 감싸는 화살표를 만들지 않습니다):**
 
 ```tsx
-<UiButton onClick={handleListItemClick(product.id)}>{product.name}</UiButton>;
+<Button onClick={handleListItemClick(product.id)}>{product.name}</Button>;
 ```
 
 > 나머지 예시와 예외는 [full rule](../rules/09-02-events-curry-extra-handler-arguments.md)에 있습니다.

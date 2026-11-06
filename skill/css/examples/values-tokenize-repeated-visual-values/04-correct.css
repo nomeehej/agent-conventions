@@ -1,11 +1,11 @@
-.pg_products__rowBadge {
+.productsPage__rowBadge {
 /* [!code ++] */
 	border: 1px solid transparent;
 }
 
-.pg_products__row {
+.productsPage__row {
 /* [!code ++] */
-	&:hover .pg_products__rowBadge {
+	&:hover .productsPage__rowBadge {
 /* [!code ++] */
 		border-color: #1677ff;
 	}

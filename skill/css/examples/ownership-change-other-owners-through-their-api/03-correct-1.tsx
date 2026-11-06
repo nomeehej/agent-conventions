@@ -1,1 +1,1 @@
-<WgChartCard dailyCounts={dailyCounts} variant="muted" />
+<ChartCard dailyCounts={dailyCounts} variant="muted" />

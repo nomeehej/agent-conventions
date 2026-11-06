@@ -1,5 +1,5 @@
 if (responseUserGetItemSuspense.isFetching) {
-	return <UiSpinner />;
+	return <Spinner />;
 }
 
-return <WgUserCardName value={responseUserGetItemSuspense.data.name} />;
+return <UserCardName value={responseUserGetItemSuspense.data.name} />;

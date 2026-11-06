@@ -1,14 +1,14 @@
-.pg_products__badge--draft {
+.productsPage__badge--draft {
 	width: 24px;
 	height: 24px;
 }
 
-.pg_products__badge--active {
+.productsPage__badge--active {
 	width: 24px;
 	height: 24px;
 }
 
-.pg_products__badge--hidden {
+.productsPage__badge--hidden {
 	width: 24px;
 	height: 24px;
 	background: rgb(140 152 160 / 12%);

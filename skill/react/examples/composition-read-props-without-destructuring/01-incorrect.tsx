@@ -1,4 +1,4 @@
-const WgUserCard = (props: WgUserCardProps) => {
+const UserCard = (props: UserCardProps) => {
 // [!code error]
 	const { label, onSave } = props;
 // [!code error]

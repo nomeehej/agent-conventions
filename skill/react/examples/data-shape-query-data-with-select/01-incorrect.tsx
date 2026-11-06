@@ -1,6 +1,6 @@
 const responseProductListSuspense = useProductListSuspense();
 
-<UiTable
+<Table
 	rows={responseProductListSuspense.data.items.map((product) => ({
 		id: product.id,
 		name: product.name,

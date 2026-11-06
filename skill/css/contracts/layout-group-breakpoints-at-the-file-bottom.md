@@ -19,7 +19,7 @@
 **Incorrect 1 (클래스 블록 안에 중첩해서 브레이크포인트가 흩어집니다):**
 
 ```css
-.pg_products__toolbar {
+.productsPage__toolbar {
 	display: flex;
 	gap: 24px;
 
@@ -28,7 +28,7 @@
 	}
 }
 
-.pg_products__layout {
+.productsPage__layout {
 	display: grid;
 	grid-template-columns: 280px 1fr;
 
@@ -41,22 +41,22 @@
 **Correct 1 (선언은 위에 두고 브레이크포인트는 파일 아래 한곳에 모읍니다):**
 
 ```css
-.pg_products__toolbar {
+.productsPage__toolbar {
 	display: flex;
 	gap: 24px;
 }
 
-.pg_products__layout {
+.productsPage__layout {
 	display: grid;
 	grid-template-columns: 280px 1fr;
 }
 
 @media (width < 1024px) {
-	.pg_products__toolbar {
+	.productsPage__toolbar {
 		flex-direction: column;
 	}
 
-	.pg_products__layout {
+	.productsPage__layout {
 		grid-template-columns: 1fr;
 	}
 }

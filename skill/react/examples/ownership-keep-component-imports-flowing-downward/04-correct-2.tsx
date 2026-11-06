@@ -1,2 +1,2 @@
-// page/order-detail/pg-order-detail.tsx
-import {WgProductTable} from "@/component/widget/product-table/wg-product-table";
+// page/order-detail/order-detail-page.tsx
+import {ProductTable} from "@/component/widget/product-table/product-table";

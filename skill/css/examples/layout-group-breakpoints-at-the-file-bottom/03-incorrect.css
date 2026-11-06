@@ -1,15 +1,15 @@
-/* src/page/products/pg-products.css */
+/* src/page/products/products-page.css */
 /* [!code error] */
 @media (width < 1024px) {
-	.pg_products__filterBar {
+	.productsPage__filterBar {
 		flex-direction: column;
 	}
 }
 
-/* src/page/orders/pg-orders.css */
+/* src/page/orders/orders-page.css */
 /* [!code error] */
 @media (width < 1024px) {
-	.pg_orders__filterBar {
+	.ordersPage__filterBar {
 		flex-direction: column;
 	}
 }

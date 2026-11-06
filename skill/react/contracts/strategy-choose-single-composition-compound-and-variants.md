@@ -19,7 +19,7 @@ flowchart LR
 **Incorrect 1 (단일, 합성, 변형을 구분하지 않고 한 컴포넌트에 모두 구현합니다):**
 
 ```tsx
-export interface WgProfileDialogProps {
+export interface ProfileDialogProps {
 	isCompact?: boolean;
 	showActivity?: boolean;
 	showFocus?: boolean;
@@ -27,15 +27,15 @@ export interface WgProfileDialogProps {
 	renderFooter?: () => ReactNode;
 }
 
-export const WgProfileDialog = (props: WgProfileDialogProps) => {
+export const ProfileDialog = (props: ProfileDialogProps) => {
 	return (
 		<section className={props.isCompact ? "dialog dialog--compact" : "dialog"}>
 			<header>
 				<h3>{props.dialogTitle}</h3>
 			</header>
-			<WgProfileSummary />
-			{props.showActivity && <WgProfileActivityPanel />}
-			{props.showFocus && <WgProfileFocusPanel />}
+			<ProfileSummary />
+			{props.showActivity && <ProfileActivityPanel />}
+			{props.showFocus && <ProfileFocusPanel />}
 			<footer>{props.renderFooter?.()}</footer>
 		</section>
 	);
@@ -50,7 +50,7 @@ export const WgProfileDialog = (props: WgProfileDialogProps) => {
  *
  * 사용처가 끼워 넣을 자리가 없어 부품으로 안 쪼갬
  */
-export interface WgProfileDialogProps {
+export interface ProfileDialogProps {
 	/**
 	 * 헤더에 그릴 제목
 	 */
@@ -61,13 +61,13 @@ export interface WgProfileDialogProps {
 	profile: Profile;
 }
 
-export const WgProfileDialog = (props: WgProfileDialogProps) => {
+export const ProfileDialog = (props: ProfileDialogProps) => {
 	return (
-		<section className={clsx("wg_profileDialog__root")}>
-			<header className={clsx("wg_profileDialog__header")}>
+		<section className={clsx("profileDialog__root")}>
+			<header className={clsx("profileDialog__header")}>
 				<h3>{props.title}</h3>
 			</header>
-			<WgProfileSummary profile={props.profile} />
+			<ProfileSummary profile={props.profile} />
 		</section>
 	);
 };

@@ -1,4 +1,4 @@
-export const PgProductTable = (props: PgProductTableProps) => {
+export const ProductListTable = (props: ProductListTableProps) => {
 	/**
 	 * 링크에 필요한 두 필드만 남김. 표는 응답 구조를 모름
 	 */

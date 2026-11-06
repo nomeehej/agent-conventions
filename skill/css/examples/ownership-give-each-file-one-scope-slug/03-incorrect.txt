@@ -1,3 +1,0 @@
-/* page/product-detail/_pg-chart-card.css */
-# [!code error]
-pg_productDetail__chartCard

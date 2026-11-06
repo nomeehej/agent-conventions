@@ -1,9 +1,9 @@
 /* [!code ++] */
-.pg_products__hero {
+.productsPage__hero {
 	display: grid;
 }
 
 /* [!code ++] */
-.pg_products__eyebrow {
+.productsPage__eyebrow {
 	letter-spacing: 0.08em;
 }

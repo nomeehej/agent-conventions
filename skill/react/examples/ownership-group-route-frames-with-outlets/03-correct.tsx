@@ -1,19 +1,19 @@
 // route/app-routes.tsx
-import {PgOutlet} from "@/page/pg-outlet";
-import {PgMainOutlet} from "@/page/(main)/pg-main-outlet";
-import {PgOrders} from "@/page/(main)/orders/pg-orders";
-import {PgProducts} from "@/page/(main)/products/pg-products";
-import {PgProductDetail} from "@/page/product-detail/pg-product-detail";
+import {RootOutlet} from "@/page/root-outlet";
+import {MainOutlet} from "@/page/(main)/main-outlet";
+import {OrdersPage} from "@/page/(main)/orders/orders-page";
+import {ProductsPage} from "@/page/(main)/products/products-page";
+import {ProductDetailPage} from "@/page/product-detail/product-detail-page";
 
 export const AppRoutes = () => {
 	return (
 		<Routes>
-			<Route path="/" element={<PgOutlet />}>
-				<Route element={<PgMainOutlet />}>
-					<Route path="products" element={<PgProducts />} />
-					<Route path="orders" element={<PgOrders />} />
+			<Route path="/" element={<RootOutlet />}>
+				<Route element={<MainOutlet />}>
+					<Route path="products" element={<ProductsPage />} />
+					<Route path="orders" element={<OrdersPage />} />
 				</Route>
-				<Route path="products/:productId" element={<PgProductDetail />} />
+				<Route path="products/:productId" element={<ProductDetailPage />} />
 			</Route>
 		</Routes>
 	);

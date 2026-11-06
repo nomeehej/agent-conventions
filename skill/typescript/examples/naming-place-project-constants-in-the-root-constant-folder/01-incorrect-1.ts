@@ -1,4 +1,4 @@
-// page/products/pg-products.tsx
+// page/products/products-page.tsx
 const default_page_size = 20;
 const request_timeout_ms = 20_000;
 

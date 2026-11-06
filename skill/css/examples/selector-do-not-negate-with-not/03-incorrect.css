@@ -1,4 +1,4 @@
-.pg_products__cardButton {
+.productsPage__cardButton {
 /* [!code error] */
 	&:not(:disabled) {
 		cursor: pointer;

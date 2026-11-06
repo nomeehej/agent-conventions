@@ -1,16 +1,16 @@
-/* page/product-detail/pg-product-detail.css */
+/* page/product-detail/product-detail-page.css */
 /* [!code ++] */
-.pg_productDetail__chartSlot {
+.productDetailPage__chartSlot {
 /* [!code ++] */
 	min-height: 240px;
 
 /* [!code ++] */
-	& .wg_chartCard__caption {
+	& .chartCard__caption {
 		letter-spacing: 0.02em;
 	}
 
 /* [!code ++] */
-	& .ui_card__title {
+	& .card__title {
 		font-size: 13px;
 	}
 /* [!code ++] */

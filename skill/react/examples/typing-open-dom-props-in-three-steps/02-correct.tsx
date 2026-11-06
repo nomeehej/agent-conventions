@@ -1,5 +1,5 @@
-import {Button} from "@mui/material";
-import type {ButtonProps} from "@mui/material";
+import {Button as MuiButton} from "@mui/material";
+import type {ButtonProps as MuiButtonProps} from "@mui/material";
 import {clsx} from "clsx";
 import type {ButtonHTMLAttributes} from "react";
 
@@ -8,13 +8,13 @@ import type {ButtonHTMLAttributes} from "react";
  *
  * color의 문자열 리터럴은 DOM의 string에 할당 가능해 Omit 불필요
  */
-export interface UiButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	/**
 	 * 강조 단계
 	 */
-	color?: ButtonProps["color"];
+	color?: MuiButtonProps["color"];
 }
 
-export const UiButton = (props: UiButtonProps) => {
-	return <Button {...props} className={clsx("ui_button__root", props.className)} />;
+export const Button = (props: ButtonProps) => {
+	return <MuiButton {...props} className={clsx("button__root", props.className)} />;
 };

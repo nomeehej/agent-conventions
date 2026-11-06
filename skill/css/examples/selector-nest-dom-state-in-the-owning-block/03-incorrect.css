@@ -1,4 +1,4 @@
-.wg_siteHeader__brandMark {
+.siteHeader__brandMark {
 	transform: rotate(0deg);
 
 /* [!code error] */
@@ -11,6 +11,6 @@
 /* [!code error] */
 }
 
-.wg_siteHeader__brandLink {
+.siteHeader__brandLink {
 	color: #1677ff;
 }

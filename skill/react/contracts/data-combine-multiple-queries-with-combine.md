@@ -43,7 +43,7 @@ const rows = responseProductListSuspense.data.items.map((product) => ({
 **Correct 1 (값을 렌더하는 섹션이 인라인 `combine`으로 합칩니다):**
 
 ```tsx
-export const PgProductTableSection = () => {
+export const ProductTableSection = () => {
 	/**
  * 분류 이름이 목록 응답에 없어 표 한 행에 두 응답을 함께 담음
 	 */
@@ -63,7 +63,7 @@ export const PgProductTableSection = () => {
 		},
 	});
 
-	return <UiTable rows={responseProductRowsSuspense.rows} />;
+	return <Table rows={responseProductRowsSuspense.rows} />;
 };
 ```
 

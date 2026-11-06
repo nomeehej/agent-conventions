@@ -1,31 +1,10 @@
 /*
  * 예제 CSS 검사. css 08-01 규칙이 보여 주는 설정을 extends 로 그대로 읽음
- * 예제 한 파일에 여러 소유자(pg_, wg_, ui_)가 섞이므로 레이어별 override 대신 세 접두사를 한 패턴으로 받음
- * 아래 helper 셋은 그 설정 파일의 것과 같아야 한다. rules.test.ts 가 override 패턴과 대조함
+ * 예제에만 필요한 예외만 여기서 더함
  */
-export const ownClassPattern = (scope) =>
-	[
-		"^(?:",
-		// 우리 접두사로 시작하지 않는 클래스는 통과
-		`(?!${scope}_).*`,
-		"|",
-		// pg_scopeSlug__element 또는 pg_scopeSlug__element--modifier만 통과
-		`${scope}_[a-z][a-zA-Z0-9]*__[a-z][a-zA-Z0-9]*(?:--[a-z][a-zA-Z0-9]*)?`,
-		")$",
-	].join("");
-
-const libraryPrefixes = [/^\.ant-/, /^\.rc-/, /^\.tippy-/, /^\.Mui/];
-
-const ownMarkupPatterns = [
-	/^\.[\w-]+:(hover|focus|focus-visible|focus-within|active|enabled|disabled|checked|visited)/,
-	/^&\s*[>+~]?\s*[a-z]/,
-];
-
 export default {
 	extends: ["./css/examples/tooling-configure-stylelint-to-enforce-these-rules/01-correct.js"],
 	rules: {
-		"selector-class-pattern": ownClassPattern("(?:pg|wg|ui)"),
-		"selector-disallowed-list": [[...libraryPrefixes, ...ownMarkupPatterns], {splitList: true}],
 		// 줄 표기 주석(`/* [!code ++] */`)이 표시할 줄 바로 위에 붙어야 해서 끔
 		"comment-empty-line-before": null,
 		// 예제는 라이브러리 변수(`--mui-shape-borderRadius`)를 소비하기도 함. 실제 설정은 token.css 에만 이 규칙을 둠

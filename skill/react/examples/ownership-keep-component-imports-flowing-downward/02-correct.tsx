@@ -1,13 +1,13 @@
-// page/product-detail/pg-product-detail.tsx
-import {PgSectionHeading} from "@/page/product-detail/_pg-section-heading";
-import {PgProductTableSection} from "@/page/product-detail/product-table-section/pg-product-table-section";
-import {PgProductSummary} from "@/page/product-detail/product-summary/pg-product-summary";
+// page/product-detail/product-detail-page.tsx
+import {SectionHeading} from "@/page/product-detail/_section-heading";
+import {ProductTableSection} from "@/page/product-detail/product-table-section/product-table-section";
+import {ProductSummary} from "@/page/product-detail/product-summary/product-summary";
 
-export const PgProductDetail = () => {
+export const ProductDetailPage = () => {
 	return (
-		<main className={clsx("pg_productDetail__root")}>
-			<PgProductTableSection heading={<PgSectionHeading title="최근 주문" />} />
-			<PgProductSummary heading={<PgSectionHeading title="요약" />} />
+		<main className={clsx("productDetailPage__root")}>
+			<ProductTableSection heading={<SectionHeading title="최근 주문" />} />
+			<ProductSummary heading={<SectionHeading title="요약" />} />
 		</main>
 	);
 };

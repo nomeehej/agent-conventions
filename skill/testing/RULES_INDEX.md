@@ -1,7 +1,7 @@
 # Testing 컨벤션 Rule Index
 
 - Skill: `testing`
-- Routing digest: `sha256:50b0c8e1036c63c692f06c091598a8583a0a794e8e59f1394f112ec6f6ac5d9e`
+- Routing digest: `sha256:094c6ebdc9acdf3830a6777df94c68e01659eef372687afb9abe5af3f43f4732`
 
 ## Direct Companions
 

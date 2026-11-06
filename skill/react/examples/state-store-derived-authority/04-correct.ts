@@ -1,4 +1,4 @@
-// page/_layout/pg-app-layout.tsx
+// page/_layout/app-layout.tsx
 const setCanEditProduct = usePermissionStore((state) => state.setCanEditProduct);
 
 /**

@@ -1,4 +1,4 @@
-export interface UiCollapseProps {
+export interface CollapseProps {
 	className?: string;
 // [!code error]
 	headerClassName?: string;

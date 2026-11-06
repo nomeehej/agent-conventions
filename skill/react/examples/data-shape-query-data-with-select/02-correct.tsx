@@ -12,4 +12,4 @@ const responseProductListSuspense = useProductListSuspense(
 	},
 );
 
-<UiTable rows={responseProductListSuspense.data.items} />;
+<Table rows={responseProductListSuspense.data.items} />;

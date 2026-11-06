@@ -28,16 +28,16 @@ flowchart LR
 **Incorrect 1 (우리가 렌더하는 마크업을 요소 선택자로 잡습니다):**
 
 ```tsx
-<div className={clsx("pg_products__toolbar")}>
+<div className={clsx("productsPage__toolbar")}>
 	<div>
-		<UiSearchInput />
+		<SearchInput />
 	</div>
 	<button type="button">초기화</button>
 </div>
 ```
 
 ```css
-.pg_products__toolbar {
+.productsPage__toolbar {
 	& button {
 		height: 32px;
 	}
@@ -55,11 +55,11 @@ flowchart LR
 **Correct 1 (우리가 렌더하면 클래스를 붙입니다):**
 
 ```tsx
-<div className={clsx("pg_products__toolbar")}>
-	<div className={clsx("pg_products__toolbarField")}>
-		<UiSearchInput />
+<div className={clsx("productsPage__toolbar")}>
+	<div className={clsx("productsPage__toolbarField")}>
+		<SearchInput />
 	</div>
-	<button type="button" className={clsx("pg_products__toolbarButton")}>
+	<button type="button" className={clsx("productsPage__toolbarButton")}>
 		초기화
 	</button>
 </div>

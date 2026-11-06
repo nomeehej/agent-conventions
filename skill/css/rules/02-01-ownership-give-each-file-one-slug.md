@@ -1,6 +1,6 @@
 ---
-title: Give Each CSS File Its Own `scope_slug`
-titleKo: CSS 파일마다 고유한 범위_식별자를 하나씩 씁니다
+title: Give Each CSS File Its Own Slug
+titleKo: CSS 파일마다 고유한 식별자를 하나씩 씁니다
 impact: CRITICAL
 impactDescription: 파일마다 네임스페이스를 구분해 전역 클래스 충돌을 막습니다
 appliesWhen:
@@ -9,31 +9,31 @@ appliesWhen:
 tags: namespace, ownership, uniqueness
 ---
 
-## Give Each CSS File Its Own `scope_slug`
+## Give Each CSS File Its Own Slug
 
 **Impact: CRITICAL (파일마다 네임스페이스를 구분해 전역 클래스 충돌을 막습니다)**
 
-CSS 파일마다 고유한 범위_식별자를 하나씩 씁니다.
-같은 범위_식별자를 여러 파일에서 나누어 쓰지 않습니다.
+CSS 파일마다 고유한 식별자를 하나씩 씁니다.
+같은 식별자를 여러 파일에서 나누어 쓰지 않습니다.
 
 | 상황 | 처리 |
 | --- | --- |
-| 새 스타일을 추가함 | 같은 범위_식별자를 쓰는 파일이 있는지 먼저 확인합니다 |
+| 새 스타일을 추가함 | 같은 식별자를 쓰는 파일이 있는지 레이어와 관계없이 먼저 확인합니다 |
 | 의미가 같아도 CSS 파일이 다름 | 식별자를 따로 만듭니다. 부품끼리 부모 식별자를 나누어 쓰는 것도 금지합니다 |
 | 부모 식별자를 계속 씀 | 스타일도 부모 CSS 파일에 둡니다 |
 
-**Incorrect 1 (이미 다른 소유자가 쓰는 `scope_slug`를 재사용합니다):**
+**Incorrect 1 (이미 다른 소유자가 쓰는 식별자를 재사용합니다):**
 
-<<< ../examples/ownership-give-each-file-one-scope-slug/01-incorrect.txt
+<<< ../examples/ownership-give-each-file-one-slug/01-incorrect.txt
 
 **Correct 1 (소유자가 다르면 별도 식별자를 부여합니다):**
 
-<<< ../examples/ownership-give-each-file-one-scope-slug/02-correct.txt
+<<< ../examples/ownership-give-each-file-one-slug/02-correct.txt
 
 **Incorrect 2 (부품의 CSS 파일이 부모 식별자를 그대로 씁니다):**
 
-<<< ../examples/ownership-give-each-file-one-scope-slug/03-incorrect.txt
+<<< ../examples/ownership-give-each-file-one-slug/03-incorrect.txt
 
 **Correct 2 (자기 CSS 파일을 가진 컴포넌트는 자기 식별자를 씁니다):**
 
-<<< ../examples/ownership-give-each-file-one-scope-slug/04-correct.txt
+<<< ../examples/ownership-give-each-file-one-slug/04-correct.txt

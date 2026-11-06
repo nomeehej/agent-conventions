@@ -1,14 +1,14 @@
-.pg_products__root {
+.productsPage__root {
 /* [!code error] */
-	--pg-products-gap: 12px;
+	--products-gap: 12px;
 }
 
-.pg_products__toolbar {
+.productsPage__toolbar {
 /* [!code error] */
-	gap: var(--pg-products-gap, 12px);
+	gap: var(--products-gap, 12px);
 }
 
-.pg_products__footer {
+.productsPage__footer {
 /* [!code error] */
-	gap: var(--pg-products-gap, 12px);
+	gap: var(--products-gap, 12px);
 }

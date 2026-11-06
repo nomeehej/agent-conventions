@@ -1,8 +1,8 @@
 <button
 	type="button"
 	className={clsx(
-		"pg_products__listButton",
-		isActive && "pg_products__listButton--active",
+		"productsPage__listButton",
+		isActive && "productsPage__listButton--active",
 	)}
 >
 	목록

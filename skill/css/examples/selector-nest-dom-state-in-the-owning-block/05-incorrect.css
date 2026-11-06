@@ -1,4 +1,4 @@
-.ui_button__root--active {
+.button__root--active {
 	background: var(--app-color-accent);
 
 /* [!code error] */

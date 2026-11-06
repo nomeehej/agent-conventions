@@ -1,5 +1,5 @@
-// component/widget/chart-card/wg-chart-card.tsx
-export const WgChartCard = (props: WgChartCardProps) => {
+// component/widget/chart-card/chart-card.tsx
+export const ChartCard = (props: ChartCardProps) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const chartRef = useRef<ChartInstance | null>(null);
 
@@ -34,5 +34,5 @@ export const WgChartCard = (props: WgChartCardProps) => {
 		chartRef.current?.setOption(props.option);
 	}, [props.option]);
 
-	return <div ref={containerRef} className={clsx("wg_chartCard__canvas")} />;
+	return <div ref={containerRef} className={clsx("chartCard__canvas")} />;
 };

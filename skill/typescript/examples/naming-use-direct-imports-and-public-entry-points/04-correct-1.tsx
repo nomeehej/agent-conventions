@@ -1,5 +1,5 @@
-// component/ui/tabs/ui-tabs.tsx
+// component/ui/tabs/tabs.tsx
 // [!code ++]
-export const UiTabs = (props: UiTabsProps) => {
+export const Tabs = (props: TabsProps) => {
 	return <div role="tablist">{props.children}</div>;
 };

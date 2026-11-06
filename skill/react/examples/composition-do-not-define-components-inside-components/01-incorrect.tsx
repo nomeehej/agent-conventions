@@ -1,11 +1,11 @@
-// component/widget/user-card/wg-user-card.tsx
-export const WgUserCard = (props: WgUserCardProps) => {
+// component/widget/user-card/user-card.tsx
+export const UserCard = (props: UserCardProps) => {
 	const Avatar = () => {
 		return (
 			<img
 				className={clsx(
-					"wg_userCardAvatar__image",
-					props.theme === "dark" && "wg_userCardAvatar__image--dark",
+					"userCardAvatar__image",
+					props.theme === "dark" && "userCardAvatar__image--dark",
 				)}
 				src={props.user.avatarUrl}
 				alt={props.user.name}

@@ -1,6 +1,6 @@
 import {clsx} from "clsx";
-import "./pg-products.css";
+import "./products-page.css";
 
-<section className={clsx("pg_products__hero")}>
-	<span className={clsx("pg_products__eyebrow")}>Products</span>
+<section className={clsx("productsPage__hero")}>
+	<span className={clsx("productsPage__eyebrow")}>Products</span>
 </section>

@@ -1,6 +1,6 @@
 # Default to Plain CSS Unless the Project Explicitly Standardizes on CSS Modules
 
-**Impact: MEDIUM (클래스 이름이 전역에서 고유해야 범위_식별자로 소유자를 되짚을 수 있습니다)**
+**Impact: MEDIUM (클래스 이름이 전역에서 고유해야 식별자로 소유자를 되짚을 수 있습니다)**
 
 별도 합의가 없으면 일반 `*.css`와 전역에서 고유한 클래스 이름을 씁니다.
 `.module.css`를 새로 만들거나 클래스를 `styles.foo`처럼 객체 속성으로 참조하지 않습니다.
@@ -30,10 +30,10 @@ import styles from "./products.module.css";
 
 ```tsx
 import {clsx} from "clsx";
-import "./pg-products.css";
+import "./products-page.css";
 
-<section className={clsx("pg_products__hero")}>
-	<span className={clsx("pg_products__eyebrow")}>Products</span>
+<section className={clsx("productsPage__hero")}>
+	<span className={clsx("productsPage__eyebrow")}>Products</span>
 </section>
 ```
 

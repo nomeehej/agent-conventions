@@ -1,1 +1,1 @@
-<div className={clsx("pg_products__listButton", isActive && "pg_products__listButton--active")} />
+<div className={clsx("productsPage__listButton", isActive && "productsPage__listButton--active")} />

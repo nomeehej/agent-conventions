@@ -6,4 +6,4 @@ const filteredRows = useMemo(() => {
 	return rows.filter((row) => fuzzyMatchRow(row, deferredKeyword));
 }, [deferredKeyword, rows]);
 
-return <PgProductRows rows={filteredRows} />;
+return <ProductListRows rows={filteredRows} />;

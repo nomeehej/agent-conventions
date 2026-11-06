@@ -29,7 +29,7 @@ flowchart LR
 /**
  * 고정 상품 표시 아이콘
  */
-export const UiPinIcon = () => {
+export const PinIcon = () => {
 	return <img src="https://www.figma.com/api/mcp/asset/30e68a16/b2ddc.svg" alt="" />;
 };
 ```
@@ -42,7 +42,7 @@ import pinIconUrl from "@/asset/icon/pin.svg";
 /**
  * 고정 상품 표시 아이콘
  */
-export const UiPinIcon = () => {
+export const PinIcon = () => {
 	return <img src={pinIconUrl} alt="" />;
 };
 ```

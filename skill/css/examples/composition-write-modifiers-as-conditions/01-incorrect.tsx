@@ -1,12 +1,12 @@
-export interface UiTooltipProps {
+export interface TooltipProps {
 	variant?: "fit" | "plain";
 	children: ReactNode;
 }
 
-export const UiTooltip = (props: UiTooltipProps) => {
+export const Tooltip = (props: TooltipProps) => {
 	return (
 // [!code error]
-		<div className={clsx("ui_tooltip__body", props.variant && `ui_tooltip__body--${props.variant}`)}>
+		<div className={clsx("tooltip__body", props.variant && `tooltip__body--${props.variant}`)}>
 			{props.children}
 		</div>
 	);

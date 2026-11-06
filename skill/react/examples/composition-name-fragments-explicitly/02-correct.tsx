@@ -1,12 +1,12 @@
 // [!code ++]
 import {Fragment} from "react";
 
-export const PgProductScreen = () => {
+export const ProductScreen = () => {
 	return (
 // [!code ++]
 		<Fragment>
-			<PgProductFilterSection />
-			<PgProductTableSection />
+			<ProductFilterSection />
+			<ProductTableSection />
 {/* [!code ++] */}
 		</Fragment>
 	);

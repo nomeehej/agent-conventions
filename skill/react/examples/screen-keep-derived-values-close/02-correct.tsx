@@ -1,22 +1,22 @@
-export const PgProductTableSection = () => {
+export const ProductTableSection = () => {
 	const responseProductListSuspense = useProductListSuspense();
 	const [selectedRows, setSelectedRows] = useState<ProductRow[]>([]);
 
 	/**
 	 * 고른 행은 이 섹션 안에만 두고 search 파라미터로 올리지 않음
 	 */
-	const handleTableRowSelect: UiTableProps<ProductRow>["onRowSelect"] = (rows) => {
+	const handleTableRowSelect: TableProps<ProductRow>["onRowSelect"] = (rows) => {
 		setSelectedRows(rows);
 	};
 
 	return (
 		<Fragment>
-			<UiTable rows={responseProductListSuspense.data.items} onRowSelect={handleTableRowSelect} />
+			<Table rows={responseProductListSuspense.data.items} onRowSelect={handleTableRowSelect} />
 
 {/* [!code ++] */}
 			{selectedRows.length > 0 && (
 // [!code ++]
-				<PgProductBulkActionBar label={`${selectedRows.length}건 삭제`} />
+				<ProductBulkActionBar label={`${selectedRows.length}건 삭제`} />
 // [!code ++]
 			)}
 		</Fragment>

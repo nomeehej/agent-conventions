@@ -8,4 +8,4 @@ const handleCategoryClick = (nextCategoryId: string) => {
 	});
 };
 
-return <UiCategoryRows rows={categoryRows} selectedCategoryId={selectedCategoryId} />;
+return <CategoryRows rows={categoryRows} selectedCategoryId={selectedCategoryId} />;

@@ -1,18 +1,18 @@
-// component/widget/product-toolbar/wg-product-toolbar.tsx
-export interface WgProductToolbarProps {
+// component/widget/product-toolbar/product-toolbar.tsx
+export interface ProductToolbarProps {
 	isCompact?: boolean;
 	isEditing?: boolean;
 	showSearch?: boolean;
 }
 
-export const WgProductToolbar = (props: WgProductToolbarProps) => {
+export const ProductToolbar = (props: ProductToolbarProps) => {
 	return (
 		<header>
-			{props.showSearch && <WgProductSearchField />}
+			{props.showSearch && <ProductSearchField />}
 			{props.isEditing ? (
-				<WgProductEditActions compact={props.isCompact} />
+				<ProductEditActions compact={props.isCompact} />
 			) : (
-				<WgProductBrowseActions compact={props.isCompact} />
+				<ProductBrowseActions compact={props.isCompact} />
 			)}
 		</header>
 	);

@@ -1,4 +1,4 @@
 // [!code ++]
-<Suspense fallback={<UiSpinner />}>
-	<PgProductTableSection />
+<Suspense fallback={<Spinner />}>
+	<ProductTableSection />
 </Suspense>

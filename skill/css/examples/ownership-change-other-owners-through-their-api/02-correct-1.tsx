@@ -1,1 +1,1 @@
-<WgChartCard dailyCounts={dailyCounts} className={clsx("pg_productDetail__chartCard")} />
+<ChartCard dailyCounts={dailyCounts} className={clsx("productDetailPage__chartCard")} />

@@ -1,22 +1,20 @@
 /**
- * 우리 클래스에만 문법 강제
- * 우리 접두사로 시작하지 않는 클래스는 남의 것이라 검사 제외
+ * 우리가 이름을 정하지 않는 라이브러리 클래스의 접두사
+ * 목록에 없는 라이브러리 클래스는 우리 문법 검사에 걸리므로 여기에 더함
  */
-const ownClassPattern = (scope) =>
-	[
-		"^(?:",
-		// 우리 접두사로 시작하지 않는 클래스는 통과
-		`(?!${scope}_).*`,
-		"|",
-		// pg_scopeSlug__element 또는 pg_scopeSlug__element--modifier만 통과
-		`${scope}_[a-z][a-zA-Z0-9]*__[a-z][a-zA-Z0-9]*(?:--[a-z][a-zA-Z0-9]*)?`,
-		")$",
-	].join("");
+const libraryClassPrefixes = ["ant-", "rc-", "tippy-", "Mui"];
 
 /**
- * 우리가 이름을 정하지 않는 라이브러리 클래스
+ * 라이브러리 클래스는 통과, 나머지는 우리 문법만 통과
  */
-const libraryPrefixes = [/^\.ant-/, /^\.rc-/, /^\.tippy-/, /^\.Mui/];
+const ownClassPattern = [
+	"^(?:",
+	`(?:${libraryClassPrefixes.join("|")}).*`,
+	"|",
+	// slug__element 또는 slug__element--modifier
+	"[a-z][a-zA-Z0-9]*__[a-z][a-zA-Z0-9]*(?:--[a-z][a-zA-Z0-9]*)?",
+	")$",
+].join("");
 
 /**
  * 우리가 마크업을 쓰는 자리에서 금지되는 형태
@@ -29,18 +27,13 @@ const ownMarkupPatterns = [
 	/^&\s*[>+~]?\s*[a-z]/,
 ];
 
-const disallowed = (foreignScopes) => [
-	[...foreignScopes, ...libraryPrefixes, ...ownMarkupPatterns],
-	{splitList: true},
-];
-
 export default {
 	extends: ["stylelint-config-standard"],
 	rules: {
 		// 최상위 @media 안의 클래스는 깊이 0. 브레이크포인트 안에서 상태를 한 겹 더 쓸 수 있음
 		"max-nesting-depth": [1, {ignoreAtRules: ["media", "supports", "container"]}],
-		// @keyframes 이름은 전역이라 소유자 접두사 필수. 하이픈은 클래스 --수정자 표기와 섞여 금지
-		"keyframes-name-pattern": "^(pg|wg|ui)_[a-z][a-zA-Z0-9]*__[a-z][a-zA-Z0-9]*$",
+		// @keyframes 이름은 전역이라 소유자 식별자 필수. 하이픈은 클래스 --수정자 표기와 섞여 금지
+		"keyframes-name-pattern": "^[a-z][a-zA-Z0-9]*__[a-z][a-zA-Z0-9]*$",
 		// 쉼표 목록에 든 선택자를 아래에서 단독으로 다시 여는 것까지 검출
 		"no-duplicate-selectors": [true, {disallowInList: true}],
 		// 움직임 감소 전역 처리 외에는 금지
@@ -48,34 +41,19 @@ export default {
 		// 지역 변수 선언 금지. var() 소비는 허용
 		"property-disallowed-list": ["/^--/"],
 		// 우리 마크업의 상태는 수정자로 표현
-		// 라이브러리가 상태를 data-*로 내는 경우가 있어 우리 접두사만 금지
-		"selector-attribute-name-disallowed-list": [/^aria-/, /^data-(pg|wg|ui)-/],
+		// 라이브러리가 상태를 data-*로 내는 경우가 있어 data-*는 이름으로 막지 않음
+		"selector-attribute-name-disallowed-list": [/^aria-/],
+		"selector-class-pattern": ownClassPattern,
+		// 라이브러리 클래스는 최상위에서 잡지 않고 내 최상위 블록 안에서 &로 시작
+		"selector-disallowed-list": [
+			[...libraryClassPrefixes.map((prefix) => new RegExp(`^\\.${prefix}`)), ...ownMarkupPatterns],
+			{splitList: true},
+		],
 		"selector-max-id": 0,
 		// 부정 조건은 기본 블록으로 뒤집음. 남의 마크업만 stylelint-disable로 허용
 		"selector-pseudo-class-disallowed-list": ["not"],
 	},
 	overrides: [
-		{
-			files: ["src/page/**/*.css"],
-			rules: {
-				"selector-class-pattern": ownClassPattern("pg"),
-				"selector-disallowed-list": disallowed([/^\.(wg|ui)_/]),
-			},
-		},
-		{
-			files: ["src/component/widget/**/*.css"],
-			rules: {
-				"selector-class-pattern": ownClassPattern("wg"),
-				"selector-disallowed-list": disallowed([/^\.(pg|ui)_/]),
-			},
-		},
-		{
-			files: ["src/component/ui/**/*.css"],
-			rules: {
-				"selector-class-pattern": ownClassPattern("ui"),
-				"selector-disallowed-list": disallowed([/^\.(pg|wg)_/]),
-			},
-		},
 		{
 			// 전역 스타일시트는 우리 클래스 문법 대상 아님
 			files: ["src/style/**/*.css", "src/*.css"],

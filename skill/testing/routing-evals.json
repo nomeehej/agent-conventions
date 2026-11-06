@@ -498,7 +498,7 @@
 			"id": "style-only-does-not-add-testing",
 			"prompt": "프로덕션 CSS의 기존 padding var 참조를 다른 기존 토큰으로 변경한다. 테스트, TSX, 클래스 이름, 토큰 선언은 바꾸지 않는다.",
 			"files": [
-				"src/component/ui/panel/ui-panel.css"
+				"src/component/ui/panel/panel.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -511,7 +511,7 @@
 			"scopeDrift": {
 				"evidence": "이후 사용자가 기존 브라우저 테스트의 CSS 기대값도 변경된 요구사항에 맞춰 고치도록 요청했다. 테스트가 실제 스타일 파일과 함께 바뀌지만 React 렌더는 바뀌지 않는다.",
 				"files": [
-					"src/component/ui/panel/ui-panel.css",
+					"src/component/ui/panel/panel.css",
 					"test/orders/orders.integration.spec.ts"
 				],
 				"expectedSkills": [
@@ -737,7 +737,7 @@
 			"id": "vitest-module-mock-to-msw-override",
 			"prompt": "기존 Vitest 화면 테스트가 vi.mock으로 getOrder 모듈을 대체하던 설정을 지우고, 이미 연결된 MSW server에 기존 emptyOrdersHandler를 server.use로 등록한다. afterEach resetHandlers는 이미 있다. 화면 단언, React 렌더와 JSX, 이름, 타입, 가져오기 목록은 그대로다.",
 			"files": [
-				"src/page/orders/pg-orders.test.tsx"
+				"src/page/orders/orders-page.test.tsx"
 			],
 			"expectedSkills": [
 				"testing",

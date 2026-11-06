@@ -1,4 +1,4 @@
-- 조건 팝오버 폭 300 급 `_pg-condition-popover.tsx:46`
+- 조건 팝오버 폭 300 급 `_condition-popover.tsx:46`
 - 툴팁 문구 3개 = [툴팁 프레임](https://www.figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=8949-46511)
 
 | # | Part | Rule | Figma |

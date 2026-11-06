@@ -1,5 +1,5 @@
-/* src/page/orders/_pg-order-filter-dialog.css */
-.pg_orderFilterDialog__panel {
+/* src/page/orders/_order-filter-dialog.css */
+.orderFilterDialog__panel {
 /* [!code error] */
 	gap: var(--app-space-inline, 12px);
 /* [!code error] */

@@ -3,8 +3,8 @@
 return (
 	<Fragment>
 {/* [!code ++] */}
-		{isEditing && <PgProductEditorForm />}
+		{isEditing && <ProductEditorForm />}
 {/* [!code ++] */}
-		{!isEditing && <PgProductPreviewPane />}
+		{!isEditing && <ProductPreviewPane />}
 	</Fragment>
 );

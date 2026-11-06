@@ -1,4 +1,4 @@
-.pg_products__card {
+.productsPage__card {
 	border: 1px solid #d9d9d9;
 
 /* [!code error] */
@@ -9,7 +9,7 @@
 }
 
 /* [!code error] */
-.pg_products__card--disabled {
+.productsPage__card--disabled {
 /* [!code error] */
 	opacity: 0.5;
 }

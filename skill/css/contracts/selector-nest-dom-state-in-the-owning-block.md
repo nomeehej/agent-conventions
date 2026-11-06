@@ -30,15 +30,15 @@ DOM 상태 가상 클래스는 해당 요소의 **조건 없는 기본 클래스
 **Incorrect 1 (가상 클래스를 최상위 선택자로 다시 엽니다):**
 
 ```css
-.wg_siteHeader__brandLink {
+.siteHeader__brandLink {
 	color: #1677ff;
 }
 
-.wg_siteHeader__brandLink:hover {
+.siteHeader__brandLink:hover {
 	color: #0958d9;
 }
 
-.wg_siteHeader__brandLink:focus-visible {
+.siteHeader__brandLink:focus-visible {
 	color: #0958d9;
 	outline: 2px solid #1677ff;
 }
@@ -47,7 +47,7 @@ DOM 상태 가상 클래스는 해당 요소의 **조건 없는 기본 클래스
 **Correct 1 (기본 블록 안에서 각 상태를 별도의 `&:` 블록으로 선언합니다):**
 
 ```css
-.wg_siteHeader__brandLink {
+.siteHeader__brandLink {
 	color: #1677ff;
 
 	&:hover {

@@ -1,13 +1,13 @@
-// component/widget/app-shell/wg-app-shell.tsx
-export const WgAppShell = (props: WgAppShellProps) => {
+// component/widget/app-shell/app-shell.tsx
+export const AppShell = (props: AppShellProps) => {
 	return (
-		<div className={clsx("wg_appShell__root")}>
-			<WgAppNavigation />
+		<div className={clsx("appShell__root")}>
+			<AppNavigation />
 
-			<main className={clsx("wg_appShell__main")}>
-				<UiErrorBoundary fallback={<UiScreenErrorState />}>
-					<Suspense fallback={<UiScreenSkeleton />}>{props.children}</Suspense>
-				</UiErrorBoundary>
+			<main className={clsx("appShell__main")}>
+				<ErrorBoundary fallback={<ScreenErrorState />}>
+					<Suspense fallback={<ScreenSkeleton />}>{props.children}</Suspense>
+				</ErrorBoundary>
 			</main>
 		</div>
 	);

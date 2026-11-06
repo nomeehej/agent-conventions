@@ -4,8 +4,8 @@
 	--app-color-text-primary: #212529;
 }
 
-/* src/page/orders/_pg-order-filter-dialog.css */
-.pg_orderFilterDialog__panel {
+/* src/page/orders/_order-filter-dialog.css */
+.orderFilterDialog__panel {
 	gap: var(--app-space-inline);
 	color: var(--app-color-text-primary);
 }

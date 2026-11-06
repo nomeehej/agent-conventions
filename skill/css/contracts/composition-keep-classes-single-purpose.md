@@ -9,13 +9,13 @@
 **Incorrect 1 (기본 클래스 이름에 상태를 포함합니다):**
 
 ```tsx
-<div className={clsx("pg_products__listButtonActive")} />
+<div className={clsx("productsPage__listButtonActive")} />
 ```
 
 **Correct 1 (기본 클래스와 상태 수정자를 분리합니다):**
 
 ```tsx
-<div className={clsx("pg_products__listButton", isActive && "pg_products__listButton--active")} />
+<div className={clsx("productsPage__listButton", isActive && "productsPage__listButton--active")} />
 ```
 
 > 나머지 예시와 예외는 [full rule](../rules/03-03-composition-keep-classes-single-purpose.md)에 있습니다.

@@ -7,14 +7,14 @@
 /* [!code ++] */
 }
 
-/* pg-products.css */
-.pg_products__row {
+/* products-page.css */
+.productsPage__row {
 /* [!code ++] */
 	background: var(--app-color-fill-muted);
 }
 
-/* pg-product-detail.css */
-.pg_productDetail__row {
+/* product-detail-page.css */
+.productDetailPage__row {
 /* [!code ++] */
 	background: var(--app-color-fill-muted);
 }

@@ -22,7 +22,7 @@ tags: composition, props
 | --- | --- |
 | 다른 파일에서 사용하는 컴포넌트 | 사용처가 계약을 참조하도록 프롭스 `interface`를 `export`합니다 |
 | 같은 파일 안에서만 쓰는 화면 지역 컴포넌트 | 프롭스 `interface`를 `export`하지 않습니다 |
-| 합성 부품의 프롭스 형태가 완전히 같음 | 공통 이름 하나로 공유합니다. 모두 `{children}`인 `UiSectionRoot`, `UiSectionHeader`, `UiSectionFooter`는 `UiSectionProps`를 씁니다 |
+| 합성 부품의 프롭스 형태가 완전히 같음 | 공통 이름 하나로 공유합니다. 모두 `{children}`인 `SectionRoot`, `SectionHeader`, `SectionFooter`는 `SectionProps`를 씁니다 |
 | 공유하는 부품이 한 파일에 있음 | 공유 `interface`를 첫 부품 위에 둡니다 |
 | 공유하는 부품이 여러 파일에 나뉨 | 공유 `interface`를 소유자 `_type` 폴더에 둡니다 |
 

@@ -1,10 +1,10 @@
-export interface UiCollapseProps {
+export interface CollapseProps {
 	className?: string;
 	children: ReactNode;
 }
 
-export const UiCollapse = (props: UiCollapseProps) => {
+export const Collapse = (props: CollapseProps) => {
 	return (
-		<div className={clsx("ui_collapse__root", props.className)}>{props.children}</div>
+		<div className={clsx("collapse__root", props.className)}>{props.children}</div>
 	);
 };

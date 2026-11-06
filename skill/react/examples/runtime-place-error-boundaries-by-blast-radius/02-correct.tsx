@@ -3,4 +3,4 @@ if (responseProductRecommendationsSuspense.error && !responseProductRecommendati
 	throw responseProductRecommendationsSuspense.error;
 }
 
-return <WgProductRecommendations items={responseProductRecommendationsSuspense.data.items} />;
+return <ProductRecommendations items={responseProductRecommendationsSuspense.data.items} />;

@@ -4,6 +4,6 @@
 +----------+     +----------+     +--------+
 
 page/orders/
-  +- pg-orders.tsx        화면
-  +- _pg-orders-table.tsx 표
+  +- orders-page.tsx        화면
+  +- _orders-table.tsx 표
 ```

@@ -1,4 +1,4 @@
 // [!code ++]
-<section className={clsx("pg_orders__summary", isCritical && "pg_orders__summary--critical")}>
+<section className={clsx("ordersPage__summary", isCritical && "ordersPage__summary--critical")}>
 	{summaryText}
 </section>

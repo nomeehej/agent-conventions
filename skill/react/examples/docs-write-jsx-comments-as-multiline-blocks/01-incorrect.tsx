@@ -1,8 +1,8 @@
-<div className={clsx("pg_products__root")}>
+<div className={clsx("productsPage__root")}>
 // [!code error]
 	{/* 검색 구역 */}
-	<PgProductSearchSection />
+	<ProductSearchSection />
 // [!code error]
-	{/* PgProductTable */}
-	<PgProductTable rows={productRows} />
+	{/* ProductListTable */}
+	<ProductListTable rows={productRows} />
 </div>;

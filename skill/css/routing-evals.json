@@ -4,9 +4,9 @@
 	"scenarios": [
 		{
 			"id": "css-route-style-scope-drift",
-			"prompt": "pure rendering change in src/page/products/pg-products.tsx, with React and TypeScript only.",
+			"prompt": "pure rendering change in src/page/products/products-page.tsx, with React and TypeScript only.",
 			"files": [
-				"src/page/products/pg-products.tsx"
+				"src/page/products/products-page.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -17,10 +17,10 @@
 				"typescript": []
 			},
 			"scopeDrift": {
-				"evidence": "add route-owned empty-state className, src/page/products/pg-products.css, and its direct side-effect import in a project without a CSS Modules standard; final skills add CSS.",
+				"evidence": "add route-owned empty-state className, src/page/products/products-page.css, and its direct side-effect import in a project without a CSS Modules standard; final skills add CSS.",
 				"files": [
-					"src/page/products/pg-products.tsx",
-					"src/page/products/pg-products.css"
+					"src/page/products/products-page.tsx",
+					"src/page/products/products-page.css"
 				],
 				"expectedSkills": [
 					"react",
@@ -36,11 +36,10 @@
 					],
 					"css": [
 						"naming-default-to-plain-css-when-no-module-convention",
-						"naming-use-scope-slug-element-modifier-syntax",
+						"naming-use-slug-element-modifier-syntax",
 						"naming-name-elements-and-modifiers-by-role",
 						"naming-keep-page-slug-traceable",
-						"ownership-give-each-file-one-scope-slug",
-						"ownership-choose-scope-prefix-by-owner-layer",
+						"ownership-give-each-file-one-slug",
 						"composition-compose-classes-with-clsx"
 					]
 				}
@@ -48,29 +47,28 @@
 		},
 		{
 			"id": "css-owner-boundary-split",
-			"prompt": "pg-post-index.css holds both the page shell and the filter dialog; move the dialog styles into the component own CSS file and give that file its own slug.",
+			"prompt": "post-index-page.css holds both the page shell and the filter dialog; move the dialog styles into the component own CSS file and give that file its own slug.",
 			"files": [
-				"src/page/post-index/pg-post-index.css",
-				"src/page/post-index/_pg-post-filter-dialog.css"
+				"src/page/post-index/post-index-page.css",
+				"src/page/post-index/_post-filter-dialog.css"
 			],
 			"expectedSkills": [
 				"css"
 			],
 			"expectedSelected": {
 				"css": [
-					"naming-use-scope-slug-element-modifier-syntax",
+					"naming-use-slug-element-modifier-syntax",
 					"naming-keep-page-slug-traceable",
-					"ownership-give-each-file-one-scope-slug",
-					"ownership-choose-scope-prefix-by-owner-layer"
+					"ownership-give-each-file-one-slug"
 				]
 			}
 		},
 		{
 			"id": "css-domain-state-class-contract",
-			"prompt": "split listButtonActive into base plus --active, add a direct clsx import, and compose with clsx() in pg-products.tsx and _index.css; do not change pseudo-states.",
+			"prompt": "split listButtonActive into base plus --active, add a direct clsx import, and compose with clsx() in products-page.tsx and _index.css; do not change pseudo-states.",
 			"files": [
-				"src/page/products/pg-products.tsx",
-				"src/page/products/pg-products.css"
+				"src/page/products/products-page.tsx",
+				"src/page/products/products-page.css"
 			],
 			"expectedSkills": [
 				"react",
@@ -83,7 +81,7 @@
 					"naming-use-direct-imports-and-public-entry-points"
 				],
 				"css": [
-					"naming-use-scope-slug-element-modifier-syntax",
+					"naming-use-slug-element-modifier-syntax",
 					"naming-name-elements-and-modifiers-by-role",
 					"composition-compose-classes-with-clsx",
 					"composition-do-not-build-structural-variants-with-modifiers",
@@ -93,10 +91,10 @@
 		},
 		{
 			"id": "css-one-off-structural-modifier",
-			"prompt": "replace non-repeatable section--compactTop spacing patch with a role-named element in pg-product-detail.tsx and detail.css; keep the existing clsx import.",
+			"prompt": "replace non-repeatable section--compactTop spacing patch with a role-named element in product-detail-page.tsx and detail.css; keep the existing clsx import.",
 			"files": [
-				"src/page/product-detail/pg-product-detail.tsx",
-				"src/page/product-detail/pg-product-detail.css"
+				"src/page/product-detail/product-detail-page.tsx",
+				"src/page/product-detail/product-detail-page.css"
 			],
 			"expectedSkills": [
 				"react",
@@ -107,7 +105,7 @@
 				"react": [],
 				"typescript": [],
 				"css": [
-					"naming-use-scope-slug-element-modifier-syntax",
+					"naming-use-slug-element-modifier-syntax",
 					"naming-name-elements-and-modifiers-by-role",
 					"composition-compose-classes-with-clsx",
 					"composition-do-not-build-structural-variants-with-modifiers"
@@ -116,9 +114,9 @@
 		},
 		{
 			"id": "css-value-driven-modifier",
-			"prompt": "pick the changeRate modifier from the four-value tone in pg-products.tsx where the stylesheet defines --positive and --negative only; keep the existing clsx import and stylesheet.",
+			"prompt": "pick the changeRate modifier from the four-value tone in products-page.tsx where the stylesheet defines --positive and --negative only; keep the existing clsx import and stylesheet.",
 			"files": [
-				"src/page/products/pg-products.tsx"
+				"src/page/products/products-page.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -137,10 +135,10 @@
 		},
 		{
 			"id": "css-ui-wrapper-third-party-dom",
-			"prompt": "add a direct clsx import and style UiCollapse Ant DOM from a new owned wrapper with the shortest chain in post-filter-dialog.tsx and post-filter-dialog.css; keep the existing hard-coded wrapper color.",
+			"prompt": "add a direct clsx import and style Collapse Ant DOM from a new owned wrapper with the shortest chain in post-filter-dialog.tsx and post-filter-dialog.css; keep the existing hard-coded wrapper color.",
 			"files": [
-				"src/page/post-index/_pg-post-filter-dialog.tsx",
-				"src/page/post-index/_pg-post-filter-dialog.css"
+				"src/page/post-index/_post-filter-dialog.tsx",
+				"src/page/post-index/_post-filter-dialog.css"
 			],
 			"expectedSkills": [
 				"react",
@@ -153,7 +151,7 @@
 					"naming-use-direct-imports-and-public-entry-points"
 				],
 				"css": [
-					"naming-use-scope-slug-element-modifier-syntax",
+					"naming-use-slug-element-modifier-syntax",
 					"naming-name-elements-and-modifiers-by-role",
 					"ownership-use-foreign-classes-only-under-your-own-root",
 					"composition-compose-classes-with-clsx",
@@ -163,8 +161,8 @@
 			"scopeDrift": {
 				"evidence": "replace the hard-coded wrapper color with an optional CSS variable and provide its fallback.",
 				"files": [
-					"src/page/post-index/_pg-post-filter-dialog.tsx",
-					"src/page/post-index/_pg-post-filter-dialog.css"
+					"src/page/post-index/_post-filter-dialog.tsx",
+					"src/page/post-index/_post-filter-dialog.css"
 				],
 				"expectedSkills": [
 					"react",
@@ -177,7 +175,7 @@
 						"naming-use-direct-imports-and-public-entry-points"
 					],
 					"css": [
-						"naming-use-scope-slug-element-modifier-syntax",
+						"naming-use-slug-element-modifier-syntax",
 						"naming-name-elements-and-modifiers-by-role",
 						"ownership-use-foreign-classes-only-under-your-own-root",
 						"composition-compose-classes-with-clsx",
@@ -189,10 +187,10 @@
 		},
 		{
 			"id": "css-ui-wrapper-root-prop-contract",
-			"prompt": "narrow UiButtonProps so it extends ButtonHTMLAttributes and opens only the library props we use, expose it documented, read props through the props object in ui-button.tsx, and pass an existing layout class from order-actions.tsx; add no internal selector or new class.",
+			"prompt": "narrow ButtonProps so it extends ButtonHTMLAttributes and opens only the library props we use, expose it documented, read props through the props object in button.tsx, and pass an existing layout class from order-actions.tsx; add no internal selector or new class.",
 			"files": [
-				"src/component/ui/button/ui-button.tsx",
-				"src/page/order-index/_pg-order-actions.tsx"
+				"src/component/ui/button/button.tsx",
+				"src/page/order-index/_order-actions.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -222,10 +220,10 @@
 		},
 		{
 			"id": "css-wrapper-element-for-spacing",
-			"prompt": "Remove a div that wraps UiCollapse only for spacing and move its existing className onto UiCollapse, whose existing root already forwards className. Keep class names, CSS declarations, prop types, imports, and the component implementation unchanged.",
+			"prompt": "Remove a div that wraps Collapse only for spacing and move its existing className onto Collapse, whose existing root already forwards className. Keep class names, CSS declarations, prop types, imports, and the component implementation unchanged.",
 			"files": [
-				"src/component/ui/collapse/ui-collapse.tsx",
-				"src/page/post-index/_pg-post-filter-dialog.tsx"
+				"src/component/ui/collapse/collapse.tsx",
+				"src/page/post-index/_post-filter-dialog.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -244,9 +242,9 @@
 		},
 		{
 			"id": "css-rich-text-owner-block",
-			"prompt": "move top-level .wg_productDetail__prose h2 and > :first-child into the existing owner block; the body comes from dangerouslySetInnerHTML so classes cannot be added.",
+			"prompt": "move top-level .productDetail__prose h2 and > :first-child into the existing owner block; the body comes from dangerouslySetInnerHTML so classes cannot be added.",
 			"files": [
-				"src/component/widget/product-detail/wg-product-detail.css"
+				"src/component/widget/product-detail/product-detail.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -262,7 +260,7 @@
 			"id": "css-dom-interaction-states",
 			"prompt": "move top-level hover/focus/disabled into the same class block's &: nesting and preserve the focus ring; no app modifier or value is added.",
 			"files": [
-				"src/component/ui/button/ui-button.css"
+				"src/component/ui/button/button.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -277,9 +275,9 @@
 		},
 		{
 			"id": "css-repeated-values-and-optional-token",
-			"prompt": "Scope a global .MuiTreeItem-content selector under the existing .ui_themePreview owner root with one new descendant block. Replace color and spacing repeated across files with existing global core tokens, and consume an optional MUI border-radius variable with a fallback. Keep file and owner names unchanged. Also namespace the existing fade keyframes and add the global reduced-motion block. Do not add DOM state selectors.",
+			"prompt": "Scope a global .MuiTreeItem-content selector under the existing .themePreview owner root with one new descendant block. Replace color and spacing repeated across files with existing global core tokens, and consume an optional MUI border-radius variable with a fallback. Keep file and owner names unchanged. Also namespace the existing fade keyframes and add the global reduced-motion block. Do not add DOM state selectors.",
 			"files": [
-				"src/component/ui/theme-preview/ui-theme-preview.css"
+				"src/component/ui/theme-preview/theme-preview.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -296,9 +294,9 @@
 		},
 		{
 			"id": "css-shared-declaration-group",
-			"prompt": "split the shared .pg_products__badge--* comma group so each modifier block declares its own width and height; do not introduce local custom properties.",
+			"prompt": "split the shared .productsPage__badge--* comma group so each modifier block declares its own width and height; do not introduce local custom properties.",
 			"files": [
-				"src/page/products/pg-products.css"
+				"src/page/products/products-page.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -311,9 +309,9 @@
 		},
 		{
 			"id": "css-split-class-declaration",
-			"prompt": "the same .pg_products__toolbar block is opened twice at the top level of one file, and a third override sits nested inside the class block as @media (min-width: 1024px); fold the plain duplicate into one block and move the breakpoint override into a grouped desktop-first @media at the bottom of the file.",
+			"prompt": "the same .productsPage__toolbar block is opened twice at the top level of one file, and a third override sits nested inside the class block as @media (min-width: 1024px); fold the plain duplicate into one block and move the breakpoint override into a grouped desktop-first @media at the bottom of the file.",
 			"files": [
-				"src/page/products/pg-products.css"
+				"src/page/products/products-page.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -328,10 +326,10 @@
 		},
 		{
 			"id": "css-responsive-grid-and-button-width",
-			"prompt": "the product grid counts its columns with four @media steps and ui-button.css sets its own width at three breakpoints; make the grid and the button size themselves without breakpoints.",
+			"prompt": "the product grid counts its columns with four @media steps and button.css sets its own width at three breakpoints; make the grid and the button size themselves without breakpoints.",
 			"files": [
-				"src/page/products/pg-products.css",
-				"src/component/ui/button/ui-button.css"
+				"src/page/products/products-page.css",
+				"src/component/ui/button/button.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -345,9 +343,9 @@
 		},
 		{
 			"id": "css-sticky-layout-intent",
-			"prompt": "clarify sticky basis and z-index ownership through layer tokens and remove excessive width/height forcing in pg-product-detail.css.",
+			"prompt": "clarify sticky basis and z-index ownership through layer tokens and remove excessive width/height forcing in product-detail-page.css.",
 			"files": [
-				"src/page/product-detail/pg-product-detail.css"
+				"src/page/product-detail/product-detail-page.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -361,10 +359,10 @@
 		},
 		{
 			"id": "css-theme-token-switch",
-			"prompt": "add dark mode: a page css file currently branches on prefers-color-scheme inside .pg_productDetail__panel and hardcodes #ffffff and a black box-shadow; move the branch into the token file and keep the component reading tokens only.",
+			"prompt": "add dark mode: a page css file currently branches on prefers-color-scheme inside .productDetailPage__panel and hardcodes #ffffff and a black box-shadow; move the branch into the token file and keep the component reading tokens only.",
 			"files": [
 				"src/style/token.css",
-				"src/page/product-detail/pg-product-detail.css"
+				"src/page/product-detail/product-detail-page.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -380,10 +378,10 @@
 		},
 		{
 			"id": "css-cross-owner-internal-targeting",
-			"prompt": "the detail page styles .wg_chartCard__caption from pg-detail.css; move the change so the page no longer declares widget classes.",
+			"prompt": "the detail page styles .chartCard__caption from detail-page.css; move the change so the page no longer declares widget classes.",
 			"files": [
-				"src/page/detail/pg-detail.css",
-				"src/component/widget/chart-card/wg-chart-card.css"
+				"src/page/detail/detail-page.css",
+				"src/component/widget/chart-card/chart-card.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -397,9 +395,9 @@
 		},
 		{
 			"id": "css-negated-domain-state",
-			"prompt": "Remove the :not(.pg_products__sortButton--selected) ancestor condition that drives the descendant preview. Flatten two nested selector levels and separate its grouped hover/focus-visible selectors. Keep existing class names and preserve hover and visible focus feedback in both selected and unselected states.",
+			"prompt": "Remove the :not(.productsPage__sortButton--selected) ancestor condition that drives the descendant preview. Flatten two nested selector levels and separate its grouped hover/focus-visible selectors. Keep existing class names and preserve hover and visible focus feedback in both selected and unselected states.",
 			"files": [
-				"src/page/products/pg-products.css"
+				"src/page/products/products-page.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -432,9 +430,9 @@
 		},
 		{
 			"id": "css-forced-colors-focus-repair",
-			"prompt": "Repair the existing :focus-visible block in ui-input.css: its shadow-only focus ring disappears in forced-colors mode. Add a transparent outline in that block while preserving normal colors. Keep class names and nesting unchanged.",
+			"prompt": "Repair the existing :focus-visible block in input.css: its shadow-only focus ring disappears in forced-colors mode. Add a transparent outline in that block while preserving normal colors. Keep class names and nesting unchanged.",
 			"files": [
-				"src/component/ui/input/ui-input.css"
+				"src/component/ui/input/input.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -467,7 +465,7 @@
 			"id": "css-container-size-query",
 			"prompt": "A widget already has a slot parent and a details child. Add container-type: inline-size to the parent and hide optional details below the actual slot width with a top-level @container (width < 480px) block after the base declarations. Keep class names and TSX unchanged; the viewport must not decide this behavior.",
 			"files": [
-				"src/component/widget/product-card/wg-product-card.css"
+				"src/component/widget/product-card/product-card.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -484,7 +482,7 @@
 			"id": "css-width-property-without-breakpoint",
 			"prompt": "Change only the existing min-width declaration from 160px to 180px in the page toolbar class. Keep selectors, declarations count, parent-child layout ownership, and all media/container conditions unchanged.",
 			"files": [
-				"src/page/products/pg-products.css"
+				"src/page/products/products-page.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -495,9 +493,9 @@
 		},
 		{
 			"id": "css-positive-descendant-state-no-negation",
-			"prompt": "Change the existing border-color literal within &:hover .pg_products__preview. Keep the selector, class names, and nesting unchanged. There is no :not(), modifier, token, transition, or focus declaration.",
+			"prompt": "Change the existing border-color literal within &:hover .productsPage__preview. Keep the selector, class names, and nesting unchanged. There is no :not(), modifier, token, transition, or focus declaration.",
 			"files": [
-				"src/page/products/pg-products.css"
+				"src/page/products/products-page.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -513,7 +511,7 @@
 			"id": "css-core-token-fallback-removal",
 			"prompt": "Remove only the literal fallback from var(--app-color-surface, white) in an existing class declaration. The core token is already guaranteed in every theme; change no token definitions or theme conditions.",
 			"files": [
-				"src/page/products/pg-products.css"
+				"src/page/products/products-page.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -539,9 +537,9 @@
 		},
 		{
 			"id": "css-readonly-style-context",
-			"prompt": "Change only the visible button label from Save to Apply in pg-products.tsx. Existing className, style import, stylesheet, props, and event handlers are unchanged context. Do not introduce new styling.",
+			"prompt": "Change only the visible button label from Save to Apply in products-page.tsx. Existing className, style import, stylesheet, props, and event handlers are unchanged context. Do not introduce new styling.",
 			"files": [
-				"src/page/products/pg-products.tsx"
+				"src/page/products/products-page.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -556,7 +554,7 @@
 			"scopeDrift": {
 				"evidence": "After the text edit, pass the existingButtonStyle object to the same button as style={existingButtonStyle}. Keep the existing style object, its values, imports, and className unchanged. Adding the style attribute is now an actual styling change.",
 				"files": [
-					"src/page/products/pg-products.tsx"
+					"src/page/products/products-page.tsx"
 				],
 				"expectedSkills": [
 					"react",
@@ -576,9 +574,9 @@
 		},
 		{
 			"id": "css-figma-color-without-design-doc",
-			"prompt": "change only the apply button background in src/page/orders/pg-orders.css to the color drawn in this Figma frame (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=12-340) by using the existing core token var(--app-color-primary); no design document under content/public is written or updated.",
+			"prompt": "change only the apply button background in src/page/orders/orders-page.css to the color drawn in this Figma frame (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=12-340) by using the existing core token var(--app-color-primary); no design document under content/public is written or updated.",
 			"files": [
-				"src/page/orders/pg-orders.css"
+				"src/page/orders/orders-page.css"
 			],
 			"expectedSkills": [
 				"figma",

@@ -1,7 +1,7 @@
 <Fragment>
 // [!code error]
-	<div className={clsx("pg_products__filterToggle")} onClick={handleFilterToggleClick}>
-		<UiFilterIcon />
+	<div className={clsx("productsPage__filterToggle")} onClick={handleFilterToggleClick}>
+		<FilterIcon />
 // [!code error]
 	</div>
 

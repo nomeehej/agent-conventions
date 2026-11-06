@@ -1,7 +1,7 @@
 // [!code error]
-<div className={clsx("pg_orders__box")}>
+<div className={clsx("ordersPage__box")}>
 {/* [!code error] */}
-	<div className={clsx("pg_orders__inner")}>
+	<div className={clsx("ordersPage__inner")}>
 		<LegacyDatePicker value={value} onChange={handleChange} />
 	</div>
 </div>

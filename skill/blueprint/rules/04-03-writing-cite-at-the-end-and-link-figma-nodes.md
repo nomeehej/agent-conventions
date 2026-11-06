@@ -17,7 +17,7 @@ tags: writing, citation, figma
 
 | 출처 | 쓰는 법 |
 | --- | --- |
-| 파일 위치 | 코드 글꼴 `pg-orders.tsx:46` |
+| 파일 위치 | 코드 글꼴 `orders-page.tsx:46` |
 | 부분 표의 `Figma` 칸 | Figma 아이콘 `img/figma.svg`와 노드 번호 `12:350`이 링크 글자. 주소에 `node-id` |
 | 본문과 `Sources`의 Figma | 링크 글자는 구역 이름. 주소에 `node-id` |
 | 그림 | `img/<화면>/`의 상대 경로 |

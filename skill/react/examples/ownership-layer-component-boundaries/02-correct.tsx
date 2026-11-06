@@ -1,7 +1,7 @@
 // [!code ++]
-// page/products/_pg-delete-product-button.tsx
+// page/products/_delete-product-button.tsx
 // [!code ++]
-export const PgDeleteProductButton = () => {
+export const DeleteProductButton = () => {
 	const navigate = useNavigate();
 
 	/**
@@ -11,5 +11,5 @@ export const PgDeleteProductButton = () => {
 		void navigate("/products");
 	};
 
-	return <UiButton onClick={handleDeleteButtonClick}>삭제</UiButton>;
+	return <Button onClick={handleDeleteButtonClick}>삭제</Button>;
 };

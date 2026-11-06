@@ -9,6 +9,6 @@ const handleSaveButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => 
 	mutationProductSave.mutate({data: toProductSaveRequest(props.formValues)});
 };
 
-<UiButton disabled={mutationProductSave.isPending} onClick={handleSaveButtonClick}>
+<Button disabled={mutationProductSave.isPending} onClick={handleSaveButtonClick}>
 	저장
-</UiButton>;
+</Button>;

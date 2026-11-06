@@ -1,4 +1,4 @@
-// page/products/pg-products.tsx
+// page/products/products-page.tsx
 // [!code error]
 const maxAttempts = 42;
 

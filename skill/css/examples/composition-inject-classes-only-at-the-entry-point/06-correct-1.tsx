@@ -1,3 +1,3 @@
-<UiCollapse className={clsx("pg_orderFilterDialog__collapse")} variant="compact" title="필터">
-	<PgOrderFilterFields />
-</UiCollapse>
+<Collapse className={clsx("orderFilterDialog__collapse")} variant="compact" title="필터">
+	<OrderFilterFields />
+</Collapse>

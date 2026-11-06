@@ -9,7 +9,7 @@
 | --- | --- |
 | 다른 파일에서 사용하는 컴포넌트 | 사용처가 계약을 참조하도록 프롭스 `interface`를 `export`합니다 |
 | 같은 파일 안에서만 쓰는 화면 지역 컴포넌트 | 프롭스 `interface`를 `export`하지 않습니다 |
-| 합성 부품의 프롭스 형태가 완전히 같음 | 공통 이름 하나로 공유합니다. 모두 `{children}`인 `UiSectionRoot`, `UiSectionHeader`, `UiSectionFooter`는 `UiSectionProps`를 씁니다 |
+| 합성 부품의 프롭스 형태가 완전히 같음 | 공통 이름 하나로 공유합니다. 모두 `{children}`인 `SectionRoot`, `SectionHeader`, `SectionFooter`는 `SectionProps`를 씁니다 |
 | 공유하는 부품이 한 파일에 있음 | 공유 `interface`를 첫 부품 위에 둡니다 |
 | 공유하는 부품이 여러 파일에 나뉨 | 공유 `interface`를 소유자 `_type` 폴더에 둡니다 |
 
@@ -19,40 +19,40 @@
 **Incorrect 1 (파일 위쪽에 타입을 모으고 내보내지 않습니다):**
 
 ```tsx
-// component/ui/badge/ui-badge.tsx: 칩까지 한 파일에 두고 타입은 위쪽에 모음
-interface UiBadgeProps {
+// component/ui/badge/badge.tsx: 칩까지 한 파일에 두고 타입은 위쪽에 모음
+interface BadgeProps {
 	label: string;
 }
 
-interface UiChipProps {
+interface ChipProps {
 	label: string;
 }
 
-export const UiBadge = (props: UiBadgeProps) => {
-	return <span className={clsx("ui_badge__root")}>{props.label}</span>;
+export const Badge = (props: BadgeProps) => {
+	return <span className={clsx("badge__root")}>{props.label}</span>;
 };
 
-export const UiChip = (props: UiChipProps) => {
-	return <span className={clsx("ui_chip__root")}>{props.label}</span>;
+export const Chip = (props: ChipProps) => {
+	return <span className={clsx("chip__root")}>{props.label}</span>;
 };
 ```
 
 **Correct 1 (컴포넌트 파일마다 계약을 바로 위에 선언하고 내보냅니다):**
 
 ```tsx
-// component/ui/badge/ui-badge.tsx
+// component/ui/badge/badge.tsx
 /**
  * 상태 배지 계약
  */
-export interface UiBadgeProps {
+export interface BadgeProps {
 	/**
 	 * 배지에 표시할 문구
 	 */
 	label: string;
 }
 
-export const UiBadge = (props: UiBadgeProps) => {
-	return <span className={clsx("ui_badge__root")}>{props.label}</span>;
+export const Badge = (props: BadgeProps) => {
+	return <span className={clsx("badge__root")}>{props.label}</span>;
 };
 ```
 

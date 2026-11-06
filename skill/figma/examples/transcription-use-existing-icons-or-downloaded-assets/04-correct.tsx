@@ -1,1 +1,1 @@
-<UiFilterIcon />
+<FilterIcon />

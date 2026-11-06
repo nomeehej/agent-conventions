@@ -1,7 +1,7 @@
 <Suspense
 	fallback={
 // [!code error]
-		<div className="pg_products__loading">
+		<div className="productsPage__loading">
 {/* [!code error] */}
 			<img src={loadingGif} />
 {/* [!code error] */}
@@ -9,5 +9,5 @@
 		</div>
 	}
 >
-	<PgProductTableSection />
+	<ProductTableSection />
 </Suspense>

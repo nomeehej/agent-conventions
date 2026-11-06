@@ -1,4 +1,4 @@
-<UiButton
+<Button
 	onClick={() => {
 		if (!selectedProduct) {
 			return;
@@ -8,4 +8,4 @@
 	}}
 >
 	삭제
-</UiButton>
+</Button>

@@ -4,7 +4,7 @@
 
 ## 1. Ownership and Boundaries (ownership)
 **TitleKo:** 소유와 경계
-**Lead:** 레이어 구분, 레이어 접두사, 역할 폴더, 가져오기 방향, Outlet 그룹, 화면 전용 훅과 라이브러리 생명주기
+**Lead:** 레이어 구분, 파일 이름, 역할 폴더, 가져오기 방향, Outlet 그룹, 화면 전용 훅과 라이브러리 생명주기
 **Impact:** CRITICAL
 **Description:** `ui`, `widget`, `page` 세 레이어의 소유 경계가 분명해야 코드를 예측 가능하게 배치할 수 있습니다.
 레이어와 역할에 맞춰 이름과 폴더를 정하고, 가져오기는 하위 레이어로만 향합니다.

@@ -1,9 +1,9 @@
-export interface UiButtonProps {
-	variant?: ButtonProps["variant"];
+export interface ButtonProps {
+	variant?: MuiButtonProps["variant"];
 	className?: string;
 }
 
-export const UiButton = (props: UiButtonProps) => {
+export const Button = (props: ButtonProps) => {
 // [!code error]
-	return <Button className={clsx("ui_button__root", `ui_button__root--${props.variant}`, props.className)} />;
+	return <MuiButton className={clsx("button__root", `button__root--${props.variant}`, props.className)} />;
 };

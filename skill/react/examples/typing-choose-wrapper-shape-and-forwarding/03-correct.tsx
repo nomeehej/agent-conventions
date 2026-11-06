@@ -1,7 +1,7 @@
 /**
  * 라벨과 보조 설명을 붙인 입력 한 줄
  */
-export interface UiFieldProps {
+export interface FieldProps {
 	/**
 	 * 최상위에 얹을 클래스
 	 */
@@ -28,14 +28,14 @@ export interface UiFieldProps {
 	onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
-export const UiField = (props: UiFieldProps) => {
+export const Field = (props: FieldProps) => {
 	return (
-		<div className={clsx("ui_field__root", props.className)}>
-			<label className={clsx("ui_field__label")} htmlFor={props.inputId}>
+		<div className={clsx("field__root", props.className)}>
+			<label className={clsx("field__label")} htmlFor={props.inputId}>
 				{props.label}
 			</label>
 			<input id={props.inputId} value={props.value} onChange={props.onChange} />
-			{props.helperText && <span className={clsx("ui_field__helper")}>{props.helperText}</span>}
+			{props.helperText && <span className={clsx("field__helper")}>{props.helperText}</span>}
 		</div>
 	);
 };

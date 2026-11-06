@@ -3,13 +3,13 @@
  *
  * 제목과 우측 동작 영역은 사용처가 직접 조립
  */
-export interface UiPanelHeaderProps {
+export interface PanelHeaderProps {
 	/**
 	 * 헤더 줄에 늘어놓을 제목과 동작
 	 */
 	children: ReactNode;
 }
 
-export const UiPanelHeader = (props: UiPanelHeaderProps) => {
-	return <header className={clsx("ui_panel__header")}>{props.children}</header>;
+export const PanelHeader = (props: PanelHeaderProps) => {
+	return <header className={clsx("panel__header")}>{props.children}</header>;
 };

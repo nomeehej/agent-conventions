@@ -21,7 +21,7 @@ created: 2026-10-02
 
 ```text [src/routes.tsx]
 admin/
-└── PgOutlet                    // 인증, 공통 틀
+└── RootOutlet                    // 인증, 공통 틀
     ├── orders
     └── customers/:customerId
 ```

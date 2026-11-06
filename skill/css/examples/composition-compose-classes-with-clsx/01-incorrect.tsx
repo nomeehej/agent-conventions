@@ -1,4 +1,4 @@
 // [!code error]
-<button type="button" className={"pg_products__listButton " + (isActive ? "pg_products__listButton--active" : "")}>
+<button type="button" className={"productsPage__listButton " + (isActive ? "productsPage__listButton--active" : "")}>
 	목록
 </button>

@@ -1,1 +1,1 @@
-return <section>{selectedRows.length > 0 && <PgProductBulkActionBar selectedRows={selectedRows} />}</section>;
+return <section>{selectedRows.length > 0 && <ProductBulkActionBar selectedRows={selectedRows} />}</section>;

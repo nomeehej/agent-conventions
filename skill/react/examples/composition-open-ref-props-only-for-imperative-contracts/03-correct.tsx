@@ -3,13 +3,13 @@
  *
  * 밖에서 다룰 일이 없어 `ref` 비공개
  */
-export interface UiStatusBadgeProps {
+export interface StatusBadgeProps {
 	/**
 	 * 배지에 표시할 상태 문구
 	 */
 	label: string;
 }
 
-export const UiStatusBadge = (props: UiStatusBadgeProps) => {
+export const StatusBadge = (props: StatusBadgeProps) => {
 	return <span>{props.label}</span>;
 };

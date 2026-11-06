@@ -1,20 +1,20 @@
-// component/ui/panel/ui-panel.tsx
-import {UiPanelBody} from "@/component/ui/panel/_ui-panel-body";
-import {UiPanelHeader} from "@/component/ui/panel/_ui-panel-header";
+// component/ui/panel/panel.tsx
+import {PanelBody} from "@/component/ui/panel/_panel-body";
+import {PanelHeader} from "@/component/ui/panel/_panel-header";
 // [!code error]
-import {UiPanelHeaderInner} from "@/component/ui/panel/_ui-panel-header-inner";
-import {UiPanelRoot} from "@/component/ui/panel/_ui-panel-root";
+import {PanelHeaderInner} from "@/component/ui/panel/_panel-header-inner";
+import {PanelRoot} from "@/component/ui/panel/_panel-root";
 // [!code error]
-import {UiPanelSpacer} from "@/component/ui/panel/_ui-panel-spacer";
+import {PanelSpacer} from "@/component/ui/panel/_panel-spacer";
 
 // [!code error]
 // 사용처가 끼워 넣을 자리가 없는 래퍼와 여백 보정용 DOM까지 이름이 붙어 노출
-export const UiPanel = {
-	Root: UiPanelRoot,
-	Header: UiPanelHeader,
+export const Panel = {
+	Root: PanelRoot,
+	Header: PanelHeader,
 // [!code error]
-	HeaderInner: UiPanelHeaderInner,
+	HeaderInner: PanelHeaderInner,
 // [!code error]
-	Spacer: UiPanelSpacer,
-	Body: UiPanelBody,
+	Spacer: PanelSpacer,
+	Body: PanelBody,
 } as const;

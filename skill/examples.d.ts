@@ -45,9 +45,9 @@ declare const orderBy: typeof import("es-toolkit").orderBy;
 declare const sortBy: typeof import("es-toolkit").sortBy;
 declare const sumBy: typeof import("es-toolkit").sumBy;
 declare const uniq: typeof import("es-toolkit").uniq;
-declare const Button: typeof import("@mui/material").Button;
+declare const MuiButton: typeof import("@mui/material").Button;
 declare const TableCell: typeof import("@mui/material").TableCell;
-declare const TableRow: typeof import("@mui/material").TableRow;
+declare const MuiTableRow: typeof import("@mui/material").TableRow;
 declare const clsx: typeof import("clsx").clsx;
 declare const dayjs: typeof import("dayjs").default;
 type ReactNode = import("react").ReactNode;
@@ -55,9 +55,9 @@ type ReactElement = import("react").ReactElement;
 type Context<T> = import("react").Context<T>;
 type ButtonHTMLAttributes<T> = import("react").ButtonHTMLAttributes<T>;
 type CSSProperties = import("react").CSSProperties;
-type ButtonProps = import("@mui/material").ButtonProps;
+type MuiButtonProps = import("@mui/material").ButtonProps;
 type TableCellProps = import("@mui/material").TableCellProps;
-type TableRowProps = import("@mui/material").TableRowProps;
+type MuiTableRowProps = import("@mui/material").TableRowProps;
 type Ref<T> = import("react").Ref<T>;
 type MouseEventHandler<T = Element> = import("react").MouseEventHandler<T>;
 type ChangeEventHandler<T = Element> = import("react").ChangeEventHandler<T>;
@@ -356,113 +356,113 @@ interface DailyCount {
 }
 type ChartOption = Record<string, unknown>;
 
-interface UiButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	variant?: "primary" | "secondary";
 }
-declare const UiButton: (props: UiButtonProps) => ReactElement;
-declare const UiChart: {
+declare const Button: (props: ButtonProps) => ReactElement;
+declare const Chart: {
 	Toolbar: (props: {variant: string}) => ReactElement;
 };
-interface UiCollapseProps {
+interface CollapseProps {
 	className?: string;
 	variant?: "default" | "compact";
 	title?: string;
 	children?: ReactNode;
 }
-declare const UiCollapse: (props: UiCollapseProps) => ReactElement;
-declare const UiEmpty: (props: {description: string}) => ReactElement;
-interface UiErrorBoundaryProps {
+declare const Collapse: (props: CollapseProps) => ReactElement;
+declare const Empty: (props: {description: string}) => ReactElement;
+interface ErrorBoundaryProps {
 	fallback?: ReactNode;
 	fallbackRender?: (props: ErrorFallbackProps) => ReactNode;
 	onReset?: () => void;
 	children?: ReactNode;
 }
-declare const UiErrorBoundary: (props: UiErrorBoundaryProps) => ReactElement;
-declare const UiFilterIcon: () => ReactElement;
-declare const UiInlineErrorState: (props: {retryLabel?: string; onRetry?: () => void}) => ReactElement;
-interface UiLineChartProps {
+declare const ErrorBoundary: (props: ErrorBoundaryProps) => ReactElement;
+declare const FilterIcon: () => ReactElement;
+declare const InlineErrorState: (props: {retryLabel?: string; onRetry?: () => void}) => ReactElement;
+interface LineChartProps {
 	title: string;
 	points: ChartPoint[];
 }
-declare const UiLineChart: (props: UiLineChartProps) => ReactElement;
-declare const UiLineChartSkeleton: () => ReactElement;
-declare const UiList: (props: {rows: readonly Row[]}) => ReactElement;
-declare const UiLoadingFallback: (props: {ariaLabel?: string}) => ReactElement;
-declare const UiPagination: () => ReactElement;
-declare const UiRecommendationSkeleton: () => ReactElement;
-declare const UiScreenErrorState: () => ReactElement;
-declare const UiScreenSkeleton: () => ReactElement;
-interface UiSearchInputProps {
+declare const LineChart: (props: LineChartProps) => ReactElement;
+declare const LineChartSkeleton: () => ReactElement;
+declare const List: (props: {rows: readonly Row[]}) => ReactElement;
+declare const LoadingFallback: (props: {ariaLabel?: string}) => ReactElement;
+declare const Pagination: () => ReactElement;
+declare const RecommendationSkeleton: () => ReactElement;
+declare const ScreenErrorState: () => ReactElement;
+declare const ScreenSkeleton: () => ReactElement;
+interface SearchInputProps {
 	value?: string;
 	label?: string;
 	onChange?: (value: string) => void;
 }
-declare const UiSearchInput: (props: UiSearchInputProps) => ReactElement;
-declare const UiShareLinkButton: (props: {href: string}) => ReactElement;
-declare const UiSpinner: () => ReactElement;
-interface UiTableProps<TRow extends Row = Row> {
+declare const SearchInput: (props: SearchInputProps) => ReactElement;
+declare const ShareLinkButton: (props: {href: string}) => ReactElement;
+declare const Spinner: () => ReactElement;
+interface TableProps<TRow extends Row = Row> {
 	rows: readonly TRow[];
 	columns?: TableColumn[];
 	onRowSelect?: (rows: TRow[]) => void;
 	onSave?: (formValues: ProductFormValues) => void;
 }
-declare const UiTable: <TRow extends Row>(props: UiTableProps<TRow>) => ReactElement;
-interface UiTabsProps {
+declare const Table: <TRow extends Row>(props: TableProps<TRow>) => ReactElement;
+interface TabsProps {
 	children?: ReactNode;
 }
-declare const UiTabs: (props: UiTabsProps) => ReactElement;
-interface UiTreeProps {
+declare const Tabs: (props: TabsProps) => ReactElement;
+interface TreeProps {
 	items?: TreeItem[];
 	expandedItems?: string[];
 	onExpandedItemsChange?: (itemIds: string[]) => void;
 	selectedItems?: string | null;
 	onSelectedItemsChange?: (itemId: string | null) => void;
 }
-declare const UiTree: (props: UiTreeProps) => ReactElement;
-interface UiPanelPartProps {
+declare const Tree: (props: TreeProps) => ReactElement;
+interface PanelPartProps {
 	children?: ReactNode;
 }
 
-declare const WgAppNavigation: () => ReactElement;
-interface WgAppShellProps {
+declare const AppNavigation: () => ReactElement;
+interface AppShellProps {
 	children?: ReactNode;
 }
-interface WgChartCardProps {
+interface ChartCardProps {
 	className?: string;
 	variant?: "default" | "compact" | "muted";
 	option?: ChartOption;
 	dailyCounts: DailyCount[];
 }
-declare const WgChartCard: (props: WgChartCardProps) => ReactElement;
-declare const WgChatComposer: (props: {onSubmit: (text: string) => void}) => ReactElement;
-declare const WgChatMessages: (props: {messages: ChatMessage[]}) => ReactElement;
-declare const WgOrderTableChildRow: (props: {row: OrderRow}) => ReactElement;
-declare const WgOrderTableHeader: (props: {sort: TableSort}) => ReactElement;
-declare const WgOrderTableRow: (props: {row: OrderRow}) => ReactElement;
-declare const WgProductBrowseActions: () => ReactElement;
-declare const WgProductEditActions: () => ReactElement;
-declare const WgProductSearchField: () => ReactElement;
-interface WgProductStatusBadgeProps {
+declare const ChartCard: (props: ChartCardProps) => ReactElement;
+declare const ChatComposer: (props: {onSubmit: (text: string) => void}) => ReactElement;
+declare const ChatMessages: (props: {messages: ChatMessage[]}) => ReactElement;
+declare const OrderTableChildRow: (props: {row: OrderRow}) => ReactElement;
+declare const OrderTableHeader: (props: {sort: TableSort}) => ReactElement;
+declare const OrderTableRow: (props: {row: OrderRow}) => ReactElement;
+declare const ProductBrowseActions: () => ReactElement;
+declare const ProductEditActions: () => ReactElement;
+declare const ProductSearchField: () => ReactElement;
+interface ProductStatusBadgeProps {
 	children?: ReactNode;
 }
-interface WgProductTableProps {
+interface ProductTableProps {
 	children?: ReactNode;
 }
-interface WgProfileDialogPartProps {
+interface ProfileDialogPartProps {
 	children?: ReactNode;
 }
-interface WgProfileDialogContextValue {
+interface ProfileDialogContextValue {
 	isBodyOpen: boolean;
 	toggleBody: () => void;
 }
-declare const WgProfileDialogContext: Context<WgProfileDialogContextValue | null>;
-declare const WgProfileDialog: {
-	Root: (props: WgProfileDialogPartProps) => ReactElement;
-	Header: (props: WgProfileDialogPartProps) => ReactElement;
-	Body: (props: WgProfileDialogPartProps) => ReactElement;
+declare const ProfileDialogContext: Context<ProfileDialogContextValue | null>;
+declare const ProfileDialog: {
+	Root: (props: ProfileDialogPartProps) => ReactElement;
+	Header: (props: ProfileDialogPartProps) => ReactElement;
+	Body: (props: ProfileDialogPartProps) => ReactElement;
 };
-declare const WgProfileSummary: (props: {profile: Profile}) => ReactElement;
-interface WgUserCardProps {
+declare const ProfileSummary: (props: {profile: Profile}) => ReactElement;
+interface UserCardProps {
 	user: User;
 	theme?: Theme;
 	label?: string;
@@ -470,46 +470,45 @@ interface WgUserCardProps {
 }
 
 declare const LegacyDatePicker: (props: {value: string; onChange: (value: string) => void}) => ReactElement;
-interface PgMediaUploadPanelProps {
+interface MediaUploadPanelProps {
 	files: File[];
 }
-declare const PgOrderFilterFields: () => ReactElement;
-declare const PgOrderFilterPanel: () => ReactElement;
-declare const PgProductBulkActionBar: (props: {selectedRows?: ProductRow[]; label?: string}) => ReactElement;
-declare const PgProductCreateForm: () => ReactElement;
-declare const PgProductDetailChartSection: () => ReactElement;
-declare const PgProductFilterSection: (props: {
+declare const OrderFilterFields: () => ReactElement;
+declare const OrderFilterPanel: () => ReactElement;
+declare const ProductBulkActionBar: (props: {selectedRows?: ProductRow[]; label?: string}) => ReactElement;
+declare const ProductCreateForm: () => ReactElement;
+declare const ProductDetailChartSection: () => ReactElement;
+declare const ProductFilterSection: (props: {
 	keyword?: string;
 	categoryId?: string;
 	onKeywordChange?: Dispatch<string>;
 	onCategoryIdChange?: Dispatch<string | undefined>;
 }) => ReactElement;
-declare const PgProductList: () => ReactElement;
-declare const PgProductListSection: () => ReactElement;
-interface PgProductPanelProps {
+declare const ProductList: () => ReactElement;
+declare const ProductListSection: () => ReactElement;
+interface ProductPanelProps {
 	isVisible: boolean;
 	children?: ReactNode;
 }
-declare const PgProductRecommendationSection: () => ReactElement;
-declare const PgProductRow: (props: {product: Product}) => ReactElement;
-declare const PgProductRowDivider: () => ReactElement;
-interface PgProductRowsProps {
+declare const ProductRecommendationSection: () => ReactElement;
+declare const ProductListRow: (props: {product: Product}) => ReactElement;
+declare const ProductListRowDivider: () => ReactElement;
+interface ProductListRowsProps {
 	products: Product[];
 }
-declare const PgProductSearchField: () => ReactElement;
-declare const PgProductSearchSection: () => ReactElement;
-interface PgProductTableProps {
+declare const ProductSearchSection: () => ReactElement;
+interface ProductListTableProps {
 	rows: ProductRow[];
 	editHrefBase?: string;
 }
-declare const PgProductTable: (props: PgProductTableProps) => ReactElement;
-interface PgProductTableSectionProps {
+declare const ProductListTable: (props: ProductListTableProps) => ReactElement;
+interface ProductTableSectionProps {
 	heading?: ReactNode;
 	title?: string;
 	children?: ReactNode;
 }
-declare const PgProductTableSection: (props: PgProductTableSectionProps) => ReactElement;
-declare const PgProductTreeSection: () => ReactElement;
+declare const ProductTableSection: (props: ProductTableSectionProps) => ReactElement;
+declare const ProductTreeSection: () => ReactElement;
 
 // 예제 세계관: API 클라이언트, 생성된 쿼리 훅, 뮤테이션, 스토어
 type UseSuspenseQueryResult<TData> = import("@tanstack/react-query").UseSuspenseQueryResult<TData>;
@@ -727,22 +726,22 @@ type ExampleQueryOptions<T> = {queryKey: readonly unknown[]; queryFn: () => Prom
 declare const products: Product[];
 
 // 예제 세계관: `@/` 모듈. 예제가 import 하는 것만 선언. 모듈 안에서 같은 이름을 다시 내보내려고 Shape, Component 별칭을 거침
-type UiButtonPropsShape = UiButtonProps;
+type ButtonPropsShape = ButtonProps;
 type ChartSeriesShape = ChartSeries;
-type UiPanelPartPropsShape = UiPanelPartProps;
-type WgProfileDialogPartPropsShape = WgProfileDialogPartProps;
-type UiPanelPartComponent = (props: UiPanelPartProps) => ReactElement;
-type WgProfileDialogPartComponent = (props: WgProfileDialogPartProps) => ReactElement;
-type UiLineChartComponent = (props: UiLineChartProps) => ReactElement;
-type UiTabsComponent = (props: UiTabsProps) => ReactElement;
-type PgProductTableSectionComponent = (props: PgProductTableSectionProps) => ReactElement;
-interface UiTabsContextValue {
+type PanelPartPropsShape = PanelPartProps;
+type ProfileDialogPartPropsShape = ProfileDialogPartProps;
+type PanelPartComponent = (props: PanelPartProps) => ReactElement;
+type ProfileDialogPartComponent = (props: ProfileDialogPartProps) => ReactElement;
+type LineChartComponent = (props: LineChartProps) => ReactElement;
+type TabsComponent = (props: TabsProps) => ReactElement;
+type ProductTableSectionComponent = (props: ProductTableSectionProps) => ReactElement;
+interface TabsContextValue {
 	selectedId: string;
 	onSelect: (id: string) => void;
 }
-declare module "@/component/ui/button/ui-button" {
-	export type UiButtonProps = UiButtonPropsShape;
-	export const UiButton: (props: UiButtonPropsShape) => ReactElement;
+declare module "@/component/ui/button/button" {
+	export type ButtonProps = ButtonPropsShape;
+	export const Button: (props: ButtonPropsShape) => ReactElement;
 }
 declare module "@/component/ui/line-chart/_constant/series" {
 	export const chart_series_line: {readonly id: "line"; readonly role: "line"};
@@ -750,63 +749,63 @@ declare module "@/component/ui/line-chart/_constant/series" {
 declare module "@/component/ui/line-chart/_type/chart-series" {
 	export type ChartSeries = ChartSeriesShape;
 }
-declare module "@/component/ui/line-chart/ui-line-chart" {
-	export const UiLineChart: UiLineChartComponent;
+declare module "@/component/ui/line-chart/line-chart" {
+	export const LineChart: LineChartComponent;
 }
 declare module "@/component/ui/panel/_type/panel-part" {
-	export type UiPanelPartProps = UiPanelPartPropsShape;
+	export type PanelPartProps = PanelPartPropsShape;
 }
-declare module "@/component/ui/panel/_ui-panel-body" {
-	export const UiPanelBody: UiPanelPartComponent;
+declare module "@/component/ui/panel/_panel-body" {
+	export const PanelBody: PanelPartComponent;
 }
-declare module "@/component/ui/panel/_ui-panel-footer" {
-	export const UiPanelFooter: UiPanelPartComponent;
+declare module "@/component/ui/panel/_panel-footer" {
+	export const PanelFooter: PanelPartComponent;
 }
-declare module "@/component/ui/panel/_ui-panel-header" {
-	export const UiPanelHeader: UiPanelPartComponent;
+declare module "@/component/ui/panel/_panel-header" {
+	export const PanelHeader: PanelPartComponent;
 }
-declare module "@/component/ui/panel/_ui-panel-root" {
-	export const UiPanelRoot: UiPanelPartComponent;
+declare module "@/component/ui/panel/_panel-root" {
+	export const PanelRoot: PanelPartComponent;
 }
-declare module "@/component/ui/panel/ui-panel" {
-	export const UiPanel: {
-		Root: UiPanelPartComponent;
-		Header: UiPanelPartComponent;
-		Body: UiPanelPartComponent;
-		Footer: UiPanelPartComponent;
+declare module "@/component/ui/panel/panel" {
+	export const Panel: {
+		Root: PanelPartComponent;
+		Header: PanelPartComponent;
+		Body: PanelPartComponent;
+		Footer: PanelPartComponent;
 	};
 }
 declare module "@/component/ui/tabs/_hook/use-tabs" {
-	export const UiTabsContext: Context<UiTabsContextValue | null>;
+	export const TabsContext: Context<TabsContextValue | null>;
 }
-declare module "@/component/ui/tabs/ui-tabs" {
-	export const UiTabs: UiTabsComponent;
+declare module "@/component/ui/tabs/tabs" {
+	export const Tabs: TabsComponent;
 }
-declare module "@/component/widget/product-table/wg-product-table" {
-	export const WgProductTable: (props: WgProductTableProps) => ReactElement;
+declare module "@/component/widget/product-table/product-table" {
+	export const ProductTable: (props: ProductTableProps) => ReactElement;
 }
-declare module "@/component/widget/product-toolbar/_wg-product-toolbar-root" {
-	export const WgProductToolbarRoot: (props: {children?: ReactNode}) => ReactElement;
+declare module "@/component/widget/product-toolbar/_product-toolbar-root" {
+	export const ProductToolbarRoot: (props: {children?: ReactNode}) => ReactElement;
 }
-declare module "@/component/widget/product-toolbar/wg-product-toolbar" {
-	export const WgProductToolbar: {
+declare module "@/component/widget/product-toolbar/product-toolbar" {
+	export const ProductToolbar: {
 		Root: (props: {children?: ReactNode}) => ReactElement;
 	};
 }
 declare module "@/component/widget/profile-dialog/_type/profile-dialog-part" {
-	export type WgProfileDialogPartProps = WgProfileDialogPartPropsShape;
+	export type ProfileDialogPartProps = ProfileDialogPartPropsShape;
 }
-declare module "@/component/widget/profile-dialog/_wg-profile-dialog-body" {
-	export const WgProfileDialogBody: WgProfileDialogPartComponent;
+declare module "@/component/widget/profile-dialog/_profile-dialog-body" {
+	export const ProfileDialogBody: ProfileDialogPartComponent;
 }
-declare module "@/component/widget/profile-dialog/_wg-profile-dialog-header" {
-	export const WgProfileDialogHeader: WgProfileDialogPartComponent;
+declare module "@/component/widget/profile-dialog/_profile-dialog-header" {
+	export const ProfileDialogHeader: ProfileDialogPartComponent;
 }
-declare module "@/component/widget/profile-dialog/_wg-profile-dialog-root" {
-	export const WgProfileDialogRoot: WgProfileDialogPartComponent;
+declare module "@/component/widget/profile-dialog/_profile-dialog-root" {
+	export const ProfileDialogRoot: ProfileDialogPartComponent;
 }
-declare module "@/component/widget/user-card/_wg-user-card-avatar" {
-	export const WgUserCardAvatar: (props: {src: string; alt: string; theme?: Theme}) => ReactElement;
+declare module "@/component/widget/user-card/_user-card-avatar" {
+	export const UserCardAvatar: (props: {src: string; alt: string; theme?: Theme}) => ReactElement;
 }
 declare module "@/config/env" {
 	export const env_api_base_url: string;
@@ -827,35 +826,35 @@ declare module "@/constant/preview" {
 declare module "@/constant/retry" {
 	export const retry_max_attempts: number;
 }
-declare module "@/page/(main)/orders/pg-orders" {
-	export const PgOrders: () => ReactElement;
+declare module "@/page/(main)/orders/orders-page" {
+	export const OrdersPage: () => ReactElement;
 }
-declare module "@/page/(main)/pg-main-outlet" {
-	export const PgMainOutlet: () => ReactElement;
+declare module "@/page/(main)/main-outlet" {
+	export const MainOutlet: () => ReactElement;
 }
-declare module "@/page/(main)/products/pg-products" {
-	export const PgProducts: () => ReactElement;
+declare module "@/page/(main)/products/products-page" {
+	export const ProductsPage: () => ReactElement;
 }
-declare module "@/page/pg-outlet" {
-	export const PgOutlet: () => ReactElement;
+declare module "@/page/root-outlet" {
+	export const RootOutlet: () => ReactElement;
 }
 declare module "@/page/product-detail/_function/to-summary" {
 	export const toSummary: (response: ApiResponse<ProductSummary>) => ProductSummary;
 }
-declare module "@/page/product-detail/_pg-section-heading" {
-	export const PgSectionHeading: (props: {title: string}) => ReactElement;
+declare module "@/page/product-detail/_section-heading" {
+	export const SectionHeading: (props: {title: string}) => ReactElement;
 }
-declare module "@/page/product-detail/pg-product-detail" {
-	export const PgProductDetail: () => ReactElement;
+declare module "@/page/product-detail/product-detail-page" {
+	export const ProductDetailPage: () => ReactElement;
 }
-declare module "@/page/product-detail/product-summary/pg-product-summary" {
-	export const PgProductSummary: (props: {heading?: ReactNode}) => ReactElement;
+declare module "@/page/product-detail/product-summary/product-summary" {
+	export const ProductSummary: (props: {heading?: ReactNode}) => ReactElement;
 }
-declare module "@/page/product-detail/product-table-section/_pg-review-section" {
-	export const PgReviewSection: () => ReactElement;
+declare module "@/page/product-detail/product-table-section/_review-section" {
+	export const ReviewSection: () => ReactElement;
 }
-declare module "@/page/product-detail/product-table-section/pg-product-table-section" {
-	export const PgProductTableSection: PgProductTableSectionComponent;
+declare module "@/page/product-detail/product-table-section/product-table-section" {
+	export const ProductTableSection: ProductTableSectionComponent;
 }
 declare module "@/page/products/_function/to-media-upload-payload" {
 	export const toMediaUploadPayload: (files: File[]) => FormData;
@@ -1003,6 +1002,6 @@ declare module "@/app-providers" {
 declare module "@test/_gallery/story-route" {
 	export const StoryRoute: (props: {entry: string; path: string; children: ReactNode}) => ReactElement;
 }
-declare module "@/component/widget/order-dialog/wg-order-dialog" {
-	export const WgOrderDialog: (props: {orderId: string; onSave: (orderId: string) => void}) => ReactElement;
+declare module "@/component/widget/order-dialog/order-dialog" {
+	export const OrderDialog: (props: {orderId: string; onSave: (orderId: string) => void}) => ReactElement;
 }

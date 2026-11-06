@@ -2,7 +2,7 @@
 export const table_first_row_index = 0;
 export const table_page_step = 1;
 
-// page/products/pg-products.tsx
+// page/products/products-page.tsx
 import {table_first_row_index, table_page_step} from "@/constant/table";
 
 const toFirstRow = (rows: Row[]): Row | undefined => {

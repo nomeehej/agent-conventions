@@ -1,7 +1,7 @@
-// page/products/_pg-product-tree-section.tsx
+// page/products/_product-tree-section.tsx
 /**
  * route-local product tree props
  */
-export interface PgProductTreeSectionProps {
+export interface ProductTreeSectionProps {
 	categoryNodes: ProductCategoryNode[];
 }

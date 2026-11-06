@@ -1,2 +1,2 @@
-// component/widget/chart-card/wg-chart-card.tsx
-import {UiLineChart} from "@/component/ui/line-chart/ui-line-chart";
+// component/widget/chart-card/chart-card.tsx
+import {LineChart} from "@/component/ui/line-chart/line-chart";

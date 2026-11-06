@@ -1,3 +1,3 @@
 const [urlParams, setUrlParams] = useQueryStates(productUrlParsers);
 
-<UiSearchInput value={urlParams.keyword} />;
+<SearchInput value={urlParams.keyword} />;

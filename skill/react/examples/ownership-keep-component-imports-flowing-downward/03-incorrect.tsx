@@ -1,3 +1,3 @@
-// page/order-detail/pg-order-detail.tsx
+// page/order-detail/order-detail-page.tsx
 // [!code error]
-import {PgProductTableSection} from "@/page/product-detail/product-table-section/pg-product-table-section";
+import {ProductTableSection} from "@/page/product-detail/product-table-section/product-table-section";

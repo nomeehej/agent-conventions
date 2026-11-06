@@ -1,1 +1,1 @@
-<div className={clsx("ui_table__root", isDense && "ui_table__root--dense")} />
+<div className={clsx("table__root", isDense && "table__root--dense")} />

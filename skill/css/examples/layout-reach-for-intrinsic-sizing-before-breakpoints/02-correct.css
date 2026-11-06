@@ -1,4 +1,4 @@
-.pg_products__grid {
+.productsPage__grid {
 	display: grid;
 /* [!code ++] */
 	grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));

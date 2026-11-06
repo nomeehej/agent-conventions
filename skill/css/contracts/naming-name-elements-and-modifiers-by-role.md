@@ -9,17 +9,17 @@
 **Incorrect 1 (역할 대신 구조나 치수로 이름을 짓습니다):**
 
 ```txt
-ui_card__wrapper
-ui_card__box
-ui_card__body--gap12
+card__wrapper
+card__box
+card__body--gap12
 ```
 
 **Correct 1 (역할과 상태를 기준으로 이름을 붙입니다):**
 
 ```txt
-ui_card__toolbar
-ui_card__body
-ui_card__body--dense
+card__toolbar
+card__body
+card__body--dense
 ```
 
 > 나머지 예시와 예외는 [full rule](../rules/01-03-naming-name-elements-and-modifiers-by-role.md)에 있습니다.

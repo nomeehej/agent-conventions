@@ -1,8 +1,8 @@
 /* [!code error] */
-/* src/page/products/pg-products.css */
+/* src/page/products/products-page.css */
 @media (prefers-reduced-motion: reduce) {
 /* [!code error] */
-	.pg_products__panel {
+	.productsPage__panel {
 /* [!code error] */
 		animation-duration: 0s;
 	}

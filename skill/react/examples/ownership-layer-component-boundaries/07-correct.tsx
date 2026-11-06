@@ -1,6 +1,6 @@
-// component/widget/chart-card/wg-chart-card.tsx
-import {UiLineChart} from "@/component/ui/line-chart/ui-line-chart";
+// component/widget/chart-card/chart-card.tsx
+import {LineChart} from "@/component/ui/line-chart/line-chart";
 
-export const WgChartCard = (props: WgChartCardProps) => {
-	return <UiLineChart title="일별 주문 수" points={toChartPoints(props.dailyCounts)} />;
+export const ChartCard = (props: ChartCardProps) => {
+	return <LineChart title="일별 주문 수" points={toChartPoints(props.dailyCounts)} />;
 };

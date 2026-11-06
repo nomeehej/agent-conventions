@@ -1,5 +1,5 @@
-<div className={clsx("pg_productDetail__chart")}>
-	<Suspense fallback={<UiLineChartSkeleton />}>
-		<PgProductDetailChartSection />
+<div className={clsx("productDetailPage__chart")}>
+	<Suspense fallback={<LineChartSkeleton />}>
+		<ProductDetailChartSection />
 	</Suspense>
 </div>

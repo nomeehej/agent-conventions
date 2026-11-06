@@ -6,7 +6,7 @@ impactDescription: 공용 책임과 화면 전용 책임이 같은 레이어에 
 appliesWhen:
   - 컴포넌트를 `ui`, `widget`, `page` 중 어느 소유 레이어에 둘지 정할 때
   - 컴포넌트를 레이어 사이에서 옮기거나 공용화할 때
-reviewWith: ownership-place-owner-files-in-role-folders, css/ownership-choose-scope-prefix-by-owner-layer
+reviewWith: ownership-place-owner-files-in-role-folders
 tags: ownership, widget, naming
 ---
 
@@ -33,7 +33,7 @@ flowchart LR
 
 하나도 걸리지 않으면 도메인을 아는 쪽이 `widget`, 모르는 쪽이 `ui`입니다.
 범용 셸이거나 한 화면에서만 쓴다는 사실은 `page`의 근거가 아니고, 여러 `ui` 부품을 조립해도 도메인을 모르면 `ui`입니다.
-파일 이름과 심볼에는 `ownership-prefix-layer-names-on-files-and-symbols`를 적용합니다.
+파일 이름과 심볼에는 `ownership-name-component-files-after-their-symbols`를 적용합니다.
 
 **Incorrect 1 (라우터 훅을 부르는 화면 전용 로직이 `widget`에 남아 있습니다):**
 

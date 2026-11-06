@@ -7,7 +7,7 @@ appliesWhen:
   - 라우트 트리나 `Outlet` 진입 파일을 추가, 변경할 때
   - '`page` 아래 라우트 그룹을 만들거나 화면을 그룹 사이로 옮길 때'
 requiresSelected: ownership-place-owner-files-in-role-folders, ownership-keep-component-imports-flowing-downward
-reviewWith: ownership-prefix-layer-names-on-files-and-symbols, runtime-place-error-boundaries-by-blast-radius
+reviewWith: ownership-name-component-files-after-their-symbols, runtime-place-error-boundaries-by-blast-radius
 tags: ownership, routing
 ---
 
@@ -23,9 +23,9 @@ tags: ownership, routing
 
 | 대상 | 배치와 책임 |
 | --- | --- |
-| 기본 프레임 | `page/pg-outlet.tsx`. 모든 화면의 공통 외곽과 `Outlet`을 소유합니다 |
-| 경로 없는 그룹 | `page/(main)/pg-main-outlet.tsx`. 폴더의 `(이름)`과 진입 파일의 `pg-<이름>-outlet`을 맞춥니다 |
-| 화면 | 지원 코드가 있으면 `page/(main)/products/pg-products.tsx`, 없으면 `page/pg-not-found.tsx`. 각각 독립 소유자입니다 |
+| 기본 프레임 | `page/root-outlet.tsx`. 모든 화면의 공통 외곽과 `Outlet`을 소유합니다 |
+| 경로 없는 그룹 | `page/(main)/main-outlet.tsx`. 폴더의 `(이름)`과 진입 파일의 `<이름>-outlet`을 맞춥니다 |
+| 화면 | 지원 코드가 있으면 `page/(main)/products/products-page.tsx`, 없으면 `page/not-found-page.tsx`. 각각 독립 소유자입니다 |
 | 라우터 | URL과 진입 파일의 중첩 관계를 선언합니다 |
 
 그룹은 `page` 바로 아래나 다른 그룹 아래에 두고, 그룹마다 자식 라우트를 감싸는 `Outlet` 진입 파일을 둡니다.

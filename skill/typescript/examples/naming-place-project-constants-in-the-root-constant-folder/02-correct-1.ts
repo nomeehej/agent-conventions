@@ -1,4 +1,4 @@
-// page/products/pg-products.tsx
+// page/products/products-page.tsx
 import {api_request_timeout_ms} from "@/constant/api";
 import {pagination_default_page_size} from "@/constant/pagination";
 

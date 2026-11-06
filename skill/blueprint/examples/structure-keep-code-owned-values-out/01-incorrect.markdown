@@ -3,7 +3,7 @@
 
 | Selector | Value |
 | --- | --- |
-| `.pg_orders__popover` | `width: 312px; padding: 12px 16px; line-height: 20px` |
+| `.ordersPage__popover` | `width: 312px; padding: 12px 16px; line-height: 20px` |
 
 ### Mock
 

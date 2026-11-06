@@ -1,5 +1,5 @@
-import {TableCell} from "@mui/material";
-import type {TableCellProps} from "@mui/material";
+import {TableCell as MuiTableCell} from "@mui/material";
+import type {TableCellProps as MuiTableCellProps} from "@mui/material";
 import {clsx} from "clsx";
 import type {TdHTMLAttributes} from "react";
 
@@ -8,17 +8,17 @@ import type {TdHTMLAttributes} from "react";
  *
  * align의 inherit은 DOM td 타입에 없어 그 이름만 빼고 다시 선언
  */
-export interface UiTableCellProps extends Omit<TdHTMLAttributes<HTMLTableCellElement>, "align"> {
+export interface TableCellProps extends Omit<TdHTMLAttributes<HTMLTableCellElement>, "align"> {
 	/**
 	 * 내용 가로 정렬
 	 */
-	align?: TableCellProps["align"];
+	align?: MuiTableCellProps["align"];
 	/**
 	 * 셀 여백
 	 */
-	padding?: TableCellProps["padding"];
+	padding?: MuiTableCellProps["padding"];
 }
 
-export const UiTableCell = (props: UiTableCellProps) => {
-	return <TableCell {...props} className={clsx("ui_tableCell__root", props.className)} />;
+export const TableCell = (props: TableCellProps) => {
+	return <MuiTableCell {...props} className={clsx("tableCell__root", props.className)} />;
 };

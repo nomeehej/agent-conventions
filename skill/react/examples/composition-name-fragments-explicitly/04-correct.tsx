@@ -1,12 +1,12 @@
 // [!code ++]
 import {Fragment} from "react";
 
-export const PgProductRows = (props: PgProductRowsProps) => {
+export const ProductListRows = (props: ProductListRowsProps) => {
 	return props.products.map((product) => (
 // [!code ++]
 		<Fragment key={product.id}>
-			<PgProductRow product={product} />
-			<PgProductRowDivider />
+			<ProductListRow product={product} />
+			<ProductListRowDivider />
 {/* [!code ++] */}
 		</Fragment>
 	));

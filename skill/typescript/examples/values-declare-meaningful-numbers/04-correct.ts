@@ -1,4 +1,4 @@
-// page/products/pg-products.tsx
+// page/products/products-page.tsx
 const toFirstRow = (rows: Row[]): Row | undefined => {
 // [!code ++]
 	return rows[0];

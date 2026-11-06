@@ -4,9 +4,9 @@
 	"scenarios": [
 		{
 			"id": "FGE01-product-table-style-parity",
-			"prompt": "match the existing products table spacing, divider, and text colors to this Figma wrapper URL (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/...?node-id=12-340) by editing only src/page/products/pg-products.css; the stock divider arrives from get_design_context as rotated wrapper divs and the Figma variables are named Spacing 12 and Content/Border/Normal.",
+			"prompt": "match the existing products table spacing, divider, and text colors to this Figma wrapper URL (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/...?node-id=12-340) by editing only src/page/products/products-page.css; the stock divider arrives from get_design_context as rotated wrapper divs and the Figma variables are named Spacing 12 and Content/Border/Normal.",
 			"files": [
-				"src/page/products/pg-products.css"
+				"src/page/products/products-page.css"
 			],
 			"expectedSkills": [
 				"figma",
@@ -30,10 +30,10 @@
 		},
 		{
 			"id": "FGE02-new-product-list-screen",
-			"prompt": "build the new products route screen from this Figma wrapper URL in src/page/products/pg-products.tsx and src/page/products/pg-products.css: read the product list query, render the table with sortable price column, status badges and a stock warning chip that has no project component, a filter icon, and the hidden reset button state; the UX memo says default sort is newest first while the GUI shows name order, layer names differ from the rendered column labels, and loading and empty states are not drawn.",
+			"prompt": "build the new products route screen from this Figma wrapper URL in src/page/products/products-page.tsx and src/page/products/products-page.css: read the product list query, render the table with sortable price column, status badges and a stock warning chip that has no project component, a filter icon, and the hidden reset button state; the UX memo says default sort is newest first while the GUI shows name order, layer names differ from the rendered column labels, and loading and empty states are not drawn.",
 			"files": [
-				"src/page/products/pg-products.tsx",
-				"src/page/products/pg-products.css"
+				"src/page/products/products-page.tsx",
+				"src/page/products/products-page.css"
 			],
 			"expectedSkills": [
 				"figma",
@@ -61,7 +61,7 @@
 					"verify-report-reads-decisions-and-gaps"
 				],
 				"react": [
-					"ownership-prefix-layer-names-on-files-and-symbols",
+					"ownership-name-component-files-after-their-symbols",
 					"data-name-query-and-mutation-bindings-consistently",
 					"composition-render-one-branch-with-and",
 					"runtime-place-suspense-boundaries-at-the-section-owner",
@@ -78,10 +78,9 @@
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				],
 				"css": [
-					"naming-use-scope-slug-element-modifier-syntax",
+					"naming-use-slug-element-modifier-syntax",
 					"naming-name-elements-and-modifiers-by-role",
-					"ownership-give-each-file-one-scope-slug",
-					"ownership-choose-scope-prefix-by-owner-layer",
+					"ownership-give-each-file-one-slug",
 					"composition-compose-classes-with-clsx",
 					"values-fall-back-only-outside-core-tokens",
 					"layout-keep-layout-intent-explicit",
@@ -91,9 +90,9 @@
 		},
 		{
 			"id": "FGE03-filter-icon-asset-swap",
-			"prompt": "the filter glyph in this Figma node no longer matches UiFilterIcon; replace its svg with the Figma asset in src/component/ui/filter-icon/ui-filter-icon.tsx and commit the downloaded src/asset/icon/filter.svg without calling get_design_context.",
+			"prompt": "the filter glyph in this Figma node no longer matches FilterIcon; replace its svg with the Figma asset in src/component/ui/filter-icon/filter-icon.tsx and commit the downloaded src/asset/icon/filter.svg without calling get_design_context.",
 			"files": [
-				"src/component/ui/filter-icon/ui-filter-icon.tsx",
+				"src/component/ui/filter-icon/filter-icon.tsx",
 				"src/asset/icon/filter.svg"
 			],
 			"expectedSkills": [
@@ -117,9 +116,9 @@
 		},
 		{
 			"id": "FGE04-figma-link-with-data-mapping-only",
-			"prompt": "a Figma link is attached for context, but only read order total from the renamed response field in src/page/orders/pg-orders.tsx; change no rendered copy, markup, or styling.",
+			"prompt": "a Figma link is attached for context, but only read order total from the renamed response field in src/page/orders/orders-page.tsx; change no rendered copy, markup, or styling.",
 			"files": [
-				"src/page/orders/pg-orders.tsx"
+				"src/page/orders/orders-page.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -134,7 +133,7 @@
 			"scopeDrift": {
 				"evidence": "the user then asks to match the orders column labels and count copy to the attached Figma screen, whose layer names differ from the rendered labels; skills add figma with no new companion rule.",
 				"files": [
-					"src/page/orders/pg-orders.tsx"
+					"src/page/orders/orders-page.tsx"
 				],
 				"expectedSkills": [
 					"react",
@@ -159,9 +158,9 @@
 		},
 		{
 			"id": "FGE05-hidden-reset-state-and-memo",
-			"prompt": "the Figma wrapper for the product filter has a hidden selected chip and reset button, a memo that says the reset appears once any filter is chosen, and a change log that contradicts the GUI; add the reset button, labeled as rendered rather than by its layer name, with the existing UiButton in src/component/widget/product-filter/wg-product-filter.tsx.",
+			"prompt": "the Figma wrapper for the product filter has a hidden selected chip and reset button, a memo that says the reset appears once any filter is chosen, and a change log that contradicts the GUI; add the reset button, labeled as rendered rather than by its layer name, with the existing Button in src/component/widget/product-filter/product-filter.tsx.",
 			"files": [
-				"src/component/widget/product-filter/wg-product-filter.tsx"
+				"src/component/widget/product-filter/product-filter.tsx"
 			],
 			"expectedSkills": [
 				"figma",
@@ -191,9 +190,9 @@
 		},
 		{
 			"id": "FGE06-fixed-frame-widths-to-fluid-table",
-			"prompt": "the Figma 1920 frame (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/...?node-id=20-110) fixes order table columns at 60px and 270px with 54px rows; make src/component/widget/order-table/wg-order-table.css follow the frame without copying fixed sizes, keeping long customer names on one line.",
+			"prompt": "the Figma 1920 frame (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/...?node-id=20-110) fixes order table columns at 60px and 270px with 54px rows; make src/component/widget/order-table/order-table.css follow the frame without copying fixed sizes, keeping long customer names on one line.",
 			"files": [
-				"src/component/widget/order-table/wg-order-table.css"
+				"src/component/widget/order-table/order-table.css"
 			],
 			"expectedSkills": [
 				"figma",
@@ -215,9 +214,9 @@
 		},
 		{
 			"id": "FGE07-figjam-board-notes-then-design-link",
-			"prompt": "the review notes on this FigJam board (figma.com/board/Mn56Op78Qr90St12Uv34Wx/...?node-id=3-14) ask for the section spacing token between order summary rows; replace the rows' existing gap value with var(--app-space-section) in src/page/orders/pg-orders.css and change nothing else.",
+			"prompt": "the review notes on this FigJam board (figma.com/board/Mn56Op78Qr90St12Uv34Wx/...?node-id=3-14) ask for the section spacing token between order summary rows; replace the rows' existing gap value with var(--app-space-section) in src/page/orders/orders-page.css and change nothing else.",
 			"files": [
-				"src/page/orders/pg-orders.css"
+				"src/page/orders/orders-page.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -230,7 +229,7 @@
 			"scopeDrift": {
 				"evidence": "the user then pastes the design frame (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/...?node-id=20-120) and asks to match the same rows' padding and border color to it; skills add figma.",
 				"files": [
-					"src/page/orders/pg-orders.css"
+					"src/page/orders/orders-page.css"
 				],
 				"expectedSkills": [
 					"css",
@@ -253,9 +252,9 @@
 		},
 		{
 			"id": "FGE08-figma-link-with-behavior-only",
-			"prompt": "a Figma link for the product filter (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/...?node-id=12-343) is attached, but only change behavior: the existing reset handler in src/component/widget/product-filter/wg-product-filter.tsx must also clear the date range; change no rendered copy, markup, or styling.",
+			"prompt": "a Figma link for the product filter (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/...?node-id=12-343) is attached, but only change behavior: the existing reset handler in src/component/widget/product-filter/product-filter.tsx must also clear the date range; change no rendered copy, markup, or styling.",
 			"files": [
-				"src/component/widget/product-filter/wg-product-filter.tsx"
+				"src/component/widget/product-filter/product-filter.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -268,7 +267,7 @@
 			"scopeDrift": {
 				"evidence": "the user then asks to relabel the reset button with the text rendered in the attached Figma frame, whose layer name differs; skills add figma.",
 				"files": [
-					"src/component/widget/product-filter/wg-product-filter.tsx"
+					"src/component/widget/product-filter/product-filter.tsx"
 				],
 				"expectedSkills": [
 					"react",
@@ -293,9 +292,9 @@
 		},
 		{
 			"id": "FGE09-design-screenshot-without-link",
-			"prompt": "match the padding and text colors of the order summary card in src/component/widget/order-summary/wg-order-summary.css to the attached design screenshot; it is an image only, with no Figma URL or node id.",
+			"prompt": "match the padding and text colors of the order summary card in src/component/widget/order-summary/order-summary.css to the attached design screenshot; it is an image only, with no Figma URL or node id.",
 			"files": [
-				"src/component/widget/order-summary/wg-order-summary.css"
+				"src/component/widget/order-summary/order-summary.css"
 			],
 			"expectedSkills": [
 				"figma",
@@ -315,9 +314,9 @@
 		},
 		{
 			"id": "FGE10-static-page-without-server-data",
-			"prompt": "implement the styles of the static shipping policy page in src/page/shipping-policy/pg-shipping-policy.css from this Figma frame (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/...?node-id=40-2): match heading spacing and text colors; the page shows only fixed copy, with no server data, inputs, or async actions.",
+			"prompt": "implement the styles of the static shipping policy page in src/page/shipping-policy/shipping-policy-page.css from this Figma frame (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/...?node-id=40-2): match heading spacing and text colors; the page shows only fixed copy, with no server data, inputs, or async actions.",
 			"files": [
-				"src/page/shipping-policy/pg-shipping-policy.css"
+				"src/page/shipping-policy/shipping-policy-page.css"
 			],
 			"expectedSkills": [
 				"figma",
@@ -339,9 +338,9 @@
 		},
 		{
 			"id": "FGE11-filter-icon-asset-swap-on-branch",
-			"prompt": "the filter glyph in this Figma branch node (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/branch/Br12Cd34Ef56Gh78Ij90Kl/...?node-id=12-381) no longer matches UiFilterIcon; replace its svg with the Figma asset in src/component/ui/filter-icon/ui-filter-icon.tsx and commit the downloaded src/asset/icon/filter.svg without calling get_design_context.",
+			"prompt": "the filter glyph in this Figma branch node (figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/branch/Br12Cd34Ef56Gh78Ij90Kl/...?node-id=12-381) no longer matches FilterIcon; replace its svg with the Figma asset in src/component/ui/filter-icon/filter-icon.tsx and commit the downloaded src/asset/icon/filter.svg without calling get_design_context.",
 			"files": [
-				"src/component/ui/filter-icon/ui-filter-icon.tsx",
+				"src/component/ui/filter-icon/filter-icon.tsx",
 				"src/asset/icon/filter.svg"
 			],
 			"expectedSkills": [

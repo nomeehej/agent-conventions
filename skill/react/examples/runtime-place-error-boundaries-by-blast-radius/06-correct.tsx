@@ -1,18 +1,18 @@
-export const PgProducts = () => {
+export const ProductsPage = () => {
 	return (
-		<div className={clsx("pg_products__layout")}>
-			<PgProductTreeSection />
+		<div className={clsx("productsPage__layout")}>
+			<ProductTreeSection />
 
 			{/**
 			 * 추천 목록이 실패해도 본문 표는 그대로 사용 가능
 			 */}
-			<UiErrorBoundary fallback={<UiInlineErrorState />}>
-				<Suspense fallback={<UiRecommendationSkeleton />}>
-					<PgProductRecommendationSection />
+			<ErrorBoundary fallback={<InlineErrorState />}>
+				<Suspense fallback={<RecommendationSkeleton />}>
+					<ProductRecommendationSection />
 				</Suspense>
-			</UiErrorBoundary>
+			</ErrorBoundary>
 
-			<PgProductTableSection />
+			<ProductTableSection />
 		</div>
 	);
 };

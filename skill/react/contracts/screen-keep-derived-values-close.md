@@ -11,14 +11,14 @@
 **Incorrect 1 (쓰는 자리에서 먼 화면 상단에 플래그와 표시값을 쌓습니다):**
 
 ```tsx
-export const PgProductTableSection = () => {
+export const ProductTableSection = () => {
 	const responseProductListSuspense = useProductListSuspense();
 	const [selectedRows, setSelectedRows] = useState<ProductRow[]>([]);
 
 	/**
 	 * 고른 행은 이 섹션 안에만 두고 search 파라미터로 올리지 않음
 	 */
-	const handleTableRowSelect: UiTableProps["onRowSelect"] = (rows) => {
+	const handleTableRowSelect: TableProps["onRowSelect"] = (rows) => {
 		setSelectedRows(rows);
 	};
 
@@ -28,9 +28,9 @@ export const PgProductTableSection = () => {
 
 	return (
 		<Fragment>
-			<UiTable rows={responseProductListSuspense.data.items} onRowSelect={handleTableRowSelect} />
+			<Table rows={responseProductListSuspense.data.items} onRowSelect={handleTableRowSelect} />
 
-			{hasSelectedRows && <PgProductBulkActionBar label={bulkActionLabel} />}
+			{hasSelectedRows && <ProductBulkActionBar label={bulkActionLabel} />}
 		</Fragment>
 	);
 };
@@ -39,23 +39,23 @@ export const PgProductTableSection = () => {
 **Correct 1 (선언을 그대로 두고 쓰는 자리에서 계산합니다):**
 
 ```tsx
-export const PgProductTableSection = () => {
+export const ProductTableSection = () => {
 	const responseProductListSuspense = useProductListSuspense();
 	const [selectedRows, setSelectedRows] = useState<ProductRow[]>([]);
 
 	/**
 	 * 고른 행은 이 섹션 안에만 두고 search 파라미터로 올리지 않음
 	 */
-	const handleTableRowSelect: UiTableProps<ProductRow>["onRowSelect"] = (rows) => {
+	const handleTableRowSelect: TableProps<ProductRow>["onRowSelect"] = (rows) => {
 		setSelectedRows(rows);
 	};
 
 	return (
 		<Fragment>
-			<UiTable rows={responseProductListSuspense.data.items} onRowSelect={handleTableRowSelect} />
+			<Table rows={responseProductListSuspense.data.items} onRowSelect={handleTableRowSelect} />
 
 			{selectedRows.length > 0 && (
-				<PgProductBulkActionBar label={`${selectedRows.length}건 삭제`} />
+				<ProductBulkActionBar label={`${selectedRows.length}건 삭제`} />
 			)}
 		</Fragment>
 	);

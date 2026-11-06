@@ -1,5 +1,5 @@
 /* [!code error] */
-.ui_input__field--invalid {
+.input__field--invalid {
 	&:focus-visible {
 /* [!code error] */
 		outline: none;
