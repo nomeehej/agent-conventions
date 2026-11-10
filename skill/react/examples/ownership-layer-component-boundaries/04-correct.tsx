@@ -1,11 +1,10 @@
 // component/widget/product-status-badge/product-status-badge.tsx
-/**
- * 상품 상태 배지 계약
- */
+// ----------------------------------------------------------------------------------------
+// 상품 상태 배지 계약
+//
+// status: 배지 색을 정하는 상품 상태
+// ----------------------------------------------------------------------------------------
 export interface ProductStatusBadgeProps {
-	/**
-	 * 배지 색을 정하는 상품 상태
-	 */
 	status: ProductStatus;
 	children: ReactNode;
 }

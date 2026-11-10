@@ -1,16 +1,13 @@
-/**
- * 라벨과 보조 설명을 붙인 입력 한 줄
- */
+// ----------------------------------------------------------------------------------------
+// 라벨과 보조 설명을 붙인 입력 한 줄
+//
+// className: 최상위에 얹을 클래스
+// inputId: 라벨과 입력을 잇는 id
+// ----------------------------------------------------------------------------------------
 export interface FieldProps {
-	/**
-	 * 최상위에 얹을 클래스
-	 */
 	className?: string;
 	label: string;
 	helperText?: string;
-	/**
-	 * 라벨과 입력을 잇는 id
-	 */
 	inputId: string;
 	value: string;
 	onChange: ChangeEventHandler<HTMLInputElement>;

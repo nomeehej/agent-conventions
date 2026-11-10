@@ -1,16 +1,18 @@
 // component/widget/profile-dialog/_profile-dialog-root.tsx
 import {clsx} from "clsx";
 
-/**
- * 대화상자 틀 계약
- */
+// ----------------------------------------------------------------------------------------
+// 대화상자 틀 계약
+// ----------------------------------------------------------------------------------------
 export interface ProfileDialogRootProps {
 	children: ReactNode;
 }
 
-/**
- * 대화상자 틀. 나머지 부품은 이 안에서만 렌더
- */
+// ----------------------------------------------------------------------------------------
+// 대화상자 틀
+//
+// 나머지 부품은 이 안에서만 렌더
+// ----------------------------------------------------------------------------------------
 export const ProfileDialogRoot = (props: ProfileDialogRootProps) => {
 	return <section className={clsx("profileDialog__root")}>{props.children}</section>;
 };

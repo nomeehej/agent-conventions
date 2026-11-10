@@ -4,9 +4,9 @@
 export const DeleteProductButton = () => {
 	const navigate = useNavigate();
 
-	/**
-	 * 삭제 후 목록으로 이동
-	 */
+	// ----------------------------------------------------------------------------------------
+	// 삭제 후 목록으로 이동
+	// ----------------------------------------------------------------------------------------
 	const handleDeleteButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 		void navigate("/products");
 	};

@@ -1,7 +1,8 @@
-/**
- * 상품 생성 요청, 성공 뒤 목록으로 이동
- * {@link /api/product}
- */
+// ----------------------------------------------------------------------------------------
+// 상품 생성 요청, 성공 뒤 목록으로 이동
+//
+// 엔드포인트: /api/product
+// ----------------------------------------------------------------------------------------
 const mutationProductCreate = useProductCreate({
 	mutation: {
 		onSuccess: (_data, _variables, _onMutateResult, _context) => {
@@ -11,9 +12,11 @@ const mutationProductCreate = useProductCreate({
 });
 
 // [!code ++]
-/**
- * 버튼을 누른 그 자리에서 생성 호출. 상태로 올려 이펙트가 대신 부르게 하지 않음
- */
+// ----------------------------------------------------------------------------------------
+// 버튼을 누른 그 자리에서 생성 호출
+//
+// 상태로 올려 이펙트가 대신 부르게 하지 않음
+// ----------------------------------------------------------------------------------------
 // [!code ++]
 const handleSaveButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 	mutationProductCreate.mutate({data: toProductCreateRequest(formValues)});

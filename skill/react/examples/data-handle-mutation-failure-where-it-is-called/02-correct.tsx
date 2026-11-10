@@ -1,7 +1,10 @@
-/**
- * 상품 저장 요청, 성공 뒤 목록 화면으로 이동. 실패 문구는 폼 위에 표시
- * {@link /api/product}
- */
+// ----------------------------------------------------------------------------------------
+// 상품 저장 요청, 성공 뒤 목록 화면으로 이동
+//
+// 실패 문구는 폼 위에 표시
+//
+// 엔드포인트: /api/product
+// ----------------------------------------------------------------------------------------
 const mutationProductSave = useProductSave({
 	mutation: {
 		onSuccess: (_data, _variables, _onMutateResult, _context) => {
@@ -13,9 +16,11 @@ const mutationProductSave = useProductSave({
 	},
 });
 
-/**
- * 저장 중 중복 호출 차단. 이동과 실패 표시는 mutation 콜백이 담당
- */
+// ----------------------------------------------------------------------------------------
+// 저장 중 중복 호출 차단
+//
+// 이동과 실패 표시는 mutation 콜백이 담당
+// ----------------------------------------------------------------------------------------
 const handleSaveButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 	if (mutationProductSave.isPending) {
 		return;

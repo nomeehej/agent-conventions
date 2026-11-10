@@ -6,9 +6,9 @@ export const OrderToolbar = () => {
 // [!code error]
 	const isClearDisabled = selectedIds.length === 0 || isPanelOpen;
 
-	/**
-	 * 비우기는 선택만 지우고 패널은 유지
-	 */
+	// ----------------------------------------------------------------------------------------
+	// 비우기는 선택만 지우고 패널은 유지
+	// ----------------------------------------------------------------------------------------
 	const handleClearButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 		setSelectedIds([]);
 	};
