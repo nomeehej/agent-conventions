@@ -31,7 +31,11 @@ seed는 기본 작성 절차가 아닙니다.
 테스트의 표본값과 기대값은 제품 정책 상수를 가져오지 않고 직접 적을 수 있습니다.
 생성 DTO와 factory 위의 조립 순서는 `network-compose-generated-contracts-through-owned-builders`가 정합니다.
 
-참고: [공식 문서](https://vitest.dev/guide/learn/testing-in-practice).
+참고: [Software Engineering at Google: 테스트 본문은 완결되고
+간결하게](https://abseil.io/resources/swe-book/html/ch12.html#make_your_tests_complete_and_concise),
+[TypeScript 문서: satisfies
+연산자](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-4-9.html#the-satisfies-operator),
+[Kubb 문서: Faker 플러그인의 typeMode와 덮어쓰기](https://docs.kubb.dev/extensions/kubb-labs/plugin-faker/options).
 
 **Incorrect 1 (타입 단언이 정상 입력의 필수 필드 누락을 숨깁니다):**
 

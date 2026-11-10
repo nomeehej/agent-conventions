@@ -37,7 +37,9 @@ Playwright의 `context` fixture는 실패해도 닫히므로 세션이 없는 �
 context 재사용은 격리가 확인된 프로젝트의 최적화로 선택합니다.
 단독 실행, 순서 변화, 필요한 병렬 실행에서 결과가 같은지 확인합니다.
 
-참고: [공식 문서](https://playwright.dev/docs/browser-contexts).
+참고: [Playwright 문서: 브라우저 context로 테스트 격리](https://playwright.dev/docs/browser-contexts),
+[Vitest 문서: mockClear, mockReset, mockRestore](https://vitest.dev/api/mock),
+[Vitest 문서: restoreMocks 설정](https://vitest.dev/config/restoremocks).
 
 **Incorrect 1 (복구하지 않은 spy가 다음 테스트로 남습니다):**
 

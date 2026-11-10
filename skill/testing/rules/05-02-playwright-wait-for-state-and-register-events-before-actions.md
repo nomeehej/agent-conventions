@@ -38,7 +38,9 @@ web-first matcher가 없는 관측값은 상한이 있는 `expect.poll`로 기�
 `page.waitForEvent`, `page.waitForResponse`가 돌려준 Promise를 액션 전에 만들고 액션 뒤에 `await`합니다.
 액션 뒤에 등록하면 그 사이에 끝난 이벤트를 놓칠 수 있습니다.
 
-참고: [공식 문서](https://playwright.dev/docs/best-practices#use-web-first-assertions).
+참고: [Playwright 문서: web-first 단언](https://playwright.dev/docs/best-practices#use-web-first-assertions),
+[Playwright 문서: 이벤트를 액션 전에 기다리기](https://playwright.dev/docs/events#waiting-for-event),
+[Martin Fowler: 비동기 테스트에서 sleep을 넣는 실수](https://martinfowler.com/articles/nonDeterminism.html).
 
 **Incorrect 1 (고정 시간 뒤에 한 번만 문구를 읽습니다):**
 

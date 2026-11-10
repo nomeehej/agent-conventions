@@ -40,7 +40,9 @@ flowchart LR
 타이머 동작 자체를 검증할 때만 시간을 수동으로 진행합니다.
 공유 프로세스의 타임존이나 전역 난수 상태를 병렬 테스트가 서로 바꾸지 않게 합니다.
 
-참고: [공식 문서](https://playwright.dev/docs/clock).
+참고: [Playwright 문서: clock으로 시간 고정과 진행](https://playwright.dev/docs/clock),
+[Vitest 문서: 날짜 mock과 복구](https://vitest.dev/guide/mocking/dates),
+[Martin Fowler: 비결정적 테스트 없애기, 시계 감싸기](https://martinfowler.com/articles/nonDeterminism.html).
 
 **Incorrect 1 (실행하는 날의 날짜를 입력과 기대값에서 함께 읽습니다):**
 

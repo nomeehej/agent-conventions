@@ -26,7 +26,8 @@ canvas의 사용자 액션이나 레이아웃 자체가 대상이면 이미지 �
 기준 이미지는 변경 결과를 직접 보고 승인합니다.
 플랫폼별 기준을 둘지는 실행 환경에 맞게 정합니다.
 
-참고: [공식 문서](https://playwright.dev/docs/api/class-testconfig#test-config-expect).
+참고: [Playwright 문서: 시각 비교와 기준 환경](https://playwright.dev/docs/test-snapshots),
+[Playwright 문서: 스크린샷 비교 설정](https://playwright.dev/docs/api/class-testconfig#test-config-expect).
 
 **Incorrect 1 (Buffer 비교도 쓰는 프로젝트에서 `toHaveScreenshot`에만 허용치를 설정합니다):**
 

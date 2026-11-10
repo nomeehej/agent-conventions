@@ -44,7 +44,10 @@ step 이름이 그 바퀴의 시나리오 문장이고 step 안은 행동과 검
 주석과 step을 결과서로 읽는 프로젝트에서는 파서가 지원하는 형식을 유지합니다.
 GIVEN, WHEN, THEN 주석을 위해 Cucumber나 별도 BDD 러너를 추가하지 않습니다.
 
-참고: [Gherkin의 조건, 행동, 결과](https://cucumber.io/docs/gherkin/reference/).
+참고: [Software Engineering at Google: 동작 중심 테스트 구조, given, when,
+then](https://abseil.io/resources/swe-book/html/ch12.html#structure_tests_to_emphasize_behaviors),
+[Vitest 문서: 테스트 하나에 동작 하나](https://vitest.dev/guide/learn/testing-in-practice#one-behavior-per-test),
+[Cucumber 문서: Gherkin의 Given, When, Then](https://cucumber.io/docs/gherkin/reference/).
 
 **Incorrect 1 (이름만으로 어떤 조건이 깨졌는지 알 수 없습니다):**
 

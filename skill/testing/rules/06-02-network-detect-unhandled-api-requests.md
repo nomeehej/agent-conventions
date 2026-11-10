@@ -32,7 +32,8 @@ MSW worker는 미처리 API를 구별할 표식을 기록합니다.
 mock 앱 E2E의 실행 fixture가 종료 때 그 기록으로 누락을 단언합니다.
 화면이 fetch 실패를 처리하거나 다른 화면으로 이동해도 기록이 사라지지 않게 Node 쪽에 보관합니다.
 
-참고: [MSW 3.x의 미처리 frame 옵션](https://mswjs.io/docs/api/setup-server/listen).
+참고: [MSW 문서: listen()의 onUnhandledFrame 옵션(3.x)](https://mswjs.io/api/setup-server/listen),
+[MSW 문서: 미처리 요청 오류 처리](https://mswjs.io/guides/best-practices/avoid-request-assertions#unhandled-requests).
 
 **Incorrect 1 (처리되지 않은 API 요청을 모두 우회합니다):**
 

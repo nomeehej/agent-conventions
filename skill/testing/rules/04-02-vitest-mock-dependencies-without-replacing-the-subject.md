@@ -30,7 +30,10 @@ flowchart LR
 결과로 관찰할 수 없는 외부 부수효과가 계약일 때는 호출 인자와 횟수를 검사할 수 있습니다.
 외부 결과가 같은 내부 리팩터링에서는 테스트가 그대로 통과해야 합니다.
 
-참고: [공식 문서](https://vitest.dev/guide/mocking), [vi.mock](https://vitest.dev/api/vi).
+참고: [Vitest 문서: 목킹하지 말아야 할 것](https://vitest.dev/guide/learn/testing-in-practice#what-not-to-mock),
+[Software Engineering at Google: 상태를 검증하고 상호작용 검증은
+피하기](https://abseil.io/resources/swe-book/html/ch12.html#test_statecomma_not_interactions),
+[Vitest 문서: vi.mock API](https://vitest.dev/api/vi#vi-mock).
 
 **Incorrect 1 (검증할 함수 자체를 대체하고 대체값을 확인합니다):**
 

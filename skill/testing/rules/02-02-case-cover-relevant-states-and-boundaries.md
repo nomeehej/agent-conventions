@@ -26,7 +26,7 @@ tags: testing, case
 오류 코드와 경계 조합은 실제 처리 분기가 있는 것만 고릅니다.
 모든 상태 코드를 일괄로 테스트하지 않습니다.
 
-참고: [공식 문서](https://vitest.dev/guide/learn/testing-in-practice).
+참고: [Vitest 문서: 경계값과 오류 경로 테스트](https://vitest.dev/guide/learn/testing-in-practice#testing-edge-cases).
 
 **Incorrect 1 (양수 정상 입력만 확인합니다):**
 

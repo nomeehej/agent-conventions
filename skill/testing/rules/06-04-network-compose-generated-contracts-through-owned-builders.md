@@ -51,8 +51,9 @@ spec에서 같은 정상 본문이나 endpoint URL을 반복 작성하지 않습
 재생성 뒤에는 생성물 diff, 도메인 builder의 타입, handler의 응답, 실제 소비 테스트를 확인합니다.
 factory 이름과 합치기 방식은 설치 버전과 산출물에서 확인하며 예제 이름을 그대로 추측하지 않습니다.
 
-참고: [Kubb MSW](https://docs.kubb.dev/extensions/kubb-labs/plugin-msw/options),
-[Kubb Faker](https://docs.kubb.dev/extensions/kubb-labs/plugin-faker/options).
+참고: [Kubb 문서: MSW 플러그인 옵션](https://docs.kubb.dev/extensions/kubb-labs/plugin-msw/options),
+[Kubb 문서: Faker 플러그인 옵션](https://docs.kubb.dev/extensions/kubb-labs/plugin-faker/options),
+[MSW 문서: 정상 응답 handler와 오류 덮어쓰기](https://mswjs.io/guides/best-practices/structuring-handlers).
 
 **Incorrect 1 (spec에서 생성 계약과 무관한 정상 본문을 직접 작성합니다):**
 

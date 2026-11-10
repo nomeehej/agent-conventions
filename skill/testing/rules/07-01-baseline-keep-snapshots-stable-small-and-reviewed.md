@@ -31,7 +31,8 @@ flowchart LR
 새 기준값은 첫 생성 뒤 출력을 계약과 손으로 대조합니다.
 실패를 없애려고 일괄 갱신하지 않고 기준값 파일을 관련 변경과 함께 검토 대상으로 남깁니다.
 
-참고: [공식 문서](https://vitest.dev/guide/snapshot).
+참고: [Vitest 문서: snapshot 커밋과 리뷰](https://vitest.dev/guide/snapshot),
+[Kent C. Dodds: 효과적인 snapshot 테스트](https://kentcdodds.com/blog/effective-snapshot-testing).
 
 **Incorrect 1 (결과 문자열의 길이만 비교해 내용 변경을 놓칩니다):**
 

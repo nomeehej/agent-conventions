@@ -30,7 +30,9 @@ CSS 클래스와 좌표는 스타일이나 렌더 위치 자체를 검사할 때
 일반 클릭의 기본 선택자로 삼지 않습니다.
 키보드와 포커스가 계약인 요소는 그 조작으로도 확인합니다.
 
-참고: [공식 문서](https://playwright.dev/docs/locators).
+참고: [Playwright 문서: locator의 role, 이름, test id](https://playwright.dev/docs/locators),
+[Testing Library 문서: 쿼리 우선순위](https://testing-library.com/docs/queries/about#priority),
+[Testing Library 문서: 지도 원칙](https://testing-library.com/docs/guiding-principles/).
 
 **Incorrect 1 (클래스와 마지막 버튼이라는 우연한 순서로 선택합니다):**
 

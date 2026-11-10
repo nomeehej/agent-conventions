@@ -37,9 +37,9 @@ cookie를 생략하는 `headers` 대신 `allHeaders`를 사용하고 상대 hand
 배열 복사는 handler 인스턴스의 상태를 초기화하지 않으므로 공유 handler 목록은 상태 없는 반복 응답으로 한정합니다.
 `once`, generator, 변경 가능한 저장소가 필요하면 테스트마다 factory에서 새 인스턴스를 만듭니다.
 
-참고: [MSW getResponse](https://mswjs.io/api/get-response),
-[Playwright의 service worker와 네트워크](https://playwright.dev/docs/network),
-[Playwright 응답 읽기의 다중 cookie 표기](https://playwright.dev/docs/api/class-response#response-header-value).
+참고: [MSW 문서: getResponse로 handler 목록 해석](https://mswjs.io/api/get-response),
+[Playwright 문서: service worker 차단](https://playwright.dev/docs/network#missing-network-events-and-service-workers),
+[Playwright 문서: set-cookie 헤더 읽기](https://playwright.dev/docs/api/class-response#response-header-value).
 
 **Incorrect 1 (Node의 공유 handler 목록과 별개인 목록을 브라우저에서 다시 작성합니다):**
 

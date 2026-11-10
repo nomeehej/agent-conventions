@@ -38,7 +38,7 @@ story에 넣은 router만으로 production 라우트 등록과 앱 초기화까�
 callback 결과는 브라우저에서 기록한 값을 읽고 픽셀 결과는 별도 시각 비교 사례로 둡니다.
 수집 목록과 실행 결과의 구분은 `verification-report-failures-flakes-and-executed-scope`를 따릅니다.
 
-참고: [Playwright의 component 소비 테스트](https://playwright.dev/docs/test-components).
+참고: [Playwright 문서: story를 mount하는 컴포넌트 테스트](https://playwright.dev/docs/test-components).
 
 **Incorrect 1 (story가 그려졌다는 사실만 확인합니다):**
 

@@ -19,6 +19,9 @@ tags: testing, scope
 함수가 맞아도 바인딩이 틀릴 수 있으므로 두 사례를 유지합니다.
 상위 층에서 함수의 전체 경우의 수를 다시 순회하는 대신 연결이 끊겼을 때 실패할 사례를 고릅니다.
 
+참고: [Ham Vocke: 테스트 피라미드의 테스트 중복 피하기](https://martinfowler.com/articles/practical-test-pyramid.html),
+[Kent C. Dodds: 테스트 층별 비용과 신뢰](https://kentcdodds.com/blog/write-tests).
+
 **Incorrect 1 (화면에서 함수의 입력 조합을 모두 반복합니다):**
 
 <<< ../examples/scope-assign-a-primary-layer-and-check-wiring/01-incorrect.test.ts

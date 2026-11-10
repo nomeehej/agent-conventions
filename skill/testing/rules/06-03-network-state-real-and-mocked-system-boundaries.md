@@ -24,7 +24,8 @@ tags: testing, network
 실제 연동이 필요한 요청이면 별도 실행 환경과 데이터를 준비합니다.
 mock의 타입 일치와 실제 서버의 런타임 응답 일치는 별도로 확인합니다.
 
-참고: [공식 문서](https://playwright.dev/docs/mock).
+참고: [Playwright 문서: API 요청 mock](https://playwright.dev/docs/mock#mock-api-requests),
+[MSW 문서: mock과 실제 서버의 어긋남 막기](https://mswjs.io/guides/recipes/preventing-mock-drift).
 
 **Incorrect 1 (mock 실행으로 서버 인증과 저장까지 검증했다고 적습니다):**
 

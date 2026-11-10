@@ -34,7 +34,9 @@ sanity는 수정 사례 하나에 그치지 않고 끊어질 수 있는 연결�
 기존 사례를 태그나 명시적 목록으로 골라 실행하고 복사해 별도 테스트를 만들지 않습니다.
 선별 결과가 0건이면 통과가 아닙니다.
 
-참고: [Playwright 태그와 annotation](https://playwright.dev/docs/test-annotations).
+참고: [Playwright 문서: 테스트 태그](https://playwright.dev/docs/test-annotations#tag-tests),
+[ISTQB 용어집(imbus 게시): smoke test 정의](https://www.imbus.de/en/glossar/term/smoke-test),
+[Ham Vocke: 테스트 용어의 혼란](https://martinfowler.com/articles/practical-test-pyramid.html).
 
 **Incorrect 1 (순수 포맷 검사를 배포 smoke의 근거로 삼습니다):**
 

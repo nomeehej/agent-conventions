@@ -30,8 +30,9 @@ flowchart LR
 worker가 켜진 앱 E2E에서는 `page.route`가 worker가 처리하는 요청을 가로채지 못합니다.
 그래서 `page.route`는 `serviceWorkers: "block"`인 project에서만 씁니다.
 
-참고: [Playwright 네트워크](https://playwright.dev/docs/network),
-[MSW의 요청 단언 피하기](https://mswjs.io/docs/best-practices/avoid-request-assertions).
+참고: [MSW 문서: 요청 단언 피하기](https://mswjs.io/guides/best-practices/avoid-request-assertions),
+[Playwright 문서: service worker 차단](https://playwright.dev/docs/network#missing-network-events-and-service-workers),
+[Kent C. Dodds: fetch를 mock하지 말고 네트워크 경계에서 처리](https://kentcdodds.com/blog/stop-mocking-fetch).
 
 **Incorrect 1 (응답 처리 대신 DOM에 기대 문구를 직접 씁니다):**
 

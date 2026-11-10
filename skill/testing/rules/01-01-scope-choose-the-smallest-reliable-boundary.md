@@ -40,7 +40,9 @@ flowchart LR
 mock 서버를 쓰는 앱 E2E가 증명하는 범위는 `network-state-real-and-mocked-system-boundaries`가 정합니다.
 단순 래퍼나 서드파티 자체의 동작을 반복하는 테스트는 추가하지 않습니다.
 
-참고: [Playwright 모범 사례](https://playwright.dev/docs/best-practices).
+참고: [Ham Vocke: 실용적인 테스트 피라미드](https://martinfowler.com/articles/practical-test-pyramid.html),
+[Kent C. Dodds: 테스트 층별 비용과 신뢰](https://kentcdodds.com/blog/write-tests),
+[Vitest 문서: 브라우저 모드를 쓰는 이유](https://vitest.dev/guide/browser/why).
 
 **Incorrect 1 (브라우저 전체에서 숫자 포맷만 확인합니다):**
 

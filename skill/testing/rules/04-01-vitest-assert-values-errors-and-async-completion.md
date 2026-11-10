@@ -20,7 +20,8 @@ tags: testing, vitest
 테스트 종료 후에도 남는 Promise나 처리되지 않은 rejection이 없도록 비동기 작업을 기다립니다.
 Jest 전역이나 다른 러너의 API를 섞지 않고 `vitest`에서 가져온 API와 프로젝트 설정을 사용합니다.
 
-참고: [공식 문서](https://vitest.dev/guide/learn/async).
+참고: [Vitest 문서: 비동기 코드 테스트, resolves, rejects, assertion 개수](https://vitest.dev/guide/learn/async),
+[Vitest 문서: expect의 toBe, toStrictEqual, toThrow, rejects](https://vitest.dev/api/expect#tostrictequal).
 
 **Incorrect 1 (Promise가 성공해도 catch의 단언이 실행되지 않아 통과합니다):**
 

@@ -27,7 +27,9 @@ tags: testing, verification
 고정된 전역 비율보다 변경한 계약과 중요한 분기의 누락을 먼저 확인합니다.
 테스트를 바꾸면 그 범위와 프로젝트 필수 검사를 실행하고 미실행은 미실행으로 적습니다.
 
-참고: [공식 문서](https://playwright.dev/docs/test-retries).
+참고: [Playwright 문서: 재시도와 flaky 분류](https://playwright.dev/docs/test-retries#retries),
+[Martin Fowler: 테스트 커버리지](https://martinfowler.com/bliki/TestCoverage.html),
+[Martin Fowler: 비결정적 테스트와 격리](https://martinfowler.com/articles/nonDeterminism.html).
 
 **Incorrect 1 (재시도 통과와 미실행을 포함해 전체 성공으로 적습니다):**
 

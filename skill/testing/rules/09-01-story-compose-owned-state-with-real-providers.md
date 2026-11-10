@@ -35,7 +35,8 @@ story 파일은 앱의 production 진입 경로로 가져오지 않고 테스트
 이 story는 Playwright gallery 전용이며 Storybook의 CSF와 파일 형식이 달라 서로 가져오지 않습니다.
 Storybook을 함께 쓰면 두 목록을 따로 관리하고 현재 프로젝트의 gallery와 story ID 계약을 유지합니다.
 
-참고: [Playwright 1.62부터의 story와 gallery](https://playwright.dev/docs/test-components).
+참고: [Playwright 문서: 컴포넌트 테스트의 story와 gallery](https://playwright.dev/docs/test-components#how-it-works),
+[Testing Library 문서: custom render](https://testing-library.com/docs/react-testing-library/setup#custom-render).
 
 **Incorrect 1 (실제 화면 대신 기대 문구만 렌더합니다):**
 

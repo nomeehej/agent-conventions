@@ -15,7 +15,9 @@
 폴더 번호, 케이스 ID, 별칭, 실제 폴더 이름은 프로젝트 문서가 정합니다.
 단순 이동을 이유로 무관한 테스트와 프로덕션 파일을 재배치하지 않습니다.
 
-참고: [공식 문서](https://vitest.dev/guide/learn/testing-in-practice).
+참고: [Vitest 문서: 테스트 파일 배치](https://vitest.dev/guide/learn/testing-in-practice#file-layout),
+[Vitest 문서: project별 설정과 수집 패턴](https://vitest.dev/guide/projects),
+[Playwright 문서: project의 testMatch와 testIgnore](https://playwright.dev/docs/test-projects).
 
 **Incorrect 1 (역할이 섞여 어떤 러너가 읽는지 알기 어렵습니다):**
 

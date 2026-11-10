@@ -27,7 +27,7 @@ flowchart LR
 실패를 재현할 수 없으면 확인한 범위와 남은 불확실성을 그대로 보고합니다.
 프로젝트와 요청이 정한 테스트 범위를 따르며 이 규칙을 모든 변경의 일괄 TDD 의무로 넓히지 않습니다.
 
-참고: [공식 문서](https://vitest.dev/guide/learn/testing-in-practice).
+참고: [Vitest 문서: 버그를 테스트로 재현](https://vitest.dev/guide/learn/testing-in-practice#fixing-bugs-with-tests).
 
 **Incorrect 1 (호출이 예외를 던지지 않는다는 것만 확인합니다):**
 

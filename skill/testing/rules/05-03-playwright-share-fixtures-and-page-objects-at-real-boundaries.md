@@ -28,7 +28,10 @@ page object는 시나리오의 기대값을 숨기지 않고 테스트가 결과
 fixture의 의존성 이름과 scope는 실제 사용 범위에 맞추고 테스트별 상태를 worker 전역으로 올리지 않습니다.
 fixture 콜백의 매개변수 구조분해는 `typescript/values-read-objects-through-chains`의 예외를 따릅니다.
 
-참고: [공식 문서](https://playwright.dev/docs/test-fixtures).
+참고: [Playwright 문서: fixture](https://playwright.dev/docs/test-fixtures),
+[Playwright 문서: page object model](https://playwright.dev/docs/pom),
+[Software Engineering at Google:
+공유 helper와 검증 함수의 위험](https://abseil.io/resources/swe-book/html/ch12.html#shared_helpers_and_validation).
 
 **Incorrect 1 (테스트마다 같은 화면의 locator 체인을 반복합니다):**
 

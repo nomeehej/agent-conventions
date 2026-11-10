@@ -26,7 +26,8 @@ flowchart LR
 서버 로그인 자체가 대상이 아니면 매 테스트마다 로그인 UI를 반복하지 않습니다.
 뒤로가기, 새로고침, 지속성이 대상이면 그 과정에서 필요한 저장소를 지우거나 라우터를 새로 만들지 않습니다.
 
-참고: [공식 문서](https://playwright.dev/docs/best-practices).
+참고: [Playwright 문서: 인증 상태 재사용](https://playwright.dev/docs/auth#basic-shared-account-in-all-tests),
+[Playwright 문서: 사용자가 보는 동작을 테스트](https://playwright.dev/docs/best-practices#test-user-visible-behavior).
 
 **Incorrect 1 (상세 URL로 바로 열어 목록 링크의 연결을 건너뜁니다):**
 

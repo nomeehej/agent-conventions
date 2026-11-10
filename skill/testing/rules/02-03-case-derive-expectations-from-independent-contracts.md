@@ -28,7 +28,9 @@ flowchart LR
 관계가 계약이면 정렬 순서, 합계 보존처럼 그 관계와 실패 입력을 분명히 드러냅니다.
 기준값 갱신은 `baseline-keep-snapshots-stable-small-and-reviewed`를 따릅니다.
 
-참고: [Vitest의 Testing in Practice](https://vitest.dev/guide/learn/testing-in-practice).
+참고: [Google Testing Blog:
+테스트에 로직을 넣지 않기](https://testing.googleblog.com/2014/07/testing-on-toilet-dont-put-logic-in.html),
+[Vitest 문서: 계약 기준으로 테스트 정하기](https://vitest.dev/guide/learn/testing-in-practice#what-to-test).
 
 **Incorrect 1 (검증 대상 함수를 기대값에서도 호출합니다):**
 
