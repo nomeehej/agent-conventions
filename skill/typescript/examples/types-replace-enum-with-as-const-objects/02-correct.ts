@@ -8,6 +8,6 @@ const product_status = {
 } as const;
 
 /**
- * 상품 심사 상태 타입. product_status에 값을 더하면 함께 넓어짐
+ * 상품 심사 상태 타입. product_status에 값 추가 시 함께 확장
  */
 type ProductStatus = (typeof product_status)[keyof typeof product_status];

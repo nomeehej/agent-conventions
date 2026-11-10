@@ -27,17 +27,11 @@ fetchProductPage(api_base_url, urlParams.page, pagination_default_page_size, und
  * 상품 목록 한 페이지 요청 조건
  */
 interface ProductPageRequest {
-	/**
-	 * 요청 기준 주소
-	 */
 	baseUrl: string;
 	/**
 	 * 1부터 세는 페이지 번호
 	 */
 	page: number;
-	/**
-	 * 한 페이지에 담을 개수
-	 */
 	pageSize: number;
 	/**
 	 * 검색어. 비우면 전체 목록

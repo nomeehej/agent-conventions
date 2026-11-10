@@ -1,6 +1,6 @@
 // constant/api.ts
 /**
- * 요청 하나의 최대 대기 시간. 게이트웨이가 30초에 끊으므로 그 전에 실패 표시
+ * 요청 하나의 최대 대기 시간. 게이트웨이 30초 제한, 그 전에 실패 표시
  */
 export const api_request_timeout_ms = 20_000;
 

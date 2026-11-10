@@ -77,7 +77,7 @@ MUI가 그리는 모달, 드로어, 툴팁, 스낵바는 `theme.zIndex`를 쓰�
 
 /* src/page/products/products-page.css */
 .productsPage__toolbar {
-	/* 화면 스크롤 컨테이너 기준 고정. 드롭다운이 이 쌓임 맥락을 벗어나야 하면 포털 대상을 밖에 둠 */
+	/* 화면 스크롤 컨테이너 기준 고정. 드롭다운이 이 쌓임 맥락을 벗어나야 하면 포털 대상을 밖에 배치 */
 	position: sticky;
 	z-index: var(--app-z-index-sticky);
 }

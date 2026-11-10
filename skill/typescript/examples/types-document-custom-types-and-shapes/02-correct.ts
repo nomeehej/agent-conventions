@@ -1,16 +1,12 @@
 /**
  * 게시 결과 요약
  */
-// [!code ++]
-export interface PublishResult {
-// [!code ++]
-	/**
-	 * 게시 대상 문서 ID
-	 */
+interface PublishResult {
 	documentId: string;
-// [!code ++]
-	/**
-	 * 게시 성공 여부
-	 */
 	published: boolean;
+	// [!code ++]
+	/**
+	 * 서버 시간대 기준 예약 게시 시각, 즉시 게시면 없음
+	 */
+	scheduledAt?: string;
 }

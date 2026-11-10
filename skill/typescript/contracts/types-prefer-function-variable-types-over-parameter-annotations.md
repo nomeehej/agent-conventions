@@ -22,13 +22,7 @@
  * 사용자 화면 표시 문자열 계약
  */
 interface UserFormatters {
-	/**
-	 * 권한 코드를 화면 문자열로
-	 */
 	toRoleLabel: (role: UserRole) => string;
-	/**
-	 * 활성 여부를 화면 문자열로
-	 */
 	toActiveLabel: (isActive: boolean) => string;
 }
 
@@ -48,13 +42,7 @@ const toRoleLabel = (role: UserRole): string => {
  * 사용자 화면 표시 문자열 계약
  */
 interface UserFormatters {
-	/**
-	 * 권한 코드를 화면 문자열로
-	 */
 	toRoleLabel: (role: UserRole) => string;
-	/**
-	 * 활성 여부를 화면 문자열로
-	 */
 	toActiveLabel: (isActive: boolean) => string;
 }
 

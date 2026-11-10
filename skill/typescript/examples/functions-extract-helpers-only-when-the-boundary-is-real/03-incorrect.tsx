@@ -1,6 +1,6 @@
 // page/profile/profile-page.tsx
 // [!code error]
-// (previous + 1) % pageCount 한 줄을 page/profile/_function/get-next-page.ts로 옮김
+// (previous + 1) % pageCount 한 줄을 page/profile/_function/get-next-page.ts로 이동
 // [!code error]
 import {getNextPage} from "@/page/profile/_function/get-next-page";
 

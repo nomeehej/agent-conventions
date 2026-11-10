@@ -1,5 +1,5 @@
 // [!code error]
-// 서버 계약은 {category_id, product_name}인데 우리 표기로 바꿔 전송
+// 서버 계약은 {category_id, product_name}, 우리 표기로 변환 전송
 /**
  * 상품 저장 요청 조립
  */

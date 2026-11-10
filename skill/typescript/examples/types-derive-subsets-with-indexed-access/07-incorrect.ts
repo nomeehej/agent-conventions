@@ -4,9 +4,6 @@
  * 주문 내보내기 표 칸 표시 계약
  */
 interface OrderExportCell {
-	/**
-	 * 칸 정렬
-	 */
 // [!code error]
 	align: "inherit" | "left" | "center" | "right" | "justify";
 	/**

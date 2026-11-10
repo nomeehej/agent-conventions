@@ -26,7 +26,7 @@ export { expect };
 /**
  * 테스트마다 공유 handler 목록 복사와 route 수명 소유. 새 context 사용을 기본값으로 유지
  *
- *   - mockApi.use는 mount 전에 호출. gallery 진입 뒤 등록한 handler는 첫 조회에 늦음
+ *   - mockApi.use는 mount 전에 호출. gallery 진입 뒤 등록한 handler는 첫 조회에 반영 불가
  */
 export const test = base.extend<Fixtures>({
 	mockApi: [async ({ page }, use) => {

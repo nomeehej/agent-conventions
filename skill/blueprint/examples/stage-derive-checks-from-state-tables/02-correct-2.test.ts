@@ -31,7 +31,7 @@ test("[ORD-012] 주문이 없으면 안내와 초기화 버튼이 표시된다",
 test.fixme("[ORD-013] 목록 조회가 500이면 표 자리만 다시 시도가 표시된다", { tag: ["@mid", "@negative"] }, async ({ mount }) => {
 	/**
 	 * GIVEN
-	 * Plan 3단계 연동 뒤 풂. 오류 응답은 환불 필드가 들어온 spec 위에서 만듦
+	 * Plan 3단계 연동 뒤 fixme 해제. 오류 응답은 환불 필드가 들어온 spec 위에서 작성
 	 */
 	await mount("orders/Default");
 });

@@ -1,7 +1,7 @@
 // test/orders/orders.e2e.spec.ts
 import { expect, test } from "@playwright/test";
 
-// 앱이 MSW worker를 켜면 worker가 처리한 요청을 page.route가 가로채지 못하므로 차단
+// service worker 차단, 앱이 MSW worker를 켜면 worker가 처리한 요청을 page.route가 가로채지 못함
 test.use({ serviceWorkers: "block" });
 
 test("빈 주문 목록에 안내가 표시된다", async ({ page }) => {

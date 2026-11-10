@@ -4,8 +4,8 @@
  * 사용법: node script/blueprint/figma-capture.mjs [--md <문서>] <저장 경로> <프레임 node> <1번 node> ... [+자르기만 할 node]
  *
  * - 토큰은 `.ignore/figma-token`. 출력에 찍지 않음
- * - 자르는 범위 = 넘긴 node 전부를 감싼 상자 + 여백 40. `+` 붙은 node는 표시 없이 범위에만
- * - PNG는 원본. 표시는 for-humanity `fx-shot` 그림으로 겹쳐 문서에서 켜고 끔
+ * - 자르는 범위는 넘긴 node 전부를 감싼 상자에 여백 40 추가. `+` 붙은 node는 표시 없이 범위에만 포함
+ * - PNG는 원본. 표시는 for-humanity `fx-shot` 그림으로 겹쳐 문서에서 토글
  * - `--md` 있으면 문서의 같은 이름 그림을 새 figure로 교체, 없으면 출력
  */
 import {readFileSync, writeFileSync} from "node:fs";
@@ -37,7 +37,7 @@ const nodes = await getJson(`https://api.figma.com/v1/files/${fileKey}/nodes?ids
 const frame = nodes.nodes[frameId].document.absoluteBoundingBox;
 
 /**
- * 캔버스 좌표. 프레임 왼쪽 위 = 여백 60
+ * 캔버스 좌표. 프레임 왼쪽 위에 여백 60
  */
 const boxOf = (id) => {
 	const box = nodes.nodes[id].document.absoluteBoundingBox;
@@ -62,7 +62,7 @@ writeFileSync(outPath, await page.screenshot({clip: {x: left, y: top, width, hei
 await browser.close();
 
 /**
- * 표시 상자 = node보다 6 크게. 그림 크기에 대한 백분율이라 문서 폭이 바뀌어도 자리 유지
+ * 표시 상자는 node보다 6 크게. 그림 크기 기준 백분율, 문서 폭이 바뀌어도 위치 유지
  */
 const percent = (value, total) => `${Math.round((value / total) * 10000) / 100}%`;
 const marks = markIds
@@ -84,7 +84,7 @@ if (mdPath === undefined) {
 		process.exit(1);
 	}
 
-	// 교체 값은 함수로. alt 안의 $ 가 치환 패턴이 되지 않게
+	// 교체 값은 함수로 전달. alt 안의 $가 치환 패턴으로 해석되는 것 방지
 	writeFileSync(mdPath, doc.replace(found[0], () => toFigure(found[2], found[1])));
 }
 

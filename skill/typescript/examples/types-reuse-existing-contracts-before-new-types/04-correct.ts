@@ -1,11 +1,11 @@
 // 이미 있는 계약: UserRecord { id: string; name: string; email: string }
 /**
- * 초대 폼 입력. 이름을 비울 수 있고 id가 아직 없어 UserRecord와 필드 조건이 다름
+ * 초대 폼 입력
+ *
+ *   - 이름은 빈 값 허용
+ *   - id 없음, UserRecord와 필드 조건 상이
  */
 interface InviteDraft {
-	/**
-	 * 받는 사람 이메일
-	 */
 	email: UserRecord["email"];
 	/**
 	 * 표시 이름. 비우면 이메일 표시

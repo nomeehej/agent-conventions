@@ -38,6 +38,7 @@ export const toSortedUserIds = (userIds: string[]): string[] => {
 
 /**
  * 상품 목록 조회. 로딩과 오류는 이 응답 객체로만 판단
+ * {@link /api/product}
  */
 const responseProductList = useProductList();
 ```

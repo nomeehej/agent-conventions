@@ -1,4 +1,8 @@
-// page/product-detail/product-detail-page.tsx: 서버는 계산 전이면 null. 여기서 한 번 제한
+// page/product-detail/product-detail-page.tsx
+/**
+ * 상품 요약 조회, 계산 전 변화율 null을 undefined로 제한
+ * {@link /api/product/summary}
+ */
 const responseSummarySuspense = useSuspenseQuery({
 	...productDetailSummaryQueryOptions(productId),
 	select: (response) => ({

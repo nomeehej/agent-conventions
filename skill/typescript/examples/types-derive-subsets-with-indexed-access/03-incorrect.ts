@@ -4,9 +4,6 @@
  * 상품 목록 한 행의 표시 계약
  */
 interface ProductListRow {
-	/**
-	 * 상품 식별자
-	 */
 // [!code error]
 	id: ProductRecord["id"];
 	/**
