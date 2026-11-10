@@ -7,7 +7,7 @@ export const OrderToolbar = () => {
 	/**
 	 * 비우기는 선택만 지우고 패널은 유지
 	 */
-	const handleClearButtonClick: MouseEventHandler<HTMLButtonElement> = () => {
+	const handleClearButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 		setSelectedIds([]);
 	};
 
@@ -15,7 +15,7 @@ export const OrderToolbar = () => {
 	/**
 	 * 필터 패널 열기
 	 */
-	const handlePanelOpenButtonClick: MouseEventHandler<HTMLButtonElement> = () => {
+	const handlePanelOpenButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 		setIsPanelOpen(true);
 	};
 

@@ -23,11 +23,12 @@ tags: screen
 
 | 먼저 시도할 방법 | 유지할 위치 |
 | --- | --- |
-| 단계 변수, 섹션 주석, 내부 블록으로 정리 | 한 함수 안 |
+| 단계 주석, 내부 블록으로 정리 | 한 함수 안 |
 | 화면 흐름이 보이도록 JSX 정리 | 화면 지역 JSX |
-| 작은 변환, `href` 조립, 기본값 처리 | 사용처 |
+| 작은 변환, `href` 조립 | 사용처 |
 
-한 컴포넌트, 핸들러, 쿼리 `select`만 쓰는 보조 함수를 별도 모듈에 쌓지 않습니다.
+한 컴포넌트, 핸들러, 쿼리 `select`만 쓰는 보조 함수를 별도 모듈이나 같은 파일 최상위에 쌓지 않습니다.
+계산에 함수가 필요하면 그 컴포넌트 안 지역 함수로 둡니다.
 이름을 붙이기 좋다는 이유만으로 흐름을 여러 파일에 나누지 않습니다.
 
 ### 추출 허용 경계
@@ -38,7 +39,7 @@ tags: screen
 | 함수 | `typescript/functions-extract-helpers-only-when-the-boundary-is-real` |
 | 훅 | `ownership-prefer-plain-ts-for-local-react-helpers` |
 
-**Incorrect 1 (컴포넌트 하나만 쓰는 단계 보조 함수를 보조 모듈에 남깁니다):**
+**Incorrect 1 (컴포넌트 하나만 쓰는 단계 보조 함수를 파일 최상위에 따로 둡니다):**
 
 <<< ../examples/screen-avoid-premature-abstraction/01-incorrect.tsx
 
@@ -58,6 +59,6 @@ tags: screen
 
 <<< ../examples/screen-avoid-premature-abstraction/05-correct.ts
 
-**Correct (여러 보조 함수 대신 한 함수 안에서 단계별로 정리합니다):**
+**Correct (여러 보조 함수 대신 한 함수 안에서 주석으로 구분해 정리합니다):**
 
 <<< ../examples/screen-avoid-premature-abstraction/06-correct.ts

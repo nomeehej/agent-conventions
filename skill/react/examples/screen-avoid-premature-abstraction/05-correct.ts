@@ -11,7 +11,7 @@ export const useProductEditor = () => {
 	 */
 	const mutationProductSave = useProductSave({
 		mutation: {
-			onError: (error) => {
+			onError: (error, _variables, _onMutateResult, _context) => {
 				setSubmitErrorMessage(toSubmitErrorMessage(error));
 			},
 		},

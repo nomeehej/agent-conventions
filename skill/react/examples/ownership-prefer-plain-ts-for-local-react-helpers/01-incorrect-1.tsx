@@ -9,7 +9,7 @@ export const MediaUploadPanel = (props: MediaUploadPanelProps) => {
 	/**
 	 * 업로드를 확정할 때 이미 만들어 둔 값을 보냄
 	 */
-	const handleSaveButtonClick: MouseEventHandler<HTMLButtonElement> = () => {
+	const handleSaveButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 // [!code error]
 		mutationMediaSave.mutate({data: mediaUploadPayload});
 	};

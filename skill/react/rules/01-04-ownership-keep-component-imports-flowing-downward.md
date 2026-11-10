@@ -56,23 +56,25 @@ flowchart LR
 | `_`로 시작하는 파일 | 같은 폴더의 파일 |
 | `_function`, `_type`, `_constant`, `_hook`의 파일 | 레이어 방향을 지키는 파일. 다른 라우트의 역할 폴더는 제외합니다 |
 
-`_` 컴포넌트 파일의 프롭스 타입은 예외로, 어디서든 `import type`으로 가져옵니다.
+`_` 컴포넌트 파일의 프롭스 타입은 예외입니다.
+레이어 방향과 라우트 경계를 지키면 어느 폴더에서든 `import type`으로 가져옵니다.
 역할 폴더는 소유자의 공개 영역이므로 외부에서 쓴다는 이유만으로 루트로 옮기지 않습니다.
+함수를 루트 `util`로 올릴지는 `typescript/functions-promote-owner-free-functions-to-root-util`이 정합니다.
 
 ### 여러 자식이 함께 쓰는 컴포넌트
 
-여러 자식이 같은 컴포넌트를 쓰면 부모가 조립해 프롭, `children`으로 내려보내거나
-화면 조립에 종속되지 않을 때 `ui`, `widget`으로 옮깁니다.
-짧은 조각은 중복해서 써도 됩니다.
-세 자식 이상이 공유해야 하는데 공용 레이어로 옮길 수도 없다면 자식 분리 자체를 다시 봅니다.
+여러 하위 소유자가 같은 컴포넌트를 쓰면 그 컴포넌트를 형제 하위 소유자 폴더로 두고 진입 파일을 가져옵니다.
+화면 조립에 종속되지 않으면 `ui`, `widget`으로 옮깁니다.
+호출마다 다른 내용을 끼워야 할 때만 부모가 조립해 프롭, `children`으로 내려보냅니다.
+몇 줄뿐인 조각은 중복해서 써도 됩니다.
 
 **Incorrect 1 (다른 폴더의 `_` 컴포넌트 파일을 가져옵니다):**
 
-<<< ../examples/ownership-keep-component-imports-flowing-downward/01-incorrect.tsx
+<<< ../examples/ownership-keep-component-imports-flowing-downward/01-incorrect.txt
 
-**Correct 1 (`_` 파일과 같은 폴더에 있는 진입 파일이 조립해서 프롭으로 내려보냅니다):**
+**Correct 1 (공유 컴포넌트를 형제 하위 소유자 폴더로 두고 진입 파일을 가져옵니다):**
 
-<<< ../examples/ownership-keep-component-imports-flowing-downward/02-correct.tsx
+<<< ../examples/ownership-keep-component-imports-flowing-downward/02-correct.txt
 
 **Incorrect 2 (다른 라우트 안의 컴포넌트를 가져옵니다):**
 

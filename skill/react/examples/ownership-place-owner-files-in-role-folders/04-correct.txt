@@ -5,14 +5,12 @@ page/product-detail/
 ├── _product-summary.css
 ├── _function/
 │   ├── to-product-summary.ts
-│   └── to-trend-chart/                자기만 쓰는 보조가 있어 폴더
-│       ├── to-trend-chart.ts
-│       └── _to-chart-range.ts         toTrendChart만 부름
+│   └── to-trend-chart.ts
 ├── _type/
-│   └── product-detail-view-model.ts
+│   └── summary-content.ts
 └── product-table-section/             자기만 쓰는 파일이 있어 하위 소유자 폴더가 됨
     ├── product-table-section.tsx
     ├── product-table-section.css
     ├── _review-section.tsx
     └── _function/
-        └── to-chart-range.ts
+        └── to-review-rows.ts

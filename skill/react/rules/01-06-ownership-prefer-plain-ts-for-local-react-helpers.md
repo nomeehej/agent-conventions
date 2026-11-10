@@ -22,28 +22,26 @@ tags: ownership, hooks, widget
 
 ```mermaid
 flowchart LR
-	q1{"상태, 컨텍스트, 훅 호출 순서를<br>실제로 캡슐화하는가?"} -- 아니요 --> r1("_function 의 순수 함수")
+	q1{"상태, 컨텍스트, 훅 호출 순서를<br>실제로 캡슐화하는가?"} -- 아니요 --> r1("컴포넌트 안에 그대로.<br>둘 이상이 부르면<br>_function 의 순수 함수")
 	q1 -- 예 --> r2("커스텀 훅")
 ```
 
 | 대상 | 처리 |
 | --- | --- |
-| 순수 계산 | `use` 접두사를 붙이지 않습니다 |
+| 순수 계산 | `use` 접두사를 붙이지 않고 쓰는 컴포넌트 안에 둡니다. 부르는 컴포넌트나 함수가 둘 이상일 때만 `_function`으로 뺍니다 |
 | 여러 쿼리를 합친 결과 | 값을 렌더하는 섹션이 `combine`을 소유합니다. 여러 소유자가 같은 조합을 호출할 때만 `_hook`으로 옮깁니다 |
 | 실제 커스텀 훅 | 기능을 나타내는 `use<Capability>`로 이름 짓습니다. `useData`, `useLogic`처럼 구현 범주만 적지 않습니다 |
 | 생명주기가 있는 로직 | 분량을 줄이기 위한 추출은 허용하지 않습니다. `ownership-keep-lifecycle-in-the-owning-component`를 따릅니다 |
 
-함수 추출 여부는 `typescript/functions-extract-helpers-only-when-the-boundary-is-real`를 따릅니다.
+함수 추출 여부는 `typescript/functions-extract-helpers-only-when-the-boundary-is-real`을 따릅니다.
 배치는 `ownership-place-owner-files-in-role-folders`를 따릅니다.
 
 **Incorrect 1 (순수 지역 계산을 커스텀 훅으로 감쌉니다):**
 
-<<< ../examples/ownership-prefer-plain-ts-for-local-react-helpers/01-incorrect-1.ts
+<<< ../examples/ownership-prefer-plain-ts-for-local-react-helpers/01-incorrect-1.tsx
 
-<<< ../examples/ownership-prefer-plain-ts-for-local-react-helpers/01-incorrect-2.tsx
+<<< ../examples/ownership-prefer-plain-ts-for-local-react-helpers/01-incorrect-2.ts
 
-**Correct 1 (순수 계산은 소유자의 `_function` 폴더에 두고 핸들러가 직접 부릅니다):**
+**Correct 1 (순수 계산은 훅으로 감싸지 않고 핸들러에서 직접 합니다):**
 
-<<< ../examples/ownership-prefer-plain-ts-for-local-react-helpers/02-correct-1.ts
-
-<<< ../examples/ownership-prefer-plain-ts-for-local-react-helpers/02-correct-2.tsx
+<<< ../examples/ownership-prefer-plain-ts-for-local-react-helpers/02-correct.tsx

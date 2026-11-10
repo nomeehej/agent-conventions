@@ -10,14 +10,14 @@ export const OrderToolbar = () => {
 
 	const [selectedIds, setSelectedIds] = useState<string[]>([]);
 
-	const handleClearButtonClick: MouseEventHandler<HTMLButtonElement> = () => {
+	const handleClearButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 		setSelectedIds([]);
 	};
 
 // [!code error]
 	const [isPanelOpen, setIsPanelOpen] = useState(false);
 
-	const handlePanelOpenButtonClick: MouseEventHandler<HTMLButtonElement> = () => {
+	const handlePanelOpenButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 		setIsPanelOpen(true);
 	};
 
