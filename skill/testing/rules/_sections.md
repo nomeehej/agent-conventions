@@ -13,7 +13,7 @@
 **TitleKo:** 시나리오와 기대값
 **Lead:** 시나리오 표기, 상태와 경계값 선택, 구현과 독립된 기대값
 **Impact:** HIGH
-**Description:** GIVEN, WHEN, THEN으로 조건, 행동, 결과를 드러내고 상태와 경계값을 선택합니다.
+**Description:** integration, E2E 사례는 GIVEN, WHEN, THEN으로 조건, 행동, 결과를 드러내고 상태와 경계값을 선택합니다.
 기대값은 검증 대상 구현과 독립된 계약에서 정합니다.
 
 ## 3. Test Data and Isolation (data)

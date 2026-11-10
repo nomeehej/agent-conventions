@@ -10,16 +10,12 @@ const ranges = [
 for (const range of ranges) {
 	test(`뒤집힌 기간 ${range.start}를 보정한다`, async ({ mount }) => {
 		/**
-		 * GIVEN
-		 * 입력 조합마다 다시 여는 기간 화면
-		 */
-		const search = `?startDate=${range.start}&endDate=${range.end}`;
-
-		/**
 		 * WHEN
-		 * 날짜 보정 함수를 화면에서 반복 실행
+		 * 날짜 보정 함수를 입력 조합마다 화면에서 실행
 		 */
-		const view = await mount("reports/WithSearch", { search });
+		const view = await mount("reports/WithSearch", {
+			search: `?startDate=${range.start}&endDate=${range.end}`,
+		});
 
 		/**
 		 * THEN

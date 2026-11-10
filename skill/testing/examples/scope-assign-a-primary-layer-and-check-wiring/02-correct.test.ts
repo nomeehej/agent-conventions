@@ -3,16 +3,12 @@ import { expect, test } from "@playwright/test";
 
 test("뒤집힌 URL 기간이 입력란에 보정돼 표시된다", async ({ mount }) => {
 	/**
-	 * GIVEN
-	 * 뒤집힌 기간이 있는 URL 입력
-	 */
-	const search = "?startDate=2026-03-01&endDate=2026-01-01";
-
-	/**
 	 * WHEN
-	 * 기간 화면 story를 URL 입력으로 mount
+	 * 뒤집힌 기간이 있는 URL 입력으로 기간 화면 story mount
 	 */
-	const view = await mount("reports/WithSearch", { search });
+	const view = await mount("reports/WithSearch", {
+		search: "?startDate=2026-03-01&endDate=2026-01-01",
+	});
 
 	/**
 	 * THEN

@@ -1,6 +1,6 @@
 ---
 title: Describe One Observable Behavior
-titleKo: 조건과 결과로 테스트 하나를 설명하고 GIVEN, WHEN, THEN으로 구간을 나눕니다
+titleKo: 조건과 결과로 테스트 하나를 설명하고 integration, E2E는 GIVEN, WHEN, THEN으로 구간을 나눕니다
 impact: HIGH
 impactDescription: 실패한 제목만으로 깨진 동작과 필요한 사전조건을 찾을 수 있습니다
 appliesWhen:
@@ -18,20 +18,22 @@ tags: testing, case
 
 ### 시나리오 표기
 
-실행 사례의 기본 표기는 GIVEN, WHEN, THEN 블록 주석입니다.
+integration과 E2E(Playwright) 사례의 기본 표기는 GIVEN, WHEN, THEN 블록 주석입니다.
 라벨 다음 줄에 그 사례의 조건, 행동, 결과를 한국어 명사구로 적습니다.
-짧은 unit, integration, E2E, 골든 예제에도 같은 표기를 보여 줍니다.
+Vitest unit과 골든 테스트에는 블록 주석을 달지 않고 빈 줄로 준비, 실행, 단언을 나눕니다.
 
 | 구간 | 담는 것 |
 | --- | --- |
-| GIVEN | 입력, 응답 덮어쓰기, 세션 등 사전조건 |
-| WHEN | 검증할 함수 호출, `mount`, 사용자 액션 |
+| GIVEN | 입력, 응답 덮어쓰기, 세션, 준비 완료 대기 등 사전조건 |
+| WHEN | 검증할 이동, `mount`, 사용자 액션 |
 | THEN | 반환값, DOM, URL 등 관찰 가능한 결과의 단언 |
 
-인자를 리터럴로 넘겨 준비 코드가 없으면 WHEN, THEN만 남길 수 있습니다.
+인자는 리터럴로 호출에 바로 넘기고 값을 담으려고 변수를 만들지 않습니다.
+준비 코드가 없으면 GIVEN 없이 WHEN, THEN만 씁니다.
 이미 그려진 상태만 확인하면 GIVEN, THEN만 남길 수 있습니다.
+`page.goto`는 이동이 검증 대상이면 WHEN, 다른 동작의 준비이면 GIVEN입니다.
 짧다는 이유로 실제 존재하는 구간을 숨기거나 빈 구간을 채우려고 불필요한 코드를 만들지 않습니다.
-fixture와 `test.each`가 준비한 조건도 출처를 설명하고 주석을 위해 별칭을 만들지 않습니다.
+fixture와 `test.use`가 준비한 조건은 GIVEN에 출처만 적고 주석을 위해 별칭을 만들지 않습니다.
 fixture, handler, story 선언과 러너 설정 자체에는 실행 사례처럼 세 구간을 붙이지 않습니다.
 
 ### 여러 단계와 결과서
@@ -48,6 +50,18 @@ GIVEN, WHEN, THEN 주석을 위해 Cucumber나 별도 BDD 러너를 추가하지
 
 <<< ../examples/case-describe-one-observable-behavior/01-incorrect.test.ts
 
-**Correct 1 (제목과 본문이 같은 표시 동작을 설명합니다):**
+**Correct 1 (제목이 조건과 결과를 설명하고 빈 줄로 실행과 단언을 나눕니다):**
 
 <<< ../examples/case-describe-one-observable-behavior/02-correct.test.ts
+
+**Incorrect 2 (독립된 두 표시 계약을 한 테스트에 합칩니다):**
+
+<<< ../examples/case-describe-one-observable-behavior/03-incorrect.test.ts
+
+**Correct 2 (표시 계약마다 테스트를 나눕니다):**
+
+<<< ../examples/case-describe-one-observable-behavior/04-correct.test.ts
+
+**Correct (E2E 사례는 GIVEN, WHEN, THEN 블록 주석으로 구간을 나눕니다):**
+
+<<< ../examples/case-describe-one-observable-behavior/05-correct.test.ts

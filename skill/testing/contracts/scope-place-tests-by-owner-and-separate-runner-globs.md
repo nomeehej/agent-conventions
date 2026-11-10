@@ -7,9 +7,10 @@
 
 | 파일 | 배치 기준 |
 | --- | --- |
-| 함수 테스트, 매퍼의 골든 입력 | 대상 소유자 가까이에 둡니다 |
-| 화면, 앱 여정 | 프로젝트의 화면별 테스트 구조를 따릅니다 |
-| fixture, story, page object, 기준값 | 사용하는 테스트의 지원 코드로 구분합니다 |
+| 함수 테스트 | 대상 소유자 가까이(`src/**/*.test.ts`)에 둡니다 |
+| 골든 기준값 테스트 | 함수 테스트와 수집 project를 나누려고 `test/_golden/`에 모읍니다 |
+| 화면, 앱 여정, story | 프로젝트에 구조가 없으면 `test/<화면>/<화면>.integration.spec.ts`, `<화면>.e2e.spec.ts`, `<화면>.story.tsx`로 둡니다 |
+| fixture, page object | 여러 테스트가 쓰므로 `test/_fixture/`에 모읍니다 |
 
 폴더 번호, 케이스 ID, 별칭, 실제 폴더 이름은 프로젝트 문서가 정합니다.
 단순 이동을 이유로 무관한 테스트와 프로덕션 파일을 재배치하지 않습니다.
@@ -36,6 +37,7 @@ src/service/msw/handlers.test.ts
 test/_golden/order-rows.test.ts
 test/reports/reports.integration.spec.ts
 test/reports/reports.e2e.spec.ts
+test/reports/reports.story.tsx
 test/_fixture/reports-page.ts
 
 Vitest projects: unit src/**/*.test.ts, golden test/_golden/**/*.test.ts

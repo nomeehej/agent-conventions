@@ -4,22 +4,8 @@ import { expect, test } from "vitest";
 import { getOrder } from "@/service/orders";
 
 test("없는 주문은 오류로 거부된다", async () => {
-	/**
-	 * GIVEN
-	 * 존재하지 않는 주문 ID
-	 */
-	const orderId = "missing";
+	const request = getOrder("missing");
 
-	/**
-	 * WHEN
-	 * 주문 조회 시작
-	 */
-	const request = getOrder(orderId);
-
-	/**
-	 * THEN
-	 * 약속된 오류의 비동기 완료
-	 */
 	// [!code error]
 	await request.catch((error: unknown) => {
 		expect(error).toBeDefined();

@@ -18,21 +18,7 @@ afterAll(() => {
 });
 
 test("공유 handler 목록이 주문 목록 응답을 돌려준다", async () => {
-	/**
-	 * GIVEN
-	 * Node에 연결한 공유 handler 목록
-	 */
-	const url = "https://app.example.test/api/orders";
+	const response = await fetch("https://app.example.test/api/orders");
 
-	/**
-	 * WHEN
-	 * 주문 API 요청
-	 */
-	const response = await fetch(url);
-
-	/**
-	 * THEN
-	 * builder가 고정한 대표 주문과 건수
-	 */
 	expect(await response.json()).toMatchObject({ total: 1, items: [{ id: "order-1" }] });
 });

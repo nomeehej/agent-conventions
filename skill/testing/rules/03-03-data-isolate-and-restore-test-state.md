@@ -25,10 +25,13 @@ flowchart LR
 	q2 -- 아니요 --> r3("호출 기록 초기화")
 ```
 
+Vitest 설정의 `restoreMocks`가 이미 spy를 복구하면 `afterEach`를 더하지 않습니다.
+
 ### 브라우저 자원과 저장소
 
 브라우저 context, 쿠키와 저장소, 요청 handler, provider의 캐시와 store가 각각 어디서 정리되는지 확인합니다.
 러너가 제공하는 정리를 먼저 확인하고 필요한 부분만 추가합니다.
+Playwright의 `context` fixture는 실패해도 닫히므로 세션이 없는 사례는 `storageState`를 비워 만들고 직접 열지 않습니다.
 직접 연 context와 서버는 실패하더라도 `finally`나 fixture 종료 구간에서 닫습니다.
 
 context 재사용은 격리가 확인된 프로젝트의 최적화로 선택합니다.
@@ -36,10 +39,22 @@ context 재사용은 격리가 확인된 프로젝트의 최적화로 선택합�
 
 참고: [공식 문서](https://playwright.dev/docs/browser-contexts).
 
-**Incorrect 1 (실패 경로에서 직접 연 context가 닫히지 않습니다):**
+**Incorrect 1 (복구하지 않은 spy가 다음 테스트로 남습니다):**
 
 <<< ../examples/data-isolate-and-restore-test-state/01-incorrect.test.ts
 
-**Correct 1 (성공과 실패 모두에서 직접 연 context를 닫습니다):**
+**Correct 1 (`afterEach`에서 spy를 복구합니다):**
 
 <<< ../examples/data-isolate-and-restore-test-state/02-correct.test.ts
+
+**Incorrect 2 (실패 경로에서 직접 연 context가 닫히지 않습니다):**
+
+<<< ../examples/data-isolate-and-restore-test-state/03-incorrect.test.ts
+
+**Correct 2 (러너가 닫는 context를 쓰고 `storageState`로 세션을 비웁니다):**
+
+<<< ../examples/data-isolate-and-restore-test-state/04-correct.test.ts
+
+**Correct (러너와 다른 설정으로 직접 연 context를 성공과 실패 모두에서 닫습니다):**
+
+<<< ../examples/data-isolate-and-restore-test-state/05-correct.test.ts

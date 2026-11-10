@@ -35,7 +35,7 @@ test("Testing renders under Coding with section links and real example assets", 
 	assert.ok(files.some((file) => file.path.startsWith("examples/testing/") && file.path.endsWith("-correct.test.ts")));
 });
 
-test("every executable Testing example exposes its scenario through GIVEN, WHEN and THEN", async () => {
+test("Playwright examples expose GIVEN, WHEN and THEN while Vitest examples stay unmarked", async () => {
 	/**
 	 * GIVEN
 	 * 독자가 복사하는 실행 예제 전체
@@ -43,25 +43,37 @@ test("every executable Testing example exposes its scenario through GIVEN, WHEN 
 	const examplesUrl = new URL("../skill/testing/examples/", import.meta.url);
 	const paths = (await readdir(examplesUrl, {recursive: true})).filter((path) => path.endsWith(".test.ts"));
 	assert.ok(paths.length > 0);
+	const order = ["GIVEN", "WHEN", "THEN"];
 
 	for (const path of paths) {
 		/**
 		 * WHEN
-		 * 테스트 선언과 시나리오 구간의 수집
+		 * 러너와 시나리오 구간의 수집
 		 */
 		const source = await readFile(new URL(path, examplesUrl), "utf8");
 		const caseCount = [...source.matchAll(/^\s*test(?:\(|\.each\()/gm)].length;
+		const phases = [...source.matchAll(/\* (GIVEN|WHEN|THEN)\n/g)].map((match) => match[1]);
 
 		/**
 		 * THEN
-		 * 실행 사례마다 설명을 동반한 세 구간의 노출
+		 * Vitest 사례는 구간 표시 없음, Playwright 사례는 THEN으로 끝나는 순서대로의 구간과 설명
 		 */
 		assert.ok(caseCount > 0, `${path} has no executable case`);
-		const phases = [...source.matchAll(/\* (GIVEN|WHEN|THEN)\n/g)].map((match) => match[1]);
-		assert.deepEqual(phases, Array.from({length: caseCount}, () => ["GIVEN", "WHEN", "THEN"]).flat(), `${path} must keep scenario order`);
-		for (const phase of ["GIVEN", "WHEN", "THEN"]) {
+		if (/from "vitest"/.test(source)) {
+			assert.deepEqual(phases, [], `${path} is a Vitest case and keeps no GIVEN, WHEN, THEN blocks`);
+			continue;
+		}
+		const cases = phases.join(" ").split(/(?<=THEN)\s*/).filter(Boolean);
+		assert.equal(cases.length, caseCount, `${path} must end every case with THEN`);
+		for (const phasesOfCase of cases.map((text) => text.split(" "))) {
+			const indexes = phasesOfCase.map((phase) => order.indexOf(phase));
+			assert.equal(phasesOfCase.at(-1), "THEN", `${path} must end every case with THEN`);
+			assert.ok(indexes.every((index, position) => position === 0 || indexes[position - 1] < index), `${path} must keep scenario order`);
+		}
+		for (const phase of order) {
+			const labels = phases.filter((label) => label === phase).length;
 			const blocks = [...source.matchAll(new RegExp(`\\* ${phase}\\n\\s*\\* \\S[^\\n]*\\n`, "g"))];
-			assert.equal(blocks.length, caseCount, `${path} must describe ${phase} for every case`);
+			assert.equal(blocks.length, labels, `${path} must describe every ${phase}`);
 		}
 	}
 });

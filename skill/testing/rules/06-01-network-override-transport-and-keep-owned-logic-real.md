@@ -25,7 +25,10 @@ flowchart LR
 공유 handler의 기본 응답과 덮어쓰기 handler를 구분하고 덮어쓰기 handler는 요청이 시작되기 전에 등록합니다.
 요청 필드는 handler가 검증해 잘못되면 오류 응답을 돌려주고 화면 결과로 확인합니다.
 화면에 흔적이 남지 않는 요청만 직접 단언합니다.
-기존 프로젝트의 mock 통로를 사용하며 특정 생성기나 폴더 구성을 공통 요구사항으로 삼지 않습니다.
+응답 본문을 spec에서 직접 적는 `page.route`는 생성기가 없는 프로젝트에서만 씁니다.
+생성기가 있으면 `network-compose-generated-contracts-through-owned-builders`의 handler를 `mockApi.use`로 덮습니다.
+worker가 켜진 앱 E2E에서는 `page.route`가 worker가 처리하는 요청을 가로채지 못합니다.
+그래서 `page.route`는 `serviceWorkers: "block"`인 project에서만 씁니다.
 
 참고: [Playwright 네트워크](https://playwright.dev/docs/network),
 [MSW의 요청 단언 피하기](https://mswjs.io/docs/best-practices/avoid-request-assertions).
@@ -37,3 +40,7 @@ flowchart LR
 **Correct 1 (API 응답을 바꾸고 실제 화면의 표시를 확인합니다):**
 
 <<< ../examples/network-override-transport-and-keep-owned-logic-real/02-correct.test.ts
+
+**Correct (생성기가 없는 프로젝트는 worker를 차단하고 응답 본문을 직접 덮습니다):**
+
+<<< ../examples/network-override-transport-and-keep-owned-logic-real/03-correct.test.ts

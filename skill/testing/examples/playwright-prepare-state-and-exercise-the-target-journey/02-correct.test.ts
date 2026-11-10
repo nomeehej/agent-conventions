@@ -4,9 +4,9 @@ import { expect, test } from "@playwright/test";
 test("목록의 주문 링크로 상세에 진입한다", async ({ page }) => {
 	/**
 	 * GIVEN
-	 * 수량 정렬된 주문 목록
+	 * 주문 목록
 	 */
-	await page.goto("/orders?sort=quantity");
+	await page.goto("/orders");
 
 	/**
 	 * WHEN

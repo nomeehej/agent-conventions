@@ -1,27 +1,18 @@
-// test/session/session.e2e.spec.ts
-import { expect, test } from "@playwright/test";
+// src/util/date/format-display-date.test.ts
+import { afterEach, expect, test, vi } from "vitest";
 
-test("세션이 없으면 인증 안내가 표시된다", async ({ browser }) => {
-	/**
-	 * GIVEN
-	 * 세션을 넣지 않은 독립 context
-	 */
-	const context = await browser.newContext({ baseURL: "https://app.example.test" });
-	try {
-		/**
-		 * WHEN
-		 * 보호된 주문 화면 진입
-		 */
-		const page = await context.newPage();
-		await page.goto("/orders");
+import { formatDisplayDate } from "@/util/date/format-display-date";
 
-		/**
-		 * THEN
-		 * 인증이 필요한 사용자 안내
-		 */
-		await expect(page.getByRole("alert")).toHaveText("로그인이 필요합니다");
-	} finally {
-		// [!code ++]
-		await context.close();
-	}
+afterEach(() => {
+	// [!code ++]
+	vi.restoreAllMocks();
+});
+
+test("잘못된 날짜 문자열은 경고를 남기고 빈 문자열을 표시한다", () => {
+	const warn = vi.spyOn(console, "warn").mockImplementation(() => undefined);
+
+	const label = formatDisplayDate("not-a-date");
+
+	expect(label).toBe("");
+	expect(warn).toHaveBeenCalledTimes(1);
 });

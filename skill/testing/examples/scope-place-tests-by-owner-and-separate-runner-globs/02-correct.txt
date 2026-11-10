@@ -3,6 +3,7 @@ src/service/msw/handlers.test.ts
 test/_golden/order-rows.test.ts
 test/reports/reports.integration.spec.ts
 test/reports/reports.e2e.spec.ts
+test/reports/reports.story.tsx
 test/_fixture/reports-page.ts
 
 Vitest projects: unit src/**/*.test.ts, golden test/_golden/**/*.test.ts

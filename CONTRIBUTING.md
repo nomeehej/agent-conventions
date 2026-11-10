@@ -84,7 +84,8 @@ skill/react/
 - 한 쌍은 한 변수만 바꾼다.
   `Incorrect`와 `Correct`는 그 규칙이 말하는 것 하나만 달라야 독자가 무엇이 규칙인지 짚는다.
   이름, 구조, 무관한 코드를 함께 바꾸지 않는다.
-- Testing의 실행 예제는 GIVEN, WHEN, THEN 블록과 사례별 설명으로 조건, 행동, 결과를 드러낸다.
+- Testing의 Playwright 실행 예제는 GIVEN, WHEN, THEN 블록과 사례별 설명으로 조건, 행동, 결과를 드러낸다.
+  Vitest 예제는 블록 없이 빈 줄로 준비, 실행, 단언을 나눈다.
   handler, story, 러너 설정 선언에는 실행 사례용 빈 구간을 붙이지 않는다.
   생성 API 예제는 Kubb 계약과 소유 mock, handler, 소비 fixture의 파일을 나눠 보여 준다.
 - 예시 차례는 **짝 → 홀로 선 Incorrect → 홀로 선 Correct** 다.

@@ -3,16 +3,10 @@ import { expect, test } from "@playwright/test";
 
 test("목록에 주문이 표시된다", async ({ page }) => {
 	/**
-	 * GIVEN
-	 * 조회할 주문 목록
-	 */
-	const path = "/orders";
-
-	/**
 	 * WHEN
 	 * 주문 목록 진입
 	 */
-	await page.goto(path);
+	await page.goto("/orders");
 
 	/**
 	 * THEN

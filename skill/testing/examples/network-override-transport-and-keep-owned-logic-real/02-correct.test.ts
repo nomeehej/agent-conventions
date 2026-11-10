@@ -1,26 +1,27 @@
-// test/orders/orders.e2e.spec.ts
-import { expect, test } from "@playwright/test";
+// test/orders/orders.integration.spec.ts
+import { expect, test } from "@test/_fixture/test";
 
-test("빈 주문 목록에 안내가 표시된다", async ({ page }) => {
+import { createGetOrdersStatus200 } from "@/service/__kubb/mock/orders/get-orders";
+import { getOrdersHandler } from "@/service/__kubb/msw/orders/get-orders-handler";
+import { mockOrders } from "@/service/mock/mock-orders";
+
+test("빈 주문 목록에 안내가 표시된다", async ({ mockApi, mount }) => {
 	/**
 	 * GIVEN
 	 * 빈 주문 목록을 응답하는 서버
 	 */
-	// 생성기 없는 프로젝트의 응답 덮어쓰기
 	// [!code ++]
-	await page.route("**/api/orders", async (route) => {
-		await route.fulfill({ json: { items: [], total: 0 } });
-	});
+	mockApi.use(getOrdersHandler(createGetOrdersStatus200({ ...mockOrders(), items: [], total: 0 })));
 
 	/**
 	 * WHEN
-	 * 실제 주문 화면 진입
+	 * 실제 주문 화면의 story 진입
 	 */
-	await page.goto("/orders");
+	const view = await mount("orders/Default");
 
 	/**
 	 * THEN
 	 * 실제 응답 처리 뒤 빈 목록 안내
 	 */
-	await expect(page.getByRole("status")).toHaveText("주문이 없습니다");
+	await expect(view.getByRole("status")).toHaveText("주문이 없습니다");
 });

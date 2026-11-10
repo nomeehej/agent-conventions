@@ -3,16 +3,10 @@ import { expect, test } from "@playwright/test";
 
 test("조회가 끝나면 완료 문구가 표시된다", async ({ page }) => {
 	/**
-	 * GIVEN
-	 * 주문 목록의 진입 경로
-	 */
-	const path = "/orders";
-
-	/**
 	 * WHEN
 	 * 주문 조회 뒤 고정 시간 대기
 	 */
-	await page.goto(path);
+	await page.goto("/orders");
 	// [!code error]
 	await page.waitForTimeout(1000);
 

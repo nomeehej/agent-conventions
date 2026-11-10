@@ -2,14 +2,16 @@
 
 **Impact: MEDIUM (테스트의 핵심 시나리오를 숨기지 않고 중복되는 준비와 탐색을 줄입니다)**
 
-공통 세션과 자원 수명은 fixture로, 반복되는 locator와 화면 조작은 소유 화면의 page object로 묶습니다.
+공통 세션과 자원 수명은 fixture로 묶고 반복되는 locator와 화면 조작은 먼저 테스트 파일 안의 함수 하나로 묶습니다.
+같은 화면의 locator와 조작이 여러 파일에 퍼져 함께 고칠 일이 반복될 때 소유 화면의 page object로 올립니다.
 한 번 쓰는 단언이나 작은 동작마다 helper를 만들지 않습니다.
 
 ```mermaid
 flowchart LR
 	q1{"세션이나 자원 수명을<br>여러 테스트가 공유하는가?"} -- 예 --> r1("fixture")
-	q1 -- 아니요 --> q2{"여러 테스트가 같은 locator와<br>조작을 반복하는가?"} -- 예 --> r2("소유 화면의 page object")
-	q2 -- 아니요 --> r3("테스트 안에 그대로")
+	q1 -- 아니요 --> q2{"같은 화면의 locator를<br>여러 파일이 반복하는가?"} -- 예 --> r2("소유 화면의<br>page object")
+	q2 -- 아니요 --> q3{"한 파일 안에서<br>반복하는가?"} -- 예 --> r3("파일 안의 함수")
+	q3 -- 아니요 --> r4("테스트 안에 그대로")
 ```
 
 page object는 시나리오의 기대값을 숨기지 않고 테스트가 결과를 단언하게 합니다.
@@ -26,16 +28,10 @@ import { expect, test } from "@playwright/test";
 
 test("목록에 주문이 표시된다", async ({ page }) => {
 	/**
-	 * GIVEN
-	 * 조회할 주문 목록
-	 */
-	const path = "/orders";
-
-	/**
 	 * WHEN
 	 * 주문 목록 진입
 	 */
-	await page.goto(path);
+	await page.goto("/orders");
 
 	/**
 	 * THEN
@@ -71,79 +67,50 @@ test("주문을 누르면 상세로 이동한다", async ({ page }) => {
 });
 ```
 
-**Correct 1 (반복되는 화면 탐색을 page object fixture로 공유합니다):**
+**Correct 1 (반복되는 locator 체인을 테스트 파일 안의 함수로 묶습니다):**
 
 ```ts
 // test/orders/orders.e2e.spec.ts
-import { expect, test as base } from "@playwright/test";
+import { expect, test } from "@playwright/test";
 
 import type { Page } from "@playwright/test";
 
 /**
- * 주문 화면의 반복 탐색과 이동
+ * 주문 목록에서 주문 ID가 든 행
  */
-class OrdersPage {
-	constructor(private readonly page: Page) {}
+const orderRow = (page: Page, orderId: string) => {
+	return page
+		.getByRole("table", { name: "주문 목록" })
+		.getByRole("row")
+		.filter({ hasText: orderId });
+};
 
-	get representativeOrderRow() {
-		return this.page
-			.getByRole("table", { name: "주문 목록" })
-			.getByRole("row")
-			.filter({ hasText: "order-1" });
-	}
-
-	async goto() {
-		await this.page.goto("/orders");
-	}
-}
-
-/**
- * 주문 화면 전용 fixture
- */
-interface Fixtures {
-	/**
-	 * 테스트가 받은 page를 사용하는 화면 객체
-	 */
-	ordersPage: OrdersPage;
-}
-
-const test = base.extend<Fixtures>({
-	ordersPage: async ({ page }, use) => {
-		await use(new OrdersPage(page));
-	},
-});
-
-test("목록에 주문이 표시된다", async ({ ordersPage }) => {
-	/**
-	 * GIVEN
-	 * order-1이 준비된 환경의 주문 화면 객체
-	 */
-
+test("목록에 주문이 표시된다", async ({ page }) => {
 	/**
 	 * WHEN
 	 * 주문 목록 진입
 	 */
-	await ordersPage.goto();
+	await page.goto("/orders");
 
 	/**
 	 * THEN
 	 * 목록의 대표 주문
 	 */
-	await expect(ordersPage.representativeOrderRow).toBeVisible();
+	await expect(orderRow(page, "order-1")).toBeVisible();
 });
 
-test("주문을 누르면 상세로 이동한다", async ({ page, ordersPage }) => {
+test("주문을 누르면 상세로 이동한다", async ({ page }) => {
 	/**
 	 * GIVEN
 	 * 대표 주문이 있는 목록
 	 */
-	await ordersPage.goto();
+	await page.goto("/orders");
 
 	/**
 	 * WHEN
 	 * 대표 주문 링크 클릭
 	 */
-	await ordersPage.representativeOrderRow.getByRole("link").click();
+	await orderRow(page, "order-1").getByRole("link").click();
 
 	/**
 	 * THEN

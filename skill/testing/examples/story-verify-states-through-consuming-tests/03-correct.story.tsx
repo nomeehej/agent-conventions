@@ -19,7 +19,7 @@ export const SaveResult = () => {
 			 * 테스트에서 읽을 저장 결과
 			 */}
 			{/* [!code ++] */}
-			<output data-testid="saved-order">{savedOrderId}</output>
+			<output>{savedOrderId}</output>
 		</Fragment>
 	);
 };

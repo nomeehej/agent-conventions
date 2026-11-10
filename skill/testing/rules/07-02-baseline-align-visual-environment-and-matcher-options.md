@@ -28,11 +28,11 @@ canvas의 사용자 액션이나 레이아웃 자체가 대상이면 이미지 �
 
 참고: [공식 문서](https://playwright.dev/docs/api/class-testconfig#test-config-expect).
 
-**Incorrect 1 (Buffer 비교와 다른 matcher에 허용치를 설정합니다):**
+**Incorrect 1 (Buffer 비교도 쓰는 프로젝트에서 `toHaveScreenshot`에만 허용치를 설정합니다):**
 
 <<< ../examples/baseline-align-visual-environment-and-matcher-options/01-incorrect.config.ts
 
-**Correct 1 (Buffer를 비교하는 matcher에도 같은 허용치를 설정해 두 비교 모두에 적용합니다):**
+**Correct 1 (Buffer 비교도 쓰는 프로젝트에서 `toMatchSnapshot`에도 같은 허용치를 설정합니다):**
 
 <<< ../examples/baseline-align-visual-environment-and-matcher-options/02-correct.config.ts
 

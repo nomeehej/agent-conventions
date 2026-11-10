@@ -5,16 +5,10 @@ import { expect, test } from "@playwright/test";
 // [!code ++]
 test("주문 화면에 진입하면 대표 목록을 조회한다", { tag: "@smoke" }, async ({ page }) => {
 	/**
-	 * GIVEN
-	 * 배포 환경의 읽기 전용 주문 목록 경로
-	 */
-	const path = "/orders";
-
-	/**
 	 * WHEN
 	 * 실제 앱의 주문 화면 진입
 	 */
-	await page.goto(path);
+	await page.goto("/orders");
 
 	/**
 	 * THEN

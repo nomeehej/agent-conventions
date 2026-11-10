@@ -18,6 +18,7 @@ tags: testing, data
 
 결과에 영향을 주는 시각과 환경을 테스트 입력으로 고정합니다.
 날짜 경계는 오프셋이 있는 기준 시각과 표시 타임존을 함께 정하고 모듈이 처음 값을 읽기 전에 적용합니다.
+모듈 최상위가 시각을 읽으면 `vi.hoisted`나 setup 파일에서 그 모듈을 가져오기 전에 적용합니다.
 
 ```mermaid
 flowchart LR
@@ -29,6 +30,8 @@ flowchart LR
 | 실행 위치 | 처리 |
 | --- | --- |
 | Vitest의 현재 날짜 | `Date`만 필요하면 `Date`를 대체하고 종료 후 복구합니다 |
+| Vitest의 타이머 | `vi.useFakeTimers()`로 진행하고 종료 후 `vi.useRealTimers()`로 복구합니다 |
+| 난수, 생성 ID | 결과에 드러나는 값만 `vi.spyOn`으로 고정하고 종료 후 복구합니다. 드러나지 않으면 그대로 둡니다 |
 | 브라우저 날짜 | `page.clock.setFixedTime`으로 고정합니다. 타이머는 그대로 흐릅니다 |
 | 브라우저 타이머 | `page.clock.install` 뒤 `runFor`, `fastForward`로 진행합니다 |
 | Node에서 만드는 브라우저 테스트 응답 | 같은 기준 시각을 생성기에 전달합니다. 브라우저 clock이 Node의 `Date`를 바꾸지는 않습니다 |
@@ -47,6 +50,6 @@ flowchart LR
 
 <<< ../examples/data-control-time-randomness-and-environment/02-correct.test.ts
 
-**Correct (브라우저 날짜와 Node 응답에 같은 시나리오 입력을 전달합니다):**
+**Correct (브라우저 날짜와 `page.route` 응답에 같은 시나리오 기준 날짜를 전달합니다):**
 
 <<< ../examples/data-control-time-randomness-and-environment/03-correct.test.ts

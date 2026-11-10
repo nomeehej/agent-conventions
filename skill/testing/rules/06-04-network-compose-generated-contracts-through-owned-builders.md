@@ -13,8 +13,8 @@ tags: testing, network, kubb, faker, msw
 
 **Impact: HIGH (API 재생성에 맞춰 타입과 응답 형식을 유지하고 시나리오 값을 일관되게 만듭니다)**
 
-생성기의 DTO와 factory 위에 소유 도메인 builder와 endpoint handler를 둡니다.
-브라우저와 Node는 같은 공유 handler 목록을 쓰고 story와 spec은 차이만 덮습니다.
+생성기의 DTO와 factory 위에 소유 endpoint handler를 두고 정상 본문을 두 곳 이상이 쓰면 소유 도메인 builder를 둡니다.
+브라우저와 Node 연결, 사례별 덮어쓰기는 `network-share-handlers-across-browser-and-node`가 정합니다.
 
 ### 작성 순서와 소유 경계
 
@@ -23,9 +23,9 @@ tags: testing, network, kubb, faker, msw
 
 1. OpenAPI와 생성 설정에서 DTO, status별 factory, handler signature를 확인합니다.
 2. 소유 도메인 builder에서 DTO faker를 호출하고 관찰되는 값과 관계를 고정합니다.
+   정상 본문이 handler와 spec 두 곳 이상에서 필요할 때만 builder로 떼어 내고 한 곳이면 handler 안에서 고정합니다.
 3. 소유 endpoint handler에서 요청을 읽고 상태에 맞는 status 응답 factory를 고릅니다.
 4. 공유 handler 목록에서 소유 handler를 생성 fallback 앞에 둡니다.
-5. 브라우저와 Node에 같은 공유 handler 목록을 연결한 뒤 story와 spec에서 필요한 차이만 덮습니다.
 
 생성 폴더는 재생성으로 갱신하고 손으로 보정하지 않습니다.
 도메인 builder는 값과 관계를 계산하고 `Response`, handler, HTTP 상태를 가져오지 않습니다.
@@ -34,8 +34,11 @@ endpoint handler는 요청과 상태를 맡고 표, 정렬, 수치 계산은 도
 
 ### 정해진 응답과 재생성
 
-실제 화면이 호출하는 endpoint는 소유 handler에서 관찰되는 값을 정합니다.
-생성 fallback이 존재한다는 이유로 난수 응답을 정상 시나리오에 그대로 사용하지 않습니다.
+실제 화면이 본문을 읽는 endpoint는 소유 handler에서 관찰되는 값을 정합니다.
+생성 fallback이 응답한 요청은 `network-detect-unhandled-api-requests`의 미처리 검출에 걸리지 않습니다.
+그래서 테스트가 읽는 응답은 소유 handler로 고정하고 난수 응답을 정상 시나리오에 그대로 사용하지 않습니다.
+화면이 본문을 읽지 않는 응답은 소유 handler를 만들지 않고 생성 handler와 성공 status factory를 그대로 둡니다.
+그런 응답은 실패 사례만 spec에서 덮습니다.
 정상 응답 본문에는 성공 status factory를 쓰고 오류 사례에는 그 오류 status factory를 씁니다.
 여러 상태의 union을 만드는 범용 `Response` factory가 기본값을 합쳐 준다고 가정하지 않습니다.
 

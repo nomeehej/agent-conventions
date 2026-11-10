@@ -19,8 +19,11 @@ tags: testing, network, msw, playwright
 | 소비 환경 | 연결 방식 |
 | --- | --- |
 | 개발, mock 앱 E2E | mock 모드에서 `setupWorker`에 공유 handler 목록을 연결합니다 |
-| Node 함수 integration | `setupServer`에 같은 공유 handler 목록을 연결합니다 |
+| Node 함수 테스트(Vitest) | `setupServer`에 같은 공유 handler 목록을 연결합니다 |
 | 브라우저 story integration | service worker를 차단하고 `page.route` 콜백에서 `getResponse`로 공유 handler 목록을 해석합니다 |
+
+worker가 켜진 앱 E2E에서는 `page.route`가 worker가 처리한 요청을 가로채지 못하므로 공유 handler의 응답을 그대로 씁니다.
+응답을 덮는 사례는 service worker를 차단한 integration에 둡니다.
 
 `page.route` 콜백은 메서드, URL, 헤더, 요청 본문과 응답 상태, 헤더, 본문을 보존합니다.
 cookie를 생략하는 `headers` 대신 `allHeaders`를 사용하고 상대 handler의 `baseUrl`도 맞춥니다.
@@ -28,8 +31,6 @@ cookie를 생략하는 `headers` 대신 `allHeaders`를 사용하고 상대 hand
 `route.fulfill`이 줄바꿈으로 나누는 동작은 문서에 없으므로 설치 버전에서 확인합니다.
 처리되지 않은 API 요청은 실패로 연결하고 실제 호출 허용 목록만 통과시킵니다.
 `passthrough`를 무조건 네트워크로 보내지 않고 프로젝트의 실제 호출 계약을 확인합니다.
-MSW 2.x 기준입니다.
-3.x는 `onUnhandledFrame`과 `{ frame, defaults }` 콜백을 씁니다.
 
 덮어쓰기 handler는 공유 handler보다 먼저 해석하고 요청 시작 전에 등록합니다.
 테스트별 handler 목록과 가로채기는 테스트마다 만들고 종료 시 해제합니다.
