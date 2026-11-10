@@ -1,7 +1,7 @@
 // page/products/products-page.tsx
 export const ProductsPage = () => {
 // [!code error]
-	const [urlParams] = useQueryStates(productUrlParsers);
+	const [urlParams] = useQueryStates(urlParsers);
 // [!code error]
 	const responseProductListSuspense = useProductListSuspense({page: urlParams.page});
 

@@ -1,12 +1,19 @@
-// component/widget/profile-dialog/_type/profile-dialog-part.ts
+// component/widget/profile-dialog/_profile-dialog-root.tsx
+import {clsx} from "clsx";
+
 /**
- * 대화상자 부품 셋이 나눠 쓰는 계약
- *
- * 세 부품 모두 받는 것이 `children` 하나뿐이라 형태 하나로 통일
+ * 대화상자 틀 계약
  */
-export interface ProfileDialogPartProps {
+export interface ProfileDialogRootProps {
 	/**
 	 * 그 부품 자리에 사용처가 넣을 내용
 	 */
 	children: ReactNode;
 }
+
+/**
+ * 대화상자 틀. 나머지 부품은 이 안에서만 그림
+ */
+export const ProfileDialogRoot = (props: ProfileDialogRootProps) => {
+	return <section className={clsx("profileDialog__root")}>{props.children}</section>;
+};

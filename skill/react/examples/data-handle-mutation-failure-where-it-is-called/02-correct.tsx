@@ -3,15 +3,18 @@
  */
 const mutationProductSave = useProductSave({
 	mutation: {
-		onSuccess: () => {
+		onSuccess: (_data, _variables, _onMutateResult, _context) => {
 			void navigate("/products");
 		},
-		onError: (error) => {
+		onError: (error, _variables, _onMutateResult, _context) => {
 			setSubmitErrorMessage(toSubmitErrorMessage(error));
 		},
 	},
 });
 
+/**
+ * 저장 중 중복 호출 차단. 이동과 실패 표시는 mutation 콜백이 담당
+ */
 const handleSaveButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 	if (mutationProductSave.isPending) {
 		return;

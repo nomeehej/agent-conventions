@@ -2,8 +2,8 @@
 
 **Impact: MEDIUM (부수효과, 분기, 비동기 흐름을 일반 코드 흐름에서 읽습니다)**
 
-JSX에는 이름 붙인 핸들러 참조만 넘깁니다.
-분기, 비동기 호출, 여러 부수효과가 들어가면 핸들러로 분리합니다.
+JSX 이벤트 프롭에는 이름 붙인 핸들러 참조만 넘깁니다.
+`() => setIsOpen(true)`처럼 호출 하나뿐인 화살표도 인라인 콜백이므로 핸들러로 뺍니다.
 
 추가 인자를 넘기려고 `onClick={() => handleX(id)}` 같은 인라인 래퍼를 쓰지 않습니다.
 그 자리는 `events-curry-extra-handler-arguments`가 커링으로 정합니다.
@@ -14,7 +14,7 @@ JSX에는 이름 붙인 핸들러 참조만 넘깁니다.
 
 ```tsx
 <Button
-	onClick={() => {
+	onClick={(_event) => {
 		if (!selectedProduct) {
 			return;
 		}

@@ -1,11 +1,28 @@
-// component/ui/panel/panel.tsx
-import {PanelFooter} from "@/component/ui/panel/_panel-footer";
-import {PanelHeader} from "@/component/ui/panel/_panel-header";
-import {PanelRoot} from "@/component/ui/panel/_panel-root";
+// page/products/products-page.tsx
+import {Fragment} from "react";
 
-// Header와 Footer도 Root와 같은 형태로 children만 받음
-export const Panel = {
-	Root: PanelRoot,
-	Header: PanelHeader,
-	Footer: PanelFooter,
-} as const;
+import {Panel} from "@/component/ui/panel/panel";
+
+export const ProductsPage = () => {
+	return (
+		<Fragment>
+			<Panel.Root>
+				<Panel.Header>
+					<h2>제품</h2>
+					<ProductSearchField />
+				</Panel.Header>
+				<ProductList />
+				<Panel.Footer>
+					<Pagination />
+				</Panel.Footer>
+			</Panel.Root>
+
+			<Panel.Root>
+				<Panel.Header>
+					<h2>제품 등록</h2>
+				</Panel.Header>
+				<ProductCreateForm />
+			</Panel.Root>
+		</Fragment>
+	);
+};

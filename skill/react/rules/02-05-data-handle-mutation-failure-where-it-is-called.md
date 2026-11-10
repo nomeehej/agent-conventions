@@ -18,7 +18,7 @@ tags: data, mutation, errors
 
 뮤테이션 실패는 입력 문맥을 유지할 수 있도록 호출한 자리에서 처리합니다.
 기본은 `mutate`와 `useMutation`의 `onError`, `onSuccess`입니다.
-핸들러에서는 호출만 합니다.
+핸들러에서는 호출과 중복 호출 차단만 합니다.
 
 ### 호출 방식 고르기
 

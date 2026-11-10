@@ -5,7 +5,7 @@ impact: MEDIUM
 impactDescription: 같은 시그니처를 직접 다시 적어 생기는 계약 불일치를 막습니다
 appliesWhen:
   - 커링 팩토리가 돌려주는 React 핸들러의 타입을 정할 때
-  - `Ui*` 래퍼 사용처에서 프롭스 타입을 참조할 때
+  - `component/ui` 래퍼를 쓰는 곳에서 그 프롭스 타입을 참조할 때
   - 제외: `query.select` 같은 훅 옵션의 일회성 문맥 콜백인 경우
 requiresSelected: typescript/types-prefer-function-variable-types-over-parameter-annotations
 tags: typing, handlers, props
@@ -21,7 +21,7 @@ React 핸들러와 래퍼 프롭스의 타입은 기존 계약에서 가져옵�
 | 자리 | 타입 출처 |
 | --- | --- |
 | 커링 팩토리가 반환하는 핸들러 | `MouseEventHandler<...>` 같은 React 별칭을 팩토리 반환 타입에 적습니다 |
-| `Ui*` 래퍼 사용처 | 내부 라이브러리의 원본 타입 대신 래퍼가 내보낸 `Ui*Props`를 가져옵니다 |
+| `component/ui` 래퍼 사용처 | 내부 라이브러리의 원본 타입 대신 래퍼가 내보낸 `ButtonProps`처럼 `<래퍼 이름>Props`를 가져옵니다 |
 
 팩토리가 반환하는 함수에는 React의 문맥 타입이 붙지 않으므로 반환 타입을 생략하면 안쪽 매개변수가 암시적 `any`가 됩니다.
 `query.select` 같은 훅 옵션의 일회성 문맥 콜백은 React 핸들러 구현이 아니므로 대상이 아닙니다.

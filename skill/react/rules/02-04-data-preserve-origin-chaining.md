@@ -15,7 +15,9 @@ tags: data, state, origin
 **Impact: CRITICAL (별칭을 추적하지 않고 사용처에서 값의 출처를 확인할 수 있습니다)**
 
 `response...`, `mutation...`, `*Store`는 JSX까지 원본 이름으로 읽습니다.
-핸들러, 이펙트 안에서도 `responseProductSearchSuspense.data.products`처럼 출처를 유지합니다.
+TanStack Query 문서의 `const {data} = useQuery()` 구조분해는 JSX에 `data`만 남겨 어느 응답의 값인지 알 수 없게 합니다.
+스토어 훅의 반환값은 `permissionStore`처럼 `<이름>Store`로 받습니다.
+핸들러, 이펙트 안에서도 `responseProductSearchSuspense.data.items`처럼 출처를 유지합니다.
 
 | 함께 판단할 내용 | 기준 |
 | --- | --- |

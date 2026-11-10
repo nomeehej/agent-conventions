@@ -22,6 +22,9 @@ flowchart LR
 	q1 -- 예 --> r2("renderHeader, renderFooter<br>같은 렌더 프롭")
 ```
 
+같은 슬롯 계약을 둘 이상의 프롭이나 파일이 쓸 때만 타입에 이름을 붙입니다.
+`<Owner>`는 그 계약을 소유한 컴포넌트 이름입니다.
+
 | 별도 이름이 필요한 계약 | 이름 |
 | --- | --- |
 | `ReactNode` 값 | `<Owner>Slot` |
@@ -32,14 +35,12 @@ flowchart LR
 
 <<< ../examples/strategy-prefer-children-over-render-props/01-incorrect.tsx
 
-**Correct 1 (부품이 `children`으로 사용처가 넣을 자리를 엽니다):**
+**Correct 1 (틀 부품이 `children`으로 사용처가 넣을 자리를 엽니다):**
 
 <<< ../examples/strategy-prefer-children-over-render-props/02-correct.tsx
 
-**Correct (부품 계약, 진입 파일, 화면 조립을 파일마다 나눕니다):**
+**Correct (진입 파일과 화면 조립을 파일마다 나눕니다):**
 
-<<< ../examples/strategy-prefer-children-over-render-props/03-correct-1.ts
+<<< ../examples/strategy-prefer-children-over-render-props/03-correct-1.tsx
 
 <<< ../examples/strategy-prefer-children-over-render-props/03-correct-2.tsx
-
-<<< ../examples/strategy-prefer-children-over-render-props/03-correct-3.tsx

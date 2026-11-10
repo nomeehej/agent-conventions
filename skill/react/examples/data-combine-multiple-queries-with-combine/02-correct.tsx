@@ -1,6 +1,6 @@
 export const ProductTableSection = () => {
 	/**
- * 분류 이름이 목록 응답에 없어 표 한 행에 두 응답을 함께 담음
+	 * 분류 이름이 목록 응답에 없어 표 한 행에 두 응답을 함께 담음
 	 */
 	const responseProductRowsSuspense = useSuspenseQueries({
 		queries: [productListQueryOptions(), categoryListQueryOptions()],

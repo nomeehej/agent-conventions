@@ -1,5 +1,5 @@
 <Button
-	onClick={() => {
+	onClick={(_event) => {
 		if (!selectedProduct) {
 			return;
 		}

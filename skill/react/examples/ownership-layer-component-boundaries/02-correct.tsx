@@ -7,7 +7,7 @@ export const DeleteProductButton = () => {
 	/**
 	 * 삭제 후 목록으로 이동
 	 */
-	const handleDeleteButtonClick: MouseEventHandler<HTMLButtonElement> = () => {
+	const handleDeleteButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 		void navigate("/products");
 	};
 

@@ -45,6 +45,7 @@ tags: ownership, routing
 
 모든 자식 화면에 적용하는 인증 가드는 기본 프레임이 직접 소유할 수 있습니다.
 인증 확인이 끝나기 전에는 `Outlet` 아래를 렌더하지 않습니다.
+일부 그룹에만 적용하는 가드는 그 그룹의 `Outlet` 프레임이 소유합니다.
 화면마다 다른 접근 정책은 라우터가 연결합니다.
 `page`는 라우터의 구현을 가져오지 않습니다.
 같은 화면을 여러 URL에서 열면 라우터가 같은 진입 파일을 연결합니다.
@@ -62,7 +63,7 @@ tags: ownership, routing
 
 <<< ../examples/ownership-group-route-frames-with-outlets/01-incorrect.txt
 
-**Correct 1 (더 깊은 URL을 쓰는 화면도 그룹 밖 형제 소유자로 둡니다):**
+**Correct 1 (더 깊은 URL을 쓰는 화면도 같은 프레임 아래 `products`의 형제 소유자로 둡니다):**
 
 <<< ../examples/ownership-group-route-frames-with-outlets/02-correct.txt
 

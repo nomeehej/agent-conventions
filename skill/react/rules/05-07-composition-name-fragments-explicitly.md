@@ -14,6 +14,7 @@ tags: composition, jsx
 **Impact: MEDIUM (Fragment를 검색하고 변경 내역에서 식별하기 쉽습니다)**
 
 여러 요소를 감쌀 때는 `react`에서 가져온 `<Fragment>`를 쓰고 `<>`, `</>`는 쓰지 않습니다.
+빈 `<>`가 Fragment라는 사실을 `<Fragment>`가 이름으로 드러냅니다.
 목록에서 `key`가 필요해져도 `<Fragment key={…}>` 형태를 유지합니다.
 `<>`를 강제하는 `biome`의 `style/useFragmentSyntax`는 켜지 않습니다.
 

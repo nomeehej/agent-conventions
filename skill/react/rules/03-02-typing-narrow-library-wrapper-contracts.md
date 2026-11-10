@@ -4,8 +4,9 @@ titleKo: 라이브러리 래퍼는 필요한 프롭만 공개합니다
 impact: CRITICAL
 impactDescription: 화면의 라이브러리 의존성을 제한하고 교체 시 수정 범위를 줄입니다
 appliesWhen:
-  - 라이브러리 컴포넌트를 감싸는 `Ui*` 래퍼의 프롭스 타입을 만들거나 바꿀 때
+  - 라이브러리 컴포넌트를 감싸는 `component/ui` 래퍼의 프롭스 타입을 만들거나 바꿀 때
   - 래퍼에 프롭을 추가하거나 여는 범위를 넓힐 때
+  - 화면이나 `widget`에서 라이브러리 컴포넌트를 직접 가져올 때
 reviewWith: >-
   typing-open-dom-props-in-three-steps, typing-take-handler-types-from-existing-contracts,
   typing-choose-wrapper-shape-and-forwarding,
@@ -17,8 +18,9 @@ tags: typing, wrapper, contracts
 
 **Impact: CRITICAL (화면의 라이브러리 의존성을 제한하고 교체 시 수정 범위를 줄입니다)**
 
-라이브러리 컴포넌트는 화면에서 직접 쓰지 않고 `Ui*` 래퍼를 거칩니다.
-업그레이드, 교체 시 수정 범위를 래퍼에 모으고 화면에 필요한 계약만 엽니다.
+라이브러리 컴포넌트는 화면이나 `widget`에서 직접 쓰지 않고 `component/ui` 래퍼를 거칩니다.
+래퍼는 디자인 시스템의 경계라서 라이브러리 교체와 Figma, Storybook 이름 맞춤이 한 곳에서 끝납니다.
+래퍼는 화면에 필요한 계약만 엽니다.
 
 ### 프롭 종류별 선언
 
@@ -34,7 +36,7 @@ flowchart LR
 | 라이브러리에 이미 있는 표시 프롭 (`color`, `padding`, `size`) | `MuiButtonProps["color"]`처럼 인덱스 접근으로 하나씩 엽니다 |
 | 안쪽 컴포넌트가 받지 않는 자기 프롭 (`icon`, `label`, `helperText`) | 타입을 직접 적습니다 |
 | 라이브러리 스타일 주입 프롭 (테마 스타일, 클래스 맵, 렌더 태그 교체) | 선언하지 않습니다 |
-| DOM 속성 | `typing-open-dom-props-in-three-steps`를 따릅니다 |
+| DOM 속성 | 래퍼가 요소 하나를 감싸면 그 요소의 HTML 속성(`type`, `id`, `aria-*`, 이벤트)을 `typing-open-dom-props-in-three-steps` 순서로 엽니다 |
 
 `export type ButtonProps = MuiButtonProps`처럼 원본 프롭스 전체를 공개하지 않습니다.
 스타일 주입 지점까지 열면 `css/composition-inject-classes-only-at-the-entry-point`의 경계를 지킬 수 없습니다.
@@ -44,7 +46,7 @@ flowchart LR
 `IconButtonProps`의 `icon`은 래퍼만 받는 자기 프롭입니다.
 래퍼 `TableRowProps`의 `selected`는 안쪽 `MuiTableRowProps`도 받으므로 자기 프롭이 아닙니다.
 인덱스 접근은 이미 있는 프롭을 그대로 열 때만 씁니다.
-상속된 프롭도 바깥 타입 이름으로 접근합니다.
+라이브러리 컴포넌트가 상속으로 받는 프롭도 그 공개 프롭스 타입(`MuiTableRowProps["selected"]`)으로 접근합니다.
 
 | 함께 판단할 내용 | 기준 |
 | --- | --- |
@@ -56,6 +58,6 @@ flowchart LR
 
 <<< ../examples/typing-narrow-library-wrapper-contracts/01-incorrect.tsx
 
-**Correct 1 (표시 프롭은 인덱스 접근으로 열고 자기 프롭은 직접 적습니다):**
+**Correct 1 (DOM 속성은 `extends`로 열고 표시 프롭은 인덱스 접근으로 하나씩 엽니다):**
 
 <<< ../examples/typing-narrow-library-wrapper-contracts/02-correct.tsx

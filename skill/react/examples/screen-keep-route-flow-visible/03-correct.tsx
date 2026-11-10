@@ -1,6 +1,6 @@
 // page/products/_product-list-section.tsx
 export const ProductListSection = () => {
-	const [urlParams, setUrlParams] = useQueryStates(productUrlParsers);
+	const [urlParams, setUrlParams] = useQueryStates(urlParsers);
 
 	/**
 	 * 표에 그릴 상품을 URL의 page로 조회
@@ -17,7 +17,7 @@ export const ProductListSection = () => {
 	 */
 	const mutationProductSave = useProductSave({
 		mutation: {
-			onSuccess: () => {
+			onSuccess: (_data, _variables, _onMutateResult, _context) => {
 				void queryClient.invalidateQueries({queryKey: productListQueryKey()});
 				void setUrlParams({page: 1});
 			},

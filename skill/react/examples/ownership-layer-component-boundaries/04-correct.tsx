@@ -1,4 +1,4 @@
-// component/widget/product-table/_product-status-badge.tsx
+// component/widget/product-status-badge/product-status-badge.tsx
 /**
  * 상품 상태 배지 계약
  */
@@ -14,8 +14,8 @@ export const ProductStatusBadge = (props: ProductStatusBadgeProps) => {
 	return (
 		<span
 			className={clsx(
-				"productTable__statusBadge",
-				props.status === "hidden" && "productTable__statusBadge--hidden",
+				"productStatusBadge__root",
+				props.status === "hidden" && "productStatusBadge__root--hidden",
 			)}
 		>
 			{props.children}

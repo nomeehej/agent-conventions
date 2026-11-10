@@ -36,7 +36,9 @@ tags: composition, props
 
 **Correct 1 (컴포넌트 파일마다 계약을 바로 위에 선언하고 내보냅니다):**
 
-<<< ../examples/composition-declare-props-interface-above-the-component/02-correct.tsx
+<<< ../examples/composition-declare-props-interface-above-the-component/02-correct-1.tsx
+
+<<< ../examples/composition-declare-props-interface-above-the-component/02-correct-2.tsx
 
 **Incorrect 2 (설명이 컴포넌트에 붙어 계약과 떨어집니다):**
 

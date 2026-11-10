@@ -10,6 +10,9 @@ flowchart LR
 	q1 -- 예 --> r2("renderHeader, renderFooter<br>같은 렌더 프롭")
 ```
 
+같은 슬롯 계약을 둘 이상의 프롭이나 파일이 쓸 때만 타입에 이름을 붙입니다.
+`<Owner>`는 그 계약을 소유한 컴포넌트 이름입니다.
+
 | 별도 이름이 필요한 계약 | 이름 |
 | --- | --- |
 | `ReactNode` 값 | `<Owner>Slot` |
@@ -36,18 +39,26 @@ export const Panel = (props: PanelProps) => {
 };
 ```
 
-**Correct 1 (부품이 `children`으로 사용처가 넣을 자리를 엽니다):**
+**Correct 1 (틀 부품이 `children`으로 사용처가 넣을 자리를 엽니다):**
 
 ```tsx
 // component/ui/panel/_panel-root.tsx
 import {clsx} from "clsx";
 
-import type {PanelPartProps} from "@/component/ui/panel/_type/panel-part";
+/**
+ * 패널 틀 계약
+ */
+export interface PanelRootProps {
+	/**
+	 * 그 부품 자리에 사용처가 넣을 내용
+	 */
+	children: ReactNode;
+}
 
 /**
  * 패널 틀. 나머지 부품은 이 안에서만 그림
  */
-export const PanelRoot = (props: PanelPartProps) => {
+export const PanelRoot = (props: PanelRootProps) => {
 	return <section className={clsx("panel__root")}>{props.children}</section>;
 };
 ```

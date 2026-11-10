@@ -1,1 +1,1 @@
-const [urlParams, setUrlParams] = useQueryStates(productUrlParsers);
+const [urlParams, setUrlParams] = useQueryStates(urlParsers);

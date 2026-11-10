@@ -525,10 +525,10 @@ interface ApiQueryOptions<TResponse, TData> {
 	};
 }
 interface ApiMutationOptions<TData, TVariables> {
-	mutation?: {
-		onSuccess?: (data: TData, variables: TVariables) => void;
-		onError?: (error: Error) => void;
-	};
+	mutation?: Pick<
+		import("@tanstack/react-query").UseMutationOptions<TData, Error, TVariables>,
+		"onSuccess" | "onError" | "onSettled"
+	>;
 }
 interface ApiClient {
 	get<T = unknown>(url: string, config?: {params?: unknown}): Promise<T>;
@@ -673,7 +673,7 @@ declare const session: Session;
 declare const settings: Settings;
 declare const formValues: ProductFormValues;
 declare const query: {pageSize?: number};
-declare const productUrlParsers: {
+declare const urlParsers: {
 	keyword: ReturnType<typeof parseAsString.withDefault>;
 	categoryId: ReturnType<typeof parseAsString.withDefault>;
 	page: ReturnType<typeof parseAsInteger.withDefault>;
@@ -751,9 +751,6 @@ declare module "@/component/ui/line-chart/_type/chart-series" {
 declare module "@/component/ui/line-chart/line-chart" {
 	export const LineChart: LineChartComponent;
 }
-declare module "@/component/ui/panel/_type/panel-part" {
-	export type PanelPartProps = PanelPartPropsShape;
-}
 declare module "@/component/ui/panel/_panel-body" {
 	export const PanelBody: PanelPartComponent;
 }
@@ -791,9 +788,6 @@ declare module "@/component/widget/product-toolbar/product-toolbar" {
 		Root: (props: {children?: ReactNode}) => ReactElement;
 	};
 }
-declare module "@/component/widget/profile-dialog/_type/profile-dialog-part" {
-	export type ProfileDialogPartProps = ProfileDialogPartPropsShape;
-}
 declare module "@/component/widget/profile-dialog/_profile-dialog-body" {
 	export const ProfileDialogBody: ProfileDialogPartComponent;
 }
@@ -802,9 +796,6 @@ declare module "@/component/widget/profile-dialog/_profile-dialog-header" {
 }
 declare module "@/component/widget/profile-dialog/_profile-dialog-root" {
 	export const ProfileDialogRoot: ProfileDialogPartComponent;
-}
-declare module "@/component/widget/user-card/_user-card-avatar" {
-	export const UserCardAvatar: (props: {src: string; alt: string; theme?: Theme}) => ReactElement;
 }
 declare module "@/config/env" {
 	export const env_api_base_url: string;
@@ -840,10 +831,7 @@ declare module "@/page/root-outlet" {
 declare module "@/page/product-detail/_function/to-summary" {
 	export const toSummary: (response: ApiResponse<ProductSummary>) => ProductSummary;
 }
-declare module "@/page/product-detail/_section-heading" {
-	export const SectionHeading: (props: {title: string}) => ReactElement;
-}
-declare module "@/page/product-detail/product-detail-page" {
+declare module "@/page/(main)/product-detail/product-detail-page" {
 	export const ProductDetailPage: () => ReactElement;
 }
 declare module "@/page/product-detail/product-summary-section/product-summary-section" {
@@ -855,17 +843,14 @@ declare module "@/page/product-detail/product-table-section/_review-section" {
 declare module "@/page/product-detail/product-table-section/product-table-section" {
 	export const ProductTableSection: ProductTableSectionComponent;
 }
-declare module "@/page/products/_function/to-media-upload-payload" {
-	export const toMediaUploadPayload: (files: File[]) => FormData;
-}
 declare module "@/page/profile/_function/to-profile-save-request" {
 	export const toProfileSaveRequest: (values: ProfileFormValues) => {displayName: string};
 }
 declare module "@/type/user-profile" {
 	export type UserProfile = Profile;
 }
-declare module "@/util/date/to-display-date" {
-	export const toDisplayDate: (value: string) => string;
+declare module "@/util/date/format-display-date" {
+	export const formatDisplayDate: (value: string) => string;
 }
 
 // 테스트 예제가 사용하는 앱 계약. 러너 API는 설치된 패키지의 실제 타입을 사용합니다
@@ -894,7 +879,7 @@ declare module "@/service/orders" {
 	 */
 	export interface OrderDto {
 		/**
-		 * 주문 식별자
+		 * 주문 ID
 		 */
 		id: string;
 		/**
@@ -914,7 +899,7 @@ declare module "@/page/orders/_function/to-order-rows" {
 	 */
 	export interface OrderRow {
 		/**
-		 * 주문 식별자
+		 * 주문 ID
 		 */
 		id: string;
 		/**

@@ -1,12 +1,13 @@
 page/
 ├── root-outlet.tsx
-├── (main)/
-│   ├── main-outlet.tsx
-│   ├── products/
-│   │   ├── products-page.tsx
-│   │   └── product-table-section/
-│   │       └── product-table-section.tsx
-│   └── orders/
-│       └── orders-page.tsx
-└── product-detail/
-    └── product-detail-page.tsx
+└── (main)/
+    ├── main-outlet.tsx
+    ├── products/
+    │   ├── products-page.tsx
+    │   └── product-table-section/
+    │       └── product-table-section.tsx
+# [!code ++]
+    ├── product-detail/
+    │   └── product-detail-page.tsx
+    └── orders/
+        └── orders-page.tsx

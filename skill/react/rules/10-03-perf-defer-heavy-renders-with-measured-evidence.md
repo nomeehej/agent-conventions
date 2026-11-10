@@ -2,27 +2,29 @@
 title: Defer Heavy Renders Only With Measured Evidence
 titleKo: 측정한 근거가 있을 때만 무거운 렌더를 미룹니다
 impact: MEDIUM
-impactDescription: 측정한 렌더 병목에만 트랜지션과 지연 값을 적용합니다
+impactDescription: 측정한 렌더 병목과 `Suspense` 키 갱신에만 트랜지션과 지연 값을 적용합니다
 appliesWhen:
   - `startTransition`, `useTransition`, `useDeferredValue`를 추가, 삭제할 때
   - 목록이나 표가 커져 입력 반응이 늦다는 보고를 받았을 때
+  - `Suspense` 쿼리의 키가 되는 search 파라미터나 상태 갱신을 추가할 때
 reviewWith: perf-avoid-defensive-memoization
 tags: perf, state
 ---
 
 ## Defer Heavy Renders Only With Measured Evidence
 
-**Impact: MEDIUM (측정한 렌더 병목에만 트랜지션과 지연 값을 적용합니다)**
+**Impact: MEDIUM (측정한 렌더 병목과 `Suspense` 키 갱신에만 트랜지션과 지연 값을 적용합니다)**
 
 `startTransition`, `useTransition`, `useDeferredValue`는 렌더 비용을 측정한 뒤 사용합니다.
 목록 행 수와 조작별 소요 시간을 확인합니다.
 예상 규모만 근거로 삼지 않습니다.
+`Suspense` 쿼리의 키를 바꾸는 갱신만 예외이며 측정 없이 `startTransition`으로 감쌉니다.
 
 ### 지연 도구 고르기
 
 ```mermaid
 flowchart LR
-	q1{"무거운 렌더를 일으키는<br>갱신 함수를 직접 부르는가?"} -- 예 --> q2{"트랜지션 진행 표시가<br>필요한가?"} -- 아니요 --> r3("startTransition")
+	q1{"무거운 렌더나 대체 화면을 일으키는<br>갱신 함수를 직접 부르는가?"} -- 예 --> q2{"트랜지션 진행 표시가<br>필요한가?"} -- 아니요 --> r3("startTransition")
 	q1 -- 아니요 --> r1("useDeferredValue")
 	q2 -- 예 --> r2("useTransition 의 isPending")
 ```
@@ -31,6 +33,7 @@ flowchart LR
 | --- | --- |
 | 직접 호출하는 상태 갱신이 무거운 렌더를 일으킴 | `startTransition`으로 호출을 감쌉니다. 프롭으로 받은 갱신 함수도 같습니다 |
 | 값은 즉시 반응해야 하지만 파생 렌더는 미룰 수 있음 | `useDeferredValue`로 지연 값을 만듭니다 |
+| `Suspense` 쿼리의 키를 바꾸는 갱신으로 이미 보인 섹션이 대체 화면으로 바뀜 | 측정 없이 `startTransition`으로 감쌉니다. search 파라미터는 nuqs의 `startTransition` 옵션을 씁니다. 진행 표시는 `useTransition`의 `isPending`입니다 |
 | 갱신 함수를 호출할 수 없고 프롭, 훅 반환값만 받음 | `useDeferredValue`를 씁니다 |
 | 트랜지션 진행 표시가 필요함 | 대기 상태를 주지 않는 `startTransition` 대신 `useTransition`의 `isPending`을 씁니다 |
 
@@ -63,6 +66,14 @@ flowchart LR
 **Correct 2 (입력은 즉시 반응하고 무거운 파생 계산만 늦춥니다):**
 
 <<< ../examples/perf-defer-heavy-renders-with-measured-evidence/04-correct.tsx
+
+**Incorrect 3 (`Suspense` 쿼리의 키인 search 파라미터를 일반 갱신으로 바꿉니다):**
+
+<<< ../examples/perf-defer-heavy-renders-with-measured-evidence/08-incorrect.tsx
+
+**Correct 3 (키를 바꾸는 search 파라미터는 nuqs의 `startTransition` 옵션으로 감쌉니다):**
+
+<<< ../examples/perf-defer-heavy-renders-with-measured-evidence/09-correct.tsx
 
 **Correct (진행 표시가 필요하면 `useTransition`의 `isPending`을 씁니다):**
 

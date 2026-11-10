@@ -1,6 +1,6 @@
 // page/products/_product-tree-section.tsx
 export const ProductTreeSection = () => {
-	const [urlParams, setUrlParams] = useQueryStates(productUrlParsers);
+	const [urlParams, setUrlParams] = useQueryStates(urlParsers);
 	const [expandedItems, setExpandedItems] = useState<string[]>([]);
 
 	/**

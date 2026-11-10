@@ -29,7 +29,7 @@ flowchart LR
 | --- | --- |
 | Suspense 쿼리 결과를 합침 | `useSuspenseQueries` + `combine`. `isPending`을 만들어 내보내지 않습니다 |
 | 일반 쿼리 결과를 합침 | `useQueries` + `combine`. 실제 대기, 실패 상태도 함께 다룹니다 |
-| 결과를 각각 렌더함 | 합친 값을 만들지 않습니다. Suspense 병렬 실행이 필요하면 `useSuspenseQueries`에서 결과를 따로 읽습니다 |
+| 결과를 각각 렌더함 | 합친 값을 만들지 않습니다. Suspense 병렬 실행이 필요하면 `useSuspenseQueries`를 `[responseProductListSuspense, responseCategoryListSuspense]`처럼 배열 구조분해로 받아 결과를 따로 읽습니다 |
 | 일반 쿼리의 뒤 요청이 앞 결과를 입력으로 받음 | `enabled`로 입력이 준비된 뒤 실행합니다 |
 | Suspense 쿼리의 뒤 요청이 앞 결과를 입력으로 받음 | 같은 컴포넌트에서 `useSuspenseQuery`를 순서대로 호출합니다 |
 

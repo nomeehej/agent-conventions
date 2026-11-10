@@ -3,12 +3,10 @@
 **Impact: MEDIUM (이벤트 흐름을 이름으로 검색할 수 있습니다)**
 
 이벤트 핸들러는 `handle` 접두사에 대상과 역할을 붙입니다.
-표를 위에서부터 읽어 처음 해당하는 형태를 씁니다.
 
 | 상황 | 이름 |
 | --- | --- |
-| DOM 이벤트 객체를 받음 | `handle + Target + Event` |
-| 이벤트 객체를 받지 않는 도메인 콜백 | `handle + DomainAction` |
+| `on*` 프롭에 연결하는 핸들러 | `handle` + 대상 + 프롭 이름에서 `on`을 뗀 부분. 대상은 프롭을 가진 요소나 컴포넌트 또는 그 동작이 다루는 도메인 대상입니다 (`handleTableRowSelect`, `handleProductSave`) |
 
 `on*`은 프롭 이름에만 씁니다.
 `onClick`을 처리하는 구현은 `handleRowClick`처럼 이름 짓습니다.

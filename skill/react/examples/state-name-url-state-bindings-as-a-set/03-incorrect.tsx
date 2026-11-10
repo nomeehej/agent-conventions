@@ -1,4 +1,4 @@
-const [searchParams, setSearchParams] = useQueryStates(productUrlParsers);
+const [searchParams, setSearchParams] = useQueryStates(urlParsers);
 const query = searchParams.keyword;
 
 <SearchInput value={query} />;

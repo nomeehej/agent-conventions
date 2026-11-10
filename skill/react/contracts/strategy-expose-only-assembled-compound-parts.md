@@ -6,9 +6,9 @@
 
 | 영역 | 공개 여부 |
 | --- | --- |
-| 부품이 없으면 사용처가 자기 JSX를 넣을 수 없는 자리 | 공개합니다 |
+| 사용처가 자기 내용을 끼우는 자리(틀, 머리, 본문처럼 위치와 의미가 있는 자리) | 부품 하나로 공개합니다. 부품 자신이 `className`을 얹는 얇은 래퍼여도 같습니다 |
 | 공용 컨텍스트나 동작을 직접 쓰는 자리 | 공개합니다 |
-| 단순 `className` 래퍼와 그 밖의 내부 구조 | 공개하지 않습니다 |
+| 부품 안쪽에서 자기 DOM을 꾸미기만 하는 래퍼, 사용처가 내용을 넣지 않는 내부 구조 | 공개하지 않습니다 |
 | 여백 보정용 DOM | `css/composition-do-not-add-wrapper-elements-for-styling`에 따라 만들지 않습니다 |
 
 **Incorrect 1 (내부 구조를 전부 공개해 계약으로 굳힙니다):**
@@ -39,7 +39,7 @@ import {PanelBody} from "@/component/ui/panel/_panel-body";
 import {PanelHeader} from "@/component/ui/panel/_panel-header";
 import {PanelRoot} from "@/component/ui/panel/_panel-root";
 
-// 단순 클래스 래퍼는 헤더 부품만 쓰고 여백 보정용 DOM은 안 만듦
+// 사용처가 내용을 끼우는 Root, Header, Body만 공개하고 내부 래퍼와 여백 보정용 DOM은 만들지 않음
 export const Panel = {
 	Root: PanelRoot,
 	Header: PanelHeader,

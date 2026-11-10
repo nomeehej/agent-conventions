@@ -21,16 +21,16 @@ tags: strategy, composition, variants, components
 
 ```mermaid
 flowchart LR
-	q1{"부품 조립이<br>필요한가?"} -- 예 --> q2{"부품이 같은 상태,<br>동작을 읽는가?"} -- 예 --> q3{"같은 조합이<br>반복되는가?"} -- 예 --> r4("조합을 감싼 변형")
-	q1 -- 아니요 --> r1("단일 컴포넌트")
-	q2 -- 아니요 --> r2("상태 없는 합성")
-	q3 -- 아니요 --> r3("상태 있는 합성")
+	q1{"부품 조립이<br>필요한가?"} -- 아니요 --> r1("단일 컴포넌트")
+	q1 -- 예 --> q2{"부품이 같은 상태,<br>동작을 읽는가?"} -- 아니요 --> r2("상태 없는 합성")
+	q2 -- 예 --> r3("상태 있는 합성")
 ```
 
 합성 진입 파일은 부품을 `{Root, Header, Body} as const` 객체 하나로 내보냅니다.
 상태 있는 합성은 `Root`가 상태를 소유해 부품에 컨텍스트로 내립니다.
+컨텍스트 객체는 `Root` 파일에 선언하고 같은 폴더의 부품이 가져옵니다.
 상태를 추가해도 사용처의 공개 이름은 유지합니다.
-반복되는 조합은 변형으로 감쌉니다.
+같은 조합을 여러 사용처가 이미 반복해서 쓰고 있으면 상태 유무와 관계없이 그 조합을 이름 붙인 변형으로 감쌉니다.
 
 **Incorrect 1 (단일, 합성, 변형을 구분하지 않고 한 컴포넌트에 모두 구현합니다):**
 
@@ -48,13 +48,9 @@ flowchart LR
 
 <<< ../examples/strategy-choose-single-composition-compound-and-variants/03-correct-3.tsx
 
-<<< ../examples/strategy-choose-single-composition-compound-and-variants/03-correct-4.tsx
-
 **Correct (3단계. 부품이 같은 상태를 읽으면 공개 이름을 그대로 두고 컨텍스트만 더합니다):**
 
-<<< ../examples/strategy-choose-single-composition-compound-and-variants/04-correct-1.ts
-
-<<< ../examples/strategy-choose-single-composition-compound-and-variants/04-correct-2.tsx
+<<< ../examples/strategy-choose-single-composition-compound-and-variants/04-correct.tsx
 
 **Correct (4단계. 같은 조합이 반복되면 이름 붙인 변형으로 감쌉니다):**
 

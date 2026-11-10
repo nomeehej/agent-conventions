@@ -1,11 +1,12 @@
 // component/widget/user-card/user-card.tsx
 export const UserCard = (props: UserCardProps) => {
+// [!code error]
 	const Avatar = () => {
 		return (
 			<img
 				className={clsx(
-					"userCardAvatar__image",
-					props.theme === "dark" && "userCardAvatar__image--dark",
+					"userCard__avatar",
+					props.theme === "dark" && "userCard__avatar--dark",
 				)}
 				src={props.user.avatarUrl}
 				alt={props.user.name}

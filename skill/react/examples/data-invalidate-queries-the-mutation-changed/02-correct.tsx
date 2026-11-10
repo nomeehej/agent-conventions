@@ -7,7 +7,7 @@ const queryClient = useQueryClient();
  */
 const mutationProductSave = useProductSave({
 	mutation: {
-		onSuccess: () => {
+		onSuccess: (_data, _variables, _onMutateResult, _context) => {
 // [!code ++]
 			void queryClient.invalidateQueries({queryKey: productListQueryKey()});
 // [!code ++]

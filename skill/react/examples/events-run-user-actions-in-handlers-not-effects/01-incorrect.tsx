@@ -3,7 +3,7 @@
  */
 const mutationProductCreate = useProductCreate({
 	mutation: {
-		onSuccess: () => {
+		onSuccess: (_data, _variables, _onMutateResult, _context) => {
 			void navigate("/products");
 		},
 	},

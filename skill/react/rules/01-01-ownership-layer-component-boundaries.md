@@ -6,6 +6,7 @@ impactDescription: 공용 책임과 화면 전용 책임이 같은 레이어에 
 appliesWhen:
   - 컴포넌트를 `ui`, `widget`, `page` 중 어느 소유 레이어에 둘지 정할 때
   - 컴포넌트를 레이어 사이에서 옮기거나 공용화할 때
+  - `ui`나 `widget` 컴포넌트가 쿼리, 뮤테이션, 라우터 훅, 화면 스토어를 새로 호출하거나 화면 타입을 참조할 때
 reviewWith: ownership-place-owner-files-in-role-folders
 tags: ownership, widget, naming
 ---
@@ -27,11 +28,13 @@ flowchart LR
 
 | 조건 | 레이어 |
 | --- | --- |
-| 화면의 응답, 뷰모델 타입이나 라우트 search 파라미터를 프롭스 타입에서 참조함 | `page` |
+| 화면의 응답, 화면 전용 가공 타입이나 라우트 search 파라미터를 프롭스 타입에서 참조함 | `page` |
 | 쿼리, 뮤테이션, 라우터 훅, 화면 스토어를 직접 호출함 | `page` |
 | 해당 화면의 `Suspense` 경계, 폼 프로바이더, 모달을 여는 조건을 소유함 | `page` |
 
 하나도 걸리지 않으면 도메인을 아는 쪽이 `widget`, 모르는 쪽이 `ui`입니다.
+도메인을 안다는 것은 도메인 타입(`Product`, `ProductStatus`)을 프롭스로 받거나 도메인 낱말 문구를 렌더한다는 뜻입니다.
+좌표 배열처럼 어느 도메인의 값인지 모르는 입력만 받으면 모릅니다.
 범용 셸이거나 한 화면에서만 쓴다는 사실은 `page`의 근거가 아닙니다.
 여러 `ui` 부품을 조립해도 도메인을 모르면 `ui`입니다.
 파일 이름과 심볼에는 `ownership-name-component-files-after-their-symbols`를 적용합니다.

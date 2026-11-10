@@ -7,8 +7,7 @@
 | 추가 대상 | 조건 |
 | --- | --- |
 | 합성 컴포넌트 | 공개 부품 |
-| `useEffect` | 정리 함수가 있거나 의존성이 둘 이상임 |
-| 이벤트 핸들러 | 화면을 이동하거나 쿼리를 무효화함. 동작이 하나뿐이어도 포함합니다 |
+| 이벤트 핸들러, `useEffect` | 본문에 분기, `await`, 쿼리 무효화, 화면 이동, 저장 같은 부수효과 호출이 있음. 동작이 하나뿐이어도 포함합니다 |
 
 **Requires selected:** `typescript/docs-require-header-jsdoc-on-key-declarations` (함께 적용)
 

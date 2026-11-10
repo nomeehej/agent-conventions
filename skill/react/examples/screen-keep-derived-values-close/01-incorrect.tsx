@@ -5,7 +5,7 @@ export const ProductTableSection = () => {
 	/**
 	 * 고른 행은 이 섹션 안에만 두고 search 파라미터로 올리지 않음
 	 */
-	const handleTableRowSelect: TableProps["onRowSelect"] = (rows) => {
+	const handleTableRowSelect: TableProps<ProductRow>["onRowSelect"] = (rows) => {
 		setSelectedRows(rows);
 	};
 

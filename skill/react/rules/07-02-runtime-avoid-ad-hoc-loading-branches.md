@@ -6,7 +6,6 @@ impactDescription: 초기 로딩과 실패는 경계가 맡고 화면 본문에�
 appliesWhen:
   - `Suspense` 쿼리를 쓰는 화면 본문에 초기 로딩 반환을 추가, 변경할 때
   - `isFetching`이나 뮤테이션 `isPending`으로 화면을 가리는 분기를 넣을 때
-  - 제외: 선택 값에 기본값을 채우는 것만 바꾸는 경우
 reviewWith: >-
   data-preserve-origin-chaining, screen-keep-derived-values-close,
   typescript/absence-expose-optional-values-instead-of-silent-fallbacks

@@ -7,11 +7,11 @@
 
 | 조건 | 판정 |
 | --- | --- |
-| 모양이나 모드를 정하는 불리언이 둘 이상임 | 변형 또는 합성 컴포넌트로 구조를 다시 고릅니다 |
-| 같은 불리언을 JSX 분기와 클래스 조건에 함께 사용함 | 변형 또는 합성 컴포넌트로 구조를 다시 고릅니다 |
-| `disabled`, `checked`, `selected`, `open`처럼 독립 상태를 나타냄 | 유지합니다. 불리언이라는 이유만으로 없애지 않습니다 |
+| 서로 조합해야 모양이 정해지는 불리언을 함께 받음(`isCompact`와 `isEditing`처럼) | 변형 또는 합성 컴포넌트로 구조를 다시 고릅니다 |
+| 상태가 아닌 모드 불리언을 JSX 분기와 클래스 조건에 함께 사용함 | 변형 또는 합성 컴포넌트로 구조를 다시 고릅니다 |
+| `disabled`, `checked`, `selected`, `open`처럼 독립 상태를 나타내거나 `isLoading`, `fullWidth`처럼 다른 프롭과 조합해도 모양이 갈리지 않음 | 유지합니다. 불리언이라는 이유만으로 없애지 않습니다 |
 
-불리언 개수 자체보다 서로 배타적인 모드를 조합으로 표현하는지 확인합니다.
+불리언 개수가 아니라 서로 배타적인 모드를 조합으로 표현하는지 확인합니다.
 공개 부품을 `.Root`처럼 묶는 형태는 `strategy-choose-single-composition-compound-and-variants`를 따릅니다.
 
 **Incorrect 1 (불리언 프롭 조합으로 공용 컴포넌트가 비대해집니다):**
@@ -44,6 +44,7 @@ export const ProductToolbar = (props: ProductToolbarProps) => {
 // component/widget/product-browse-toolbar/product-browse-toolbar.tsx
 import {ProductToolbar} from "@/component/widget/product-toolbar/product-toolbar";
 
+// 변형이 조합을 고정하므로 isCompact, isEditing, showSearch 프롭이 없음
 export const ProductBrowseToolbar = () => {
 	return (
 		<ProductToolbar.Root>
