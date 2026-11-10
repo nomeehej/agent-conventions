@@ -3,9 +3,9 @@ import { expect, test } from "@playwright/test";
 
 import type { Page } from "@playwright/test";
 
-/**
- * 주문 목록에서 주문 ID가 든 행
- */
+// ----------------------------------------------------------------------------------------
+// 주문 목록에서 주문 ID가 든 행
+// ----------------------------------------------------------------------------------------
 const orderRow = (page: Page, orderId: string) => {
 	return page
 		.getByRole("table", { name: "주문 목록" })
@@ -14,37 +14,22 @@ const orderRow = (page: Page, orderId: string) => {
 };
 
 test("목록에 주문이 표시된다", async ({ page }) => {
-	/**
-	 * WHEN
-	 * 주문 목록 진입
-	 */
+	// WHEN 주문 목록 진입
 	await page.goto("/orders");
 
-	/**
-	 * THEN
-	 * 목록의 대표 주문
-	 */
+	// THEN 목록의 대표 주문
 	// [!code ++]
 	await expect(orderRow(page, "order-1")).toBeVisible();
 });
 
 test("주문을 누르면 상세로 이동한다", async ({ page }) => {
-	/**
-	 * GIVEN
-	 * 대표 주문이 있는 목록
-	 */
+	// GIVEN 대표 주문이 있는 목록
 	await page.goto("/orders");
 
-	/**
-	 * WHEN
-	 * 대표 주문 링크 클릭
-	 */
+	// WHEN 대표 주문 링크 클릭
 	// [!code ++]
 	await orderRow(page, "order-1").getByRole("link").click();
 
-	/**
-	 * THEN
-	 * 선택한 주문의 상세 URL
-	 */
+	// THEN 선택한 주문의 상세 URL
 	await expect(page).toHaveURL(/\/orders\/order-1$/);
 });
