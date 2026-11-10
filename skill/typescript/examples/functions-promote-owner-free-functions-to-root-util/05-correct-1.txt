@@ -3,4 +3,5 @@ util/
 │   ├── format-display-date.ts
 │   └── format-display-date.test.ts
 └── money/
-    └── format-signed-amount.ts
+    ├── format-signed-amount.ts
+    └── format-signed-amount.test.ts

@@ -1,6 +1,3 @@
-// ----------------------------------------------------------------------------------------
-// 앞뒤 공백을 걷어 낸 요청 문자열
-// ----------------------------------------------------------------------------------------
 // [!code error]
 const toRequest = (request: string): string => {
 	return request.trim();
@@ -14,9 +11,6 @@ const toSearchRequest = (request: string): string => {
 	return request.replaceAll(/\s+/g, " ").trim();
 };
 
-// ----------------------------------------------------------------------------------------
-// 변환 함수를 받아 요청 문자열을 전송
-// ----------------------------------------------------------------------------------------
 // [!code error]
 export const sendRequest = (request: string, toBody: (request: string) => string): Promise<void> => {
 	return client.post("/requests", toBody(request));
