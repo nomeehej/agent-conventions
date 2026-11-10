@@ -1,4 +1,4 @@
 .ordersPage__virtualRow {
 	position: absolute;
-	transform: translateY(var(--orders-row-offset, 0));
+	transform: translateY(var(--ordersPage-rowOffset, 0));
 }

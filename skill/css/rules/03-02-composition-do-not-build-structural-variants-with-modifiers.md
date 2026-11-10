@@ -28,7 +28,7 @@ flowchart LR
 | --- | --- |
 | 앱이 켜고 끄는 상태 | 항상 수정자로 씁니다. `--active`, `--selected`, `--error`, `--expanded`, `--current` |
 | 브라우저가 부여하는 `:disabled`, `:checked` | 수정자로 만들지 않습니다. `selector-use-pseudo-classes-for-dom-owned-states`를 따릅니다 |
-| 같은 수정자 이름을 소유자 둘 이상이 이미 씀 | 반복되는 모양이므로 허용합니다. `--dense`, `--compact`, `--horizontal` |
+| 같은 수정자 이름을 쓰는 소유자가 지금 추가하는 것까지 둘 이상임 | 반복되는 모양이므로 허용합니다. 먼저 쓰던 소유자의 요소 클래스도 같은 수정자로 바꿉니다. `--dense`, `--compact`, `--horizontal` |
 | `variant` 프롭이 고르는 모양을 두 곳 이상에서 사용함 | 소유자 수와 무관하게 수정자로 씁니다 |
 | 위 조건에 맞지 않는 한 곳의 보정 | 요소 클래스로 씁니다. `--compactTop`, `--marginLeft0`, `--alignRight` 같은 수정자는 만들지 않습니다 |
 

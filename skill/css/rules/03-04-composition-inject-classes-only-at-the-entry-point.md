@@ -25,13 +25,16 @@ tags: components, entry-point, class-props
 ```mermaid
 flowchart LR
 	q1{"최상위의 배치, 여백,<br>크기를 바꾸는가?"} -- 예 --> r1("받은 className을<br>자기 최상위 클래스와 합침")
-	q1 -- 아니요 --> r2("variant 프롭을 받아<br>필요한 노드마다 수정자")
+	q1 -- 아니요 --> q2{"여러 사용처에서<br>같은 내부 모양인가?"}
+	q2 -- 예 --> r2("variant 프롭을 받아<br>필요한 노드마다 수정자")
+	q2 -- 아니요 --> r3("다른 소유자 API 규칙의<br>순서로 판단")
 ```
 
 | 사용처가 바꾸려는 것 | 방법 |
 | --- | --- |
 | 최상위의 배치, 여백, 크기 | 받은 `className`을 자기 최상위 클래스와 `clsx()`로 합칩니다 |
-| 화면마다 달라지는 내부 모양 | `variant` 프롭을 받고 헤더나 본문 등 필요한 노드마다 수정자를 붙입니다 |
+| 여러 사용처에서 같게 반복되는 내부 모양 | `variant` 프롭을 받고 헤더나 본문 등 필요한 노드마다 수정자를 붙입니다 |
+| 한 곳만의 내부 모양 | `ownership-change-other-owners-through-their-api`의 순서를 따릅니다 |
 
 ### 금지하는 형태
 
@@ -41,7 +44,6 @@ flowchart LR
 | 받은 `className`을 내부 노드에 전달함 | 클래스 주입은 최상위까지만 허용합니다 |
 | 최상위 수정자로 내부를 결합해 선택함 | 자손이 조상 구조에 의존합니다. 조상의 DOM 상태를 전달할 때만 `selector-nest-dom-state-in-the-owning-block`에 따라 결합자 하나를 씁니다 |
 
-사용처가 어떤 방법을 고를지는 `ownership-change-other-owners-through-their-api`가 정합니다.
 `className`을 받지 않는 컴포넌트는 `composition-do-not-add-wrapper-elements-for-styling`을 따릅니다.
 
 **Incorrect 1 (내부 노드마다 클래스 프롭을 열어 주입 지점을 늘립니다):**

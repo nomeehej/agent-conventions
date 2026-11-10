@@ -1,12 +1,12 @@
 .productsPage__sortButton {
 /* [!code ++] */
-	&:hover .productsPage__sortBox {
+	&:hover .productsPage__sortIcon {
 /* [!code ++] */
 		border-color: #9fadc7;
 /* [!code ++] */
 	}
 
-	&.Mui-focusVisible .productsPage__sortBox {
+	&.Mui-focusVisible .productsPage__sortIcon {
 		border-color: #9fadc7;
 	}
 }

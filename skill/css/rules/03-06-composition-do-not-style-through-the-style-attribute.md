@@ -22,7 +22,7 @@ tags: values, inline-style
 | 값 | 전달 방법 |
 | --- | --- |
 | 화면마다 달라지는 값 | 수정자 클래스로 전달합니다. 주입 위치는 `composition-inject-classes-only-at-the-entry-point`를 따릅니다 |
-| 실행 중 계산해야 알 수 있는 수치 하나 | CSS 변수 한 개만 `style`로 넘기고 실제 속성 선언은 스타일시트에 둡니다 |
+| 실행 중 계산해야 알 수 있는 수치 | 값마다 CSS 변수를 `style`로 넘기고 실제 속성 선언은 스타일시트에 둡니다 |
 
 두 번째 행만 예외입니다.
 가상 스크롤 위치, 드래그 좌표, 측정한 높이처럼 스타일시트에 미리 적을 수 없는 수치가 여기에 해당합니다.
@@ -41,7 +41,7 @@ tags: values, inline-style
 
 <<< ../examples/composition-do-not-style-through-the-style-attribute/03-correct.css
 
-**Correct (실행 중에만 아는 수치를 CSS 변수 하나로 넘깁니다):**
+**Correct (실행 중에만 아는 수치를 CSS 변수로 넘깁니다):**
 
 <<< ../examples/composition-do-not-style-through-the-style-attribute/04-correct-1.tsx
 

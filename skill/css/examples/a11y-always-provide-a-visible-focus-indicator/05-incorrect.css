@@ -1,0 +1,7 @@
+/* [!code error] */
+.input__field--invalid {
+	&:focus-visible {
+		outline: 2px solid #1677ff;
+		outline-offset: 2px;
+	}
+}

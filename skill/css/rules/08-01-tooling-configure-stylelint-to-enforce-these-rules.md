@@ -25,11 +25,12 @@ tags: tooling, stylelint, automation
 | `selector-class-pattern` | `css/naming-use-block-element-modifier-syntax` |
 | `max-nesting-depth` | `css/selector-limit-nesting-block-depth` |
 | `keyframes-name-pattern` | `css/a11y-namespace-keyframes-and-respect-reduced-motion` |
-| `property-disallowed-list`, `custom-property-pattern` | `css/values-tokenize-repeated-visual-values`. 이름 패턴은 토큰 선언 파일에서만 켭니다 |
+| `property-disallowed-list`, `custom-property-pattern` | `css/values-tokenize-repeated-visual-values`의 지역 변수 금지와 `css/values-name-tokens-by-purpose`의 `app-` 접두사. 이름 패턴은 토큰 선언 파일에서만 켭니다 |
 | `selector-attribute-name-disallowed-list` | `css/selector-use-pseudo-classes-for-dom-owned-states` |
-| `selector-max-id` | `css/naming-use-block-element-modifier-syntax`. 선택은 클래스로만 합니다 |
+| `selector-max-id` | `css/selector-use-classes-instead-of-element-selectors`. 선택은 클래스로만 합니다 |
+| `selector-nested-pattern` | `css/selector-limit-nesting-block-depth`, `css/ownership-use-foreign-classes-only-under-your-own-root`. 중첩 선택자는 `&`로 시작합니다 |
 | `selector-pseudo-class-disallowed-list` | `css/selector-do-not-negate-with-not` |
-| `declaration-no-important` | `css/a11y-namespace-keyframes-and-respect-reduced-motion`의 전역 처리만 예외입니다 |
+| `declaration-no-important` | `css/a11y-namespace-keyframes-and-respect-reduced-motion`. 전역 스타일시트에서만 허용합니다 |
 | `media-feature-range-notation` | `css/layout-write-breakpoints-desktop-first`의 범위 표기. 표준 설정에 포함됩니다 |
 | `no-descending-specificity` | 자손 기본 블록을 조상 규칙보다 앞에 둡니다. 표준 설정에 포함됩니다 |
 
@@ -54,7 +55,7 @@ tags: tooling, stylelint, automation
 | --- | --- | --- |
 | 쉼표 묶음 자체 | `disallowInList`는 단독 재선언만 검사합니다 | `css/selector-do-not-group-classes-with-commas`로 판단합니다 |
 | 최상위 요소 선택자 | `ownMarkupPatterns`는 `&`로 시작하는 형태만 검사합니다 | `selector-max-type`은 쓰지 않고 리뷰에서 확인합니다 |
-| 파일별 소유자 하나, 다른 소유자 클래스의 블록 위치 | 다른 소유자의 블록 이름은 우리 문법과 같아 구분하지 못합니다 | 리뷰에서 확인합니다 |
+| 파일별 소유자 하나, 다른 소유자 클래스의 블록 위치 | 다른 소유자의 블록 이름은 우리 문법과 같아 구분하지 못합니다 | 같은 블록 이름을 두 파일이 쓰는지는 `hooks/check-critical-rules.sh`가 검사하고 나머지는 리뷰에서 확인합니다 |
 | 블록 이름에 넣은 레이어 이름 | `uiButton__root`도 문법에는 맞아 통과합니다 | 리뷰에서 확인합니다 |
 | 앱 상태를 잡는 `data-*` 선택자 | 라이브러리도 `data-*`로 상태를 내므로 이름만으로는 구분하지 못합니다 | `css/selector-use-pseudo-classes-for-dom-owned-states`로 판단합니다 |
 | 중첩 `@media`와 데스크톱 퍼스트 방향 | at-rule의 최상위 배치를 강제하지 못합니다 | `css/layout-group-breakpoints-at-the-file-bottom`으로 판단합니다 |

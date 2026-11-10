@@ -1,4 +1,4 @@
-.productsPage__sortBox {
+.productsPage__sortIcon {
 	&::before {
 		border: 2px solid #ced4da;
 	}
@@ -9,7 +9,7 @@
 		display: inline-flex;
 	}
 
-	&:hover .productsPage__sortBox::before {
+	&:hover .productsPage__sortIcon::before {
 		border-color: #9fadc7;
 	}
 }

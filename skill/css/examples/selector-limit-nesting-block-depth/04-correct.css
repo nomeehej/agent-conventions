@@ -1,5 +1,5 @@
 .orderTable__root {
-	& .MuiTableHead-root > tr > th {
+	& .MuiTableHead-root > .MuiTableRow-root > .MuiTableCell-root {
 		border-bottom: 2px solid #d9d9d9;
 	}
 }

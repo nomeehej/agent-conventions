@@ -6,7 +6,7 @@ impactDescription: 클래스 이름에서 해당 화면을 추적할 수 있습�
 appliesWhen:
   - `page` 아래 CSS 파일의 블록 이름을 새로 짓거나 바꿀 때
   - 같은 이름 컴포넌트가 여러 소유자에 생겨 블록 이름을 구분해야 할 때
-tags: slug, page, traceability
+tags: page, traceability
 ---
 
 ## Keep Page Block Names Traceable to Their Screen
@@ -19,8 +19,9 @@ CSS 블록 이름은 그 규약이 정한 화면 이름을 따릅니다.
 
 ```mermaid
 flowchart LR
-	q1{"화면 안의<br>컴포넌트인가?"} -- 예 --> q2{"다른 소유자의 블록 이름과<br>충돌하는가?"} -- 예 --> r2("자기 화면의 세그먼트를<br>앞에 덧붙임")
-	q1 -- 아니요 --> r1("라우트 세그먼트에<br>Page를 붙임")
+	q1{"화면 안의<br>컴포넌트인가?"} -- 예 --> q2{"다른 소유자의 블록 이름과<br>충돌하는가?"} -- 예 --> r2("새로 만드는 쪽만 자기 화면의<br>세그먼트를 앞에 덧붙임")
+	q1 -- 아니요 --> q3{"라우트 진입 파일인가?"} -- 예 --> r1("라우트 세그먼트에<br>Page를 붙임")
+	q3 -- 아니요 --> r4("Outlet 프레임은<br>진입 파일 이름")
 	q2 -- 아니요 --> r3("자기 이름만")
 ```
 
@@ -30,6 +31,7 @@ flowchart LR
 | `Outlet` 프레임 | 활성화된 프레임워크 규약이 정한 진입 파일 이름을 씁니다. `root-outlet.tsx`는 `rootOutlet`, `main-outlet.tsx`는 `mainOutlet`입니다 |
 | `:id`처럼 값이 런타임에 정해지는 동적 세그먼트 | 화면의 역할로 바꿉니다. `orders/:id`라면 라우트 폴더는 `order-detail`, 블록 이름은 `orderDetailPage`입니다 |
 | 화면 안의 컴포넌트 | 자기 이름만 씁니다 |
+| 다른 소유자의 블록 이름과 충돌하는 새 컴포넌트 | 새로 만드는 쪽만 자기 화면의 세그먼트를 앞에 붙입니다. 이미 있는 쪽은 바꾸지 않습니다. 컴포넌트 심볼과 파일 이름도 같은 이름으로 맞춥니다 |
 
 라우트 경로나 폴더 이름에 없는 줄임말은 쓰지 않습니다.
 덧붙일 때 중간 컴포넌트 이름은 넣지 않습니다.
@@ -50,10 +52,10 @@ flowchart LR
 
 <<< ../examples/naming-keep-page-block-names-traceable/04-correct.txt
 
-**Incorrect 3 (충돌을 피하려고 상위 경로 전체를 블록 이름에 붙입니다):**
+**Incorrect 3 (충돌을 피하려고 새 쪽 블록 이름에 상위 경로 전체를 붙입니다):**
 
 <<< ../examples/naming-keep-page-block-names-traceable/05-incorrect.txt
 
-**Correct 3 (충돌한 화면 이름만 최소로 덧붙입니다):**
+**Correct 3 (새로 만드는 쪽에만 자기 화면 이름을 최소로 덧붙입니다):**
 
 <<< ../examples/naming-keep-page-block-names-traceable/06-correct.txt

@@ -6,6 +6,7 @@ impactDescription: 래퍼 요소는 부모 레이아웃 계산을 바꾸고 역�
 appliesWhen:
   - 스타일을 주려고 `div`나 `span`을 새로 감쌀 때
   - `className`을 받지 않는 컴포넌트에 여백이나 크기를 줘야 할 때
+  - 제외: 로딩 대체 화면 자리를 잡는 컨테이너인 경우
 reviewWith: >-
   composition-inject-classes-only-at-the-entry-point, naming-name-elements-and-modifiers-by-role
 tags: components, wrappers, layout
@@ -26,6 +27,8 @@ flowchart LR
 ```
 
 역할 없는 래퍼는 `naming-name-elements-and-modifiers-by-role`이 요구하는 이름도 지을 수 없습니다.
+로딩 대체 화면과 실제 내용이 같은 자리를 쓰도록 둘을 함께 감싸는 컨테이너는 이 규칙의 대상이 아니며
+`layout-keep-layout-intent-explicit`을 따릅니다.
 
 **Incorrect 1 (역할 없는 이름의 래퍼를 늘립니다):**
 

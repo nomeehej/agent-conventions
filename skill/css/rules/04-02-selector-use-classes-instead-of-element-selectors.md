@@ -18,10 +18,11 @@ tags: selector, element-selectors, markup
 
 우리가 렌더하는 마크업은 요소 선택자 대신 클래스로 선택합니다.
 태그를 `div`에서 `section`으로 바꿔도 스타일이 사라지지 않아야 합니다.
+`#id` 선택자도 쓰지 않고 클래스로 선택합니다.
 
 ```mermaid
 flowchart LR
-	q1{"우리가 렌더하는<br>마크업인가?"} -- 아니요 --> q2{"렌더러가 클래스 지정<br>API를 제공하는가?"} -- 아니요 --> r3("감싼 클래스 블록 안에서만<br>요소 선택자")
+	q1{"우리가 렌더하는<br>마크업인가?"} -- 아니요 --> q2{"렌더러가 클래스 지정<br>API를 제공하는가?"} -- 아니요 --> r3("감싼 클래스 안에서만<br>요소 선택자")
 	q1 -- 예 --> r1("클래스를 붙임")
 	q2 -- 예 --> r2("렌더 함수 등<br>그 API로 클래스를 붙임")
 ```
@@ -55,7 +56,7 @@ flowchart LR
 
 <<< ../examples/selector-use-classes-instead-of-element-selectors/03-incorrect-2.css
 
-**Correct 2 (마크업을 우리가 쓰지 않으면 래퍼 블록 안에서 요소 선택자를 씁니다):**
+**Correct 2 (마크업을 우리가 쓰지 않으면 감싼 클래스의 `{}` 블록 안에서 요소 선택자를 씁니다):**
 
 <<< ../examples/selector-use-classes-instead-of-element-selectors/04-correct-1.tsx
 

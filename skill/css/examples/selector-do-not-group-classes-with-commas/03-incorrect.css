@@ -1,7 +1,7 @@
 .productsPage__sortButton {
 /* [!code error] */
-	&:hover .productsPage__sortBox,
-	&.Mui-focusVisible .productsPage__sortBox {
+	&:hover .productsPage__sortIcon,
+	&.Mui-focusVisible .productsPage__sortIcon {
 		border-color: #9fadc7;
 	}
 }

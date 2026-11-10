@@ -24,6 +24,9 @@ tags: pseudo-classes, state, interaction
 | 네이티브 `disabled`를 지원하지 않는 요소의 비활성 상태 | 접근성 속성과 앱 수정자 | `aria-disabled="true"`만으로 `:disabled`가 적용되지 않습니다. 실제 동작은 마크업과 이벤트 처리에서 막습니다 |
 | 사용자가 요소를 누르는 동안의 상태 | `:active` | 앱의 `--active`와 뜻이 다르므로 서로 바꾸지 않습니다 |
 
+`aria-*`, `data-*` 속성 선택자 대신 수정자 클래스를 쓰는 것은 스타일 훅을 클래스 하나로 모으기 위해서입니다.
+클래스 이름은 CSS와 TSX에 같은 문자열로 남아 한 번의 검색으로 함께 찾습니다.
+라이브러리가 그린 DOM의 상태는 그 라이브러리의 클래스(예: `Mui-selected`)로 잡습니다.
 `aria-*`는 접근성 계약이므로 마크업에 유지합니다.
 접근성 속성과 수정자가 함께 필요하면 같은 값에서 계산합니다.
 가상 클래스의 위치는 `selector-nest-dom-state-in-the-owning-block`,

@@ -1,2 +1,3 @@
-productDetailProductTableOverviewSection__root  <- product-detail 화면의 부품
-productsProductTableOverviewSection__root       <- products 화면의 부품
+overviewSection__root                           <- product-detail 화면의 기존 부품
+# [!code error]
+productsProductTableOverviewSection__root       <- products 화면의 새 부품

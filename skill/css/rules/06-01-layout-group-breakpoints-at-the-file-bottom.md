@@ -22,8 +22,7 @@ tags: selector, responsive
 
 | 반복되거나 별도로 판단할 것 | 처리 |
 | --- | --- |
-| 같은 역할에서 값만 파일마다 다름 | 토큰 파일에서 값을 나눕니다 |
-| 선택자와 선언까지 같은 배치 책임이 여러 파일에 반복됨 | 배치를 컴포넌트 하나로 모을지 검토하고 브레이크포인트를 그 파일에만 둡니다 |
+| 같은 `@media` 블록이 여러 파일에 반복됨 | 각 파일 아래에 그대로 둡니다. 반복을 없애려고 컴포넌트를 새로 만들지 않습니다 |
 | 조건 숫자만 같고 역할은 다름 | 컴포넌트를 합치지 않습니다 |
 | 브레이크포인트 없이 배치할 수 있음 | `layout-reach-for-intrinsic-sizing-before-breakpoints` 규칙을 먼저 적용합니다 |
 | `prefers-color-scheme` 테마 조건 | 이 규칙의 대상이 아닙니다 |
@@ -37,11 +36,3 @@ tags: selector, responsive
 **Correct 1 (선언은 위에 두고 브레이크포인트는 파일 아래 한곳에 모읍니다):**
 
 <<< ../examples/layout-group-breakpoints-at-the-file-bottom/02-correct.css
-
-**Incorrect 2 (같은 `@media` 블록을 파일마다 복사합니다):**
-
-<<< ../examples/layout-group-breakpoints-at-the-file-bottom/03-incorrect.css
-
-**Correct 2 (반복되는 배치를 컴포넌트 하나로 만들고 브레이크포인트는 그 파일에만 둡니다):**
-
-<<< ../examples/layout-group-breakpoints-at-the-file-bottom/04-correct.css

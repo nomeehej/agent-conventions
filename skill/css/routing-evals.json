@@ -336,7 +336,6 @@
 			],
 			"expectedSelected": {
 				"css": [
-					"layout-keep-layout-intent-explicit",
 					"layout-reach-for-intrinsic-sizing-before-breakpoints"
 				]
 			}

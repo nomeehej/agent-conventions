@@ -19,7 +19,7 @@ tags: naming, class-grammar, ownership, bem
 | 자리 | 읽는 이름 | 담는 것 |
 | --- | --- | --- |
 | `block` | 블록 이름 | CSS 파일이 있는 소유자의 이름. `Button`은 `button`, `OrdersPage`는 `ordersPage`처럼 옮깁니다 |
-| `element` | 요소 | 블록 안의 UI 역할. 바깥 요소는 `root`, 나머지는 `listButton`, `emptyState`처럼 짓습니다 |
+| `element` | 요소 | 블록 이름이 가리키는 소유자 안의 UI 역할. 바깥 요소는 `root`, 나머지는 `listButton`, `emptyState`처럼 짓습니다 |
 | `modifier` | 수정자 | 클래스 뒤에 `--`로 붙는 이름 |
 
 CSS의 `{}` 블록과 헷갈리지 않도록 다른 규칙은 BEM 블록을 "블록 이름"으로 부릅니다.

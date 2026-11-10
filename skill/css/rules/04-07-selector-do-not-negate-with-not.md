@@ -20,12 +20,13 @@ tags: selector, state, negation
 | 기존 형태 | 변경 방법 |
 | --- | --- |
 | `&:not(:disabled)` | 해당 선언을 기본 블록으로 옮기고 `&:disabled`에서 필요한 속성을 덮습니다 |
-| `:not(:disabled):hover` | 부정 조건만 지우지 않습니다. 기본 상태와 비활성 상태의 조합을 확인하고 해당 속성을 명시적으로 되돌립니다 |
-| 네이티브 폼 컨트롤의 활성 상태만 선택함 | `:enabled:hover` 같은 긍정 조건을 쓸 수 있습니다 |
+| 네이티브 폼 컨트롤에서 `:not(:disabled)`를 `:hover` 같은 상태와 함께 씀 | `:enabled:hover`처럼 긍정 조건으로 씁니다 |
+| 폼 컨트롤이 아닌 요소의 `:not(:disabled):hover` | 부정 조건만 지우지 않습니다. 기본 상태와 비활성 상태의 조합을 확인하고 해당 속성을 명시적으로 되돌립니다 |
 | 조상 수정자가 자손의 모습을 바꿈 | 자손 수정자로 옮깁니다. 선택 여부 각각에서 hover와 포커스 결과도 확인합니다 |
 
 앱 상태는 각 요소의 수정자로 표현하고 조상에서 다시 읽지 않습니다.
 DOM 상태와 앱 상태의 구분은 `selector-use-pseudo-classes-for-dom-owned-states`를 따릅니다.
+직접 쓰지 않는 마크업의 `:not()`은 `selector-use-classes-instead-of-element-selectors`의 예외 주석 형태를 따릅니다.
 
 **Incorrect 1 (활성 버튼의 hover를 부정 조건으로 표현합니다):**
 

@@ -11,6 +11,7 @@
 | `shadow` | `--app-shadow-panel` |
 | `space` | `--app-space-inline`, `--app-space-section` |
 | `radius` | `--app-radius-control` |
+| `motion` | `--app-motion-duration-fast`, `--app-motion-easing-out` |
 | `z-index` | `--app-z-index-sticky`. 층 이름은 `values-declare-stacking-layers-as-tokens`를 따릅니다 |
 
 `app-` 접두사는 `tooling-configure-stylelint-to-enforce-these-rules`의 `custom-property-pattern`이 검사합니다.

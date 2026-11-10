@@ -1,7 +1,7 @@
 /* [!code error] */
 .productsPage__sortButton {
 /* [!code error] */
-	&:hover .productsPage__sortBox {
+	&:hover .productsPage__sortIcon {
 		&::before {
 /* [!code error] */
 			border-color: #9fadc7;

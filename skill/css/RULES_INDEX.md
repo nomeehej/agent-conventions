@@ -1,7 +1,7 @@
 # CSS 컨벤션 Rule Index
 
 - Skill: `css`
-- Routing digest: `sha256:5b34a7706bf78e838cf91e6136524fd9d387bd2c767929cfba513552c3feda49`
+- Routing digest: `sha256:92b4ddef0ee02f249478e7e39f2d2a31e80565651d137790cee63d8b976b31ea`
 
 ## Direct Companions
 
@@ -11,7 +11,7 @@
 
 - C01-01 | naming-default-to-plain-css-when-no-module-convention | 표준이 정해지지 않은 상태에서 스타일시트 방식\(일반 CSS, CSS Modules\)을 고르거나 \`.module.css\`나 \`styles.\*\`로 옮길 때. 제외: 기존 일반 CSS 클래스 이름만 바꾸는 경우.
 - C01-02 | naming-use-block-element-modifier-syntax | 일반 CSS에서 프로젝트가 소유한 클래스를 새로 만들 때. 클래스 이름의 블록, 요소, 수정자 구분자나 대소문자 표기를 바꿀 때.
-- C01-03 | naming-name-elements-and-modifiers-by-role | 요소나 수정자 클래스 이름을 새로 지을 때. \`container\`, \`wrapper\`, \`box\`, 치수나 간격 중심 이름을 변경할 때.
+- C01-03 | naming-name-elements-and-modifiers-by-role | 요소나 수정자 클래스 이름을 새로 지을 때. \`container\`, \`wrapper\`, \`box\` 같은 구조 낱말이나 치수, 간격 중심 이름을 변경할 때.
 - C01-04 | naming-keep-page-block-names-traceable | \`page\` 아래 CSS 파일의 블록 이름을 새로 짓거나 바꿀 때. 같은 이름 컴포넌트가 여러 소유자에 생겨 블록 이름을 구분해야 할 때.
 - C02-01 | ownership-give-each-file-one-block | 새 블록 이름을 짓거나 기존 블록 이름을 복사하거나 바꿀 때. 부품에 CSS 파일을 새로 만들면서 부모 블록 이름을 그대로 쓸 때.
 - C02-02 | ownership-use-foreign-classes-only-under-your-own-root | \`.ant-\*\`, \`.rc-\*\`, \`.Mui-\*\` 같은 외부 라이브러리 클래스를 쓸 때. 다른 소유자의 클래스를 선택자로 잡을 때. | reviewWith: ownership-change-other-owners-through-their-api, ownership-give-each-file-one-block, selector-limit-nesting-block-depth
@@ -20,7 +20,7 @@
 - C03-02 | composition-do-not-build-structural-variants-with-modifiers | 수정자를 추가, 변경할 때. 여러 곳에서 반복되는 모양인지 한 곳만의 보정인지 가릴 때. | reviewWith: naming-name-elements-and-modifiers-by-role
 - C03-03 | composition-keep-classes-single-purpose | 상태를 나타내는 낱말이 들어간 요소 클래스 이름을 추가, 변경할 때. 제외: 처음부터 기본 클래스와 수정자를 나눠 만드는 경우. 제외: 책임이 그대로인 이름 변경만 하는 경우.
 - C03-04 | composition-inject-classes-only-at-the-entry-point | 우리가 만든 컴포넌트에 \`className\`이나 클래스 관련 프롭을 추가할 때. 그 컴포넌트 내부 노드의 모양을 화면마다 다르게 해야 할 때. 제외: 기존 CSS 최상위 블록 아래 외부 라이브러리 선택자만 고치는 경우. | reviewWith: composition-do-not-add-wrapper-elements-for-styling, ownership-change-other-owners-through-their-api, ownership-use-foreign-classes-only-under-your-own-root
-- C03-05 | composition-do-not-add-wrapper-elements-for-styling | 스타일을 주려고 \`div\`나 \`span\`을 새로 감쌀 때. \`className\`을 받지 않는 컴포넌트에 여백이나 크기를 줘야 할 때. | reviewWith: composition-inject-classes-only-at-the-entry-point, naming-name-elements-and-modifiers-by-role
+- C03-05 | composition-do-not-add-wrapper-elements-for-styling | 스타일을 주려고 \`div\`나 \`span\`을 새로 감쌀 때. \`className\`을 받지 않는 컴포넌트에 여백이나 크기를 줘야 할 때. 제외: 로딩 대체 화면 자리를 잡는 컨테이너인 경우. | reviewWith: composition-inject-classes-only-at-the-entry-point, naming-name-elements-and-modifiers-by-role
 - C03-06 | composition-do-not-style-through-the-style-attribute | TSX의 \`style\` 속성을 추가하거나 그 안의 선언을 바꿀 때. 컴포넌트 프롭으로 \`style\`을 받아 넘길 때. | reviewWith: composition-inject-classes-only-at-the-entry-point, values-fall-back-only-outside-core-tokens, values-tokenize-repeated-visual-values
 - C03-07 | composition-write-modifiers-as-conditions | 값이나 \`variant\` 프롭으로 수정자를 고르는 \`className\`을 추가, 변경할 때. 클래스 이름에 값을 끼워 넣는 템플릿 리터럴을 추가, 변경할 때. 제외: 불리언 하나로 수정자가 붙거나 빠지는 경우. | reviewWith: composition-compose-classes-with-clsx, typescript/values-avoid-lookup-tables-for-simple-choices
 - C04-01 | selector-limit-nesting-block-depth | 중첩 \`{}\` 블록을 추가하거나 기존 블록을 펼치거나 합칠 때. \`&\`로 조건이나 가상 요소를 붙일 때. | reviewWith: selector-declare-each-class-in-one-block, selector-use-classes-instead-of-element-selectors
@@ -37,7 +37,7 @@
 - C05-05 | values-name-tokens-by-purpose | 색, 그림자, 간격, 층 같은 디자인 토큰을 새로 만들거나 이름을 바꿀 때. 토큰 파일에 \`white\`, \`gray-100\`처럼 값을 말하는 이름을 넣거나 뺄 때. | reviewWith: values-switch-themes-by-changing-token-values, values-tokenize-repeated-visual-values
 - C06-01 | layout-group-breakpoints-at-the-file-bottom | \`@media\` 브레이크포인트를 추가하거나 옮길 때. 화면 폭에 따라 값이 달라지는 선언을 넣을 때. | reviewWith: layout-reach-for-intrinsic-sizing-before-breakpoints, layout-write-breakpoints-desktop-first, selector-declare-each-class-in-one-block, values-switch-themes-by-changing-token-values
 - C06-02 | layout-write-breakpoints-desktop-first | \`@media\` 조건을 쓰거나 브레이크포인트 숫자를 고를 때. \`@media\` 조건에 \`min-width\`나 \`max-width\` 표기를 쓸 때. 제외: \`prefers-color-scheme\` 같은 폭이 아닌 조건을 쓰는 경우. | reviewWith: layout-group-breakpoints-at-the-file-bottom, tooling-configure-stylelint-to-enforce-these-rules
-- C06-03 | layout-keep-layout-intent-explicit | \`sticky\`, \`fixed\`, \`z-index\`, 부모, 자식 레이아웃 책임을 추가, 변경할 때. 로딩 대체 화면의 컨테이너나 높이를 정할 때. 제외: 같은 요소를 기본과 수정자로 나누면서 기존 \`display\`, 여백 선언을 값 그대로 옮기는 경우. | reviewWith: values-declare-stacking-layers-as-tokens
+- C06-03 | layout-keep-layout-intent-explicit | \`sticky\`, \`fixed\`를 추가, 변경할 때. 로딩 대체 화면의 컨테이너나 높이를 정할 때. 제외: 같은 요소를 기본과 수정자로 나누면서 기존 \`display\`, 여백 선언을 값 그대로 옮기는 경우. | reviewWith: values-declare-stacking-layers-as-tokens
 - C06-04 | layout-reach-for-intrinsic-sizing-before-breakpoints | \`@media\` 브레이크포인트를 새로 넣으려 할 때. 폭에 따라 줄바꿈, 열 개수, 크기가 달라져야 할 때. 컨테이너 폭에 따른 \`@container\` 배치 조건을 추가, 변경할 때. | reviewWith: layout-group-breakpoints-at-the-file-bottom, layout-keep-layout-intent-explicit
 - C07-01 | a11y-always-provide-a-visible-focus-indicator | \`outline\`, \`:focus\`, \`:focus-visible\` 스타일을 추가, 수정할 때. 상호작용 요소의 기본 포커스 링을 덮어쓸 때. 강제 색상 모드에서 포커스 표시가 사라져 스타일을 보완할 때. | reviewWith: selector-nest-dom-state-in-the-owning-block
 - C07-02 | a11y-namespace-keyframes-and-respect-reduced-motion | \`@keyframes\` 이름이나 애니메이션 지속 시간, 지연 시간, 이징을 선언하거나 바꿀 때. \`animation\`, \`transition\`, \`prefers-reduced-motion\` 동작을 추가, 변경할 때. | reviewWith: tooling-configure-stylelint-to-enforce-these-rules, values-tokenize-repeated-visual-values

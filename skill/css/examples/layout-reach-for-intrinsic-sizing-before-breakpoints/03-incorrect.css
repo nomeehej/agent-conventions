@@ -1,5 +1,7 @@
 .button__root {
 	display: inline-flex;
+	align-items: center;
+	justify-content: center;
 	min-height: 40px;
 	padding: 0 var(--app-space-control-inline);
 /* [!code error] */

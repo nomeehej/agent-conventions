@@ -1,8 +1,8 @@
 <div className={clsx("productsPage__toolbar")}>
-// [!code error]
+{/* [!code error] */}
 	<div>
 		<SearchInput />
 	</div>
-// [!code error]
+{/* [!code error] */}
 	<button type="button">초기화</button>
 </div>

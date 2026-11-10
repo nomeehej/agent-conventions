@@ -1,9 +1,11 @@
-/* [!code error] */
-.input__field--invalid {
+.input__field {
+	border: 1px solid #d9d9d9;
+
 	&:focus-visible {
 /* [!code error] */
 		outline: none;
-/* [!code error] */
-		color: #1677ff;
+		outline-offset: 2px;
+		border-color: #1677ff;
+		box-shadow: 0 0 0 3px #1677ff;
 	}
 }

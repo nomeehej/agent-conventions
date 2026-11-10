@@ -3,7 +3,7 @@
 /* [!code error] */
 		&:hover {
 /* [!code error] */
-			.productsPage__sortBox {
+			.productsPage__sortIcon {
 				border-color: #9fadc7;
 			}
 		}

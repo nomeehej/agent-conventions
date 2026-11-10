@@ -13,7 +13,7 @@ DOM 상태 가상 클래스는 해당 요소의 **조건 없는 기본 클래스
 | 수정자가 켜졌을 때만 상호작용이 달라져야 한다는 제품 요구가 있음 | 수정자 안에 둘 수 있으며 그 예외를 적습니다 |
 | 여러 상태가 같은 선언을 씀 | 상태마다 블록을 엽니다. `selector-do-not-group-classes-with-commas`에 따라 묶지 않습니다 |
 | 조상의 DOM 상태가 자손을 바꿈 | 조상 블록에서 같은 소유자의 자손을 결합자 하나로 선택합니다 |
-| 조상 상태를 자손 블록에서 읽거나 지역 변수로 전달함 | `:has()`도 쓰지 않습니다. 지역 변수는 `values-tokenize-repeated-visual-values` 규칙이 금지합니다 |
+| 조상 상태를 자손 블록에서 `.조상:hover &`로 읽거나 지역 변수, `:has()`로 전달함 | 쓰지 않습니다. 바로 위 행처럼 조상 블록에서 자손을 결합자 하나로 선택합니다. 지역 변수는 `values-tokenize-repeated-visual-values` 규칙이 금지합니다 |
 
 포커스 표시 자체는 `a11y-always-provide-a-visible-focus-indicator`를 따릅니다.
 자손의 `:hover`는 포인터가 자손 위에 있을 때만 적용되므로 조상의 hover를 대신하지 못합니다.

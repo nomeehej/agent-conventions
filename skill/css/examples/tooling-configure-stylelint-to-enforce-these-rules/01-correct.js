@@ -50,6 +50,8 @@ export default {
 			{splitList: true},
 		],
 		"selector-max-id": 0,
+		// 중첩 안의 선택자는 &로 시작. 쉼표 목록의 각 선택자를 따로 검사
+		"selector-nested-pattern": ["^&", {splitList: true}],
 		// 부정 조건은 기본 블록으로 뒤집음. 남의 마크업만 stylelint-disable로 허용
 		"selector-pseudo-class-disallowed-list": ["not"],
 	},

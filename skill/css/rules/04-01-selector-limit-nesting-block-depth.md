@@ -23,10 +23,10 @@ tags: selector, nesting, ampersand
 | 중첩 블록의 선택자 | 항상 `&`로 시작합니다 |
 | 그 블록이 소유한 요소의 조건이나 가상 요소 | `&:hover`, `&::before`처럼 씁니다 |
 | 다른 요소로 이어지는 경로 | `&`를 다시 열지 않고 같은 선택자 줄에 이어 씁니다 |
-| `.box` 자신의 `::before` | `.box { &::before { } }`로 씁니다 |
-| `.button`의 hover에 반응하는 `.box::before` | `.button { &:hover .box::before { } }`로 씁니다 |
+| `.productsPage__sortIcon` 자신의 `::before` | `.productsPage__sortIcon { &::before { } }`로 씁니다 |
+| `.productsPage__sortButton`의 hover에 반응하는 `.productsPage__sortIcon::before` | `.productsPage__sortButton { &:hover .productsPage__sortIcon::before { } }`로 씁니다 |
 
-두 겹 이상 중첩하면 `.a .b .c` 같은 전체 경로가 여러 블록에 흩어지고 기계 검사도 각 블록만 봅니다.
+두 겹 이상 중첩하면 `.card__root .card__list .card__item` 같은 경로가 여러 블록에 흩어지고 기계 검사도 각 블록만 봅니다.
 `&` 없이 시작하면 자손 선택자가 별도 겹처럼 읽혀 표기에 따라 검사 결과가 달라집니다.
 기계 검사는 `max-nesting-depth: 1`이며 최상위는 0겹입니다.
 

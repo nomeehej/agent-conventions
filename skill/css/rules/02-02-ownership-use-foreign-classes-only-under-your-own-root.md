@@ -33,7 +33,7 @@ flowchart LR
 | `.MuiTreeItem-label { }` | 금지. 그 라이브러리를 쓰는 앱 전체에 적용됩니다 |
 | `.chartCard__caption { }` | 금지. 화면 CSS에 두면 그 `widget`을 쓰는 모든 화면에 적용됩니다 |
 | `.productsPage__sidebar { & .MuiTreeItem-label { } }` | 허용. 해당 인스턴스에만 적용됩니다 |
-| `.productDetailPage__root { & .chartCard__caption { } }` | 허용 |
+| `.productDetailPage__root { & .chartCard__caption { } }` | 허용. 다만 `ownership-change-other-owners-through-their-api`의 세 방법이 맞지 않을 때만입니다 |
 | `.productsPage__sidebar .MuiTreeItem-label { }` | 금지. 최상위 블록 안에서 `&`로 시작해야 합니다 |
 | `.productsPage__sidebarToolbar .productsPage__sidebarTitle { }` | 같은 소유자의 클래스끼리라 이 규칙의 대상이 아닙니다 |
 

@@ -38,10 +38,18 @@ WCAG 2.2 SC 1.4.11(AA)은 인접 색 대비를, SC 2.4.13(AAA)은 2 CSS px 둘�
 
 <<< ../examples/a11y-always-provide-a-visible-focus-indicator/02-correct.css
 
-**Incorrect 2 (색만 바꾸고 수정자 안에만 둡니다):**
+**Incorrect 2 (그림자 링만 두고 외곽선은 없애 강제 색상 모드에서 표시가 사라집니다):**
 
 <<< ../examples/a11y-always-provide-a-visible-focus-indicator/03-incorrect.css
 
 **Correct 2 (그림자 링에 투명한 외곽선을 함께 두어 강제 색상 모드에서도 표시를 남깁니다):**
 
 <<< ../examples/a11y-always-provide-a-visible-focus-indicator/04-correct.css
+
+**Incorrect 3 (포커스 표시를 수정자 안에만 둡니다):**
+
+<<< ../examples/a11y-always-provide-a-visible-focus-indicator/05-incorrect.css
+
+**Correct 3 (포커스 표시는 기본 블록에 둡니다):**
+
+<<< ../examples/a11y-always-provide-a-visible-focus-indicator/06-correct.css
