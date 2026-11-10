@@ -39,6 +39,10 @@ tags: screen
 | 함수 | `typescript/functions-extract-helpers-only-when-the-boundary-is-real` |
 | 훅 | `ownership-prefer-plain-ts-for-local-react-helpers` |
 
+참고: [Sandi Metz: 잘못된 추상화](https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction),
+[John Carmack: 인라인 코드](https://number-none.com/blow/john_carmack_on_inlined_code.html),
+[React 문서: 커스텀 훅을 쓸 때](https://react.dev/learn/reusing-logic-with-custom-hooks#when-to-use-custom-hooks).
+
 **Incorrect 1 (컴포넌트 하나만 쓰는 단계 보조 함수를 파일 최상위에 따로 둡니다):**
 
 <<< ../examples/screen-avoid-premature-abstraction/01-incorrect.tsx

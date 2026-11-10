@@ -37,6 +37,9 @@ flowchart LR
 대체 화면의 컨테이너, 높이는 `css/layout-keep-layout-intent-explicit`을 따릅니다.
 본문에 남은 로딩 분기는 `runtime-avoid-ad-hoc-loading-branches`로 판단합니다.
 
+참고: [React 문서: Suspense, 중첩 경계로 로딩 순서 만들기](https://react.dev/reference/react/Suspense),
+[TanStack Query 문서: Suspense](https://tanstack.com/query/latest/docs/framework/react/guides/suspense).
+
 **Incorrect 1 (진입에 경계가 없어 화면 전체가 함께 멈춥니다):**
 
 <<< ../examples/runtime-place-suspense-boundaries-at-the-section-owner/01-incorrect.tsx

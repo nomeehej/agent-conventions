@@ -30,6 +30,9 @@ tags: composition, props
 합성 공개 부품도 같습니다.
 공유 `interface`를 쓰는 부품의 개별 설명은 각 컴포넌트 위에 둡니다.
 
+참고: [React TypeScript Cheatsheet: 타입과
+인터페이스](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example/).
+
 **Incorrect 1 (파일 위쪽에 타입을 모으고 내보내지 않습니다):**
 
 <<< ../examples/composition-declare-props-interface-above-the-component/01-incorrect.tsx

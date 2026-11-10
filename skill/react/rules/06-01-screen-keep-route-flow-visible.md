@@ -47,6 +47,11 @@ tags: screen, routes, flow
 같은 데이터 요청이 여러 번 나가면 `staleTime`, `refetchOnMount`, 쿼리 키가 서로 같은지 먼저 확인합니다.
 부모의 대기로 자식 요청이 늦어지면 대기 전에 실행되는 소유자에서 같은 쿼리 키를 `usePrefetchQuery`로 먼저 요청합니다.
 
+참고: [TkDodo: React Query와 컴포넌트 계층의 관심사
+분리](https://tkdodo.eu/blog/react-query-as-a-state-manager#a-note-on-separation-of-concerns),
+[TanStack Query 문서: 컴포넌트에서 미리
+가져오기](https://tanstack.com/query/latest/docs/framework/react/guides/prefetching#prefetch-in-components).
+
 **Incorrect 1 (라우트 진입이 쿼리를 대신 읽어 프롭으로 내립니다):**
 
 <<< ../examples/screen-keep-route-flow-visible/01-incorrect.tsx

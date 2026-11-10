@@ -59,6 +59,10 @@ tags: ownership, routing
 오류와 로딩 경계의 자리는 `runtime-place-error-boundaries-by-blast-radius`와
 `runtime-place-suspense-boundaries-at-the-section-owner`를 따릅니다.
 
+참고: [React Router 문서: 중첩 라우트와 `Outlet`](https://reactrouter.com/start/data/routing#nested-routes),
+[React Router 문서: 경로 없는 레이아웃 라우트](https://reactrouter.com/start/data/routing#layout-routes),
+[Next.js 문서: 경로 그룹 `(folder)`](https://nextjs.org/docs/app/getting-started/project-structure#route-groups).
+
 **Incorrect 1 (화면 아래에 그룹을 만들어 소유자를 한 겹 더 쌓습니다):**
 
 <<< ../examples/ownership-group-route-frames-with-outlets/01-incorrect.txt

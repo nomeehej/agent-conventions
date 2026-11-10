@@ -30,6 +30,10 @@ tags: perf, state
 React는 `useMemo`, `useCallback` 캐시를 버릴 수 있으므로 정확성을 캐시에 의존하지 않습니다.
 React Compiler를 쓰는 프로젝트에서는 컴파일러가 같은 최적화를 이미 제공하므로 수동 메모이제이션을 더하지 않습니다.
 
+참고: [React 문서: useMemo를 어디에나 쓸 필요는 없다](https://react.dev/reference/react/useMemo),
+[React 문서: memo를 어디에나 쓸 필요는 없다](https://react.dev/reference/react/memo),
+[React 문서: React Compiler 소개](https://react.dev/learn/react-compiler/introduction).
+
 **Incorrect 1 (단순 가공을 습관적으로 메모이제이션합니다):**
 
 <<< ../examples/perf-avoid-defensive-memoization/01-incorrect.ts

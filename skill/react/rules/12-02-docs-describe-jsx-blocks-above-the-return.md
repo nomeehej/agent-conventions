@@ -36,7 +36,8 @@ JSX 자식 자리에는 주석을 두지 않습니다.
 | 규칙이 허용한 예외의 이유 | `typescript/docs-justify-convention-exceptions-with-a-reason-comment`를 따르고 그 요소의 여는 태그 안에 둡니다 |
 | 마크업이나 컴포넌트 이름 반복 | 이름은 정의 목록의 이름 칸이 말하므로 설명에 되풀이하지 않습니다 |
 
-참고: [Code Complete 2판 32.5절 Commenting Techniques](https://stevemcconnell.com/books/).
+참고: [Code Complete 2판 32.5절 Commenting Techniques](https://stevemcconnell.com/books/),
+[Google TypeScript 스타일 가이드: 이름만 되풀이하는 주석 피하기](https://google.github.io/styleguide/tsguide.html).
 
 **Incorrect 1 (구역 설명을 JSX 자식 자리에 둡니다):**
 

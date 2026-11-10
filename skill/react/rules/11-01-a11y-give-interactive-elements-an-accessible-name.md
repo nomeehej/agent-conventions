@@ -30,6 +30,10 @@ tags: composition, accessibility
 테스트에서는 `getByRole`의 `name` 조건이나 `getByLabelText`로 찾습니다.
 역할만으로 찾는 테스트가 통과해도 이름이 있다는 뜻은 아닙니다.
 
+참고: [WAI-ARIA APG: 접근 가능한 이름과 설명](https://www.w3.org/WAI/ARIA/apg/practices/names-and-descriptions/),
+[WCAG 2.2 이해 문서: 2.5.3 이름에 보이는 레이블 포함](https://www.w3.org/WAI/WCAG22/Understanding/label-in-name.html),
+[W3C Using ARIA: 첫 번째 규칙, 네이티브 HTML 우선](https://www.w3.org/TR/using-aria/#rule1).
+
 **Incorrect 1 (클릭 가능한 `div`와 이름 없는 아이콘 버튼을 씁니다):**
 
 <<< ../examples/a11y-give-interactive-elements-an-accessible-name/01-incorrect.tsx

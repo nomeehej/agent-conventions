@@ -56,6 +56,10 @@ flowchart LR
 재시도 버튼은 대체 화면에서 오류 경계의 재시도 함수를 호출합니다.
 경계의 `onReset`에는 `useQueryErrorResetBoundary`의 `reset`을 연결합니다.
 
+참고: [React 문서: Component, 오류 경계로 렌더 오류 잡기](https://react.dev/reference/react/Component),
+[TanStack Query 문서: Suspense와 오류 경계](https://tanstack.com/query/latest/docs/framework/react/guides/suspense),
+[react-error-boundary README: resetKeys와 onReset](https://github.com/bvaughn/react-error-boundary).
+
 **Incorrect 1 (캐시가 있는 재조회 실패도 자동으로 경계에 전달된다고 가정합니다):**
 
 <<< ../examples/runtime-place-error-boundaries-by-blast-radius/01-incorrect.tsx

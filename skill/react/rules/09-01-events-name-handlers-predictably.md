@@ -24,6 +24,9 @@ tags: events, naming
 `onClick`을 처리하는 구현은 `handleRowClick`처럼 이름 짓습니다.
 같은 컴포넌트에서 이름이 겹치지 않도록 대상이 다르면 대상 이름을 넣습니다.
 
+참고: [React 문서: 핸들러는 handle로 시작](https://react.dev/learn/responding-to-events#adding-event-handlers),
+[React 문서: 핸들러 프롭은 on으로 시작](https://react.dev/learn/responding-to-events#naming-event-handler-props).
+
 **Incorrect 1 (구현에 `on*`을 쓰고 대상이 이름에 없어 같은 이름이 겹칩니다):**
 
 <<< ../examples/events-name-handlers-predictably/01-incorrect.ts

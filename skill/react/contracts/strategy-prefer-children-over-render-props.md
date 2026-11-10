@@ -19,6 +19,9 @@ flowchart LR
 | 실행 문맥을 받아 `ReactNode`를 만드는 함수 | `<Owner>Renderer` |
 | 한 번만 쓰는 익명 형태 | 접미사를 붙이려고 새 타입을 만들지 않습니다 |
 
+참고: [React 문서: JSX를 children으로
+넘기기](https://react.dev/learn/passing-props-to-a-component#passing-jsx-as-children).
+
 **Incorrect 1 (정적인 구조를 렌더 프롭으로 조립합니다):**
 
 ```tsx

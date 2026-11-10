@@ -12,6 +12,10 @@
 | 파일이 길어짐 | 길이는 분리 사유가 아닙니다. 생명주기는 두고 도메인 계산은 대표 둘 이상이 부를 때만 `_function`으로 뺍니다 |
 | 이펙트 정리, 재설치 | 정리할 때 인스턴스 참조를 비우고 다시 설치할 때 새로 만듭니다. 상태에 남은 폐기된 인스턴스를 재사용하지 않습니다 |
 
+참고: [React 문서: 이펙트로 React 밖 위젯
+제어하기](https://react.dev/learn/synchronizing-with-effects#controlling-non-react-widgets),
+[React 문서: 커스텀 훅 재사용, 생명주기 훅을 만들지 않는다](https://react.dev/learn/reusing-logic-with-custom-hooks).
+
 **Incorrect 1 (파일 분량을 줄이려고 생명주기를 훅으로 옮깁니다):**
 
 ```tsx

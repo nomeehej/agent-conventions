@@ -14,6 +14,8 @@
 개발 환경의 `StrictMode`에서는 초기화 함수를 두 번 호출할 수 있으므로 저장, 구독 같은 부수효과를 넣지 않습니다.
 `localStorage`는 클라이언트에서만 읽습니다.
 
+참고: [React 문서: useState, 초기 상태를 다시 만들지 않기](https://react.dev/reference/react/useState).
+
 **Incorrect 1 (무거운 초기값 계산이 렌더마다 반복됩니다):**
 
 ```tsx

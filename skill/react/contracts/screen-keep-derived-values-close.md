@@ -8,6 +8,9 @@
 응답과 스토어의 출처는 `data-preserve-origin-chaining`이 정합니다.
 이름을 붙일지는 `typescript/functions-name-a-value-only-for-recompute-or-judgment`가 정합니다.
 
+참고: [Kent C. Dodds: 코로케이션](https://kentcdodds.com/blog/colocation),
+[React 문서: 중복 상태 피하기](https://react.dev/learn/choosing-the-state-structure#avoid-redundant-state).
+
 **Incorrect 1 (쓰는 자리에서 먼 화면 상단에 플래그와 표시값을 쌓습니다):**
 
 ```tsx

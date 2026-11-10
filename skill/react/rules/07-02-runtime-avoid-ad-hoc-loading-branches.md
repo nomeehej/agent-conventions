@@ -29,6 +29,9 @@ tags: screen, loading, suspense
 외부 SDK나 폼이 잘못된 값으로 초기화될 때만 본문에 가림 분기를 둡니다.
 이때는 `typescript/docs-justify-convention-exceptions-with-a-reason-comment`에 따라 이유를 남깁니다.
 
+참고: [TanStack Query 문서: Suspense](https://tanstack.com/query/latest/docs/framework/react/guides/suspense),
+[React 문서: Suspense](https://react.dev/reference/react/Suspense).
+
 **Incorrect 1 (`Suspense` 쿼리의 `isPending`을 다시 분기합니다. 타입이 `false`라 죽은 코드입니다):**
 
 <<< ../examples/runtime-avoid-ad-hoc-loading-branches/01-incorrect.tsx

@@ -45,6 +45,11 @@ flowchart LR
 `HTMLAttributes`를 상속하면 `style`도 열리므로
 사용 여부는 `css/composition-do-not-style-through-the-style-attribute`를 따릅니다.
 
+참고: [TypeScript 위키: 교차 타입보다
+인터페이스](https://github.com/microsoft/TypeScript/wiki/Performance#preferring-interfaces-over-intersections),
+[React TypeScript Cheatsheet: HTML 요소
+감싸기](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/patterns_by_usecase/).
+
 **Incorrect 1 (프롭 타입 하나의 충돌 때문에 DOM 속성 전체를 제외합니다):**
 
 <<< ../examples/typing-open-dom-props-in-three-steps/01-incorrect.tsx

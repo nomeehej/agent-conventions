@@ -37,6 +37,9 @@
 소유자 이름을 앞에 붙이는 것은 뜻을 만드는 방법 중 하나이며 필수가 아닙니다.
 진입 파일의 기준은 `ownership-place-owner-files-in-role-folders`를 따릅니다.
 
+참고: [Angular 스타일 가이드: 파일 이름은 안의 식별자를
+따른다](https://angular.dev/style-guide#match-file-names-to-the-typescript-identifier-within).
+
 **Incorrect 1 (진입 파일이 아닌 부품에 `_`가 없고 심볼이 파일 이름과 다릅니다):**
 
 ```tsx

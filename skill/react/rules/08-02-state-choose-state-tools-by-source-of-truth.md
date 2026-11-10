@@ -48,6 +48,10 @@ flowchart LR
 둘 다 섹션 사이에 프롭으로 전달하지 않습니다.
 `Context`는 전역 상태 도구가 아니라 묶음 안의 전달 수단입니다.
 
+참고: [React 문서: 컴포넌트 사이 상태 공유](https://react.dev/learn/sharing-state-between-components),
+[TanStack: 서버 상태](https://tanstack.com/query/latest/docs/framework/react/guides/does-this-replace-client-state),
+[TkDodo: React Query와 상태 관리](https://tkdodo.eu/blog/react-query-as-a-state-manager).
+
 **Incorrect 1 (전역 값과 서버 값까지 `useState`가 소유합니다):**
 
 <<< ../examples/state-choose-state-tools-by-source-of-truth/01-incorrect.ts

@@ -17,6 +17,9 @@ flowchart LR
 상태를 추가해도 사용처의 공개 이름은 유지합니다.
 같은 조합을 여러 사용처가 이미 반복해서 쓰고 있으면 상태 유무와 관계없이 그 조합을 이름 붙인 변형으로 감쌉니다.
 
+참고: [Kent C. Dodds: 합성 컴포넌트](https://kentcdodds.com/blog/compound-components-with-react-hooks),
+[Kent C. Dodds: AHA 프로그래밍](https://kentcdodds.com/blog/aha-programming).
+
 **Incorrect 1 (단일, 합성, 변형을 구분하지 않고 한 컴포넌트에 모두 구현합니다):**
 
 ```tsx

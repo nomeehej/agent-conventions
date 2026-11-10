@@ -45,6 +45,11 @@ flowchart LR
 | 중복 실행 방지 | 버튼을 `isPending`으로 `disabled` 처리합니다. 핸들러 첫 줄에서도 `isPending`이면 이른 반환으로 끝냅니다 |
 | 성공 뒤 캐시 갱신 | `data-invalidate-queries-the-mutation-changed`를 따릅니다 |
 
+참고: [TkDodo: React Query 뮤테이션 정복, `mutate`와
+`mutateAsync`](https://tkdodo.eu/blog/mastering-mutations-in-react-query#mutate-or-mutateasync),
+[TanStack Query 문서: 뮤테이션의
+Promise](https://tanstack.com/query/latest/docs/framework/react/guides/mutations#promises).
+
 **Incorrect 1 (`await`만 쓰고 거부된 Promise를 처리하지 않습니다):**
 
 <<< ../examples/data-handle-mutation-failure-where-it-is-called/01-incorrect.tsx

@@ -26,6 +26,9 @@ React 문서의 구조분해 관례는 읽는 줄에 `id`만 남겨 프롭인지
 | `{...props}`로 그대로 전달함 | 구조분해가 아니며 출처도 유지됩니다. 허용 조건은 `typing-choose-wrapper-shape-and-forwarding`을 따릅니다 |
 | 선택 프롭에 기본값이 필요함 | `typescript/absence-expose-optional-values-instead-of-silent-fallbacks`를 따릅니다. 사용처에서 값을 직접 비교하면 기본값이 필요하지 않습니다 |
 
+참고: [eslint-plugin-react: `destructuring-assignment` 규칙의 `never`
+설정](https://github.com/jsx-eslint/eslint-plugin-react/blob/master/docs/rules/destructuring-assignment.md).
+
 **Incorrect 1 (본문 첫 줄에서 구조분해합니다):**
 
 <<< ../examples/composition-read-props-without-destructuring/01-incorrect.tsx

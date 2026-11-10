@@ -16,6 +16,9 @@ tags: events, handlers, effects
 제출, 저장, 삭제, 닫기 같은 사용자 액션은 해당 핸들러 안에서 바로 실행합니다.
 액션 자체를 상태로 올린 뒤 `useEffect`가 나중에 실행하게 만들지 않습니다.
 
+참고: [React 문서: POST 요청 보내기](https://react.dev/learn/you-might-not-need-an-effect#sending-a-post-request),
+[React 문서: 핸들러 간 공유](https://react.dev/learn/you-might-not-need-an-effect#sharing-logic-between-event-handlers).
+
 **Incorrect 1 (사용자 액션을 상태 + 이펙트로 모델링합니다):**
 
 <<< ../examples/events-run-user-actions-in-handlers-not-effects/01-incorrect.tsx

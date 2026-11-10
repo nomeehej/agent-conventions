@@ -32,6 +32,9 @@ flowchart LR
 계산하는 지역 함수와 이름 붙인 판정은 구획을 따로 두지 않고 처음 쓰는 자리 바로 위에 둡니다.
 핸들러가 처음 쓰면 그 핸들러 위, 반환만 쓰면 반환 바로 위입니다.
 
+참고: [React 문서: 훅 규칙, 조건부 반환 뒤에서 훅을 부르지
+않는다](https://react.dev/reference/rules/rules-of-hooks#only-call-hooks-at-the-top-level).
+
 **Incorrect 1 (같은 종류가 흩어지고 이펙트가 아래 선언을 의존성으로 참조합니다):**
 
 <<< ../examples/composition-order-hooks-handlers-effects-then-return/01-incorrect.tsx

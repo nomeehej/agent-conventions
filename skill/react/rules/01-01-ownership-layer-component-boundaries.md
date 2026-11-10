@@ -39,6 +39,10 @@ flowchart LR
 여러 `ui` 부품을 조립해도 도메인을 모르면 `ui`입니다.
 파일 이름과 심볼에는 `ownership-name-component-files-after-their-symbols`를 적용합니다.
 
+참고: [TkDodo: React Query와 컴포넌트 계층의 관심사
+분리](https://tkdodo.eu/blog/react-query-as-a-state-manager#a-note-on-separation-of-concerns),
+[Feature-Sliced Design: 레이어 정의](https://feature-sliced.design/docs/reference/layers#layer-definitions).
+
 **Incorrect 1 (라우터 훅을 부르는 화면 전용 로직이 `widget`에 남아 있습니다):**
 
 <<< ../examples/ownership-layer-component-boundaries/01-incorrect.tsx

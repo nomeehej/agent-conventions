@@ -68,6 +68,9 @@ flowchart LR
 호출마다 다른 내용을 끼워야 할 때만 부모가 조립해 프롭, `children`으로 내려보냅니다.
 몇 줄뿐인 조각은 중복해서 써도 됩니다.
 
+참고: [Feature-Sliced Design: 레이어 가져오기
+규칙](https://feature-sliced.design/docs/reference/layers#import-rule-on-layers).
+
 **Incorrect 1 (다른 폴더의 `_` 컴포넌트 파일을 가져옵니다):**
 
 <<< ../examples/ownership-keep-component-imports-flowing-downward/01-incorrect.txt

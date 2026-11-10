@@ -11,6 +11,8 @@
 | 부품 안쪽에서 자기 DOM을 꾸미기만 하는 래퍼, 사용처가 내용을 넣지 않는 내부 구조 | 공개하지 않습니다 |
 | 여백 보정용 DOM | `css/composition-do-not-add-wrapper-elements-for-styling`에 따라 만들지 않습니다 |
 
+참고: [Hyrum의 법칙](https://www.hyrumslaw.com/).
+
 **Incorrect 1 (내부 구조를 전부 공개해 계약으로 굳힙니다):**
 
 ```tsx

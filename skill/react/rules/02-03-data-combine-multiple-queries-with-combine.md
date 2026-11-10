@@ -39,6 +39,10 @@ flowchart LR
 한 쿼리만 가공하면 `data-shape-query-data-with-select`를 따릅니다.
 조합을 커스텀 훅으로 옮기는 기준은 `ownership-prefer-plain-ts-for-local-react-helpers`가 정합니다.
 
+참고: [TanStack Query 문서: `useQueries`의
+`combine`](https://tanstack.com/query/latest/docs/framework/react/reference/functions/useQueries),
+[TanStack Query 문서: 병렬 쿼리](https://tanstack.com/query/latest/docs/framework/react/guides/parallel-queries).
+
 **Incorrect 1 (화면 본문에서 두 응답을 꺼내 합칩니다):**
 
 <<< ../examples/data-combine-multiple-queries-with-combine/01-incorrect.tsx

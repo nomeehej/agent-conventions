@@ -17,6 +17,9 @@ tags: state, handlers
 한 이벤트 안에서 두 번 갱신하거나, `await` 뒤나 오래 사는 클로저 안에서 갱신하면 결과가 갈립니다.
 한 번만 부르는 갱신은 두 형태가 같은 결과를 내지만 형태를 하나로 고정해 자리마다 다시 판단하지 않습니다.
 
+참고: [React 문서: useState, 이전 상태로 갱신하기](https://react.dev/reference/react/useState),
+[React 문서: 상태는 렌더마다 찍히는 스냅샷](https://react.dev/learn/state-as-a-snapshot#state-over-time).
+
 **Incorrect 1 (오래 사는 콜백이 등록 시점의 상태를 붙잡습니다):**
 
 <<< ../examples/state-use-functional-setstate-updates/01-incorrect.tsx

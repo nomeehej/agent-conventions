@@ -30,6 +30,10 @@ tags: data, state, react-query
 인라인 함수가 다시 실행된다는 이유만으로 `useCallback`, `useMemo`를 더하지 않습니다.
 실측 병목이 있을 때만 `perf-avoid-defensive-memoization`의 예외 기준을 따릅니다.
 
+참고: [TanStack Query 문서: `select`로 구독 데이터
+고르기](https://tanstack.com/query/latest/docs/framework/react/guides/render-optimizations#select),
+[TkDodo: React Query와 데이터 변환](https://tkdodo.eu/blog/react-query-data-transformations#3-using-the-select-option).
+
 **Incorrect 1 (렌더에서 응답 원본 구조를 가공합니다):**
 
 <<< ../examples/data-shape-query-data-with-select/01-incorrect.tsx

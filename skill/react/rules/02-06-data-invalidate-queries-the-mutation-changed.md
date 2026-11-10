@@ -52,6 +52,11 @@ sequenceDiagram
 | 다시 읽기를 마쳐야 저장 중 표시나 후속 동작을 끝낼 수 있음 | 성공 콜백에서 무효화 Promise를 반환하거나 `await`합니다 |
 | 호출 위치 | `data-handle-mutation-failure-where-it-is-called`를 따릅니다. 이펙트로 옮기지 않습니다 |
 
+참고: [TanStack Query 문서: 뮤테이션 뒤
+무효화](https://tanstack.com/query/latest/docs/framework/react/guides/invalidations-from-mutations),
+[TkDodo: React Query 뮤테이션 정복, 직접 갱신과
+무효화](https://tkdodo.eu/blog/mastering-mutations-in-react-query#direct-updates).
+
 **Incorrect 1 (현재 목록 키만 다시 읽어 다른 목록 조건과 요약 키를 놓칩니다):**
 
 <<< ../examples/data-invalidate-queries-the-mutation-changed/01-incorrect.tsx

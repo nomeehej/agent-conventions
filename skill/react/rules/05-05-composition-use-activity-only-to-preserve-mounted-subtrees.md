@@ -44,6 +44,11 @@ flowchart LR
 | 동영상 재생 등 DOM 자체 동작을 멈춰야 함 | DOM 보존으로 계속될 수 있으므로 이펙트 정리에서 직접 멈춥니다 |
 | 하위 트리가 무거움 | 숨겨도 업데이트 시 렌더되므로 습관적으로 보존하지 않습니다 |
 
+참고: [React 문서: Activity로 숨긴 컴포넌트의 상태
+복원](https://react.dev/reference/react/Activity#restoring-the-state-of-hidden-components),
+[React 문서: Activity로 숨긴 컴포넌트의 이펙트
+문제](https://react.dev/reference/react/Activity#my-hidden-components-have-unwanted-side-effects).
+
 **Incorrect 1 (초기화해야 할 폼을 숨겨 상태를 보존합니다):**
 
 <<< ../examples/composition-use-activity-only-to-preserve-mounted-subtrees/01-incorrect.tsx

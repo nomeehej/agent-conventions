@@ -28,6 +28,8 @@ tags: strategy, composition, props, variants, components
 불리언 개수가 아니라 서로 배타적인 모드를 조합으로 표현하는지 확인합니다.
 공개 부품을 `.Root`처럼 묶는 형태는 `strategy-choose-single-composition-compound-and-variants`를 따릅니다.
 
+참고: [Kyle Shevlin: 여러 불리언 프롭은 코드 냄새다](https://kyleshevlin.com/multiple-boolean-props-are-a-code-smell/).
+
 **Incorrect 1 (불리언 프롭 조합으로 공용 컴포넌트가 비대해집니다):**
 
 <<< ../examples/strategy-avoid-boolean-prop-proliferation/01-incorrect.tsx

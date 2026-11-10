@@ -20,6 +20,9 @@ flowchart LR
 | DOM 요소를 직접 가리킴 | 별도 `Handle` 타입을 만들지 않습니다 |
 | 외부 패키지 타입 제약으로 래퍼가 필요함 | `typescript/docs-justify-convention-exceptions-with-a-reason-comment`에 따라 이유를 남깁니다 |
 
+참고: [React 문서: `useImperativeHandle`](https://react.dev/reference/react/useImperativeHandle),
+[React 19 발표: 프롭으로서의 `ref`](https://react.dev/blog/2024/12/05/react-19#ref-as-a-prop).
+
 **Incorrect 1 (`ref` 계약이 필요 없는 단순 화면 컴포넌트에도 습관적으로 `ref`를 노출합니다):**
 
 ```tsx

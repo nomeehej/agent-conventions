@@ -66,6 +66,10 @@ tags: ownership
 | 루트에만 두는 `util`   | `typescript/functions-promote-owner-free-functions-to-root-util`      |
 | 루트에만 두는 `config` | `typescript/naming-read-environment-values-through-config-env`        |
 
+참고: [Next.js 문서: 비공개 폴더
+`_folder`](https://nextjs.org/docs/app/getting-started/project-structure#private-folders),
+[Kent C. Dodds: 코로케이션](https://kentcdodds.com/blog/colocation).
+
 **Incorrect 1 (단순 컴포넌트에 역할 폴더를 미리 다 만듭니다):**
 
 <<< ../examples/ownership-place-owner-files-in-role-folders/01-incorrect.txt

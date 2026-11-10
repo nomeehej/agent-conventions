@@ -51,6 +51,10 @@ JSX 자식 자리에 글자로 적은 `//`는 `preset: "recommended"`의 `suspic
 | `style/useFragmentSyntax` | `recommended`에 없으며 켜면 `Fragment`를 요구하는 `react/composition-name-fragments-explicitly`와 충돌합니다 |
 | `style/useReactFunctionComponents` | 도메인 `all`에만 있고 기본 심각도가 `info`라 통과 여부를 판정하지 못합니다 |
 
+참고: [Biome 문서: 린터 도메인의 react 활성화와 규칙 목록](https://biomejs.dev/linter/domains/#react-activation),
+[Biome: noNestedComponentDefinitions](https://biomejs.dev/linter/rules/no-nested-component-definitions/javascript/),
+[Biome: noCommentText](https://biomejs.dev/linter/rules/no-comment-text/javascript/).
+
 **Correct (도메인과 추가 검사를 켜고 레이어, 라우트 `overrides`를 설정합니다):**
 
 ```json

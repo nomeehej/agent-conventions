@@ -26,6 +26,9 @@ tags: state, zustand
 | 이펙트 예외 근거 | `state-calculate-derived-values-during-render`의 예외이므로 `typescript/docs-justify-convention-exceptions-with-a-reason-comment`에 따라 공유 이유를 남깁니다 |
 | 이펙트의 스토어 접근 | 선택자로 `set` 함수만 꺼내고 값 의존성은 그대로 적습니다. 스토어 객체 전체에 의존하면 `set`마다 다시 실행됩니다 |
 
+참고: [Redux 가이드: 상태는 최소로](https://redux.js.org/style-guide/#keep-state-minimal-and-derive-additional-values),
+[Redux 가이드: 상태가 있을 자리](https://redux.js.org/style-guide/#evaluate-where-each-piece-of-state-should-live).
+
 **Incorrect 1 (개별 화면이 도메인을 판별하고 스토어에 저장합니다):**
 
 <<< ../examples/state-store-derived-authority/01-incorrect.ts

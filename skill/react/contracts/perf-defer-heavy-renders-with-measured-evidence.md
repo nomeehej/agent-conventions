@@ -38,6 +38,10 @@ flowchart LR
 `startTransition`의 콜백은 즉시 실행되며 안쪽의 무거운 동기 계산이나 네트워크 요청 자체를 미루지 않습니다.
 `useDeferredValue`는 고정 지연 시간이 없고 요청 횟수를 줄이는 디바운스도 아닙니다.
 
+참고: [React 문서: useTransition](https://react.dev/reference/react/useTransition),
+[React 문서: useDeferredValue](https://react.dev/reference/react/useDeferredValue),
+[TanStack Query 문서: Suspense](https://tanstack.com/query/latest/docs/framework/react/guides/suspense).
+
 **Incorrect 1 (행 20개 목록을 다시 렌더하는 갱신까지 트랜지션으로 감쌉니다):**
 
 ```tsx

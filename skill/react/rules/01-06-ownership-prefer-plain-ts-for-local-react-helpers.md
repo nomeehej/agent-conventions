@@ -36,6 +36,9 @@ flowchart LR
 함수 추출 여부는 `typescript/functions-extract-helpers-only-when-the-boundary-is-real`을 따릅니다.
 배치는 `ownership-place-owner-files-in-role-folders`를 따릅니다.
 
+참고: [React 문서: 커스텀 훅 재사용, 훅을 안 부르면 `use`를 안 붙이고 구체적인 용도로
+짓는다](https://react.dev/learn/reusing-logic-with-custom-hooks).
+
 **Incorrect 1 (순수 지역 계산을 커스텀 훅으로 감쌉니다):**
 
 <<< ../examples/ownership-prefer-plain-ts-for-local-react-helpers/01-incorrect-1.tsx

@@ -13,6 +13,8 @@ React 핸들러와 래퍼 프롭스의 타입은 기존 계약에서 가져옵�
 팩토리가 반환하는 함수에는 React의 문맥 타입이 붙지 않으므로 반환 타입을 생략하면 안쪽 매개변수가 암시적 `any`가 됩니다.
 `query.select` 같은 훅 옵션의 일회성 문맥 콜백은 React 핸들러 구현이 아니므로 대상이 아닙니다.
 
+참고: [React 문서: TypeScript의 DOM 이벤트 타입](https://react.dev/learn/typescript#typing-dom-events).
+
 **Requires selected:** `typescript/types-prefer-function-variable-types-over-parameter-annotations` (함께 적용)
 
 **Incorrect 1 (팩토리 반환 타입을 적지 않아 이벤트가 암시적 `any`가 됩니다):**

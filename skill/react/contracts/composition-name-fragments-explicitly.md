@@ -7,6 +7,8 @@
 목록에서 `key`가 필요해져도 `<Fragment key={…}>` 형태를 유지합니다.
 `<>`를 강제하는 `biome`의 `style/useFragmentSyntax`는 켜지 않습니다.
 
+참고: [React 문서: Fragment 목록과 `key`](https://react.dev/reference/react/Fragment#rendering-a-list-of-fragments).
+
 **Incorrect 1 (`Fragment` 단축 문법을 씁니다):**
 
 ```tsx

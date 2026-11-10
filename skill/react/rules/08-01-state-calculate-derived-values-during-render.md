@@ -19,6 +19,9 @@ tags: state, effects
 여러 화면이 공유하는 파생 판단을 스토어에 채우는 이펙트만 예외입니다.
 허용 조건은 `state-store-derived-authority`를 따릅니다.
 
+참고: [React 문서: 이펙트가 필요 없는 경우, 파생 상태](https://react.dev/learn/you-might-not-need-an-effect),
+[React 문서: 상태 구조 정하기, 중복 상태 피하기](https://react.dev/learn/choosing-the-state-structure).
+
 **Incorrect 1 (파생값을 이펙트로 다시 상태에 동기화합니다):**
 
 <<< ../examples/state-calculate-derived-values-during-render/01-incorrect.tsx

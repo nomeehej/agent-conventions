@@ -34,6 +34,9 @@ flowchart LR
 `&&` 왼쪽에는 숫자를 두지 않고 길이, 개수는 비교식으로 바꿉니다.
 거짓으로 평가되는 `0`과 `NaN`도 화면에 그대로 렌더됩니다.
 
+참고: [React 문서: 논리 AND 연산자와 숫자 `0`
+함정](https://react.dev/learn/conditional-rendering#logical-and-operator-).
+
 **Incorrect 1 (JSX 두 분기를 삼항 하나로 묶습니다):**
 
 <<< ../examples/composition-render-one-branch-with-and/01-incorrect.tsx

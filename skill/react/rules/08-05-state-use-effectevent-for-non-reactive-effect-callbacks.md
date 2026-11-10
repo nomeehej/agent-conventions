@@ -32,6 +32,9 @@ tags: state, effects
 `useEffectEvent`를 인식하는 최신 `eslint-plugin-react-hooks`와 `biome`을 쓰지 않으면
 Correct 예제가 훅 규칙 위반으로 표시됩니다.
 
+참고: [React 문서: useEffectEvent](https://react.dev/reference/react/useEffectEvent),
+[React 문서: 이벤트와 이펙트 분리](https://react.dev/learn/separating-events-from-effects).
+
 **Incorrect 1 (최신 콜백을 읽기 위해 `ref`를 직접 동기화합니다):**
 
 <<< ../examples/state-use-effectevent-for-non-reactive-effect-callbacks/01-incorrect.tsx

@@ -22,6 +22,11 @@ JSX 조각을 한 곳에서만 쓰면 쓰는 자리에 그대로 적습니다.
 같은 소유자 안 두 곳 이상에서 쓸 때만 모듈 최상위의 독립 컴포넌트로 빼고 값은 프롭스로 넘깁니다.
 파일로 뗄지는 `composition-split-owner-parts-only-for-runtime-boundaries`가 정합니다.
 
+참고: [React 문서: 컴포넌트 정의를 중첩하지
+않는다](https://react.dev/learn/your-first-component#nesting-and-organizing-components),
+[React 문서: 같은 자리의 다른 컴포넌트는 상태를
+잃는다](https://react.dev/learn/preserving-and-resetting-state#different-components-at-the-same-position-reset-state).
+
 **Incorrect 1 (렌더마다 새 컴포넌트 타입을 만듭니다):**
 
 <<< ../examples/composition-do-not-define-components-inside-components/01-incorrect.tsx

@@ -54,6 +54,9 @@ flowchart LR
 | `ref` 공개 | `composition-open-ref-props-only-for-imperative-contracts` |
 | 프롭 전달 방식 | `typing-choose-wrapper-shape-and-forwarding` |
 
+참고: [TypeScript 핸드북: 인덱스 접근 타입](https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html),
+[Hyrum의 법칙](https://www.hyrumslaw.com/).
+
 **Incorrect 1 (라이브러리 타입을 그대로 내보냅니다):**
 
 <<< ../examples/typing-narrow-library-wrapper-contracts/01-incorrect.tsx

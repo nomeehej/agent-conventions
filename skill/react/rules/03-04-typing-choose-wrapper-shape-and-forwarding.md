@@ -45,6 +45,9 @@ flowchart LR
 | 그래도 프롭 수가 줄지 않음 | `strategy-choose-single-composition-compound-and-variants`에 따라 쓰임새별 변형으로 나눕니다 |
 | 안쪽 부품을 외부에서 조립해야 함 | `headerProps`, `buttonProps` 같은 내부 프롭 묶음을 만들지 않고 `strategy-prefer-children-over-render-props`에 따라 `children`으로 엽니다 |
 
+참고: [React 문서: JSX 스프레드로 프롭
+전달하기](https://react.dev/learn/passing-props-to-a-component#forwarding-props-with-the-jsx-spread-syntax).
+
 **Incorrect 1 (자기 프롭까지 스프레드로 전달합니다):**
 
 <<< ../examples/typing-choose-wrapper-shape-and-forwarding/01-incorrect.tsx
