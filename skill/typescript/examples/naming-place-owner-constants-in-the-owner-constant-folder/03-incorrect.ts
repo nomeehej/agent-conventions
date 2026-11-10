@@ -1,5 +1,7 @@
-// page/product-detail/_constant/product-detail.ts
-export const product_detail_config = {
-	chart_axis_tick_count: 6,
-	table_page_size: 20,
-} as const;
+// constant/chart.ts
+// 상품 상세 화면의 파일 둘만 쓰는 값이 루트에 있음
+/**
+ * 상품 상세 차트의 축 눈금 수. 표시 폭이 좁아 여섯을 넘으면 라벨 겹침
+ */
+// [!code error]
+export const chart_axis_tick_count = 6;

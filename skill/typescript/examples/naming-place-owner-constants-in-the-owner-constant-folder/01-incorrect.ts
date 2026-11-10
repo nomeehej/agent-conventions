@@ -1,3 +1,7 @@
-// constant/chart.ts
-// 상품 상세 화면만 쓰는 값이 루트에 있음
+// page/product-detail/_constant/chart.ts
+// 차트 파일 하나만 가져다 쓰는 값이 `_constant`에 있음
+/**
+ * 상품 상세 차트의 축 눈금 수. 표시 폭이 좁아 여섯을 넘으면 라벨 겹침
+ */
+// [!code error]
 export const chart_axis_tick_count = 6;

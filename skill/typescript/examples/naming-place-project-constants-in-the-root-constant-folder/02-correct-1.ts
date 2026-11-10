@@ -1,6 +1,5 @@
 // page/products/products-page.tsx
-import {api_request_timeout_ms} from "@/constant/api";
+// [!code ++]
 import {pagination_default_page_size} from "@/constant/pagination";
 
-const productClient = createClient({timeoutMs: api_request_timeout_ms});
-const productQuery = useProductQuery({client: productClient, pageSize: pagination_default_page_size});
+const productQuery = useProductQuery({client, pageSize: pagination_default_page_size});

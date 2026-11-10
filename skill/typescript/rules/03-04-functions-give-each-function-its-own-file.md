@@ -1,13 +1,12 @@
 ---
 title: Give Each Support Function Its Own File
-titleKo: 보조 함수는 대표 함수 폴더의 `_` 파일 하나에 하나씩 둡니다
+titleKo: 대표 하나가 쓰는 보조는 그 안에 두고 여럿이 쓰는 보조는 자기 파일로 뺍니다
 impact: HIGH
-impactDescription: 보조 함수를 개별 파일로 관리하고 폴더로 소유 관계를 드러냅니다
+impactDescription: 대표 함수 하나의 흐름을 그 함수 안에서 읽고 여럿이 쓰는 함수는 자기 파일에서 찾습니다
 appliesWhen:
-  - 떼어 낸 보조 함수를 어느 파일이나 폴더에 둘지 정할 때
+  - 이름 붙인 보조 함수를 대표 함수 안에 둘지 파일로 뺄지 정할 때
   - `helper.ts`, `helpers.ts`, `utils.ts` 같은 파일을 만들거나 거기에 함수를 더할 때
-  - 대표 함수가 자기만 쓰는 보조를 처음 갖게 될 때
-  - 보조를 부르는 대표 함수나 소유자가 늘어날 때
+  - 보조를 부르는 대표 함수가 늘거나 줄 때
 requiresSelected: functions-extract-helpers-only-when-the-boundary-is-real
 reviewWith: functions-promote-owner-free-functions-to-root-util, functions-order-declarations-top-down
 tags: functions, boundaries
@@ -15,38 +14,39 @@ tags: functions, boundaries
 
 ## Give Each Support Function Its Own File
 
-**Impact: HIGH (보조 함수를 개별 파일로 관리하고 폴더로 소유 관계를 드러냅니다)**
+**Impact: HIGH (대표 함수 하나의 흐름을 그 함수 안에서 읽고 여럿이 쓰는 함수는 자기 파일에서 찾습니다)**
 
-### 호출부에 따른 자리
+### 부르는 대표에 따른 자리
 
 보조 함수에 이름을 붙일지는 `functions-extract-helpers-only-when-the-boundary-is-real`이 정합니다.
-이름을 붙였다면 함수마다 파일을 하나 두고, 부르는 대표 함수에 따라 배치합니다.
+이름을 붙였다면 소유자를 지워도 계산이 남는지 먼저 보고 부르는 대표 함수의 수로 자리를 정합니다.
 
 ```mermaid
 flowchart LR
-	q1{"부르는 대표 함수가<br>둘 이상인가?"} -- 예 --> q2{"다른 소유자도<br>부르는가?"} -- 예 --> r3("루트 승격 판단")
-	q1 -- 아니요 --> r1("대표 폴더의 _ 파일")
-	q2 -- 아니요 --> r2("_function 바로 아래")
+	q1{"소유자를 지워도<br>계산이 남는가?"} -- 예 --> r3("루트 util")
+	q1 -- 아니요 --> q2{"부르는 대표 함수가<br>둘 이상인가?"} -- 예 --> r2("_function 의 자기 파일")
+	q2 -- 아니요 --> r1("대표 안 지역 함수")
 ```
 
-| 호출부 | 위치 |
+| 보조 함수 | 자리 |
 | --- | --- |
-| 대표 함수 하나 | `_function/<대표>/<대표>.ts`와 같은 폴더의 `_<보조>.ts` |
-| 같은 소유자의 대표 함수 둘 이상 | `_function/<보조>.ts`. 기존 `_` 접두사를 뗍니다 |
-| 다른 소유자 | `functions-promote-owner-free-functions-to-root-util`로 루트 승격 여부를 판단합니다 |
+| 소유자를 지워도 남는 계산 | `functions-promote-owner-free-functions-to-root-util`을 따릅니다 |
+| 대표 하나만 부름 | 대표 안 지역 `const` 함수로 두고 처음 부르는 줄보다 위에서 정의합니다 |
+| 같은 소유자의 대표 둘 이상이 부름 | `_function/<보조>.ts`에 내보낸 함수로 둡니다 |
+
+부르는 대표가 둘로 늘면 지역 함수를 `_function/<보조>.ts`로 옮깁니다.
+하나로 줄면 남은 대표 안의 지역 함수로 되돌립니다.
+다른 소유자가 `_function` 파일을 가져올 수 있는지는 활성화된 프레임워크 규칙이 정합니다.
 
 ### 파일 배치 규범
 
 | 배치 대상 | 규범 |
 | --- | --- |
 | 대표 함수 | 내보낸 함수 하나당 파일 하나이며 파일 이름은 함수 이름입니다 |
-| 대표만 쓰는 보조 | 대표 파일 아래 비공개 `const`로 쌓지 않고 같은 이름 폴더의 `_` 파일로 둡니다 |
-| 보조의 보조 | 같은 폴더의 `_` 파일로 둡니다. 하위 폴더를 더 만들지 않습니다 |
-| 타입, 상수 | 이 폴더에 두지 않고 프레임워크 규칙이 정한 소유자의 역할 폴더에 둡니다 |
+| 대표 하나만 쓰는 보조 | 대표 파일 최상위의 비공개 `const`나 다른 파일로 두지 않습니다 |
+| `_function` 폴더 | 함수 파일을 하위 폴더 없이 나열합니다 |
+| 타입, 상수 | `_function`에 파일로 두지 않습니다. 여러 파일이 쓰면 프레임워크 규칙이 정한 소유자의 역할 폴더에 둡니다 |
 | `helper.ts`, `helpers.ts`, `utils.ts` | 여러 보조를 모으는 파일로 만들지 않습니다 |
-
-`_` 파일은 같은 폴더에서만 가져옵니다.
-대표와 `_` 파일 사이의 호출은 대표의 내부이며 재노출 사슬이 아닙니다.
 
 **Incorrect 1 (여러 보조를 모은 파일에서 내보낸 함수가 세 단계로 이어집니다):**
 
@@ -56,18 +56,18 @@ flowchart LR
 
 <<< ../examples/functions-give-each-function-its-own-file/02-correct.ts
 
-**Incorrect 2 (대표 함수 하나만 부르는 보조를 대표 파일 아래 비공개 `const`로 쌓습니다):**
+**Incorrect 2 (대표 함수 하나만 부르는 보조를 대표 파일 최상위의 비공개 `const`로 둡니다):**
 
 <<< ../examples/functions-give-each-function-its-own-file/03-incorrect.txt
 
-**Correct 2 (자기만 쓰는 보조가 생긴 대표 함수는 자기 이름 폴더를 갖고 보조는 `_` 파일입니다):**
+**Correct 2 (대표 함수 하나만 부르는 보조는 대표 안 지역 함수로 둡니다):**
 
 <<< ../examples/functions-give-each-function-its-own-file/04-correct.txt
 
-**Incorrect 3 (한 대표만 부르는 보조를 `_function` 바로 아래에 내보내 둡니다):**
+**Incorrect 3 (대표 함수 하나만 부르는 보조를 `_function`의 자기 파일로 뺍니다):**
 
 <<< ../examples/functions-give-each-function-its-own-file/05-incorrect.txt
 
-**Correct 3 (두 대표가 부르게 된 뒤에 `_function` 바로 아래로 올리고 `_`를 뗍니다):**
+**Correct 3 (두 대표가 부르게 된 뒤에 `_function`의 자기 파일로 뺍니다):**
 
 <<< ../examples/functions-give-each-function-its-own-file/06-correct.txt

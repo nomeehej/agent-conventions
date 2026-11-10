@@ -1,10 +1,5 @@
 // page/products/products-page.tsx
-const toFirstRow = (rows: Row[]): Row | undefined => {
 // [!code ++]
-	return rows[0];
-};
-
-const toNextPage = (page: number): number => {
+toggleSelection(rows[0]?.id);
 // [!code ++]
-	return page + 1;
-};
+setPage(urlParams.page + 1);

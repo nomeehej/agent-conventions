@@ -1,6 +1,5 @@
 // page/products/products-page.tsx
-const default_page_size = 20;
-const request_timeout_ms = 20_000;
+// [!code error]
+const pagination_default_page_size = 20;
 
-const productClient = createClient({timeoutMs: request_timeout_ms});
-const productQuery = useProductQuery({client: productClient, pageSize: default_page_size});
+const productQuery = useProductQuery({client, pageSize: pagination_default_page_size});

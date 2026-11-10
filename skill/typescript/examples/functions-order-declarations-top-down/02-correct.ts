@@ -7,15 +7,19 @@ export interface ToSummaryRowsParams {
 	 * 요약 조회 응답
 	 */
 	response: OrderSummaryResponse;
+	/**
+	 * 이름이 빈 항목에 표시할 문구
+	 */
+	emptyLabel: string;
 }
 
 // [!code ++]
 /**
- * 요약 표가 그리는 행 목록. 이름이 비면 코드로 표시
+ * 요약 표가 그리는 행 목록. 이름이 비면 `emptyLabel`로 표시
  */
 // [!code ++]
 export const toSummaryRows = (params: ToSummaryRowsParams): SummaryRow[] => {
 // [!code ++]
-	return params.response.items.map((item) => ({id: item.id, label: item.name.trim() || item.code}));
+	return params.response.items.map((item) => ({id: item.id, label: item.name.trim() || params.emptyLabel}));
 // [!code ++]
 };

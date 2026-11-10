@@ -3,4 +3,3 @@ page/orders/_function/to-order-summary.ts
   toComparisonRows   toOrderSummary만 부름
   toStatusGroups     toOrderSummary만 부름
   toStockCard        toOrderSummary만 부름
-  formatAmount       toComparisonRows와 toStatusGroups가 부름

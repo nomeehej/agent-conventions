@@ -2,7 +2,7 @@
 // [!code error]
 export const toSummaryRows = (params: ToSummaryRowsParams): SummaryRow[] => {
 // [!code error]
-	return params.response.items.map((item) => ({id: item.id, label: item.name.trim() || item.code}));
+	return params.response.items.map((item) => ({id: item.id, label: item.name.trim() || params.emptyLabel}));
 // [!code error]
 };
 
@@ -14,4 +14,8 @@ export interface ToSummaryRowsParams {
 	 * 요약 조회 응답
 	 */
 	response: OrderSummaryResponse;
+	/**
+	 * 이름이 빈 항목에 표시할 문구
+	 */
+	emptyLabel: string;
 }

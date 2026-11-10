@@ -1,14 +1,18 @@
-// page/product-detail/_function/to-status-tone.ts
+// page/orders/_function/to-order-status-metric.ts
 /**
- * 상태 문자열의 강조 톤. API가 상태를 자유 문자열로 주므로 값 포함 여부로 판정
+ * 주문 한 건의 상태 표시 행. 취소가 임박보다 우선
  */
-export const toStatusTone = (status: string): Tone => {
-	const normalizedStatus = status.trim().toLowerCase();
-	if (status_positive_values.some((value) => normalizedStatus.includes(value))) {
-		return "positive";
-	}
-	if (status_negative_values.some((value) => normalizedStatus.includes(value))) {
-		return "negative";
-	}
-	return "neutral";
+export const toOrderStatusMetric = (row: OrderRow): SummaryMetric => {
+// [!code ++]
+	const toStatusLabel = (): StatusLabel => {
+		if (row.isCancelled) {
+			return "취소";
+		}
+		if (row.isDueSoon) {
+			return "임박";
+		}
+		return "진행";
+	};
+
+	return {id: row.id, label: row.name, value: toStatusLabel()};
 };

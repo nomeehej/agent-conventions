@@ -20,13 +20,16 @@ tags: absence
 ### 기본값 표현
 
 `??`, `||` 오른쪽과 기본값 자리에서는 리터럴 대신 이미 선언된 이름을 참조합니다.
-리터럴을 지역 `const`로 옮기거나 이유 주석을 붙이기만 해서는 규칙을 충족하지 못합니다.
+이름은 한 파일만 쓰면 그 파일 위쪽에, 여러 파일이 쓰면 `constant`나 소유자의 `_constant`에 선언합니다.
+이유 주석을 붙이기만 해서는 규칙을 충족하지 못합니다.
 
 | 기본값 표현 | 판정 |
 | --- | --- |
 | `?? "help@example.com"`, `?? 0`, `?? []`, `\|\| "-"` | 위반 |
 | `?? pagination_default_page_size`처럼 선언된 상수 | 통과 |
-| 지역 `const fallback = "-"`로 리터럴만 옮김 | 위반 |
+| 읽기만 하는 소비처에 `?? empty_product_rows`처럼 `readonly` 타입으로 선언한 빈 배열, 빈 객체 상수 | 통과 |
+| `?? undefined`로 `null`을 `undefined`로 바꾸는 계약 변환 | 통과 |
+| 함수 안 `const fallback = "-"`처럼 주제 접두사 없는 지역 이름으로 리터럴만 옮김 | 위반 |
 | 선언된 이름 둘을 합성한 파생값 | 통과 |
 | `(size = 10) =>`, `{size = 10}` 같은 기본값 리터럴 | 위반 |
 | `(size = pagination_default_page_size) =>` | 통과 |
@@ -41,6 +44,7 @@ tags: absence
 
 선언된 이름이어도 기본값의 의미가 맞아야 합니다.
 `0`, `false`가 유효하면 `??`를 씁니다.
+소비처가 `readonly`를 받지 못하면 빈 배열 상수를 쓰지 않고 경계에서 채웁니다.
 채우는 위치는 `absence-resolve-defaults-at-the-boundary`가 정합니다.
 
 **Incorrect 1 (`??`, `||`, 기본 매개변수 자리에 리터럴을 적습니다):**
