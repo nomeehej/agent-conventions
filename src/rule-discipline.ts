@@ -128,12 +128,42 @@ const literalFallback = /(?:\?\?|\|\|)\s*(?:"[^"]*"|'[^']*'|\d+(?:\.\d+)?|\[\]|\
 const handRolledValueHelper = /(?<!to)\.sort\(|\.reduce\(|Array\.from\(new Set|\[\.\.\.new Set/;
 
 /**
- * 한 줄 JSX 주석. `docs-write-jsx-comments-as-multiline-blocks`가 블록만 허용
+ * 블록 주석. TypeScript, TSX 주석은 `//` 줄 주석만 쓰므로 `/*`는 줄 표기 마커(`[!code …]`)에만 허용
  */
-const singleLineJsxComment = /\{\/\*[^*]/;
+const blockComment = /\/\*(?!\s*\[!code [^\]]+\]\s*\*\/)/;
 
 /**
- * 헤더 JSDoc이 필요한 내보낸 화살표 함수 선언
+ * 주석 상자의 위아래 줄. `// ` 뒤 대시 88개
+ */
+const boxRule = /^\s*\/\/ -+$/;
+
+/**
+ * 주석 상자 줄의 대시 개수. 91칸
+ */
+const boxRuleDashes = 88;
+
+/**
+ * CSS 주석 상자의 위아래 줄. `/* ` 뒤 대시 85개와 ` *\/`
+ */
+const cssBoxRule = /^\s*\/\* -+ \*\/$/;
+
+/**
+ * CSS 주석 상자 줄의 대시 개수. 91칸
+ */
+const cssBoxRuleDashes = 85;
+
+/**
+ * @helper 주석 상자 줄의 대시 개수
+ */
+const countBoxDashes = (line: string): number => /-+/.exec(line)?.[0].length ?? 0;
+
+/**
+ * 줄 표기 마커만 있는 줄. 표시할 줄 바로 위에 붙어 앞 줄 검사에서 건너뜀
+ */
+const codeMarkerLine = /^\s*(?:\/\/|\{\/\*)\s*\[!code [^\]]+\]/;
+
+/**
+ * 헤더 상자가 필요한 내보낸 화살표 함수 선언
  */
 const exportedArrowDeclaration = /^export const [a-z]\w*(?::\s*[^=]+?)?\s*=\s*(?:async\s*)?\(/;
 
@@ -326,6 +356,16 @@ const collectRuleViolations = (rule: SkillRule): string[] => {
 					violations.push("Correct 예제는 공통 토큰 `--app-*`에 대체값을 두지 않는다");
 				}
 
+				for (const line of block.code.split("\n")) {
+					if (/\/\*/.test(line) && !/\*\//.test(line)) {
+						violations.push(`Correct 예제의 CSS 주석은 줄마다 /* */로 닫는다: "${line.trim().slice(0, violationExcerptLength)}"`);
+					}
+
+					if (cssBoxRule.test(line) && countBoxDashes(line) !== cssBoxRuleDashes) {
+						violations.push(`Correct 예제의 CSS 주석 상자 줄은 /* 뒤 대시 ${cssBoxRuleDashes}개다`);
+					}
+				}
+
 				const mediaIndex = block.code.indexOf("@media");
 
 				if (mediaIndex >= 0 && block.code.slice(mediaIndex).includes("&:hover")) {
@@ -363,16 +403,22 @@ const collectRuleViolations = (rule: SkillRule): string[] => {
 					violations.push(`Correct 예제의 값 보조는 es-toolkit(sortBy, sumBy, uniq)이다: "${line.trim()}"`);
 				}
 
-				if (block.lang === "tsx" && singleLineJsxComment.test(line)) {
-					violations.push(`Correct 예제의 JSX 주석은 여러 줄 블록이다: "${line.trim()}"`);
+				if (blockComment.test(line)) {
+					violations.push(`Correct 예제의 주석은 // 줄 주석이다. /* */, /** */, JSX {/* */}를 쓰지 않는다: "${line.trim()}"`);
 				}
 
-				if (exportedArrowDeclaration.test(line) && !(lines[index - 1] ?? "").trim().endsWith("*/")) {
-					violations.push(`Correct 예제의 내보낸 함수는 헤더 JSDoc 을 단다: "${line.trim()}"`);
+				if (boxRule.test(line) && countBoxDashes(line) !== boxRuleDashes) {
+					violations.push(`Correct 예제의 주석 상자 줄은 // 뒤 대시 ${boxRuleDashes}개다`);
 				}
 
-				if (/\/\*\*.*\*\//.test(line)) {
-					violations.push(`Correct 예제의 문서 주석은 여러 줄 블록이다: "${line.trim()}"`);
+				const previousCodeLine =
+					lines
+						.slice(0, index)
+						.reverse()
+						.find((candidate) => !codeMarkerLine.test(candidate)) ?? "";
+
+				if (exportedArrowDeclaration.test(line) && !boxRule.test(previousCodeLine)) {
+					violations.push(`Correct 예제의 내보낸 함수는 바로 위에 헤더 상자를 단다: "${line.trim()}"`);
 				}
 
 				if (/^\s*(?:export\s+)?function\s/.test(line)) {

@@ -52,7 +52,7 @@ test("Playwright examples expose GIVEN, WHEN and THEN while Vitest examples stay
 		 */
 		const source = await readFile(new URL(path, examplesUrl), "utf8");
 		const caseCount = [...source.matchAll(/^\s*test(?:\(|\.each\()/gm)].length;
-		const phases = [...source.matchAll(/\* (GIVEN|WHEN|THEN)\n/g)].map((match) => match[1]);
+		const phases = [...source.matchAll(/^\s*\/\/ (GIVEN|WHEN|THEN)\b/gm)].map((match) => match[1]);
 
 		/**
 		 * THEN
@@ -78,8 +78,8 @@ test("Playwright examples expose GIVEN, WHEN and THEN while Vitest examples stay
 		}
 		for (const phase of order) {
 			const labels = phases.filter((label) => label === phase).length;
-			const blocks = [...source.matchAll(new RegExp(`\\* ${phase}\\n\\s*\\* \\S[^\\n]*\\n`, "g"))];
-			assert.equal(blocks.length, labels, `${path} must describe every ${phase}`);
+			const described = [...source.matchAll(new RegExp(`^\\s*// ${phase} \\S`, "gm"))];
+			assert.equal(described.length, labels, `${path} must describe every ${phase} on the same line`);
 		}
 	}
 });
