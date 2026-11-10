@@ -26,7 +26,6 @@ ln -s "$PWD/skill" ~/.agents/skills/conventions
 ## 프로젝트에 적용
 
 프로젝트의 `AGENTS.md`에 작업별 스킬을 적는다.
-새 프로젝트는 [시작 템플릿](https://github.com/nomeehej/agent-conventions/blob/main/AGENTS.template.md)을 사용해도 된다.
 
 ```markdown
 ## 코딩 컨벤션

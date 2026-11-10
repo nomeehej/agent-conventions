@@ -2,9 +2,6 @@
 
 이 저장소에서 작업하는 AI coding agent 규칙.
 
-다른 프로젝트용 시작 템플릿은 [AGENTS.template.md](./AGENTS.template.md).
-그 문서는 이 저장소와 무관하게 동작한다.
-
 핵심 제약은 하나다.
 **규칙은 `rules/*.md`에서 고치고 생성물은 build로 갱신한다.**
 라우터, 메타데이터, 라우팅 오라클의 수정 범위는 3절에 정리했다.
@@ -153,3 +150,10 @@ buildable skill: `blueprint` `css` `figma` `react` `testing` `typescript`
 6. 외부 레퍼런스 문장을 그대로 옮기지 않는다.
    이 저장소 구조에 맞게 다시 쓴다.
 7. 루트 문서 갱신 시 현재 지원 skill 목록을 실제 상태로 기록한다.
+8. 이 저장소의 TypeScript 코드(`src/`, `script/`, `test/`)도 skill 규칙을 따른다.
+   주석은 `//` 상자이고 자리와 내용은 typescript `docs-put-boxes-on-groups-and-blocks`가 정한다.
+9. 규칙에 근거 링크를 달 때는 열어서 확인한 문서만 `참고:` 줄로 단다.
+   공식 문서와 다르게 정한 규칙은 우리 선택으로 두고 맞는 부분만 링크로 받친다.
+10. 커밋 메시지는 영어 제목 한 줄 뒤에 ` | aa`를 붙인다.
+    본문과 트레일러는 쓰지 않는다.
+    main에 push하면 문서 사이트가 배포된다.

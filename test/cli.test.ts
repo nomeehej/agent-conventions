@@ -12,7 +12,6 @@ const repoDir = path.resolve(currentDir, "..");
 // package.json 이 저장소 루트에 있음
 const packageDir = repoDir;
 const _repositoryAgentsPath = path.join(repoDir, "AGENTS.md");
-const templatePath = path.join(repoDir, "AGENTS.template.md");
 const _repositoryReadmePath = path.join(repoDir, "README.md");
 const _packageReadmePath = path.join(repoDir, "content", "public", "tooling.md");
 const reactIndexPath = path.join(repoDir, "skill/react/RULES_INDEX.md");
@@ -340,45 +339,6 @@ const runPackageCommand = (args: string[]) => {
 
 	return spawnSync(command, [...scriptArgs, ...passthroughArgs], {cwd: packageDir, encoding: "utf8", env: commandEnv});
 };
-
-test("project template stays a standalone KISS starter, not a convention router", async () => {
-	const template = await readFile(templatePath, "utf8");
-
-	// 다른 프로젝트가 그대로 복사함. 짧아야 지켜짐
-	assert.equal(template.length < 6_000, true, "starter template must stay compact");
-
-	// 번호 매긴 섹션 골격
-	for (const heading of [
-		"## 1. 프로젝트",
-		"## 2. 먼저 생각한다",
-		"## 3. 최소로 만든다",
-		"## 4. 최소로 고친다",
-		"## 5. 검증하고 보고한다",
-		"## 6. 확인받고 하는 것",
-	]) {
-		assert.ok(template.includes(heading), heading);
-	}
-
-	// KISS, YAGNI 원칙
-	for (const requiredText of [
-		"추측하지 않는다",
-		"문제를 해결하는 최소한의 코드",
-		"단일 사용처",
-		"꼭 필요한 곳만 건드린다",
-		"바뀐 모든 줄이 요청과 직접 연결",
-		"실행한 명령과 그 출력으로 보고한다",
-	]) {
-		assert.ok(template.includes(requiredText), requiredText);
-	}
-
-	// 프로젝트가 채울 자리
-	assert.ok(template.includes("이 절만 채운다"));
-
-	// 이 저장소에 종속 금지. 복사해 간 프로젝트에서 해석 불가능한 참조가 없어야 함
-	for (const coupling of ["RULES_INDEX", "contracts/", "appliesWhen", "requiresSelected", "agent-conventions/"]) {
-		assert.ok(!template.includes(coupling), `template must not depend on this repo: ${coupling}`);
-	}
-});
 
 test("generated-output check scripts support progressive TypeScript", () => {
 	const directResult = runPackageCommand(["--prefix", packageDir, "run", "check:generated", "--", "--skill=typescript"]);

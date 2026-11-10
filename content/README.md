@@ -96,7 +96,6 @@ Keeping these records alongside the conventions makes later changes easier to as
 | Write or revise a convention | [Rule authoring](https://github.com/nomeehej/agent-conventions/blob/main/CONTRIBUTING.md) |
 | Build, validate and deploy the documentation | [Tooling](public/tooling.md) |
 | Understand the loading design and evaluations | [Progressive loading](public/research/progressive-loading.md), [Design notes](public/research/progressive-loading-design.md) |
-| Start a project's agent instructions | [AGENTS template](https://github.com/nomeehej/agent-conventions/blob/main/AGENTS.template.md) |
 
 The detailed guides and rule explanations are currently written in Korean.
 

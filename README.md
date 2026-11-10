@@ -94,7 +94,6 @@ Keeping these records alongside the conventions makes later changes easier to as
 | Write or revise a convention | [Rule authoring](CONTRIBUTING.md) |
 | Build, validate and deploy the documentation | [Tooling](content/public/tooling.md) |
 | Understand the loading design and evaluations | [Progressive loading](content/public/research/progressive-loading.md), [Design notes](content/public/research/progressive-loading-design.md) |
-| Start a project's agent instructions | [AGENTS template](AGENTS.template.md) |
 
 The detailed guides and rule explanations are currently written in Korean.
 
