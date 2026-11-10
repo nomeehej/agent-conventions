@@ -28,6 +28,8 @@ flowchart LR
 	q2 -- 아니요 --> r3("사용처에서 조건으로 고름")
 ```
 
+참고: [Carson Gross: Locality of Behaviour](https://htmx.org/essays/locality-of-behaviour/).
+
 **Incorrect 1 (한 곳의 프롭 값을 고르려고 조회표를 만듭니다):**
 
 <<< ../examples/values-avoid-lookup-tables-for-simple-choices/01-incorrect.tsx

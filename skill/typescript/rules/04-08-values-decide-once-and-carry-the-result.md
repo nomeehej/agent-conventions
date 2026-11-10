@@ -30,6 +30,8 @@ tags: values, boundaries
 결과를 담을 필드가 없으면 소유자가 만드는 내부 항목 형태에 추가합니다.
 외부 응답, 생성된 DTO, 공개 요청 계약을 바꾸거나 공유 캐시 원본을 직접 수정하지 않습니다.
 
+참고: [Alexis King: Parse, don't validate](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/).
+
 **Incorrect 1 (경계에서 포맷한 값을 사용처가 다시 파싱해 포맷합니다):**
 
 <<< ../examples/values-decide-once-and-carry-the-result/01-incorrect-1.ts

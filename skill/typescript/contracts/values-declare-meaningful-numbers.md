@@ -19,6 +19,8 @@
 
 배치는 `naming-place-project-constants-in-the-root-constant-folder`가 정합니다.
 
+참고: [Biome 문서: noMagicNumbers 규칙](https://biomejs.dev/linter/rules/no-magic-numbers/).
+
 **Incorrect 1 (뜻이 있는 숫자를 쓰는 자리에 그대로 적습니다):**
 
 ```ts

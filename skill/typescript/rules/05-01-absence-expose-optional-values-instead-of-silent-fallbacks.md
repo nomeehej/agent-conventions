@@ -47,6 +47,8 @@ tags: absence
 소비처가 `readonly`를 받지 못하면 빈 배열 상수를 쓰지 않고 경계에서 채웁니다.
 채우는 위치는 `absence-resolve-defaults-at-the-boundary`가 정합니다.
 
+참고: [MDN: ?? 연산자](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing).
+
 **Incorrect 1 (`??`, `||`, 기본 매개변수 자리에 리터럴을 적습니다):**
 
 <<< ../examples/absence-expose-optional-values-instead-of-silent-fallbacks/01-incorrect.ts

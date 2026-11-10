@@ -9,6 +9,9 @@
 TanStack Query의 `onSuccess`는 `() =>` 대신 `(_data, _variables, _onMutateResult, _context) =>`로 받습니다.
 어떤 매개변수가 있는지 읽는 자리에서 보이게 하려는 것입니다.
 
+참고: [tsconfig 문서: noUnusedParameters](https://www.typescriptlang.org/tsconfig/#noUnusedParameters),
+[Biome 문서: noUnusedFunctionParameters](https://biomejs.dev/linter/rules/no-unused-function-parameters/javascript/).
+
 **Incorrect 1 (계약의 일부인 콜백 매개변수를 생략합니다):**
 
 ```ts

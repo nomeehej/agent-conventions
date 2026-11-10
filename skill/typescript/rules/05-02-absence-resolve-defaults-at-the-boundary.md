@@ -38,6 +38,9 @@ flowchart LR
 소비처가 배열을 요구하면 경계의 `select`가 선언된 기본값으로 채웁니다.
 이름을 붙일지는 `functions-name-a-value-only-for-recompute-or-judgment`가 정합니다.
 
+참고: [nuqs 문서: 기본값(Default values)](https://nuqs.dev/docs/basic-usage#default-values),
+[Alexis King: Parse, don't validate](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/).
+
 **Incorrect 1 (없어도 되는 값에 기본값을 채웁니다):**
 
 <<< ../examples/absence-resolve-defaults-at-the-boundary/01-incorrect.ts

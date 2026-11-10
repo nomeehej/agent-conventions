@@ -28,6 +28,9 @@ flowchart LR
 즉시 계산하는 선언은 자기가 부르는 선언 뒤에 둡니다.
 함수 본문은 위에서 아래로 실행되므로 본문 안 지역 함수는 처음 부르는 줄보다 위에 둡니다.
 
+참고: [TS 코딩 가이드라인: 타입 정의가 먼저](https://github.com/microsoft/TypeScript/wiki/Coding-guidelines),
+[MDN: let, const의 일시적 사각지대](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let).
+
 **Incorrect 1 (내보낸 계약 타입이 함수 아래에 있어 시그니처를 읽으려면 파일을 끝까지 내려가야 합니다):**
 
 <<< ../examples/functions-order-declarations-top-down/01-incorrect.ts

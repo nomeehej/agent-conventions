@@ -15,6 +15,10 @@
 경로 형식은 `naming-import-by-absolute-path`를 따릅니다.
 같은 경로라도 값, 타입 가져오기를 바꾸면 이 규칙을 적용합니다.
 
+참고: [TkDodo: 배럴 파일을 쓰지 마세요](https://tkdodo.eu/blog/please-stop-using-barrel-files),
+[Google TS: 이름 붙인 내보내기, default 금지](https://google.github.io/styleguide/tsguide.html#exports),
+[TS 핸드북: import type](https://www.typescriptlang.org/docs/handbook/2/modules.html#import-type).
+
 **Incorrect 1 (배럴과 섞인 가져오기로 경계를 흐립니다):**
 
 ```ts

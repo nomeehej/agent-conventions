@@ -24,6 +24,9 @@ tags: types
 | 기존 계약에 맞는 값 집합인지도 검사함 | `as const satisfies 기존계약`을 씁니다 |
 | 리터럴 추론, 읽기 전용 속성이 필요 없음 | `as const`를 불필요하게 붙이지 않습니다 |
 
+참고: [TS 핸드북: 객체와 enum 비교](https://www.typescriptlang.org/docs/handbook/enums.html#objects-vs-enums),
+[tsconfig 문서: erasableSyntaxOnly](https://www.typescriptlang.org/tsconfig/#erasableSyntaxOnly).
+
 **Incorrect 1 (`enum`을 직접 씁니다):**
 
 <<< ../examples/types-replace-enum-with-as-const-objects/01-incorrect.ts

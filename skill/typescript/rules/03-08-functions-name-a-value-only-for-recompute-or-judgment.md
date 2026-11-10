@@ -33,6 +33,9 @@ tags: functions, origin
 객체 필드의 별칭은 `values-read-objects-through-chains`가 정합니다.
 `let` 재할당과 `push`는 `functions-avoid-imperative-assembly-in-wide-scopes`가 정합니다.
 
+참고: [Fowler 리팩터링: 변수 추출(Extract Variable)](https://refactoring.com/catalog/extractVariable.html),
+[Fowler 리팩터링: 변수 인라인(Inline Variable)](https://refactoring.com/catalog/inlineVariable.html).
+
 **Incorrect 1 (두 번 쓴다는 이유만으로 변수로 뺍니다):**
 
 <<< ../examples/functions-name-a-value-only-for-recompute-or-judgment/01-incorrect.ts

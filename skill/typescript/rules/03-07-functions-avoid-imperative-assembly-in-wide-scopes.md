@@ -29,6 +29,9 @@ flowchart LR
 추출 여부는 `functions-extract-helpers-only-when-the-boundary-is-real`을 따릅니다.
 함수 이름은 `functions-name-functions-by-what-comes-out`을 따릅니다.
 
+참고: [Airbnb JS 가이드: 참조는 const로](https://github.com/airbnb/javascript#references--prefer-const),
+[Biome 문서: noNestedTernary](https://biomejs.dev/linter/rules/no-nested-ternary/javascript/).
+
 **Incorrect 1 (넓은 스코프에서 명령형으로 조립을 쌓습니다):**
 
 <<< ../examples/functions-avoid-imperative-assembly-in-wide-scopes/01-incorrect.ts

@@ -10,6 +10,10 @@
 뜻이 같은 계약이 이미 있으면 그대로 쓰고 규칙을 지키려고 `*Params`나 `*Args`를 새로 만들지 않습니다.
 React 컴포넌트의 프롭스는 프레임워크 규칙이 정합니다.
 
+참고: [Biome 문서: useMaxParams](https://biomejs.dev/linter/rules/use-max-params/javascript/),
+[Google TS: 객체 매개변수와 호출부](https://google.github.io/styleguide/tsguide.html#comments-when-calling-a-function),
+[clang-tidy: 뒤바뀌는 인자](https://clang.llvm.org/extra/clang-tidy/checks/bugprone/easily-swappable-parameters.html).
+
 **Incorrect 1 (위치 인자가 넷이라 호출부에서 순서를 외워야 합니다):**
 
 ```ts

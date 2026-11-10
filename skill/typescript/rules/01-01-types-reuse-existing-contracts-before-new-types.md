@@ -41,6 +41,9 @@ flowchart LR
 소유자 이동, 이름이나 주석 변경, 그대로인 계약의 새 사용처, 외부나 생성된 형태의 사용은 이 규칙의 대상이 아닙니다.
 규칙을 적용하려고 요청에 없는 `*Params`나 `*Input`을 만들지 않습니다.
 
+참고: [TS 핸드북: 타입으로 타입 만들기](https://www.typescriptlang.org/docs/handbook/2/types-from-types.html),
+[Sandi Metz: 잘못된 추상화](https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction).
+
 **Incorrect 1 (기존 계약과 같은 구조를 다시 선언합니다):**
 
 <<< ../examples/types-reuse-existing-contracts-before-new-types/01-incorrect.ts

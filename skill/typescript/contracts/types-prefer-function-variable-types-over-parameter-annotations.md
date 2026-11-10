@@ -14,6 +14,9 @@
 문맥으로 추론되는 일회성 인라인 콜백은 대상이 아닙니다.
 쓰지 않는 계약 매개변수는 `types-mark-unused-parameters-with-underscore`에 따라 남깁니다.
 
+참고: [React 문서: DOM 이벤트 타입 붙이기](https://react.dev/learn/typescript#typing-dom-events),
+[TS 핸드북: 함수 타입 표현식](https://www.typescriptlang.org/docs/handbook/2/functions.html#function-type-expressions).
+
 **Incorrect 1 (계약이 있는데 시그니처를 다시 적습니다):**
 
 ```ts

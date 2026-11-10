@@ -55,6 +55,10 @@ flowchart LR
 함수 배치는 `functions-give-each-function-its-own-file`이 정합니다.
 루트 승격은 `functions-promote-owner-free-functions-to-root-util`이 정합니다.
 
+참고: [John Carmack: Inlined Code](https://number-none.com/blow/john_carmack_on_inlined_code),
+[Carson Gross: Locality of Behaviour](https://htmx.org/essays/locality-of-behaviour/),
+[Sandi Metz: 잘못된 추상화](https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction).
+
 **Incorrect 1 (한 자리에서만 쓰는 단계를 함수로 떼어 내 흐름이 파일 안에서 흩어집니다):**
 
 <<< ../examples/functions-extract-helpers-only-when-the-boundary-is-real/01-incorrect-1.txt

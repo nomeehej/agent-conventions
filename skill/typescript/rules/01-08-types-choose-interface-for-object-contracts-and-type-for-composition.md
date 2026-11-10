@@ -29,6 +29,9 @@ tags: types, interface, type
 형식을 맞추려고 별칭을 만들거나 객체 형태를 전부 `interface`로 바꾸지 않습니다.
 추론되는 익명 결과와 외부, 생성된 계약은 그대로 둡니다.
 
+참고: [Google TS: 객체 타입은 interface](https://google.github.io/styleguide/tsguide.html#prefer-interfaces),
+[TS 핸드북: 타입 별칭과 interface의 차이](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html).
+
 **Incorrect 1 (독립된 필드 계약을 객체 `type` 별칭으로 선언합니다):**
 
 <<< ../examples/types-choose-interface-for-object-contracts-and-type-for-composition/01-incorrect.ts

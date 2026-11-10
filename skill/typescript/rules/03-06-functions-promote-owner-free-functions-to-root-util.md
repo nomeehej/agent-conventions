@@ -49,6 +49,9 @@ flowchart LR
 | 코드 모양만 같은 계산 | 각 소유자가 따로 갖습니다 |
 | 프로젝트 전반의 계산임 | 루트 `util`로 올립니다 |
 
+참고: [Kent C. Dodds: 코로케이션](https://kentcdodds.com/blog/colocation),
+[Sandi Metz: 잘못된 추상화](https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction).
+
 **Incorrect 1 (소유자와 함께 사라질 함수를 루트 `util`로 올립니다):**
 
 <<< ../examples/functions-promote-owner-free-functions-to-root-util/01-incorrect.ts

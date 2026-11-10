@@ -71,7 +71,8 @@ ESLint를 함께 쓰는 프로젝트는 `@stylistic/multiline-comment-style`을 
 | 테스트의 `noMagicNumbers` 해제 | Vitest의 `*.test.ts`와 Playwright의 `*.spec.ts`에서 리터럴 자체가 기대 계약인 값에 적용합니다. 설정값끼리 비교하도록 바꾸지 않습니다. 소스가 이미 이름 붙인 값은 테스트도 가져다 씁니다 |
 | 도구 설정 파일의 `noDefaultExport` 해제 | `vite.config.ts`처럼 도구가 `default`를 요구하는 진입점에 적용합니다. 내보내기 규칙의 예외를 설정에 반영합니다 |
 
-참고: [ESLint Stylistic multiline-comment-style](https://eslint.style/rules/multiline-comment-style).
+참고: [ESLint Stylistic 문서: multiline-comment-style](https://eslint.style/rules/multiline-comment-style),
+[Biome 문서: 린터 플러그인(GritQL)](https://biomejs.dev/linter/plugins/).
 
 **Correct (컨벤션 항목을 설정으로 고정합니다):**
 

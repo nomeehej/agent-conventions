@@ -50,6 +50,9 @@ flowchart LR
 파일, 심볼 표기는 `naming-use-consistent-file-and-symbol-naming`을 따릅니다.
 `constant`에는 코드와 함께 바뀌는 값만 둡니다.
 
+참고: [Kent C. Dodds: 코로케이션](https://kentcdodds.com/blog/colocation),
+[Google TS: 내보내기 공개 범위](https://google.github.io/styleguide/tsguide.html#export-visibility).
+
 **Incorrect 1 (둘 이상의 파일이 같은 값을 각자 선언합니다):**
 
 <<< ../examples/naming-place-project-constants-in-the-root-constant-folder/01-incorrect-1.ts

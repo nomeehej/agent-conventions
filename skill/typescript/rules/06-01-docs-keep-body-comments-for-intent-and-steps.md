@@ -35,7 +35,8 @@ tags: docs, comments
 내용과 상자 모양은 `docs-write-korean-comments-about-purpose-and-constraints`가 정합니다.
 허용된 예외의 이유는 `docs-justify-convention-exceptions-with-a-reason-comment`가 정합니다.
 
-참고: [Code Complete 2판 32.5절 Commenting Techniques](https://stevemcconnell.com/books/).
+참고: [Google 코드 리뷰 가이드: 주석](https://google.github.io/eng-practices/review/reviewer/looking-for.html#comments),
+[Google TypeScript 가이드: JSDoc과 주석](https://google.github.io/styleguide/tsguide.html#jsdoc-versus-comments).
 
 **Incorrect 1 (지역 선언에 코드를 옮겨 적은 주석을 답니다):**
 

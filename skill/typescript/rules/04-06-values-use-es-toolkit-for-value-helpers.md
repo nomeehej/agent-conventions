@@ -48,6 +48,10 @@ tags: values, es-toolkit
 날짜는 `values-handle-dates-with-dayjs`, 정렬은 `values-prefer-immutable-array-sorting`을 따릅니다.
 반복 조회는 `values-use-set-and-map-for-repeated-lookups`에 따라 `Set`, `Map`으로 처리합니다.
 
+참고: [es-toolkit 문서: 소개(lodash와 비교한 크기와 속도)](https://es-toolkit.dev/intro.html),
+[es-toolkit 문서: compact(falsy 값을 모두 제거)](https://es-toolkit.dev/reference/array/compact.html),
+[es-toolkit 문서: minBy(빈 배열이면 undefined)](https://es-toolkit.dev/reference/array/minBy.html).
+
 **Incorrect 1 (`es-toolkit`에 있는 함수를 손으로 다시 씁니다):**
 
 <<< ../examples/values-use-es-toolkit-for-value-helpers/01-incorrect.ts

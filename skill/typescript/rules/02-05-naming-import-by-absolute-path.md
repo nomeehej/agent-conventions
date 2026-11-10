@@ -52,6 +52,8 @@ flowchart LR
 배치는 `naming-place-project-constants-in-the-root-constant-folder`와
 `functions-give-each-function-its-own-file`이 정합니다.
 
+참고: [Next.js 설치 문서: 절대 경로 가져오기 설정](https://nextjs.org/docs/app/getting-started/installation).
+
 **Incorrect 1 (상대경로로 심볼을 가져옵니다):**
 
 <<< ../examples/naming-import-by-absolute-path/01-incorrect.ts

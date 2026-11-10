@@ -29,6 +29,9 @@ tags: docs, comments, declarations, boundaries
 | 커스텀 `type`, `interface` | 내보내기 여부와 무관하게 `types-document-custom-types-and-shapes`를 따릅니다 |
 | 파일 위 상수 | 이름에 없는 단위, 범위, 출처가 있으면 작성합니다. 이어진 상수 묶음은 상자 하나에 상수마다 정의 목록 한 줄을 씁니다 |
 
+참고: [Go 문서: 공개 이름마다 문서 주석](https://go.dev/doc/comment),
+[Google TypeScript 스타일 가이드: 이름을 되풀이하지 않는 문서화](https://google.github.io/styleguide/tsguide.html).
+
 **Incorrect 1 (주요 선언에 헤더 설명이 없습니다):**
 
 <<< ../examples/docs-require-header-boxes-on-key-declarations/01-incorrect.ts

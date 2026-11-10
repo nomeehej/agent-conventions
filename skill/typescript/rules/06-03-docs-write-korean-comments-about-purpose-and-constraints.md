@@ -105,9 +105,10 @@ TypeScript, TSX 주석은 `//` 줄 주석으로만 씁니다.
 | `@param`, `@returns`, `@deprecated`, `@example`, `{@link}` 같은 TSDoc 태그 | 쓰지 않습니다. 매개변수와 반환값의 정보는 설명이나 정의 목록에, 폐기 예정은 `임시:`에 대체 이름과 함께 적습니다 |
 | `@api`, `@helper`, `@field`, `@summary` 같은 역할 태그 | 쓰지 않습니다. 이름과 문법이 드러내는 역할을 태그로 반복하지 않습니다 |
 
-참고: [Go 문서 주석](https://go.dev/doc/comment), [Rust 스타일 가이드](https://doc.rust-lang.org/style-guide/),
-[ESLint multiline-comment-style](https://eslint.org/docs/latest/rules/multiline-comment-style),
-[Black 줄 길이](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html).
+참고: [Go 문서: 선언 바로 위에 두는 문서 주석](https://go.dev/doc/comment),
+[Rust 스타일 가이드: 줄 주석 `//`을 블록 주석보다 선호](https://doc.rust-lang.org/style-guide/#comments),
+[ESLint 문서: multiline-comment-style](https://eslint.org/docs/latest/rules/multiline-comment-style),
+[Black 문서: 기본 줄 길이 88](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html).
 
 **Incorrect 1 (영문이거나 선언 이름을 옮겨 적기만 합니다):**
 

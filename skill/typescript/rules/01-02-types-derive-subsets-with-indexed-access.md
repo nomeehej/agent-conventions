@@ -51,6 +51,10 @@ tags: types
 | 읽기 전용 필드 | `readonly`를 직접 붙입니다. 인덱스 접근만으로는 복사되지 않습니다 |
 | `exactOptionalPropertyTypes`가 켜진 프로젝트의 선택 필드 | `name?: Required<Src>["name"]`으로 `undefined` 대입을 막습니다. 옵션이 꺼진 프로젝트는 `Src["name"]`으로 충분합니다 |
 
+참고: [Google TS: Pick과 매핑 타입](https://google.github.io/styleguide/tsguide.html#mapped-conditional-types),
+[TS 핸드북: 인덱스 접근 타입](https://www.typescriptlang.org/docs/handbook/2/indexed-access-types.html),
+[TS 핸드북: 유틸리티 타입 Omit](https://www.typescriptlang.org/docs/handbook/utility-types.html#omittype-keys).
+
 **Incorrect 1 (`Pick`으로 골라 필드와 선택 여부가 선언에 보이지 않습니다):**
 
 <<< ../examples/types-derive-subsets-with-indexed-access/01-incorrect.ts

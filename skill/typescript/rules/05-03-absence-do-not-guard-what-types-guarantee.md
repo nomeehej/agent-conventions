@@ -42,6 +42,10 @@ tags: absence
 | `exactOptionalPropertyTypes` 사용 | `value?: T`에 `undefined`를 쓸 수 있는지 확인합니다 |
 | `value?: T \| undefined`처럼 명시적으로 허용 | 조건부 스프레드로 바꾸지 않습니다 |
 
+참고: [typescript-eslint 문서: no-unnecessary-condition](https://typescript-eslint.io/rules/no-unnecessary-condition/),
+[TypeScript 문서: exactOptionalPropertyTypes](https://www.typescriptlang.org/tsconfig/#exactOptionalPropertyTypes),
+[TypeScript 문서: noUncheckedIndexedAccess](https://www.typescriptlang.org/tsconfig/#noUncheckedIndexedAccess).
+
 **Incorrect 1 (타입이 `string`으로 보장한 값을 다시 검사합니다):**
 
 <<< ../examples/absence-do-not-guard-what-types-guarantee/01-incorrect.ts

@@ -37,6 +37,9 @@ tags: types, comments
 | 외부, 생성된, 읽기 전용, 공용 형태를 그대로 씀 | 선언을 고치거나 문서화용 지역 별칭을 만들지 않습니다 |
 | 이름 없이 구현에서 추론되는 익명 객체 | 대상이 아닙니다. `select`의 익명 반환값도 그대로 둡니다 |
 
+참고: [Google TS: 정보를 더하는 주석](https://google.github.io/styleguide/tsguide.html#redundant-comments),
+[Google TS: export 문서화](https://google.github.io/styleguide/tsguide.html#document-all-top-level-exports-of-modules).
+
 **Incorrect 1 (필드 설명을 본문 안 필드 위에 답니다):**
 
 <<< ../examples/types-document-custom-types-and-shapes/01-incorrect.ts

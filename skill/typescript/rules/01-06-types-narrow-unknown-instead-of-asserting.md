@@ -44,6 +44,9 @@ flowchart LR
 "타입이 이상해서"는 확인할 수 있는 근거가 아닙니다.
 `any`와 `!`는 `tooling-configure-biome-to-enforce-these-rules`로 막고 `as`와 `@ts-expect-error`는 리뷰합니다.
 
+참고: [TS 핸드북: unknown 타입](https://www.typescriptlang.org/docs/handbook/2/functions.html#unknown),
+[Google TS: 타입·non-null 단언](https://google.github.io/styleguide/tsguide.html#type-and-non-nullability-assertions).
+
 **Incorrect 1 (앱 밖에서 온 값을 단언으로 통과시킵니다):**
 
 <<< ../examples/types-narrow-unknown-instead-of-asserting/01-incorrect.ts

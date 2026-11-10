@@ -48,6 +48,10 @@ flowchart LR
 | 타입, 상수 | `_function`에 파일로 두지 않습니다. 여러 파일이 쓰면 프레임워크 규칙이 정한 소유자의 역할 폴더에 둡니다 |
 | `helper.ts`, `helpers.ts`, `utils.ts` | 여러 보조를 모으는 파일로 만들지 않습니다 |
 
+참고: [Angular 가이드: 파일 하나에 개념 하나](https://angular.dev/style-guide#one-concept-per-file),
+[Angular: 막연한 파일 이름 금지](https://angular.dev/style-guide#match-file-names-to-the-typescript-identifier-within),
+[John Carmack: Inlined Code](https://number-none.com/blow/john_carmack_on_inlined_code).
+
 **Incorrect 1 (여러 보조를 모은 파일에서 내보낸 함수가 세 단계로 이어집니다):**
 
 <<< ../examples/functions-give-each-function-its-own-file/01-incorrect.ts

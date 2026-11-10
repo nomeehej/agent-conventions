@@ -30,6 +30,9 @@ tags: naming, constant
 계약 파일의 이름은 `naming-use-consistent-file-and-symbol-naming`을 따릅니다.
 소유자 아래에 `config`, `constants`, `common` 폴더는 만들지 않습니다.
 
+참고: [Kent C. Dodds: 코로케이션](https://kentcdodds.com/blog/colocation),
+[Next.js 문서: 비공개 폴더](https://nextjs.org/docs/app/getting-started/project-structure#private-folders).
+
 **Incorrect 1 (한 파일만 쓰는 상수를 `_constant` 파일로 뗍니다):**
 
 <<< ../examples/naming-place-owner-constants-in-the-owner-constant-folder/01-incorrect.ts

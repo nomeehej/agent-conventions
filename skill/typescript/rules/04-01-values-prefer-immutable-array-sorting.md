@@ -29,6 +29,10 @@ flowchart LR
 같은 키의 항목도 입력 순서와 무관하게 정렬해야 하면 고유 ID를 마지막 정렬 키로 더합니다.
 입력을 수정하지 않는 정렬 함수는 `readonly` 배열을 매개변수로 받습니다.
 
+참고: [MDN: sort 메서드](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort),
+[MDN: toSorted 메서드](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/toSorted),
+[es-toolkit 문서: orderBy](https://es-toolkit.dev/reference/array/orderBy.html).
+
 **Incorrect 1 (매개변수로 받은 배열을 제자리에서 바꿉니다):**
 
 <<< ../examples/values-prefer-immutable-array-sorting/01-incorrect.ts

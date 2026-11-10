@@ -43,6 +43,9 @@ tags: naming, constants
 **외부 계약이 정한 이름과 키는 원래 표기를 유지합니다.**
 API 응답, 요청, 생성 DTO, 라이브러리 인자, DOM 속성, 환경 변수와 모듈 상수에 담긴 외부 설정도 같습니다.
 
+참고: [TS 코딩 가이드라인: 이름 표기](https://github.com/microsoft/TypeScript/wiki/Coding-guidelines),
+[Angular 가이드: 파일 이름 하이픈과 식별자](https://angular.dev/style-guide#separate-words-in-file-names-with-hyphens).
+
 **Incorrect 1 (역할과 맞지 않는 표기를 씁니다):**
 
 <<< ../examples/naming-use-consistent-file-and-symbol-naming/01-incorrect.ts

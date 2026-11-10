@@ -50,6 +50,10 @@ flowchart LR
 형식 문자열은 상수로 선언하며 입력 형식과 화면 표시 형식은 별도 상수로 둡니다.
 배치는 `naming-place-project-constants-in-the-root-constant-folder`를 따릅니다.
 
+참고: [Moment.js 문서: 프로젝트 상태(레거시)](https://momentjs.com/docs/#/-project-status/),
+[Day.js 문서: CustomParseFormat(엄격 파싱)](https://day.js.org/docs/en/plugin/custom-parse-format),
+[MDN: Date.parse](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/parse).
+
 **Incorrect 1 (정해진 경과 시간을 밀리초로 더하고 자릿수를 손으로 채웁니다):**
 
 <<< ../examples/values-handle-dates-with-dayjs/01-incorrect.ts

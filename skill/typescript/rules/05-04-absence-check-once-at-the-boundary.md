@@ -42,6 +42,8 @@ tags: absence, boundaries
 `unknown`은 검증 책임이 있는 경계에서 받고 공개 입력 계약을 내부 호출 하나에 맞춰 좁히지 않습니다.
 타입 좁히기는 `types-narrow-unknown-instead-of-asserting`을 따릅니다.
 
+참고: [Alexis King: Parse, don't validate](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/).
+
 **Incorrect 1 (경계가 타입을 좁히지 않아 아래 함수마다 같은 값을 다시 검사합니다):**
 
 <<< ../examples/absence-check-once-at-the-boundary/01-incorrect-1.ts

@@ -63,6 +63,9 @@ tags: functions, naming
 생성기, 프레임워크, 외부 계약이 정한 이름은 바꾸거나 감싸지 않습니다.
 `handle`, `use`는 프레임워크 규칙을 따릅니다.
 
+참고: [Rust API 가이드: 변환 함수 접두사 to_](https://rust-lang.github.io/api-guidelines/naming.html#c-conv),
+[Swift API 가이드: 불필요한 낱말 빼기](https://www.swift.org/documentation/api-design-guidelines/#omit-needless-words).
+
 **Incorrect 1 (입력, 구현 동작, 막연한 접미사를 이름에 씁니다):**
 
 <<< ../examples/functions-name-functions-by-what-comes-out/01-incorrect-1.ts

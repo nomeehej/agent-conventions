@@ -42,6 +42,9 @@ flowchart LR
 없으면 예외가 걸린 줄 바로 위에 `// 예외: …` 한 줄로 적습니다.
 어투와 상자 모양은 `docs-write-korean-comments-about-purpose-and-constraints`를 따릅니다.
 
+참고: [Biome 문서: 억제 주석 형식 `biome-ignore 규칙: 설명`](https://biomejs.dev/analyzer/suppressions/),
+[typescript-eslint 문서: ban-ts-comment(지시 주석에 설명 요구)](https://typescript-eslint.io/rules/ban-ts-comment/).
+
 **Incorrect 1 (확인할 수 없는 말로 예외를 정당화합니다):**
 
 <<< ../examples/docs-justify-convention-exceptions-with-a-reason-comment/01-incorrect.ts

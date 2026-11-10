@@ -26,6 +26,9 @@
 화살표는 선언된 바깥 스코프의 `this`를 사용합니다.
 외부 콜백이 호출 시점의 `this`를 요구하면 계약을 유지하고 이유 주석을 남깁니다.
 
+참고: [Airbnb JS 가이드: 함수 선언 대신 표현식](https://github.com/airbnb/javascript#functions--declarations),
+[MDN: 화살표 함수와 this](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions).
+
 **Incorrect 1 (이름 붙인 함수를 `function`으로 선언합니다):**
 
 ```ts

@@ -36,6 +36,9 @@ tags: functions
 조회용 색인은 `Map`입니다.
 목록 연산의 선택은 `values-use-es-toolkit-for-value-helpers`가 정합니다.
 
+참고: [MDN: Set 객체](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set),
+[MDN: Map 객체](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map).
+
 **Incorrect 1 (같은 배열을 반복 순회하며 포함 여부를 확인합니다):**
 
 <<< ../examples/values-use-set-and-map-for-repeated-lookups/01-incorrect.ts

@@ -55,6 +55,9 @@ tags: naming, types, ownership
 
 단순 가공, 표시 결과에는 `VM`, `ViewModel`, 막연한 `Model`과 그 대응 파일 이름을 쓰지 않습니다.
 
+참고: [Google TS: 설명하는 이름](https://google.github.io/styleguide/tsguide.html#descriptive-names),
+[Martin Fowler: 유비쿼터스 언어](https://martinfowler.com/bliki/UbiquitousLanguage.html).
+
 **Incorrect 1 (소유자와 막연한 화면 계약 접미사를 반복합니다):**
 
 <<< ../examples/naming-name-types-by-role-and-lifetime/01-incorrect.ts

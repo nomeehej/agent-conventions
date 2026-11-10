@@ -39,6 +39,10 @@ flowchart LR
 | `VITE_` 등 외부 접두사 | 읽는 자리에서 내부 이름으로 바꿔 앱 안에 퍼지지 않게 합니다 |
 | 비밀값 | 클라이언트에 노출되는 접두사로 읽지 않습니다. 해당 값은 브라우저에서 보입니다 |
 
+참고: [Vite 문서: 환경 변수와 VITE_ 접두사](https://vite.dev/guide/env-and-mode#env-variables),
+[T3 Env 문서: 스키마로 검증하는 env.ts](https://env.t3.gg/docs/core),
+[Twelve-Factor App: 배포마다 달라지는 설정](https://12factor.net/config).
+
 **Incorrect 1 (쓰는 파일마다 직접 읽고 없을 때 리터럴로 덮습니다):**
 
 <<< ../examples/naming-read-environment-values-through-config-env/01-incorrect-1.ts
