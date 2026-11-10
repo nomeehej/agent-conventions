@@ -33,9 +33,9 @@ flowchart LR
 | 1. 기본값 없이 소비할 수 있는가 | `undefined`를 허용하면 `items?.map(…)`, 선택 값 비교는 `variant === "compact"`로 처리합니다 |
 | 2. 경계에서 채울 수 있는가 | search 파라미터 파서의 `.withDefault(선언된 상수)`, 응답 매핑, 쿼리의 `select`에서 한 번 채웁니다. 아래에서는 선택 값과 `??`가 남지 않습니다 |
 | 3. 경계에서 처리할 수 없는가 | 사용처에 `fetchProducts({pageSize: query.pageSize ?? pagination_default_page_size})`처럼 적습니다 |
-| 4. 파생값에 이름이 필요한가 | `pageSize` 대신 `effectivePageSize`처럼 고른 결과임을 드러냅니다. 사용 횟수보다 표현식의 의미를 기준으로 판단합니다 |
+| 4. 같은 기본값을 둘 이상의 사용처가 읽는가 | `pageSize` 대신 `effectivePageSize`처럼 고른 결과임을 드러내는 이름으로 한 번 받습니다. 사용처가 하나면 그대로 적습니다 |
 
-배열이 필수인 API에는 반환 계약을 바꾸지 않고 선언된 기본값을 경계에서 채웁니다.
+소비처가 배열을 요구하면 경계의 `select`가 선언된 기본값으로 채웁니다.
 이름을 붙일지는 `functions-name-a-value-only-for-recompute-or-judgment`가 정합니다.
 
 **Incorrect 1 (없어도 되는 값에 기본값을 채웁니다):**
@@ -54,10 +54,10 @@ flowchart LR
 
 <<< ../examples/absence-resolve-defaults-at-the-boundary/04-correct.ts
 
-**Correct (경계에서 못 하면 쓰는 자리에 그대로 적습니다):**
+**Correct (경계에서 못 하고 사용처가 하나면 쓰는 자리에 그대로 적습니다):**
 
 <<< ../examples/absence-resolve-defaults-at-the-boundary/05-correct.ts
 
-**Correct (이름을 붙인다면 파생값임이 드러나게 짓습니다):**
+**Correct (경계에서 못 하고 사용처가 둘 이상이면 고른 결과임이 드러나는 이름으로 한 번 받습니다):**
 
 <<< ../examples/absence-resolve-defaults-at-the-boundary/06-correct.ts

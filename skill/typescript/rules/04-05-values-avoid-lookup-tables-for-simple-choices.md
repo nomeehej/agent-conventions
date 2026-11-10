@@ -17,6 +17,9 @@ tags: values, lookup, mapping
 한 곳에서 쓸 값을 고르려고 객체나 `Map`으로 조회표를 만들지 않습니다.
 같은 값은 그대로 넘기고 값이 달라질 때만 사용처에서 조건으로 고릅니다.
 조회표는 여러 키의 대응 관계 자체가 도메인이나 외부 계약일 때만 두고, 선언 바로 위에 그 근거를 적습니다.
+외부 코드 값(API 코드, URL 값)의 대응은 계약이고 라벨, 아이콘, 색의 대응은 계약이 아닙니다.
+분기가 셋 이상이면 `return`으로 끝나는 함수를 씁니다(`functions-extract-helpers-only-when-the-boundary-is-real`).
+같은 대응을 둘 이상의 사용처가 읽으면 경계에서 한 번 골라 필드로 전달합니다(`values-decide-once-and-carry-the-result`).
 
 ```mermaid
 flowchart LR

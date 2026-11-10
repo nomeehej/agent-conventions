@@ -2,7 +2,7 @@
 // [!code error]
 export const toSignedTone = (value: number | null | undefined): Tone => {
 // [!code error]
-	if (isNil(value) || !Number.isFinite(value) || value === 0) {
+	if (isNil(value) || value === 0) {
 		return "neutral";
 	}
 	return value > 0 ? "positive" : "negative";

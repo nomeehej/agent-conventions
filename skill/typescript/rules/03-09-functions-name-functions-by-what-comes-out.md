@@ -20,16 +20,18 @@ tags: functions, naming
 
 | 반환값의 역할 | 동사 | 예 |
 | --- | --- | --- |
-| 다른 형태로 변환, 분류 | `to` | `toDetailContent` |
+| 다른 구조로 변환, 닫힌 집합의 값으로 분류 | `to` | `toDetailContent` |
 | 이미 존재하는 값 | `get` | `getSelectedRow` |
 | 값 하나 또는 없음 | `find` | `findUserByEmail` |
 | 서로 다른 입력 둘 이상의 우선순위 선택 | `choose` | `chooseBackSource` |
 | 같은 개념의 허용 범위, 표현 보정 | `normalize` | `normalizePageSize` |
 | 문자열, `unknown` 검증 후 읽기 | `parse` | `parseSearchParams` |
-| 사람이 읽는 표시 문자열 | `format` | `formatCandidateDayCount` |
+| 숫자, 날짜, 금액을 패턴이나 로케일로 만든 표시 문자열 | `format` | `formatCandidateDayCount` |
 | 두 값의 정렬 순서 | `compare` | `compareProductsByPrice` |
 | 비동기 I/O, 여러 요청 조율 | `load`, `fetch` | `loadProductExport` |
 | 참, 거짓 판정 | `is`, `has`, `can`, `should` | `shouldShowSummary` |
+
+`toStatusLabel`처럼 닫힌 집합에서 문구를 고르는 함수는 분류이므로 `to`입니다.
 
 | 함수의 역할 | 동사 | 예 |
 | --- | --- | --- |
@@ -38,7 +40,9 @@ tags: functions, naming
 | 검사 결과 또는 오류 | `validate` | `validateProductForm` |
 | 도메인 동작 | 실제 업무 동사 | `submitOrder`, `cancelBooking` |
 
-소유자 경로가 이미 드러내는 도메인은 빼고 반환 타입 이름보다 호출부가 쓰는 결과 개념을 적습니다.
+소유자 경로가 이미 드러내는 도메인은 이름에서 뺍니다.
+반환 타입 이름보다 호출부가 쓰는 결과 개념을 적습니다.
+`toOrderSummaryContent`보다 `toOrderSummary`가 그 예입니다.
 요청 계약 자체가 출력이면 `toUserSaveRequest`처럼 짓습니다.
 
 ### 쓰지 않는 동사

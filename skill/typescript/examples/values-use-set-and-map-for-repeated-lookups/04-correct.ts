@@ -1,1 +1,1 @@
-const isEditableStatus = editable_order_statuses.includes(order.status);
+const editableRows = rows.filter((row) => editable_order_statuses.includes(row.status));

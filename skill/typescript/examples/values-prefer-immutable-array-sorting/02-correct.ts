@@ -1,5 +1,5 @@
 import {sortBy} from "es-toolkit";
 
-const toSortedUsers = (users: readonly User[]): User[] => {
-	return sortBy(users, ["name"]);
+const toSortedProducts = (products: readonly Product[]): Product[] => {
+	return sortBy(products, ["price"]);
 };

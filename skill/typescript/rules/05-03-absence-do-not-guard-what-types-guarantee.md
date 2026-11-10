@@ -25,8 +25,9 @@ tags: absence
 | --- | --- |
 | `string`의 `?.trim()`, `number`의 `typeof`, 필수 필드의 `isNil` | 타입이 보장하므로 제거합니다 |
 | `string \| null`의 `isNil` | 값이 없을 수 있으므로 유지합니다 |
-| `unknown`, 외부 입력 | `types-narrow-unknown-instead-of-asserting`에 따라 검증합니다 |
-| 유한 수 여부 | `number`는 `NaN`, `Infinity`도 포함하므로 필요한 검사를 남깁니다 |
+| 생성된 응답 타입이 선언한 필드 | 타입이 보장하는 값으로 봅니다 |
+| `unknown`, 타입이 없는 외부 입력(직접 파싱한 JSON, 저장소, URL, 메시지) | `types-narrow-unknown-instead-of-asserting`에 따라 검증합니다 |
+| 유한 수 여부 | JSON 문법에는 `NaN`, `Infinity`가 없어 서버 JSON 숫자는 검사하지 않습니다. 계산이나 파싱(`Number`, `parseFloat`)으로 만든 `number`는 그 경계에서 `Number.isFinite`로 검사합니다 |
 | 배열 인덱스, 열린 키 조회 | 컴파일러 옵션과 실제 길이에 따라 값이 없을 수 있으므로 필요한 검사를 남깁니다 |
 
 ### 선택 필드의 생략
@@ -37,6 +38,7 @@ tags: absence
 | --- | --- |
 | 두 상태를 구분하지 않고 타입도 허용 | `undefined`를 바로 넣어 불필요한 조건부 스프레드를 줄입니다 |
 | `in`, `Object.hasOwn`, 객체 병합, 패치 등에서 구분 | 조건부 스프레드를 유지하고 생략이 필요한 계약을 이유 주석에 적습니다 |
+| 소비처를 알 수 없는 공개 계약 | 조건부 스프레드를 유지합니다 |
 | `exactOptionalPropertyTypes` 사용 | `value?: T`에 `undefined`를 쓸 수 있는지 확인합니다 |
 | `value?: T \| undefined`처럼 명시적으로 허용 | 조건부 스프레드로 바꾸지 않습니다 |
 

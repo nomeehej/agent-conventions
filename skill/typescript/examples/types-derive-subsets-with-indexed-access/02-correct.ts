@@ -1,3 +1,4 @@
+// 이 예제의 원본 UserRecord: readonly id, 선택 name, email
 /**
  * 사용자 미리보기 계약
  */

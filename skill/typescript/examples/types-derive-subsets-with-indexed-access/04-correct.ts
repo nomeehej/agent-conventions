@@ -1,3 +1,4 @@
+// 이 예제의 원본: ProductRecord.id는 readonly, UserRecord.name은 선택 필드
 /**
  * 상품 목록 한 행의 표시 계약
  */

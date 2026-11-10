@@ -4,7 +4,7 @@ titleKo: 변수는 재계산을 막거나 복잡한 판정에 이름을 붙일 �
 impact: HIGH
 impactDescription: 사용 횟수보다 계산 비용과 판정의 복잡성을 기준으로 변수 선언 여부를 판단합니다
 appliesWhen:
-  - 순수 계산의 결과를 지역 변수(`const`)로 받는 줄을 추가, 삭제할 때
+  - 계산, `await`, 훅 호출의 결과를 지역 변수(`const`)로 받는 줄을 추가, 삭제할 때
   - 표현식을 쓰는 자리에 그대로 적을지 변수로 뺄지 정할 때
 reviewWith: functions-avoid-imperative-assembly-in-wide-scopes, values-read-objects-through-chains
 tags: functions, origin
@@ -26,6 +26,7 @@ tags: functions, origin
 | 훅 호출, `useState` 반환 | 정해진 호출 위치와 횟수를 유지합니다 |
 | 여러 항을 합친 판정 | `isEditable`처럼 이름이 판정의 결론을 설명해야 합니다 |
 | 부정이 겹친 판정 | `!row.deletedAt && !row.archivedAt`은 `isVisible`처럼 뜻을 드러내는 이름으로 받습니다 |
+| 경계에서 못 채운 기본값을 둘 이상의 사용처가 읽음 | `effectivePageSize`처럼 고른 결과임을 드러내는 이름으로 한 번 받습니다 |
 
 단일 비교인 `row.dueDate < today`는 반복해서 써도 그대로 둡니다.
 객체 필드의 별칭은 `values-read-objects-through-chains`가 정합니다.

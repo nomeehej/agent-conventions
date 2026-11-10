@@ -2,7 +2,7 @@
 title: Derive Subsets With Indexed Access Instead of `Pick`
 titleKo: 부분집합은 `Pick` 대신 인덱스 접근 `interface`로 파생합니다
 impact: HIGH
-impactDescription: 고른 필드의 이름과 출처를 드러내고 선택 여부와 읽기 전용 속성을 보존합니다
+impactDescription: 고른 필드의 이름과 출처를 선언에 드러내고 필드마다 이 계약의 설명을 붙입니다
 appliesWhen:
   - 기존 타입의 일부 필드만 담는 형태를 선언, 변경할 때
   - `Pick`, `Omit`, `Partial`, `Required`, `Extract`, `NonNullable`을 쓸 때
@@ -13,21 +13,23 @@ tags: types
 
 ## Derive Subsets With Indexed Access Instead of `Pick`
 
-**Impact: HIGH (고른 필드의 이름과 출처를 드러내고 선택 여부와 읽기 전용 속성을 보존합니다)**
+**Impact: HIGH (고른 필드의 이름과 출처를 선언에 드러내고 필드마다 이 계약의 설명을 붙입니다)**
 
 ### 필드를 고르는 방식
 
 기존 계약의 일부 필드는 `interface`에 `원본["필드"]`로 적고 `Pick`은 쓰지 않습니다.
+`Pick`은 필드를 선언에 적지 않아 필드마다 이 계약의 설명을 붙일 수 없습니다.
 계약 전체를 재사용할지는 `types-reuse-existing-contracts-before-new-types`가 정합니다.
 
 | 원본에 필드가 추가될 때 | 선언 방식 | 예 |
 | --- | --- | --- |
 | 따라 늘면 안 됨 | `interface` + 인덱스 접근 | `UserPreview`에는 새 `ssn` 필드가 들어오지 않습니다 |
 | 따라 늘어야 함 | `Omit<원본, "뺄 이름">` | 외부 계약의 필드 추가를 그대로 받습니다 |
-| 전체 필드를 선택 또는 필수로 바꾸면서 원본의 필드 추가도 따라야 함 | `Partial`, `Required` | 열린 집합에만 씁니다 |
+| 전체 필드를 선택 또는 필수로 바꾸면서 원본의 필드 추가도 따라야 함 | `Partial`, `Required` | 필드 추가를 따라가는 형태에만 씁니다 |
 | 필드 하나의 타입만 필요함 | 인덱스 접근 별칭 | `type ProductId = ProductRecord["id"]` |
 
-`Omit`은 제외한 이름이 원본에서 사라져도 오류가 나지 않으므로 원본 변경 시 이름을 확인합니다.
+`Omit`은 제외한 이름이 원본에서 사라져도 오류가 나지 않습니다.
+원본에서 필드 이름을 바꾸거나 지울 때는 그 이름을 뺀 `Omit`을 검색해 함께 고칩니다.
 `ReturnType`, `Parameters`, `Awaited`는 필드를 고르는 연산이 아니므로 대상이 아닙니다.
 
 ### 값을 좁혀 받을 때
@@ -48,7 +50,7 @@ tags: types
 | 읽기 전용 필드 | `readonly`를 직접 붙입니다. 인덱스 접근만으로는 복사되지 않습니다 |
 | `exactOptionalPropertyTypes`가 켜진 프로젝트의 선택 필드 | `name?: Required<Src>["name"]`으로 `undefined` 대입을 막습니다. 옵션이 꺼진 프로젝트는 `Src["name"]`으로 충분합니다 |
 
-**Incorrect 1 (`Pick`으로 골라 필드 이름과 설명이 사라집니다):**
+**Incorrect 1 (`Pick`으로 골라 필드마다 이 계약의 설명을 적을 자리가 없습니다):**
 
 <<< ../examples/types-derive-subsets-with-indexed-access/01-incorrect.ts
 
@@ -64,11 +66,11 @@ tags: types
 
 <<< ../examples/types-derive-subsets-with-indexed-access/04-correct.ts
 
-**Incorrect 3 (원본을 따라가야 하는 열린 집합을 인덱스 접근으로 닫아 새 필드를 놓칩니다):**
+**Incorrect 3 (원본의 필드 추가를 따라가야 하는 형태를 인덱스 접근으로 닫아 새 필드를 놓칩니다):**
 
 <<< ../examples/types-derive-subsets-with-indexed-access/05-incorrect.ts
 
-**Correct 3 (원본을 따라가야 하는 열린 집합은 `Omit`으로 뺍니다):**
+**Correct 3 (원본의 필드 추가를 따라가야 하는 형태는 `Omit`으로 뺍니다):**
 
 <<< ../examples/types-derive-subsets-with-indexed-access/06-correct.ts
 

@@ -4,7 +4,7 @@ titleKo: `index.ts` 배럴을 만들지 않고 필요한 파일에서 바로 가
 impact: MEDIUM
 impactDescription: 배럴이나 재노출 계층 없이 선언의 출처를 직접 확인할 수 있습니다
 appliesWhen:
-  - 가져오기, 내보내기, `index.ts` 배럴, 공개 진입점, 소유자 보조 모듈의 경계를 추가, 변경할 때
+  - 가져오기, 내보내기, `index.ts` 배럴의 경계를 추가, 변경할 때
   - 같은 경로에서 값과 타입 중 무엇을 가져올지 추가, 삭제, 전환할 때
 reviewWith: naming-import-by-absolute-path
 tags: naming
@@ -20,7 +20,7 @@ tags: naming
 | 형태 | 판정 |
 | --- | --- |
 | 역할 폴더나 여러 파일을 `index.ts`로 재노출 | 배럴이므로 만들지 않습니다 |
-| 같은 파일이 소유한 `export const Dialog = { Root, Header } as const` | 재노출 계층이 아닌 조립 객체이므로 허용합니다 |
+| 같은 파일이 소유하거나 같은 소유자 폴더의 `_` 부품을 모은 `export const Tabs = { Root, Panel } as const` | 재노출 계층이 아닌 조립 객체이므로 허용합니다 |
 | `default` 내보내기 | `vite.config.ts`처럼 도구가 요구하는 계약에만 씁니다 |
 | 타입만 가져오기 | `import type`으로 실행 의존과 구분합니다 |
 

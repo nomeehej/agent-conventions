@@ -1,3 +1,3 @@
-const toSortedUsers = (users: User[]): User[] => {
-	return users.sort((left, right) => left.name.localeCompare(right.name));
+const toSortedProducts = (products: Product[]): Product[] => {
+	return products.sort((left, right) => left.price - right.price);
 };

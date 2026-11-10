@@ -1,11 +1,11 @@
-const toRowClassNames = (row: OrderRow): string[] => {
+const toDueTexts = (row: OrderRow): string[] => {
 // [!code error]
 	const isOverdue = row.dueDate < today;
 
 	return [
 // [!code error]
-		isOverdue ? "row__root--overdue" : "row__root",
+		isOverdue ? "마감 지남" : "마감 전",
 // [!code error]
-		isOverdue ? "row__badge--overdue" : "row__badge",
+		isOverdue ? "독촉 필요" : "대기",
 	];
 };

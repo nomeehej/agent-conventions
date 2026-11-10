@@ -5,7 +5,7 @@ impact: MEDIUM
 impactDescription: 호출 계약을 한곳에서 읽고 같은 시그니처를 반복 선언하지 않습니다
 appliesWhen:
   - 기존 호출 계약을 이름 붙인 함수나 공용 함수 구현에 다시 쓸 때
-  - 같은 시그니처를 여러 구현이 함께 쓰도록 바꿀 때
+  - 같은 자리에 꽂히는 여러 구현이 시그니처를 함께 쓰도록 바꿀 때
   - 제외: 타입 표기 없이 문맥으로 추론되는 일회성 인라인 콜백인 경우
 reviewWith: types-mark-unused-parameters-with-underscore
 tags: types
@@ -21,8 +21,8 @@ tags: types
 | --- | --- |
 | `interface`, 객체 계약, 프레임워크 별칭이 있음 | 기존 호출 계약을 함수 변수에 붙입니다 |
 | 계약에 콜백 필드가 있음 | `Contract["onSelect"]`로 가져옵니다 |
-| 같은 시그니처를 쓰는 구현이 둘 이상임 | 함수 타입 별칭을 선언합니다 |
-| 맞는 계약도 없고 구현도 하나뿐임 | 매개변수 타입을 직접 적습니다. 별칭을 새로 만들지 않습니다 |
+| 같은 시그니처를 쓰는 구현이 둘 이상이고 같은 호출 자리(콜백 인자, 조회표 값)에 서로 바꿔 꽂힘 | 함수 타입 별칭을 선언합니다 |
+| 맞는 계약이 없고 구현이 하나뿐이거나, 시그니처가 우연히 같을 뿐 바꿔 꽂히지 않음 | 매개변수 타입을 직접 적습니다. 별칭을 새로 만들지 않습니다 |
 
 문맥으로 추론되는 일회성 인라인 콜백은 대상이 아닙니다.
 쓰지 않는 계약 매개변수는 `types-mark-unused-parameters-with-underscore`에 따라 남깁니다.
@@ -35,10 +35,10 @@ tags: types
 
 <<< ../examples/types-prefer-function-variable-types-over-parameter-annotations/02-correct.ts
 
-**Incorrect 2 (같은 시그니처를 쓰는 구현마다 매개변수와 반환 타입을 다시 적습니다):**
+**Incorrect 2 (같은 자리에 꽂히는 구현마다 매개변수와 반환 타입을 다시 적습니다):**
 
 <<< ../examples/types-prefer-function-variable-types-over-parameter-annotations/03-incorrect.ts
 
-**Correct 2 (같은 시그니처를 쓰는 구현이 둘 이상이면 함수 타입 별칭을 선언합니다):**
+**Correct 2 (같은 자리에 바꿔 꽂히는 구현이 둘 이상이면 함수 타입 별칭을 선언합니다):**
 
 <<< ../examples/types-prefer-function-variable-types-over-parameter-annotations/04-correct.ts

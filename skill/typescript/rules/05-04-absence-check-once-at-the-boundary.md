@@ -20,7 +20,8 @@ tags: absence, boundaries
 ### 경계가 정한 답
 
 값의 없음 여부는 소유자 안으로 들어오는 경계에서 한 번 검사하고 결과를 타입으로 전달합니다.
-화면의 응답 매핑, `select`, `combine`, search 스키마나 컴포넌트가 프롭을 받는 자리가 경계입니다.
+화면의 응답 매핑, `select`, `combine`, search 스키마가 경계입니다.
+컴포넌트는 프롭으로 받은 타입을 그대로 믿고 없음을 렌더로 보이는 자리에서 한 번 분기합니다.
 
 | 경계가 정한 답 | 전달 타입 | 사용처 |
 | --- | --- | --- |
@@ -34,8 +35,7 @@ tags: absence, boundaries
 
 | 다시 검사가 필요한가 | 기준 |
 | --- | --- |
-| 경계에서 이미 확인한 없음, 유한 수 조건 | 반복하지 않습니다 |
-| 타입이 `number`라는 사실만 확인됨 | `NaN`, `Infinity`, 허용 범위까지 보장하지는 않습니다 |
+| 경계에서 이미 확인한 없음, 유한 수 조건 | 반복하지 않습니다. 유한 수 검사가 필요한 값은 `absence-do-not-guard-what-types-guarantee`가 정합니다 |
 | 새 계산, 외부 호출로 만든 값, 검증 후 변경, 외부 값 혼합 | 기존 보장이 적용되지 않는 조건을 해당 경계에서 확인합니다 |
 | 여러 입력 경로가 각각 외부 값을 받음 | 각 경계에서 검증합니다 |
 
@@ -54,7 +54,7 @@ tags: absence, boundaries
 
 <<< ../examples/absence-check-once-at-the-boundary/02-correct-2.ts
 
-**Correct (경계인 `select`에서 없음과 유한 수를 한 번 검사해 타입을 좁힙니다):**
+**Correct (경계인 `select`에서 없음을 한 번 검사해 타입을 좁힙니다):**
 
 <<< ../examples/absence-check-once-at-the-boundary/03-correct.tsx
 

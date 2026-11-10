@@ -6,7 +6,7 @@ impactDescription: 중복 제거와 표기 변환을 파일마다 다르게 만�
 appliesWhen:
   - 배열, 객체, 문자열, 숫자를 다루는 보조 코드를 추가, 변경할 때
   - `reduce`, `Object.entries`, `Array.from`, 정규식으로 값을 다시 짜는 코드를 쓸 때
-  - 제외: 표준 메서드 하나로 끝나는 경우
+  - 제외: 표에 없는 작업을 표준 메서드 하나로 끝내는 경우
 reviewWith: values-prefer-immutable-array-sorting, values-handle-dates-with-dayjs
 tags: values, es-toolkit
 ---
@@ -21,7 +21,7 @@ tags: values, es-toolkit
 
 | 작업 | 사용할 함수 |
 | --- | --- |
-| 중복 제거, 그룹, 색인 | `uniq`, `uniqBy`, `groupBy`, `keyBy` |
+| 중복 제거, 그룹 | `uniq`, `uniqBy`, `groupBy` |
 | 차집합, 교집합, 합집합, 값 제외, 토글 | `difference`, `intersection`, `union`, `without`, `xor` |
 | 정렬, 분할, 조건 분류, 반복 범위 | `sortBy`, `orderBy`, `chunk`, `partition`, `range` |
 | 객체 복사, 깊은 비교 | `clone`, `cloneDeep`, `isEqual` |
@@ -33,15 +33,16 @@ tags: values, es-toolkit
 | 비동기 지연, 시간 제한, 재시도 | `delay`, `withTimeout`, `retry` |
 
 표에 없어도 `es-toolkit` 문서에 같은 의미의 함수가 있으면 사용합니다.
-다만 `map`, `filter`, `find`, `flat`, `at`, `Object.keys`처럼 표준 메서드 하나로 끝나면 그대로 둡니다.
+다만 표에 없는 작업이 `map`, `filter`, `find`, `flat`, `at`, `Object.keys`처럼 표준 메서드 하나로 끝나면 그대로 둡니다.
+표에 있는 작업은 `structuredClone`, `Object.groupBy` 같은 새 표준 메서드가 있어도 표를 따릅니다.
 
 ### 교체 전 확인
 
 | 교체 전 확인 | 지킬 계약 |
 | --- | --- |
-| 이름은 같지만 제거 대상이 다름 | `compact`는 falsy를 모두 제거합니다 |
+| 이름은 같지만 제거 대상이 다름 | `filter((x) => x != null)`을 `compact`로 바꾸면 `0`, `""`, `false`도 사라지므로 `filter(isNotNil)`을 씁니다 |
 | 중복 제거 후 남는 항목과 순서 | `Map`은 마지막 항목과 키의 최초 삽입 순서, `uniqBy`는 첫 항목을 남깁니다. 배열을 뒤집어 교체할 때도 남는 항목과 결과 순서가 같은지 확인합니다 |
-| 빈 목록의 최소, 최대 | `minBy`, `maxBy` 결과의 `undefined`만 검사합니다. 사전 `length` 검사와 값 추출용 중간 `map`은 제거합니다 |
+| 빈 목록의 최소, 최대 | `minBy`, `maxBy` 결과의 `undefined`만 검사합니다. 사전 `length` 검사와 값 추출용 중간 `map`은 제거합니다. 빈 목록의 `Math.min()`은 `Infinity`이고 큰 배열의 스프레드는 호출 스택을 넘길 수 있습니다 |
 | 표준 메서드로 끝나지 않는 연산 | 직접 여러 줄로 구현하기 전에 `es-toolkit`에서 찾습니다 |
 
 날짜는 `values-handle-dates-with-dayjs`, 정렬은 `values-prefer-immutable-array-sorting`을 따릅니다.

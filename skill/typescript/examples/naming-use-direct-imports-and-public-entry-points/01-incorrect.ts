@@ -1,1 +1,1 @@
-import {pagination_default_page_size, toDisplayDate, UserProfile} from "./index";
+import {pagination_default_page_size, formatQuantity, UserProfile} from "./index";

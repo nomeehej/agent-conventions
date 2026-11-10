@@ -4,9 +4,9 @@ titleKo: 판정은 한 번만 하고 결과를 데이터로 전달합니다
 impact: HIGH
 impactDescription: 같은 판정을 반복하지 않고 사용처가 전달된 결과를 사용합니다
 appliesWhen:
-  - 같은 입력에 같은 판정, 정규화, 포맷을 두 자리 이상에서 할 때
+  - 한 소유자 안에서 같은 입력에 같은 판정, 정규화, 포맷을 두 자리 이상에서 할 때
   - 포맷하거나 정리한 값을 사용처에서 다시 파싱하거나 정리할 때
-  - 두 함수가 같은 판정 함수를 부르게 되어 공유 보조를 만들려 할 때
+  - 한 소유자 안의 두 함수가 같은 판정 함수를 부르게 되어 공유 보조를 만들려 할 때
 reviewWith: functions-extract-helpers-only-when-the-boundary-is-real, absence-resolve-defaults-at-the-boundary
 tags: values, boundaries
 ---
@@ -17,6 +17,8 @@ tags: values, boundaries
 
 값이 들어오는 경계에서 한 번 판정하고 결과를 데이터 필드로 전달합니다.
 사용처는 같은 판정 함수를 다시 호출하거나 공유 보조 함수로 추출하지 않고 그 필드를 읽습니다.
+이 규칙은 경계 하나가 먹이는 한 소유자 안의 사용처에만 적용합니다.
+소유자 둘이 같은 계산을 쓰면 `functions-promote-owner-free-functions-to-root-util`을 따릅니다.
 
 | 반복되는 처리 | 변경 |
 | --- | --- |

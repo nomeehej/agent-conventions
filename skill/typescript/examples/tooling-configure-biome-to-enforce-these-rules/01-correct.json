@@ -3,7 +3,7 @@
 		"enabled": true,
 		"rules": {
 			"preset": "recommended",
-			"complexity": {"useMaxParams": {"level": "error", "options": {"max": 3}}},
+			"complexity": {"useMaxParams": {"level": "error", "options": {"max": 5}}},
 			"correctness": {"noUnusedFunctionParameters": "error"},
 			"suspicious": {"noExplicitAny": "error"},
 			"performance": {"noNamespaceImport": "error", "noBarrelFile": "error", "noReExportAll": "error"},
@@ -47,7 +47,7 @@
 	},
 	"overrides": [
 		{
-			"includes": ["**/*.test.ts"],
+			"includes": ["**/*.test.ts", "**/*.spec.ts"],
 			"linter": {"rules": {"style": {"noMagicNumbers": "off"}}}
 		},
 		{

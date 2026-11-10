@@ -8,7 +8,7 @@
 | 형태 | 판정 |
 | --- | --- |
 | 역할 폴더나 여러 파일을 `index.ts`로 재노출 | 배럴이므로 만들지 않습니다 |
-| 같은 파일이 소유한 `export const Dialog = { Root, Header } as const` | 재노출 계층이 아닌 조립 객체이므로 허용합니다 |
+| 같은 파일이 소유하거나 같은 소유자 폴더의 `_` 부품을 모은 `export const Tabs = { Root, Panel } as const` | 재노출 계층이 아닌 조립 객체이므로 허용합니다 |
 | `default` 내보내기 | `vite.config.ts`처럼 도구가 요구하는 계약에만 씁니다 |
 | 타입만 가져오기 | `import type`으로 실행 의존과 구분합니다 |
 
@@ -18,7 +18,7 @@
 **Incorrect 1 (배럴과 섞인 가져오기로 경계를 흐립니다):**
 
 ```ts
-import {pagination_default_page_size, toDisplayDate, UserProfile} from "./index";
+import {pagination_default_page_size, formatQuantity, UserProfile} from "./index";
 ```
 
 **Correct 1 (필요한 파일에서 이름으로 바로 가져옵니다):**
@@ -26,7 +26,7 @@ import {pagination_default_page_size, toDisplayDate, UserProfile} from "./index"
 ```ts
 import type {UserProfile} from "@/type/user-profile";
 import {pagination_default_page_size} from "@/constant/pagination";
-import {toDisplayDate} from "@/util/date/to-display-date";
+import {formatQuantity} from "@/util/number/format-quantity";
 ```
 
 > 나머지 예시와 예외는 [full rule](../rules/02-04-naming-use-direct-imports-and-public-entry-points.md)에 있습니다.

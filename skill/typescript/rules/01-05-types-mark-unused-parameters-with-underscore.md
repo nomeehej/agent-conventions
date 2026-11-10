@@ -16,6 +16,9 @@ tags: types, callbacks, naming
 기존 콜백, 프레임워크 계약의 매개변수는 쓰지 않아도 생략하지 않고 `_` 접두사로 남깁니다.
 커링한 핸들러의 마지막 콜백과 매개변수를 하나도 쓰지 않는 구현에도 똑같이 적용합니다.
 `MouseEventHandler`의 이벤트를 쓰지 않으면 `() =>` 대신 `(_event) =>`로 받습니다.
+호출 자리에 바로 적는 인라인 콜백도 계약의 매개변수를 모두 적고 쓰지 않는 것에 `_`를 붙입니다.
+TanStack Query의 `onSuccess`는 `() =>` 대신 `(_data, _variables, _onMutateResult, _context) =>`로 받습니다.
+어떤 매개변수가 있는지 읽는 자리에서 보이게 하려는 것입니다.
 
 **Incorrect 1 (계약의 일부인 콜백 매개변수를 생략합니다):**
 
@@ -24,3 +27,11 @@ tags: types, callbacks, naming
 **Correct 1 (계약은 유지하고 쓰지 않는 매개변수만 `_`로 표시합니다):**
 
 <<< ../examples/types-mark-unused-parameters-with-underscore/02-correct.ts
+
+**Incorrect 2 (인라인 콜백이 계약의 매개변수를 모두 생략합니다):**
+
+<<< ../examples/types-mark-unused-parameters-with-underscore/03-incorrect.ts
+
+**Correct 2 (인라인 콜백도 매개변수를 모두 적고 쓰지 않는 것에 `_`를 붙입니다):**
+
+<<< ../examples/types-mark-unused-parameters-with-underscore/04-correct.ts

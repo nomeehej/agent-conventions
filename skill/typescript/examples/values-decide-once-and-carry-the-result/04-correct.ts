@@ -4,7 +4,7 @@ const comparisonSeries = seriesItems.map((series, seriesIndex) => ({
 	colorToken: toSeriesColorToken(series.role, seriesIndex),
 }));
 
-// 차트 둘은 같은 항목의 색을 그대로 읽음
+// 차트 둘은 같은 항목의 색을 그대로 조회
 const chartSeries = comparisonSeries.map((series) => ({
 	id: series.id,
 	colorToken: series.colorToken,

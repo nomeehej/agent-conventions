@@ -23,12 +23,17 @@ tags: naming, constants
 | --- | --- |
 | 파일 이름 | `kebab-case` |
 | 폴더 이름 | `kebab-case` 단수. 프레임워크가 강제하는 이름과 활성화된 프레임워크 규약의 라우트 그룹 표기는 예외입니다 |
+| 프레임워크 규약이 URL 구간 이름을 따르게 한 폴더 | 구간 이름 그대로 씁니다. `orders`처럼 복수여도 됩니다 |
 | 타입, `interface`, 컴포넌트 | `PascalCase` |
 | 모듈 스코프 불변 데이터 상수, 값 집합과 그 소유 하위 키 | `snake_case` |
-| 그 외 변수, 함수, 객체 키, 스키마 키, 타입 필드 | `camelCase` |
+| 그 외 변수, 함수, 함수를 값으로 담은 객체, 객체 키, 스키마 키, 타입 필드 | `camelCase` |
+
+이름 앞의 `_`는 `kebab-case` 표기에 더하는 접두사입니다.
+`_constant` 폴더와 `_to-trend-chart.ts` 파일이 그 예입니다.
 
 불변 데이터 상수는 한 번 선언해 같은 의미로 쓰는 리터럴, 기본값, 값 집합, 조회표입니다.
-함수는 동사, 상수는 주제 접두사와 `snake_case`로 종류를 드러냅니다.
+함수 이름은 `functions-name-functions-by-what-comes-out`의 동사 접두사로 시작합니다.
+상수는 주제 접두사와 `snake_case`로 종류를 드러냅니다.
 한 단어 상수는 만들지 않습니다.
 함수 파일 이름은 내보낸 이름(`format-usd.ts` → `formatUsd`), 상수 파일 이름은 공유하는 주제(`api.ts` → `api_*`)입니다.
 컴포넌트 파일 이름도 내보낸 이름(`chart-card.tsx` → `ChartCard`)입니다.

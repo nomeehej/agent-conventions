@@ -6,7 +6,7 @@ impactDescription: 가져오기 경로를 통일하고 가져오는 파일의 �
 appliesWhen:
   - 다른 모듈을 가져오는 경로를 쓸 때
   - `./`나 `../`로 시작하는 경로를 쓰거나 별칭 경로를 상대경로로 바꾸려 할 때
-  - `src` 바로 아래 레이어 루트 폴더나 `store` 파일을 새로 만들 때
+  - `src` 바로 아래 레이어 루트 폴더를 새로 만들 때
 reviewWith: naming-use-direct-imports-and-public-entry-points
 tags: naming, imports
 ---
@@ -18,7 +18,8 @@ tags: naming, imports
 ### 경로 표기
 
 심볼은 `@/` 절대경로로 가져옵니다.
-편집기 자동 가져오기가 만드는 형식입니다.
+편집기의 `typescript.preferences.importModuleSpecifier`를 `non-relative`로 두면 자동 가져오기가 이 형식을 만듭니다.
+기본값 `shortest`에서는 가까운 파일에 상대경로를 만들므로 `noRestrictedImports`가 막습니다.
 심볼 없이 같은 폴더의 파일만 불러올 때는 `./`를 허용하고 `../`는 쓰지 않습니다.
 
 ```mermaid
@@ -35,15 +36,15 @@ flowchart LR
 
 | `src` 아래 루트 | 담는 것 |
 | --- | --- |
-| `component` | `component/ui`, `component/widget` |
-| `page` | 화면과 라우트 프레임. 그룹 표기와 진입 파일의 자리는 활성화된 프레임워크 규약이 정합니다. 내부 파일은 그 소유자만, 진입 파일은 라우터만 가져옵니다 |
-| `route` 또는 `routes.tsx` | 라우트 트리 선언. 파일 하나면 `src/routes.tsx`로 두고, 여러 선언 파일이 필요하면 `src/route`로 묶습니다. `page`의 진입 파일을 가져와 URL과 잇습니다 |
+| `component` | 컴포넌트. 하위 구분은 활성화된 프레임워크 규칙이 정합니다 |
+| `page` | 화면과 라우트 프레임. 그룹 표기와 진입 파일의 자리는 활성화된 프레임워크 규약이 정합니다. 내부 파일은 그 소유자만, 진입 파일은 라우트 선언과 테스트 story만 가져옵니다 |
+| `route` 또는 `routes.tsx` | 라우트 트리 선언. 파일 하나면 `src/routes.tsx`로 두고, 여러 선언 파일이 필요하면 `src/route`로 묶습니다. 선언 방식은 활성화된 프레임워크 규칙이 정합니다 |
 | `constant` | 프로젝트 전반의 상수 |
 | `config` | 환경마다 달라지는 값 |
 | `util` | 프로젝트 전반의 함수. 받는 값의 종류별 폴더로 묶습니다 |
 | `type` | 프로젝트 전반의 계약 |
 | `hook` | 여러 소유자가 쓰는 훅 |
-| `store` | 여러 화면의 공유 상태. 파일 이름은 `use-<name>-store.ts`입니다 |
+| `store` | 여러 화면의 공유 상태. 파일 이름은 활성화된 프레임워크 규칙이 정합니다 |
 | `service` | 서버 통신 클라이언트 |
 | `asset` | 아이콘 등 정적 자원 |
 
