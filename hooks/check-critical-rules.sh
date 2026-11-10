@@ -66,6 +66,6 @@ count=$(printf '%s\n' "$out" | grep -c .)
 {
 	echo "CRITICAL 규칙 마무리 재대조에서 위반 ${count}건. 고친 뒤 다시 마무리한다."
 	printf '%s\n' "$out"
-	echo "원문은 ~/.claude/skills/convention-<skill>/rules/ 의 해당 번호 파일이다. 예외가 맞다면 이유 주석을 남기고 사용자에게 알린다."
+	echo "원문은 설치한 컨벤션 skill 폴더의 <skill>/rules/ 에서 해당 번호 파일이다. 예외가 맞다면 이유 주석을 남기고 사용자에게 알린다."
 } >&2
 exit 2

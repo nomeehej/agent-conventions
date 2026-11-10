@@ -132,7 +132,7 @@ Vitest, Playwright, MSW는 테스트 예제의 실제 API 타입 검사를 위�
 ## CRITICAL Stop hook
 
 `CRITICAL` 규칙은 작업 마무리에 결과 코드와 다시 대조합니다.
-`hooks/check-critical-rules.sh`는 HEAD 대비 추가된 줄에서 기계로 검사할 수 있는 네 항목을 확인합니다.
+`hooks/check-critical-rules.sh`는 HEAD 대비 추가된 줄과 새 파일에서 기계로 검사할 수 있는 `CRITICAL` 네 항목과 이름 규칙의 바닥 둘, 모두 여섯 항목을 확인합니다.
 위반이 있으면 목록을 반환하며 마무리를 한 번 막습니다.
 
 | 항목 | 규칙 |
@@ -140,6 +140,8 @@ Vitest, Playwright, MSW는 테스트 예제의 실제 API 타입 검사를 위�
 | 리터럴 폴백 | TypeScript 05-01 |
 | `../`와 같은 폴더 심볼 가져오기 | TypeScript 02-05 |
 | 레이어 역방향 가져오기 | React 01-04 |
+| 역할 낱말 하나인 새 부품 파일 이름 (`_header.tsx`) | React 01-02 |
+| 한 블록 이름을 두 파일 이상이 씀 (트리 전체 검사) | CSS 02-01 |
 | `블록__동작` 형식이 아닌 `@keyframes` | CSS 07-02 |
 
 사용할 프로젝트의 `.claude/settings.local.json`에 Stop 훅을 추가합니다.
