@@ -19,7 +19,7 @@ tags: stage, gate, plan
 
 ```mermaid
 flowchart LR
-	q1{"이 단계의 코드가 답에 따라<br>달라지는 질문이 있는가?"} -- 예 --> r1("Blocked,<br>그 질문 링크")
+	q1{"코드가 답에 따라 달라지고<br>Fallback이 없는 질문이 있는가?"} -- 예 --> r1("Blocked,<br>그 질문 링크")
 	q1 -- 아니요 --> q2{"선행 단계가<br>끝났는가?"} -- 아니요 --> r2("Blocked,<br>앞 단계 번호")
 	q2 -- 예 --> q3{"BE가 줘야<br>시작하는가?"} -- 예 --> r3("Waiting on BE,<br>연동 단계로")
 	q3 -- 아니요 --> r4("Ready, 끝나면 Check<br>명령으로 Done")
@@ -37,12 +37,12 @@ flowchart LR
 
 | 칸 | 쓰는 법 |
 | --- | --- |
-| `Depends on` | 그 단계의 코드가 답에 따라 달라지는 질문 번호 링크. 여러 단계를 막으면 가장 이른 단계에. 선행 단계가 안 끝났으면 그 단계 번호 |
-| `Check` | 끝났음을 보이는 명령 하나 |
+| `Depends on` | 그 단계의 코드가 답에 따라 달라지고 `Fallback`이 없는 질문 번호 링크. 여러 단계를 막으면 가장 이른 단계에. 선행 단계가 안 끝났으면 그 단계 번호 |
+| `Check` | 끝났음을 보이는 명령 하나. 명령이 없으면 `캡처 대조` |
 | `Status` | `Ready`, `Blocked`, `Waiting on BE`, `Done YYYY-MM-DD`. 선행 단계가 안 끝났으면 `Blocked` |
 
 BE 대기는 막는 것으로 세지 않고 연동 단계에 둡니다.
-단계 표 아래에 열린 질문 수, 막는 단계, `Questions` 절 링크를 한 줄로 둡니다.
+단계 표 아래에 막는 단계와 `Questions` 절 링크를 한 줄로 둡니다.
 FE 코드가 0줄인 확인 거리와 BE가 줄 필드는 필요할 때만 표 아래 `### Follow-up`, `### Expected from BE`로 둡니다.
 
 **Incorrect 1 (관문 없는 할 일 목록이라 무엇부터 시작할 수 있는지 알 수 없습니다):**

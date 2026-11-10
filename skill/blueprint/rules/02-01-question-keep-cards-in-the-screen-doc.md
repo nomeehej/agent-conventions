@@ -18,15 +18,15 @@ tags: question, numbering, questions-page, card
 
 ```mermaid
 flowchart LR
-	q1{"FE만으로<br>정할 수 있는가?"} -- 예 --> d("D, Dev decision으로 닫음")
-	q1 -- 아니요 --> q2{"앞선 사용자 답과<br>새 재료가 어긋나는가?"} -- 예 --> r("R, 사용자가 답함")
+	q1{"앞선 사용자 답과<br>새 재료가 어긋나는가?"} -- 예 --> r("R, 사용자가 답함")
+	q1 -- 아니요 --> q2{"FE만으로<br>정할 수 있는가?"} -- 예 --> d("D, Dev decision으로 닫음")
 	q2 -- 아니요 --> q3{"BE가<br>답하는가?"} -- 예 --> b("B, BE가 답함")
 	q3 -- 아니요 --> q("Q, 기획이 답함")
 ```
 
 | 번호 | 뜻 | 답하는 사람 |
 | --- | --- | --- |
-| D | 개발 결정. 질문 없이 정한 갈림길도 D | 개발자. Dev decision으로 닫습니다 |
+| D | 개발 결정. 재료가 정하지 않았고 다른 선택지가 실제로 있던 갈림길은 질문 없이 정해도 D | 개발자. Dev decision으로 닫습니다 |
 | Q | 기획과 디자인 질문 | 기획 |
 | B | BE 질문 | BE |
 | R | 다시 정할 것. 앞선 답과 새 재료가 어긋난 것 | 사용자 |
@@ -41,7 +41,10 @@ flowchart LR
 | `questions.md` 머리 | 화면별 목록 표. `Screen`, `Open`, `Resolved`, `Note` 칸. 열린 번호는 링크 |
 
 번호는 지워도 다시 쓰지 않습니다. 화면 문서마다 1부터 번호를 새로 매기지 않습니다.
-`Questions` 절 첫 줄은 열린 카드 수와 풀린 카드 수입니다. `questions.md` 목록 표의 수와 같게 둡니다.
+`Questions` 절 첫 줄은 `열린 것 N개, 풀린 것 M개.`로 시작합니다.
+열린 것이 없으면 `열린 것 없음, 풀린 것 M개.`로 씁니다.
+`check-docs.mjs`가 이 꼴의 `열린 것` 수를 읽어 그 문서의 열린 카드 수와 대조합니다.
+`questions.md` 목록 표의 열린 번호도 같게 둡니다.
 카드 안의 칸은 `question-write-cards-with-options-and-one-pick`이 정합니다.
 닫는 법은 `question-close-cards-in-place-with-the-result`가 정합니다.
 

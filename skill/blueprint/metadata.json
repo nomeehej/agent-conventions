@@ -14,7 +14,7 @@
 		{
 			"skill": "testing",
 			"mode": "conditional",
-			"appliesWhen": "설계 문서의 상태 표나 Scenarios 표에서 테스트 케이스나 story를 뽑거나 Plan 표의 Check를 케이스 ID로 채운다."
+			"appliesWhen": "설계 문서의 상태 표나 Scenarios 표에서 테스트 케이스나 story를 뽑거나 Scenarios 표를 쓰거나 고치거나 Plan 표의 Check를 케이스 ID로 채운다."
 		}
 	],
 	"references": [

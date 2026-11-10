@@ -18,6 +18,7 @@ tags: writing, labels, vocabulary
 | 자리 | 언어 |
 | --- | --- |
 | 절 제목, 표 머리 | 영어 |
+| 상태 낱말 칸 머리 `대기`, `빈 값`, `실패` | 한국어. 테스트 제목과 같은 낱말 |
 | 카드의 대상 표 머리 `To`, `Blocks`, `Where`와 항목 이름(`question-write-cards-with-options-and-one-pick`의 표) | 영어 |
 | 상태 배지 | 영어 |
 | frontmatter `name`, `group` | 영어 |
@@ -28,7 +29,7 @@ tags: writing, labels, vocabulary
 
 | 쓰임 | 어휘 | for-humanity 배지 `kind` |
 | --- | --- | --- |
-| 질문 | `Needs answer`, `Waiting on BE`, `Waiting on plan`, `User decides`, `Follow-up` | `unverified` |
+| 질문 | `Needs answer`, `Waiting on BE`, `Waiting on plan`, `User decides` | `unverified` |
 | 결과 | `As recommended`, `Per Figma`, `Per demo`, `Per spec`, `Per capture`, `Dev decision`, `User`, `Kept`, `Rejected`, `N/A`, `Moved` | `neutral`, 날짜 포함 |
 | 결과 | `Done` | `verified`, 날짜 포함 |
 | 단계 | `Ready`, `Done` | `verified`. `Done`은 날짜 포함 |

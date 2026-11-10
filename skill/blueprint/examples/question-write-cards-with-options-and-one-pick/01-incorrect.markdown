@@ -1,4 +1,4 @@
-:::details[Q1 환불 주문 Needs answer]
+:::details[Q1 환불 주문 Waiting on plan]
 <a id="q1"></a>
 
 처음에는 환불 주문을 빼는 쪽으로 갔다가, 09-30 데모 3을 다시 보니 포함돼 있어서 의도가 포함인 것 같습니다.

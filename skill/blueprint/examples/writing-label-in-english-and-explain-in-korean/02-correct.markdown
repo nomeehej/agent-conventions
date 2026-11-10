@@ -17,7 +17,6 @@ export default {
 		{phrase: "Waiting on BE", kind: "unverified"},
 		{phrase: "Waiting on plan", kind: "unverified"},
 		{phrase: "User decides", kind: "unverified"},
-		{phrase: "Follow-up", kind: "unverified"},
 		{phrase: "As recommended", kind: "neutral", date: true},
 		{phrase: "Per Figma", kind: "neutral", date: true},
 		{phrase: "Per demo", kind: "neutral", date: true},

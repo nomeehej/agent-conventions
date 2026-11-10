@@ -1,13 +1,16 @@
 import {execSync} from "node:child_process";
-import {readdirSync, readFileSync} from "node:fs";
+import {existsSync, readdirSync, readFileSync} from "node:fs";
 
 /**
  * 설계 문서 검사. build 경고, 번호 중복, 추천 하나, 서술 어미, 열린 카드 수, 표 칸 수
  */
 const root = "content/public";
-const files = ["overview.md", "shared.md", "questions.md", ...readdirSync(`${root}/screen`).map((name) => `screen/${name}`)];
+const listDocs = (dir) => {
+	return existsSync(`${root}/${dir}`) ? readdirSync(`${root}/${dir}`).map((name) => `${dir}/${name}`) : [];
+};
+const files = ["overview.md", "shared.md", "questions.md", ...listDocs("screen"), ...listDocs("change")];
 const docs = new Map(files.map((file) => [file, readFileSync(`${root}/${file}`, "utf8")]));
-const openStatus = /(Needs answer|Waiting on BE|Waiting on plan|User decides|Follow-up)\]$/;
+const openStatus = /(Needs answer|Waiting on BE|Waiting on plan|User decides)\]$/;
 const problems = [];
 
 const build = execSync("npx for-humanity build 2>&1", {encoding: "utf8"});

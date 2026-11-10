@@ -34,8 +34,9 @@ flowchart LR
 | 변경 이력 표 | 요구 조건 | 목록에 적습니다. 화면과 다르면 `intent-ask-when-ux-notes-and-gui-disagree`를 따릅니다 |
 | 설계 문서의 재료로 읽은 메모, 댓글, 미정 요소 | 질문 후보 | 코드로 옮기지 않고 설계 문서의 질문 목록으로 넘깁니다 |
 
-메모와 이력의 글자는 `get_metadata`에서 `text` 노드의 `name`으로만 옵니다.
-이름이 `...`로 잘렸거나 내용과 달라 보이면 그 메모 프레임만 `get_design_context`로 읽습니다.
+메모와 이력의 글자는 `get_metadata`의 `text` 노드 `name`으로 위치만 찾습니다.
+요구 조건으로 적기 전에 그 메모 프레임에 `get_screenshot`을 한 번 부릅니다.
+스크린샷으로도 안 읽히면 그 메모 프레임만 `get_design_context`로 읽습니다.
 메모와 화면이 어긋날 때의 처리는 `intent-ask-when-ux-notes-and-gui-disagree`가 정합니다.
 
 **Incorrect 1 (보이는 레이어만 구현 목록에 올립니다):**

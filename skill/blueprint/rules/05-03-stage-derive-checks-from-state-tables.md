@@ -21,7 +21,7 @@ tags: stage, check, testing, story, scenario
 | 문서의 자리 | 담는 것 | 테스트의 자리 |
 | --- | --- | --- |
 | `Loading, empty and errors` | 구역마다 대기, 빈 값, 실패와 `Check` 칸의 ID 링크 | 그 상태를 덮는 케이스 |
-| `Mock`의 경우 표 | `Case`, `API`, `덮는 값`, `Check` | 케이스가 덮어쓰는 handler |
+| `Mock`의 경우 표 | `Case`, `API`, `Override`, `Check` | 케이스가 덮어쓰는 handler |
 | 구역 절의 흐름도 갈래 | 조작 하나 | 케이스의 WHEN 한 줄 |
 | `Scenarios` 표 한 줄 | `ID`, `Region`, `Scenario`, `Tag`, `Layer` | 케이스 하나. 제목 `[ID] 문장` |
 | Plan 표의 `Check` | 그 단계의 케이스를 고르는 명령 | `--grep` |
@@ -34,7 +34,7 @@ tags: stage, check, testing, story, scenario
 | `Region` | 그 규칙을 적은 절. 대기와 오류 경계는 `Loading, empty and errors`, 빈 값은 보이는 구역, 조회 인자는 `Data and API` |
 | `Scenario` | 테스트 제목의 문장 그대로 |
 | `Tag` | 우선순위 `high`, `mid`, `low` 하나. 빈 값과 실패는 `negative`, 그림 비교는 `visual`을 `<br>`로 덧붙임 |
-| `Layer` | `integration` = story에 mount, `e2e` = 화면 사이 이동 |
+| `Layer` | `integration` = story에 mount, `e2e` = 앱 진입이나 화면 사이 이동 |
 
 상태 낱말은 대기, 빈 값, 실패, 성공입니다. 문서와 테스트 제목이 같은 낱말을 씁니다.
 구현 전에 케이스를 먼저 쓰면 `test.fixme`에 Plan 단계 번호를 적어 묶어 두고 그 단계의 `Done` 보고에서 풉니다.

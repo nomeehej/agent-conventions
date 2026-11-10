@@ -25,7 +25,8 @@ BE 카드는 화면의 자리에서 시작합니다. 필드 이름으로 시작�
 
 그림은 `writing-show-regions-as-marked-figma-figures`의 표시 그림으로 만들고 `img/<화면>/question-<번호>.png`에 둡니다.
 값이 Figma에 없고 응답에만 있으면 그 응답 캡처를 그린 앱 화면도 씁니다. 캡처 날짜를 `Evidence`에 적습니다.
-사용자가 뜻을 모르겠다고 한 카드는 고치지 않고 지운 뒤 `Where`와 그림부터 다시 씁니다.
+사용자가 뜻을 모르겠다고 한 카드는 같은 번호와 앵커를 두고 본문을 지운 뒤 다시 씁니다.
+순서는 `Where`, 그림, `Now`, `Ask`입니다.
 값의 뜻을 물을지는 `question-filter-what-needs-another-person`이 정합니다. B 카드는 캡처와 어긋날 때만 묻습니다.
 
 **Incorrect 1 (필드 이름과 내부 용어만 있어 어느 자리의 값인지 알 수 없습니다):**

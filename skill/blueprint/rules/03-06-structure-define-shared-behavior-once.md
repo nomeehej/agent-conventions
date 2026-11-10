@@ -19,7 +19,7 @@ tags: structure, shared, reuse, link
 
 | 자리 | 쓰는 법 |
 | --- | --- |
-| `shared.md` 첫머리 | 묶음 표 `Group`, `같이 쓰는 화면`, `무엇` |
+| `shared.md` 첫머리 | 묶음 표 `Group`, `Used by`, `What` |
 | 묶음 | 동작 단위. 목록 표, 조건, 진입과 청산, 화면 사이 이동처럼. 코드 층(constant, widget)으로 묶지 않음 |
 | 묶음의 표 | `What`, `Rule`, `Code`. `What` = 사람 말, `Code` = 코드 이름을 맨 뒤 |
 | 행 앵커 | 짧은 첫 칸 맨 앞에 `<a id="코드이름"></a>`. 긴 글 칸에는 달지 않음 |

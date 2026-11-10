@@ -10,4 +10,4 @@
 | 3 | 연동. 환불 금액 필드 | — | `npm run kubb:generate && npx tsc -b` | Waiting on BE |
 | 4 | 검증. e2e와 캡처 대조 | 2, 3 | `npm run test:e2e -- orders` | Blocked |
 
-열린 질문 2. 막는 것 = 2단계 → [Questions](#questions)
+막는 것 = 2단계 → [Questions](#questions)

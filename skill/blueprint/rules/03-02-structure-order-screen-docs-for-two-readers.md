@@ -27,11 +27,11 @@ tags: structure, screen, overview, part
 | `Screen` | `Loading, empty and errors` | 구역마다 대기, 빈 값, 실패, `Check` |
 | `Screen` | `Copy` | 화면 글 원문. `Region`, `Where`, `Text` |
 | `Structure` | `Reuse` | `Need`, `Use`, `Where`. 이미 있는 부품을 쓰는 자리 |
-| `Structure` | `Data and API` | `Endpoint`, `Caller`, `Query ← 출처`. 아래 `### Mock` |
+| `Structure` | `Data and API` | `Endpoint`, `Caller`, `Query ← Source`. 아래 `### Mock` |
 | `Structure` | `State` | `Key`, `Default`, `Changed by` |
 | `Structure` | `Rules` | `Rule`, `Detail`, `Code`. 여러 구역이 쓰는 계산 |
 | `Structure` | `Chart mappers` | 차트가 있는 화면만. `Input`, `Output`, `Golden` |
-| `Structure` | `Tree` | 화면 폴더 나무 |
+| `Structure` | `Tree` | 화면 폴더 나무. 파일은 여기에만 적음 |
 | `Check` | `Scenarios` | 테스트 파일별 시나리오 표. `stage-derive-checks-from-state-tables` |
 | `Reference` | `Sources` | 읽은 재료, 그림을 다시 뜨는 명령. `:::details[…]{open}` |
 
@@ -43,7 +43,7 @@ tags: structure, screen, overview, part
 | 2 | 표시 그림. `writing-show-regions-as-marked-figma-figures` |
 | 3 | 부분 표 `#`, `Part`, `Rule`, `Figma`. `#`은 그림의 표시 번호 |
 | 4 | API 표 `API`, `Hook`, `For` |
-| 5 | 코드 나무. `writing-draw-flows-with-mermaid-and-trees-as-text` |
+| 5 | 코드 나무. `Tree`에 없는 구역 안쪽 구조만. `writing-draw-flows-with-mermaid-and-trees-as-text` |
 | 6 | 그 구역만의 규칙 표, Mermaid, 목록 |
 
 절 제목 바로 아래 한 줄이 그 절의 결론입니다. 그 줄만 읽고 넘어가도 되게 씁니다.

@@ -1,12 +1,12 @@
 # Blueprint 설계 문서 컨벤션 Rule Index
 
 - Skill: `blueprint`
-- Routing digest: `sha256:9e916e1107972b4ea2db61db0dd930709f5537a63e9ffe485fb61c231a0cb586`
+- Routing digest: `sha256:e87bbc7d421d55c91f78315863caaf720e4ec5d19111e52f7170f978325fc6b2`
 
 ## Direct Companions
 
 - `figma` (`conditional`) · Applies when: Figma 파일이나 노드를 설계 문서의 재료로 읽는다. · [SKILL.md](../figma/SKILL.md) · [RULES_INDEX.md](../figma/RULES_INDEX.md)
-- `testing` (`conditional`) · Applies when: 설계 문서의 상태 표나 Scenarios 표에서 테스트 케이스나 story를 뽑거나 Plan 표의 Check를 케이스 ID로 채운다. · [SKILL.md](../testing/SKILL.md) · [RULES_INDEX.md](../testing/RULES_INDEX.md)
+- `testing` (`conditional`) · Applies when: 설계 문서의 상태 표나 Scenarios 표에서 테스트 케이스나 story를 뽑거나 Scenarios 표를 쓰거나 고치거나 Plan 표의 Check를 케이스 ID로 채운다. · [SKILL.md](../testing/SKILL.md) · [RULES_INDEX.md](../testing/RULES_INDEX.md)
 
 ## Local Rules
 

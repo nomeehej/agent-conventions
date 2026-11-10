@@ -4,10 +4,10 @@
 
 ### Mock
 
-| API | 정상 응답 | File |
+| API | Response | File |
 | --- | --- | --- |
 | `/api/orders` | BE 전 = Kubb 생성기 위 상태 섞인 20건 | `mock-orders.ts` |
 
-| Case | API | 덮는 값 | Check |
+| Case | API | Override | Check |
 | --- | --- | --- | --- |
 | 주문 없음 | `/api/orders` | `items` = `[]` | [ORD-012](#test-ord-012) |

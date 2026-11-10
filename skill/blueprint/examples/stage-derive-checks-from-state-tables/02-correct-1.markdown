@@ -12,7 +12,7 @@
 
 ### Mock
 
-| Case | API | 덮는 값 | Check |
+| Case | API | Override | Check |
 | --- | --- | --- | --- |
 | 주문 없음 | `/api/orders` | `items` = `[]` | [ORD-012](#test-ord-012) |
 | 목록 오류 | `/api/orders` | 500 | [ORD-013](#test-ord-013) |

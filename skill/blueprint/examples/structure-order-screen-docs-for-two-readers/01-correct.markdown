@@ -32,13 +32,13 @@ Design. Figma 10-02, spec 10-01, 데모 3.
 | 1 | 조건 팝오버 | — | `npm run test:integration -- orders` | Ready |
 | 2 | 주문 표 | [Q1](#q1) | `npm run test:integration -- orders` | Blocked |
 
-열린 질문 1. 막는 것 = 2단계 → [Questions](#questions)
+막는 것 = 2단계 → [Questions](#questions)
 
 ## Questions
 
 열린 것 1개, 풀린 것 1개. 줄을 누르면 카드가 열림.
 
-:::details[Q1 환불 주문을 목록에 포함하나요? Needs answer]
+:::details[Q1 환불 주문을 목록에 포함하나요? Waiting on plan]
 <a id="q1"></a>
 
 | To | Blocks | Where |
@@ -77,8 +77,9 @@ Design. Figma 10-02, spec 10-01, 데모 3.
 | 1 | 조건 칸 3개 | 상태 select, 기간, 고객명. 빈 칸 = 조건 없음 | [![](../img/figma.svg) 12:350](https://www.figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=12-350) |
 | 2 | 적용, 초기화 | 적용 = 주소에 반영 → 목록 조회. 초기화 = 빈 칸으로 | [![](../img/figma.svg) 12:356](https://www.figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=12-356) |
 
-```text [src/page/orders/]
-└── _condition-popover.tsx   // 조건 칸, 적용, 초기화. 입력 중 값은 폼
+```text [src/page/orders/_condition-popover.tsx]
+├── ConditionPopover   // 적용, 초기화. 입력 중 값은 폼
+└── ConditionFields    // 조건 칸 3개
 ```
 
 ```mermaid
@@ -127,7 +128,7 @@ flowchart LR
 
 ## Data and API
 
-| Endpoint | Caller | Query ← 출처 |
+| Endpoint | Caller | Query ← Source |
 | --- | --- | --- |
 | `GET /api/orders` | 표 | `status` ← 주소. `page`* ← 주소 |
 
@@ -135,11 +136,11 @@ flowchart LR
 
 ### Mock
 
-| API | 정상 응답 | File |
+| API | Response | File |
 | --- | --- | --- |
 | `/api/orders` | BE 전 = Kubb 생성기 위 상태 섞인 20건 | `mock-orders.ts` |
 
-| Case | API | 덮는 값 | Check |
+| Case | API | Override | Check |
 | --- | --- | --- | --- |
 | 주문 없음 | `/api/orders` | `items` = `[]` | [ORD-012](#test-ord-012) |
 

@@ -13,13 +13,13 @@ tags: transcription, icons, assets
 
 **Impact: MEDIUM (만료되는 에셋 URL과 손으로 그린 도형이 코드에 남지 않습니다)**
 
-아이콘은 프로젝트 아이콘 세트에서 먼저 찾고 없으면 Figma 에셋을 내려받아 저장소에 커밋합니다.
+아이콘은 프로젝트 아이콘 세트에서 먼저 찾고 없으면 Figma 에셋을 내려받아 저장소의 `asset/icon/`에 저장합니다.
 스크린샷 URL은 수명이 짧고 `get_design_context` 에셋 URL도 7일 동안만 유효합니다.
 두 URL을 코드에 남기면 배포한 화면에서 그림이 사라집니다.
 
 ```mermaid
 flowchart LR
-	q1{"데이터가 주는<br>그림인가?"} -- 아니요 --> q2{"모양이 같은<br>글리프가 있는가?"} -- 아니요 --> r3("download_assets로<br>받아 커밋")
+	q1{"데이터가 주는<br>그림인가?"} -- 아니요 --> q2{"모양이 같은<br>글리프가 있는가?"} -- 아니요 --> r3("download_assets로<br>받아 저장")
 	q1 -- 예 --> r1("서버 응답의<br>이미지 URL을 씀")
 	q2 -- 예 --> r2("그 글리프를 씀")
 ```
@@ -27,7 +27,7 @@ flowchart LR
 | 상황 | 처리 |
 | --- | --- |
 | 프로젝트 아이콘 세트에 모양이 같은 글리프가 있음 | 그 글리프를 씁니다. 이름만 같고 모양이 다르면 같은 글리프가 아닙니다 |
-| 같은 글리프가 없음 | 그 노드에 `download_assets`를 불러 `svgAssets` 항목을 받아 저장소에 커밋합니다. `defaultFormat`은 넘기지 않습니다 |
+| 같은 글리프가 없음 | 그 노드에 `download_assets`를 불러 `svgAssets` 항목을 받아 저장소의 `asset/icon/`에 저장합니다. `defaultFormat`은 넘기지 않습니다 |
 | 사진, 상품 이미지처럼 데이터가 주는 그림 | 에셋으로 두지 않고 서버 응답의 이미지 URL을 씁니다 |
 
 아이콘 하나가 필요할 때 `get_design_context` 대신 `download_assets`를 부르면 코드 없이 에셋만 옵니다.
@@ -40,7 +40,7 @@ flowchart LR
 
 <<< ../examples/transcription-use-existing-icons-or-downloaded-assets/01-incorrect.tsx
 
-**Correct 1 (내려받아 커밋한 에셋을 가져옵니다):**
+**Correct 1 (내려받아 저장한 에셋을 가져옵니다):**
 
 <<< ../examples/transcription-use-existing-icons-or-downloaded-assets/02-correct.tsx
 

@@ -33,6 +33,8 @@ tags: material, figma, ux, capture
 
 픽셀 차이는 어긋남으로 보고하지 않습니다. 폭 급, 정렬, 문구, 순서, 색, 표기가 다를 때만 어긋남입니다.
 100px 급은 처음 그릴 때의 기준입니다. 기획이 수정 카드에 적은 치수는 급과 상관없이 카드의 값 그대로 반영합니다.
+구현에서는 폭 급을 최소 폭의 후보로 읽습니다.
+구현 단계의 실측 대조(`figma/verify-measure-rendered-values-before-claiming-parity`)는 설계 문서가 읽는 항목에만 겁니다.
 
 **Incorrect 1 (Figma 프레임의 치수를 그대로 문서의 계약으로 적습니다):**
 

@@ -26,7 +26,8 @@ tags: structure, documents, for-humanity
 화면 하나는 문서 하나입니다. 증분 기능도 그 화면 문서 안에서 지금의 정답으로 고쳐 씁니다.
 남은 일감 문서, 증분 문서, 화면별 질문 문서는 만들지 않습니다.
 그 정보는 화면 문서의 `Plan`, `Questions` 절과 변경 문서에 둡니다.
-frontmatter는 `name`, `label`, `group`, `order`에 `created`, `revised`를 더합니다.
+frontmatter는 `name`, `label`, `group`, `order`에 `created`를 더합니다.
+`revised`는 화면 문서만 더합니다.
 `label`은 무슨 문서인지 한 줄입니다. 주제 뒤에 마침표를 찍고 핵심 항목을 쉼표로 잇습니다.
 for-humanity 0.29.0부터 제목 아래 글머리와 사이드바 설명으로 나갑니다.
 홈 `README.md`는 문서 지도만 적고 지금 단계는 overview를 가리킵니다.

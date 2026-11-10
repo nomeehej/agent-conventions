@@ -25,11 +25,11 @@ tags: verify, build, links
 | 열린 카드 수 | 화면 문서 `Questions` 첫 줄의 열린 수 = 그 문서의 열린 카드 수 = `questions.md` 목록 표의 열린 번호 |
 | 표 칸 수 | 머리와 칸 수가 다른 행 0 |
 | 시나리오 | 화면마다 `check-scenarios.mjs <문서> <테스트 폴더>` 통과 |
-| 눈 확인 | 바꾼 절을 밝은 테마, 어두운 테마, 390 폭으로 열어 봄 |
+| 눈 확인 | 바꾼 절을 밝은 테마, 어두운 테마, 390 폭으로 열어 봄. 브라우저를 쓸 수 없는 실행이면 `눈 확인 못 함`과 사람이 열 절 이름을 보고에 남김 |
 
 빌드 통과는 링크와 부품이 멀쩡하다는 뜻이지 사실이 맞다는 근거가 아닙니다. 사실 대조는 따로 합니다.
 앞의 여섯 검사는 `script/blueprint/check-docs.mjs` 한 번으로 돌립니다.
-시나리오는 `stage-derive-checks-from-state-tables`의 스크립트로, 눈 확인은 손으로 합니다.
+시나리오는 `stage-derive-checks-from-state-tables`의 스크립트로, 눈 확인은 브라우저로 직접 합니다.
 
 **Incorrect 1 (빌드와 검사 없이 정리했다고 넘깁니다):**
 

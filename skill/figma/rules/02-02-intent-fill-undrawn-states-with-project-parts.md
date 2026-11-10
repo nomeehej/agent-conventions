@@ -24,8 +24,10 @@ Figma 화면은 대개 데이터가 가득 찬 한 순간만 그립니다.
 | 비활성, 진행 중 | 컴포넌트가 가진 `disabled`, 진행 표시 |
 | 긴 문구, 큰 숫자 | 칸 폭 처리는 `intent-treat-frame-sizes-and-sample-text-as-samples`가 정합니다 |
 
+프로젝트에 그 컴포넌트가 없으면 `transcription-reuse-project-components-before-new-markup`의 차례를 따릅니다.
 숨긴 레이어에 그 상태가 있으면 `read-collect-hidden-layers-and-annotations`에 따라 그 모양을 먼저 씁니다.
 빈 상태 문구처럼 글자가 필요한데 디자인에 없으면 가정한 문구로 구현하고 질문 목록에 올립니다.
+설계 문서의 재료로 읽을 때는 질문을 보고에 모으지 않고 설계 문서의 질문 목록으로 넘깁니다.
 
 **Incorrect 1 (디자인에 없는 로딩 모양을 화면에서 새로 만듭니다):**
 

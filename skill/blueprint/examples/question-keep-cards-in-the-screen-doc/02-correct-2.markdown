@@ -1,4 +1,4 @@
-열린 것 2 (기획 1, BE 1). 화면 질문은 화면 문서의 Questions 절에 카드로 있음.
+화면 질문은 화면 문서의 Questions 절에 카드로 있음.
 
 | Screen | Open | Resolved | Note |
 | --- | --- | --- | --- |

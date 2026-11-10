@@ -27,7 +27,7 @@ metadata:
 적용되지 않는 규칙의 선택 사항을 새로 들여와 스스로 범위를 넓히지 않는다.
 
 Figma 파일이나 노드를 재료로 읽을 때만 `convention-figma`를 함께 활성화한다.
-설계 문서의 상태 표나 Scenarios 표에서 테스트 케이스나 story를 뽑거나 Plan 표의 `Check`를 케이스 ID로 채울 때만 `convention-testing`을 함께 활성화한다.
+설계 문서의 상태 표나 Scenarios 표에서 테스트 케이스나 story를 뽑거나 Scenarios 표를 쓰거나 고치거나 Plan 표의 `Check`를 케이스 ID로 채울 때만 `convention-testing`을 함께 활성화한다.
 코드 변경은 이 skill의 범위가 아니므로 코드 skill을 켜지 않는다.
 구현 단계에서 코드가 바뀌면 그 코드가 해당 skill을 켠다.
 

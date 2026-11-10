@@ -15,7 +15,7 @@ created: 2026-10-02
 | 주문 목록 | `orders` | [Orders list](screen/orders.md) | Design |
 | 고객 상세 | `customers/:customerId` | [Customer detail](screen/customer-detail.md) | Design |
 
-- 열린 질문 2. 기획 1, BE 1 → [Questions](questions.md)
+- 질문 = [Questions](questions.md)
 
 ## Routes
 

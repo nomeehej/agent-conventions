@@ -29,14 +29,13 @@ flowchart LR
 | --- | --- |
 | FE 코드가 0줄인 것. 서버 정렬 기본값, 서버가 거르는 규칙 | 카드 없음. 구현 뒤 대조하는 Follow-up 목록 |
 | BE가 아직 안 준 endpoint나 필드 | 지금 spec 위 mock으로 먼저 구현. Plan의 연동 단계와 Expected from BE 표로 |
-| FE만으로 정할 수 있는 것 | 닫힌 D 카드. Dev decision |
+| FE만으로 정할 수 있고 재료가 정하지 않았으며 다른 선택지가 실제로 있던 갈림길 | 닫힌 D 카드. Dev decision. 재료대로 따른 것은 카드 없이 부분 표나 규칙 표의 한 줄 |
 | FE에 영향이 없는 BE 사항 | 묻지 않음 |
 | 서버 문자열과 수치의 뜻 | 그대로 그리고 캡처로 대조. Kept |
 | 서버가 안 주는 집계 | FE가 계산. Kept |
 | 기능, 문구, 데이터 기준처럼 기획이나 BE만 아는 것 | 카드 |
 
 단계를 막는지와 BE 대기를 어느 단계에 둘지는 `stage-split-work-into-gated-stages`가 정합니다.
-BE 필드가 들어올 때마다 spec을 다시 생성해 깨진 곳을 고치고 숨긴 열을 보입니다.
 사용자가 답한 것과 정답표로 닫히는 것은 처음부터 닫힌 카드로 씁니다.
 닫힌 카드의 꼴은 `question-close-cards-in-place-with-the-result`가 정합니다.
 

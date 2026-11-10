@@ -30,14 +30,17 @@ flowchart LR
 | 기획 데모 | 기능, 데이터, 계산, 선택 공유 | 구역 절의 흐름, Loading, empty and errors |
 | API spec | endpoint, 필드 이름과 타입 | Data and API 절 |
 | 지금 코드와 옛 저장소 | 가져다 쓸 것, 되살릴 것 | Reuse 절 |
-| 운영 캡처 | 실제 값, 응답 모양 | 그 값을 쓰는 절, Mock의 정상 응답 출처 |
+| 운영 캡처 | 실제 값, 응답 모양 | 그 값을 쓰는 절, Mock의 `Response` 칸 |
 
+전달문은 기획이 변경과 새 판을 넘기며 보내는 설명 글입니다.
 전달문은 근거일 뿐 혼자서 정답이 되지 않습니다. 전달문이 가리키는 재료를 찾아 그쪽으로 확정합니다.
 사용자가 앞서 직접 정한 것은 새 재료와 달라도 표가 뒤집지 않습니다.
+R은 앞선 답과 새 재료가 어긋난 것을 다시 묻는 카드이고 `question-keep-cards-in-the-screen-doc`가 정의합니다.
 올리는 법은 `question-close-cards-in-place-with-the-result`가 정합니다.
 Figma와 데모가 같은 항목을 다르게 말하면 이 표의 종류로 가릅니다. 가르기 어려우면 질문으로 남깁니다.
 
-판이 바뀌면 표의 판 번호와 날짜를 고치고 옛 판으로 닫은 질문을 다시 대조합니다.
+판이 바뀌면 표의 판 번호와 날짜를 고칩니다.
+결과가 `Per Figma`, `Per demo`, `Per spec`, `Per capture`인 카드는 새 판과 다시 대조합니다.
 
 **Incorrect 1 (정답표 없이 Figma 샘플로 기능과 데이터까지 확정합니다):**
 

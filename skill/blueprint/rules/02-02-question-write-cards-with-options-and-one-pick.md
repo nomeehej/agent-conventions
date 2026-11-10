@@ -29,10 +29,18 @@ tags: question, card, options
 | `Why` | 추천 이유 한 줄 |
 | `Evidence` | 재료 링크. Figma 노드, 캡처, spec 커밋 |
 | `Ask` | 상대에게 묻는 것 한 줄. 상대가 읽으므로 완전한 문장 |
-| `Fallback` | 답 전에 쓰는 값 |
+| `Fallback` | 답 전에 쓰는 값. 있으면 그 질문은 단계를 막지 않습니다 |
 
 항목 이름은 이 목록에서만 고릅니다. 새 항목 이름을 만들지 않습니다.
-상태는 `Needs answer`, `Waiting on BE`, `Waiting on plan`, `User decides`, `Follow-up` 가운데 하나입니다.
+열린 카드의 상태는 답하는 사람으로 정합니다.
+
+| 상태 | 뜻 |
+| --- | --- |
+| `Waiting on plan` | 기획이 답할 Q 카드 |
+| `Waiting on BE` | BE가 답할 B 카드 |
+| `User decides` | 사용자가 답할 R 카드 |
+| `Needs answer` | 답할 사람을 아직 못 정한 카드 |
+
 선택지가 있는 카드의 추천은 정확히 하나입니다. 추천이 없으면 선택지 표를 두지 않고 `Ask` 한 줄로 묻습니다.
 카드 안에는 접기를 넣지 않습니다. 근거가 길면 먼저 줄이고, 남는 근거는 변경 문서에 두고 `Evidence`에 링크만 둡니다.
 

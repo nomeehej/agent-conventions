@@ -3,6 +3,7 @@ name: 261015 Figma
 label: 10-15 Figma 수정 묶음. 주문 목록 환불 열
 group: Change
 order: 261015
+created: 2026-10-15
 ---
 
 Figma 10-15 판 ([Figma](https://www.figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=18-120)). 반영 2, 제외 1, 질문 1. Done 2026-10-16
