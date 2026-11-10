@@ -1,4 +1,4 @@
-// page/products/products-page.tsx: 섹션이 따로 없어 진입이 쿼리 호출. 경계는 이 진입을 그리는 셸 몫
+// page/products/products-page.tsx: 섹션 없음, 진입 파일이 쿼리 호출. 경계는 이 진입을 렌더하는 셸 담당
 export const ProductsPage = () => {
 	const responseProductListSuspense = useProductListSuspense();
 

@@ -5,14 +5,11 @@ import {clsx} from "clsx";
  * 대화상자 틀 계약
  */
 export interface ProfileDialogRootProps {
-	/**
-	 * 그 부품 자리에 사용처가 넣을 내용
-	 */
 	children: ReactNode;
 }
 
 /**
- * 대화상자 틀. 나머지 부품은 이 안에서만 그림
+ * 대화상자 틀. 나머지 부품은 이 안에서만 렌더
  */
 export const ProfileDialogRoot = (props: ProfileDialogRootProps) => {
 	return <section className={clsx("profileDialog__root")}>{props.children}</section>;

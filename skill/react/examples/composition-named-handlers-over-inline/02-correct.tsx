@@ -1,7 +1,7 @@
 import type {MouseEventHandler} from "react";
 
 /**
- * 선택된 상품 삭제. 성공 뒤 이동은 mutation 콜백이 이어 감
+ * 선택된 상품 삭제. 성공 뒤 이동은 mutation 콜백 담당
  */
 const handleRemoveProductButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 	if (!selectedProduct) {

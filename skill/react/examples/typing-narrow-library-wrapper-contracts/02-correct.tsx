@@ -6,20 +6,12 @@ import type {ButtonHTMLAttributes} from "react";
 /**
  * 버튼 래퍼 계약
  *
- * `type`, `id`, `aria-*`, 이벤트는 DOM 속성으로 열고 sx, classes, component 같은 스타일 주입 지점은 열지 않음
+ *   - `type`, `id`, `aria-*`, 이벤트는 DOM 속성으로 개방
+ *   - sx, classes, component 같은 스타일 주입 지점은 개방하지 않음
  */
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-	/**
-	 * 강조 색
-	 */
 	color?: MuiButtonProps["color"];
-	/**
-	 * 강조 수준
-	 */
 	variant?: MuiButtonProps["variant"];
-	/**
-	 * 크기
-	 */
 	size?: MuiButtonProps["size"];
 }
 

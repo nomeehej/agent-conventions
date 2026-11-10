@@ -1,4 +1,4 @@
-// page/products/products-page.tsx: 이 파일만 읽는 파서 묶음
+// page/products/products-page.tsx: 이 파일만 사용하는 파서 묶음
 /**
  * 상품 목록 화면이 주소에 올린 상태의 파서 묶음
  */

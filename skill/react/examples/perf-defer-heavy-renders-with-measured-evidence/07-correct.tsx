@@ -1,4 +1,4 @@
-// 행 12,000개 표. 부모가 입력값으로 다시 렌더할 때 이 트리까지 따라 그리지 않도록 memo로 감쌈
+// 행 12,000개 표. memo 적용, 부모가 입력값으로 다시 렌더해도 이 트리 렌더 생략
 export const ProductListRows = memo((props: ProductListRowsProps) => {
 	return <Table rows={props.products} />;
 });

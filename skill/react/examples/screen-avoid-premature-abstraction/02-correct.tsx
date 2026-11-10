@@ -1,6 +1,7 @@
 export const ProductListTable = (props: ProductListTableProps) => {
 	/**
-	 * 링크에 필요한 두 필드만 남김. 표는 응답 구조를 모름
+	 * 상품 목록 조회, 링크에 필요한 두 필드로 가공. 표에 응답 구조 비노출
+	 * {@link /api/product}
 	 */
 	const responseProductListSuspense = useProductListSuspense(
 		{},

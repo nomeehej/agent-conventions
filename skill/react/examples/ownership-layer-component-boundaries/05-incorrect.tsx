@@ -9,7 +9,7 @@ export interface LineChartProps {
 	 */
 	title: string;
 	/**
-	 * 그릴 좌표. 어느 도메인의 값인지 모름
+	 * 그릴 좌표. 도메인 무관
 	 */
 	points: ChartPoint[];
 }

@@ -1,5 +1,6 @@
 /**
- * 표가 그대로 쓰는 필드 이름으로 목록 변환. 화면은 응답 구조를 모름
+ * 상품 목록 조회, 표가 쓰는 필드 이름으로 가공. 화면에 응답 구조 비노출
+ * {@link /api/product}
  */
 const responseProductListSuspense = useProductListSuspense(
 	{},

@@ -1,5 +1,6 @@
 /**
- * 저장 성공 시 목록 화면으로 이동. 실패 문구는 폼 위에 표시
+ * 상품 저장 요청, 성공 뒤 목록 화면으로 이동. 실패 문구는 폼 위에 표시
+ * {@link /api/product}
  */
 const mutationProductSave = useProductSave({
 	mutation: {

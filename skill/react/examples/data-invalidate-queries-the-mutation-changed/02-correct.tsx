@@ -3,7 +3,11 @@ const queryClient = useQueryClient();
 
 // [!code ++]
 /**
- * 저장이 목록과 요약 집계를 함께 바꾸므로 두 키를 나란히 무효화
+ * 상품 저장 요청, 성공 뒤 목록과 요약 쿼리 무효화
+ *
+ *   - 저장이 목록과 요약 집계를 함께 변경
+ *
+ * {@link /api/product}
  */
 const mutationProductSave = useProductSave({
 	mutation: {

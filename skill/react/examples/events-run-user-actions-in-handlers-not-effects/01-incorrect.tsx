@@ -1,5 +1,6 @@
 /**
- * 생성 성공 시 목록으로 이동
+ * 상품 생성 요청, 성공 뒤 목록으로 이동
+ * {@link /api/product}
  */
 const mutationProductCreate = useProductCreate({
 	mutation: {

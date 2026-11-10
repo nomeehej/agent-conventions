@@ -49,16 +49,11 @@ export const ProfileDialog = (props: ProfileDialogProps) => {
 /**
  * 프로필 요약만 보여 주는 고정 구조 대화상자
  *
- * 사용처가 끼워 넣을 자리가 없어 부품으로 안 쪼갬. 쓰지 않는 모드와 푸터는 뺌
+ *   - 부품으로 분리하지 않음. 사용처가 끼울 내용 없음
+ *   - 쓰지 않는 모드와 푸터는 제외
  */
 export interface ProfileDialogProps {
-	/**
-	 * 헤더에 그릴 제목
-	 */
 	title: string;
-	/**
-	 * 요약 영역에 그릴 프로필
-	 */
 	profile: Profile;
 }
 

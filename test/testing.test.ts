@@ -63,12 +63,18 @@ test("Playwright examples expose GIVEN, WHEN and THEN while Vitest examples stay
 			assert.deepEqual(phases, [], `${path} is a Vitest case and keeps no GIVEN, WHEN, THEN blocks`);
 			continue;
 		}
-		const cases = phases.join(" ").split(/(?<=THEN)\s*/).filter(Boolean);
+		const cases = phases
+			.join(" ")
+			.split(/(?<=THEN)\s*/)
+			.filter(Boolean);
 		assert.equal(cases.length, caseCount, `${path} must end every case with THEN`);
 		for (const phasesOfCase of cases.map((text) => text.split(" "))) {
 			const indexes = phasesOfCase.map((phase) => order.indexOf(phase));
 			assert.equal(phasesOfCase.at(-1), "THEN", `${path} must end every case with THEN`);
-			assert.ok(indexes.every((index, position) => position === 0 || indexes[position - 1] < index), `${path} must keep scenario order`);
+			assert.ok(
+				indexes.every((index, position) => position === 0 || indexes[position - 1] < index),
+				`${path} must keep scenario order`,
+			);
 		}
 		for (const phase of order) {
 			const labels = phases.filter((label) => label === phase).length;

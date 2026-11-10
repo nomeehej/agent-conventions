@@ -12,9 +12,6 @@ export const OrderToolbar = () => {
 	};
 
 // [!code ++]
-	/**
-	 * 필터 패널 열기
-	 */
 	const handlePanelOpenButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 		setIsPanelOpen(true);
 	};

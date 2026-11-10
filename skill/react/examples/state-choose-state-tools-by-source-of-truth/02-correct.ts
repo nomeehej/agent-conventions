@@ -3,6 +3,7 @@ const [isOpen, setIsOpen] = useState(false);
 const themeStore = useThemeStore();
 
 /**
- * 사용자 상세 조회 API
+ * 사용자 상세 조회
+ * {@link /api/user}
  */
 const responseUserGetItemSuspense = useUserGetItemSuspense();

@@ -43,8 +43,8 @@ import type {ChangeEventHandler, Ref} from "react";
 /**
  * 검색 입력 계약
  *
- * 결과 목록에서 검색어로 포커스를 되돌려야 해 `ref` 공개
- * 보이는 라벨을 둘 자리가 없어 이름은 `aria-label`로만 제공
+ *   - `ref` 공개. 결과 목록이 검색어로 포커스 복귀 필요
+ *   - 이름은 `aria-label`로만 제공. 보이는 라벨 배치 불가
  */
 export interface SearchInputProps {
 	/**
@@ -55,13 +55,7 @@ export interface SearchInputProps {
 	 * 스크린 리더가 읽을 이름
 	 */
 	label: string;
-	/**
-	 * 입력값
-	 */
 	value: string;
-	/**
-	 * 입력이 바뀔 때
-	 */
 	onChange: ChangeEventHandler<HTMLInputElement>;
 }
 

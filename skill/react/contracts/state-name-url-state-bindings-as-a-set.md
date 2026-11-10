@@ -19,7 +19,7 @@
 **Incorrect 1 (파서 묶음의 역할이 이름에 드러나지 않습니다):**
 
 ```ts
-// page/products/_constant/product-search.ts: 목록 화면과 필터 대화상자가 읽음
+// page/products/_constant/product-search.ts: 목록 화면과 필터 대화상자가 사용
 export const productSearch = {
 	page: parseAsInteger.withDefault(pagination_default_page),
 	keyword: parseAsString,
@@ -29,7 +29,7 @@ export const productSearch = {
 **Correct 1 (두 파일이 읽는 파서 묶음은 `urlParsers`로 소유자 `_constant` 폴더에 둡니다):**
 
 ```ts
-// page/products/_constant/url-parsers.ts: 목록 화면과 필터 대화상자가 읽음
+// page/products/_constant/url-parsers.ts: 목록 화면과 필터 대화상자가 사용
 /**
  * 상품 목록 화면이 주소에 올린 상태의 파서 묶음
  */

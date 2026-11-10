@@ -3,9 +3,6 @@
  * 칩 계약
  */
 export interface ChipProps {
-	/**
-	 * 칩에 표시할 문구
-	 */
 	label: string;
 }
 

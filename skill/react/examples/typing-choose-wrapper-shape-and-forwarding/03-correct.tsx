@@ -6,25 +6,13 @@ export interface FieldProps {
 	 * 최상위에 얹을 클래스
 	 */
 	className?: string;
-	/**
-	 * 입력 위에 붙는 라벨
-	 */
 	label: string;
-	/**
-	 * 입력 아래 보조 설명
-	 */
 	helperText?: string;
 	/**
 	 * 라벨과 입력을 잇는 id
 	 */
 	inputId: string;
-	/**
-	 * 입력값
-	 */
 	value: string;
-	/**
-	 * 입력이 바뀔 때
-	 */
 	onChange: ChangeEventHandler<HTMLInputElement>;
 }
 

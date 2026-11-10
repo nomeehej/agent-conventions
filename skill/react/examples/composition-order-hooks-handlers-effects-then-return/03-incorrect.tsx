@@ -13,9 +13,6 @@ export const OrderToolbar = () => {
 		setSelectedIds([]);
 	};
 
-	/**
-	 * 필터 패널 열기
-	 */
 	const handlePanelOpenButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 		setIsPanelOpen(true);
 	};

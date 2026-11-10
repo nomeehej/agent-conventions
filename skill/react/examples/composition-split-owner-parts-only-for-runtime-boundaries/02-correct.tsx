@@ -13,7 +13,7 @@ export const Chatbot = () => {
 			{chat.isEmpty && <p className={clsx("chatbot__empty")}>{chat.emptyMessage}</p>}
 			{!chat.isEmpty && <ChatMessages messages={chat.messages} />}
 			{/**
-			 * 입력 폼. 전송 중 상태와 폼 프로바이더를 소유해 _chat-composer.tsx로 분리
+			 * 입력 폼. 전송 중 상태와 폼 프로바이더 소유, _chat-composer.tsx로 분리
 			 */}
 			<ChatComposer onSubmit={chat.send} />
 		</section>

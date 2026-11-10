@@ -7,7 +7,7 @@ export const MediaUploadPanel = (props: MediaUploadPanelProps) => {
 	const mediaUploadPayload = useMediaUploadPayload(props.files);
 
 	/**
-	 * 업로드를 확정할 때 이미 만들어 둔 값을 보냄
+	 * 업로드 확정 시 이미 만든 값 전송
 	 */
 	const handleSaveButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 // [!code error]

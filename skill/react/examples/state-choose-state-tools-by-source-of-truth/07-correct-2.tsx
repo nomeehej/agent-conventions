@@ -5,9 +5,6 @@ import {TabsContext} from "@/component/ui/tabs/_hook/use-tabs";
  * 탭 묶음 루트 입력 계약
  */
 export interface TabsRootProps {
-	/**
-	 * 처음 열어 둘 탭 식별자
-	 */
 	defaultId: string;
 	/**
 	 * 탭 목록과 패널 부품

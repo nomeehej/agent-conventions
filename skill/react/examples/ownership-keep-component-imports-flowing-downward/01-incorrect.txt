@@ -3,6 +3,6 @@ page/product-detail/
 # [!code error]
 ├── _section-heading.tsx
 ├── product-summary-section/
-│   └── product-summary-section.tsx    _section-heading을 가져옴
+│   └── product-summary-section.tsx    _section-heading을 import
 └── product-table-section/
-    └── product-table-section.tsx      _section-heading을 가져옴
+    └── product-table-section.tsx      _section-heading을 import

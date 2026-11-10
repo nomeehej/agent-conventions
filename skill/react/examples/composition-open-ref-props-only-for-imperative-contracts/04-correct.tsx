@@ -2,9 +2,6 @@
  * 검색 입력이 밖에 여는 명령. 결과 목록이 포커스와 선택을 되돌릴 때 호출
  */
 export interface SearchInputHandle {
-	/**
-	 * 입력에 포커스를 두고 글자 전부 선택
-	 */
 	focusAndSelect: () => void;
 }
 

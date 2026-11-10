@@ -1,14 +1,14 @@
 page/product-detail/
 ├── product-detail-page.tsx
 ├── product-detail-page.css
-├── _product-summary.tsx               자기만 쓰는 파일이 없어 파일로 둠
+├── _product-summary.tsx               자기만 쓰는 파일 없음, 파일로 유지
 ├── _product-summary.css
 ├── _function/
 │   ├── to-product-summary.ts
 │   └── to-trend-chart.ts
 ├── _type/
 │   └── summary-content.ts
-└── product-table-section/             자기만 쓰는 파일이 있어 하위 소유자 폴더가 됨
+└── product-table-section/             자기만 쓰는 파일 있음, 하위 소유자 폴더
     ├── product-table-section.tsx
     ├── product-table-section.css
     ├── _review-section.tsx

@@ -3,7 +3,8 @@
 export const ProductsPage = () => {
 // [!code ++]
 	/**
-	 * 실패는 셸의 화면 층 경계가 처리. 본문은 성공 경로만 그림
+	 * 상품 목록 조회. 실패는 셸의 화면 층 경계가 처리, 본문은 성공 경로만 렌더
+	 * {@link /api/product}
 	 */
 	const responseProductListSuspense = useProductListSuspense();
 

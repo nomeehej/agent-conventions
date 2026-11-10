@@ -4,7 +4,8 @@ export const ProductTreeSection = () => {
 	const [expandedItems, setExpandedItems] = useState<string[]>([]);
 
 	/**
-	 * 사이드바가 그릴 분류 노드만 남김. 트리 펼침 상태는 이 섹션이 따로 보유
+	 * 분류 트리 조회, 사이드바가 그릴 분류 노드로 가공. 트리 펼침 상태는 이 섹션이 별도 보유
+	 * {@link /api/product/tree}
 	 */
 	const responseProductTreeSuspense = useProductTreeSuspense(
 		{},
