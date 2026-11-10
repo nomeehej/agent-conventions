@@ -33,6 +33,9 @@ skill이 정한 규약은 베끼지 않고 skill 이름으로 가리킵니다. �
 overview에는 링크 한 줄만 둡니다.
 나무는 `writing-draw-flows-with-mermaid-and-trees-as-text`대로 주석 단 `text` 블록으로 그립니다.
 
+참고: [Google 문서 가이드: 중복은 악이다](https://google.github.io/styleguide/docguide/best_practices.html),
+[Write the Docs 원칙: 고유성](https://www.writethedocs.org/guide/writing/docs-principles/#unique).
+
 **Incorrect 1 (skill 규약 본문을 overview에 베껴 규약이 두 곳에서 다르게 늙습니다):**
 
 <<< ../examples/structure-write-overview-as-the-project-map/01-incorrect.markdown

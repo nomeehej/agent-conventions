@@ -30,6 +30,9 @@ tags: structure, change, revised
 변경 문서는 `Done` 뒤에도 기록으로 남깁니다.
 어느 변경이 어느 줄을 바꿨는지는 git과 변경 문서가 답합니다. 본문에 "10-01부터"를 적지 않습니다.
 
+참고: [Design Docs at Google: 구현 중 갱신](https://www.industrialempathy.com/posts/design-docs-at-google/),
+[Write the Docs 원칙: 최신성](https://www.writethedocs.org/guide/writing/docs-principles/#current).
+
 **Incorrect 1 (변경을 날짜 꼬리표 소제목으로 본문에 쌓아 옛 값과 새 값이 함께 남습니다):**
 
 <<< ../examples/structure-keep-the-body-current-and-log-changes-apart/01-incorrect.markdown

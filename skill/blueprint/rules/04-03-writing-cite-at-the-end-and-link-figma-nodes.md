@@ -27,6 +27,9 @@ tags: writing, citation, figma
 본문 문장 안에는 노드 번호를 글자로 드러내지 않습니다. 여러 노드를 한 줄에 늘어놓지 않고 부모 프레임 하나로 가리킵니다.
 인스턴스 안 노드 `I12:350;4:21`은 주소에서 `encodeURIComponent`로 바꿉니다.
 
+참고: [Write the Docs 원칙: 훑어보기](https://www.writethedocs.org/guide/writing/docs-principles/#skimmable),
+[Google 개발자 스타일 가이드: 링크 문구](https://developers.google.com/style/cross-references#descriptive-link-text).
+
 **Incorrect 1 (노드 번호와 경로가 본문 가운데 글자로 드러나 읽기를 끊습니다):**
 
 <<< ../examples/writing-cite-at-the-end-and-link-figma-nodes/01-incorrect.markdown

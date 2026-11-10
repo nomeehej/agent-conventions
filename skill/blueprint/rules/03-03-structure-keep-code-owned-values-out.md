@@ -39,6 +39,9 @@ flowchart LR
 그때 위 표의 두지 않는 것이 남아 있으면 지웁니다.
 두는 것은 지우지 않습니다.
 
+참고: [Design Docs at Google: API와 스키마](https://www.industrialempathy.com/posts/design-docs-at-google/#apis),
+[Write the Docs 원칙: 고유성](https://www.writethedocs.org/guide/writing/docs-principles/#unique).
+
 **Incorrect 1 (CSS 실측 값과 mock 값을 접어 두어 코드와 문서를 둘 다 고쳐야 합니다):**
 
 <<< ../examples/structure-keep-code-owned-values-out/01-incorrect.markdown

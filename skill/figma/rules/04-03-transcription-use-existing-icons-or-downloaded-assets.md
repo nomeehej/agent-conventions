@@ -36,6 +36,8 @@ flowchart LR
 모양을 보고 SVG `path`를 손으로 그리지 않습니다.
 내려받은 SVG의 `width`, `height`는 지우지 않습니다.
 
+참고: [Figma: download_assets](https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/#download_assets).
+
 **Incorrect 1 (MCP 에셋 URL을 그대로 코드에 둡니다):**
 
 <<< ../examples/transcription-use-existing-icons-or-downloaded-assets/01-incorrect.tsx

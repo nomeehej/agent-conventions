@@ -45,6 +45,8 @@ BE 대기는 막는 것으로 세지 않고 연동 단계에 둡니다.
 단계 표 아래에 막는 단계와 `Questions` 절 링크를 한 줄로 둡니다.
 FE 코드가 0줄인 확인 거리와 BE가 줄 필드는 필요할 때만 표 아래 `### Follow-up`, `### Expected from BE`로 둡니다.
 
+참고: [Scrum Guide: 완료의 정의](https://scrumguides.org/scrum-guide.html#commitment-definition-of-done).
+
 **Incorrect 1 (관문 없는 할 일 목록이라 무엇부터 시작할 수 있는지 알 수 없습니다):**
 
 <<< ../examples/stage-split-work-into-gated-stages/01-incorrect.markdown

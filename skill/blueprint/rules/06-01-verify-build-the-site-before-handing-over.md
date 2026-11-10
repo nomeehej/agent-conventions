@@ -31,6 +31,8 @@ tags: verify, build, links
 앞의 여섯 검사는 `script/blueprint/check-docs.mjs` 한 번으로 돌립니다.
 시나리오는 `stage-derive-checks-from-state-tables`의 스크립트로, 눈 확인은 브라우저로 직접 합니다.
 
+참고: [Write the Docs: 코드로서의 문서](https://www.writethedocs.org/guide/docs-as-code/).
+
 **Incorrect 1 (빌드와 검사 없이 정리했다고 넘깁니다):**
 
 <<< ../examples/verify-build-the-site-before-handing-over/01-incorrect.markdown

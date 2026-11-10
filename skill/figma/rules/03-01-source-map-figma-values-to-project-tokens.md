@@ -32,6 +32,9 @@ Figma 변수 이름은 디자인 파일의 이름이지 프로젝트의 토큰�
 토큰 대응표는 그 응답 하나로 만듭니다.
 같은 값을 얻으려고 `get_design_context`를 부르지 않습니다.
 
+참고: [Figma 문서: 사용자 지정 규칙](https://developers.figma.com/docs/figma-mcp-server/add-custom-rules/#output-rules),
+[Figma: get_variable_defs](https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/#get_variable_defs).
+
 **Incorrect 1 (Figma 변수 이름과 대체값을 그대로 옮깁니다):**
 
 <<< ../examples/source-map-figma-values-to-project-tokens/01-incorrect.css

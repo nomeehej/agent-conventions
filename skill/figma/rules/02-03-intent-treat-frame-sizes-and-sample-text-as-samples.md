@@ -29,6 +29,8 @@ Figma 프레임은 한 기기 폭에서 샘플 데이터로 그린 한 장입니
 고른 처리는 보고의 채운 상태 항목에 적습니다.
 화면 폭에 따라 배치가 바뀌면 `css/layout-reach-for-intrinsic-sizing-before-breakpoints`를 따릅니다.
 
+참고: [Figma 문서: 코드를 위한 파일 구조](https://developers.figma.com/docs/figma-mcp-server/structure-figma-file/).
+
 **Incorrect 1 (샘플 문구에 맞춘 칸 폭과 높이를 그대로 옮깁니다):**
 
 <<< ../examples/intent-treat-frame-sizes-and-sample-text-as-samples/01-incorrect.css

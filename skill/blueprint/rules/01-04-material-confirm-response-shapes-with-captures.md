@@ -33,6 +33,8 @@ spec에 `minItems`가 없어도 빈 배열이 온다는 근거는 아닙니다. 
 캡처가 없으면 그 줄에 "캡처 대조 전"을 적고 Follow-up으로 둡니다. 추측한 형식을 확정처럼 쓰지 않습니다.
 서버 문자열과 수치의 뜻을 물을지는 `question-filter-what-needs-another-person`이 정합니다.
 
+참고: [Martin Fowler: Contract Test](https://martinfowler.com/bliki/ContractTest.html).
+
 **Incorrect 1 (mock 값과 spec만으로 형식과 빈 배열 처리를 확정합니다):**
 
 <<< ../examples/material-confirm-response-shapes-with-captures/01-incorrect.markdown

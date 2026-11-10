@@ -39,6 +39,9 @@ flowchart LR
 스크린샷으로도 안 읽히면 그 메모 프레임만 `get_design_context`로 읽습니다.
 메모와 화면이 어긋날 때의 처리는 `intent-ask-when-ux-notes-and-gui-disagree`가 정합니다.
 
+참고: [Figma 도움말: 측정값과 주석](https://help.figma.com/hc/en-us/articles/20774752502935),
+[Figma 문서: 코드를 위한 파일 구조](https://developers.figma.com/docs/figma-mcp-server/structure-figma-file/).
+
 **Incorrect 1 (보이는 레이어만 구현 목록에 올립니다):**
 
 <<< ../examples/read-collect-hidden-layers-and-annotations/01-incorrect.txt

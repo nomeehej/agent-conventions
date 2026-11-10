@@ -48,6 +48,8 @@ flowchart LR
 카드 안의 칸은 `question-write-cards-with-options-and-one-pick`이 정합니다.
 닫는 법은 `question-close-cards-in-place-with-the-result`가 정합니다.
 
+참고: [Michael Nygard: 아키텍처 결정 문서화](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions).
+
 **Incorrect 1 (화면 문서마다 번호를 새로 매겨 같은 Q1이 두 문서에서 다른 질문이 됩니다):**
 
 <<< ../examples/question-keep-cards-in-the-screen-doc/01-incorrect-1.markdown [screen/orders.md]

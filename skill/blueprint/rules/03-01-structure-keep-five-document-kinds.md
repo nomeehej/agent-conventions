@@ -43,6 +43,9 @@ for-humanity 0.29.0부터 제목 아래 글머리와 사이드바 설명으로 �
 | 4 | 첫 화면 문서 | `structure-order-screen-docs-for-two-readers` |
 | 5 | 두 번째 화면이 같은 동작을 쓰면 `shared.md` | `structure-define-shared-behavior-once` |
 
+참고: [Design Docs at Google: 구현 중 갱신](https://www.industrialempathy.com/posts/design-docs-at-google/),
+[Google 문서 가이드: 최소한의 문서](https://google.github.io/styleguide/docguide/best_practices.html).
+
 **Incorrect 1 (증분 문서와 남은 일감 문서를 따로 만들어 같은 화면의 정답이 세 곳에 흩어집니다):**
 
 <<< ../examples/structure-keep-five-document-kinds/01-incorrect.markdown

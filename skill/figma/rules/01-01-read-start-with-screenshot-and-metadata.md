@@ -64,6 +64,9 @@ URL이 래퍼를 가리키면 `get_metadata`가 첫 호출입니다.
 | 한 요청에 화면이나 기기 폭 프레임이 여럿 | 첫 화면에서 만든 컴포넌트 대응표, 토큰 대응표를 다음 화면에 그대로 쓰고 달라진 노드만 읽습니다 |
 | 어림한 합계가 목표를 넘음 | 더 부르기 전에 멈추고 이미 받은 응답으로 풀 수 있는지 다시 봅니다 |
 
+참고: [Figma 문서: 큰 프레임은 피하기](https://developers.figma.com/docs/figma-mcp-server/avoid-large-frames/),
+[Figma: get_metadata](https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/#get_metadata).
+
 **Incorrect 1 (화면 전체에 `get_design_context`를 먼저 부르고 성긴 응답을 코드로 강제합니다):**
 
 <<< ../examples/read-start-with-screenshot-and-metadata/01-incorrect.txt

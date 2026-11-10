@@ -67,6 +67,9 @@ flowchart LR
 | 에셋은 다른 도구로 내려받지 않습니다 | 에셋만 필요한 노드는 `download_assets`로 받습니다 |
 | `get_metadata`보다 `get_design_context`를 먼저 씁니다 | `read-start-with-screenshot-and-metadata` 순서를 따릅니다 |
 
+참고: [Figma 문서: 큰 프레임은 피하기](https://developers.figma.com/docs/figma-mcp-server/avoid-large-frames/),
+[Figma 문서: Code Connect 연동](https://developers.figma.com/docs/figma-mcp-server/code-connect-integration/).
+
 **Incorrect 1 (성긴 응답을 받고 보이는 자식을 모두 다시 부릅니다):**
 
 <<< ../examples/read-call-design-context-only-on-small-unmatched-nodes/01-incorrect.txt

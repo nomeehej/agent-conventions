@@ -47,6 +47,9 @@ flowchart LR
 새 재료가 사용자가 앞서 답한 것과 어긋나면 그 답을 뒤집지 않고 `R` 카드로 올립니다.
 이유와 경위는 `Answer` 칸 한 줄과 변경 문서, git에 둡니다.
 
+참고: [Michael Nygard: 아키텍처 결정 문서화](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions),
+[MADR: 결정 기록 템플릿](https://adr.github.io/madr/).
+
 **Incorrect 1 (풀린 카드를 지우고 결정만 따로 모아 같은 결정이 두 절에 적히고 번호 링크가 끊깁니다):**
 
 <<< ../examples/question-close-cards-in-place-with-the-result/01-incorrect.markdown

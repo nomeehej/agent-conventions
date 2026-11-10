@@ -28,6 +28,9 @@ tags: transcription, layers, markup
 | 자식 하나만 감싼 래퍼 | 레이어 묶음 | 없앱니다 |
 | `data-node-id`, `data-name` | Figma 추적용 속성 | 지웁니다 |
 
+참고: [Figma 문서: 사용자 지정 규칙](https://developers.figma.com/docs/figma-mcp-server/add-custom-rules/#output-rules),
+[Figma 문서: 코드를 위한 파일 구조](https://developers.figma.com/docs/figma-mcp-server/structure-figma-file/).
+
 **Incorrect 1 (회전한 선과 래퍼, 추적 속성을 그대로 옮깁니다):**
 
 <<< ../examples/transcription-do-not-copy-layer-structure/01-incorrect.tsx

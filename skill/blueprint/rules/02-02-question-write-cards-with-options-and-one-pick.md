@@ -44,6 +44,9 @@ tags: question, card, options
 선택지가 있는 카드의 추천은 정확히 하나입니다. 추천이 없으면 선택지 표를 두지 않고 `Ask` 한 줄로 묻습니다.
 카드 안에는 접기를 넣지 않습니다. 근거가 길면 먼저 줄이고, 남는 근거는 변경 문서에 두고 `Evidence`에 링크만 둡니다.
 
+참고: [MADR: 결정 기록 템플릿](https://adr.github.io/madr/),
+[Design Docs at Google: 대안](https://www.industrialempathy.com/posts/design-docs-at-google/#alternatives-considered).
+
 **Incorrect 1 (경위와 속뜻을 문장으로 풀어 답하는 사람이 고를 자리를 못 찾습니다):**
 
 <<< ../examples/question-write-cards-with-options-and-one-pick/01-incorrect.markdown

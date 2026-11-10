@@ -43,6 +43,9 @@ tags: stage, check, testing, story, scenario
 케이스 제목과 GIVEN, WHEN, THEN의 꼴은 `testing/case-describe-one-observable-behavior`가 정합니다.
 story를 mount해 단언하는 법은 `testing/story-verify-states-through-consuming-tests`가 정합니다.
 
+참고: [Martin Fowler: Given When Then](https://martinfowler.com/bliki/GivenWhenThen.html),
+[Martin Fowler: Specification By Example](https://martinfowler.com/bliki/SpecificationByExample.html).
+
 **Incorrect 1 (상태 표와 `Check`가 서로를 모르고 테스트가 문서와 따로 자랍니다):**
 
 <<< ../examples/stage-derive-checks-from-state-tables/01-incorrect.markdown

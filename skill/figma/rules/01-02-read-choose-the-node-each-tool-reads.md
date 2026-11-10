@@ -49,6 +49,8 @@ flowchart LR
 | `node-id`가 없음 | 추측하지 않고 노드 URL을 요청합니다. `get_metadata`를 노드 없이 부르면 페이지 목록만 옵니다 |
 | 인스턴스 안쪽 노드 id `I12:34;56:78` | `get_design_context`만 받습니다. 다른 도구에는 그 인스턴스 자체의 id를 넘깁니다 |
 
+참고: [Figma: get_metadata](https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/#get_metadata).
+
 **Incorrect 1 (래퍼에 스크린샷을 불러 화면이 메모와 함께 줄어듭니다):**
 
 <<< ../examples/read-choose-the-node-each-tool-reads/01-incorrect.txt

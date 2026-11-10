@@ -52,6 +52,9 @@ tags: structure, screen, overview, part
 절을 더할 때는 어느 부분에 속하는지 먼저 정합니다. 부분 밖에 절을 두지 않습니다.
 두 화면 이상이 쓰는 규칙과 글은 `structure-define-shared-behavior-once`대로 내용을 쓰고 링크를 겁니다.
 
+참고: [Nielsen Norman Group: 역피라미드 글쓰기](https://www.nngroup.com/articles/inverted-pyramid/),
+[Write the Docs 원칙: 훑어보기](https://www.writethedocs.org/guide/writing/docs-principles/#skimmable).
+
 **Correct (머리와 네 부분, 구역 절 순서를 갖춘 화면 문서 틀입니다. 복사해 시작합니다):**
 
 <<< ../examples/structure-order-screen-docs-for-two-readers/01-correct.markdown

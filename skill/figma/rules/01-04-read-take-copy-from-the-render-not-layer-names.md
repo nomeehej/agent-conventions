@@ -25,6 +25,8 @@ tags: mcp, metadata, copy
 | 컴포넌트 종류 | 스크린샷의 모양과 동작 | `instance` 이름은 후보를 좁히는 단서입니다 |
 | 역할, 구역 | 배치와 메모 | `Frame 2085673573` 같은 자동 이름은 뜻이 없습니다 |
 
+참고: [Figma: get_metadata](https://developers.figma.com/docs/figma-mcp-server/tools-and-prompts/#get_metadata).
+
 **Incorrect 1 (메타데이터 이름으로 컬럼 이름을 정해 화면과 다른 글자가 들어갑니다):**
 
 <<< ../examples/read-take-copy-from-the-render-not-layer-names/01-incorrect.txt

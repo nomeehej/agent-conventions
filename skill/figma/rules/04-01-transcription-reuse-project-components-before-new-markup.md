@@ -46,6 +46,9 @@ flowchart LR
 | 컴포넌트가 열지 않는 내부 모양 | 컴포넌트를 복제하지 않고 차이를 보고하거나 컴포넌트 쪽 변경을 제안합니다 |
 | 같은 차이가 여러 화면에서 반복됨 | 컴포넌트에 변형을 추가하자고 제안합니다 |
 
+참고: [Figma 문서: 사용자 지정 규칙](https://developers.figma.com/docs/figma-mcp-server/add-custom-rules/#output-rules),
+[Figma 문서: Code Connect 연동](https://developers.figma.com/docs/figma-mcp-server/code-connect-integration/).
+
 **Incorrect 1 (`get_design_context`가 준 `div` 격자를 표로 씁니다):**
 
 <<< ../examples/transcription-reuse-project-components-before-new-markup/01-incorrect.tsx

@@ -36,6 +36,9 @@ tags: writing, style, facts
 사실이 여럿이면 칸 안에서도 목록으로 씁니다.
 글이 길어지면 접어서 숨기지 않고 먼저 줄입니다. 접기는 길이의 핑계가 아닙니다.
 
+참고: [Write the Docs 원칙: 훑어보기](https://www.writethedocs.org/guide/writing/docs-principles/#skimmable),
+[Nielsen Norman Group: 웹에서 읽는 방식](https://www.nngroup.com/articles/how-users-read-on-the-web/).
+
 **Incorrect 1 (경위를 문장으로 풀고 사실 셋을 한 줄에 `·`로 잇습니다):**
 
 <<< ../examples/writing-use-noun-phrases-one-fact-per-line/01-incorrect.markdown

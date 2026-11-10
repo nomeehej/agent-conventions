@@ -32,6 +32,8 @@ Mermaid 라벨은 개조식이고 괄호를 피하며 긴 라벨은 `<br>`로 �
 가로가 넓어지면 `LR`을 `TD`로 바꾸거나 그림을 둘로 나눕니다. 되돌아가는 선은 상자를 합쳐 없앱니다.
 한글이 든 ASCII 상자와 표는 쓰지 않습니다. 한글 폭이 정확히 두 칸이 아니어서 줄이 어긋납니다.
 
+참고: [Mermaid 문서: 소개](https://mermaid.js.org/intro/#about-mermaid).
+
 **Incorrect 1 (한글이 든 ASCII 상자로 흐름을 그리고 나무의 설명을 주석 없이 섞습니다):**
 
 <<< ../examples/writing-draw-flows-with-mermaid-and-trees-as-text/01-incorrect.markdown

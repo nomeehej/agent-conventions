@@ -39,6 +39,9 @@ tags: structure, shared, reuse, link
 예를 들어 "13열 중 11열" 같은 이 화면의 사정 뒤에 공용 규칙 문장을 링크로 잇습니다.
 모달 입력란처럼 긴 명세는 그 부품을 처음 여는 화면 문서 한 곳에 두고 `shared.md`의 행이 그 절을 가리킵니다.
 
+참고: [Write the Docs 원칙: 고유성](https://www.writethedocs.org/guide/writing/docs-principles/#unique),
+[Google 문서 가이드: 중복은 악이다](https://google.github.io/styleguide/docguide/best_practices.html).
+
 **Incorrect 1 (공용 나열 줄과 Shared 꼬리표만 있어 화면 문서에서 무슨 규칙인지 알 수 없습니다):**
 
 <<< ../examples/structure-define-shared-behavior-once/01-incorrect.markdown [screen/orders.md]

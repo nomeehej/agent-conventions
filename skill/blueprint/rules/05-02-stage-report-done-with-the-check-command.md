@@ -27,6 +27,9 @@ tags: stage, done, report
 보고와 문서 갱신은 같은 턴에 합니다. 문서가 코드보다 늦으면 다음 사람이 옛 표를 믿습니다.
 단계를 끝내지 않은 작업은 보고에 "끝낸 단계 없음"만 적습니다.
 
+참고: [Scrum Guide: 완료의 정의](https://scrumguides.org/scrum-guide.html#commitment-definition-of-done),
+[Google 문서 가이드: 코드와 함께 갱신](https://google.github.io/styleguide/docguide/best_practices.html).
+
 **Incorrect 1 (명령을 돌리지 않고 끝났다고 보고하며 문서는 그대로 둡니다):**
 
 <<< ../examples/stage-report-done-with-the-check-command/01-incorrect.markdown

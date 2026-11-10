@@ -63,6 +63,10 @@ flowchart LR
 
 판정 어휘는 jeltehomminga/figma-design-skills의 `design-fidelity-verify`(MIT)에서 가져왔습니다.
 
+참고: [Figma 문서: 사용자 지정 규칙](https://developers.figma.com/docs/figma-mcp-server/add-custom-rules/#output-rules),
+[MDN: getComputedStyle()](https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle),
+[MDN: getBoundingClientRect()](https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect).
+
 **Incorrect 1 (눈으로 대조한 결과를 일치로 보고합니다):**
 
 <<< ../examples/verify-measure-rendered-values-before-claiming-parity/01-incorrect.txt
