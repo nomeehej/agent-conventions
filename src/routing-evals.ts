@@ -14,138 +14,60 @@ import type {
 	SkillPaths,
 } from "./types.js";
 
-/**
- * @summary 엄격한 JSON 객체 검증에 쓰는 unknown 값 레코드
- */
 type JsonObject = Record<string, unknown>;
 
-/**
- * @summary 소유 매니페스트 검증 결과와 fixture 루트 문서 캐시
- */
 interface ManifestValidationResult {
-	/**
-	 * @field 매니페스트 검증 중 읽은 구조화 skill 문서 캐시
-	 */
 	documents: Map<string, LoadedSkillDocument>;
-	/**
-	 * @field 엄격한 파싱과 분할 검증을 통과한 소유 매니페스트
-	 */
 	manifest: RoutingEvalManifest;
 }
 
-/**
- * @summary 정확한 키 JSON 객체 검증 인자
- */
 interface AssertExactKeysArgs {
-	/**
-	 * @field 키 집합을 검사할 JSON 객체
-	 */
 	value: JsonObject;
-	/**
-	 * @field 반드시 있어야 하는 키 목록
-	 */
 	requiredKeys: string[];
-	/**
-	 * @field 있어도 되는 선택 키 목록
-	 */
 	optionalKeys: string[];
-	/**
-	 * @field 오류 메시지에 사용할 JSON 위치
-	 */
 	label: string;
 }
 
-/**
- * @summary 문자열 배열 파싱 인자
- */
 interface ParseStringArrayArgs {
-	/**
-	 * @field 문자열 배열인지 검사할 unknown JSON 값
-	 */
 	value: unknown;
-	/**
-	 * @field 오류 메시지에 사용할 JSON 위치
-	 */
 	label: string;
-	/**
-	 * @field 빈 배열을 허용할지 여부
-	 */
 	allowEmpty?: boolean;
 }
 
-/**
- * @summary fixture 루트 skill 문서 조회 인자
- */
+// ----------------------------------------------------------------------------------------
+// fixture 루트 skill 문서 조회 인자
+//
+// skillRootDir: fixture 또는 저장소의 skill 루트, 절대 경로
+// documents: 같은 매니페스트 검증 호출에서 공유하는 문서 캐시
+// ----------------------------------------------------------------------------------------
 interface ReadExpectedSkillDocumentArgs {
-	/**
-	 * @field 조회할 skill 디렉터리 이름
-	 */
 	skillName: string;
-	/**
-	 * @field fixture 또는 저장소 skill 루트 절대 경로
-	 */
 	skillRootDir: string;
-	/**
-	 * @field 같은 매니페스트 검증 호출에서 공유할 문서 캐시
-	 */
 	documents: Map<string, LoadedSkillDocument>;
 }
 
-/**
- * @summary progressive skill의 정확한 규칙 분할 검증 인자
- */
 interface ValidateRulePartitionArgs {
-	/**
-	 * @field 오류 메시지에 쓸 시나리오 또는 드리프트 위치
-	 */
 	label: string;
-	/**
-	 * @field local 규칙 전체를 제공하는 progressive skill 문서
-	 */
 	document: LoadedSkillDocument;
-	/**
-	 * @field 선택된 local 규칙 stable ID 목록
-	 */
 	selected: string[];
 }
 
-/**
- * @summary 활성 skill 전체와 분할 검증 인자
- */
+// ----------------------------------------------------------------------------------------
+// 활성 skill 전체와 분할 검증 인자
+//
+// skillRootDir: fixture 또는 저장소의 skill 루트, 절대 경로
+// documents: 같은 매니페스트 검증 호출에서 공유하는 문서 캐시
+// ----------------------------------------------------------------------------------------
 interface ValidateExpectedPartitionArgs {
-	/**
-	 * @field 오류 메시지에 쓸 시나리오 또는 드리프트 위치
-	 */
 	label: string;
-	/**
-	 * @field 검증할 활성 skill과 정확한 규칙 분할
-	 */
 	partition: RoutingExpectedPartition;
-	/**
-	 * @field fixture 또는 저장소 skill 루트 절대 경로
-	 */
 	skillRootDir: string;
-	/**
-	 * @field 같은 매니페스트 검증 호출에서 공유할 문서 캐시
-	 */
 	documents: Map<string, LoadedSkillDocument>;
 }
 
-/**
- * @summary 범위 드리프트 단조성 검증 인자
- */
 interface ValidateMonotonicDriftArgs {
-	/**
-	 * @field 오류 메시지에 쓸 시나리오 위치
-	 */
 	label: string;
-	/**
-	 * @field 최초 라우팅 선택 오라클
-	 */
 	scenario: RoutingEvalScenario;
-	/**
-	 * @field 범위 확장 뒤 라우팅 선택 오라클
-	 */
 	drift: RoutingScopeDrift;
 }
 
@@ -244,9 +166,6 @@ const parseScenario = (value: unknown, index: number): RoutingEvalScenario => {
 	};
 };
 
-/**
- * @api 엄격한 JSON 라우팅 평가 매니페스트 로드
- */
 export const readRoutingEvalManifest = async (skillPaths: SkillPaths): Promise<RoutingEvalManifest> => {
 	let parsed: unknown;
 
@@ -490,16 +409,16 @@ const validateManifest = async (skillPaths: SkillPaths): Promise<ManifestValidat
 	return {documents, manifest};
 };
 
-/**
- * @api progressive skill 하나가 소유한 라우팅 매니페스트 검증
- */
 export const validateRoutingEvalManifest = async (skillPaths: SkillPaths): Promise<void> => {
 	await validateManifest(skillPaths);
 };
 
-/**
- * @api skill 루트의 모든 매니페스트와 매니페스트 간 적용 사례 커버리지 검증
- */
+// ----------------------------------------------------------------------------------------
+// skill 루트의 모든 매니페스트와 매니페스트 간 적용 사례 커버리지 검증
+//
+// 시나리오 id는 매니페스트 사이에서도 유일
+// 모든 규칙이 어느 시나리오에서든 선택돼야 함
+// ----------------------------------------------------------------------------------------
 export const validateRoutingEvalManifests = async (skillRootDir: string = packagePaths.skillRootDir): Promise<void> => {
 	const skillDocuments = new Map<string, LoadedSkillDocument>();
 

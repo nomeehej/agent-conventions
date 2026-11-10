@@ -7,9 +7,11 @@ import {readResolvedSkillDocuments} from "./parser.js";
 import {generateRuleContractMarkdown, generateRulesIndexMarkdown, getRuleId} from "./routing.js";
 import type {SkillPaths} from "./types.js";
 
-/**
- * @description 단일 skill의 `RULES_INDEX.md`와 `contracts/*.md` 생성. companion 해석은 선언 오류를 build 에서 잡으려고 그대로 돌림
- */
+// ----------------------------------------------------------------------------------------
+// `RULES_INDEX.md`와 규칙별 `contracts` 파일 생성
+//
+// companion 해석은 선언 오류를 build에서 잡으려고 그대로 돌림
+// ----------------------------------------------------------------------------------------
 export const buildSkill = async (skillPaths: SkillPaths): Promise<void> => {
 	const documents = await readResolvedSkillDocuments(skillPaths);
 	const rootDocument = documents.find((document) => document.skillName === skillPaths.skillName);

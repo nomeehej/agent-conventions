@@ -3,14 +3,20 @@ import {getSkillPaths, isBuildableSkill, listSkillNames} from "./config.js";
 import {readSkillRules} from "./parser.js";
 import {parseRuleBody} from "./rule-body.js";
 
-/**
- * 사이트 본문에서 가로 스크롤 없이 읽히는 문자 격자 폭 상한. 넘으면 흐름도가 본문 밖으로 넘침
- */
+// ----------------------------------------------------------------------------------------
+// 사이트 본문에서 가로 스크롤 없이 읽히는 문자 격자 폭 상한
+//
+// 상한 초과 → 흐름도가 본문 밖으로 넘침
+// ----------------------------------------------------------------------------------------
 export const maxDiagramColumns = 125;
 
-/**
- * @summary 규칙 하나의 mermaid 펜스 하나를 격자로 그린 결과
- */
+// ----------------------------------------------------------------------------------------
+// 규칙 하나의 mermaid 펜스 하나를 격자로 그린 결과
+//
+// ruleId: 규칙 파일 이름
+// index: 규칙 안 mermaid 펜스 순번(0부터)
+// error: 렌더 실패 같은 오류 메시지, 있으면 columns와 rows는 0
+// ----------------------------------------------------------------------------------------
 export interface DiagramReport {
 	skill: string;
 	ruleId: string;
@@ -20,15 +26,12 @@ export interface DiagramReport {
 	error?: string;
 }
 
-/**
- * 사이트와 같은 격자 렌더러로 그림. 한글은 전각이라 폭 0 문자를 덧붙여 두 칸 확보
- */
+// ----------------------------------------------------------------------------------------
+// 사이트와 같은 격자 렌더러로 그림, 한글은 전각이라 폭 0 문자를 덧붙여 두 칸 확보
+// ----------------------------------------------------------------------------------------
 const wideCharacter = /[ᄀ-ᇿ　-〿㄰-㆏가-힯一-鿿぀-ヿ＀-｠]/g;
 const widenCjk = (source: string): string => source.replace(wideCharacter, (character) => `${character}​`);
 
-/**
- * @api 모든 규칙의 mermaid 펜스를 문자 격자로 그려 폭, 높이, 오류 수집
- */
 export const checkDiagrams = async (): Promise<DiagramReport[]> => {
 	const reports: DiagramReport[] = [];
 

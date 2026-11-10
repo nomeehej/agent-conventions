@@ -16,19 +16,14 @@ import {validateRoutingEvalManifest} from "./routing-evals.js";
 import {generateRuleContractMarkdown} from "./routing.js";
 import type {LoadedSkillDocument, SkillMetadata, SkillPaths} from "./types.js";
 
-/**
- * 본문 백틱 안 규칙 ID 후보. 화면에서 클릭 가능한 칩이라 해석되지 않으면 조용히 코드로 격하
- *
- * 하이픈 3개 이상만 검사. `import type`, `query.select` 같은 일반 코드 조각과 가르는 값싼 기준
- */
+// ----------------------------------------------------------------------------------------
+// 본문 백틱 안 규칙 ID 후보
+//
+// 화면에서 클릭 가능한 칩이라 해석되지 않으면 조용히 코드로 격하
+// 하이픈 3개 이상만 검사 → `import type`, `query.select` 같은 코드 조각과 가르는 기준
+// ----------------------------------------------------------------------------------------
 const proseRuleReferencePattern = /`((?:[a-z][a-z0-9]*\/)?[a-z][a-z0-9]*(?:-[a-z0-9]+){3,})`/g;
 
-/**
- * @helper 본문 산문의 규칙 ID 참조가 실재하는 규칙을 가리키는지 검증
- * @description frontmatter 참조만 검사하면 규칙을 지울 때 본문 참조가 남아 화면 링크가 사라짐
- *   외부 도구 규칙 이름과 가르려고 첫 마디가 우리 section 접두사인 것만 검사
- *   도구 설정을 담은 `tooling` 규칙은 stylelint, biome 규칙 이름을 대량 인용해 건너뜀
- */
 interface AssertProseRuleReferencesArgs {
 	document: LoadedSkillDocument;
 	knownIds: ReadonlySet<string>;
@@ -36,6 +31,13 @@ interface AssertProseRuleReferencesArgs {
 	skillsAbove: ReadonlySet<string>;
 }
 
+// ----------------------------------------------------------------------------------------
+// 본문 산문의 규칙 ID 참조가 실재하는 규칙을 가리키는지 검증
+//
+// frontmatter 참조만 검사하면 규칙을 지울 때 본문 참조가 남아 화면 링크가 사라짐
+// 외부 도구 규칙 이름과 가르려고 첫 마디가 우리 section 접두사인 것만 검사
+// 도구 설정을 담은 `tooling` 규칙은 stylelint, biome 규칙 이름을 대량 인용해 건너뜀
+// ----------------------------------------------------------------------------------------
 const assertProseRuleReferences = (args: AssertProseRuleReferencesArgs): void => {
 	for (const rule of args.document.rules) {
 		// 코드 펜스 안은 실제 코드라 검사 제외
@@ -51,8 +53,7 @@ const assertProseRuleReferences = (args: AssertProseRuleReferencesArgs): void =>
 				);
 			}
 
-			// stylelint, biome 규칙 이름이 우리 접두사와 겹쳐 tooling 규칙은 ID 해석을 건너뜀
-			// 그래서 tooling 본문은 우리 규칙을 `css/…`처럼 소유 skill을 붙여 가리킴
+			// tooling 규칙은 stylelint, biome 규칙 이름이 우리 접두사와 겹쳐 ID 해석을 건너뜀 → 본문은 `css/…`처럼 소유 skill을 붙여 가리킴
 			if (rule.prefix === "tooling" && !reference.includes("/")) {
 				continue;
 			}
@@ -72,11 +73,12 @@ const assertProseRuleReferences = (args: AssertProseRuleReferencesArgs): void =>
 	}
 };
 
-/**
- * @helper companion 선언에서 이 skill보다 위 계층인 skill 이름 수집
- * @description 나를 companion으로 켜는 skill이 위 계층. `typescript`는 아무도 켜지 않아 가장 아래
- *   아래 계층이 위 계층 규칙 ID를 가리키면 아래 계층만 쓰는 프로젝트에서 그 참조가 끊김
- */
+// ----------------------------------------------------------------------------------------
+// companion 선언에서 이 skill보다 위 계층인 skill 이름 수집
+//
+// 나를 companion으로 켜는 skill이 위 계층, `typescript`는 아무도 켜지 않아 가장 아래
+// 아래 계층이 위 계층 규칙 ID를 가리키면 아래 계층만 쓰는 프로젝트에서 그 참조가 끊김
+// ----------------------------------------------------------------------------------------
 const collectSkillsAbove = async (skillName: string, skillRootDir?: string): Promise<Set<string>> => {
 	const parentsBySkill = new Map<string, Set<string>>();
 
@@ -112,27 +114,12 @@ const collectSkillsAbove = async (skillName: string, skillRootDir?: string): Pro
 };
 
 interface LocalValidationResult {
-	/**
-	 * @field 검증한 local skill 문서
-	 */
 	document: LoadedSkillDocument;
-	/**
-	 * @field 직접 의존성 선언 정보
-	 */
 	dependencies: DependencyDeclaration;
-	/**
-	 * @field local 규칙 파일 개수
-	 */
 	ruleCount: number;
-	/**
-	 * @field local section 개수
-	 */
 	sectionCount: number;
 }
 
-/**
- * @helper metadata 의존성 선언을 상호 배타적으로 검증, 정규화
- */
 const validateMetadata = (skillName: string, metadata: SkillMetadata): DependencyDeclaration => {
 	const rawMetadata = metadata as unknown as Record<string, unknown>;
 	const dependencies = parseDependencyDeclaration(skillName, metadata);
@@ -148,9 +135,6 @@ const validateMetadata = (skillName: string, metadata: SkillMetadata): Dependenc
 	return dependencies;
 };
 
-/**
- * @helper 단일 skill 문서 형식을 local 원본 기준으로 검증
- */
 const validateLocalSkill = async (skillPaths: SkillPaths): Promise<LocalValidationResult> => {
 	const document = await readSkillDocument(skillPaths);
 	const {metadata, rules, sections} = document;
@@ -162,7 +146,7 @@ const validateLocalSkill = async (skillPaths: SkillPaths): Promise<LocalValidati
 		throw new Error(`${skillPaths.skillName}: rules/_sections.md must define at least one section.`);
 	}
 
-	// 아래 progressive 전용 루프와 별개. 한국어 제목은 8개 skill 전부 필요
+	// 한국어 제목은 모든 skill에 필요
 	for (const section of sections) {
 		if (!section.titleKo) {
 			throw new Error(`${skillPaths.skillName}: section "${section.title}" is missing "**TitleKo:**" in rules/_sections.md.`);
@@ -286,9 +270,6 @@ const validateLocalSkill = async (skillPaths: SkillPaths): Promise<LocalValidati
 	return {document, dependencies, ruleCount: ruleFileNames.length, sectionCount: sections.length};
 };
 
-/**
- * @helper 의존성 그래프를 돌며 각 skill을 한 번씩 검증
- */
 interface ValidateSkillTreeArgs {
 	skillPaths: SkillPaths;
 	lineage: string[];
@@ -338,10 +319,11 @@ const validateSkillTree = async (args: ValidateSkillTreeArgs): Promise<LocalVali
 	return localResult;
 };
 
-/**
- * @helper 저장소 전체 규칙 stable ID 수집
- * @description 산문 참조 검사용. 의존성 트리로 좁히면 아래 계층이 위 계층을 알려 주는 배제 문장까지 막힘
- */
+// ----------------------------------------------------------------------------------------
+// 저장소 전체 규칙 stable ID 수집, 산문 참조 검사용
+//
+// 의존성 트리로 좁히면 아래 계층이 위 계층을 알려 주는 배제 문장까지 막힘
+// ----------------------------------------------------------------------------------------
 const collectAllRuleIds = async (skillRootDir?: string): Promise<{ids: Set<string>; prefixes: Set<string>}> => {
 	const ids = new Set<string>();
 	const prefixes = new Set<string>();
@@ -361,9 +343,6 @@ const collectAllRuleIds = async (skillRootDir?: string): Promise<{ids: Set<strin
 	return {ids, prefixes};
 };
 
-/**
- * @helper skill 의존성 그래프에서 도달 가능한 skill 이름 수집
- */
 const collectReachableSkillNames = (
 	skillName: string,
 	dependenciesBySkill: Map<string, DependencyDeclaration>,
@@ -381,9 +360,6 @@ const collectReachableSkillNames = (
 	return collected;
 };
 
-/**
- * @helper local과 도달 가능한 companion의 라우팅 대상 stable ID 검증
- */
 const validateRoutingTargets = (
 	documents: Map<string, LoadedSkillDocument>,
 	dependenciesBySkill: Map<string, DependencyDeclaration>,
@@ -427,9 +403,6 @@ const validateRoutingTargets = (
 	}
 };
 
-/**
- * @description 단일 skill의 metadata와 규칙 문서 형식 검증
- */
 export const validateSkill = async (skillPaths: SkillPaths): Promise<void> => {
 	const validatedSkillNames = new Set<string>();
 	const documents = new Map<string, LoadedSkillDocument>();

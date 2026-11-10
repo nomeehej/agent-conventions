@@ -2,35 +2,31 @@ import path from "node:path";
 
 import type {SkillCompanion} from "./types.js";
 
-/**
- * @summary 검증을 마친 단일 skill 의존성 선언
- */
+// ----------------------------------------------------------------------------------------
+// 검증을 마친 단일 skill 의존성 선언
+//
+// skillNames: 직접 companion의 skill 이름만 모은 목록
+// ----------------------------------------------------------------------------------------
 export interface DependencyDeclaration {
-	/**
-	 * @field 검증된 직접 의존 skill 이름 목록
-	 */
 	skillNames: string[];
-	/**
-	 * @field 같은 스키마 계약으로 정규화한 직접 companion 목록
-	 */
 	companions: SkillCompanion[];
 }
 
 export const maximumConditionLength = 160;
 const safeStableNamePattern = /^[A-Za-z0-9][A-Za-z0-9._@-]*$/;
 
-/**
- * @helper 규칙 파일명에서 stable ID 계산
- *
- * 사람이 번호로 찾도록 붙인 `NN-MM-` 접두사는 ID에서 제외. 번호가 바뀌어도 참조 유지
- */
+// ----------------------------------------------------------------------------------------
+// 규칙 파일 이름에서 stable ID 계산
+//
+// 사람이 번호로 찾도록 붙인 `NN-MM-` 접두사는 ID에서 제외 → 번호가 바뀌어도 참조 유지
+//
+// getRuleStableId("03-02-name-things.md") → "name-things"
+// getRuleStableId("name-things.md") → "name-things"
+// ----------------------------------------------------------------------------------------
 export const getRuleStableId = (fileName: string): string => {
 	return fileName.replace(/\.md$/, "").replace(/^\d+-\d+-/, "");
 };
 
-/**
- * @helper unknown 값의 metadata 객체 여부 검증
- */
 export const assertMetadataObject = (value: unknown, skillName: string): Record<string, unknown> => {
 	if (typeof value !== "object" || value === null || Array.isArray(value)) {
 		throw new Error(`${skillName}: metadata.json root must be an object.`);
@@ -39,9 +35,6 @@ export const assertMetadataObject = (value: unknown, skillName: string): Record<
 	return value as Record<string, unknown>;
 };
 
-/**
- * @helper skill 이름이 지정 루트 바로 아래 자식 이름인지 검증
- */
 export const assertValidSkillName = (value: unknown, owner: string = "Skill"): string => {
 	const valid =
 		typeof value === "string" &&
@@ -63,9 +56,9 @@ export const assertValidSkillName = (value: unknown, owner: string = "Skill"): s
 	return value as string;
 };
 
-/**
- * @helper Markdown 라우팅에서 코드 스팬과 경로 마디로 쓰는 stable ID 검증
- */
+// ----------------------------------------------------------------------------------------
+// stable ID 형식 검증, Markdown 라우팅에서 코드 스팬과 경로 마디로 쓰이기 때문
+// ----------------------------------------------------------------------------------------
 export const assertValidRoutingIdentifier = (value: unknown, owner: string): string => {
 	if (typeof value !== "string" || !safeStableNamePattern.test(value)) {
 		throw new Error(
@@ -76,9 +69,6 @@ export const assertValidRoutingIdentifier = (value: unknown, owner: string): str
 	return value;
 };
 
-/**
- * @helper local 또는 cross-skill 규칙 대상 stable ID 검증
- */
 export const assertValidRuleTarget = (value: unknown, owner: string, fieldName: "requiresSelected" | "reviewWith"): string => {
 	if (typeof value !== "string") {
 		throw new Error(`${owner}: invalid ${fieldName} routing identifier "${String(value)}".`);
@@ -97,9 +87,6 @@ export const assertValidRuleTarget = (value: unknown, owner: string, fieldName: 
 	return value;
 };
 
-/**
- * @helper appliesWhen 조건 문자열의 길이와 한 줄 형식 검증
- */
 export const assertRoutingCondition = (value: unknown, owner: string): string => {
 	if (typeof value !== "string" || value.trim().length === 0 || /[\r\n]/.test(value) || value.length > maximumConditionLength) {
 		throw new Error(`${owner} must be a non-empty one-line string of at most ${maximumConditionLength} characters.`);
@@ -108,9 +95,6 @@ export const assertRoutingCondition = (value: unknown, owner: string): string =>
 	return value;
 };
 
-/**
- * @helper companion 객체와 required, conditional 계약 검증과 정규화
- */
 const parseCompanions = (skillName: string, rawCompanions: unknown): SkillCompanion[] => {
 	if (!Array.isArray(rawCompanions)) {
 		throw new Error(`${skillName}: metadata.json field "companions" must be an array of companion objects.`);
@@ -159,9 +143,6 @@ const parseCompanions = (skillName: string, rawCompanions: unknown): SkillCompan
 	return companions;
 };
 
-/**
- * @helper metadata의 companion 의존성 계약 파싱. 옛 extends 와 progressiveDisclosure 키는 거부
- */
 export const parseDependencyDeclaration = (skillName: string, metadata: unknown): DependencyDeclaration => {
 	const metadataObject = assertMetadataObject(metadata, skillName);
 	assertValidRoutingIdentifier(skillName, `${skillName}: skill name`);

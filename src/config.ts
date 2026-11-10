@@ -12,19 +12,13 @@ const packageDir = path.resolve(currentDir, "..");
 const repoDir = packageDir;
 const skillRootDir = path.join(repoDir, "skill");
 
-/**
- * @summary 빌드 패키지와 대상 skill 루트 기준 경로 묶음
- */
 export const packagePaths: PackagePaths = {currentDir, packageDir, repoDir, skillRootDir};
 
-/**
- * 공개 규칙 페이지 생성 경로. 생성물은 커밋 대상에서 제외
- */
+// ----------------------------------------------------------------------------------------
+// 공개 규칙 페이지 생성 경로, 생성물은 커밋 대상에서 제외
+// ----------------------------------------------------------------------------------------
 export const siteOutputDir = path.join(repoDir, "content", "public", "convention");
 
-/**
- * @helper 설정된 skill 루트가 심볼릭 링크가 아닌 실제 디렉터리인지 검증
- */
 const assertRealSkillRootDirectory = async (targetSkillRootDir: string): Promise<void> => {
 	const resolvedSkillRootDir = path.resolve(targetSkillRootDir);
 	const rootStats = await lstat(resolvedSkillRootDir);
@@ -34,9 +28,6 @@ const assertRealSkillRootDirectory = async (targetSkillRootDir: string): Promise
 	}
 };
 
-/**
- * @helper CLI 인자 해석 결과 계산
- */
 export const parseCliArgs = (args: string[]): CliArgs => {
 	const all = args.includes("--all");
 	const skillArg = args.find((arg) => arg.startsWith("--skill="));
@@ -66,9 +57,6 @@ export const parseCliArgs = (args: string[]): CliArgs => {
 	return {all, skill, ...parsedSkillRoot};
 };
 
-/**
- * @helper 단일 skill 작업용 경로 묶음 계산
- */
 export const getSkillPaths = (skillName: string, targetSkillRootDir: string = skillRootDir): SkillPaths => {
 	assertValidSkillName(skillName);
 	const resolvedSkillRootDir = path.resolve(targetSkillRootDir);
@@ -91,9 +79,6 @@ export const getSkillPaths = (skillName: string, targetSkillRootDir: string = sk
 	};
 };
 
-/**
- * @api 설정된 루트와 skill이 심볼릭 링크가 아닌 실제 직속 하위 디렉터리인지 검증
- */
 export const assertRealSkillDirectory = async (skillPaths: SkillPaths): Promise<void> => {
 	const configuredSkillRootDir = path.dirname(skillPaths.skillDir);
 	await assertRealSkillRootDirectory(configuredSkillRootDir);
@@ -110,9 +95,6 @@ export const assertRealSkillDirectory = async (skillPaths: SkillPaths): Promise<
 	}
 };
 
-/**
- * @description `skill/` 루트 디렉터리 아래 build 후보 skill 목록 조회
- */
 export const listSkillNames = async (targetSkillRootDir: string = skillRootDir): Promise<string[]> => {
 	await assertRealSkillRootDirectory(targetSkillRootDir);
 	const entries = await readdir(targetSkillRootDir, {withFileTypes: true});
@@ -123,9 +105,9 @@ export const listSkillNames = async (targetSkillRootDir: string = skillRootDir):
 		.sort();
 };
 
-/**
- * @api CLI 인자가 가리키는 buildable skill 경로 목록. 이름을 지정했는데 buildable 이 아니면 오류
- */
+// ----------------------------------------------------------------------------------------
+// CLI 인자가 가리키는 buildable skill 경로 목록, 이름을 지정했는데 buildable이 아니면 오류
+// ----------------------------------------------------------------------------------------
 export const resolveTargetSkillPaths = async (args: string[]): Promise<SkillPaths[]> => {
 	const {all, skill, skillRootDir: targetSkillRootDir = skillRootDir} = parseCliArgs(args);
 	const targetSkillNames = all ? await listSkillNames(targetSkillRootDir) : [skill];
@@ -150,9 +132,6 @@ export const resolveTargetSkillPaths = async (args: string[]): Promise<SkillPath
 	return targets;
 };
 
-/**
- * @description `rules/` 기반 build, validate 대상 skill 여부 확인
- */
 export const isBuildableSkill = async (skillName: string, targetSkillRootDir: string = skillRootDir): Promise<boolean> => {
 	const skillPaths = getSkillPaths(skillName, targetSkillRootDir);
 

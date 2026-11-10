@@ -2,9 +2,6 @@ import {readFile} from "node:fs/promises";
 
 import type {LoadedSkillDocument, SkillPaths} from "./types.js";
 
-/**
- * @api skill 활성화 진입점 파일 가독성 검증
- */
 export const assertProgressiveSkillEntrypoint = async (skillPaths: SkillPaths, document: LoadedSkillDocument): Promise<void> => {
 	try {
 		await readFile(skillPaths.skillEntrypointPath, "utf8");

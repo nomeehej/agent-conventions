@@ -19,14 +19,11 @@ const allowedRuleFrontmatterKeys = new Set([
 	"tags",
 ]);
 
-/**
- * @field 한 줄 scalar 외에 `- ` 항목 block list도 받는 frontmatter 키. 항목은 줄바꿈으로 연결
- */
+// ----------------------------------------------------------------------------------------
+// 한 줄 scalar 외에 `- ` 항목 block list도 받는 frontmatter 키, 항목은 줄바꿈으로 연결
+// ----------------------------------------------------------------------------------------
 const blockListCapableFrontmatterKeys = new Set(["appliesWhen"]);
 
-/**
- * @helper 선택적 boolean frontmatter scalar 해석
- */
 const parseBooleanScalar = (value: string | undefined, key: string): boolean => {
 	if (value === undefined) {
 		return false;
@@ -39,9 +36,6 @@ const parseBooleanScalar = (value: string | undefined, key: string): boolean => 
 	return value === "true";
 };
 
-/**
- * @helper frontmatter scalar의 짝 따옴표 해제
- */
 const parseScalarValue = (rawValueSource: string, key: string): string => {
 	const rawValue = rawValueSource.trim();
 	const openingQuote = rawValue[0];
@@ -57,14 +51,11 @@ const parseScalarValue = (rawValueSource: string, key: string): string => {
 	return rawValue.slice(1, -1);
 };
 
-/**
- * @field YAML folded scalar 표기. 여러 줄 값을 공백 한 칸으로 접음
- */
+// ----------------------------------------------------------------------------------------
+// YAML folded scalar 표기, 여러 줄 값을 공백 한 칸으로 접음
+// ----------------------------------------------------------------------------------------
 const foldedScalarMarker = /^\s*>-?\s*$/;
 
-/**
- * @helper Markdown frontmatter와 본문 분리
- */
 export const parseFrontmatter = (source: string): {frontmatter: Record<string, string>; body: string} => {
 	const normalizedSource = source.replace(/\r\n/g, "\n");
 	const match = normalizedSource.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
@@ -141,9 +132,6 @@ export const parseFrontmatter = (source: string): {frontmatter: Record<string, s
 	return {frontmatter, body: body.trimStart()};
 };
 
-/**
- * @helper `rules/_sections.md` 원문에서 섹션 메타데이터 추출
- */
 export const parseSections = (source: string): SkillSection[] => {
 	const normalizedSource = source.replace(/\r\n/g, "\n");
 	const blocks = normalizedSource
@@ -194,9 +182,11 @@ export const parseSections = (source: string): SkillSection[] => {
 	return sections.sort((left, right) => left.order - right.order);
 };
 
-/**
- * @helper 헤딩, 목차 표시용 제목에서 Markdown 장식 제거
- */
+// ----------------------------------------------------------------------------------------
+// 헤딩, 목차 표시용 제목에서 Markdown 장식 제거, 코드 스팬 안은 그대로
+//
+// normalizeHeadingTitle("**굵게** `a*b*` 제목") → "굵게 `a*b*` 제목"
+// ----------------------------------------------------------------------------------------
 export const normalizeHeadingTitle = (value: string): string => {
 	const codeSpans: string[] = [];
 	const placeholderSource = value.replace(/`[^`]+`/g, (match) => {
@@ -212,9 +202,6 @@ export const normalizeHeadingTitle = (value: string): string => {
 	return normalized.replace(/@@CODE_SPAN_(\d+)@@/g, (_, rawIndex: string) => codeSpans[Number(rawIndex)] ?? "");
 };
 
-/**
- * @description skill metadata.json 파일 로드
- */
 export const readSkillMetadata = async (skillPaths: SkillPaths): Promise<SkillMetadata> => {
 	const metadata: unknown = JSON.parse(await readFile(skillPaths.metadataPath, "utf8"));
 	const metadataObject = assertMetadataObject(metadata, skillPaths.skillName);
@@ -222,25 +209,16 @@ export const readSkillMetadata = async (skillPaths: SkillPaths): Promise<SkillMe
 	return metadataObject as unknown as SkillMetadata;
 };
 
-/**
- * @description skill section metadata 파일 로드
- */
 export const readSkillSections = async (skillPaths: SkillPaths): Promise<SkillSection[]> => {
 	return parseSections(await readFile(skillPaths.sectionsPath, "utf8"));
 };
 
-/**
- * @description build 대상 규칙 파일명 목록 조회
- */
 export const readSkillRuleFileNames = async (skillPaths: SkillPaths): Promise<string[]> => {
 	return (await readdir(skillPaths.rulesDir))
 		.filter((fileName) => fileName.endsWith(".md") && !fileName.startsWith("_") && fileName !== "README.md")
 		.sort();
 };
 
-/**
- * @description build 대상 규칙 Markdown 본문과 frontmatter 로드
- */
 export const readSkillRules = async (skillPaths: SkillPaths): Promise<SkillRule[]> => {
 	const ruleFileNames = await readSkillRuleFileNames(skillPaths);
 	const rules: SkillRule[] = [];
@@ -278,12 +256,12 @@ export const readSkillRules = async (skillPaths: SkillPaths): Promise<SkillRule[
 	return rules;
 };
 
-/**
- * @helper appliesWhen 값을 라우팅용 한 줄 문장과 표시용 불렛 목록으로 해석
- *
- * - block list: 불렛을 마침표로 이어 라우팅 문장 생성
- * - scalar: 원문을 그대로 라우팅 문장으로 사용
- */
+// ----------------------------------------------------------------------------------------
+// appliesWhen 값을 라우팅용 한 줄 문장과 표시용 불렛 목록으로 해석
+//
+// block list: 불렛을 마침표로 이어 라우팅 문장 생성
+// scalar: 원문을 그대로 라우팅 문장으로 사용
+// ----------------------------------------------------------------------------------------
 const resolveAppliesWhen = (value: string | undefined): {appliesWhen?: string; appliesWhenBullets: string[]} => {
 	if (value === undefined) {
 		return {appliesWhenBullets: []};
@@ -298,9 +276,6 @@ const resolveAppliesWhen = (value: string | undefined): {appliesWhen?: string; a
 	return {appliesWhen: `${bullets.map((bullet) => bullet.replace(/\.$/, "")).join(". ")}.`, appliesWhenBullets: bullets};
 };
 
-/**
- * @helper 쉼표 구분 frontmatter scalar를 정리된 목록으로 변환
- */
 const splitScalarList = (value: string | undefined): string[] => {
 	return (value ?? "")
 		.split(",")
@@ -308,9 +283,6 @@ const splitScalarList = (value: string | undefined): string[] => {
 		.filter(Boolean);
 };
 
-/**
- * @description 단일 skill의 metadata, sections, rules를 함께 로드
- */
 export const readSkillDocument = async (skillPaths: SkillPaths): Promise<LoadedSkillDocument> => {
 	await assertRealSkillDirectory(skillPaths);
 
@@ -322,9 +294,6 @@ export const readSkillDocument = async (skillPaths: SkillPaths): Promise<LoadedS
 	};
 };
 
-/**
- * @helper 중복 없이 상속 순서를 유지하며 skill 문서 배열 정리
- */
 const dedupeResolvedSkillDocuments = (documents: LoadedSkillDocument[]): LoadedSkillDocument[] => {
 	const seenSkillNames = new Set<string>();
 
@@ -338,20 +307,22 @@ const dedupeResolvedSkillDocuments = (documents: LoadedSkillDocument[]): LoadedS
 	});
 };
 
+// ----------------------------------------------------------------------------------------
+// 해석 호출 한 번 안에서 재귀 호출이 공유하는 캐시
+//
+// documentCache: skill 이름 → 읽은 local 문서
+// resolvedDocumentCache: skill 이름 → 의존성까지 정렬을 마친 문서 배열
+// ----------------------------------------------------------------------------------------
 interface ResolutionState {
-	/**
-	 * @field 해석 호출 한 번 안에서 읽은 local 문서 캐시
-	 */
 	documentCache: Map<string, LoadedSkillDocument>;
-	/**
-	 * @field 의존성까지 정렬을 마친 문서 배열 캐시
-	 */
 	resolvedDocumentCache: Map<string, LoadedSkillDocument[]>;
 }
 
-/**
- * @helper 캐시를 공유하며 의존성 문서 집합 재귀 해석
- */
+// ----------------------------------------------------------------------------------------
+// 의존성 문서 집합 재귀 해석, 재귀 호출이 state의 캐시를 공유
+//
+// lineage: 지금까지 거쳐 온 skill 이름 → 순환 companion 검출
+// ----------------------------------------------------------------------------------------
 const resolveSkillDocuments = async (skillPaths: SkillPaths, lineage: string[], state: ResolutionState): Promise<LoadedSkillDocument[]> => {
 	const cachedDocuments = state.resolvedDocumentCache.get(skillPaths.skillName);
 
@@ -400,9 +371,6 @@ const resolveSkillDocuments = async (skillPaths: SkillPaths, lineage: string[], 
 	return resolvedDocuments;
 };
 
-/**
- * @description companion skill까지 포함한 문서 집합 로드
- */
 export const readResolvedSkillDocuments = async (skillPaths: SkillPaths, lineage: string[] = []): Promise<LoadedSkillDocument[]> => {
 	return await resolveSkillDocuments(skillPaths, lineage, {documentCache: new Map(), resolvedDocumentCache: new Map()});
 };

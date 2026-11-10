@@ -1,75 +1,52 @@
-/**
- * 코드 펜스를 여닫는 표시. 언어 이름은 이 길이만큼 잘라 낸 나머지
- */
+// ----------------------------------------------------------------------------------------
+// 코드 펜스를 여닫는 표시, 언어 이름은 이 길이만큼 잘라 낸 나머지
+// ----------------------------------------------------------------------------------------
 const fenceMarker = "```";
 
-/**
- * @summary 규칙 본문 코드 블록 하나
- */
+// ----------------------------------------------------------------------------------------
+// 규칙 본문 코드 블록 하나
+//
+// lang: 코드 펜스에 적힌 언어, 없으면 "text"
+// ----------------------------------------------------------------------------------------
 export interface RuleCodeBlock {
-	/**
-	 * @field 코드 펜스에 적힌 언어. 없으면 "text"
-	 */
 	lang: string;
-	/**
-	 * @field 펜스 내부 원문
-	 */
 	code: string;
 }
 
-/**
- * @summary Incorrect 또는 Correct 라벨 하나와 딸린 코드 블록 묶음
- */
+// ----------------------------------------------------------------------------------------
+// Incorrect 또는 Correct 라벨 하나와 딸린 코드 블록 묶음
+//
+// label: 라벨 괄호 안 부연 설명, 없으면 빈 문자열
+// pair: 짝 번호(`**Incorrect 1**`과 `**Correct 1**`), 없으면 홀로 선 예시
+// ----------------------------------------------------------------------------------------
 export interface RuleExample {
-	/**
-	 * @field 잘못된 예시인지 올바른 예시인지
-	 */
 	kind: "incorrect" | "correct";
-	/**
-	 * @field 라벨 괄호 안 부연 설명. 없으면 빈 문자열
-	 */
 	label: string;
-	/**
-	 * @field 라벨 아래 이어지는 코드 블록 목록
-	 */
 	blocks: RuleCodeBlock[];
-	/**
-	 * @field 짝 번호. 없으면 홀로 선 예시
-	 *
-	 * `**Incorrect 1**`과 `**Correct 1**`처럼 같은 번호끼리 좌우 diff로 마주 섬
-	 */
 	pair?: number;
 }
 
-/**
- * @summary 첫 예시 이전 본문을 이루는 줄 또는 코드 블록
- */
 export type RuleProseNode = {type: "line"; text: string} | {type: "code"; lang: string; code: string};
 
-/**
- * @summary 규칙 본문 분해 결과
- */
+// ----------------------------------------------------------------------------------------
+// 규칙 본문 분해 결과
+//
+// prose: 첫 예시 이전 산문, 표와 코드 블록 포함
+// examples: 문서 순서를 유지한 예시 목록
+// ----------------------------------------------------------------------------------------
 export interface ParsedRuleBody {
-	/**
-	 * @field 첫 예시 이전 산문. 표와 코드 블록 포함
-	 */
 	prose: RuleProseNode[];
-	/**
-	 * @field 문서 순서를 유지한 예시 목록
-	 */
 	examples: RuleExample[];
 }
 
-/**
- * 라벨 본문에 `clsx()`, `:is()`처럼 괄호가 들어가 마지막 `)`까지 greedy로 매칭
- *
- * `[^)]*`면 첫 `)`에서 끊겨 라벨을 못 찾고 예시가 앞 카드에 병합됨
- */
+// ----------------------------------------------------------------------------------------
+// 라벨의 괄호 설명은 마지막 `)`까지 greedy로 매칭
+//
+// `clsx()`, `:is()`처럼 괄호가 들어가는 라벨이 있음
+// `[^)]*`면 첫 `)`에서 끊김 → 라벨을 못 찾고 예시가 앞 카드에 병합됨
+// ----------------------------------------------------------------------------------------
 const examplePattern = /^\*\*(Incorrect|Correct)(?:\s+(\d+))?\s*(?:\((.+)\))?\s*:?\*\*/;
 
-/**
- * @helper 본문 선두의 `## 제목`과 `**Impact: …**` 줄 제거
- */
 const stripLeadingHeading = (prose: RuleProseNode[]): RuleProseNode[] => {
 	let headingDropped = false;
 
@@ -87,9 +64,6 @@ const stripLeadingHeading = (prose: RuleProseNode[]): RuleProseNode[] => {
 	});
 };
 
-/**
- * @helper 앞뒤 빈 줄 정리
- */
 const trimBlankEdges = (prose: RuleProseNode[]): RuleProseNode[] => {
 	const isBlank = (node: RuleProseNode): boolean => node.type === "line" && node.text.trim() === "";
 	let start = 0;
@@ -106,9 +80,6 @@ const trimBlankEdges = (prose: RuleProseNode[]): RuleProseNode[] => {
 	return prose.slice(start, end);
 };
 
-/**
- * @api 규칙 Markdown 본문을 화면용 산문과 예시로 분해
- */
 export const parseRuleBody = (body: string): ParsedRuleBody => {
 	const lines = body.replace(/\r\n/g, "\n").split("\n");
 	const prose: RuleProseNode[] = [];

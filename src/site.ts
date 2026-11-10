@@ -11,33 +11,27 @@ import {snippetLinePattern} from "./snippets.js";
 import {escapeMarkdownProse, getRuleId, getRulesForSection} from "./routing.js";
 import type {LoadedSkillDocument, SkillCompanion, SkillMetadata, SkillRule, SkillSection} from "./types.js";
 
-/**
- * 섹션 파일 이름 앞 번호 자릿수. `01-ownership.md`
- */
+// ----------------------------------------------------------------------------------------
+// 섹션 파일 이름 앞 번호 자릿수, `01-ownership.md`
+// ----------------------------------------------------------------------------------------
 const sectionNumberWidth = 2;
 
-/**
- * 사이드바 묶음. 루트 `for-humanity.config.ts`의 `navigation`과 순서 일치
- */
+// ----------------------------------------------------------------------------------------
+// 사이드바 묶음, 루트 `for-humanity.config.ts`의 `navigation`과 순서 일치
+// ----------------------------------------------------------------------------------------
 const navigationGroups = ["Coding", "Tool"] as const;
 
 type NavigationGroup = (typeof navigationGroups)[number];
 
-/**
- * @summary skill 하나가 사이드바에서 차지하는 자리
- */
+// ----------------------------------------------------------------------------------------
+// skill 하나가 사이드바에서 차지하는 자리
+//
+// name: 사이드바에 보이는 짧은 이름
+// order: 묶음 안 순서
+// ----------------------------------------------------------------------------------------
 interface SitePlacement {
-	/**
-	 * @field 사이드바에 보이는 짧은 이름
-	 */
 	name: string;
-	/**
-	 * @field 묶음 이름
-	 */
 	group: NavigationGroup;
-	/**
-	 * @field 묶음 안 순서
-	 */
 	order: number;
 }
 
@@ -50,58 +44,40 @@ const placementBySkillName: Record<string, SitePlacement> = {
 	blueprint: {name: "Blueprint", group: "Tool", order: 2},
 };
 
-/**
- * 본문 백틱 안 규칙 ID 후보. validate의 산문 참조 검사와 같은 기준
- */
+// ----------------------------------------------------------------------------------------
+// 본문 백틱 안 규칙 ID 후보, validate의 산문 참조 검사와 같은 기준
+// ----------------------------------------------------------------------------------------
 const ruleReferencePattern = /`((?:[a-z][a-z0-9]*\/)?[a-z][a-z0-9]*(?:-[a-z0-9]+){3,})`/g;
 
-/**
- * @summary 규칙 하나가 사이트에서 사는 페이지와 앵커
- */
+// ----------------------------------------------------------------------------------------
+// 규칙 하나가 사이트에서 사는 페이지와 앵커
+//
+// page: 생성 폴더 기준 페이지 경로, `css/02-ownership.md`
+// anchor: 페이지 안 규칙 헤딩 앵커, `#` 없음
+// number: 규칙 번호, `2.3` 꼴
+// heading: 번호를 붙인 헤딩 본문
+// summary: 사람이 읽는 한 줄 요지, frontmatter `impactDescription`
+// ----------------------------------------------------------------------------------------
 interface RuleLocation {
-	/**
-	 * @field 생성 폴더 기준 페이지 경로. `css/02-ownership.md`
-	 */
 	page: string;
-	/**
-	 * @field 페이지 안 규칙 헤딩 앵커. `#` 없음
-	 */
 	anchor: string;
-	/**
-	 * @field 규칙 번호. `2.3` 꼴
-	 */
 	number: string;
-	/**
-	 * @field 번호를 붙인 헤딩 본문
-	 */
 	heading: string;
-	/**
-	 * @field 규칙을 소유한 skill 이름
-	 */
 	skill: string;
-	/**
-	 * @field 사람이 읽는 한 줄 요지. frontmatter `impactDescription`
-	 */
 	summary: string;
 }
 
-/**
- * @summary 생성할 사이트 파일 하나
- */
+// ----------------------------------------------------------------------------------------
+// 생성할 사이트 파일 하나, path는 생성 폴더 기준 상대 경로
+// ----------------------------------------------------------------------------------------
 export interface SiteFile {
-	/**
-	 * @field 생성 폴더 기준 상대 경로
-	 */
 	path: string;
-	/**
-	 * @field UTF-8 본문
-	 */
 	content: string;
 }
 
-/**
- * @helper skill의 사이드바 자리. 새 skill은 표에 먼저 등록
- */
+// ----------------------------------------------------------------------------------------
+// skill의 사이드바 자리, 새 skill은 placementBySkillName에 먼저 등록
+// ----------------------------------------------------------------------------------------
 const getPlacement = (skillName: string): SitePlacement => {
 	const placement = placementBySkillName[skillName];
 
@@ -112,9 +88,6 @@ const getPlacement = (skillName: string): SitePlacement => {
 	return placement;
 };
 
-/**
- * @helper 사이드바 순서. 묶음 순서 다음 묶음 안 순서
- */
 const comparePlacement = (left: LoadedSkillDocument, right: LoadedSkillDocument): number => {
 	const leftPlacement = getPlacement(left.skillName);
 	const rightPlacement = getPlacement(right.skillName);
@@ -125,14 +98,16 @@ const comparePlacement = (left: LoadedSkillDocument, right: LoadedSkillDocument)
 	);
 };
 
-/**
- * @helper YAML frontmatter scalar. 콜론, 따옴표가 들어가도 깨지지 않게 JSON 문자열로
- */
+// ----------------------------------------------------------------------------------------
+// YAML frontmatter scalar, 콜론과 따옴표가 들어가도 깨지지 않게 JSON 문자열로
+// ----------------------------------------------------------------------------------------
 const yamlScalar = (value: string): string => JSON.stringify(value);
 
-/**
- * @helper 섹션 페이지의 글머리. `_sections.md`의 Lead가 없으면 description 첫 문장에서 백틱만 뗀 것
- */
+// ----------------------------------------------------------------------------------------
+// 섹션 페이지의 글머리
+//
+// `_sections.md`의 Lead가 없으면 description 첫 문장에서 백틱만 뗀 것
+// ----------------------------------------------------------------------------------------
 const sectionLead = (section: SkillSection): string => {
 	if (section.lead !== "") {
 		return section.lead;
@@ -143,35 +118,23 @@ const sectionLead = (section: SkillSection): string => {
 	return firstSentence.replace(/`/g, "");
 };
 
-/**
- * @helper skill 개요 페이지의 글머리. `metadata.json`의 lead가 없으면 제목
- */
 const overviewLead = (metadata: SkillMetadata): string => {
 	const lead = metadata.lead ?? "";
 
 	return lead === "" ? metadata.title : lead;
 };
 
-/**
- * @helper 섹션 페이지의 `site/` 기준 경로
- */
 const sectionPagePath = (skillName: string, section: SkillSection): string => {
 	return `${skillName}/${String(section.order).padStart(sectionNumberWidth, "0")}-${section.prefix}.md`;
 };
 
-/**
- * @helper 화면에 쓰는 규칙 제목. 한국어 제목이 없으면 영어 제목
- */
 const ruleDisplayTitle = (rule: SkillRule): string => rule.titleKo || normalizeHeadingTitle(rule.title);
 
-/**
- * @helper 화면에 쓰는 섹션 제목
- */
 const sectionDisplayTitle = (section: SkillSection): string => section.titleKo || section.title;
 
-/**
- * @helper 페이지 사이 상대 링크. for-humanity가 사이트 URL로 바꿈
- */
+// ----------------------------------------------------------------------------------------
+// 페이지 사이 상대 링크, for-humanity가 사이트 URL로 바꿈
+// ----------------------------------------------------------------------------------------
 const relativeLink = (fromPage: string, toPage: string, anchor: string): string => {
 	if (fromPage === toPage) {
 		return `#${anchor}`;
@@ -180,10 +143,12 @@ const relativeLink = (fromPage: string, toPage: string, anchor: string): string 
 	return `${path.posix.relative(path.posix.dirname(fromPage), toPage)}#${anchor}`;
 };
 
-/**
- * @helper 모든 skill의 규칙을 `skill/id` 키로 페이지, 앵커에 매핑
- * @description 앵커는 for-humanity가 헤딩 글에 github-slugger를 적용한 값과 같아야 함. 백틱만 떼면 같은 입력
- */
+// ----------------------------------------------------------------------------------------
+// 모든 skill의 규칙을 `skill/id` 키로 페이지, 앵커에 매핑
+//
+// 앵커는 for-humanity가 헤딩 글에 github-slugger를 적용한 값과 같아야 함
+// 헤딩에서 백틱만 떼면 두 쪽의 입력이 같음
+// ----------------------------------------------------------------------------------------
 const collectRuleLocations = (documents: LoadedSkillDocument[]): Map<string, RuleLocation> => {
 	const locations = new Map<string, RuleLocation>();
 
@@ -208,49 +173,33 @@ const collectRuleLocations = (documents: LoadedSkillDocument[]): Map<string, Rul
 	return locations;
 };
 
-/**
- * @summary 규칙 하나를 렌더링하는 데 필요한 문맥
- */
+// ----------------------------------------------------------------------------------------
+// 규칙 하나를 렌더링하는 데 필요한 문맥
+//
+// rulesDir: 규칙 파일이 있는 폴더, `<<<` 상대 경로의 기준
+// copies: 사이트로 복사할 예제 파일, 사이트 경로 → 복사본 본문
+// ----------------------------------------------------------------------------------------
 interface RuleRenderContext {
-	/**
-	 * @field 규칙을 소유한 skill 문서
-	 */
 	document: LoadedSkillDocument;
-	/**
-	 * @field 이 규칙이 실리는 페이지
-	 */
 	page: string;
-	/**
-	 * @field 전체 규칙 위치 색인
-	 */
 	locations: Map<string, RuleLocation>;
-	/**
-	 * @field 규칙 파일이 있는 폴더. `<<<` 상대 경로의 기준
-	 */
 	rulesDir: string;
-	/**
-	 * @field 사이트로 복사할 예제 파일. 사이트 경로 → 복사본 본문
-	 */
 	copies: Map<string, string>;
 }
 
-/**
- * @helper 규칙 참조를 `skill/id` 키로 해석. 같은 skill 안 참조는 skill 이름 생략 가능
- */
 const resolveReference = (reference: string, context: RuleRenderContext): RuleLocation | undefined => {
 	return context.locations.get(reference.includes("/") ? reference : `${context.document.skillName}/${reference}`);
 };
 
-/**
- * @helper 다른 skill 규칙이면 앞에 붙이는 skill 이름. 같은 skill 이면 빈 문자열
- */
 const skillPrefix = (target: RuleLocation, context: RuleRenderContext): string => {
 	return target.skill === context.document.skillName ? "" : `${getPlacement(target.skill).name} `;
 };
 
-/**
- * @helper 산문 속 규칙 ID를 사람이 읽는 링크로. `규칙 2.4` 꼴이라 조사가 자연스럽게 붙음. 해석되지 않으면 코드 스팬 그대로
- */
+// ----------------------------------------------------------------------------------------
+// 산문 속 규칙 ID를 사람이 읽는 링크로, 해석되지 않으면 코드 스팬 그대로
+//
+// `규칙 2.4` 꼴 → 조사가 자연스럽게 붙음
+// ----------------------------------------------------------------------------------------
 const renderReference = (reference: string, context: RuleRenderContext): string => {
 	const target = resolveReference(reference, context);
 
@@ -259,9 +208,9 @@ const renderReference = (reference: string, context: RuleRenderContext): string 
 		: `\`${reference}\``;
 };
 
-/**
- * @helper 규칙 끝의 함께 보기 목록. 필수 관계와 재검토 관계를 사람에게는 한 목록으로
- */
+// ----------------------------------------------------------------------------------------
+// 규칙 끝의 함께 보기 목록, 필수 관계와 재검토 관계를 사람에게는 한 목록으로
+// ----------------------------------------------------------------------------------------
 const renderRelated = (rule: SkillRule, context: RuleRenderContext): string[] => {
 	const items = [...new Set([...rule.requiresSelected, ...rule.reviewWith])]
 		.map((reference) => resolveReference(reference, context))
@@ -271,9 +220,6 @@ const renderRelated = (rule: SkillRule, context: RuleRenderContext): string[] =>
 	return items.length === 0 ? [] : ["", "**함께 보기**", "", ...items];
 };
 
-/**
- * @helper 산문 줄의 백틱 규칙 ID를 링크로 교체. 코드 펜스 안은 그대로
- */
 const linkRuleReferences = (lines: string[], context: RuleRenderContext): string[] => {
 	let inFence = false;
 
@@ -291,44 +237,41 @@ const linkRuleReferences = (lines: string[], context: RuleRenderContext): string
 	});
 };
 
-/**
- * 예제 머리말 줄. `rule-body.ts` 의 examplePattern 과 같은 형태
- */
+// ----------------------------------------------------------------------------------------
+// 예제 머리말 줄, `rule-body.ts`의 examplePattern과 같은 형태
+// ----------------------------------------------------------------------------------------
 const exampleLabelPattern = /^\*\*(Incorrect|Correct)(?:\s+(\d+))?\s*(?:\((.+)\))?\s*:?\*\*$/;
 
-/**
- * 사이트 안에서 예제 파일 복사본이 사는 폴더. 섹션 페이지가 `<<<` 로 가리킴
- */
+// ----------------------------------------------------------------------------------------
+// 사이트 안에서 예제 파일 복사본이 사는 폴더, 섹션 페이지가 `<<<`로 가리킴
+// ----------------------------------------------------------------------------------------
 const exampleCopyDir = "examples";
 
-/**
- * 줄 표기만 있는 주석 줄. 제목으로 올릴 경로 주석 앞에 붙어 있으면 같이 뺌
- */
+// ----------------------------------------------------------------------------------------
+// 줄 표기만 있는 주석 줄, 제목으로 올릴 경로 주석 앞에 붙어 있으면 같이 뺌
+// ----------------------------------------------------------------------------------------
 const notationLinePattern =
 	/^\s*(?:\{\/\* \[!code [^\]]+\] \*\/\}|\/\/ \[!code [^\]]+\]|\/\* \[!code [^\]]+\] \*\/|# \[!code [^\]]+\])\s*$/;
 
-/**
- * 파일 경로만 적은 첫 줄 주석. 설명이 붙은 주석은 코드에 남김
- */
+// ----------------------------------------------------------------------------------------
+// 파일 경로만 적은 첫 줄 주석, 설명이 붙은 주석은 코드에 남김
+// ----------------------------------------------------------------------------------------
 const pathCommentPattern = /^(?:\/\/|#|\/\*)\s*([\w@./-]+\.(?:tsx?|css|m?js|json|md|txt|grit))\s*(?:\*\/)?\s*$/;
 
-/**
- * @summary 사이트로 복사할 예제 파일 하나
- */
+// ----------------------------------------------------------------------------------------
+// 사이트로 복사할 예제 파일 하나
+//
+// content: 복사본 본문, 제목으로 올린 경로 주석은 뺀 상태
+// title: 제목 띠에 올릴 파일 경로, 첫 줄이 경로 주석이 아니면 없음
+// ----------------------------------------------------------------------------------------
 interface ExampleCopy {
-	/**
-	 * @field 복사본 본문. 제목으로 올린 경로 주석은 뺀 상태
-	 */
 	content: string;
-	/**
-	 * @field 제목 띠에 올릴 파일 경로. 첫 줄이 경로 주석이 아니면 없음
-	 */
 	title?: string;
 }
 
-/**
- * @helper 예제 파일을 읽어 첫 줄의 경로 주석을 제목으로 올림. 그 앞의 줄 표기 주석도 함께 뺌
- */
+// ----------------------------------------------------------------------------------------
+// 예제 파일을 읽어 첫 줄의 경로 주석을 제목으로 올림, 그 앞의 줄 표기 주석도 함께 뺌
+// ----------------------------------------------------------------------------------------
 const toExampleCopy = (sourcePath: string): ExampleCopy => {
 	const lines = readFileSync(sourcePath, "utf8").split("\n");
 	const first = lines.findIndex((line) => !notationLinePattern.test(line));
@@ -347,10 +290,13 @@ const toExampleCopy = (sourcePath: string): ExampleCopy => {
 	return {content: rest.join("\n"), title};
 };
 
-/**
- * @helper 예제 전부를 설명 한 줄과 `<<<` 줄로. 번호와 Incorrect, Correct 글자는 안 보이고 블록 색이 판정을 말함
- * @description 원문의 `<<<` 가 가리키는 파일을 사이트 폴더로 복사하도록 context.copies 에 적고, 줄 표기 주석은 파일 안에 있어 그대로 살아남
- */
+// ----------------------------------------------------------------------------------------
+// 예제 전부를 설명 한 줄과 `<<<` 줄로
+//
+// 번호와 Incorrect, Correct 글자는 안 보이고 블록 색이 판정을 말함
+// 원문의 `<<<`가 가리키는 파일을 사이트 폴더로 복사하도록 context.copies에 적음
+// 줄 표기 주석은 파일 안에 있어 그대로 살아남음
+// ----------------------------------------------------------------------------------------
 const renderExamples = (rule: SkillRule, context: RuleRenderContext): string[] => {
 	const lines = rule.source.trim().split("\n");
 	const start = lines.findIndex((line) => exampleLabelPattern.test(line));
@@ -406,15 +352,21 @@ const renderExamples = (rule: SkillRule, context: RuleRenderContext): string[] =
 	return out;
 };
 
-/**
- * @helper 요지를 완결 문장으로. frontmatter 의 괄호 설명은 마침표 없이 끝남
- */
+// ----------------------------------------------------------------------------------------
+// 요지를 완결 문장으로, frontmatter의 괄호 설명은 마침표 없이 끝남
+//
+// toSummarySentence("타입 먼저") → "타입 먼저."
+// toSummarySentence("이미 끝.") → "이미 끝."
+// toSummarySentence("") → ""
+// ----------------------------------------------------------------------------------------
 const toSummarySentence = (summary: string): string => (summary === "" || /[.!?]$/.test(summary) ? summary : `${summary}.`);
 
-/**
- * @helper 규칙 본문 하나를 섹션 페이지 조각으로. 번호 헤딩, 등급 없는 요지, 사람용 링크, 머리말 붙은 예제, 함께 보기
- * @description 등급, 순번, ID, 적용 조건은 에이전트의 인덱스와 계약에만 나감. 사람용 페이지에는 싣지 않음
- */
+// ----------------------------------------------------------------------------------------
+// 규칙 본문 하나를 섹션 페이지 조각으로
+//
+// 구성: 번호 헤딩, 등급 없는 요지, 사람용 링크, 예제, 함께 보기
+// 등급, 순번, ID, 적용 조건은 에이전트의 인덱스와 계약에만 나감 → 이 페이지에는 안 실림
+// ----------------------------------------------------------------------------------------
 const renderRule = (rule: SkillRule, context: RuleRenderContext): string => {
 	const location = context.locations.get(`${context.document.skillName}/${getRuleId(rule)}`);
 
@@ -449,9 +401,6 @@ const renderRule = (rule: SkillRule, context: RuleRenderContext): string => {
 	return [...linkRuleReferences(prose, context), "", ...renderExamples(rule, context), ...renderRelated(rule, context)].join("\n");
 };
 
-/**
- * @summary 섹션 페이지 렌더링 입력
- */
 interface SectionPageArgs {
 	document: LoadedSkillDocument;
 	section: SkillSection;
@@ -460,9 +409,9 @@ interface SectionPageArgs {
 	copies: Map<string, string>;
 }
 
-/**
- * @helper 섹션 하나가 페이지 하나. 규칙은 `##`, 규칙 안 소제목은 원문 `###` 그대로
- */
+// ----------------------------------------------------------------------------------------
+// 섹션 하나가 페이지 하나, 규칙은 `##`, 규칙 안 소제목은 원문 `###` 그대로
+// ----------------------------------------------------------------------------------------
 const renderSectionPage = (args: SectionPageArgs): string => {
 	const {document, section, rules, locations, copies} = args;
 	const placement = getPlacement(document.skillName);
@@ -489,9 +438,6 @@ const renderSectionPage = (args: SectionPageArgs): string => {
 	return lines.join("\n");
 };
 
-/**
- * @helper companion 한 줄. 어느 규칙집을 언제 같이 읽는지
- */
 const renderCompanion = (companion: SkillCompanion): string => {
 	const link = `[${getPlacement(companion.skill).name}](${companion.skill}.md)`;
 
@@ -506,19 +452,16 @@ const renderCompanion = (companion: SkillCompanion): string => {
 	return `- ${link} 규칙은 다음 변경이 있을 때 함께 봅니다. ${escapeMarkdownProse(companion.appliesWhen)}`;
 };
 
-/**
- * 초록 끝의 정본 안내. 저장소를 고치는 사람의 정보라 사람용 사이트에서는 뺌
- */
+// ----------------------------------------------------------------------------------------
+// 초록 끝의 정본 안내, 저장소를 고치는 사람의 정보라 사람용 사이트에서는 뺌
+// ----------------------------------------------------------------------------------------
 const sourceNoteSentence = " 규칙 본문의 정본은 `rules/*.md`입니다.";
 
-/**
- * @helper 표 칸에 넣을 글. 세로줄만 이스케이프
- */
 const tableCell = (value: string): string => value.replace(/\|/g, "\\|");
 
-/**
- * @helper skill 개요 페이지. 초록, companion, 섹션별 규칙 표
- */
+// ----------------------------------------------------------------------------------------
+// skill 개요 페이지, 초록, companion, 섹션별 규칙 표
+// ----------------------------------------------------------------------------------------
 const renderOverviewPage = (document: LoadedSkillDocument, locations: Map<string, RuleLocation>): string => {
 	const placement = getPlacement(document.skillName);
 	const page = `${document.skillName}.md`;
@@ -576,9 +519,9 @@ const renderOverviewPage = (document: LoadedSkillDocument, locations: Map<string
 	return lines.join("\n");
 };
 
-/**
- * @api `skill/` 전체를 for-humanity Markdown 파일 목록으로 렌더링. 쓰기 없음
- */
+// ----------------------------------------------------------------------------------------
+// `skill/` 전체를 for-humanity Markdown 파일 목록으로 렌더링, 쓰기 없음
+// ----------------------------------------------------------------------------------------
 export const generateSiteFiles = async (): Promise<SiteFile[]> => {
 	const documents: LoadedSkillDocument[] = [];
 
@@ -621,9 +564,6 @@ export const generateSiteFiles = async (): Promise<SiteFile[]> => {
 	return files;
 };
 
-/**
- * @helper 지금 생성 폴더에 있는 파일 상대 경로. 페이지와 예제 복사본 전부
- */
 const listSiteFiles = async (): Promise<string[]> => {
 	try {
 		const entries = await readdir(siteOutputDir, {recursive: true, withFileTypes: true});
@@ -638,9 +578,9 @@ const listSiteFiles = async (): Promise<string[]> => {
 	}
 };
 
-/**
- * @description 생성 폴더를 현재 원본 기준으로 다시 씀. 사라진 섹션의 옛 페이지와 옛 예제 복사본은 지움
- */
+// ----------------------------------------------------------------------------------------
+// 생성 폴더를 현재 원본 기준으로 다시 씀, 사라진 섹션의 옛 페이지와 옛 예제 복사본은 지움
+// ----------------------------------------------------------------------------------------
 export const buildSite = async (): Promise<void> => {
 	const files = await generateSiteFiles();
 	const targetPaths = new Set(files.map((file) => file.path));

@@ -8,9 +8,6 @@ import {assertProgressiveSkillEntrypoint} from "./progressive.js";
 import {generateRuleContractMarkdown, generateRulesIndexMarkdown, getRuleId} from "./routing.js";
 import type {SkillPaths} from "./types.js";
 
-/**
- * @helper companion 전체를 돌며 생성물 최신 상태 확인
- */
 const checkGeneratedSkillTree = async (skillPaths: SkillPaths, visiting: Set<string>, completed: Set<string>): Promise<void> => {
 	if (completed.has(skillPaths.skillName)) {
 		return;
@@ -99,9 +96,6 @@ const checkGeneratedSkillTree = async (skillPaths: SkillPaths, visiting: Set<str
 	completed.add(skillPaths.skillName);
 };
 
-/**
- * @description 단일 skill과 companion 전체의 라우팅 생성물 최신 상태 확인
- */
 export const checkGeneratedSkill = async (skillPaths: SkillPaths): Promise<void> => {
 	await checkGeneratedSkillTree(skillPaths, new Set(), new Set());
 };
