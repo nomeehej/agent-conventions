@@ -3,9 +3,6 @@ import { expect, test } from "@playwright/test";
 
 import type { Page } from "@playwright/test";
 
-// ----------------------------------------------------------------------------------------
-// 주문 목록에서 주문 ID가 든 행
-// ----------------------------------------------------------------------------------------
 const orderRow = (page: Page, orderId: string) => {
 	return page
 		.getByRole("table", { name: "주문 목록" })

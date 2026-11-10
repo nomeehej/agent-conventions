@@ -5,17 +5,12 @@ import { AppProviders } from "@/app-providers";
 import { OrdersPage } from "@/page/(main)/orders/orders-page";
 
 // ----------------------------------------------------------------------------------------
-// URL 정렬 상태를 재현하는 입력
-//
-// search: 화면이 처음 읽을 search 문자열
+// URL 정렬 상태를 재현하는 입력, search는 `?`로 시작하는 초기 query 문자열
 // ----------------------------------------------------------------------------------------
 export interface WithSearchProps {
 	search: string;
 }
 
-// ----------------------------------------------------------------------------------------
-// 같은 화면의 URL 입력만 바꾼 story
-// ----------------------------------------------------------------------------------------
 export const WithSearch = (props: WithSearchProps) => {
 	return (
 		<AppProviders>

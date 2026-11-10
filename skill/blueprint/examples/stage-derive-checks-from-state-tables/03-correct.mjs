@@ -2,9 +2,8 @@
 // 설계 문서 Scenarios 표와 Playwright 테스트 제목 대조
 //
 // 사용법: node script/blueprint/check-scenarios.mjs <문서> <테스트 폴더>
-//
 // 행 형식: `| <a id="test-ord-001"></a>ORD-001 | Region | 문장 | tag | layer |`
-//   문장은 테스트 제목 `[ID] 문장`과 같은 글자, tag는 `<br>`로 줄마다 하나
+// 문장은 테스트 제목 `[ID] 문장`과 같은 글자, tag는 `<br>`로 줄마다 하나
 // 불일치: 한쪽에만 있는 ID, 문장, tag, layer(e2e, integration), 행 없는 `#test-` 링크
 // ----------------------------------------------------------------------------------------
 import {readdirSync, readFileSync} from "node:fs";

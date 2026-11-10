@@ -9,12 +9,6 @@ import { OrderDialog } from "@/component/widget/order-dialog/order-dialog";
 export const SaveResult = () => {
 	const [savedOrderId, setSavedOrderId] = useState("");
 
-	// ----------------------------------------------------------------------------------------
-	// 화면 구성
-	//
-	// OrderDialog: 브라우저 안에서 생성한 callback
-	// output: 테스트에서 읽을 저장 결과
-	// ----------------------------------------------------------------------------------------
 	return (
 		<Fragment>
 			<OrderDialog orderId="order-1" onSave={setSavedOrderId} />

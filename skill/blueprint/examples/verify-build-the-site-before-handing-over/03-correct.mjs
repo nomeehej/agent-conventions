@@ -2,9 +2,7 @@ import {execSync} from "node:child_process";
 import {existsSync, readdirSync, readFileSync} from "node:fs";
 
 // ----------------------------------------------------------------------------------------
-// 설계 문서 검사
-//
-// build 경고, 번호 중복, 추천 하나, 서술 어미, 열린 카드 수, 표 칸 수
+// 설계 문서 검사, build 경고와 번호 중복, 추천 하나, 서술 어미, 열린 카드 수, 표 칸 수
 // ----------------------------------------------------------------------------------------
 const root = "content/public";
 const listDocs = (dir) => {

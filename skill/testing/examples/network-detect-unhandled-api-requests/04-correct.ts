@@ -5,11 +5,6 @@ import type { ConsoleMessage } from "@playwright/test";
 
 import { mock_unhandled_api_prefix } from "@/service/msw/_constant/mock";
 
-// ----------------------------------------------------------------------------------------
-// mock 앱 E2E에서 자동 적용하는 미처리 API 검사
-//
-// mockApiFailures: 테스트의 모든 이동을 통틀어 수집하는 오류
-// ----------------------------------------------------------------------------------------
 interface Fixtures {
 	mockApiFailures: undefined;
 }
@@ -17,9 +12,7 @@ interface Fixtures {
 export { expect };
 
 // ----------------------------------------------------------------------------------------
-// mock 앱 E2E spec이 가져오는 test
-//
-// 화면의 오류 처리와 별개로 API 누락을 검출
+// mock 앱 E2E spec이 가져오는 test, 화면의 오류 처리와 별개로 API 누락 검출
 // ----------------------------------------------------------------------------------------
 export const test = base.extend<Fixtures>({
 	mockApiFailures: [async ({ page }, use) => {
