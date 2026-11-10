@@ -39,6 +39,10 @@ CSS의 `{}` 블록과 헷갈리지 않도록 다른 규칙은 BEM 블록을 "블
 수정자의 허용 범위는 `composition-do-not-build-structural-variants-with-modifiers`가 정합니다.
 기계 검사는 이 문법을 정규식으로 등록한 `selector-class-pattern`이 담당합니다.
 
+참고: [BEM 문서: 대체 표기](https://bem.info/en/methodology/naming-convention/#alternative-naming-schemes),
+[BEM 문서: 블록 이름에 접두사가 필요 없는 이유](https://bem.info/en/methodology/naming-convention/#block-name),
+[stylelint selector-class-pattern](https://stylelint.io/user-guide/rules/selector-class-pattern/).
+
 **Incorrect 1 (블록 이름에 레이어 이름을 넣고 블록에 바로 수정자를 달며 낱말을 snake_case와 kebab-case로 잇습니다):**
 
 <<< ../examples/naming-use-block-element-modifier-syntax/01-incorrect.txt

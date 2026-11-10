@@ -24,6 +24,10 @@ MUI의 테마를 쓰면 `createTheme`의 `breakpoints.values`를 같은 세 값�
 `max-width: 1024px`과 `min-width: 1024px`은 경계를 함께 포함하지만 `<`와 `>=`는 같은 경계를 소수 보정 없이 나눕니다.
 블록 위치는 `layout-group-breakpoints-at-the-file-bottom`을 따릅니다.
 
+참고: [MDN: 미디어 쿼리 범위 문법](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Media_queries/Using),
+[stylelint media-feature-range-notation](https://stylelint.io/user-guide/rules/media-feature-range-notation/),
+[MUI 문서: 브레이크포인트 값 바꾸기](https://mui.com/material-ui/customization/breakpoints/#custom-breakpoints).
+
 **Incorrect 1 (기본 선언을 중간 폭에 맞추고 넓고 좁은 방향을 함께 씁니다):**
 
 ```css

@@ -22,6 +22,9 @@ CSS 파일마다 고유한 블록 이름을 하나씩 씁니다.
 | 의미가 같아도 CSS 파일이 다름 | 블록 이름을 따로 짓습니다. 같은 화면의 `_` 부품이 화면의 블록 이름을 쓰는 것도 금지합니다 |
 | 부모 블록 이름을 계속 씀 | 스타일도 부모 CSS 파일에 둡니다 |
 
+참고: [BEM 문서: 엔티티 이름은 유일하다](https://bem.info/en/methodology/naming-convention/#naming-convention),
+[BEM 문서: 블록마다 CSS 파일을 나눈다](https://bem.info/en/methodology/css/#dividing-code-into-parts).
+
 **Incorrect 1 (이미 다른 소유자가 쓰는 블록 이름을 재사용합니다):**
 
 <<< ../examples/ownership-give-each-file-one-block/01-incorrect.txt

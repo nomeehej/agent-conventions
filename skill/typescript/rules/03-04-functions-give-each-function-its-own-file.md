@@ -50,7 +50,7 @@ flowchart LR
 
 참고: [Angular 가이드: 파일 하나에 개념 하나](https://angular.dev/style-guide#one-concept-per-file),
 [Angular: 막연한 파일 이름 금지](https://angular.dev/style-guide#match-file-names-to-the-typescript-identifier-within),
-[John Carmack: Inlined Code](https://number-none.com/blow/john_carmack_on_inlined_code).
+[John Carmack: Inlined Code](https://number-none.com/blow/john_carmack_on_inlined_code.html).
 
 **Incorrect 1 (여러 보조를 모은 파일에서 내보낸 함수가 세 단계로 이어집니다):**
 

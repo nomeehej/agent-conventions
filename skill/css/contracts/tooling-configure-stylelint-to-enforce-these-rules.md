@@ -49,6 +49,10 @@
 | 우리 마크업의 구조 선택자 | `:first-child`, `:nth-child()`는 클래스에도 붙습니다 | 표기만으로 구분하지 못해 리뷰에서 확인합니다 |
 | 역할 이름, 승격 판단, 변형 노출, 포커스 대비 | 기계가 뜻을 판단하지 못합니다 | 리뷰에서 확인합니다 |
 
+참고: [Stylelint 문서: 설정의 extends](https://stylelint.io/user-guide/configure/#extends),
+[stylelint-config-standard: 확장하기](https://github.com/stylelint/stylelint-config-standard#extending-the-config),
+[stylelint selector-disallowed-list](https://stylelint.io/user-guide/rules/selector-disallowed-list/).
+
 **Correct (라이브러리 접두사 목록 하나로 우리 클래스 문법과 최상위 금지를 함께 정합니다):**
 
 ```js

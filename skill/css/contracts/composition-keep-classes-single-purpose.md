@@ -6,6 +6,9 @@
 `listButtonActive`처럼 상태를 기본 이름에 넣으면 기본 스타일만 재사용하거나 상태만 끌 수 없습니다.
 수정자로 표현할 수 있는 상태인지는 `composition-do-not-build-structural-variants-with-modifiers`가 정합니다.
 
+참고: [BEM FAQ: 수정자 클래스는 블록 클래스와 함께 붙인다](https://bem.info/en/methodology/faq/),
+[BEM 문서: 수정자를 켜고 끄면 블록 모양이 바뀐다](https://bem.info/en/methodology/css/#modifiers).
+
 **Incorrect 1 (기본 클래스 이름에 상태를 포함합니다):**
 
 ```tsx

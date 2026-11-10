@@ -24,7 +24,7 @@ tags: screen, routes
 추출한 파일의 배치는 `ownership-place-owner-files-in-role-folders`를 따릅니다.
 진입 파일의 JSX에 나타나지 않는 섹션을 다른 섹션 파일 안에서 렌더하면 과하게 나눈 것입니다.
 
-참고: [Carson Gross: 행동의 지역성(Locality of Behaviour)](https://htmx.org/essays/locality-of-behaviour/),
+참고: [Carson Gross: Locality of Behaviour](https://htmx.org/essays/locality-of-behaviour/),
 [John Carmack: 인라인 코드](https://number-none.com/blow/john_carmack_on_inlined_code.html).
 
 **Incorrect 1 (감싸기만 하는 래퍼를 섹션으로 추출합니다):**

@@ -6,6 +6,9 @@
 `.module.css`를 새로 만들거나 클래스를 `styles.foo`처럼 객체 속성으로 참조하지 않습니다.
 CSS Modules가 프로젝트의 공식 표준이고 별도의 이름 규칙이 있으면 그 규칙을 따릅니다.
 
+참고: [BEM 문서: 엔티티 이름은 유일하다](https://bem.info/en/methodology/naming-convention/#naming-convention),
+[BEM FAQ: 블록 이름을 요소와 수정자 이름에 넣는 이유(검색)](https://bem.info/en/methodology/faq/).
+
 **Incorrect 1 (프로젝트 표준이 없는데도 CSS Modules를 기본처럼 씁니다):**
 
 ```tsx

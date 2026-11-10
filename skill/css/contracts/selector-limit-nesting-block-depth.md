@@ -17,6 +17,9 @@
 `&` 없이 시작하면 자손 선택자가 별도 겹처럼 읽혀 표기에 따라 검사 결과가 달라집니다.
 기계 검사는 `max-nesting-depth: 1`이며 최상위는 0겹입니다.
 
+참고: [BEM 문서: 중첩 선택자는 최소로 쓴다](https://bem.info/en/methodology/css/#nested-selectors),
+[stylelint max-nesting-depth](https://stylelint.io/user-guide/rules/max-nesting-depth/).
+
 **Incorrect 1 (다른 요소의 가상 요소를 `&`로 다시 엽니다):**
 
 ```css

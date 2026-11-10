@@ -22,6 +22,9 @@ flowchart LR
 
 두 번째 소유자가 같은 이름을 쓰기 전까지는 요소 클래스로 두었다가 쓰는 시점에 수정자로 바꿉니다.
 
+참고: [BEM 문서: 수정자는 블록의 모양, 상태, 동작을 정한다](https://bem.info/en/methodology/css/#modifiers),
+[BEM FAQ: 수정자와 믹스 선택](https://bem.info/en/methodology/faq/#a-modifier-or-a-mix-which-one-should-i-create).
+
 **Incorrect 1 (그 화면 하나를 고치려고 수정자를 붙입니다):**
 
 ```tsx

@@ -48,6 +48,10 @@ tags: values, motion
 
 `0.01ms`도 `transitionend` 발생을 보장하지 않으므로 취소되거나 제거된 요소의 완료를 이벤트에만 맡기지 않습니다.
 
+참고: [MDN: 같은 이름의 @keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@keyframes),
+[web.dev: 부록, 모든 animation과 transition을 줄이는 CSS](https://web.dev/articles/prefers-reduced-motion),
+[W3C: 2.3.3 Animation from Interactions](https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html).
+
 **Incorrect 1 (전역 이름을 겹치게 쓰고 시간을 직접 적습니다):**
 
 <<< ../examples/a11y-namespace-keyframes-and-respect-reduced-motion/01-incorrect.css

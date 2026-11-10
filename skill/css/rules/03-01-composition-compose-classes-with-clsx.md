@@ -22,6 +22,8 @@ TSX의 `className`은 클래스가 하나여도 `clsx()`로 조합합니다.
 `+`, `join()`, 삼항 연산자로 클래스를 조합하거나 고르지 않습니다.
 클래스 이름에 값을 끼워 넣지 않는 규칙은 `composition-write-modifiers-as-conditions`가 정합니다.
 
+참고: [clsx 문서: 조건부 className 조립](https://github.com/lukeed/clsx#usage).
+
 **Incorrect 1 (문자열 연결로 클래스 조합을 숨깁니다):**
 
 <<< ../examples/composition-compose-classes-with-clsx/01-incorrect.tsx

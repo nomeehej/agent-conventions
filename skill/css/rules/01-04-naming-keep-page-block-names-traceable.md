@@ -36,6 +36,9 @@ flowchart LR
 라우트 경로나 폴더 이름에 없는 줄임말은 쓰지 않습니다.
 덧붙일 때 중간 컴포넌트 이름은 넣지 않습니다.
 
+참고: [BEM 문서: 이름은 유일하며 뜻을 드러낸다](https://bem.info/en/methodology/naming-convention/#naming-convention),
+[BEM FAQ: 고유한 이름은 코드와 파일에서 찾기 쉽다](https://bem.info/en/methodology/faq/).
+
 **Incorrect 1 (화면 이름이 아닌 블록 이름을 씁니다):**
 
 <<< ../examples/naming-keep-page-block-names-traceable/01-incorrect.txt

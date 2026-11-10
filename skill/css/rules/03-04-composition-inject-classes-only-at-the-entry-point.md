@@ -46,6 +46,9 @@ flowchart LR
 
 `className`을 받지 않는 컴포넌트는 `composition-do-not-add-wrapper-elements-for-styling`을 따릅니다.
 
+참고: [BEM 문서: 위치는 부모 블록이 정한다](https://bem.info/en/methodology/css/#external-geometry-and-positioning),
+[BEM 문서: 블록 안에 블록을 둘 때 위치는 부모의 요소로 정한다](https://bem.info/en/methodology/block-modification/).
+
 **Incorrect 1 (내부 노드마다 클래스 프롭을 열어 주입 지점을 늘립니다):**
 
 <<< ../examples/composition-inject-classes-only-at-the-entry-point/01-incorrect.tsx

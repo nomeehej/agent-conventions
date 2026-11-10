@@ -37,6 +37,9 @@ flowchart LR
 
 버튼과 입력은 `padding`, `min-height`, 글자 크기까지만 소유하고 폭은 사용처가 정합니다.
 
+참고: [Every Layout: Switcher, @media 대신 flex-basis와 줄바꿈](https://every-layout.dev/layouts/switcher/),
+[MDN: 컨테이너 쿼리](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Containment/Container_queries).
+
 **Incorrect 1 (열 개수를 브레이크포인트마다 직접 지정합니다):**
 
 ```css

@@ -27,6 +27,10 @@ tags: layout, comments, sticky
 `fixed`는 `transform`이 적용된 조상 아래에서 뷰포트 기준을 잃습니다.
 `sticky`는 중간 조상에 `overflow: hidden`이나 `auto`가 있으면 그 조상이 기준이 되어 뷰포트에 붙지 않습니다.
 
+참고: [MDN: position sticky](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/position#sticky),
+[MDN: fixed의 포함 블록](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Display/Containing_block),
+[web.dev: 늦게 뜨는 내용의 자리를 미리 잡기](https://web.dev/articles/optimize-cls#reserve-space).
+
 **Incorrect 1 (층 숫자를 직접 적고 기준 컨테이너 설명이 없습니다):**
 
 <<< ../examples/layout-keep-layout-intent-explicit/01-incorrect.css

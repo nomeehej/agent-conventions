@@ -55,7 +55,7 @@ flowchart LR
 함수 배치는 `functions-give-each-function-its-own-file`이 정합니다.
 루트 승격은 `functions-promote-owner-free-functions-to-root-util`이 정합니다.
 
-참고: [John Carmack: Inlined Code](https://number-none.com/blow/john_carmack_on_inlined_code),
+참고: [John Carmack: Inlined Code](https://number-none.com/blow/john_carmack_on_inlined_code.html),
 [Carson Gross: Locality of Behaviour](https://htmx.org/essays/locality-of-behaviour/),
 [Sandi Metz: 잘못된 추상화](https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction).
 

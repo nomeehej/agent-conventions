@@ -29,6 +29,10 @@ tags: values, inline-style
 변수가 없을 때의 대체값은 `values-fall-back-only-outside-core-tokens`를 따릅니다.
 래퍼가 `HTMLAttributes`를 `extends`하면 `style`도 열리므로 `style`을 쓰는지는 리뷰에서 확인합니다.
 
+참고: [React 문서: style은 동적 스타일에만 쓴다](https://react.dev/reference/react-dom/components/common),
+[MDN: 인라인 스타일은 항상 우선한다](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Specificity),
+[MUI 문서: 동적 값은 CSS 변수로 넘긴다](https://mui.com/material-ui/customization/how-to-customize/#dynamic-overrides).
+
 **Incorrect 1 (인라인으로 꾸밉니다):**
 
 <<< ../examples/composition-do-not-style-through-the-style-attribute/01-incorrect.tsx

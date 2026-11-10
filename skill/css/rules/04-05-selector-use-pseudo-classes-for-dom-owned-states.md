@@ -32,6 +32,10 @@ tags: pseudo-classes, state, interaction
 가상 클래스의 위치는 `selector-nest-dom-state-in-the-owning-block`,
 `:not()` 금지는 `selector-do-not-negate-with-not`을 따릅니다.
 
+참고: [MUI 문서: 가상 클래스와 상태 클래스](https://mui.com/material-ui/customization/how-to-customize/#state-classes),
+[MDN aria-disabled](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-disabled),
+[MDN: :disabled](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:disabled).
+
 **Incorrect 1 (앱이 정하는 상태를 `data-*` 속성 선택자로 잡습니다):**
 
 <<< ../examples/selector-use-pseudo-classes-for-dom-owned-states/01-incorrect.css

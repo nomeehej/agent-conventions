@@ -31,6 +31,9 @@ tags: clsx, className, modifiers
 요소 클래스 하나가 그 요소의 모양을 전부 말하고 CSS에 결합자가 필요 없습니다.
 수정자를 붙일 수 있는지는 `composition-do-not-build-structural-variants-with-modifiers`가 정합니다.
 
+참고: [clsx 문서: 조건부 className 조립](https://github.com/lukeed/clsx#usage),
+[Tailwind 문서: 클래스 이름을 동적으로 만들지 않는다](https://tailwindcss.com/docs/detecting-classes-in-source-files).
+
 **Incorrect 1 (클래스 이름을 값으로 조립합니다):**
 
 <<< ../examples/composition-write-modifiers-as-conditions/01-incorrect.tsx

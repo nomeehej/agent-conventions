@@ -38,6 +38,9 @@ flowchart LR
 결합자 범위는 `selector-nest-dom-state-in-the-owning-block`을 따릅니다.
 층 목록은 `values-declare-stacking-layers-as-tokens`, 새 토큰 이름은 `values-name-tokens-by-purpose`가 정합니다.
 
+참고: [Sandi Metz: 잘못된 추상화](https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction),
+[MDN: CSS 변수](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascading_variables/Using_custom_properties).
+
 **Incorrect 1 (한 파일 안 반복을 조상에 선언한 지역 변수로 감쌉니다):**
 
 <<< ../examples/values-tokenize-repeated-visual-values/01-incorrect.css

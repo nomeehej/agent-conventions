@@ -36,6 +36,9 @@ flowchart LR
 선택자로 지정합니다.
 `className`을 최상위까지만 전달하는 경계는 `composition-inject-classes-only-at-the-entry-point`가 정합니다.
 
+참고: [BEM 문서: 블록을 바꾸는 방법 고르기](https://bem.info/en/methodology/block-modification/),
+[BEM FAQ: 수정자와 믹스 선택](https://bem.info/en/methodology/faq/#a-modifier-or-a-mix-which-one-should-i-create).
+
 **Incorrect 1 (최상위 배치를 `className`으로 바꿀 수 있는데도 다른 소유자의 클래스를 선택합니다):**
 
 <<< ../examples/ownership-change-other-owners-through-their-api/01-incorrect-1.tsx

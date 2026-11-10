@@ -47,6 +47,9 @@ flowchart LR
 `selector-disallowed-list`는 등록된 외부 라이브러리 접두사로 시작하는 최상위 선택자만 검사합니다.
 다른 소유자의 블록 이름은 문법이 같아 이 검사에 걸리지 않으므로 리뷰에서 파일 이름과 블록 이름을 대조합니다.
 
+참고: [MUI 문서: 중첩 요소와 상태 클래스를 덮어쓰는 방법](https://mui.com/material-ui/customization/how-to-customize/),
+[stylelint selector-disallowed-list](https://stylelint.io/user-guide/rules/selector-disallowed-list/).
+
 **Incorrect 1 (최상위 블록 없이 라이브러리 클래스를 바로 씁니다):**
 
 <<< ../examples/ownership-use-foreign-classes-only-under-your-own-root/01-incorrect.css

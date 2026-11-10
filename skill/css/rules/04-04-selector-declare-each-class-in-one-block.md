@@ -26,6 +26,9 @@ tags: selector, cascade, maintainability
 조건 블록의 위치는 `layout-group-breakpoints-at-the-file-bottom`을 따릅니다.
 기계 검사는 `no-duplicate-selectors`가 담당합니다.
 
+참고: [stylelint no-duplicate-selectors](https://stylelint.io/user-guide/rules/no-duplicate-selectors/),
+[MDN: 캐스케이드의 출현 순서](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Cascade/Introduction).
+
 **Incorrect 1 (같은 클래스를 파일 두 곳에서 열어 선언 순서에 의존합니다):**
 
 <<< ../examples/selector-declare-each-class-in-one-block/01-incorrect.css

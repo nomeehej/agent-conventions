@@ -60,6 +60,10 @@ MUI가 그리는 모달, 드로어, 툴팁, 스낵바는 `theme.zIndex`를 쓰�
 5. `showModal()`로 연 `dialog`나 열린 popover는 최상위 레이어입니다.
    일반 문서의 `z-index` 토큰으로 그 위에 올라가려 하지 않습니다.
 
+참고: [Smashing: z-index 값에 이름 붙이기](https://www.smashingmagazine.com/2021/02/css-z-index-large-projects/),
+[MDN: 쌓임 맥락](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Positioned_layout/Stacking_context),
+[MUI 문서: z-index 기본 층 값](https://mui.com/material-ui/customization/z-index/).
+
 **Incorrect 1 (숫자를 직접 쓰고 다른 요소보다 하나씩 올립니다):**
 
 <<< ../examples/values-declare-stacking-layers-as-tokens/01-incorrect.css

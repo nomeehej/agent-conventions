@@ -26,6 +26,10 @@ flowchart LR
 둘 이상이면 `stylelint-disable`과 `stylelint-enable` 쌍으로 감쌉니다.
 규칙 이름 뒤에 `-- <마크업 출처>`처럼 직접 작성하지 않는 마크업이라는 근거를 함께 적습니다.
 
+참고: [BEM 문서: 태그 선택자와 ID 선택자를 쓰지 않는다](https://bem.info/en/methodology/css/#selectors),
+[BEM FAQ: 전역 태그 규칙은 블록의 독립성을 깬다](https://bem.info/en/methodology/faq/#why-shouldnt-i-use-a-css-reset),
+[stylelint selector-max-id](https://stylelint.io/user-guide/rules/selector-max-id/).
+
 **Incorrect 1 (우리가 렌더하는 마크업을 요소 선택자로 잡습니다):**
 
 ```tsx

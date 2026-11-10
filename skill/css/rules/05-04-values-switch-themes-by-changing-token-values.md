@@ -36,6 +36,9 @@ flowchart LR
 색과 그림자의 토큰화는 `values-tokenize-repeated-visual-values`의 한 파일 예외보다 우선합니다.
 토큰 이름은 `values-name-tokens-by-purpose`를 따릅니다.
 
+참고: [web.dev: 다크 모드 스타일시트 구조](https://web.dev/articles/prefers-color-scheme#stylesheet_architecture),
+[MDN: color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/color-scheme).
+
 **Incorrect 1 (컴포넌트 파일에서 테마를 분기합니다):**
 
 <<< ../examples/values-switch-themes-by-changing-token-values/01-incorrect.css

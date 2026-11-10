@@ -30,6 +30,9 @@ tags: values, naming
 토큰화 대상은 `values-tokenize-repeated-visual-values`,
 테마별 값은 `values-switch-themes-by-changing-token-values`가 정합니다.
 
+참고: [Adobe Spectrum: 쓰임을 말하는 의미 토큰](https://spectrum.adobe.com/page/design-tokens/#size-s-semantic-tokens),
+[web.dev: `--accent-color`로 쓰임을 이름에 담기](https://web.dev/articles/prefers-color-scheme#stylesheet_architecture).
+
 **Incorrect 1 (값으로 이름을 짓습니다):**
 
 <<< ../examples/values-name-tokens-by-purpose/01-incorrect.css

@@ -22,6 +22,9 @@
 | 쉼표 목록의 선택자를 아래에서 단독으로 다시 선언함 | `no-duplicate-selectors`의 `disallowInList` 옵션 |
 | 중복 없이 쉼표로 묶기만 함 | 리뷰. 기계 검사는 묶음 자체를 막지 않습니다 |
 
+참고: [BEM 문서: 그룹 선택자는 결합도를 높인다](https://bem.info/en/methodology/css/#styling-groups-of-blocks),
+[Carson Gross: Locality of Behaviour](https://htmx.org/essays/locality-of-behaviour/).
+
 **Incorrect 1 (`,`로 공통 선언을 묶고 아래에서 일부만 다시 엽니다):**
 
 ```css

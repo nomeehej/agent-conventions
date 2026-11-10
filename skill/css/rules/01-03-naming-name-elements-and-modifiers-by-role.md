@@ -18,6 +18,9 @@ tags: naming, semantics, modifiers
 이름만 보고 화면에서 그 요소를 한 단어로 부를 수 있으면 역할 이름입니다.
 수정자를 붙일 수 있는지는 `composition-do-not-build-structural-variants-with-modifiers`가 정합니다.
 
+참고: [BEM FAQ: 수정자 이름은 의미로](https://bem.info/en/methodology/faq/#how-to-choose-a-name-for-a-modifier),
+[BEM 문서: 선택자 이름은 BEM 엔티티를 정확히 설명한다](https://bem.info/en/methodology/css/#naming).
+
 **Incorrect 1 (역할 대신 구조나 치수로 이름을 짓습니다):**
 
 <<< ../examples/naming-name-elements-and-modifiers-by-role/01-incorrect.txt

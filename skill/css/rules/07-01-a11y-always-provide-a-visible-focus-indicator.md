@@ -30,6 +30,10 @@ tags: accessibility, focus, interaction
 `:focus-visible`을 적용할지는 브라우저가 입력 방식과 사용자 설정으로 판단하므로 고정 규칙으로 가정하지 않습니다.
 WCAG 2.2 SC 1.4.11(AA)은 인접 색 대비를, SC 2.4.13(AAA)은 2 CSS px 둘레의 최소 면적과 3:1 대비를 요구합니다.
 
+참고: [MDN: :focus-visible](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:focus-visible),
+[W3C: Understanding 2.4.13 Focus Appearance](https://www.w3.org/WAI/WCAG22/Understanding/focus-appearance.html),
+[MDN: forced-colors](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@media/forced-colors).
+
 **Incorrect 1 (포커스 링을 제거하고 대체를 두지 않습니다):**
 
 <<< ../examples/a11y-always-provide-a-visible-focus-indicator/01-incorrect.css

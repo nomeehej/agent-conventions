@@ -47,6 +47,8 @@ flowchart LR
 | `@property`로 등록한 변수 | 등록 문법과 초기값이 먼저 적용되므로 그 계약을 확인합니다 |
 | 대체값 없이 변수가 무효이거나 소비 속성 문법에 맞지 않음 | 앞선 선언으로 돌아가지 않습니다. 상속 속성은 상속값, 나머지는 초기값이 됩니다. `color`는 부모 색, `z-index`는 `auto`가 됩니다 |
 
+참고: [MDN: var()의 대체값이 쓰이는 조건](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/var).
+
 **Incorrect 1 (공통 토큰에 대체값을 붙여 값을 두 곳에 둡니다):**
 
 <<< ../examples/values-fall-back-only-outside-core-tokens/01-incorrect.css

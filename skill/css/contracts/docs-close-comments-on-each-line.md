@@ -27,9 +27,9 @@ TypeScript 상자에서 빈 `//` 줄이 오는 자리에는 아무 줄도 두지
 stylelint `comment-empty-line-before`의 `ignore`에 `"after-comment"`를 더해야 이 상자가 통과합니다.
 설정은 `tooling-configure-stylelint-to-enforce-these-rules`가 정합니다.
 
-참고: [stylelint comment-empty-line-before](https://stylelint.io/user-guide/rules/comment-empty-line-before),
-[stylelint comment-no-empty](https://stylelint.io/user-guide/rules/comment-no-empty),
-[Black 줄 길이](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html).
+참고: [stylelint comment-empty-line-before](https://stylelint.io/user-guide/rules/comment-empty-line-before/),
+[stylelint comment-no-empty](https://stylelint.io/user-guide/rules/comment-no-empty/),
+[Black 문서: 줄 길이 90 안팎이 알맞다](https://black.readthedocs.io/en/stable/the_black_code_style/current_style.html).
 
 **Incorrect 1 (여러 줄에 걸친 블록 주석으로 구역을 설명합니다):**
 

@@ -15,6 +15,9 @@
 
 테마 조건은 `values-switch-themes-by-changing-token-values`에 따라 토큰 파일의 최상위 `@media`에 둡니다.
 
+참고: [BEM 문서: DRY는 기능이 같은 컴포넌트에만 적용한다](https://bem.info/en/methodology/css/#dry),
+[Sandi Metz: 잘못된 추상화](https://sandimetz.com/blog/2016/1/20/the-wrong-abstraction).
+
 **Incorrect 1 (클래스 블록 안에 중첩해서 브레이크포인트가 흩어집니다):**
 
 ```css

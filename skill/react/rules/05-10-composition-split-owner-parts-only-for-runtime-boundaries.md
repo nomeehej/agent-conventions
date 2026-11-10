@@ -43,7 +43,7 @@ flowchart LR
 
 컨텍스트를 읽어 분기만 하는 부품은 진입 파일에 남깁니다.
 
-참고: [Carson Gross: 행동의 지역성(Locality of Behaviour)](https://htmx.org/essays/locality-of-behaviour/),
+참고: [Carson Gross: Locality of Behaviour](https://htmx.org/essays/locality-of-behaviour/),
 [John Carmack: 인라인 코드](https://number-none.com/blow/john_carmack_on_inlined_code.html).
 
 **Incorrect 1 (컨텍스트를 읽어 분기만 하는 래퍼를 파일로 뗍니다):**

@@ -42,6 +42,9 @@ DOM 상태 가상 클래스는 해당 요소의 **조건 없는 기본 클래스
 | `selector-disallowed-list` | 최상위에 다시 선언한 상태 가상 클래스 |
 | `property-disallowed-list` | 지역 변수 선언 |
 
+참고: [stylelint no-descending-specificity](https://stylelint.io/user-guide/rules/no-descending-specificity/),
+[BEM 문서: 블록 상태에 따라 요소를 바꿀 때만 중첩한다](https://bem.info/en/methodology/css/#nested-selectors).
+
 **Incorrect 1 (가상 클래스를 최상위 선택자로 다시 엽니다):**
 
 <<< ../examples/selector-nest-dom-state-in-the-owning-block/01-incorrect.css

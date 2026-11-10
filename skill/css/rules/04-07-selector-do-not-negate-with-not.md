@@ -28,6 +28,9 @@ tags: selector, state, negation
 DOM 상태와 앱 상태의 구분은 `selector-use-pseudo-classes-for-dom-owned-states`를 따릅니다.
 직접 쓰지 않는 마크업의 `:not()`은 `selector-use-classes-instead-of-element-selectors`의 예외 주석 형태를 따릅니다.
 
+참고: [MDN: :not()의 명시도와 일치 범위](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:not),
+[MDN: :enabled](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Selectors/:enabled).
+
 **Incorrect 1 (활성 버튼의 hover를 부정 조건으로 표현합니다):**
 
 <<< ../examples/selector-do-not-negate-with-not/01-incorrect.css

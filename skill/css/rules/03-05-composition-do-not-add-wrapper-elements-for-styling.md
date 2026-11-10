@@ -30,6 +30,10 @@ flowchart LR
 로딩 대체 화면과 실제 내용이 같은 자리를 쓰도록 둘을 함께 감싸는 컨테이너는 이 규칙의 대상이 아니며
 `layout-keep-layout-intent-explicit`을 따릅니다.
 
+참고: [BEM FAQ: 추상 래퍼 블록을 만들지 않는 이유](https://bem.info/en/methodology/faq/#why-not-create-wrapper-blocks),
+[BEM 문서: HTML 래퍼 대신 믹스나 요소로 배치한다](https://bem.info/en/methodology/css/#how-do-i-make-an-html-wrapper),
+[MDN: 플렉스 아이템](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Flexible_box_layout/Basic_concepts).
+
 **Incorrect 1 (역할 없는 이름의 래퍼를 늘립니다):**
 
 <<< ../examples/composition-do-not-add-wrapper-elements-for-styling/01-incorrect.tsx
