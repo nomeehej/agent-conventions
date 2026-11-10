@@ -1,6 +1,6 @@
 // [!code error]
 const fetchProductPage = (baseUrl: string, page: number, pageSize: number, keyword?: string): Promise<ProductPage> => {
-	/* … */
+	// …
 };
 
 // [!code error]

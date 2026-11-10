@@ -6,4 +6,6 @@ interface InviteRecipient {
 	email: string;
 }
 
-export const sendInvites = (recipients: InviteRecipient[]): Promise<void> => { /* … */ };
+export const sendInvites = (recipients: InviteRecipient[]): Promise<void> => {
+	// …
+};
