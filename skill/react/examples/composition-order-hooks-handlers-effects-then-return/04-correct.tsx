@@ -2,9 +2,6 @@ export const OrderToolbar = () => {
 	const [selectedIds, setSelectedIds] = useState<string[]>([]);
 	const [isPanelOpen, setIsPanelOpen] = useState(false);
 
-	// ----------------------------------------------------------------------------------------
-	// 비우기는 선택만 지우고 패널은 유지
-	// ----------------------------------------------------------------------------------------
 	const handleClearButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 		setSelectedIds([]);
 	};

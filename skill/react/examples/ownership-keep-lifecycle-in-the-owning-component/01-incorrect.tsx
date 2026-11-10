@@ -6,9 +6,6 @@ export const ChartCard = (props: ChartCardProps) => {
 // [!code error]
 	const chart = useChartInstance(containerRef);
 
-	// ----------------------------------------------------------------------------------------
-	// option이 바뀌면 기존 인스턴스에 다시 반영
-	// ----------------------------------------------------------------------------------------
 	useEffect(() => {
 // [!code error]
 		chart?.setOption(props.option);

@@ -4,10 +4,7 @@ import {clsx} from "clsx";
 import type {TdHTMLAttributes} from "react";
 
 // ----------------------------------------------------------------------------------------
-// 라이브러리 셀의 정렬과 여백을 여는 계약
-//
-// align의 inherit은 DOM td 타입에 없음
-// 그 이름만 제외하고 다시 선언
+// align의 inherit은 DOM td 타입에 없음 → 그 이름만 제외하고 다시 선언
 // ----------------------------------------------------------------------------------------
 export interface TableCellProps extends Omit<TdHTMLAttributes<HTMLTableCellElement>, "align"> {
 	align?: MuiTableCellProps["align"];

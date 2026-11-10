@@ -3,9 +3,6 @@ export const ChartCard = (props: ChartCardProps) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const chartRef = useRef<ChartInstance | null>(null);
 
-	// ----------------------------------------------------------------------------------------
-	// 컨테이너 마운트 시 차트 인스턴스를 만들고 resize, dispose까지 소유
-	// ----------------------------------------------------------------------------------------
 	useEffect(() => {
 		if (!containerRef.current) {
 			return;
@@ -27,9 +24,6 @@ export const ChartCard = (props: ChartCardProps) => {
 		};
 	}, []);
 
-	// ----------------------------------------------------------------------------------------
-	// option이 바뀌면 기존 인스턴스에 다시 반영
-	// ----------------------------------------------------------------------------------------
 	useEffect(() => {
 		chartRef.current?.setOption(props.option);
 	}, [props.option]);

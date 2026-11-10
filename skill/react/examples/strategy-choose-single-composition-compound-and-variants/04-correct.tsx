@@ -1,8 +1,7 @@
 // component/widget/profile-dialog/_profile-dialog-root.tsx
+
 // ----------------------------------------------------------------------------------------
-// 대화상자 부품이 나눠 읽는 접힘 상태
-//
-// toggleBody: 헤더가 호출하는 접기 토글
+// 대화상자 부품이 나눠 읽는 접힘 상태, toggleBody는 헤더가 호출
 // ----------------------------------------------------------------------------------------
 interface ProfileDialogContextValue {
 	isBodyOpen: boolean;
@@ -11,26 +10,16 @@ interface ProfileDialogContextValue {
 
 export const ProfileDialogContext = createContext<ProfileDialogContextValue | null>(null);
 
-// ----------------------------------------------------------------------------------------
-// 대화상자 틀 계약
-// ----------------------------------------------------------------------------------------
 export interface ProfileDialogRootProps {
 	children: ReactNode;
 }
 
 // ----------------------------------------------------------------------------------------
-// 대화상자 틀
-//
-// 접힘 상태를 소유하고 부품에 컨텍스트로 전달
+// 대화상자 틀, 접힘 상태를 소유하고 부품에 컨텍스트로 전달
 // ----------------------------------------------------------------------------------------
 export const ProfileDialogRoot = (props: ProfileDialogRootProps) => {
 	const [isBodyOpen, setIsBodyOpen] = useState(true);
 
-	// ----------------------------------------------------------------------------------------
-	// 헤더가 호출할 접기 토글
-	//
-	// 이전 값 기준 함수형 갱신
-	// ----------------------------------------------------------------------------------------
 	const toggleBody = () => {
 		setIsBodyOpen((previous) => !previous);
 	};
