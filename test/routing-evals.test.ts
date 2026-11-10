@@ -1,3 +1,8 @@
+// ----------------------------------------------------------------------------------------
+// routing-evals.json 매니페스트 읽기와 검증기의 단위 테스트
+//
+// 실제 skill 내용은 핀하지 않고 fixture로만 검사
+// ----------------------------------------------------------------------------------------
 import assert from "node:assert/strict";
 import {mkdtemp, mkdir, rm, writeFile} from "node:fs/promises";
 import {tmpdir} from "node:os";
@@ -8,67 +13,40 @@ import {getSkillPaths} from "../src/config.js";
 import {readRoutingEvalManifest, validateRoutingEvalManifest, validateRoutingEvalManifests} from "../src/routing-evals.js";
 import type {RoutingEvalManifest, RoutingScopeDrift, SkillCompanion} from "../src/types.js";
 
-/*
- * routing-evals.json 매니페스트 읽기와 검증기의 단위 테스트. 실제 skill 내용은 핀하지 않고 fixture 로만 검사
- */
-
 const fixtureRuleIds = ["fixture-first", "fixture-second"] as const;
 
-/**
- * @summary skill fixture source 구성 옵션
- */
+// ----------------------------------------------------------------------------------------
+// skill fixture 구성 옵션, ruleRouting과 ruleTitles는 stable ID가 키
+//
+// companions: fixture metadata에 선언할 direct companion
+// ruleIds: fixture에 만들 local rule의 stable ID
+// ----------------------------------------------------------------------------------------
 interface SkillFixtureOptions {
-	/**
-	 * @field fixture metadata에 선언할 direct companion 목록
-	 */
 	companions?: SkillCompanion[];
-	/**
-	 * @field fixture에 생성할 local rule stable ID 목록
-	 */
 	ruleIds?: string[];
-	/**
-	 * @field stable ID별 mandatory selection routing metadata
-	 */
 	ruleRouting?: Record<string, {requiredOnCompletion?: boolean; requiresSelected?: string[]}>;
-	/**
-	 * @field stable ID별 custom rule title
-	 */
 	ruleTitles?: Record<string, string>;
 }
 
-/**
- * @summary skill fixture 파일 생성 인자
- */
+// ----------------------------------------------------------------------------------------
+// skill fixture 파일 생성 인자, skillRootDir은 격리된 fixture skill root 절대 경로
+// ----------------------------------------------------------------------------------------
 interface WriteFixtureSkillArgs {
-	/**
-	 * @field 격리된 fixture skill root 절대 경로
-	 */
 	skillRootDir: string;
-	/**
-	 * @field 생성할 fixture skill 디렉터리 이름
-	 */
 	skillName: string;
-	/**
-	 * @field fixture source 구성 선택 옵션
-	 */
 	options?: SkillFixtureOptions;
 }
 
-/**
- * @summary routing-evals.json fixture 생성 인자
- */
+// ----------------------------------------------------------------------------------------
+// routing-evals.json fixture 생성 인자
+//
+// skillRootDir: 격리된 fixture skill root 절대 경로
+// skillName: manifest를 소유하는 skill 디렉터리 이름
+// manifest: JSON으로 직렬화할 후보 값
+// ----------------------------------------------------------------------------------------
 interface WriteManifestArgs {
-	/**
-	 * @field 격리된 fixture skill root 절대 경로
-	 */
 	skillRootDir: string;
-	/**
-	 * @field manifest owner skill 디렉터리 이름
-	 */
 	skillName: string;
-	/**
-	 * @field JSON으로 직렬화할 manifest 후보 값
-	 */
 	manifest: unknown;
 }
 
@@ -135,9 +113,9 @@ const writeFixtureSkill = async (args: WriteFixtureSkillArgs): Promise<void> => 
 	}
 };
 
-/**
- * @helper 첫 시나리오의 `scopeDrift`. 없으면 fixture가 깨진 것이라 바로 던짐
- */
+// ----------------------------------------------------------------------------------------
+// 첫 시나리오의 `scopeDrift`, 없으면 fixture가 깨진 것이라 바로 던짐
+// ----------------------------------------------------------------------------------------
 const toFirstScopeDrift = (candidate: RoutingEvalManifest): RoutingScopeDrift => {
 	const drift = candidate.scenarios[0]?.scopeDrift;
 

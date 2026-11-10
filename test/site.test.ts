@@ -11,9 +11,9 @@ const expectedRuleCount = 197;
 const expectedSectionCount = 49;
 const expectedSkillCount = 6;
 
-/**
- * @helper frontmatter 키 하나의 값. 따옴표 scalar는 JSON으로 풀어 읽음
- */
+// ----------------------------------------------------------------------------------------
+// frontmatter 키 하나의 값, 따옴표 scalar는 JSON으로 풀어 읽음
+// ----------------------------------------------------------------------------------------
 const readFrontmatter = (file: SiteFile, key: string): string | undefined => {
 	const match = new RegExp(`^${key}: (.+)$`, "m").exec(file.content.split("\n---\n")[0] ?? "");
 
@@ -26,9 +26,9 @@ const readFrontmatter = (file: SiteFile, key: string): string | undefined => {
 	return raw.startsWith('"') ? (JSON.parse(raw) as string) : raw;
 };
 
-/**
- * @helper for-humanity와 같은 규칙으로 페이지의 헤딩 앵커 집합 계산. 같은 글은 -1, -2
- */
+// ----------------------------------------------------------------------------------------
+// for-humanity와 같은 규칙으로 페이지의 헤딩 앵커 집합 계산, 같은 글은 -1, -2
+// ----------------------------------------------------------------------------------------
 const collectAnchors = (file: SiteFile): Set<string> => {
 	const slugger = new Slugger();
 	const anchors = new Set<string>();

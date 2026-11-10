@@ -1,3 +1,6 @@
+// ----------------------------------------------------------------------------------------
+// 에이전트가 읽는 생성물과 라우터의 계약, 규칙 산문은 핀하지 않고 구조만 확인
+// ----------------------------------------------------------------------------------------
 import assert from "node:assert/strict";
 import {access, readFile} from "node:fs/promises";
 import path from "node:path";
@@ -18,13 +21,6 @@ import {
 	splitFrontmatter,
 } from "./helpers/router-contract.js";
 
-/*
- * 에이전트가 읽는 생성물과 라우터의 계약. 규칙 산문은 핀하지 않고 구조만 본다
- */
-
-/**
- * @helper skill 문서 전부
- */
 const readProgressiveDocuments = async (): Promise<LoadedSkillDocument[]> => {
 	const documents: LoadedSkillDocument[] = [];
 

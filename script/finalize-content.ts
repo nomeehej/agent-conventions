@@ -3,9 +3,9 @@ import {readdir, readFile, writeFile} from "node:fs/promises";
 import path from "node:path";
 import {fileURLToPath} from "node:url";
 
-/*
- * 배포 HTML의 파비콘 캐시 갱신, 영어 홈의 언어 표기 적용
- */
+// ----------------------------------------------------------------------------------------
+// 배포 HTML의 파비콘 캐시 갱신, 영어 홈의 언어 표기 적용
+// ----------------------------------------------------------------------------------------
 const faviconVersion = createHash("sha256")
 	.update(await readFile(new URL("../content/asset/favicon.svg", import.meta.url)))
 	.digest("hex");

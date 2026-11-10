@@ -26,41 +26,23 @@ const checkGeneratedModulePath = path.join(packageDir, "script", "check-generate
 const _expectedSkillScriptNames = ["react", "css", "typescript", "testing", "figma", "blueprint"] as const;
 const _expectedProgressiveSkillNames = ["blueprint", "css", "figma", "react", "testing", "typescript"] as const;
 
-/**
- * @summary exact Markdown section 조회 조건
- */
+// ----------------------------------------------------------------------------------------
+// exact Markdown section 조회 조건, heading은 `#` prefix를 제외한 exact heading
+// ----------------------------------------------------------------------------------------
 interface MarkdownSectionQuery {
-	/**
-	 * @field 검사할 Markdown 원문
-	 */
 	source: string;
-	/**
-	 * @field `#` prefix를 제외한 exact heading
-	 */
 	heading: string;
-	/**
-	 * @field 헤딩 단계
-	 */
 	level: number;
 }
 
-/**
- * @summary exact Markdown table 조회 조건
- */
+// ----------------------------------------------------------------------------------------
+// exact Markdown table 조회 조건, section은 table을 포함해야 하는 section body
+// ----------------------------------------------------------------------------------------
 interface MarkdownTableQuery {
-	/**
-	 * @field table을 포함해야 하는 section body
-	 */
 	section: string;
-	/**
-	 * @field table header의 exact cell 목록
-	 */
 	expectedHeader: readonly string[];
 }
 
-/**
- * @helper CLI build 격리 검증용 최소 structured skill 작성
- */
 const writeCliSkillFixture = async (skillRootDir: string, skillName: string): Promise<void> => {
 	const skillDir = path.join(skillRootDir, skillName);
 	const rulesDir = path.join(skillDir, "rules");
@@ -83,9 +65,6 @@ const writeCliSkillFixture = async (skillRootDir: string, skillName: string): Pr
 	await writeFile(path.join(skillDir, "SKILL.md"), "# CLI Fixture\n", "utf8");
 };
 
-/**
- * @helper skill markdown 파일 목록을 재귀적으로 조회
- */
 const _listMarkdownFiles = async (dirPath: string): Promise<string[]> => {
 	const dirents = await readdir(dirPath, {withFileTypes: true});
 	const files: string[] = [];
@@ -106,9 +85,9 @@ const _listMarkdownFiles = async (dirPath: string): Promise<string[]> => {
 	return files.sort();
 };
 
-/**
- * @helper fenced/indented code와 HTML 주석을 제외한 Markdown 렌더링 line 목록 생성
- */
+// ----------------------------------------------------------------------------------------
+// fenced/indented code와 HTML 주석을 제외한 Markdown 렌더링 line 목록 생성
+// ----------------------------------------------------------------------------------------
 const getRenderableMarkdownLines = (sourceLines: readonly string[]): string[] => {
 	const renderableLines: string[] = [];
 	let fenceCharacter: "`" | "~" | undefined;
@@ -203,9 +182,9 @@ const getRenderableMarkdownLines = (sourceLines: readonly string[]): string[] =>
 	return renderableLines;
 };
 
-/**
- * @helper 렌더링 가능한 exact heading으로 원본 Markdown section body 추출
- */
+// ----------------------------------------------------------------------------------------
+// 렌더링 가능한 exact heading으로 원본 Markdown section body 추출
+// ----------------------------------------------------------------------------------------
 const _extractMarkdownSection = (query: MarkdownSectionQuery): string => {
 	const {source, heading, level} = query;
 	const sourceLines = source.split("\n");
@@ -249,9 +228,9 @@ const _extractMarkdownSection = (query: MarkdownSectionQuery): string => {
 		.trim();
 };
 
-/**
- * @helper unfenced contiguous Markdown table을 exact header와 column shape로 검증
- */
+// ----------------------------------------------------------------------------------------
+// unfenced contiguous Markdown table을 exact header와 column shape로 검증
+// ----------------------------------------------------------------------------------------
 const _parseMarkdownTableRows = (query: MarkdownTableQuery): string[][] => {
 	const {section, expectedHeader} = query;
 	const lines = getRenderableMarkdownLines(section.split("\n"));
@@ -308,9 +287,6 @@ const _parseMarkdownTableRows = (query: MarkdownTableQuery): string[][] => {
 	});
 };
 
-/**
- * @description 루트 npm script를 실제 CLI처럼 실행
- */
 const runPackageCommand = (args: string[]) => {
 	const npmCheckResult = spawnSync(npmCommand, ["--version"], {cwd: repoDir, encoding: "utf8", env: commandEnv});
 

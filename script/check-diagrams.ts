@@ -1,9 +1,9 @@
 import {checkDiagrams, maxDiagramColumns} from "../src/check-diagrams.js";
 import type {DiagramReport} from "../src/check-diagrams.js";
 
-/*
- * 규칙의 mermaid 흐름도가 격자 폭 안에 그려지는지. 넘치거나 깨지면 종료 코드 1
- */
+// ----------------------------------------------------------------------------------------
+// 규칙의 mermaid 흐름도가 격자 폭 안에 그려지는지 검사, 넘치거나 깨지면 종료 코드 1
+// ----------------------------------------------------------------------------------------
 const reports = await checkDiagrams();
 let failed = false;
 

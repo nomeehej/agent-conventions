@@ -22,9 +22,9 @@ const packageDir = path.resolve(currentDir, "..");
 const tsxCliPath = path.join(packageDir, "node_modules", "tsx", "dist", "cli.mjs");
 const validateModulePath = path.join(packageDir, "script", "validate.ts");
 
-/**
- * 계약 생성이 반드시 실패하는 본문. build 트랜잭션이 기존 생성물을 덮지 않는지 확인용
- */
+// ----------------------------------------------------------------------------------------
+// 계약 생성이 반드시 실패하는 본문, build 트랜잭션이 기존 생성물을 덮지 않는지 확인용
+// ----------------------------------------------------------------------------------------
 const EmptyExampleBody = [
 	"---",
 	"title: Fixture Rule",
@@ -167,9 +167,6 @@ interface CreateSymlinkOrSkipArgs {
 	type: "file" | "dir";
 }
 
-/**
- * @helper symlink 기능이 없는 플랫폼에서는 회귀 테스트를 명시적으로 skip
- */
 const createSymlinkOrSkip = async (args: CreateSymlinkOrSkipArgs): Promise<boolean> => {
 	try {
 		await symlink(args.targetPath, args.linkPath, args.type);
@@ -186,9 +183,6 @@ const createSymlinkOrSkip = async (args: CreateSymlinkOrSkipArgs): Promise<boole
 	}
 };
 
-/**
- * @helper build 단계의 deterministic log 목록 수집
- */
 const captureConsoleLogs = async (run: () => Promise<void>): Promise<string[]> => {
 	const logs: string[] = [];
 	const originalConsoleLog = console.log;
@@ -203,9 +197,6 @@ const captureConsoleLogs = async (run: () => Promise<void>): Promise<string[]> =
 	return logs;
 };
 
-/**
- * @helper 파일 트리의 상대 경로와 본문 snapshot 생성
- */
 const readFileTreeSnapshot = async (rootDir: string, currentDir: string = rootDir): Promise<[string, string][]> => {
 	const entries = await readdir(currentDir, {withFileTypes: true});
 	const snapshot: [string, string][] = [];
@@ -226,9 +217,9 @@ const readFileTreeSnapshot = async (rootDir: string, currentDir: string = rootDi
 	return snapshot.sort(([leftPath], [rightPath]) => leftPath.localeCompare(rightPath, "en-US"));
 };
 
-/**
- * @helper renderer 단위 테스트용 progressive skill 문서 생성
- */
+// ----------------------------------------------------------------------------------------
+// renderer 단위 테스트용 progressive skill 문서 생성
+// ----------------------------------------------------------------------------------------
 const createRoutingDocument = (): LoadedSkillDocument => ({
 	skillName: "react",
 	metadata: {title: "React Convention", version: "2.0.0", organization: "Fixture Team", abstract: "Routing fixture."},
@@ -305,9 +296,6 @@ const readRoutingDigest = (source: string): string => {
 	return digest;
 };
 
-/**
- * @helper 실제 skill root의 content-level Git 상태 조회
- */
 const readRealSkillGitStatus = (): string => {
 	const result = spawnSync("git", ["status", "--short", "--untracked-files=all", "--", "skill"], {
 		// package.json 이 저장소 루트에 있어 git 루트와 같음

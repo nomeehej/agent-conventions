@@ -16,9 +16,9 @@ import type {LoadedSkillDocument} from "../src/types.js";
 
 const expectedRuleCount = 197;
 
-/**
- * @helper 사이트가 노출하는 skill 문서 전부
- */
+// ----------------------------------------------------------------------------------------
+// 사이트가 노출하는 skill 문서 전부
+// ----------------------------------------------------------------------------------------
 const readProgressiveDocuments = async (): Promise<LoadedSkillDocument[]> => {
 	const documents: LoadedSkillDocument[] = [];
 

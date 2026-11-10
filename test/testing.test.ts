@@ -36,28 +36,19 @@ test("Testing renders under Coding with section links and real example assets", 
 });
 
 test("Playwright examples expose GIVEN, WHEN and THEN while Vitest examples stay unmarked", async () => {
-	/**
-	 * GIVEN
-	 * 독자가 복사하는 실행 예제 전체
-	 */
+	// GIVEN 독자가 복사하는 실행 예제 전체
 	const examplesUrl = new URL("../skill/testing/examples/", import.meta.url);
 	const paths = (await readdir(examplesUrl, {recursive: true})).filter((path) => path.endsWith(".test.ts"));
 	assert.ok(paths.length > 0);
 	const order = ["GIVEN", "WHEN", "THEN"];
 
 	for (const path of paths) {
-		/**
-		 * WHEN
-		 * 러너와 시나리오 구간의 수집
-		 */
+		// WHEN 러너와 시나리오 구간의 수집
 		const source = await readFile(new URL(path, examplesUrl), "utf8");
 		const caseCount = [...source.matchAll(/^\s*test(?:\(|\.each\()/gm)].length;
 		const phases = [...source.matchAll(/^\s*\/\/ (GIVEN|WHEN|THEN)\b/gm)].map((match) => match[1]);
 
-		/**
-		 * THEN
-		 * Vitest 사례는 구간 표시 없음, Playwright 사례는 THEN으로 끝나는 순서대로의 구간과 설명
-		 */
+		// THEN Vitest 사례는 구간 표시 없음, Playwright 사례는 THEN으로 끝나는 순서대로의 구간과 설명
 		assert.ok(caseCount > 0, `${path} has no executable case`);
 		if (/from "vitest"/.test(source)) {
 			assert.deepEqual(phases, [], `${path} is a Vitest case and keeps no GIVEN, WHEN, THEN blocks`);
@@ -85,22 +76,13 @@ test("Playwright examples expose GIVEN, WHEN and THEN while Vitest examples stay
 });
 
 test("Testing exposes suite selection, stories and generated API composition as reader-facing rules", async () => {
-	/**
-	 * GIVEN
-	 * Testing 규칙과 사이트를 읽는 소비자
-	 */
+	// GIVEN Testing 규칙과 사이트를 읽는 소비자
 	const document = await readSkillDocument(getSkillPaths("testing"));
 
-	/**
-	 * WHEN
-	 * 문서와 예제의 생성
-	 */
+	// WHEN 문서와 예제의 생성
 	const files = await generateSiteFiles();
 
-	/**
-	 * THEN
-	 * 선별 기준, story 소비, 생성 계약 조립의 탐색 경로
-	 */
+	// THEN 선별 기준, story 소비, 생성 계약 조립의 탐색 경로
 	for (const id of [
 		"scope-separate-test-level-from-suite-purpose",
 		"network-compose-generated-contracts-through-owned-builders",
