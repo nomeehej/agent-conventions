@@ -168,9 +168,19 @@ const countBoxDashes = (line: string): number => /-+/.exec(line)?.[0].length ?? 
 const codeMarkerLine = /^\s*(?:\/\/|\{\/\*)\s*\[!code [^\]]+\]/;
 
 /**
- * 헤더 상자가 필요한 내보낸 화살표 함수 선언
+ * 주석 상자 안 줄의 최대 폭. 위아래 줄(`// ` + 대시 88개)과 같은 91칸, 한글은 2칸
  */
-const exportedArrowDeclaration = /^export const [a-z]\w*(?::\s*[^=]+?)?\s*=\s*(?:async\s*)?\(/;
+const boxContentWidth = 91;
+
+/**
+ * 블록이 열리는 줄의 끝. 상자가 블록 첫 줄이면 위에 빈 줄을 두지 않음
+ */
+const blockOpening = /(?:[{([]|=>)$/;
+
+/**
+ * 내용 없는 주석 줄
+ */
+const emptyCommentLine = /^\s*\/\/\s*$/;
 
 /**
  * JSX 요소 둘을 고르는 삼항. `composition-render-one-branch-with-and`가 `&&` 두 줄 요구
@@ -222,6 +232,55 @@ const displayWidth = (text: string): number => {
 	}
 
 	return width;
+};
+
+/**
+ * @helper 주석 상자의 모양 위반. 위아래 줄 짝, 상자 위 빈 줄, 안쪽 줄 폭, 요약 줄로 시작, 상자 바로 아래 코드
+ */
+const findBoxViolations = (lines: readonly string[]): string[] => {
+	const violations: string[] = [];
+	const ruleIndexes = lines.flatMap((line, index) => (boxRule.test(line) ? [index] : []));
+
+	if (ruleIndexes.length % 2 !== 0) {
+		violations.push("Correct 예제의 주석 상자는 위아래 대시 줄이 짝을 이룬다");
+	}
+
+	for (let pair = 0; pair + 1 < ruleIndexes.length; pair += 2) {
+		const open = ruleIndexes[pair] ?? 0;
+		const close = ruleIndexes[pair + 1] ?? 0;
+		const above = lines
+			.slice(0, open)
+			.reverse()
+			.find((candidate) => !codeMarkerLine.test(candidate));
+		const inside = lines.slice(open + 1, close);
+		const below = lines[close + 1];
+
+		if (above !== undefined && above.trim() !== "" && !blockOpening.test(above.trim())) {
+			violations.push(`Correct 예제의 주석 상자 위에는 빈 줄을 둔다(블록 첫 줄 제외): "${above.trim().slice(0, violationExcerptLength)}"`);
+		}
+
+		if (inside.length === 0 || emptyCommentLine.test(inside[0] ?? "") || emptyCommentLine.test(inside.at(-1) ?? "")) {
+			violations.push("Correct 예제의 주석 상자는 요약 줄로 시작하고 빈 줄로 끝나지 않는다");
+		}
+
+		for (const content of inside) {
+			if (!/^\s*\/\//.test(content)) {
+				violations.push(`Correct 예제의 주석 상자 안은 // 줄만 둔다: "${content.trim().slice(0, violationExcerptLength)}"`);
+			}
+
+			if (displayWidth(content.trimStart()) > boxContentWidth) {
+				violations.push(
+					`Correct 예제의 주석 상자 안 줄은 ${boxContentWidth}칸 이하다: "${content.trim().slice(0, violationExcerptLength)}"`,
+				);
+			}
+		}
+
+		if (below !== undefined && below.trim() === "") {
+			violations.push("Correct 예제의 주석 상자 바로 아래는 코드다");
+		}
+	}
+
+	return violations;
 };
 
 /**
@@ -395,7 +454,9 @@ const collectRuleViolations = (rule: SkillRule): string[] => {
 
 			const lines = block.code.split("\n");
 
-			for (const [index, line] of lines.entries()) {
+			violations.push(...findBoxViolations(lines));
+
+			for (const line of lines) {
 				if (nonButtonClick.test(line)) {
 					violations.push(`Correct 예제에서 누르는 요소는 button 이다: "${line.trim()}"`);
 				}
@@ -414,16 +475,6 @@ const collectRuleViolations = (rule: SkillRule): string[] => {
 
 				if (boxRule.test(line) && countBoxDashes(line) !== boxRuleDashes) {
 					violations.push(`Correct 예제의 주석 상자 줄은 // 뒤 대시 ${boxRuleDashes}개다`);
-				}
-
-				const previousCodeLine =
-					lines
-						.slice(0, index)
-						.reverse()
-						.find((candidate) => !codeMarkerLine.test(candidate)) ?? "";
-
-				if (exportedArrowDeclaration.test(line) && !boxRule.test(previousCodeLine)) {
-					violations.push(`Correct 예제의 내보낸 함수는 바로 위에 헤더 상자를 단다: "${line.trim()}"`);
 				}
 
 				if (/^\s*(?:export\s+)?function\s/.test(line)) {
