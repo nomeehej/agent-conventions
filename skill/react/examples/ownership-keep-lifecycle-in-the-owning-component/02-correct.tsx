@@ -13,7 +13,7 @@ export const ChartCard = (props: ChartCardProps) => {
 
 		// 외부 차트 라이브러리 인스턴스. 만든 컴포넌트가 resize와 dispose까지 책임
 		const instance = mountChart(containerRef.current);
-		const handleResize = () => {
+		const handleResize = (_event: UIEvent) => {
 			instance.resize();
 		};
 

@@ -9,7 +9,7 @@
 | --- | --- |
 | 한 소유자만 쓰는 생명주기 | 해당 컴포넌트의 이펙트에 둡니다 |
 | 여러 소유자가 같은 생명주기 계약을 실제로 호출함 | 훅으로 추출합니다 |
-| 파일이 길어짐 | 생명주기 대신 도메인 계산을 `_function`으로 분리합니다 |
+| 파일이 길어짐 | 길이는 분리 사유가 아닙니다. 생명주기는 두고 도메인 계산은 대표 둘 이상이 부를 때만 `_function`으로 뺍니다 |
 | 이펙트 정리, 재설치 | 정리할 때 인스턴스 참조를 비우고 다시 설치할 때 새로 만듭니다. 상태에 남은 폐기된 인스턴스를 재사용하지 않습니다 |
 
 **Incorrect 1 (파일 분량을 줄이려고 생명주기를 훅으로 옮깁니다):**
@@ -50,7 +50,7 @@ export const ChartCard = (props: ChartCardProps) => {
 
 		// 외부 차트 라이브러리 인스턴스. 만든 컴포넌트가 resize와 dispose까지 책임
 		const instance = mountChart(containerRef.current);
-		const handleResize = () => {
+		const handleResize = (_event: UIEvent) => {
 			instance.resize();
 		};
 

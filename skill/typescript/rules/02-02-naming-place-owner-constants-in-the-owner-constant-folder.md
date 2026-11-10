@@ -24,7 +24,7 @@ tags: naming, constant
 | 한 파일만 쓰는 상수 | 그 파일 위쪽에 `<주제>_` 접두사로 선언하고 내보내지 않습니다 |
 | 같은 소유자의 파일 둘 이상이 쓰는 상수 | `_constant/<주제>.ts`에 `<주제>_` 접두사로 선언합니다. 두 번째 파일이 쓰게 될 때 옮깁니다 |
 | 소유자 문맥 | 폴더 경로가 이미 드러내므로 이름에 반복하지 않습니다. `page/product-detail/_constant/legend.ts`에는 `legend_hit_tolerance_px`를 둡니다 |
-| 파서 묶음, 스키마 등 함수를 담은 계약 | 같은 `_constant`에 계약별 파일로 둡니다 |
+| 파서 묶음, 스키마 등 함수를 담은 계약 | 한 파일만 쓰면 그 파일 위쪽에 두고 둘 이상이 쓰면 같은 `_constant`에 계약별 파일로 둡니다 |
 | 소유자를 지워도 남는 값 | 루트 상수 규칙에 따라 옮깁니다 |
 
 계약 파일의 이름은 `naming-use-consistent-file-and-symbol-naming`을 따릅니다.

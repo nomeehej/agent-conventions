@@ -323,8 +323,6 @@ declare const tick_count: number;
 declare const token_expiry_hours: number;
 declare const pricing_default_currency: string;
 declare const locale_supported_values: readonly string[];
-declare const status_positive_values: readonly string[];
-declare const status_negative_values: readonly string[];
 declare const editable_order_statuses: readonly OrderStatus[];
 declare const product_list: Product[];
 declare const productColumns: TableColumn[];
@@ -597,7 +595,6 @@ interface SearchIndex {
 	search(keyword: string): Product[];
 }
 declare const fetchProducts: (params: {pageSize: number}) => Promise<ProductListResponse>;
-declare const fetchFilteredRows: (status: ProductStatusFilter) => Promise<ProductRow[]>;
 declare const isProductFilter: (value: unknown) => value is ProductFilter;
 declare const parseStoredProductFilter: (raw: string | null) => ProductFilter | undefined;
 declare const matchRow: (row: Row, keyword: string) => boolean;
@@ -629,7 +626,6 @@ declare const handleListItemClick: (productId: string) => MouseEventHandler<HTML
 declare const handleChange: (value: string) => void;
 declare const handleFilterToggleClick: MouseEventHandler<HTMLButtonElement>;
 declare const setPage: Dispatch<number>;
-declare const setRows: Dispatch<ProductRow[]>;
 declare const setSelectedCategoryId: Dispatch<string>;
 declare const setSelectedUserIds: Dispatch<string[]>;
 declare const setStatusFilter: Dispatch<ProductStatusFilter>;
@@ -700,8 +696,6 @@ declare const isDense: boolean;
 declare const isDisabled: boolean;
 declare const isSelected: boolean;
 declare const ownerId: string;
-declare const approverId: string;
-declare const reviewerId: string;
 declare const ownerIds: string[];
 declare const allowedProductIds: string[];
 declare const watchedProductIds: string[];
@@ -727,8 +721,6 @@ declare const products: Product[];
 // 예제 세계관: `@/` 모듈. 예제가 import 하는 것만 선언. 모듈 안에서 같은 이름을 다시 내보내려고 Shape, Component 별칭을 거침
 type ButtonPropsShape = ButtonProps;
 type ChartSeriesShape = ChartSeries;
-type PanelPartPropsShape = PanelPartProps;
-type ProfileDialogPartPropsShape = ProfileDialogPartProps;
 type PanelPartComponent = (props: PanelPartProps) => ReactElement;
 type ProfileDialogPartComponent = (props: ProfileDialogPartProps) => ReactElement;
 type LineChartComponent = (props: LineChartProps) => ReactElement;
@@ -800,18 +792,8 @@ declare module "@/component/widget/profile-dialog/_profile-dialog-root" {
 declare module "@/config/env" {
 	export const env_api_base_url: string;
 }
-declare module "@/constant/api" {
-	export const api_request_timeout_ms: number;
-}
-declare module "@/constant/date" {
-	export const date_expiry_month_format: string;
-	export const date_input_format: string;
-}
 declare module "@/constant/pagination" {
 	export const pagination_default_page_size: number;
-}
-declare module "@/constant/preview" {
-	export const preview_row_count: number;
 }
 declare module "@/constant/retry" {
 	export const retry_max_attempts: number;
@@ -833,9 +815,6 @@ declare module "@/page/product-detail/_function/to-summary" {
 }
 declare module "@/page/(main)/product-detail/product-detail-page" {
 	export const ProductDetailPage: () => ReactElement;
-}
-declare module "@/page/product-detail/product-summary-section/product-summary-section" {
-	export const ProductSummarySection: (props: {heading?: ReactNode}) => ReactElement;
 }
 declare module "@/page/product-detail/product-table-section/_review-section" {
 	export const ReviewSection: () => ReactElement;

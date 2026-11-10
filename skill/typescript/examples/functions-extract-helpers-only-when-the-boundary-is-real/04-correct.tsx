@@ -1,5 +1,5 @@
 // page/profile/profile-page.tsx
-const handleNextClick = () => {
+const handleNextPageButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 // [!code ++]
 	setPage((previous) => (previous + 1) % pageCount);
 };

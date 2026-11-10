@@ -4,7 +4,7 @@
 // [!code error]
 import {getNextPage} from "@/page/profile/_function/get-next-page";
 
-const handleNextClick = () => {
+const handleNextPageButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 // [!code error]
 	setPage((previous) => getNextPage(previous, pageCount));
 };

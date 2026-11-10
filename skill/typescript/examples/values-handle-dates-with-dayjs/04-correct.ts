@@ -1,6 +1,6 @@
 import dayjs from "dayjs";
 
-import {date_input_format} from "@/constant/date";
+const date_input_format = "YYYY-MM-DD";
 
 /**
  * 형식은 맞지만 없는 날짜(2026-02-30 등) 제외

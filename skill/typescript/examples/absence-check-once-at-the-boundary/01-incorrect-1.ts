@@ -1,4 +1,4 @@
-// page/product-detail/_function/to-badge/_to-signed-tone.ts
+// page/product-detail/_function/to-signed-tone.ts
 // [!code error]
 export const toSignedTone = (value: number | null | undefined): Tone => {
 // [!code error]

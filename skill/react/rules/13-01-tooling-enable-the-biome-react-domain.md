@@ -21,7 +21,7 @@ tags: tooling
 
 | 검사 | 컨벤션 적용 범위 | 추가 설정, 리뷰 |
 | --- | --- | --- |
-| `correctness/noNestedComponentDefinitions` | `react/composition-do-not-define-components-inside-components`의 컴포넌트 정의 | 도메인 `recommended`에 없어 별도로 켭니다. JSX를 반환하는 로컬 함수는 리뷰에서 확인합니다 |
+| `correctness/noNestedComponentDefinitions` | `react/composition-do-not-define-components-inside-components`의 컴포넌트 정의 | 도메인 `recommended`에 없어 별도로 켭니다. JSX를 반환하는 지역 함수는 리뷰에서 확인합니다 |
 | `correctness/useExhaustiveDependencies` | `react/state-use-effectevent-for-non-reactive-effect-callbacks`의 누락된 의존성 검사 | `useEffectEvent`로 분리할지는 리뷰에서 판단합니다 |
 | `correctness/useJsxKeyInIterable` | `react/composition-name-fragments-explicitly`의 `key` 유무 | `<>` 대신 `Fragment`를 썼는지는 리뷰에서 확인합니다 |
 | `style/noRestrictedImports` + `overrides` | `react/ownership-keep-component-imports-flowing-downward`의 레이어, 라우트 방향 | 아래 경로 설정을 추가합니다. 소유자 경계는 별도로 판단합니다 |

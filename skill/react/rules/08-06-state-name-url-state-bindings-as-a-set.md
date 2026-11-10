@@ -20,7 +20,7 @@ tags: state, naming, url
 
 | 대상 | 이름과 위치 |
 | --- | --- |
-| 파라미터별 파싱 함수 묶음 | 소유자 `_constant/url-parsers.ts`의 `urlParsers`. 소유자 경로가 범위를 드러내므로 이름에 반복하지 않습니다 |
+| 파라미터별 파싱 함수 묶음 | `urlParsers`. 한 파일만 읽으면 그 파일 위쪽에 두고 둘 이상의 파일이 읽으면 소유자 `_constant/url-parsers.ts`에 둡니다. 경로가 범위를 드러내므로 이름에 반복하지 않습니다 |
 | 파싱 결과와 갱신 함수 | `urlParams`, `setUrlParams` |
 | 플랫폼 `URLSearchParams` 객체 | `searchParams`. 파싱 결과에는 쓰지 않습니다 |
 
@@ -32,7 +32,7 @@ tags: state, naming, url
 
 <<< ../examples/state-name-url-state-bindings-as-a-set/01-incorrect.ts
 
-**Correct 1 (파서 묶음은 `urlParsers`로 소유자 `_constant` 폴더에 둡니다):**
+**Correct 1 (두 파일이 읽는 파서 묶음은 `urlParsers`로 소유자 `_constant` 폴더에 둡니다):**
 
 <<< ../examples/state-name-url-state-bindings-as-a-set/02-correct.ts
 
@@ -47,3 +47,7 @@ tags: state, naming, url
 **Correct (플랫폼 `URLSearchParams` 객체만 `searchParams`입니다):**
 
 <<< ../examples/state-name-url-state-bindings-as-a-set/05-correct.tsx
+
+**Correct (한 파일만 읽는 파서 묶음은 그 파일 위쪽에 둡니다):**
+
+<<< ../examples/state-name-url-state-bindings-as-a-set/06-correct.ts

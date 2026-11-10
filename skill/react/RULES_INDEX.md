@@ -1,7 +1,7 @@
 # React 컨벤션 Rule Index
 
 - Skill: `react`
-- Routing digest: `sha256:f3da5932019e1b9d3313df2ce16f32d6eb0c7df328284079bb93e201a45935a1`
+- Routing digest: `sha256:1c6de12a25841ff9d0211817ee0a1617d260853ff5358c1720ac6cafb29261f0`
 
 ## Direct Companions
 
@@ -32,7 +32,7 @@
 - R04-03 | strategy-avoid-boolean-prop-proliferation | \`ui\`나 \`widget\` 컴포넌트에 불리언 모드, 표시 프롭을 추가할 때. 기존 불리언 프롭 조합과 JSX 분기가 늘어날 때. 제외: 라우트 진입 파일 안에서만 쓰는 일회성 분기인 경우. 제외: \`disabled\`, \`checked\` 같은 독립 상태 프롭만 여는 경우. | reviewWith: strategy-expose-only-assembled-compound-parts
 - R04-04 | strategy-prefer-children-over-render-props | 공용 컴포넌트에 헤더, 푸터, 동작 같은 정적 슬롯을 추가, 변경할 때. 렌더 프롭을 추가, 변경하는데 실행 환경 데이터 주입이 꼭 필요한지 불분명할 때. \`ReactNode\` 슬롯이나 렌더 함수 계약에 이름을 붙이거나 바꿀 때.
 - R05-01 | composition-read-props-without-destructuring | 함수 컴포넌트의 시그니처나 본문에서 프롭스를 읽는 코드를 추가, 변경할 때. 컴포넌트 안에서 \`props\`를 구조분해하는 줄을 넣거나 뺄 때. | reviewWith: data-preserve-origin-chaining, screen-keep-derived-values-close, typescript/values-read-objects-through-chains
-- R05-02 | composition-do-not-define-components-inside-components | 컴포넌트 본문 안에 JSX를 반환하는 로컬 함수, 컴포넌트를 추가하거나 옮길 때. 다시 렌더 시 재마운트, 포커스 초기화 징후를 다룰 때. | reviewWith: composition-split-owner-parts-only-for-runtime-boundaries, screen-avoid-premature-abstraction
+- R05-02 | composition-do-not-define-components-inside-components | 컴포넌트 본문 안에 JSX를 반환하는 지역 함수, 컴포넌트를 추가하거나 옮길 때. 다시 렌더 시 재마운트, 포커스 초기화 징후를 다룰 때. | reviewWith: composition-split-owner-parts-only-for-runtime-boundaries, screen-avoid-premature-abstraction
 - R05-03 | composition-named-handlers-over-inline | TSX 이벤트 프롭에 인라인 화살표 콜백을 추가, 수정할 때. 제외: 인자 없이 핸들러 참조만 넘기는 경우. | reviewWith: events-curry-extra-handler-arguments, events-run-user-actions-in-handlers-not-effects, typescript/functions-extract-helpers-only-when-the-boundary-is-real
 - R05-04 | composition-open-ref-props-only-for-imperative-contracts | 컴포넌트에 \`ref\` 프롭을 추가하거나 공개할 대상을 바꿀 때. \`useImperativeHandle\`로 노출하는 명령형 계약 타입을 만들거나 이름을 바꿀 때. 제외: DOM 요소를 그대로 가리키는 기존 \`ref\` 계약의 타입만 바꾸는 경우. | reviewWith: typescript/docs-justify-convention-exceptions-with-a-reason-comment, typing-narrow-library-wrapper-contracts
 - R05-05 | composition-use-activity-only-to-preserve-mounted-subtrees | 조건부 렌더링과 \`Activity\` 사이를 오갈 때. \`\<Activity\>\`를 추가, 삭제하거나 \`mode\`를 계산하는 표현식을 바꿀 때. | reviewWith: composition-do-not-define-components-inside-components

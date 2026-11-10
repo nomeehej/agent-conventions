@@ -1,4 +1,4 @@
-// page/orders/_function/to-order-row/_to-status-label.ts
+// page/orders/_function/to-status-label.ts
 /**
  * 주문 행의 상태 라벨. 취소가 임박보다 우선
  */

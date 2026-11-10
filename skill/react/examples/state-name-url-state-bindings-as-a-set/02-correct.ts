@@ -1,5 +1,5 @@
 // [!code ++]
-// page/products/_constant/url-parsers.ts
+// page/products/_constant/url-parsers.ts: 목록 화면과 필터 대화상자가 읽음
 /**
  * 상품 목록 화면이 주소에 올린 상태의 파서 묶음
  */
