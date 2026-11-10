@@ -42,16 +42,11 @@ useEffect(() => {
 **Correct 1 (비반응형 콜백은 `useEffectEvent`로 분리합니다):**
 
 ```tsx
-// ----------------------------------------------------------------------------------------
-// 상품 변경 수신 시 최신 onChange 로직 실행
-// ----------------------------------------------------------------------------------------
+// 최신 onChange 실행, 구독은 productId가 바뀔 때만 다시 걸기
 const handleProductChange = useEffectEvent((change: ProductChange) => {
 	props.onChange(change);
 });
 
-// ----------------------------------------------------------------------------------------
-// 상품 변경 구독 생명주기 유지
-// ----------------------------------------------------------------------------------------
 useEffect(() => {
 	const unsubscribe = subscribeToProductChanges(props.productId, (change) => {
 		handleProductChange(change);

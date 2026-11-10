@@ -49,13 +49,9 @@ const rows = responseProductListSuspense.data.items.map((product) => ({
 ```tsx
 export const ProductTableSection = () => {
 	// ----------------------------------------------------------------------------------------
-	// 상품 목록과 분류 목록 조회, 표 행 병합
+	// 상품 목록과 분류 목록 조회, 표 행으로 병합
 	//
-	// 분류 이름이 목록 응답에 없음
-	// 한 행에 두 응답 필요
-	//
-	// 엔드포인트: /api/product
-	// 엔드포인트: /api/category
+	// 분류 이름이 목록 응답에 없음 → 한 행에 두 응답 필요
 	// ----------------------------------------------------------------------------------------
 	const responseProductRowsSuspense = useSuspenseQueries({
 		queries: [productListQueryOptions(), categoryListQueryOptions()],

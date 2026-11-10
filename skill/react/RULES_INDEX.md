@@ -1,7 +1,7 @@
 # React 컨벤션 Rule Index
 
 - Skill: `react`
-- Routing digest: `sha256:43f7c281f61473e6ce9eaaf3bcfadbb7e1564887ae00a93b4f9afd0b0ffaa245`
+- Routing digest: `sha256:66395471a2dfb771fa23a26593b610f2a93886d492b867ce6da6310d71e5c491`
 
 ## Direct Companions
 
@@ -50,9 +50,9 @@
 - R07-03 | runtime-place-error-boundaries-by-blast-radius | 오류 경계를 추가하거나 옮길 때. 화면 본문에 \`isError\` 분기나 실패 대체 화면 반환을 넣을 때. 캐시가 있는 쿼리의 재조회 실패 처리나 오류 경계의 다시 시도 연결을 바꿀 때.
 - R08-01 | state-calculate-derived-values-during-render | 현재 프롭스, 상태, search 파라미터, 응답에서 계산 가능한 값을 별도 상태와 이펙트로 동기화할 때. 파생값 동기화 이펙트를 제거할 때. | reviewWith: screen-keep-derived-values-close, state-store-derived-authority
 - R08-02 | state-choose-state-tools-by-source-of-truth | 로컬 UI, 전역 클라이언트, 서버 데이터를 새 상태 도구로 옮길 때. 합성 컴포넌트나 컴포넌트 묶음에 공유 상태를 넣을 때. 서로 다른 진짜 출처 사이에 값을 복제하거나 동기화할 때. | reviewWith: state-store-derived-authority, strategy-choose-single-composition-compound-and-variants
-- R08-03 | state-store-derived-authority | 여러 화면, 메뉴, 라우트 가드가 쓰는 접근 권한 같은 파생 판단을 스토어에 저장, 동기화할 때. 단일 화면에서만 쓰는 값까지 스토어로 올리려 할 때. | reviewWith: docs-require-header-boxes-on-react-declarations, state-calculate-derived-values-during-render
+- R08-03 | state-store-derived-authority | 여러 화면, 메뉴, 라우트 가드가 쓰는 접근 권한 같은 파생 판단을 스토어에 저장, 동기화할 때. 단일 화면에서만 쓰는 값까지 스토어로 올리려 할 때. | reviewWith: docs-explain-the-data-block-not-each-hook, state-calculate-derived-values-during-render
 - R08-04 | state-use-functional-setstate-updates | 다음 상태가 현재 상태에 의존하는 갱신을 추가, 변경할 때. 핸들러, 비동기 콜백, 연속 호출에서 \`setState\` 방식을 바꿀 때.
-- R08-05 | state-use-effectevent-for-non-reactive-effect-callbacks | 구독 이펙트가 최신 프롭, 상태 콜백을 읽어야 할 때. ref 동기화 우회, 의존성 재설치, \`useEffectEvent\`를 추가, 변경할 때. | reviewWith: docs-require-header-boxes-on-react-declarations, events-curry-extra-handler-arguments, events-run-user-actions-in-handlers-not-effects
+- R08-05 | state-use-effectevent-for-non-reactive-effect-callbacks | 구독 이펙트가 최신 프롭, 상태 콜백을 읽어야 할 때. ref 동기화 우회, 의존성 재설치, \`useEffectEvent\`를 추가, 변경할 때. | reviewWith: docs-explain-the-data-block-not-each-hook, events-curry-extra-handler-arguments, events-run-user-actions-in-handlers-not-effects
 - R08-06 | state-name-url-state-bindings-as-a-set | 라우트 search 파라미터를 읽거나 쓰는 바인딩을 추가, 변경할 때. search 파라미터 파서 묶음을 만들거나 옮길 때. 제외: 서버 요청 쿼리, 뮤테이션 바인딩만 바꾸는 경우. | reviewWith: state-choose-state-tools-by-source-of-truth
 - R09-01 | events-name-handlers-predictably | 이벤트 핸들러를 새로 만들 때. 핸들러 이름이나 대상, 이벤트 표기를 바꿀 때. | reviewWith: events-curry-extra-handler-arguments, typescript/naming-use-consistent-file-and-symbol-naming
 - R09-02 | events-curry-extra-handler-arguments | 콜백 프롭에 호출부의 값\(목록 항목, \`id\`\)을 함께 넘기는 핸들러를 추가, 변경할 때. 인라인 래퍼로 값을 넘기던 자리를 바꿀 때. | reviewWith: composition-named-handlers-over-inline
@@ -61,6 +61,6 @@
 - R10-02 | perf-use-lazy-state-initializers-for-expensive-defaults | \`useState\` 초기값에 \`JSON.parse\`, \`localStorage\` 읽기, 목록 전체 변환, 인덱스 생성 같은 비용이 큰 계산을 넣을 때. 제외: 숫자, 문자열 같은 단순 값이나 프롭을 그대로 초기값에 넣는 경우. | reviewWith: perf-avoid-defensive-memoization
 - R10-03 | perf-defer-heavy-renders-with-measured-evidence | \`startTransition\`, \`useTransition\`, \`useDeferredValue\`를 추가, 삭제할 때. 목록이나 표가 커져 입력 반응이 늦다는 보고를 받았을 때. \`Suspense\` 쿼리의 키가 되는 search 파라미터나 상태 갱신을 추가할 때. | reviewWith: perf-avoid-defensive-memoization
 - R11-01 | a11y-give-interactive-elements-an-accessible-name | 클릭이나 입력을 받는 요소를 추가, 변경할 때. 글자 없이 아이콘만 있는 버튼을 추가할 때.
-- R12-01 | docs-require-header-boxes-on-react-declarations | 쿼리, 뮤테이션 선언을 추가, 변경할 때. 분기, \`await\`, 쿼리 무효화, 화면 이동 같은 부수효과 호출이 있는 핸들러, 이펙트를 추가, 변경할 때. 내보낸 보조 함수, 훅, 스토어 선언을 추가, 변경할 때. | reviewWith: typescript/types-document-custom-types-and-shapes
+- R12-01 | docs-explain-the-data-block-not-each-hook | 컴포넌트 본문의 쿼리, 뮤테이션 바인딩을 추가, 변경할 때. 핸들러, 이펙트, 커스텀 훅, 합성 컴포넌트 부품을 추가, 변경하거나 그 위 주석을 고칠 때.
 - R12-02 | docs-describe-jsx-blocks-above-the-return | JSX 자식 자리에 주석을 쓰거나 기존 JSX 주석을 옮길 때. 화면을 구역으로 나누고 그 구역이 무엇을 담당하는지 적을 때. JSX에 여러 줄로 펼쳐진 형제 블록을 새로 만들거나 나눌 때. | reviewWith: typescript/docs-write-korean-comments-about-purpose-and-constraints
 - R13-01 | tooling-enable-the-biome-react-domain | 프로젝트에 \`biome\` 설정을 처음 넣거나 lint 규칙을 바꿀 때. \`biome.json\`의 \`linter.domains\`나 \`linter.rules\`에 항목을 추가, 삭제할 때.

@@ -1,11 +1,15 @@
-// page/products/_product-list-table.tsx
+// service/order/fetch-order-list.ts
 
 // ----------------------------------------------------------------------------------------
-// 상품 목록 조회, 표 행 가공
+// 주문 목록 조회, 응답 순서 대신 최신 주문순 정렬
 //
-// 엔드포인트: /api/product
+// [!code ++]
+// 응답 순서 그대로 사용 → 새로고침마다 목록 순서 변동
+// [!code ++]
+// 같은 orderedAt의 순서는 서버 미보장 → id 오름차순으로 고정
 // ----------------------------------------------------------------------------------------
-const responseProductListSuspense = useGetProductListSuspense(
-	{page: urlParams.page},
-	{ query: { select: (response: ProductListResponseDTO) => toProductRows(response) } },
-);
+export const fetchOrderList = async (): Promise<Order[]> => {
+	const orders = await client.get<Order[]>("/orders");
+
+	return orderBy(orders, ["orderedAt", "id"], ["desc", "asc"]);
+};

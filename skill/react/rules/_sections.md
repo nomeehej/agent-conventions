@@ -99,10 +99,10 @@ URL 상태의 바인딩 이름을 통일해 서버 응답과 구분합니다.
 
 ## 12. Documentation and Comments (docs)
 **TitleKo:** 문서화와 주석
-**Lead:** 경계 선언의 헤더 상자, `return` 위 화면 구성 상자
+**Lead:** 데이터 블록 상자, `return` 위 화면 구성 상자
 **Impact:** MEDIUM
-**Description:** 주석의 모양과 낱말, 헤더 상자를 붙일 선언은 동반 스킬인 `convention-typescript`가 정합니다.
-이 섹션에서는 React 전용 선언의 헤더 상자와 JSX 블록 설명의 자리를 정합니다.
+**Description:** 주석의 모양과 낱말, 상자를 둘 공통 자리는 동반 스킬인 `convention-typescript`가 정합니다.
+이 섹션에서는 컴포넌트 본문의 데이터 블록 상자와 JSX 블록 설명의 자리를 정합니다.
 
 ## 13. Tooling (tooling)
 **TitleKo:** 도구 설정

@@ -26,7 +26,7 @@
 					"types-document-custom-types-and-shapes",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -52,7 +52,7 @@
 					"types-document-custom-types-and-shapes",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			},
@@ -78,7 +78,7 @@
 						"types-document-custom-types-and-shapes",
 						"naming-use-consistent-file-and-symbol-naming",
 						"naming-use-direct-imports-and-public-entry-points",
-						"docs-require-header-boxes-on-key-declarations",
+						"docs-put-boxes-on-groups-and-blocks",
 						"docs-write-korean-comments-about-purpose-and-constraints"
 					],
 					"css": [
@@ -110,8 +110,7 @@
 				"react": [
 					"ownership-place-owner-files-in-role-folders",
 					"ownership-prefer-plain-ts-for-local-react-helpers",
-					"screen-avoid-premature-abstraction",
-					"docs-require-header-boxes-on-react-declarations"
+					"screen-avoid-premature-abstraction"
 				],
 				"typescript": [
 					"types-document-custom-types-and-shapes",
@@ -120,7 +119,7 @@
 					"functions-declare-functions-as-arrow-consts",
 					"functions-use-named-object-params-for-complex-signatures",
 					"functions-extract-helpers-only-when-the-boundary-is-real",
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -146,6 +145,7 @@
 					"naming-place-project-constants-in-the-root-constant-folder",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -169,13 +169,13 @@
 					"composition-read-props-without-destructuring",
 					"composition-declare-props-interface-above-the-component",
 					"a11y-give-interactive-elements-an-accessible-name",
-					"docs-require-header-boxes-on-react-declarations"
+					"docs-explain-the-data-block-not-each-hook"
 				],
 				"typescript": [
 					"types-document-custom-types-and-shapes",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -198,13 +198,13 @@
 					"composition-read-props-without-destructuring",
 					"composition-do-not-define-components-inside-components",
 					"composition-open-ref-props-only-for-imperative-contracts",
-					"docs-require-header-boxes-on-react-declarations"
+					"docs-explain-the-data-block-not-each-hook"
 				],
 				"typescript": [
 					"types-document-custom-types-and-shapes",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -228,7 +228,7 @@
 					"events-name-handlers-predictably",
 					"events-curry-extra-handler-arguments",
 					"events-run-user-actions-in-handlers-not-effects",
-					"docs-require-header-boxes-on-react-declarations"
+					"docs-explain-the-data-block-not-each-hook"
 				],
 				"typescript": [
 					"types-prefer-function-variable-types-over-parameter-annotations",
@@ -236,7 +236,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"functions-extract-helpers-only-when-the-boundary-is-real",
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -265,7 +265,7 @@
 					"runtime-place-suspense-boundaries-at-the-section-owner",
 					"runtime-avoid-ad-hoc-loading-branches",
 					"events-name-handlers-predictably",
-					"docs-require-header-boxes-on-react-declarations",
+					"docs-explain-the-data-block-not-each-hook",
 					"docs-describe-jsx-blocks-above-the-return"
 				],
 				"typescript": [
@@ -275,7 +275,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"absence-expose-optional-values-instead-of-silent-fallbacks",
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -298,13 +298,13 @@
 					"state-calculate-derived-values-during-render",
 					"state-use-functional-setstate-updates",
 					"events-name-handlers-predictably",
-					"docs-require-header-boxes-on-react-declarations"
+					"docs-explain-the-data-block-not-each-hook"
 				],
 				"typescript": [
 					"types-prefer-function-variable-types-over-parameter-annotations",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -325,13 +325,13 @@
 					"data-preserve-origin-chaining",
 					"state-choose-state-tools-by-source-of-truth",
 					"state-store-derived-authority",
-					"docs-require-header-boxes-on-react-declarations"
+					"docs-explain-the-data-block-not-each-hook"
 				],
 				"typescript": [
 					"types-document-custom-types-and-shapes",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -353,11 +353,11 @@
 					"data-combine-multiple-queries-with-combine",
 					"data-preserve-origin-chaining",
 					"screen-keep-derived-values-close",
-					"docs-require-header-boxes-on-react-declarations"
+					"docs-explain-the-data-block-not-each-hook"
 				],
 				"typescript": [
 					"naming-use-consistent-file-and-symbol-naming",
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -377,13 +377,13 @@
 					"perf-avoid-defensive-memoization",
 					"perf-use-lazy-state-initializers-for-expensive-defaults",
 					"perf-defer-heavy-renders-with-measured-evidence",
-					"docs-require-header-boxes-on-react-declarations"
+					"docs-explain-the-data-block-not-each-hook"
 				],
 				"typescript": [
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"docs-keep-body-comments-for-intent-and-steps",
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints",
 					"docs-justify-convention-exceptions-with-a-reason-comment"
 				]
@@ -404,13 +404,13 @@
 					"composition-order-hooks-handlers-effects-then-return",
 					"state-use-effectevent-for-non-reactive-effect-callbacks",
 					"events-name-handlers-predictably",
-					"docs-require-header-boxes-on-react-declarations"
+					"docs-explain-the-data-block-not-each-hook"
 				],
 				"typescript": [
 					"types-prefer-function-variable-types-over-parameter-annotations",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -484,10 +484,10 @@
 					"ownership-place-owner-files-in-role-folders",
 					"ownership-prefer-plain-ts-for-local-react-helpers",
 					"ownership-keep-lifecycle-in-the-owning-component",
-					"docs-require-header-boxes-on-react-declarations"
+					"docs-explain-the-data-block-not-each-hook"
 				],
 				"typescript": [
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -512,7 +512,7 @@
 					"naming-place-owner-constants-in-the-owner-constant-folder",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -621,10 +621,10 @@
 				"react": [
 					"data-combine-multiple-queries-with-combine",
 					"data-preserve-origin-chaining",
-					"docs-require-header-boxes-on-react-declarations"
+					"docs-explain-the-data-block-not-each-hook"
 				],
 				"typescript": [
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}

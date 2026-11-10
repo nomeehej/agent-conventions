@@ -1,8 +1,9 @@
-// util/array/to-sorted-product-refs.ts
+// service/order/fetch-order.ts
 
 // ----------------------------------------------------------------------------------------
-// This function sorts product refs and returns the result.
+// [!code error]
+// Fetches an order by id.
 // ----------------------------------------------------------------------------------------
-export const toSortedProductRefs = (refs: ProductRef[]): ProductRef[] => {
-	return sortBy(uniq(refs), [(ref) => ref.id]);
+export const fetchOrder = async (orderId: string): Promise<Order> => {
+	return await client.get(`/orders/${orderId}`);
 };

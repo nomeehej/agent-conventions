@@ -202,14 +202,13 @@
 					"typing-narrow-library-wrapper-contracts",
 					"typing-open-dom-props-in-three-steps",
 					"typing-choose-wrapper-shape-and-forwarding",
-					"composition-read-props-without-destructuring",
-					"docs-require-header-boxes-on-react-declarations"
+					"composition-read-props-without-destructuring"
 				],
 				"typescript": [
 					"types-reuse-existing-contracts-before-new-types",
 					"types-document-custom-types-and-shapes",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				],
 				"css": [

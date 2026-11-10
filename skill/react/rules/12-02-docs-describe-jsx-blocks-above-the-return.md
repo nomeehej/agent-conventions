@@ -20,21 +20,22 @@ JSX 자식 자리에는 주석을 두지 않습니다.
 요소 하나의 이유는 그 요소의 여는 태그 안에 `//` 한 줄로 적습니다.
 상자 모양과 낱말은 `typescript/docs-write-korean-comments-about-purpose-and-constraints`를 따릅니다.
 
-여러 줄로 펼친 형제 블록이 둘 이상이면 `화면 구성` 상자를 두고 그 블록마다 정의 목록 한 줄을 적습니다.
+여러 줄로 펼친 형제 블록이 둘 이상이면 `화면 구성` 상자를 두고 블록마다 역할만 목록 한 줄로 적습니다.
 한 줄 요소와 블록 하나뿐인 반환에는 상자를 의무로 두지 않습니다.
 역할이 이름만으로 안 보이면 적어도 됩니다.
 
 | 자리 | 모양 |
 | --- | --- |
-| `return` 바로 위 | 제목이 `화면 구성`인 상자. 정의 목록의 이름은 블록의 컴포넌트 이름이나 BEM 클래스 이름입니다 |
+| `return` 바로 위 | 요약 줄이 `상품 목록 화면 구성`처럼 무엇의 화면 구성인지 말하는 상자. 목록의 이름은 블록의 컴포넌트 이름이나 BEM 클래스 이름입니다 |
 | 여는 태그 안 속성 사이 | 요소 하나의 이유를 `//` 한 줄로 적습니다. 규칙이 허용한 예외는 `// 예외: …`입니다 |
 | JSX 자식 자리 | `{/* */}`를 포함해 주석을 두지 않습니다 |
 
 | 설명 내용 | 기준 |
 | --- | --- |
-| 화면 구역의 역할 | 그 구역이 맡은 책임과 제약을 적습니다 |
+| 블록의 역할 | 그 블록이 맡은 책임을 짧게 적습니다. Suspense 경계처럼 블록 밖과의 관계가 있으면 덧붙입니다 |
 | 규칙이 허용한 예외의 이유 | `typescript/docs-justify-convention-exceptions-with-a-reason-comment`를 따르고 그 요소의 여는 태그 안에 둡니다 |
-| 마크업이나 컴포넌트 이름 반복 | 이름은 정의 목록의 이름 칸이 말하므로 설명에 되풀이하지 않습니다 |
+| 마크업이나 컴포넌트 이름 반복 | 이름은 목록의 이름 칸이 말하므로 설명에 되풀이하지 않습니다 |
+| 블록 안 데이터 흐름 | 화면 구성 상자에 적지 않습니다. 데이터 블록 상자는 `docs-explain-the-data-block-not-each-hook`이 정합니다 |
 
 참고: [Code Complete 2판 32.5절 Commenting Techniques](https://stevemcconnell.com/books/),
 [Google TypeScript 스타일 가이드: 이름만 되풀이하는 주석 피하기](https://google.github.io/styleguide/tsguide.html).
@@ -59,6 +60,6 @@ JSX 자식 자리에는 주석을 두지 않습니다.
 
 <<< ../examples/docs-describe-jsx-blocks-above-the-return/05-incorrect.tsx
 
-**Correct 3 (여러 줄 블록마다 정의 목록 한 줄을 둡니다):**
+**Correct 3 (여러 줄 블록마다 목록 한 줄을 둡니다):**
 
 <<< ../examples/docs-describe-jsx-blocks-above-the-return/06-correct.tsx

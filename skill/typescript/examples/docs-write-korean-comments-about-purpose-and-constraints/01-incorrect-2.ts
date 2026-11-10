@@ -1,8 +1,9 @@
-// util/array/to-products-newest-first.ts
+// service/product/fetch-product-tree.ts
 
 // ----------------------------------------------------------------------------------------
-// 상품을 정렬하는 함수
+// [!code error]
+// 상품 트리를 조회하는 함수
 // ----------------------------------------------------------------------------------------
-export const toProductsNewestFirst = (products: Product[]): Product[] => {
-	return orderBy(products, ["updatedAt", "id"], ["desc", "asc"]);
+export const fetchProductTree = async (): Promise<ProductTreeResponse> => {
+	return await client.get("/products/tree");
 };

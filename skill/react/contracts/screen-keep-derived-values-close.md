@@ -16,11 +16,10 @@
 ```tsx
 export const ProductTableSection = () => {
 	const responseProductListSuspense = useProductListSuspense();
+
+	// 고른 행은 이 섹션 안에만 두고 search 파라미터로 올리지 않음
 	const [selectedRows, setSelectedRows] = useState<ProductRow[]>([]);
 
-	// ----------------------------------------------------------------------------------------
-	// 고른 행은 이 섹션 안에만 두고 search 파라미터로 올리지 않음
-	// ----------------------------------------------------------------------------------------
 	const handleTableRowSelect: TableProps<ProductRow>["onRowSelect"] = (rows) => {
 		setSelectedRows(rows);
 	};
@@ -44,11 +43,10 @@ export const ProductTableSection = () => {
 ```tsx
 export const ProductTableSection = () => {
 	const responseProductListSuspense = useProductListSuspense();
+
+	// 고른 행은 이 섹션 안에만 두고 search 파라미터로 올리지 않음
 	const [selectedRows, setSelectedRows] = useState<ProductRow[]>([]);
 
-	// ----------------------------------------------------------------------------------------
-	// 고른 행은 이 섹션 안에만 두고 search 파라미터로 올리지 않음
-	// ----------------------------------------------------------------------------------------
 	const handleTableRowSelect: TableProps<ProductRow>["onRowSelect"] = (rows) => {
 		setSelectedRows(rows);
 	};

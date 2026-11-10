@@ -9,7 +9,7 @@ appliesWhen:
   - 한 함수 안에서 같은 계산을 되풀이해 적거나 지역 함수로 묶을 때
 reviewWith: >-
   functions-give-each-function-its-own-file, values-decide-once-and-carry-the-result,
-  docs-require-header-boxes-on-key-declarations
+  docs-put-boxes-on-groups-and-blocks
 tags: functions, boundaries
 ---
 

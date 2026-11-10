@@ -13,9 +13,10 @@
 | 공유하는 부품이 한 파일에 있음 | 공유 `interface`를 첫 부품 위에 둡니다 |
 | 공유하는 부품이 여러 파일에 나뉨 | 공유 `interface`를 소유자 `_type` 폴더에 둡니다 |
 
-헤더 상자, `interface`, 컴포넌트 순서로 붙여 계약을 먼저 읽게 합니다.
+`interface`를 컴포넌트 바로 위에 붙여 계약을 먼저 읽게 합니다.
+설명할 것이 있으면 그 위에 상자를 둡니다.
 합성 공개 부품도 같습니다.
-공유 `interface`를 쓰는 부품의 개별 설명은 각 컴포넌트 위에 둡니다.
+공유 `interface`를 쓰는 부품마다 따로 할 말은 각 컴포넌트 위 상자에 둡니다.
 
 참고: [React TypeScript Cheatsheet: 타입과
 인터페이스](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example/).
@@ -45,9 +46,6 @@ export const Chip = (props: ChipProps) => {
 
 ```tsx
 // component/ui/badge/badge.tsx
-// ----------------------------------------------------------------------------------------
-// 상태 배지 계약
-// ----------------------------------------------------------------------------------------
 export interface BadgeProps {
 	label: string;
 }

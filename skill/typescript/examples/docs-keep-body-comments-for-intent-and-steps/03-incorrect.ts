@@ -6,7 +6,7 @@ const submitProductDraft = async (draft: ProductDraft) => {
 	const uploadedAttachments = await uploadAttachments(draft.attachments);
 	const savedProduct = await saveProduct({name: draft.name, attachments: uploadedAttachments});
 
-	await queryClient.invalidateQueries({queryKey: ["products"]});
+	await queryClient.invalidateQueries({queryKey: productListQueryKey()});
 
 	return savedProduct;
 };

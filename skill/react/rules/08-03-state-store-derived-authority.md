@@ -6,7 +6,7 @@ impactDescription: 같은 도메인 판별 로직이 여러 화면에 퍼지지 
 appliesWhen:
   - 여러 화면, 메뉴, 라우트 가드가 쓰는 접근 권한 같은 파생 판단을 스토어에 저장, 동기화할 때
   - 단일 화면에서만 쓰는 값까지 스토어로 올리려 할 때
-reviewWith: docs-require-header-boxes-on-react-declarations, state-calculate-derived-values-during-render
+reviewWith: docs-explain-the-data-block-not-each-hook, state-calculate-derived-values-during-render
 tags: state, zustand
 ---
 

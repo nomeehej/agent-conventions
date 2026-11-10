@@ -10,8 +10,6 @@ JSX 이벤트 프롭에는 이름 붙인 핸들러 참조만 넘깁니다.
 
 참고: [React 문서: 이벤트 핸들러 추가하기](https://react.dev/learn/responding-to-events#adding-event-handlers).
 
-**Requires selected:** `docs-require-header-boxes-on-react-declarations` (함께 적용)
-
 **Incorrect 1 (분기와 비동기를 JSX 안에 숨깁니다):**
 
 ```tsx
@@ -33,11 +31,7 @@ JSX 이벤트 프롭에는 이름 붙인 핸들러 참조만 넘깁니다.
 ```tsx
 import type {MouseEventHandler} from "react";
 
-// ----------------------------------------------------------------------------------------
-// 선택된 상품 삭제
-//
 // 성공 뒤 이동은 mutation 콜백 담당
-// ----------------------------------------------------------------------------------------
 const handleRemoveProductButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
 	if (!selectedProduct) {
 		return;

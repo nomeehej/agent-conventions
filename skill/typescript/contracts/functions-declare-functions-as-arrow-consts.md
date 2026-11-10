@@ -33,9 +33,11 @@
 
 ```ts
 // ----------------------------------------------------------------------------------------
-// 제목 공백 정리
+// 제목 공백 정리, 검색어 비교에서 공백 차이 무시
 //
-// 검색어 비교에서 공백 차이 무시
+// toTrimmedTitle("  초록   셔츠 ") → "초록 셔츠"
+// toTrimmedTitle("초록\n셔츠") → "초록 셔츠"
+// toTrimmedTitle("   ") → ""
 // ----------------------------------------------------------------------------------------
 export function toTrimmedTitle(rawTitle: string): string {
 	return rawTitle.trim().replace(/\s+/g, " ");
@@ -46,9 +48,11 @@ export function toTrimmedTitle(rawTitle: string): string {
 
 ```ts
 // ----------------------------------------------------------------------------------------
-// 제목 공백 정리
+// 제목 공백 정리, 검색어 비교에서 공백 차이 무시
 //
-// 검색어 비교에서 공백 차이 무시
+// toTrimmedTitle("  초록   셔츠 ") → "초록 셔츠"
+// toTrimmedTitle("초록\n셔츠") → "초록 셔츠"
+// toTrimmedTitle("   ") → ""
 // ----------------------------------------------------------------------------------------
 export const toTrimmedTitle = (rawTitle: string): string => {
 	return rawTitle.trim().replace(/\s+/g, " ");

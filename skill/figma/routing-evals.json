@@ -68,13 +68,13 @@
 					"runtime-avoid-ad-hoc-loading-branches",
 					"runtime-place-error-boundaries-by-blast-radius",
 					"a11y-give-interactive-elements-an-accessible-name",
-					"docs-require-header-boxes-on-react-declarations"
+					"docs-explain-the-data-block-not-each-hook"
 				],
 				"typescript": [
 					"types-document-custom-types-and-shapes",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-import-by-absolute-path",
-					"docs-require-header-boxes-on-key-declarations",
+					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				],
 				"css": [

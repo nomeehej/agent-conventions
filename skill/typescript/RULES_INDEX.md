@@ -1,7 +1,7 @@
 # TypeScript 컨벤션 Rule Index
 
 - Skill: `typescript`
-- Routing digest: `sha256:c696c486484baff4df84a57d056cb4ed854f7bf25463618fd20b30a837fbeb79`
+- Routing digest: `sha256:3b98ca865e96b2e4b087a56afdfc392ce8fc8994154da3fb555e12ab427515dc`
 
 ## Local Rules
 
@@ -22,7 +22,7 @@
 - T02-07 | naming-name-types-by-role-and-lifetime | 타입, \`interface\`나 그 파일의 이름을 새로 만들거나 바꿀 때. 타입을 소유자 폴더 안과 밖 사이에서 옮기며 이름을 바꿀 때. 제외: 외부, 생성된 계약 이름을 그대로 쓰는 경우. | reviewWith: naming-use-consistent-file-and-symbol-naming
 - T03-01 | functions-declare-functions-as-arrow-consts | 이름을 지어 선언하는 함수를 새로 만들거나 선언 형태나 본문 형태를 바꿀 때. 객체 속성에 함수를 담거나 그 형태를 바꿀 때. 제외: 인라인 콜백이나 커링의 바깥 화살표인 경우. 제외: 클래스 메서드, 제너레이터, 오버로드 선언인 경우. | reviewWith: functions-use-named-object-params-for-complex-signatures
 - T03-02 | functions-use-named-object-params-for-complex-signatures | 매개변수가 셋을 넘거나 바꿔 넣어도 컴파일되는 같은 타입 인자가 이웃한 함수를 추가, 변경할 때. 객체 매개변수의 필드를 읽는 방식을 바꿀 때. 제외: React 함수 컴포넌트가 프롭스를 받는 방식만 바꾸는 경우. | reviewWith: types-reuse-existing-contracts-before-new-types, values-read-objects-through-chains
-- T03-03 | functions-extract-helpers-only-when-the-boundary-is-real | 보조 함수를 빼내거나 옮기거나 내보내거나 공유할 때. 범용 보조 파일, 소유자 하나만 쓰는 변환 함수, 자잘한 정리 단계의 경계를 바꿀 때. 한 함수 안에서 같은 계산을 되풀이해 적거나 지역 함수로 묶을 때. | reviewWith: docs-require-header-boxes-on-key-declarations, functions-give-each-function-its-own-file, values-decide-once-and-carry-the-result
+- T03-03 | functions-extract-helpers-only-when-the-boundary-is-real | 보조 함수를 빼내거나 옮기거나 내보내거나 공유할 때. 범용 보조 파일, 소유자 하나만 쓰는 변환 함수, 자잘한 정리 단계의 경계를 바꿀 때. 한 함수 안에서 같은 계산을 되풀이해 적거나 지역 함수로 묶을 때. | reviewWith: docs-put-boxes-on-groups-and-blocks, functions-give-each-function-its-own-file, values-decide-once-and-carry-the-result
 - T03-04 | functions-give-each-function-its-own-file | 이름 붙인 보조 함수를 대표 함수 안에 둘지 파일로 뺄지 정할 때. \`helper.ts\`, \`helpers.ts\`, \`utils.ts\` 같은 파일을 만들거나 거기에 함수를 더할 때. 보조를 부르는 대표 함수가 늘거나 줄 때. | reviewWith: functions-order-declarations-top-down, functions-promote-owner-free-functions-to-root-util
 - T03-05 | functions-order-declarations-top-down | \`.ts\` 파일에 선언을 추가하거나 선언 자리를 옮길 때. 내보낸 계약 타입이나 한 파일만 쓰는 상수를 내보낸 함수보다 아래에 두려 할 때. 함수 본문 안에 지역 함수를 추가하거나 옮길 때. 제외: React 컴포넌트 본문 안 선언 자리를 바꾸는 경우.
 - T03-06 | functions-promote-owner-free-functions-to-root-util | 함수를 루트 \`util\` 폴더로 옮기거나 종류 폴더를 새로 만들 때. 두 소유자가 같은 함수를 쓰게 될 때. 제외: 소유자 안에서 파일 자리만 바꾸는 경우.
@@ -42,7 +42,7 @@
 - T05-03 | absence-do-not-guard-what-types-guarantee | \`isNil\`, \`typeof\`, 옵셔널 체이닝으로 값을 검사하는 분기를 추가, 변경할 때. 선택 필드에 값을 넣으면서 \`undefined\`를 피하려고 조건부 스프레드를 쓸 때. 제외: \`unknown\`이나 앱 밖에서 온 값을 좁히는 경우. | reviewWith: absence-check-once-at-the-boundary, absence-expose-optional-values-instead-of-silent-fallbacks, types-narrow-unknown-instead-of-asserting
 - T05-04 | absence-check-once-at-the-boundary | \`isNil\`, \`Number.isFinite\` 같은 검사를 함수에 넣을 때. \`null\`, \`undefined\`, \`unknown\`을 매개변수, 반환 타입에 넣거나 뺄 때. 응답 매핑, 쿼리, search 스키마에서 없음, 유한 수 검사로 타입을 좁힐 때. | reviewWith: absence-do-not-guard-what-types-guarantee, absence-resolve-defaults-at-the-boundary, values-decide-once-and-carry-the-result
 - T06-01 | docs-keep-body-comments-for-intent-and-steps | 함수, 컴포넌트 본문의 주석을 추가, 수정, 유지할 때. 도메인 규칙, 예외 방어, 외부 제약, 부수효과 순서, 긴 본문의 구획을 주석으로 설명할 때. | reviewWith: docs-justify-convention-exceptions-with-a-reason-comment, docs-write-korean-comments-about-purpose-and-constraints
-- T06-02 | docs-require-header-boxes-on-key-declarations | 쿼리, 뮤테이션, 원격 함수, 커스텀 훅, 스토어, 포매터 선언을 추가, 변경할 때. 분기, \`await\`, 쿼리 무효화, 화면 이동, 저장 같은 부수효과 호출이 있는 핸들러와 이펙트를 추가, 변경할 때. 다시 쓰거나 내보낸 보조 함수를 추가, 변경할 때.
-- T06-03 | docs-write-korean-comments-about-purpose-and-constraints | TypeScript, TSX의 헤더 상자나 한 줄 주석 문구를 추가, 수정, 번역하거나 검토할 때. 주석 모양을 바꾸거나 블록 주석, TSDoc 태그를 쓰려 할 때.
+- T06-02 | docs-put-boxes-on-groups-and-blocks | 주석 상자를 추가, 옮기거나 지울 때. 공용 값 함수, 파일 위 상수 묶음, 긴 본문의 구획을 추가, 변경할 때.
+- T06-03 | docs-write-korean-comments-about-purpose-and-constraints | TypeScript, TSX의 상자나 한 줄 주석 문구를 추가, 수정, 번역하거나 검토할 때. 상자 바로 아래 코드를 바꿀 때. 주석 모양을 바꾸거나 블록 주석, TSDoc 태그를 쓰려 할 때.
 - T06-04 | docs-justify-convention-exceptions-with-a-reason-comment | 규칙이 허용한 예외를 코드에 남길 때. 이미 있는 예외 주석의 내용을 바꿀 때. 제외: 규칙이 요구하지 않은 일반 설명 주석인 경우. | reviewWith: docs-write-korean-comments-about-purpose-and-constraints
 - T07-01 | tooling-configure-biome-to-enforce-these-rules | 프로젝트에 \`biome\` 설정을 처음 넣거나 lint 규칙을 바꿀 때. \`biome.json\`의 \`linter.rules\`에 항목을 추가, 삭제할 때.

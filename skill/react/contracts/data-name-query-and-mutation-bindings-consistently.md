@@ -10,7 +10,7 @@ TanStack Query 문서의 `query`, `mutation` 같은 이름은 어느 API의 훅�
 | 생성된 단일 API 훅 | 조회 훅은 `use`를, 이름 맨 앞에 `Get`이 오면 `useGet`까지를 `response`로 바꿉니다. 뮤테이션 훅은 `use`만 `mutation`으로 바꿉니다. 나머지 낱말은 모두 유지하며 이름 중간의 `Get`도 그대로 둡니다 |
 | 여러 쿼리를 합친 바인딩 | `response` 뒤에 결과 이름을 씁니다. `useSuspenseQueries`를 사용하면 끝에 `Suspense`를 유지합니다 |
 
-**Requires selected:** `docs-require-header-boxes-on-react-declarations`, `typescript/naming-use-consistent-file-and-symbol-naming` (함께 적용)
+**Requires selected:** `docs-explain-the-data-block-not-each-hook`, `typescript/naming-use-consistent-file-and-symbol-naming` (함께 적용)
 
 **Incorrect 1 (쿼리와 뮤테이션 바인딩 이름이 제각각입니다):**
 
@@ -23,21 +23,12 @@ const removeApi = useProductRemove();
 
 ```ts
 // ----------------------------------------------------------------------------------------
-// 표에 그릴 상품 조회
+// 상품 목록 조회와 삭제 요청
 //
-// 멈추는 동안은 섹션 소유자의 경계가 처리
-//
-// 엔드포인트: /api/product
+// 조회가 멈추는 동안은 섹션 소유자의 경계가 처리
+// 삭제 뒤 무효화는 부르는 화면 담당
 // ----------------------------------------------------------------------------------------
 const responseProductListSuspense = useGetProductListSuspense();
-
-// ----------------------------------------------------------------------------------------
-// 표에서 고른 상품 삭제 요청
-//
-// 성공 뒤 무효화는 부르는 화면 담당
-//
-// 엔드포인트: /api/product/:productId
-// ----------------------------------------------------------------------------------------
 const mutationProductRemove = useProductRemove();
 ```
 

@@ -7,7 +7,7 @@ appliesWhen:
   - 구독 이펙트가 최신 프롭, 상태 콜백을 읽어야 할 때
   - ref 동기화 우회, 의존성 재설치, `useEffectEvent`를 추가, 변경할 때
 reviewWith: >-
-  docs-require-header-boxes-on-react-declarations, events-curry-extra-handler-arguments,
+  docs-explain-the-data-block-not-each-hook, events-curry-extra-handler-arguments,
   events-run-user-actions-in-handlers-not-effects
 tags: state, effects
 ---

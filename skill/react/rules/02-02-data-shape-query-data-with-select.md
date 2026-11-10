@@ -7,7 +7,7 @@ appliesWhen:
   - 서버 응답의 목록, 항목, 메타 등을 렌더에서 가공하거나 반복 소비할 때
   - React Query `select`의 결과 형태를 추가, 변경할 때
   - 제외: 이미 가공한 항목을 `.map`으로 JSX 요소에 대응시키기만 하는 경우
-requiresSelected: docs-require-header-boxes-on-react-declarations
+requiresSelected: docs-explain-the-data-block-not-each-hook
 reviewWith: data-name-query-and-mutation-bindings-consistently, data-preserve-origin-chaining
 tags: data, state, react-query
 ---
