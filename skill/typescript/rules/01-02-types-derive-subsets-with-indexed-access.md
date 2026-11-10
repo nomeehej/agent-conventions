@@ -2,7 +2,7 @@
 title: Derive Subsets With Indexed Access Instead of `Pick`
 titleKo: 부분집합은 `Pick` 대신 인덱스 접근 `interface`로 파생합니다
 impact: HIGH
-impactDescription: 고른 필드의 이름과 출처를 선언에 드러내고 설명이 필요한 필드에 이 계약의 설명을 붙입니다
+impactDescription: 고른 필드의 이름, 출처, 선택 여부를 선언에서 바로 읽을 수 있습니다
 appliesWhen:
   - 기존 타입의 일부 필드만 담는 형태를 선언, 변경할 때
   - `Pick`, `Omit`, `Partial`, `Required`, `Extract`, `NonNullable`을 쓸 때
@@ -13,13 +13,13 @@ tags: types
 
 ## Derive Subsets With Indexed Access Instead of `Pick`
 
-**Impact: HIGH (고른 필드의 이름과 출처를 선언에 드러내고 설명이 필요한 필드에 이 계약의 설명을 붙입니다)**
+**Impact: HIGH (고른 필드의 이름, 출처, 선택 여부를 선언에서 바로 읽을 수 있습니다)**
 
 ### 필드를 고르는 방식
 
 기존 계약의 일부 필드는 `interface`에 `원본["필드"]`로 적고 `Pick`은 쓰지 않습니다.
-`Pick`은 필드 이름이 선언에 보이지 않아 검색되지 않습니다.
-정보가 있는 필드에 이 계약의 설명을 붙일 자리도 없습니다.
+`Pick`은 고른 필드가 타입 인자 안의 문자열로만 남아 선언에서 필드와 그 `?`, `readonly`가 보이지 않습니다.
+필드 선언으로 검색해도 걸리지 않습니다.
 계약 전체를 재사용할지는 `types-reuse-existing-contracts-before-new-types`가 정합니다.
 
 | 원본에 필드가 추가될 때 | 선언 방식 | 예 |
@@ -51,7 +51,7 @@ tags: types
 | 읽기 전용 필드 | `readonly`를 직접 붙입니다. 인덱스 접근만으로는 복사되지 않습니다 |
 | `exactOptionalPropertyTypes`가 켜진 프로젝트의 선택 필드 | `name?: Required<Src>["name"]`으로 `undefined` 대입을 막습니다. 옵션이 꺼진 프로젝트는 `Src["name"]`으로 충분합니다 |
 
-**Incorrect 1 (`Pick`으로 골라 필드 이름이 선언에 없고 이 계약의 설명을 붙일 자리도 없습니다):**
+**Incorrect 1 (`Pick`으로 골라 필드와 선택 여부가 선언에 보이지 않습니다):**
 
 <<< ../examples/types-derive-subsets-with-indexed-access/01-incorrect.ts
 

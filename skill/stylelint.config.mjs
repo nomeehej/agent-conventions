@@ -1,5 +1,5 @@
 /*
- * 예제 CSS 검사. css 08-01 규칙이 보여 주는 설정을 extends 로 그대로 읽음
+ * 예제 CSS 검사. css 09-01 규칙이 보여 주는 설정을 extends 로 그대로 읽음
  * 예제에만 필요한 예외만 여기서 더함
  */
 export default {

@@ -133,6 +133,11 @@ const handRolledValueHelper = /(?<!to)\.sort\(|\.reduce\(|Array\.from\(new Set|\
 const blockComment = /\/\*(?!\s*\[!code [^\]]+\]\s*\*\/)/;
 
 /**
+ * 한 줄 안의 문자열 리터럴. 주석 검사에서 `"**\/api/**"` 같은 글롭을 주석으로 보지 않게 비움
+ */
+const stringLiteral = /"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'|`(?:[^`\\]|\\.)*`/g;
+
+/**
  * 주석 상자의 위아래 줄. `// ` 뒤 대시 88개
  */
 const boxRule = /^\s*\/\/ -+$/;
@@ -403,7 +408,7 @@ const collectRuleViolations = (rule: SkillRule): string[] => {
 					violations.push(`Correct 예제의 값 보조는 es-toolkit(sortBy, sumBy, uniq)이다: "${line.trim()}"`);
 				}
 
-				if (blockComment.test(line)) {
+				if (blockComment.test(line.replace(stringLiteral, '""'))) {
 					violations.push(`Correct 예제의 주석은 // 줄 주석이다. /* */, /** */, JSX {/* */}를 쓰지 않는다: "${line.trim()}"`);
 				}
 

@@ -1,6 +1,6 @@
 ---
 name: convention-typescript
-description: Use when editing TypeScript or TSX modules, types, configs, API or helper contracts, fallbacks, imports, exports, or JSDoc.
+description: Use when editing TypeScript or TSX modules, types, configs, API or helper contracts, fallbacks, imports, exports, or comments.
 metadata:
   author: agent-conventions
   version: "1.0.0"
@@ -14,7 +14,7 @@ metadata:
 
 **범위에 드는 것**
 
-- `.ts`, `.tsx`의 타입, 스키마, 설정, API, 보조 함수, 가져오기와 내보내기, 폴백, JSDoc의 실제 변경
+- `.ts`, `.tsx`의 타입, 스키마, 설정, API, 보조 함수, 가져오기와 내보내기, 폴백, 주석의 실제 변경
 - 추가, 삭제, 이동, 이름 변경, 재선언
 - byte-equivalent named shape가 새 callable의 input/output 역할을 맡으면 변경으로 본다.
 

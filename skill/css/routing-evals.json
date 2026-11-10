@@ -203,13 +203,13 @@
 					"typing-open-dom-props-in-three-steps",
 					"typing-choose-wrapper-shape-and-forwarding",
 					"composition-read-props-without-destructuring",
-					"docs-require-jsdoc-on-key-declarations"
+					"docs-require-header-boxes-on-react-declarations"
 				],
 				"typescript": [
 					"types-reuse-existing-contracts-before-new-types",
 					"types-document-custom-types-and-shapes",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				],
 				"css": [
@@ -591,6 +591,21 @@
 				],
 				"css": [
 					"values-fall-back-only-outside-core-tokens"
+				]
+			}
+		},
+		{
+			"id": "css-comment-box-closed-lines",
+			"prompt": "in src/page/products/products-page.css, replace the multi-line block comment above .productsPage__layout with a closed-line comment box that keeps the same title and description; change no selectors or declarations.",
+			"files": [
+				"src/page/products/products-page.css"
+			],
+			"expectedSkills": [
+				"css"
+			],
+			"expectedSelected": {
+				"css": [
+					"docs-close-comments-on-each-line"
 				]
 			}
 		}

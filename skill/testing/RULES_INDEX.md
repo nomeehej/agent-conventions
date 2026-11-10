@@ -1,7 +1,7 @@
 # Testing 컨벤션 Rule Index
 
 - Skill: `testing`
-- Routing digest: `sha256:24805770e0c7b3dd4ae2ec86a436354b8e80b64fd0b3456a24d1db47ecdc7664`
+- Routing digest: `sha256:af28a6fbf084f83d8b5d20a5a1df16a575e13be0f0a5085eedad8c40d853fdb2`
 
 ## Direct Companions
 
@@ -15,7 +15,7 @@
 - T01-02 | scope-assign-a-primary-layer-and-check-wiring | 같은 기능의 unit, integration, E2E 테스트 책임을 나누거나 중복을 정리할 때.
 - T01-03 | scope-place-tests-by-owner-and-separate-runner-globs | 테스트 파일, fixture, story의 위치나 이름을 정하거나 러너의 수집 패턴을 바꿀 때.
 - T01-04 | scope-separate-test-level-from-suite-purpose | smoke, sanity, regression의 선정 기준, 태그, 실행 명령을 정하거나 바꿀 때.
-- T02-01 | case-describe-one-observable-behavior | 테스트 제목, 본문 구간, describe, step을 추가하거나 시나리오를 나눌 때. GIVEN, WHEN, THEN 블록 주석을 새로 쓰거나 그 형식을 바꿀 때.
+- T02-01 | case-describe-one-observable-behavior | 테스트 제목, 본문 구간, describe, step을 추가하거나 시나리오를 나눌 때. GIVEN, WHEN, THEN 주석을 새로 쓰거나 그 형식을 바꿀 때.
 - T02-02 | case-cover-relevant-states-and-boundaries | 새 기능의 테스트 사례를 고르거나 입력 범위, 비동기 상태, 오류 처리를 변경할 때.
 - T02-03 | case-derive-expectations-from-independent-contracts | 기대값을 추가, 변경하거나 테스트 안에서 기대 결과를 계산할 때.
 - T03-01 | data-build-small-valid-typed-fixtures | 테스트 데이터, 응답 생성기, 데이터 타입과 덮어쓰기 값을 추가하거나 바꿀 때.

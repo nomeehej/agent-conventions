@@ -5,7 +5,7 @@ impact: HIGH
 impactDescription: 실패한 제목만으로 깨진 동작과 필요한 사전조건을 찾을 수 있습니다
 appliesWhen:
   - 테스트 제목, 본문 구간, describe, step을 추가하거나 시나리오를 나눌 때
-  - GIVEN, WHEN, THEN 블록 주석을 새로 쓰거나 그 형식을 바꿀 때
+  - GIVEN, WHEN, THEN 주석을 새로 쓰거나 그 형식을 바꿀 때
 tags: testing, case
 ---
 
@@ -18,9 +18,9 @@ tags: testing, case
 
 ### 시나리오 표기
 
-integration과 E2E(Playwright) 사례의 기본 표기는 GIVEN, WHEN, THEN 블록 주석입니다.
-라벨 다음 줄에 그 사례의 조건, 행동, 결과를 한국어 명사구로 적습니다.
-Vitest unit과 골든 테스트에는 블록 주석을 달지 않고 빈 줄로 준비, 실행, 단언을 나눕니다.
+integration과 E2E(Playwright) 사례의 기본 표기는 `// GIVEN 설명`처럼 라벨과 설명을 한 줄에 쓴 주석입니다.
+라벨 뒤 같은 줄에 그 사례의 조건, 행동, 결과를 한국어 명사구로 적습니다.
+Vitest unit과 골든 테스트에는 구간 주석을 달지 않고 빈 줄로 준비, 실행, 단언을 나눕니다.
 
 | 구간 | 담는 것 |
 | --- | --- |
@@ -62,6 +62,6 @@ GIVEN, WHEN, THEN 주석을 위해 Cucumber나 별도 BDD 러너를 추가하지
 
 <<< ../examples/case-describe-one-observable-behavior/04-correct.test.ts
 
-**Correct (E2E 사례는 GIVEN, WHEN, THEN 블록 주석으로 구간을 나눕니다):**
+**Correct (E2E 사례는 GIVEN, WHEN, THEN 한 줄 주석으로 구간을 나눕니다):**
 
 <<< ../examples/case-describe-one-observable-behavior/05-correct.test.ts

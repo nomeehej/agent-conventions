@@ -16,20 +16,23 @@
 
 ### 주석 자리
 
+예외 이유는 `예외:`로 시작합니다.
+
 ```mermaid
 flowchart LR
-	q1{"헤더 문서 주석이<br>있는 선언인가?"} -- 아니요 --> q2{"JSX 자식인가?"} -- 아니요 --> r3("해당 줄 바로 위에 //")
-	q1 -- 예 --> r1("헤더 블록의 예외: 항목")
-	q2 -- 예 --> r2("프레임워크 규칙이<br>정한 형태")
+	q1{"예외가 걸린 선언에<br>헤더 상자가 있는가?"} -- 아니요 --> q2{"JSX 요소인가?"} -- 아니요 --> r3("해당 줄 바로 위<br>// 예외: 한 줄")
+	q1 -- 예 --> r1("헤더 상자 정의 목록의<br>예외: 줄")
+	q2 -- 예 --> r2("프레임워크 규칙이<br>정한 자리")
 ```
 
-헤더 블록에서는 `예외:` 태그를 단 목록 항목으로 적습니다.
-어투와 상자 꼴은 `docs-write-korean-comments-about-purpose-and-constraints`를 따릅니다.
+예외가 걸린 선언에 헤더 상자가 있으면 그 정의 목록에 `예외: …` 한 줄로 적습니다.
+없으면 예외가 걸린 줄 바로 위에 `// 예외: …` 한 줄로 적습니다.
+어투와 상자 모양은 `docs-write-korean-comments-about-purpose-and-constraints`를 따릅니다.
 
 **Incorrect 1 (확인할 수 없는 말로 예외를 정당화합니다):**
 
 ```ts
-// 성능을 위해 메모이제이션
+// 예외: 성능을 위해 메모이제이션
 const columns = useMemo(() => {
 	return toTableColumns(responseTableColumnsSuspense.data.columns);
 }, [responseTableColumnsSuspense.data.columns]);
@@ -38,7 +41,7 @@ const columns = useMemo(() => {
 **Correct 1 (외부 패키지의 제약을 가리킵니다):**
 
 ```ts
-// columns 참조 유지. MUI Data Grid는 참조가 바뀌면 열 너비, 순서를 잃을 수 있음
+// 예외: columns 참조 유지. MUI Data Grid는 참조가 바뀌면 열 너비, 순서를 잃을 수 있음
 const columns = useMemo(() => {
 	return toTableColumns(responseTableColumnsSuspense.data.columns);
 }, [responseTableColumnsSuspense.data.columns]);

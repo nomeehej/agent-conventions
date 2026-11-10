@@ -14,7 +14,7 @@ React 컴포넌트의 프롭스는 프레임워크 규칙이 정합니다.
 
 ```ts
 const fetchProductPage = (baseUrl: string, page: number, pageSize: number, keyword?: string): Promise<ProductPage> => {
-	/* … */
+	// …
 };
 
 fetchProductPage(api_base_url, urlParams.page, pagination_default_page_size, undefined);
@@ -23,19 +23,16 @@ fetchProductPage(api_base_url, urlParams.page, pagination_default_page_size, und
 **Correct 1 (매개변수를 객체로 묶고 그 타입을 파일 위쪽에 이름 붙여 선언합니다):**
 
 ```ts
-/**
- * 상품 목록 한 페이지 요청 조건
- */
+// ----------------------------------------------------------------------------------------
+// 상품 목록 한 페이지 요청 조건
+//
+// page: 1부터 세는 페이지 번호
+// keyword: 검색어. 비우면 전체 목록
+// ----------------------------------------------------------------------------------------
 interface ProductPageRequest {
 	baseUrl: string;
-	/**
-	 * 1부터 세는 페이지 번호
-	 */
 	page: number;
 	pageSize: number;
-	/**
-	 * 검색어. 비우면 전체 목록
-	 */
 	keyword?: string;
 }
 

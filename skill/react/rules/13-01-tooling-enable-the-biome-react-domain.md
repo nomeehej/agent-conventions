@@ -49,6 +49,12 @@ tags: tooling
 `overrides`는 규칙 옵션을 통째로 바꾸므로 기본 설정의 경로 패턴을 각 항목에 함께 적습니다.
 소유자 경계는 가져오는 파일의 위치에 따라 달라지므로 `import` 문자열만으로 판정하지 못하고 리뷰에서 확인합니다.
 
+### 주석
+
+JSX 자식 자리에 글자로 적은 `//`는 `preset: "recommended"`의 `suspicious/noCommentText`가 잡습니다.
+`{/* */}` 주석과 `화면 구성` 상자는 대응 검사가 없습니다.
+`react/docs-describe-jsx-blocks-above-the-return`에 따라 리뷰합니다.
+
 ### 켜지 않는 규칙
 
 | 켜지 않는 규칙 | 이유 |

@@ -43,7 +43,7 @@
 		},
 		{
 			"id": "derive-existing-contract-with-docs",
-			"prompt": "replace a duplicate `UserPreview` interface with a same-name interface that pulls each field through `UserRecord[\"id\"]` indexed access, drop the `as unknown as` assertion that fed it, and add Korean header and field doc comments.",
+			"prompt": "replace a duplicate `UserPreview` interface with a same-name interface that pulls each field through `UserRecord[\"id\"]` indexed access, drop the `as unknown as` assertion that fed it, and add a Korean header comment box that describes the fields.",
 			"files": [
 				"src/users/user-preview.ts"
 			],
@@ -56,7 +56,7 @@
 					"types-derive-subsets-with-indexed-access",
 					"types-document-custom-types-and-shapes",
 					"types-narrow-unknown-instead-of-asserting",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -74,7 +74,7 @@
 				"typescript": [
 					"types-document-custom-types-and-shapes",
 					"types-choose-interface-for-object-contracts-and-type-for-composition",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -93,7 +93,7 @@
 					"types-document-custom-types-and-shapes",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-name-types-by-role-and-lifetime",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -117,7 +117,7 @@
 				]
 			},
 			"scopeDrift": {
-				"evidence": "the same normalization becomes necessary for a second owner, so decide whether it stays with an owner or moves to the root `util` folder, move the existing named function to `profile-support.ts`, export it, directly import it from `bulk-profile.ts`, and add concise Korean header doc comments.",
+				"evidence": "the same normalization becomes necessary for a second owner, so decide whether it stays with an owner or moves to the root `util` folder, move the existing named function to `profile-support.ts`, export it, directly import it from `bulk-profile.ts`, and add a concise Korean header comment box.",
 				"files": [
 					"src/profile/profile-api.ts",
 					"src/profile/profile-support.ts",
@@ -135,7 +135,7 @@
 						"functions-order-declarations-top-down",
 						"functions-promote-owner-free-functions-to-root-util",
 						"functions-name-functions-by-what-comes-out",
-						"docs-require-header-jsdoc-on-key-declarations",
+						"docs-require-header-boxes-on-key-declarations",
 						"docs-write-korean-comments-about-purpose-and-constraints"
 					]
 				}
@@ -205,7 +205,7 @@
 					"types-document-custom-types-and-shapes",
 					"types-replace-enum-with-as-const-objects",
 					"naming-use-consistent-file-and-symbol-naming",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints",
 					"tooling-configure-biome-to-enforce-these-rules"
 				]

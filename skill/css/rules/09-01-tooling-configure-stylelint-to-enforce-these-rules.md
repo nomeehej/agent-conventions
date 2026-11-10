@@ -33,6 +33,7 @@ tags: tooling, stylelint, automation
 | `declaration-no-important` | `css/a11y-namespace-keyframes-and-respect-reduced-motion`. 전역 스타일시트에서만 허용합니다 |
 | `media-feature-range-notation` | `css/layout-write-breakpoints-desktop-first`의 범위 표기. 표준 설정에 포함됩니다 |
 | `no-descending-specificity` | 자손 기본 블록을 조상 규칙보다 앞에 둡니다. 표준 설정에 포함됩니다 |
+| `comment-empty-line-before`, `comment-no-empty` | `css/docs-close-comments-on-each-line`. `ignore`에 `"after-comment"`를 더해 줄마다 닫은 주석 상자를 통과시킵니다. `comment-no-empty`는 표준 설정에 포함됩니다 |
 
 `selector-disallowed-list`는 다음 세 컨벤션을 담당합니다.
 

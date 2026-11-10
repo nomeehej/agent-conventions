@@ -1,0 +1,17 @@
+/* src/page/products/products-page.css */
+
+/* [!code ++] */
+/* ------------------------------------------------------------------------------------- */
+/* 목록 레이아웃 */
+/* 왼쪽 분류 트리, 오른쪽 상품 표. 1024px 아래에서 한 열 */
+/* ------------------------------------------------------------------------------------- */
+.productsPage__layout {
+	display: grid;
+	grid-template-columns: 220px 1fr;
+}
+
+@media (width < 1024px) {
+	.productsPage__layout {
+		grid-template-columns: 1fr;
+	}
+}

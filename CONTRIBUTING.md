@@ -84,8 +84,8 @@ skill/react/
 - 한 쌍은 한 변수만 바꾼다.
   `Incorrect`와 `Correct`는 그 규칙이 말하는 것 하나만 달라야 독자가 무엇이 규칙인지 짚는다.
   이름, 구조, 무관한 코드를 함께 바꾸지 않는다.
-- Testing의 Playwright 실행 예제는 GIVEN, WHEN, THEN 블록과 사례별 설명으로 조건, 행동, 결과를 드러낸다.
-  Vitest 예제는 블록 없이 빈 줄로 준비, 실행, 단언을 나눈다.
+- Testing의 Playwright 실행 예제는 `// GIVEN 설명`처럼 구간마다 한 줄 주석으로 조건, 행동, 결과를 드러낸다.
+  Vitest 예제는 구간 주석 없이 빈 줄로 준비, 실행, 단언을 나눈다.
   handler, story, 러너 설정 선언에는 실행 사례용 빈 구간을 붙이지 않는다.
   생성 API 예제는 Kubb 계약과 소유 mock, handler, 소비 fixture의 파일을 나눠 보여 준다.
 - 예시 차례는 **짝 → 홀로 선 Incorrect → 홀로 선 Correct** 다.
@@ -118,7 +118,7 @@ skill/react/
   설명과 표만 이어지면 어디서 주제가 바뀌는지 읽는 사람이 놓친다.
 - `Correct`는 저장소 전체 규칙을 지킨다.
   다른 스킬의 규칙도 포함한다.
-  `rule-discipline.ts`가 잡는 교차 위반(`mutateAsync` 없는 `try`, `li onClick`, 리터럴 폴백, 손으로 쓴 `sort`, `reduce`, 한 줄 JSX 주석, 스택 밖 이름 등)은 `validate`가 막는다.
+  `rule-discipline.ts`가 잡는 교차 위반(`mutateAsync` 없는 `try`, `li onClick`, 리터럴 폴백, 손으로 쓴 `sort`, `reduce`, 블록 주석과 상자 줄 폭, 스택 밖 이름 등)은 `validate`가 막는다.
   `Correct` 예제 파일은 `npm run lint:examples`가 규칙이 보여 주는 biome, stylelint 설정 그대로 검사한다.
   규칙이 lint 설정으로 표현된다는 증명이다.
   `Incorrect` 예제는 규칙 없이 문법만 검사한다.

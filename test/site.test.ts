@@ -7,8 +7,8 @@ import Slugger from "github-slugger";
 import {generateSiteFiles} from "../src/site.js";
 import type {SiteFile} from "../src/site.js";
 
-const expectedRuleCount = 196;
-const expectedSectionCount = 48;
+const expectedRuleCount = 197;
+const expectedSectionCount = 49;
 const expectedSkillCount = 6;
 
 /**

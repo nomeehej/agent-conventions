@@ -1,7 +1,7 @@
 # CSS 컨벤션 Rule Index
 
 - Skill: `css`
-- Routing digest: `sha256:39f698685cbf78364105a5a3a31b18271bfaa4b5859efe2581ce389c8f5bf1c0`
+- Routing digest: `sha256:7797a2e49fb1a7eb991b2efa920fbd5d482cb3cfd86e244ee40ad8a291dc649e`
 
 ## Direct Companions
 
@@ -41,4 +41,5 @@
 - C06-04 | layout-reach-for-intrinsic-sizing-before-breakpoints | \`@media\` 브레이크포인트를 새로 넣으려 할 때. 폭에 따라 줄바꿈, 열 개수, 크기가 달라져야 할 때. 컨테이너 폭에 따른 \`@container\` 배치 조건을 추가, 변경할 때. | reviewWith: layout-group-breakpoints-at-the-file-bottom, layout-keep-layout-intent-explicit
 - C07-01 | a11y-always-provide-a-visible-focus-indicator | \`outline\`, \`:focus\`, \`:focus-visible\` 스타일을 추가, 수정할 때. 상호작용 요소의 기본 포커스 링을 덮어쓸 때. 강제 색상 모드에서 포커스 표시가 사라져 스타일을 보완할 때. | reviewWith: selector-nest-dom-state-in-the-owning-block
 - C07-02 | a11y-namespace-keyframes-and-respect-reduced-motion | \`@keyframes\` 이름이나 애니메이션 지속 시간, 지연 시간, 이징을 선언하거나 바꿀 때. \`animation\`, \`transition\`, \`prefers-reduced-motion\` 동작을 추가, 변경할 때. | reviewWith: tooling-configure-stylelint-to-enforce-these-rules, values-tokenize-repeated-visual-values
-- C08-01 | tooling-configure-stylelint-to-enforce-these-rules | stylelint 설정을 새로 만들거나 규칙을 추가, 수정할 때. 이 컨벤션 중 어디까지 자동으로 잡히는지 확인할 때. | reviewWith: naming-use-block-element-modifier-syntax, ownership-use-foreign-classes-only-under-your-own-root, selector-limit-nesting-block-depth
+- C08-01 | docs-close-comments-on-each-line | CSS 파일에 주석을 추가하거나 기존 주석의 모양을 바꿀 때. 스타일시트를 구역으로 나누는 주석을 쓸 때. 제외: \`stylelint-disable\` 같은 도구 지시 주석만 쓰는 경우.
+- C09-01 | tooling-configure-stylelint-to-enforce-these-rules | stylelint 설정을 새로 만들거나 규칙을 추가, 수정할 때. 이 컨벤션 중 어디까지 자동으로 잡히는지 확인할 때. | reviewWith: naming-use-block-element-modifier-syntax, ownership-use-foreign-classes-only-under-your-own-root, selector-limit-nesting-block-depth

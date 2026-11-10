@@ -30,9 +30,10 @@ const responseProductListSuspense = useSuspenseQuery({...productListQueryOptions
 
 ```ts
 // page/products/products-page.tsx
-/**
- * 이 횟수를 넘으면 사용자에게 실패 표시
- */
+
+// ----------------------------------------------------------------------------------------
+// 이 횟수를 넘으면 사용자에게 실패 표시
+// ----------------------------------------------------------------------------------------
 const retry_max_attempts = 42;
 
 const responseProductListSuspense = useSuspenseQuery({...productListQueryOptions(), retry: retry_max_attempts});

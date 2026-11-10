@@ -1,0 +1,9 @@
+// page/products/_product-preview-section.tsx
+
+// [!code error]
+// 그릴 행 수. 서버가 한 번에 주는 최대치와 일치
+const preview_row_count = 5;
+
+// [!code error]
+// 다시 조회하는 간격(ms)
+const preview_refresh_interval = 30_000;

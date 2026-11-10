@@ -84,7 +84,7 @@ Mermaid는 필요한 페이지에서 자체 호스팅 모듈을 불러옵니다.
 | `npm run content:preview` | `content/dist`의 공개 사이트를 포트 4322에서 미리 봅니다. 빌드 결과가 필요합니다. |
 | `npm run test` | 라우터와 생성물 계약, 매니페스트 검증기, build, validate fixture, 규칙 문체, 사이트 생성 테스트를 실행합니다. 규칙 산문은 핀하지 않습니다. |
 | `npm run lint`, `npm run lint:fix` | 도구 소스의 Biome 검사와 자동 수정입니다. |
-| `npm run lint:examples` | `Correct` 예제 파일을 규칙이 보여 주는 설정 그대로 검사합니다. `skill/examples.biome.json`은 typescript 07-01의 예제 파일을 `extends`와 `plugins`로 읽고 미사용 변수 예외만 더합니다. `skill/stylelint.config.mjs`는 css 08-01의 예제 파일을 `extends`로 읽고 예제에만 필요한 예외를 더합니다. `Incorrect` 예제는 일부러 어기므로 `skill/incorrect.biome.json`, `skill/incorrect.stylelint.config.mjs`로 규칙 없이 문법만 검사합니다. |
+| `npm run lint:examples` | `Correct` 예제 파일을 규칙이 보여 주는 설정 그대로 검사합니다. `skill/examples.biome.json`은 typescript 07-01의 예제 파일을 `extends`와 `plugins`로 읽고 미사용 변수 예외만 더합니다. `skill/stylelint.config.mjs`는 css 09-01의 예제 파일을 `extends`로 읽고 예제에만 필요한 예외를 더합니다. `Incorrect` 예제는 일부러 어기므로 `skill/incorrect.biome.json`, `skill/incorrect.stylelint.config.mjs`로 규칙 없이 문법만 검사합니다. |
 | `npm run typecheck` | `tsc --noEmit`입니다. |
 | `npm run typecheck:examples` | `Correct` 예제 파일을 `skill/examples.tsconfig.json`으로 타입 검사합니다. 예제가 import 없이 쓰는 이름은 `skill/examples.d.ts`가 선언합니다. React, es-toolkit, nuqs, react-router, TanStack Query, MUI, dayjs, clsx는 설치된 패키지의 타입을 그대로 가리키므로 실제 스택에 없는 API를 쓰면 실패합니다. 예제 세계관(작은 상점 관리자 콘솔)의 도메인, 컴포넌트와 프롭, 생성된 쿼리 훅, `@/` 모듈도 같은 파일이 실제 타입으로 선언하므로 이 파일이 예제의 스키마입니다. 규칙마다 같은 컴포넌트가 다른 프롭을 받거나 응답 모양이 어긋나면 여기서 잡힙니다. 새 이름을 쓰면 tsc가 `Cannot find name`이나 `Cannot find module`로 알려 주니 그 이름을 알맞은 절에 더합니다. |
 

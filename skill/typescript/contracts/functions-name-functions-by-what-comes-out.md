@@ -56,32 +56,45 @@
 
 ```ts
 // page/product-detail/_function/build-user-payload.ts
-export const buildUserPayload = (formValues: UserFormValues) => { /* … */ };
+export const buildUserPayload = (formValues: UserFormValues) => {
+	// …
+};
 ```
 
 ```ts
 // page/product-detail/_function/map-response-to-model.ts
-export const mapResponseToModel = (response: UserResponse) => { /* … */ };
+export const mapResponseToModel = (response: UserResponse) => {
+	// …
+};
 ```
 
 ```ts
 // page/product-detail/_function/process-user-rows.ts
-export const processUserRows = (rows: UserRow[]) => { /* … */ };
+export const processUserRows = (rows: UserRow[]) => {
+	// …
+};
 ```
 
 ```ts
 // page/product-detail/_function/resolve-status-tone.ts
-export const resolveStatusTone = (status: string) => { /* … */ };
+export const resolveStatusTone = (status: string) => {
+	// …
+};
 ```
 
 **Correct 1 (출력 역할이나 효과를 이름에 씁니다):**
 
 ```ts
 // page/product-detail/_function/to-user-save-request.ts
-/**
- * 사용자 저장 요청 조립. 빈 칸 제외, 서버가 빈 문자열 거부
- */
-export const toUserSaveRequest = (formValues: UserFormValues) => { /* … */ };
+
+// ----------------------------------------------------------------------------------------
+// 사용자 저장 요청 조립
+//
+// 빈 칸 제외, 서버가 빈 문자열 거부
+// ----------------------------------------------------------------------------------------
+export const toUserSaveRequest = (formValues: UserFormValues) => {
+	// …
+};
 ```
 
 > 나머지 예시와 예외는 [full rule](../rules/03-09-functions-name-functions-by-what-comes-out.md)에 있습니다.

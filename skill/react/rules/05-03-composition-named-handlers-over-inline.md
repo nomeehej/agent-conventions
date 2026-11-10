@@ -6,7 +6,7 @@ impactDescription: 부수효과, 분기, 비동기 흐름을 일반 코드 흐�
 appliesWhen:
   - TSX 이벤트 프롭에 인라인 화살표 콜백을 추가, 수정할 때
   - 제외: 인자 없이 핸들러 참조만 넘기는 경우
-requiresSelected: docs-require-jsdoc-on-key-declarations
+requiresSelected: docs-require-header-boxes-on-react-declarations
 reviewWith: >-
   events-run-user-actions-in-handlers-not-effects, events-curry-extra-handler-arguments,
   typescript/functions-extract-helpers-only-when-the-boundary-is-real

@@ -9,7 +9,7 @@ appliesWhen:
   - 한 함수 안에서 같은 계산을 되풀이해 적거나 지역 함수로 묶을 때
 reviewWith: >-
   functions-give-each-function-its-own-file, values-decide-once-and-carry-the-result,
-  docs-require-header-jsdoc-on-key-declarations
+  docs-require-header-boxes-on-key-declarations
 tags: functions, boundaries
 ---
 
@@ -61,7 +61,7 @@ flowchart LR
 
 <<< ../examples/functions-extract-helpers-only-when-the-boundary-is-real/01-incorrect-2.ts
 
-**Correct 1 (한 번 쓰는 단계는 대표 본문에 두고 단계 주석으로 구간을 나눕니다):**
+**Correct 1 (한 번 쓰는 단계는 대표 본문에 두고 구획 상자로 구간을 나눕니다):**
 
 <<< ../examples/functions-extract-helpers-only-when-the-boundary-is-real/02-correct-1.txt
 

@@ -26,7 +26,7 @@
 					"types-document-custom-types-and-shapes",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -52,7 +52,7 @@
 					"types-document-custom-types-and-shapes",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			},
@@ -78,7 +78,7 @@
 						"types-document-custom-types-and-shapes",
 						"naming-use-consistent-file-and-symbol-naming",
 						"naming-use-direct-imports-and-public-entry-points",
-						"docs-require-header-jsdoc-on-key-declarations",
+						"docs-require-header-boxes-on-key-declarations",
 						"docs-write-korean-comments-about-purpose-and-constraints"
 					],
 					"css": [
@@ -111,7 +111,7 @@
 					"ownership-place-owner-files-in-role-folders",
 					"ownership-prefer-plain-ts-for-local-react-helpers",
 					"screen-avoid-premature-abstraction",
-					"docs-require-jsdoc-on-key-declarations"
+					"docs-require-header-boxes-on-react-declarations"
 				],
 				"typescript": [
 					"types-document-custom-types-and-shapes",
@@ -120,7 +120,7 @@
 					"functions-declare-functions-as-arrow-consts",
 					"functions-use-named-object-params-for-complex-signatures",
 					"functions-extract-helpers-only-when-the-boundary-is-real",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -169,13 +169,13 @@
 					"composition-read-props-without-destructuring",
 					"composition-declare-props-interface-above-the-component",
 					"a11y-give-interactive-elements-an-accessible-name",
-					"docs-require-jsdoc-on-key-declarations"
+					"docs-require-header-boxes-on-react-declarations"
 				],
 				"typescript": [
 					"types-document-custom-types-and-shapes",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -198,13 +198,13 @@
 					"composition-read-props-without-destructuring",
 					"composition-do-not-define-components-inside-components",
 					"composition-open-ref-props-only-for-imperative-contracts",
-					"docs-require-jsdoc-on-key-declarations"
+					"docs-require-header-boxes-on-react-declarations"
 				],
 				"typescript": [
 					"types-document-custom-types-and-shapes",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -228,7 +228,7 @@
 					"events-name-handlers-predictably",
 					"events-curry-extra-handler-arguments",
 					"events-run-user-actions-in-handlers-not-effects",
-					"docs-require-jsdoc-on-key-declarations"
+					"docs-require-header-boxes-on-react-declarations"
 				],
 				"typescript": [
 					"types-prefer-function-variable-types-over-parameter-annotations",
@@ -236,7 +236,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"functions-extract-helpers-only-when-the-boundary-is-real",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -265,8 +265,8 @@
 					"runtime-place-suspense-boundaries-at-the-section-owner",
 					"runtime-avoid-ad-hoc-loading-branches",
 					"events-name-handlers-predictably",
-					"docs-require-jsdoc-on-key-declarations",
-					"docs-write-jsx-comments-as-multiline-blocks"
+					"docs-require-header-boxes-on-react-declarations",
+					"docs-describe-jsx-blocks-above-the-return"
 				],
 				"typescript": [
 					"types-reuse-existing-contracts-before-new-types",
@@ -275,7 +275,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"absence-expose-optional-values-instead-of-silent-fallbacks",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -298,13 +298,13 @@
 					"state-calculate-derived-values-during-render",
 					"state-use-functional-setstate-updates",
 					"events-name-handlers-predictably",
-					"docs-require-jsdoc-on-key-declarations"
+					"docs-require-header-boxes-on-react-declarations"
 				],
 				"typescript": [
 					"types-prefer-function-variable-types-over-parameter-annotations",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -325,13 +325,13 @@
 					"data-preserve-origin-chaining",
 					"state-choose-state-tools-by-source-of-truth",
 					"state-store-derived-authority",
-					"docs-require-jsdoc-on-key-declarations"
+					"docs-require-header-boxes-on-react-declarations"
 				],
 				"typescript": [
 					"types-document-custom-types-and-shapes",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -353,11 +353,11 @@
 					"data-combine-multiple-queries-with-combine",
 					"data-preserve-origin-chaining",
 					"screen-keep-derived-values-close",
-					"docs-require-jsdoc-on-key-declarations"
+					"docs-require-header-boxes-on-react-declarations"
 				],
 				"typescript": [
 					"naming-use-consistent-file-and-symbol-naming",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -377,13 +377,13 @@
 					"perf-avoid-defensive-memoization",
 					"perf-use-lazy-state-initializers-for-expensive-defaults",
 					"perf-defer-heavy-renders-with-measured-evidence",
-					"docs-require-jsdoc-on-key-declarations"
+					"docs-require-header-boxes-on-react-declarations"
 				],
 				"typescript": [
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"docs-keep-body-comments-for-intent-and-steps",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints",
 					"docs-justify-convention-exceptions-with-a-reason-comment"
 				]
@@ -391,7 +391,7 @@
 		},
 		{
 			"id": "RTE14-subscription-effectevent",
-			"prompt": "directly import useEffectEvent, replace only a socket subscription latest-callback ref-sync hack with a named handleMessage = useEffectEvent(...), and update subscription lifecycle JSDoc; do not change click or submit actions.",
+			"prompt": "directly import useEffectEvent, replace only a socket subscription latest-callback ref-sync hack with a named handleMessage = useEffectEvent(...), and update the subscription effect header comment box; do not change click or submit actions.",
 			"files": [
 				"src/page/products/_product-socket.tsx"
 			],
@@ -404,13 +404,13 @@
 					"composition-order-hooks-handlers-effects-then-return",
 					"state-use-effectevent-for-non-reactive-effect-callbacks",
 					"events-name-handlers-predictably",
-					"docs-require-jsdoc-on-key-declarations"
+					"docs-require-header-boxes-on-react-declarations"
 				],
 				"typescript": [
 					"types-prefer-function-variable-types-over-parameter-annotations",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -484,10 +484,10 @@
 					"ownership-place-owner-files-in-role-folders",
 					"ownership-prefer-plain-ts-for-local-react-helpers",
 					"ownership-keep-lifecycle-in-the-owning-component",
-					"docs-require-jsdoc-on-key-declarations"
+					"docs-require-header-boxes-on-react-declarations"
 				],
 				"typescript": [
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -512,7 +512,7 @@
 					"naming-place-owner-constants-in-the-owner-constant-folder",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -609,7 +609,7 @@
 		},
 		{
 			"id": "react-suspense-dependent-query",
-			"prompt": "Change the existing query declarations so the second Suspense query waits for the first response ID, using the already imported useSuspenseQuery in order instead of enabled. Preserve binding names, render code, handlers, and boundaries; update the query JSDoc to describe the dependency.",
+			"prompt": "Change the existing query declarations so the second Suspense query waits for the first response ID, using the already imported useSuspenseQuery in order instead of enabled. Preserve binding names, render code, handlers, and boundaries; update the query header comment box to describe the dependency.",
 			"files": [
 				"src/page/products/_product-detail-section.tsx"
 			],
@@ -621,10 +621,10 @@
 				"react": [
 					"data-combine-multiple-queries-with-combine",
 					"data-preserve-origin-chaining",
-					"docs-require-jsdoc-on-key-declarations"
+					"docs-require-header-boxes-on-react-declarations"
 				],
 				"typescript": [
-					"docs-require-header-jsdoc-on-key-declarations",
+					"docs-require-header-boxes-on-key-declarations",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
@@ -651,7 +651,7 @@
 		},
 		{
 			"id": "react-widget-part-split-and-private-part-naming",
-			"prompt": "In the chatbot widget, move the `_chatbot-content.tsx` part that only reads context and picks a branch back into `chatbot.tsx`, rename the private header part `_header.tsx`/`Header` to `_chatbot-header.tsx`/`ChatbotHeader` so the owner name is carried, and put a multiline block comment above each multi-line JSX block in the entry file. Keep behavior, props, and hooks unchanged.",
+			"prompt": "In the chatbot widget, move the `_chatbot-content.tsx` part that only reads context and picks a branch back into `chatbot.tsx`, rename the private header part `_header.tsx`/`Header` to `_chatbot-header.tsx`/`ChatbotHeader` so the owner name is carried, and list each multi-line JSX block of the entry file in a screen-layout comment box above its return. Keep behavior, props, and hooks unchanged.",
 			"files": [
 				"src/component/widget/chatbot/chatbot.tsx",
 				"src/component/widget/chatbot/_chatbot-content.tsx",
@@ -666,7 +666,7 @@
 					"ownership-name-component-files-after-their-symbols",
 					"ownership-place-owner-files-in-role-folders",
 					"composition-split-owner-parts-only-for-runtime-boundaries",
-					"docs-write-jsx-comments-as-multiline-blocks"
+					"docs-describe-jsx-blocks-above-the-return"
 				],
 				"typescript": [
 					"naming-use-consistent-file-and-symbol-naming"

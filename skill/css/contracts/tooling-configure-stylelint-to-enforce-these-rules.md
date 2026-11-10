@@ -19,6 +19,7 @@
 | `declaration-no-important` | `css/a11y-namespace-keyframes-and-respect-reduced-motion`. 전역 스타일시트에서만 허용합니다 |
 | `media-feature-range-notation` | `css/layout-write-breakpoints-desktop-first`의 범위 표기. 표준 설정에 포함됩니다 |
 | `no-descending-specificity` | 자손 기본 블록을 조상 규칙보다 앞에 둡니다. 표준 설정에 포함됩니다 |
+| `comment-empty-line-before`, `comment-no-empty` | `css/docs-close-comments-on-each-line`. `ignore`에 `"after-comment"`를 더해 줄마다 닫은 주석 상자를 통과시킵니다. `comment-no-empty`는 표준 설정에 포함됩니다 |
 
 `selector-disallowed-list`는 다음 세 컨벤션을 담당합니다.
 
@@ -51,15 +52,15 @@
 **Correct (라이브러리 접두사 목록 하나로 우리 클래스 문법과 최상위 금지를 함께 정합니다):**
 
 ```js
-/**
- * 우리가 이름을 정하지 않는 라이브러리 클래스의 접두사
- * 목록에 없는 라이브러리 클래스는 우리 문법 검사에 걸림, 여기에 추가
- */
+// ----------------------------------------------------------------------------------------
+// 클래스 이름 검사
+//
+// libraryClassPrefixes: 우리가 이름을 정하지 않는 라이브러리 클래스의 접두사
+//   목록에 없는 라이브러리 클래스는 우리 문법 검사에 걸림, 여기에 추가
+// ownClassPattern: 라이브러리 클래스는 통과, 나머지는 우리 문법만 통과
+// ownMarkupPatterns: 우리가 마크업을 쓰는 자리에서 금지되는 형태
+// ----------------------------------------------------------------------------------------
 const libraryClassPrefixes = ["ant-", "rc-", "tippy-", "Mui"];
-
-/**
- * 라이브러리 클래스는 통과, 나머지는 우리 문법만 통과
- */
 const ownClassPattern = [
 	"^(?:",
 	`(?:${libraryClassPrefixes.join("|")}).*`,
@@ -68,10 +69,6 @@ const ownClassPattern = [
 	"[a-z][a-zA-Z0-9]*__[a-z][a-zA-Z0-9]*(?:--[a-z][a-zA-Z0-9]*)?",
 	")$",
 ].join("");
-
-/**
- * 우리가 마크업을 쓰는 자리에서 금지되는 형태
- */
 const ownMarkupPatterns = [
 	// 상태 가상 클래스를 최상위 선택자로 다시 여는 것
 	/^\.[\w-]+:(hover|focus|focus-visible|focus-within|active|enabled|disabled|checked|visited)/,
@@ -107,6 +104,8 @@ export default {
 		"selector-nested-pattern": ["^&", {splitList: true}],
 		// 부정 조건은 기본 블록으로 전환. 남의 마크업만 stylelint-disable로 허용
 		"selector-pseudo-class-disallowed-list": ["not"],
+		// 줄마다 닫은 주석 상자 허용. 앞 주석 바로 뒤의 주석은 빈 줄 검사 제외
+		"comment-empty-line-before": ["always", {except: ["first-nested"], ignore: ["stylelint-commands", "after-comment"]}],
 	},
 	overrides: [
 		{
@@ -134,4 +133,4 @@ export default {
 };
 ```
 
-> 나머지 예시와 예외는 [full rule](../rules/08-01-tooling-configure-stylelint-to-enforce-these-rules.md)에 있습니다.
+> 나머지 예시와 예외는 [full rule](../rules/09-01-tooling-configure-stylelint-to-enforce-these-rules.md)에 있습니다.

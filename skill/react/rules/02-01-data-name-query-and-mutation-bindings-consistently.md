@@ -6,7 +6,7 @@ impactDescription: 지역 바인딩 이름으로 생성된 API 훅을 쉽게 찾
 appliesWhen:
   - React Query 쿼리, 뮤테이션 훅의 지역 바인딩을 추가하거나 이름을 바꿀 때
   - 쿼리나 뮤테이션 훅의 반환값을 새 지역 변수에 담을 때
-requiresSelected: typescript/naming-use-consistent-file-and-symbol-naming, docs-require-jsdoc-on-key-declarations
+requiresSelected: typescript/naming-use-consistent-file-and-symbol-naming, docs-require-header-boxes-on-react-declarations
 reviewWith: data-preserve-origin-chaining
 tags: data, state, naming
 ---

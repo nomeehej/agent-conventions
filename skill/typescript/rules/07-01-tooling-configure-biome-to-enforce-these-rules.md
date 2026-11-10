@@ -58,8 +58,11 @@ tags: tooling
 | 사용하지 않는 매개변수를 아예 생략 | 검사는 남겨 둔 매개변수만 봄 | 리뷰합니다 |
 | 매개변수가 넷이나 다섯인 직접 선언한 함수 | `useMaxParams`의 `max`가 라이브러리 콜백에 맞춰 5임 | 객체 매개변수로 묶었는지 리뷰합니다 |
 | `as`, `@ts-expect-error` | 의도를 구분하지 못함 | 위의 타입 좁히기 규칙에 따라 리뷰합니다 |
-| 한 줄 문서 블록 `/** … */` | 대응 검사가 없음 | `typescript/docs-write-korean-comments-about-purpose-and-constraints`를 리뷰합니다 |
+| 블록 주석 `/* */`, `/** */`, 주석 상자 모양 | Biome에 주석 모양 규칙이 없음 | `typescript/docs-write-korean-comments-about-purpose-and-constraints`에 따라 리뷰합니다 |
 | `config/env.ts` 밖의 `import.meta.env`, `process.env` | 대응 검사가 없음 | `typescript/naming-read-environment-values-through-config-env`에 따라 리뷰합니다 |
+
+ESLint를 함께 쓰는 프로젝트는 `@stylistic/multiline-comment-style`을 `separate-lines`, `checkJSDoc: true`로 켭니다.
+여러 줄 블록 주석과 JSDoc을 `//` 줄 주석으로 바꾸게 하지만 한 줄 `/* */`와 상자 모양은 보지 않아 리뷰합니다.
 
 ### 설정 예외
 
@@ -67,6 +70,8 @@ tags: tooling
 | --- | --- |
 | 테스트의 `noMagicNumbers` 해제 | Vitest의 `*.test.ts`와 Playwright의 `*.spec.ts`에서 리터럴 자체가 기대 계약인 값에 적용합니다. 설정값끼리 비교하도록 바꾸지 않습니다. 소스가 이미 이름 붙인 값은 테스트도 가져다 씁니다 |
 | 도구 설정 파일의 `noDefaultExport` 해제 | `vite.config.ts`처럼 도구가 `default`를 요구하는 진입점에 적용합니다. 내보내기 규칙의 예외를 설정에 반영합니다 |
+
+참고: [ESLint Stylistic multiline-comment-style](https://eslint.style/rules/multiline-comment-style).
 
 **Correct (컨벤션 항목을 설정으로 고정합니다):**
 

@@ -1,12 +1,12 @@
-/**
- * 우리가 이름을 정하지 않는 라이브러리 클래스의 접두사
- * 목록에 없는 라이브러리 클래스는 우리 문법 검사에 걸림, 여기에 추가
- */
+// ----------------------------------------------------------------------------------------
+// 클래스 이름 검사
+//
+// libraryClassPrefixes: 우리가 이름을 정하지 않는 라이브러리 클래스의 접두사
+//   목록에 없는 라이브러리 클래스는 우리 문법 검사에 걸림, 여기에 추가
+// ownClassPattern: 라이브러리 클래스는 통과, 나머지는 우리 문법만 통과
+// ownMarkupPatterns: 우리가 마크업을 쓰는 자리에서 금지되는 형태
+// ----------------------------------------------------------------------------------------
 const libraryClassPrefixes = ["ant-", "rc-", "tippy-", "Mui"];
-
-/**
- * 라이브러리 클래스는 통과, 나머지는 우리 문법만 통과
- */
 const ownClassPattern = [
 	"^(?:",
 	`(?:${libraryClassPrefixes.join("|")}).*`,
@@ -15,10 +15,6 @@ const ownClassPattern = [
 	"[a-z][a-zA-Z0-9]*__[a-z][a-zA-Z0-9]*(?:--[a-z][a-zA-Z0-9]*)?",
 	")$",
 ].join("");
-
-/**
- * 우리가 마크업을 쓰는 자리에서 금지되는 형태
- */
 const ownMarkupPatterns = [
 	// 상태 가상 클래스를 최상위 선택자로 다시 여는 것
 	/^\.[\w-]+:(hover|focus|focus-visible|focus-within|active|enabled|disabled|checked|visited)/,
@@ -54,6 +50,8 @@ export default {
 		"selector-nested-pattern": ["^&", {splitList: true}],
 		// 부정 조건은 기본 블록으로 전환. 남의 마크업만 stylelint-disable로 허용
 		"selector-pseudo-class-disallowed-list": ["not"],
+		// 줄마다 닫은 주석 상자 허용. 앞 주석 바로 뒤의 주석은 빈 줄 검사 제외
+		"comment-empty-line-before": ["always", {except: ["first-nested"], ignore: ["stylelint-commands", "after-comment"]}],
 	},
 	overrides: [
 		{

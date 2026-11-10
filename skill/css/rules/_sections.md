@@ -58,7 +58,14 @@
 포커스 표시는 없애지 않고 형태로 구분합니다.
 애니메이션은 전역 이름을 겹치지 않게 두고 사용자 설정을 따릅니다.
 
-## 8. Tooling (tooling)
+## 8. Comments (docs)
+**TitleKo:** 주석
+**Lead:** 줄마다 닫는 주석, 상자 모양
+**Impact:** MEDIUM
+**Description:** CSS 주석은 줄마다 `/* */`로 닫고 여러 줄 블록 주석을 쓰지 않습니다.
+설명이 두 줄 이상이면 TypeScript 주석과 폭이 같은 상자로 씁니다.
+
+## 9. Tooling (tooling)
 **TitleKo:** 도구 설정
 **Lead:** stylelint로 자동 검사할 규칙
 **Impact:** MEDIUM

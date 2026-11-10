@@ -1,14 +1,14 @@
 // [!code error]
 // 원본: TableCellProps.align은 선택 필드, padding은 normal, checkbox, none
-/**
- * 주문 내보내기 표 칸 표시 계약
- */
+
+// ----------------------------------------------------------------------------------------
+// 주문 내보내기 표 칸 표시 계약
+//
+// padding: 칸 여백. checkbox 칸 없음
+// ----------------------------------------------------------------------------------------
 interface OrderExportCell {
 // [!code error]
 	align: "inherit" | "left" | "center" | "right" | "justify";
-	/**
-	 * 칸 여백. checkbox 칸 없음
-	 */
 // [!code error]
 	padding?: "normal" | "none";
 }
