@@ -5,9 +5,10 @@ const hovers = button.children.filter((variant) => variant.name.includes("State=
 for (const hover of hovers) {
 	// [!code ++]
 	const pressed = hover.clone();
+	const label = pressed.findOne((node) => node.name === "Label");
 
 	button.appendChild(pressed);
 	pressed.name = hover.name.replace("State=Hover", "State=Pressed");
 	pressed.description = "코드에 없는 제안. Hover보다 한 단계 진한 action/primary-hover";
-	pressed.findOne((node) => node.name === "Label").componentPropertyReferences = {characters: labelKey};
+	label.componentPropertyReferences = {...label.componentPropertyReferences, characters: labelKey};
 }

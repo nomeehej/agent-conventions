@@ -11,6 +11,6 @@ for (const variant of textField.children) {
 	const icon = variant.findOne((node) => node.name === "Icon");
 	const suffix = variant.findOne((node) => node.name === "Suffix");
 
-	icon.componentPropertyReferences = {mainComponent: iconKey};
-	suffix.componentPropertyReferences = {visible: suffixKey, characters: suffixTextKey};
+	icon.componentPropertyReferences = {...icon.componentPropertyReferences, mainComponent: iconKey};
+	suffix.componentPropertyReferences = {...suffix.componentPropertyReferences, visible: suffixKey, characters: suffixTextKey};
 }
