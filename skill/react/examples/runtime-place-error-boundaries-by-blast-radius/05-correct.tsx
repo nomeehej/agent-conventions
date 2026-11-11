@@ -1,12 +1,16 @@
-// component/widget/app-shell/app-shell.tsx
-export const AppShell = (props: AppShellProps) => {
+// page/(main)/main-outlet.tsx
+export const MainOutlet = () => {
+	const location = useLocation();
+
 	return (
-		<div className={clsx("appShell__root")}>
+		<div className={clsx("mainOutlet__root")}>
 			<AppNavigation />
 
-			<main className={clsx("appShell__main")}>
-				<ErrorBoundary fallback={<ScreenErrorState />}>
-					<Suspense fallback={<ScreenSkeleton />}>{props.children}</Suspense>
+			<main className={clsx("mainOutlet__main")}>
+				<ErrorBoundary resetKeys={[location.pathname, location.search]} fallback={<ScreenErrorState />}>
+					<Suspense fallback={<ScreenSkeleton />}>
+						<Outlet />
+					</Suspense>
 				</ErrorBoundary>
 			</main>
 		</div>

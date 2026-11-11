@@ -40,6 +40,8 @@ declare const Route: typeof import("react-router").Route;
 declare const Routes: typeof import("react-router").Routes;
 declare const useNavigate: typeof import("react-router").useNavigate;
 declare const useSearchParams: typeof import("react-router").useSearchParams;
+declare const useLocation: typeof import("react-router").useLocation;
+declare const Outlet: typeof import("react-router").Outlet;
 declare const parseAsInteger: typeof import("nuqs").parseAsInteger;
 declare const parseAsString: typeof import("nuqs").parseAsString;
 declare const useQueryStates: typeof import("nuqs").useQueryStates;
@@ -381,6 +383,7 @@ interface ErrorBoundaryProps {
 	fallback?: ReactNode;
 	fallbackRender?: (props: ErrorFallbackProps) => ReactNode;
 	onReset?: () => void;
+	resetKeys?: readonly unknown[];
 	children?: ReactNode;
 }
 declare const ErrorBoundary: (props: ErrorBoundaryProps) => ReactElement;
@@ -484,7 +487,7 @@ declare const OrderFilterPanel: () => ReactElement;
 declare const ProductBulkActionBar: (props: {selectedRows?: ProductRow[]; label?: string}) => ReactElement;
 declare const ProductCreateForm: () => ReactElement;
 declare const ProductDetailChartSection: () => ReactElement;
-declare const ProductFilterSection: (props: {
+declare const ProductFilterBar: (props: {
 	keyword?: string;
 	categoryId?: string;
 	onKeywordChange?: Dispatch<string>;
@@ -492,6 +495,7 @@ declare const ProductFilterSection: (props: {
 }) => ReactElement;
 declare const ProductList: () => ReactElement;
 declare const ProductListSection: () => ReactElement;
+declare const ProductListSkeleton: () => ReactElement;
 interface ProductPanelProps {
 	isVisible: boolean;
 	children?: ReactNode;
@@ -750,10 +754,6 @@ type ProfileDialogPartComponent = (props: ProfileDialogPartProps) => ReactElemen
 type LineChartComponent = (props: LineChartProps) => ReactElement;
 type TabsComponent = (props: TabsProps) => ReactElement;
 type ProductTableSectionComponent = (props: ProductTableSectionProps) => ReactElement;
-interface TabsContextValue {
-	selectedId: string;
-	onSelect: (id: string) => void;
-}
 declare module "@/component/ui/button/button" {
 	export type ButtonProps = ButtonPropsShape;
 	export const Button: (props: ButtonPropsShape) => ReactElement;
@@ -787,9 +787,6 @@ declare module "@/component/ui/panel/panel" {
 		Footer: PanelPartComponent;
 	};
 }
-declare module "@/component/ui/tabs/_hook/use-tabs" {
-	export const TabsContext: Context<TabsContextValue | null>;
-}
 declare module "@/component/ui/tabs/tabs" {
 	export const Tabs: TabsComponent;
 }
@@ -799,13 +796,8 @@ declare module "@/component/widget/order-table/order-table" {
 declare module "@/component/widget/product-table/product-table" {
 	export const ProductTable: (props: ProductTableProps) => ReactElement;
 }
-declare module "@/component/widget/product-toolbar/product-toolbar-root" {
-	export const ProductToolbarRoot: (props: {children?: ReactNode}) => ReactElement;
-}
 declare module "@/component/widget/product-toolbar/product-toolbar" {
-	export const ProductToolbar: {
-		Root: (props: {children?: ReactNode}) => ReactElement;
-	};
+	export const ProductToolbar: (props: {children?: ReactNode}) => ReactElement;
 }
 declare module "@/component/widget/profile-dialog/profile-dialog-body" {
 	export const ProfileDialogBody: ProfileDialogPartComponent;

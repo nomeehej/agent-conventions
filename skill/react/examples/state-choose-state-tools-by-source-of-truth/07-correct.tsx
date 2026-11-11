@@ -1,5 +1,10 @@
 // component/ui/tabs/tabs-root.tsx
-import {TabsContext} from "@/component/ui/tabs/_hook/use-tabs";
+interface TabsContextValue {
+	selectedId: string;
+	onSelect: (id: string) => void;
+}
+
+export const TabsContext = createContext<TabsContextValue | null>(null);
 
 export interface TabsRootProps {
 	defaultId: string;

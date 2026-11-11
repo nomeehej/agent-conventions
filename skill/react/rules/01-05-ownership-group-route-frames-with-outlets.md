@@ -25,7 +25,7 @@ tags: ownership, routing
 | --- | --- |
 | 기본 프레임 | `page/root-outlet.tsx`. 모든 화면의 공통 외곽과 `Outlet`을 소유합니다 |
 | 경로 없는 그룹 | `page/(main)/main-outlet.tsx`. 폴더의 `(이름)`과 진입 파일의 `<이름>-outlet`을 맞춥니다 |
-| 화면 | 지원 코드가 있으면 `page/(main)/products/products-page.tsx`, 없으면 `page/not-found-page.tsx`. 각각 독립 소유자입니다 |
+| 화면 | 컴포넌트 파일이나 역할 폴더가 있으면 `page/(main)/products/products-page.tsx`, 진입 파일과 CSS뿐이면 `page/not-found-page.tsx`. 각각 독립 소유자입니다 |
 | 라우터 | URL과 진입 파일의 중첩 관계를 선언합니다 |
 
 그룹은 `page` 바로 아래나 다른 그룹 아래에 두고 그룹마다 자식 라우트를 감싸는 `Outlet` 진입 파일을 둡니다.

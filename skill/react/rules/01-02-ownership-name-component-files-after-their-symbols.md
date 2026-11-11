@@ -21,13 +21,14 @@ tags: ownership, naming
 
 ### 이름 형태
 
-| 대상             | 파일                                            | 심볼                  | CSS 블록 이름         |
-|------------------|-------------------------------------------------|-----------------------|-----------------------|
-| `ui`             | `component/ui/button/button.tsx`                | `Button`              | `button`              |
-| `widget`         | `component/widget/chart-card/chart-card.tsx`    | `ChartCard`           | `chartCard`           |
-| 화면             | `page/orders/orders-page.tsx`                   | `OrdersPage`          | `ordersPage`          |
+| 대상 | 파일 | 심볼 | CSS 블록 이름 |
+| --- | --- | --- | --- |
+| `ui` | `component/ui/button/button.tsx` | `Button` | `button` |
+| `widget` | `component/widget/chart-card/chart-card.tsx` | `ChartCard` | `chartCard` |
+| 합성 부품 | `component/widget/profile-dialog/profile-dialog-header.tsx` | `ProfileDialogHeader` | 진입 파일의 `profileDialog`. 스타일도 진입 파일의 `.css` |
+| 화면 | `page/orders/orders-page.tsx` | `OrdersPage` | `ordersPage` |
 | 화면 안 컴포넌트 | `page/product-detail/product-table-section.tsx` | `ProductTableSection` | `productTableSection` |
-| `Outlet` 프레임  | `page/(main)/main-outlet.tsx`                   | `MainOutlet`          | `mainOutlet`          |
+| `Outlet` 프레임 | `page/(main)/main-outlet.tsx` | `MainOutlet` | `mainOutlet` |
 
 `Page`는 라우터가 연결하는 화면 진입에만 붙이고 화면 폴더의 다른 컴포넌트에는 붙이지 않습니다.
 
@@ -47,6 +48,14 @@ tags: ownership, naming
 | 무엇의 것인지 앞에 | `table-col`, `chat-message`, `disruptor-guide-modal` |
 
 소유자 이름을 앞에 붙이는 것은 뜻을 만드는 방법 중 하나이며 필수가 아닙니다.
+
+| 컴포넌트 | 이름 끝 | 예 |
+| --- | --- | --- |
+| 로딩 대체 화면 | `-skeleton` | `product-summary-skeleton` |
+| 모달 | `-modal` | `disruptor-guide-modal` |
+| 새 창 내용 | `-window` | `driver-stats-window` |
+
+경계 아래 내용물과 오류 대체 화면은 보여 주는 것으로 이름 짓고 고정 접미사는 없습니다.
 진입 파일의 기준은 `ownership-place-owner-files-in-role-folders`를 따릅니다.
 
 참고: [Angular 스타일 가이드: 파일 이름은 안의 식별자를

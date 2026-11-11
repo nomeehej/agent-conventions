@@ -20,13 +20,12 @@ tags: composition, props
 | 상황 | 선언과 공개 위치 |
 | --- | --- |
 | 컴포넌트 | 프롭스 `interface`를 `export`합니다. 파일 하나에 컴포넌트 하나라 사용처는 늘 다른 파일입니다 |
-| 합성 부품의 프롭스 형태가 완전히 같음 | 공통 이름 하나로 공유합니다. 모두 `{children}`인 `SectionRoot`, `SectionHeader`, `SectionFooter`는 `SectionProps`를 씁니다 |
-| 공유하는 `interface` | 부품이 파일마다 나뉘므로 소유자 `_type` 폴더에 둡니다 |
+| 합성 부품 | 프롭스 형태가 같아도 부품마다 자기 파일에 `<부품 이름>Props`를 선언합니다 |
+| 폴더 밖과 함께 쓰는 계약 | 소유자 `_type` 폴더에 둡니다 |
 
 `interface`를 컴포넌트 바로 위에 붙여 계약을 먼저 읽게 합니다.
 설명할 것이 있으면 그 위에 상자를 둡니다.
 합성 공개 부품도 같습니다.
-공유 `interface`를 쓰는 부품마다 따로 할 말은 각 컴포넌트 위 상자에 둡니다.
 
 참고: [React TypeScript Cheatsheet: 타입과
 인터페이스](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example/).

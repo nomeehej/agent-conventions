@@ -3,7 +3,9 @@ page/product-detail/
 ├── product-detail-page.css
 ├── product-summary-section.tsx        경계 아래 내용물
 ├── product-summary-section.css
-├── product-table-section.tsx          경계 아래 내용물
+├── product-summary-skeleton.tsx       요약 내용물 모양의 대체 화면
+├── product-summary-skeleton.css
+├── product-table-section.tsx          경계 아래 내용물. 대체 화면은 ui의 ScreenSkeleton
 ├── product-table-section.css
 # [!code ++]
 ├── _function/

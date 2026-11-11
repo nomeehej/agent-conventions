@@ -1,5 +1,6 @@
 component/widget/chatbot/
-├── chatbot.tsx      # Chatbot
-├── launcher.tsx     # Launcher
-├── panel.tsx        # Panel
-└── header.tsx       # Header
+├── chatbot.tsx      # Chatbot. 진입
+├── launcher.tsx     # Launcher. 닫혀 있을 때만 렌더하고 열기 훅을 가짐
+├── panel.tsx        # Panel. Suspense 아래 내용물
+├── item.tsx         # Item. 여러 번 렌더하고 항목마다 툴팁 상태를 가짐
+└── modal.tsx        # Modal. NiceModal.create

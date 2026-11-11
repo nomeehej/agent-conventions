@@ -6,7 +6,7 @@ export const ProductsPage = () => {
 	const [categoryId, setCategoryId] = useState<string>();
 
 	return (
-		<ProductFilterSection
+		<ProductFilterBar
 			keyword={keyword}
 			categoryId={categoryId}
 			onKeywordChange={setKeyword}
