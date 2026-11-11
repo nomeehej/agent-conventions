@@ -1,7 +1,7 @@
 Storybook 검증, text-field story 4개 추가
 storybook build                 성공
 # [!code ++]
-vitest --project=storybook      실행 201, 통과 201, 실패 0
+vitest run --project storybook  실행 201, 통과 201, 실패 0
   바꾼 파일                     text-field.stories.tsx의 story 4개 실행
 # [!code ++]
 design 링크 빠짐                0, 코드에만 있음 1(search-input)

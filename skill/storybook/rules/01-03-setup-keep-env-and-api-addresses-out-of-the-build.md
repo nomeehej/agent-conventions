@@ -13,15 +13,17 @@ tags: setup, vite, env, mock
 
 **Impact: HIGH (공유하는 정적 빌드에 내부 주소가 새지 않고 앱 빌드 설정이 바뀌어도 story 빌드가 깨지지 않습니다)**
 
-Storybook은 따로 정하지 않으면 루트 `vite.config.ts`를 읽고 env 파일 값은 빌드 결과에 그대로 박힙니다.
+Storybook은 따로 정하지 않으면 루트 `vite.config.ts`를 읽습니다.
+Vite는 `envDir`를 정하지 않으면 프로젝트 루트의 `.env` 파일을 읽습니다.
+코드가 참조하는 `VITE_`, `STORYBOOK_` 값은 빌드 결과에 박힙니다.
 `framework.options.builder.viteConfigPath`로 Storybook 전용 vite 설정을 가리킵니다.
-그 설정에는 부품 렌더에 필요한 별칭과 플러그인만 둡니다.
+그 설정에는 부품 렌더에 필요한 별칭과 플러그인만 두고 `envDir: false`로 env 파일을 읽지 않습니다.
 
 | 자리 | 처리 |
 | --- | --- |
 | `@/` 별칭, SVG 같은 렌더 플러그인 | Storybook 전용 vite 설정에 둡니다 |
-| `envDir`, `loadEnv`, API 주소, 프록시 | 싣지 않습니다. `ui`, `widget`은 서버를 부르지 않습니다 |
-| 모듈 대체 | `.storybook/preview.tsx`의 `sb.mock`에서만 등록합니다. 경로는 preview 기준 상대 경로와 확장자이고 `@/` 별칭은 받지 않습니다 |
+| `envDir`, `loadEnv`, API 주소, 프록시 | `envDir`는 `false`로 두고 `loadEnv`, API 주소, 프록시는 싣지 않습니다. `ui`, `widget`은 서버를 부르지 않습니다 |
+| 모듈 대체 | `.storybook/preview.tsx`의 `sb.mock`에서만 `{spy: true}`로 등록해 값을 정하지 않은 story는 원래 구현을 씁니다. 경로는 preview 기준 상대 경로와 확장자이고 `@/` 별칭은 받지 않습니다 |
 | CLI가 이 파일에 넣은 Vitest `storybook` project | 루트 vite 설정의 `test.projects`로 옮깁니다. Vitest는 이 파일을 읽지 않고 project 자리는 `testing/scope-place-tests-by-owner-and-separate-runner-globs`가 정합니다 |
 
 참고: [Storybook 문서: Vite 설정](https://storybook.js.org/docs/builders/vite#override-the-default-configuration),

@@ -1,7 +1,8 @@
-// test/orders/order-dialog.story.tsx
-import { Fragment, useState } from "react";
+// test/orders/order-edit-section.story.tsx
+import { useState } from "react";
 
-import { OrderDialog } from "@/component/widget/order-dialog/order-dialog";
+import { AppProviders } from "@/app-providers";
+import { OrderEditSection } from "@/page/(main)/orders/order-edit-section";
 
 // ----------------------------------------------------------------------------------------
 // 저장 callback의 결과를 브라우저 DOM에 남기는 story
@@ -10,10 +11,10 @@ export const SaveResult = () => {
 	const [savedOrderId, setSavedOrderId] = useState("");
 
 	return (
-		<Fragment>
-			<OrderDialog orderId="order-1" onSave={setSavedOrderId} />
+		<AppProviders>
+			<OrderEditSection orderId="order-1" onSave={setSavedOrderId} />
 			{/* [!code ++] */}
 			<output>{savedOrderId}</output>
-		</Fragment>
+		</AppProviders>
 	);
 };

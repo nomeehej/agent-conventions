@@ -5,7 +5,7 @@
 `storySort`는 `{method: "alphabetical", order: ["component", ["ui", "widget"]]}` 하나로 둡니다.
 묶음은 `ui` 다음 `widget`이고 묶음 안 부품은 이름순이라 Figma 라이브러리의 부품 페이지 차례와 같습니다.
 `includeNames`를 켜지 않으면 한 파일의 story는 export 차례로 섭니다.
-그래서 story는 기본 variant부터 Figma 속성 패널의 값 차례로 씁니다.
+그래서 story는 meta `args`의 기본값으로 렌더하는 story부터 Figma 속성 패널의 값 차례로 씁니다.
 
 참고: [Storybook 문서: story 정렬](https://storybook.js.org/docs/writing-stories/naming-components-and-hierarchy).
 

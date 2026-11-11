@@ -18,8 +18,8 @@ meta는 `const meta = {…} satisfies Meta<typeof 부품>`으로 쓰고 story �
 
 | 자리 | 둘 것 |
 | --- | --- |
-| meta `args` | Figma 기본 variant의 프롭 값, 필수 프롭, 콜백 프롭의 `fn()`을 둡니다. `fn()`은 호출을 Actions 패널에 남겨 `play`가 단언할 수 있게 합니다 |
-| story `args` | 기본 variant와 다른 값만 둡니다 |
+| meta `args` | 첫 story가 그대로 렌더하는 기본 프롭 값, 필수 프롭, 콜백 프롭의 `fn()`을 둡니다. `fn()`은 호출을 Actions 패널에 남겨 `play`가 단언할 수 있게 합니다 |
+| story `args` | meta 기본값과 다른 값만 둡니다 |
 | `const meta: Meta<typeof 부품>` 표기 | 쓰지 않습니다. 빠진 필수 프롭을 타입이 알리지 않습니다 |
 
 참고: [Storybook 문서: satisfies](https://storybook.js.org/docs/configure/integration/typescript#typescript-49-support),

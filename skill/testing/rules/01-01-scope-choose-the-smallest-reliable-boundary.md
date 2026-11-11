@@ -18,7 +18,7 @@ tags: testing, scope
 
 ```mermaid
 flowchart LR
-	q1{"앱 진입점, 라우트 등록,<br>세션 전달, 파일 처리가<br>계약인가?"} -- 아니요 --> q2{"응답, props, URL 상태에<br>따른 구역과 provider<br>연결을 보는가?"} -- 아니요 --> q4{"부품 하나의 props,<br>입력, 상호작용,<br>접근성을 보는가?"} -- 아니요 --> r1("unit")
+	q1{"앱 진입점, 라우트 등록,<br>세션 전달, 파일 처리가<br>계약인가?"} -- 아니요 --> q2{"응답, 프롭스, URL 상태에<br>따른 구역과 provider<br>연결을 보는가?"} -- 아니요 --> q4{"부품 하나의 프롭스,<br>입력, 상호작용,<br>접근성을 보는가?"} -- 아니요 --> r1("unit")
 	q4 -- 예 --> r5("component")
 	q2 -- 예 --> r2("integration")
 	q1 -- 예 --> q3{"서버 인증이나 저장까지<br>주장하는가?"} -- 아니요 --> r3("앱 E2E")
@@ -28,8 +28,8 @@ flowchart LR
 | 실행 경계 | 작성 기준 |
 | --- | --- |
 | unit | 계산, 변환, 정렬, 입력 판정을 실제 함수에 인자로 전달합니다 |
-| component | 부품 하나를 story로 렌더해 props에 따른 모양, 입력, 상호작용, 접근성을 봅니다. Storybook Vitest addon이 실행합니다 |
-| integration | 응답, props, URL 상태에 따른 구역과 실제 provider의 연결을 봅니다 |
+| component | 부품 하나를 story로 렌더해 프롭스에 따른 모양, 입력, 상호작용, 접근성을 봅니다. Storybook Vitest addon이 실행합니다 |
+| integration | 응답, 프롭스, URL 상태에 따른 구역과 실제 provider의 연결을 봅니다 |
 | 앱 E2E | 앱 진입, 라우팅, 세션 전달, 파일 처리의 실제 여정을 통과합니다 |
 | 실제 시스템 E2E | 서버 인증, 저장까지 주장할 때 해당 서버와 저장 경계를 포함합니다 |
 

@@ -1,13 +1,13 @@
 # Storybook 컨벤션 Rule Index
 
 - Skill: `storybook`
-- Routing digest: `sha256:0a5180af33963842c96b843e042184193b9831e5fa2eb635eb74dfc3544b55e5`
+- Routing digest: `sha256:36c3126824bdf9eb427d65b48129a69430f28cc0abbd07444187dbae31add92a`
 
 ## Direct Companions
 
 - `css` (`conditional`) · Applies when: story 문맥 CSS, 전역 스타일시트, 클래스 계약을 추가하거나 수정한다. · [SKILL.md](../css/SKILL.md) · [RULES_INDEX.md](../css/RULES_INDEX.md)
 - `react` (`conditional`) · Applies when: 데코레이터, \`render\` 함수, preview처럼 story가 렌더하는 JSX를 추가하거나 수정한다. · [SKILL.md](../react/SKILL.md) · [RULES_INDEX.md](../react/RULES_INDEX.md)
-- `testing` (`conditional`) · Applies when: \`play\` 단언, 접근성 검사 설정, Vitest의 \`storybook\` project를 추가하거나 수정한다. · [SKILL.md](../testing/SKILL.md) · [RULES_INDEX.md](../testing/RULES_INDEX.md)
+- `testing` (`conditional`) · Applies when: \`play\` 단언, 접근성 검사 설정, story \`tags\`의 \`\!test\`, Vitest의 \`storybook\` project를 추가하거나 수정한다. · [SKILL.md](../testing/SKILL.md) · [RULES_INDEX.md](../testing/RULES_INDEX.md)
 - `typescript` (`required`) · [SKILL.md](../typescript/SKILL.md) · [RULES_INDEX.md](../typescript/RULES_INDEX.md)
 
 ## Local Rules
@@ -24,7 +24,7 @@
 - S03-03 | story-cover-every-figma-value-once | 부품에 프롭이나 상태를 더하거나 Figma 부품에 속성 값이 생겼을 때. story를 새로 쓰거나 조합 story를 더하거나 지울 때.
 - S03-04 | story-reproduce-parent-context-with-copied-values | story에 폭, 여백, 배경을 주는 데코레이터나 story 문맥 CSS를 추가하거나 바꿀 때. 부모 폭을 채우거나 부모 CSS에 따라 모양이 바뀌는 부품의 story를 쓸 때.
 - S04-01 | design-link-each-story-to-its-figma-node | story를 추가하거나 story가 보여 주는 Figma 노드가 바뀌었을 때. story나 meta의 \`parameters.design\`을 추가하거나 바꿀 때.
-- S04-02 | design-regenerate-links-from-the-library-build | Figma 라이브러리 publish로 variant나 \`examples\` 칸 노드가 바뀌었을 때. story export 이름이나 \`title\`을 바꾸거나 story 파일의 \`parameters.design\` URL을 고치려 할 때.
+- S04-02 | design-regenerate-links-from-the-library-build | Figma 라이브러리 publish로 variant나 \`examples\` 칸 노드가 바뀌었을 때. story export 이름이나 \`title\`을 바꾸거나 story 파일의 \`parameters.design\` URL을 달거나 고치려 할 때.
 - S04-03 | design-map-figma-properties-to-props-in-the-meta-box | Figma 속성 이름이나 값과 다른 프롭으로 story를 쓸 때. 부품 프롭이나 Figma 속성의 이름, 값을 바꿀 때.
 - S05-01 | docs-leave-usage-guidance-to-the-figma-library | MDX 문서, \`autodocs\` 태그, \`parameters.docs\`를 추가하거나 바꿀 때. story 파일에 사용 지침이나 디자인 의도를 적으려 할 때.
 - S05-02 | docs-show-the-applied-library-version | Figma 라이브러리의 새 버전을 코드와 story에 반영할 때. \`.storybook/manager.ts\`를 추가하거나 바꾸거나 Storybook 빌드를 공유할 때.
