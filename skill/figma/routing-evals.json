@@ -364,7 +364,7 @@
 		},
 		{
 			"id": "FGE12-draw-code-select-as-library-master",
-			"prompt": "draw the code select (src/component/ui/select/select.tsx, its CSS, and its stories) as a new master on a new ❖ select page of the DS library file (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds) and change no code: measure the stories first, give it Size, Value, and State axes with dummy option copy, a helper text that grows below the box, and a private option master, lay the variants out as a labeled matrix with an examples frame for the open menu story, and draw Large, Hover, Focus, and Disabled, which the code does not define; the hover border needs a color variable that does not exist yet; describe the master, add its # ui index card, and log the change.",
+			"prompt": "코드의 select(src/component/ui/select/select.tsx, CSS, stories)를 DS 라이브러리 파일(figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds)에 새 ❖ select 페이지의 master로 그려 줘. 코드는 안 바꿔. story부터 재서 Size, Value, State 속성을 만들고 옵션 글자는 더미로 둬. 오류나 도움말 글이 아래로 붙는 모양으로, select 안에서만 쓰는 옵션 부품은 따로, 열린 메뉴 story는 예시 frame으로 그리고 variant는 이름표 단 행렬로 깔아. 마지막에 master 설명, # ui 목차 카드, Changelog 한 줄까지 넣어 줘.",
 			"files": [
 				"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds"
 			],
@@ -384,16 +384,12 @@
 					"layer-grow-masters-downward-for-attached-text",
 					"property-share-axis-names-values-and-order",
 					"property-choose-the-type-by-what-changes",
-					"property-draw-missing-states-as-marked-proposals",
-					"property-split-states-that-break-the-grid",
 					"property-keep-placeholder-copy-in-ui-masters",
 					"variable-bind-visual-values-to-variables-and-styles",
-					"variable-name-variables-after-code-tokens",
 					"note-describe-masters-with-purpose-and-code-path",
 					"release-version-the-whole-library-with-one-number",
 					"release-log-changes-only-in-the-changelog-page",
 					"script-read-the-official-skills-and-keep-these-names",
-					"script-write-one-script-at-a-time-from-one-owner",
 					"script-check-plugin-api-pitfalls-before-writing",
 					"script-derive-properties-from-code-and-measured-stories",
 					"verify-measure-rendered-values-before-claiming-parity",
@@ -530,6 +526,145 @@
 					"design-link-each-story-to-its-figma-node",
 					"verify-build-storybook-and-run-story-tests"
 				]
+			}
+		},
+		{
+			"id": "FGE17-add-large-size-to-master-and-code",
+			"prompt": "select에 Large 크기를 추가하자. DS 라이브러리 파일(figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds?node-id=40-2)의 select master에 Size=Large를 코드에 없는 제안으로 그리고 Changelog에 남긴 다음, 방금 그린 master 값 그대로 src/component/ui/select/select.tsx, select.css, select.stories.tsx에 size 프롭 large와 Large story를 구현해 줘.",
+			"files": [
+				"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds",
+				"src/component/ui/select/select.tsx",
+				"src/component/ui/select/select.css",
+				"src/component/ui/select/select.stories.tsx"
+			],
+			"expectedSkills": [
+				"figma",
+				"react",
+				"typescript",
+				"css",
+				"storybook"
+			],
+			"expectedSelected": {
+				"figma": [
+					"layer-lay-variants-out-as-a-labeled-matrix",
+					"property-share-axis-names-values-and-order",
+					"property-draw-missing-states-as-marked-proposals",
+					"property-split-states-that-break-the-grid",
+					"variable-bind-visual-values-to-variables-and-styles",
+					"note-describe-masters-with-purpose-and-code-path",
+					"release-version-the-whole-library-with-one-number",
+					"release-log-changes-only-in-the-changelog-page",
+					"release-edit-masters-in-place-to-keep-node-ids",
+					"script-read-the-official-skills-and-keep-these-names",
+					"script-check-plugin-api-pitfalls-before-writing",
+					"transcription-carry-library-properties-into-props-and-stories",
+					"verify-measure-rendered-values-before-claiming-parity",
+					"verify-report-reads-decisions-and-gaps"
+				],
+				"react": [
+					"typing-narrow-library-wrapper-contracts",
+					"composition-read-props-without-destructuring"
+				],
+				"typescript": [
+					"types-document-custom-types-and-shapes",
+					"naming-import-by-absolute-path",
+					"docs-put-boxes-on-groups-and-blocks",
+					"docs-write-korean-comments-about-purpose-and-constraints"
+				],
+				"css": [
+					"naming-use-block-element-modifier-syntax",
+					"composition-compose-classes-with-clsx",
+					"composition-write-modifiers-as-conditions"
+				],
+				"storybook": [
+					"file-name-stories-after-figma-property-values",
+					"story-cover-every-figma-value-once",
+					"design-link-each-story-to-its-figma-node",
+					"verify-build-storybook-and-run-story-tests"
+				]
+			}
+		},
+		{
+			"id": "FGE18-run-library-check-only",
+			"prompt": "어제 select랑 date-picker 페이지를 손봤는데 DS 라이브러리 파일(figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds)에서 규칙 위반이 몇 개 남았는지만 세어 줘. 읽기만 하는 스크립트로 바뀐 두 페이지를 검사하고 고치지는 마. 위반 수와 어디인지만 보고해 줘.",
+			"files": [
+				"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds"
+			],
+			"expectedSkills": [
+				"figma"
+			],
+			"expectedSelected": {
+				"figma": [
+					"script-read-the-official-skills-and-keep-these-names",
+					"verify-measure-rendered-values-before-claiming-parity",
+					"verify-report-reads-decisions-and-gaps"
+				]
+			}
+		},
+		{
+			"id": "FGE19-add-proposal-states-to-select-master",
+			"prompt": "이미 그려 둔 ❖ select master(figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds?node-id=40-2)에 코드에 없는 Large 크기와 Hover, Focus, Disabled 상태를 제안으로 더해 줘. Hover 테두리에 쓸 색 변수가 아직 없으니 그것부터 만들고, 행렬은 다시 깔고, variant 설명에 제안이라고 적은 뒤 Changelog에 남겨 줘. 쓰던 인스턴스와 story 링크는 끊기면 안 돼.",
+			"files": [
+				"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds"
+			],
+			"expectedSkills": [
+				"figma"
+			],
+			"expectedSelected": {
+				"figma": [
+					"layer-lay-variants-out-as-a-labeled-matrix",
+					"property-share-axis-names-values-and-order",
+					"property-draw-missing-states-as-marked-proposals",
+					"property-split-states-that-break-the-grid",
+					"variable-bind-visual-values-to-variables-and-styles",
+					"variable-name-variables-after-code-tokens",
+					"note-describe-masters-with-purpose-and-code-path",
+					"release-version-the-whole-library-with-one-number",
+					"release-log-changes-only-in-the-changelog-page",
+					"release-edit-masters-in-place-to-keep-node-ids",
+					"script-read-the-official-skills-and-keep-these-names",
+					"script-write-one-script-at-a-time-from-one-owner",
+					"script-check-plugin-api-pitfalls-before-writing",
+					"verify-measure-rendered-values-before-claiming-parity",
+					"verify-report-reads-decisions-and-gaps"
+				]
+			}
+		},
+		{
+			"id": "FGE20-library-variable-name-in-ticket-then-create-it",
+			"prompt": "티켓에 DS 라이브러리 변수 bg/surface 이름이 적혀 있는데 Figma는 건드리지 않아. src/page/products/products-page.css의 카드 배경만 이미 있는 --app-color-surface 토큰으로 바꿔 줘.",
+			"files": [
+				"src/page/products/products-page.css"
+			],
+			"expectedSkills": [
+				"css"
+			],
+			"expectedSelected": {
+				"css": [
+					"values-fall-back-only-outside-core-tokens"
+				]
+			},
+			"scopeDrift": {
+				"evidence": "the user then asks to create a bg/surface variable in the color collection of the DS library file (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds) with var(--app-color-surface) as its Web code syntax; skills add figma.",
+				"files": [
+					"src/page/products/products-page.css",
+					"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds"
+				],
+				"expectedSkills": [
+					"css",
+					"figma"
+				],
+				"expectedSelected": {
+					"css": [
+						"values-fall-back-only-outside-core-tokens"
+					],
+					"figma": [
+						"variable-name-variables-after-code-tokens",
+						"script-read-the-official-skills-and-keep-these-names",
+						"verify-measure-rendered-values-before-claiming-parity",
+						"verify-report-reads-decisions-and-gaps"
+					]
+				}
 			}
 		}
 	]
