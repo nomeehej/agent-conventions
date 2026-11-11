@@ -29,7 +29,7 @@ tags: naming, constants
 | 그 외 변수, 함수, 함수를 값으로 담은 객체, 객체 키, 스키마 키, 타입 필드 | `camelCase` |
 
 이름 앞의 `_`는 `kebab-case` 표기에 더하는 접두사입니다.
-`_constant` 폴더와 `_unit-toggle.tsx` 파일이 그 예입니다.
+`_constant` 같은 역할 폴더에만 붙이고 파일에는 붙이지 않습니다.
 
 불변 데이터 상수는 한 번 선언해 같은 의미로 쓰는 리터럴, 기본값, 값 집합, 조회표입니다.
 함수 이름은 `functions-name-functions-by-what-comes-out`의 동사 접두사로 시작합니다.

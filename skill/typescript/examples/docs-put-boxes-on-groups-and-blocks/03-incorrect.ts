@@ -1,4 +1,4 @@
-// page/products/_product-preview-section.tsx
+// page/products/product-preview-section.tsx
 
 // [!code error]
 // ----------------------------------------------------------------------------------------

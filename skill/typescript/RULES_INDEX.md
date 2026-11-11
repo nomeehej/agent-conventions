@@ -1,7 +1,7 @@
 # TypeScript 컨벤션 Rule Index
 
 - Skill: `typescript`
-- Routing digest: `sha256:3b98ca865e96b2e4b087a56afdfc392ce8fc8994154da3fb555e12ab427515dc`
+- Routing digest: `sha256:21e0764c36c9af4f7036783fd6eeea12f15343cc4352fe3b4efc5dff56351b0d`
 
 ## Local Rules
 
@@ -23,7 +23,7 @@
 - T03-01 | functions-declare-functions-as-arrow-consts | 이름을 지어 선언하는 함수를 새로 만들거나 선언 형태나 본문 형태를 바꿀 때. 객체 속성에 함수를 담거나 그 형태를 바꿀 때. 제외: 인라인 콜백이나 커링의 바깥 화살표인 경우. 제외: 클래스 메서드, 제너레이터, 오버로드 선언인 경우. | reviewWith: functions-use-named-object-params-for-complex-signatures
 - T03-02 | functions-use-named-object-params-for-complex-signatures | 매개변수가 셋을 넘거나 바꿔 넣어도 컴파일되는 같은 타입 인자가 이웃한 함수를 추가, 변경할 때. 객체 매개변수의 필드를 읽는 방식을 바꿀 때. 제외: React 함수 컴포넌트가 프롭스를 받는 방식만 바꾸는 경우. | reviewWith: types-reuse-existing-contracts-before-new-types, values-read-objects-through-chains
 - T03-03 | functions-extract-helpers-only-when-the-boundary-is-real | 보조 함수를 빼내거나 옮기거나 내보내거나 공유할 때. 범용 보조 파일, 소유자 하나만 쓰는 변환 함수, 자잘한 정리 단계의 경계를 바꿀 때. 한 함수 안에서 같은 계산을 되풀이해 적거나 지역 함수로 묶을 때. | reviewWith: docs-put-boxes-on-groups-and-blocks, functions-give-each-function-its-own-file, values-decide-once-and-carry-the-result
-- T03-04 | functions-give-each-function-its-own-file | 이름 붙인 보조 함수를 대표 함수 안에 둘지 파일로 뺄지 정할 때. \`helper.ts\`, \`helpers.ts\`, \`utils.ts\` 같은 파일을 만들거나 거기에 함수를 더할 때. 보조를 부르는 대표 함수가 늘거나 줄 때. | reviewWith: functions-order-declarations-top-down, functions-promote-owner-free-functions-to-root-util
+- T03-04 | functions-give-each-function-its-own-file | 이름 붙인 보조 함수를 대표 함수 안에 둘지 파일로 뺄지 정할 때. \`helper.ts\`, \`helpers.ts\`, \`utils.ts\` 같은 파일을 만들거나 거기에 함수를 더할 때. 보조를 부르는 대표 함수가 늘거나 줄 때. 보조 함수만 따로 테스트하려 할 때. | reviewWith: functions-order-declarations-top-down, functions-promote-owner-free-functions-to-root-util
 - T03-05 | functions-order-declarations-top-down | \`.ts\` 파일에 선언을 추가하거나 선언 자리를 옮길 때. 내보낸 계약 타입이나 한 파일만 쓰는 상수를 내보낸 함수보다 아래에 두려 할 때. 함수 본문 안에 지역 함수를 추가하거나 옮길 때. 제외: React 컴포넌트 본문 안 선언 자리를 바꾸는 경우.
 - T03-06 | functions-promote-owner-free-functions-to-root-util | 함수를 루트 \`util\` 폴더로 옮기거나 종류 폴더를 새로 만들 때. 두 소유자가 같은 함수를 쓰게 될 때. 제외: 소유자 안에서 파일 자리만 바꾸는 경우.
 - T03-07 | functions-avoid-imperative-assembly-in-wide-scopes | 모듈 최상위나 함수 본문 최상위에 선언한 변수를 \`let\` 재할당, 배열 \`push\`, 조건부 누적으로 채울 때. 삼항 안에 삼항을 넣을 때. | reviewWith: functions-extract-helpers-only-when-the-boundary-is-real

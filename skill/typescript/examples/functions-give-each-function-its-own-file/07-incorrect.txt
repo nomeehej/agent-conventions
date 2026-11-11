@@ -1,0 +1,5 @@
+page/product-detail/_function/
+├── to-product-overview.ts
+# [!code error]
+├── to-trend-chart.ts               toProductOverview만 부르는데 테스트하려고 뺌
+└── to-trend-chart.test.ts

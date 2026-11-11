@@ -8,7 +8,7 @@
 | 형태 | 판정 |
 | --- | --- |
 | 역할 폴더나 여러 파일을 `index.ts`로 재노출 | 배럴이므로 만들지 않습니다 |
-| 같은 파일이 소유하거나 같은 소유자 폴더의 `_` 부품을 모은 `export const Tabs = { Root, Panel } as const` | 재노출 계층이 아닌 조립 객체이므로 허용합니다 |
+| 같은 폴더의 부품 파일을 모은 `export const Tabs = { Root, Panel } as const` | 재노출 계층이 아닌 조립 객체이므로 허용합니다 |
 | `default` 내보내기 | `vite.config.ts`처럼 도구가 요구하는 계약에만 씁니다 |
 | 타입만 가져오기 | `import type`으로 실행 의존과 구분합니다 |
 

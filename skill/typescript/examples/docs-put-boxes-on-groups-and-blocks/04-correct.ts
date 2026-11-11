@@ -1,4 +1,4 @@
-// page/products/_product-preview-section.tsx
+// page/products/product-preview-section.tsx
 
 // ----------------------------------------------------------------------------------------
 // 미리보기 정책 값

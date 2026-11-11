@@ -7,6 +7,7 @@ appliesWhen:
   - 이름 붙인 보조 함수를 대표 함수 안에 둘지 파일로 뺄지 정할 때
   - `helper.ts`, `helpers.ts`, `utils.ts` 같은 파일을 만들거나 거기에 함수를 더할 때
   - 보조를 부르는 대표 함수가 늘거나 줄 때
+  - 보조 함수만 따로 테스트하려 할 때
 requiresSelected: functions-extract-helpers-only-when-the-boundary-is-real
 reviewWith: functions-promote-owner-free-functions-to-root-util, functions-order-declarations-top-down
 tags: functions, boundaries
@@ -36,6 +37,9 @@ flowchart LR
 
 부르는 대표가 둘로 늘면 지역 함수를 `_function/<보조>.ts`로 옮깁니다.
 하나로 줄면 남은 대표 안의 지역 함수로 되돌립니다.
+테스트 파일은 부르는 대표로 세지 않습니다.
+보조는 테스트하려고 파일로 빼지 않고 대표의 테스트 입력으로 덮습니다.
+대표의 입력으로 닿지 않는 보조의 분기는 지금 쓰이지 않는 코드입니다.
 다른 소유자가 `_function` 파일을 가져올 수 있는지는 활성화된 프레임워크 규칙이 정합니다.
 
 ### 파일 배치 규범
@@ -75,3 +79,11 @@ flowchart LR
 **Correct 3 (두 대표가 부르게 된 뒤에 `_function`의 자기 파일로 뺍니다):**
 
 <<< ../examples/functions-give-each-function-its-own-file/06-correct.txt
+
+**Incorrect 4 (대표 하나만 부르는 보조를 테스트하려고 자기 파일로 뺍니다):**
+
+<<< ../examples/functions-give-each-function-its-own-file/07-incorrect.txt
+
+**Correct 4 (보조는 대표 안에 두고 대표의 테스트 입력으로 덮습니다):**
+
+<<< ../examples/functions-give-each-function-its-own-file/08-correct.txt
