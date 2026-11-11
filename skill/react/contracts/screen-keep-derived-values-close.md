@@ -17,7 +17,7 @@
 export const ProductTableSection = () => {
 	const responseProductListSuspense = useProductListSuspense();
 
-	// 고른 행은 이 섹션 안에만 두고 search 파라미터로 올리지 않음
+	// 고른 행은 이 내용물 안에만 두고 search 파라미터로 올리지 않음
 	const [selectedRows, setSelectedRows] = useState<ProductRow[]>([]);
 
 	const handleTableRowSelect: TableProps<ProductRow>["onRowSelect"] = (rows) => {
@@ -44,7 +44,7 @@ export const ProductTableSection = () => {
 export const ProductTableSection = () => {
 	const responseProductListSuspense = useProductListSuspense();
 
-	// 고른 행은 이 섹션 안에만 두고 search 파라미터로 올리지 않음
+	// 고른 행은 이 내용물 안에만 두고 search 파라미터로 올리지 않음
 	const [selectedRows, setSelectedRows] = useState<ProductRow[]>([]);
 
 	const handleTableRowSelect: TableProps<ProductRow>["onRowSelect"] = (rows) => {

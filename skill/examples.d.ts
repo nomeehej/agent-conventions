@@ -19,7 +19,6 @@ interface ImportMeta {
 declare const useState: typeof import("react").useState;
 declare const useEffect: typeof import("react").useEffect;
 declare const useMemo: typeof import("react").useMemo;
-declare const useContext: typeof import("react").useContext;
 declare const useRef: typeof import("react").useRef;
 declare const useTransition: typeof import("react").useTransition;
 declare const useDeferredValue: typeof import("react").useDeferredValue;
@@ -85,9 +84,6 @@ interface Product {
 	updatedAt: string;
 }
 type ProductRecord = Product;
-interface ProductRef {
-	id: string;
-}
 interface ProductRow extends Row {
 	status: ProductStatus;
 	stock: number;
@@ -353,11 +349,6 @@ interface TableSort {
 	columnId: string;
 	direction: "asc" | "desc";
 }
-interface ChatMessage {
-	id: string;
-	text: string;
-	sentAt: string;
-}
 interface DailyCount {
 	date: string;
 	count: number;
@@ -396,7 +387,6 @@ interface LineChartProps {
 declare const LineChart: (props: LineChartProps) => ReactElement;
 declare const LineChartSkeleton: () => ReactElement;
 declare const List: (props: {rows: readonly Row[]}) => ReactElement;
-declare const LoadingFallback: (props: {ariaLabel?: string}) => ReactElement;
 declare const Pagination: () => ReactElement;
 declare const RecommendationSkeleton: () => ReactElement;
 declare const ScreenErrorState: () => ReactElement;
@@ -433,9 +423,6 @@ interface PanelPartProps {
 }
 
 declare const AppNavigation: () => ReactElement;
-interface AppShellProps {
-	children?: ReactNode;
-}
 interface ChartCardProps {
 	className?: string;
 	variant?: "default" | "compact" | "muted";
@@ -443,8 +430,6 @@ interface ChartCardProps {
 	dailyCounts: DailyCount[];
 }
 declare const ChartCard: (props: ChartCardProps) => ReactElement;
-declare const ChatComposer: (props: {onSubmit: (text: string) => void}) => ReactElement;
-declare const ChatMessages: (props: {messages: ChatMessage[]}) => ReactElement;
 declare const OrderTableChildRow: (props: {row: OrderRow}) => ReactElement;
 declare const OrderTableHeader: (props: {sort: TableSort}) => ReactElement;
 declare const OrderTableRow: (props: {row: OrderRow}) => ReactElement;
@@ -506,7 +491,6 @@ declare const ProductListRowDivider: () => ReactElement;
 interface ProductListRowsProps {
 	products: Product[];
 }
-declare const ProductSearchSection: () => ReactElement;
 interface ProductListTableProps {
 	rows: ProductRow[];
 	editHrefBase?: string;
@@ -566,7 +550,6 @@ declare const useProductTreeSuspense: <TData = ProductTreeResponse>(
 	options?: ApiQueryOptions<ProductTreeResponse, TData>,
 ) => UseSuspenseQueryResult<TData>;
 declare const useUserGetItemSuspense: () => UseSuspenseQueryResult<User>;
-declare const useProductList: () => UseQueryResult<ProductListResponse>;
 declare const useProductQuery: (options: {client: ApiClient; pageSize: number}) => UseQueryResult<ProductListResponse>;
 declare const useOrderQuery: (options: {pageSize: number}) => UseQueryResult<OrderRow[]>;
 declare const useProductSave: (
@@ -594,13 +577,6 @@ interface ThemeStore {
 	setTheme: (theme: Theme) => void;
 }
 declare const useThemeStore: () => ThemeStore;
-interface ChatContextValue {
-	isEmpty: boolean;
-	emptyMessage: string;
-	messages: ChatMessage[];
-	send: (text: string) => void;
-}
-declare const useChatContext: () => ChatContextValue;
 interface FormHandle<T> {
 	values: T;
 }
@@ -679,7 +655,6 @@ declare const seriesItems: ChartSeries[];
 declare const summary: ProductSummary;
 declare const summaryText: string;
 declare const dailyCounts: DailyCount[];
-declare const productRows: ProductRow[];
 declare const responseProductSearch: ApiResponse<{rows?: ProductRow[]}>;
 declare const productSummary: {averageRate: string};
 declare const product: Product;
@@ -739,7 +714,6 @@ declare const responseOrderSummarySuspense: UseSuspenseQueryResult<{rows: OrderR
 declare const mutationProductSave: UseMutationResult<Product, {data: ProductSaveRequest}>;
 declare const mutationProductRemove: UseMutationResult<void, {params: {productId: string}}>;
 declare const mutationAttachmentUpload: UseMutationResult<{attachmentIds: string[]}, {files: File[]}>;
-declare const mutationMediaSave: UseMutationResult<void, {data: unknown}>;
 
 // ----------------------------------------------------------------------------------------
 // 아직 남은 이름
@@ -958,9 +932,6 @@ declare module "@/app-providers" {
 }
 declare module "@test/_gallery/story-route" {
 	export const StoryRoute: (props: {entry: string; path: string; children: ReactNode}) => ReactElement;
-}
-declare module "@/component/widget/order-dialog/order-dialog" {
-	export const OrderDialog: (props: {orderId: string; onSave: (orderId: string) => void}) => ReactElement;
 }
 
 // ----------------------------------------------------------------------------------------
