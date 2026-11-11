@@ -100,14 +100,15 @@ CI에서는 build로 dirty output을 숨기지 말고 `check`를 gate로 둡니�
 | `react` | required `typescript`; conditional `css` |
 | `css` | conditional `typescript` |
 | `typescript` | none |
-| `figma` | conditional `react`, `css` |
+| `figma` | conditional `react`, `css`, `storybook` |
+| `storybook` | required `typescript`; conditional `react`, `css`, `testing` |
 | `testing` | required `typescript`; conditional `react`, `css` |
 | `blueprint` | conditional `figma`, `testing` |
 
 skill은 `SKILL.md` → activated `RULES_INDEX.md` 전체 scan과 completion gate → Selected/Unknown `contracts/*.md` → CRITICAL 또는 판정 근거가 필요한 `rules/*.md` full expansion → Unknown 해소 → final Selected의 `requiresSelected` closure 순서로 소비합니다.
 형태를 정하는 규칙은 원문의 `Correct` 예제도 읽습니다.
 새 selection이나 companion이 생기면 고정점까지 반복합니다.
-현재 제공하는 skill은 위 표의 여섯 가지입니다.
+현재 제공하는 skill은 위 표의 일곱 가지입니다.
 
 Testing은 Coding에 배치합니다.
 테스트 층과 선별 목적, GWT, 데이터와 격리, story의 자동 검증을 다룹니다.
@@ -115,6 +116,11 @@ Kubb 등의 생성 계약에서 소유 mock과 handler를 조립하고 브라우
 Vitest, Playwright, 기준값과 실행 결과도 같은 규칙 체계로 읽습니다.
 React 렌더와 실제 스타일 변경만 해당 companion을 활성화하며 locator나 CSS 단언만으로는 활성화하지 않습니다.
 테스트 추가 정책, IA 번호, 케이스 ID, 결과서 형식은 소비 프로젝트에 남깁니다.
+
+Figma와 Storybook은 Tool에 배치합니다.
+Figma는 라이브러리 파일의 페이지, 레이어, 속성, 변수, 노트, 배포와 Figma 쓰기를 다루고, 이어서 디자인을 읽어 구현하는 순서를 다룹니다.
+Storybook은 설정, 부품마다 story 파일 하나, Figma 속성 값을 따른 story 이름, design 링크, 문서와 검증을 다룹니다.
+story는 Vitest addon으로 컴포넌트 테스트가 되고 그 단언과 접근성 기준은 Testing의 component 절이 정합니다.
 
 Blueprint는 Tool에 배치합니다.
 화면을 구현하기 전에 쓰는 설계 문서의 재료, 질문, 짜임, 글, 단계, 확인을 다룹니다.

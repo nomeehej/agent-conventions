@@ -34,7 +34,8 @@ ln -s "$PWD/skill" ~/.agents/skills/conventions
 - TypeScript 작업은 `convention-typescript`를 사용한다.
 - CSS 작업은 `convention-css`를 사용한다.
 - 테스트 설계, 작성, 검토는 `convention-testing`을 사용한다.
-- Figma 디자인 구현은 `convention-figma`를 사용한다.
+- Figma 라이브러리 구성과 디자인 구현은 `convention-figma`를 사용한다.
+- Storybook story와 설정은 `convention-storybook`을 사용한다.
 - 설계 문서 작성, 질문 정리, 단계 보고는 `convention-blueprint`를 사용한다.
 ```
 
@@ -60,7 +61,8 @@ npm run dev
 ## 함께 읽는 스킬
 
 - React 작업은 TypeScript를 항상 함께 읽고 스타일을 바꾸면 CSS도 읽는다.
-- Figma 작업은 바뀌는 범위에 따라 React와 CSS를 함께 활성화한다.
+- Figma 작업은 바뀌는 범위에 따라 React와 CSS를, story나 design 링크를 바꾸면 Storybook을 함께 활성화한다.
+- Storybook은 TypeScript를 함께 읽고 story가 렌더하는 JSX를 바꾸면 React, 문맥 CSS를 바꾸면 CSS, `play` 단언이나 접근성 설정, story 테스트 project를 바꾸면 Testing을 켠다.
 - 순수 CSS 작업에서는 TypeScript를 자동으로 켜지 않는다.
 - Testing은 TypeScript를 함께 읽고 React 렌더나 실제 스타일을 바꿀 때만 해당 companion을 켠다.
 - 테스트에서 CSS를 단언하거나 locator를 쓰는 것만으로 React, CSS를 활성화하지 않는다.

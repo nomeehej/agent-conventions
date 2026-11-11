@@ -24,25 +24,27 @@ It covers how components own their state and data, where modules begin and end, 
 The repository keeps those decisions in two forms: structured skills that agents can apply to a task, and a documentation site for reading the explanations, examples and related rules.
 The conventions grow from actual project work, with changes to the rules and the reasoning behind them kept together.
 
-## Six connected areas
+## Seven connected areas
 
 | Skill | What it covers |
 | --- | --- |
 | [React](https://nomeehej.github.io/agent-conventions/convention/react/) | Component ownership, server data, state, composition, events, runtime boundaries and accessibility |
 | [TypeScript](https://nomeehej.github.io/agent-conventions/convention/typescript/) | Types and contracts, imports, naming, function boundaries, values, fallbacks and comments |
 | [CSS](https://nomeehej.github.io/agent-conventions/convention/css/) | BEM class names, ownership, selectors, design tokens, layout, responsive behavior and motion |
-| [Testing](https://nomeehej.github.io/agent-conventions/convention/testing/) | Test levels and suite selection, Given/When/Then, generated API mocks, stories, Vitest, Playwright, baselines, and verification |
-| [Figma](https://nomeehej.github.io/agent-conventions/convention/figma/) | Reading designs, identifying intent, tracing values and copy, implementing and comparing the result |
+| [Testing](https://nomeehej.github.io/agent-conventions/convention/testing/) | Test levels and suite selection, Given/When/Then, generated API mocks, gallery stories, Vitest, Playwright, baselines, component tests on stories, and verification |
+| [Figma](https://nomeehej.github.io/agent-conventions/convention/figma/) | Building the design-system library (pages, layers, properties, variables, notes, releases) and implementing designs: reading, intent, values and copy, comparison |
+| [Storybook](https://nomeehej.github.io/agent-conventions/convention/storybook/) | Storybook setup, one story file per component, stories named after Figma property values, Figma design links, docs and verification |
 | [Blueprint](https://nomeehej.github.io/agent-conventions/convention/blueprint/) | Screen design documents before and during implementation: materials and truth, numbered questions, document structure, writing, stages and verification |
 
 The skills declare their dependencies explicitly.
 React always activates the shared TypeScript conventions and adds CSS when styling changes.
-Figma activates React and CSS according to the implementation work involved.
+Figma activates React and CSS according to the implementation work involved, and Storybook when stories or design links change.
+Storybook activates TypeScript and adds React, CSS or Testing when story JSX, story styles, or play assertions and story test settings change.
 Testing activates TypeScript and adds React or CSS when a test harness or the implementation changes those areas.
 Blueprint activates Figma only when a Figma file is read as design material, and Testing only when test cases are derived from the design document.
 This keeps common rules in one place while each area owns its specific decisions.
 
-Testing conventions live under Coding. Vitest and Playwright guidance shares the same rules for scenarios, expectations and isolation.
+Testing conventions live under Coding. Unit and component tests run on Vitest, component tests through Storybook stories, and integration and E2E tests run on Playwright, all sharing the same rules for scenarios, expectations and isolation.
 Project-specific case IDs, folder numbering and report formats stay with the project.
 
 ## From a task to the relevant rules
