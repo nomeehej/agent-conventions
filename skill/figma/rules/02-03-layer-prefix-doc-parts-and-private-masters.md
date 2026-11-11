@@ -23,7 +23,9 @@ tags: layer, naming, publish
 | `_` | 문서용 부품, 문서용 레이어 | `_Matrix/Label`, `_note / dated`, `_labels / select` |
 
 publish 전에 publish 창의 Hidden 목록에 두 접두사의 부품이 모두 들었는지 확인합니다.
-Figma 도움말은 `.` 접두사를 publish에서 빼는 방법으로 안내합니다.
+Figma 도움말은 부품을 publish에서 빼는 방법으로 `.` 접두사와 우클릭 `Hide when publishing`만 안내합니다.
+`_`는 도움말이 변수 컬렉션에만 안내하므로 `_` 부품이 Hidden에 없으면 그 부품에 `Hide when publishing`을 켭니다.
+Plugin API에는 부품을 publish에서 숨기는 속성이 없어서 이 확인은 사람이 합니다.
 공식 `figma-generate-library`는 내부 부품에 `_`를 권하지만 이 skill은 `_`를 문서용에만 씁니다.
 
 참고: [Figma 도움말: publish에서 숨기기](https://help.figma.com/hc/en-us/articles/360039238193).

@@ -4,7 +4,7 @@ titleKo: use_figma 전에 공식 skill을 읽고 이름과 구조는 이 skill�
 impact: HIGH
 impactDescription: Plugin API 사용법은 공식 skill에서 받고 공식 기본값이 이 파일의 이름과 구조를 흐트러뜨리지 않습니다
 appliesWhen:
-  - `use_figma`로 라이브러리 파일에 쓰기 시작할 때
+  - `use_figma`로 라이브러리 파일을 읽거나 쓰기 시작할 때
   - 공식 `figma-use`, `figma-generate-library`의 기본값과 이 skill이 부딪힐 때
 tags: script, official-skill, use-figma
 ---
@@ -14,6 +14,8 @@ tags: script, official-skill, use-figma
 **Impact: HIGH (Plugin API 사용법은 공식 skill에서 받고 공식 기본값이 이 파일의 이름과 구조를 흐트러뜨리지 않습니다)**
 
 `use_figma`를 부르기 전에 공식 `figma-use`와 `figma-generate-library`를 읽습니다.
+`use_figma`를 부를 때마다 `skillNames`에 읽은 공식 skill 이름(`figma-use,figma-generate-library`)을 넘깁니다.
+로깅 인자이고 MCP 리소스로 읽었으면 `resource:`를 붙입니다.
 Plugin API 문법과 작업 단계는 공식 skill을 따르고 아래 항목은 이 skill이 앞섭니다.
 공식 skill도 파일에 이미 있는 규칙을 따르라고 합니다.
 

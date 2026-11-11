@@ -16,6 +16,7 @@ tags: layer, example, story
 
 여러 부품을 조합한 story만 같은 ❖ 페이지의 `examples` frame에 인스턴스로 그립니다.
 variant 하나로 보여 줄 수 있는 story는 예시를 만들지 않고 그 variant에 대응시킵니다.
+속성 값 둘을 합친 story(`Value=Placeholder`와 `State=Error`)도 행렬의 variant 하나라서 예시가 아닙니다.
 예시 칸 이름은 그 story의 export 이름과 같게 짓습니다.
 
 | 항목 | 기준 |

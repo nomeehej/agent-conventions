@@ -17,7 +17,7 @@ metadata:
 - 요청에 `figma.com` URL, Figma 노드 id, 디자인 스크린샷이 있고 화면을 구현, 수정, 대조하라는 실제 변경
 - Figma에서 읽은 값, 문구, 아이콘, 구조를 코드에 추가, 삭제, 이동, 이름 변경하는 것
 - Figma 라이브러리 파일의 페이지, master, 속성, 변수, 노트, 릴리스를 만들거나 고치는 것.
-  코드 부품을 master로 그리는 것도 든다
+  코드 부품을 master로 그리는 것도 들고, 읽기 전용 스크립트로 라이브러리 검사만 돌리는 것도 든다
 - `convention-blueprint`가 설계 문서의 재료로 Figma를 읽는 경우.
   `read` 규칙대로 읽고 코드를 바꾸지 않았으면 `verify` 규칙은 측정 대상 없음과 읽은 노드, `get_design_context`, 질문 항목만 보고한다
 
@@ -38,9 +38,12 @@ metadata:
 
 | 작업 | 신호 | 먼저 읽을 절 |
 | --- | --- | --- |
-| 라이브러리 구성 | Figma 라이브러리 파일에 쓴다. master, 속성, 변수, 노트, 릴리스를 만들거나 고친다. 코드 부품을 master로 그린다 | 1~7절 `file`, `layer`, `property`, `variable`, `note`, `release`, `script` |
-| 구현 | Figma URL, 노드, 스크린샷을 읽고 코드를 바꾼다 | 8절 `read` |
-| 둘 다 | master를 고치고 코드도 맞춘다 | 1~7절 다음 8절 |
+| 라이브러리 구성 | Figma 라이브러리 파일에 쓴다. master, 속성, 변수, 노트, 릴리스를 만들거나 고친다. 코드 부품을 master로 그린다. 검사만 돌린다 | 1~7절 `file`, `layer`, `property`, `variable`, `note`, `release`, `script`. 검사만이면 12절 라이브러리 검사 |
+| 구현 | Figma URL, 노드, 스크린샷을 읽고 코드를 바꾼다. 라이브러리 master가 기준이면 master를 읽고 부품 코드를 바꾼다 | 8절 `read`. master가 기준이면 11절 `transcription-carry-library-properties-into-props-and-stories`도 |
+| 둘 다 | master를 고치고 코드도 맞춘다 | 1~7절 다음 11절 `transcription-carry-library-properties-into-props-and-stories`와 12절. 8절은 방금 고친 노드가 아닌 노드를 읽을 때만 |
+
+Figma 파일이 라이브러리 파일인지는 사용자가 말하거나 페이지 목록의 기호(`★`, `¶`, `❖`)로 가른다.
+모르면 묻는다.
 
 TSX 화면이나 컴포넌트가 바뀌면 `convention-react`를 함께 활성화한다.
 `convention-react`가 `convention-typescript`를 켠다.

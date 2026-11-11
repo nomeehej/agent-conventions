@@ -14,7 +14,8 @@ tags: layer, section, dev-mode
 **Impact: HIGH (Ready for dev 표시가 개발에 넘길 master에만 붙어 Dev Mode에서 볼 곳이 헷갈리지 않습니다)**
 
 섹션은 개발에 넘기는 master 묶음에만 씁니다.
-Figma는 섹션 단위로 Ready for dev를 표시하므로 섹션이면 개발에 넘길 대상으로 보입니다.
+Ready for dev는 섹션, frame, 컴포넌트에 표시할 수 있고 이 skill은 섹션 단위로 표시하기로 정했습니다.
+그래서 섹션이면 개발에 넘길 대상으로 보입니다.
 예시, 목차, 안내, 토큰 견본은 frame에 둡니다.
 
 | 놓는 것 | 틀 | 이름 |

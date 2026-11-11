@@ -13,8 +13,10 @@ tags: variable, token, scope, code-syntax
 
 **Impact: HIGH (변수 목록에 쓰임새에 맞는 변수만 보이고 Dev Mode가 코드에 있는 토큰 이름을 그대로 보여 줍니다)**
 
-semantic 변수 이름은 쓰임새를 첫 마디로 둔 역할 경로입니다. `text/`, `border/`, `bg/`, `fill/`, `icon/`, `effect/`.
+semantic 변수 이름은 쓰임새를 첫 마디로 둔 역할 경로입니다.
+경로는 `text/`, `border/`, `bg/`, `fill/`, `icon/`, `action/`, `effect/`, `chart/`입니다.
 값은 primitive 변수의 별칭이고 scope는 그 쓰임새만 엽니다.
+semantic 컬렉션에 모드가 여럿이면 모든 모드에 별칭을 겁니다.
 Web 코드 문법에는 코드에 있는 토큰 이름을 `var(--app-…)`로 그대로 적고 Figma 이름에서 지어내지 않습니다.
 
 | 경로 | scope |
@@ -23,7 +25,9 @@ Web 코드 문법에는 코드에 있는 토큰 이름을 `var(--app-…)`로 �
 | `border/` | `STROKE_COLOR` |
 | `bg/`, `fill/` | `FRAME_FILL`, `SHAPE_FILL` |
 | `icon/` | `SHAPE_FILL` |
+| `action/` | 그 변수가 쓰이는 곳만. `FRAME_FILL`, `SHAPE_FILL`, `TEXT_FILL`, `STROKE_COLOR` 가운데 고릅니다 |
 | `effect/` | `EFFECT_COLOR` |
+| `chart/` | 그 변수가 쓰이는 곳만. `SHAPE_FILL`, `STROKE_COLOR`, `TEXT_FILL` 가운데 고릅니다 |
 | primitive | 비웁니다. publish에서도 숨깁니다 |
 
 scope를 `ALL_SCOPES`로 두지 않습니다.

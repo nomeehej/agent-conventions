@@ -24,10 +24,12 @@ tags: file, page, divider
 | `#` | 묶음의 첫 페이지. 그 묶음의 목차 카드 | `# foundation`, `# ui`, `# widget` |
 | `∷` | 변수와 스타일 견본 | `∷ color`, `∷ typography` |
 | `❖` | master 부품 | `❖ button` |
-| `✱` | 문서용 부품. publish에서 숨깁니다 | `✱ utility` |
+| `✱` | 문서용 부품. 부품 이름의 `_` 접두사로 publish에서 숨깁니다 | `✱ utility` |
 
 묶음 사이에는 Figma 페이지 구분선을 둡니다.
 Figma에서는 빈 페이지 이름을 `-`로 시작하면 구분선이 되고 Plugin API는 `figma.createPageDivider()`로 만듭니다.
+Plugin API 문서가 말하는 구분선 이름은 별표, en dash, em dash, 공백만으로 된 이름입니다.
+그래서 스크립트에서는 이름을 `---`로 바꾸지 않고 `createPageDivider()`를 씁니다.
 이름으로 페이지를 찾는 스크립트는 `isPageDivider`가 참인 페이지를 건너뜁니다.
 
 참고: [Figma 도움말: 페이지와 구분선](https://help.figma.com/hc/en-us/articles/360038511293),

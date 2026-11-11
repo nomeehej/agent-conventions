@@ -23,9 +23,12 @@ master와 variant는 지우고 다시 만들지 않고 제자리에서 고칩니
 | --- | --- |
 | 값, 모양, 레이어 | 같은 노드를 고칩니다 |
 | 상태나 값 더하기 | 기존 variant를 복제해 같은 set에 넣고 이름을 바꿉니다 |
-| master 합치기, 지우기, 이름 바꾸기 | `Breaking` 줄을 남기고 Storybook design 링크를 다시 만듭니다 |
+| master 합치기, 지우기 | `Breaking` 줄을 남기고 Storybook design 링크를 다시 만듭니다 |
+| master, variant 이름 바꾸기 | node id는 그대로라 링크의 `node-id`는 유효합니다. `Breaking` 줄을 남기고 story id와 export 이름이 바뀌면 링크 표의 키를 고칩니다 |
 
 복제한 variant의 속성 연결은 `script-check-plugin-api-pitfalls-before-writing`의 함정 표대로 다시 겁니다.
+새 값은 속성 패널 순서의 맨 뒤에 붙습니다.
+끝에 오지 않을 값은 같은 표의 속성 값 순서 행대로 옮깁니다.
 스크립트가 실패해 다시 돌릴 때도 지우고 만드는 길로 우회하지 않습니다.
 
 참고: [addon-designs](https://github.com/storybookjs/addon-designs).
@@ -34,6 +37,6 @@ master와 variant는 지우고 다시 만들지 않고 제자리에서 고칩니
 
 <<< ../examples/release-edit-masters-in-place-to-keep-node-ids/01-incorrect.js
 
-**Correct 1 (기존 variant를 복제해 같은 set에 상태를 더합니다):**
+**Correct 1 (기존 variant를 복제해 같은 set에 크기를 더합니다):**
 
 <<< ../examples/release-edit-masters-in-place-to-keep-node-ids/02-correct.js

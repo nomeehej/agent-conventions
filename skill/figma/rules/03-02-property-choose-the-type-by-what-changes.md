@@ -27,6 +27,8 @@ tags: property, component-property, slot
 | 크기, 색, 상태처럼 모양이 바뀌는 축 | `VARIANT` | `property-share-axis-names-values-and-order`의 이름 |
 
 켜고 끌 레이어는 인스턴스에서 숨기지 않고 `BOOLEAN`에 묶습니다.
+인스턴스 하나를 다른 부품으로 바꿔 끼우면 `INSTANCE_SWAP`이고 내용의 개수와 종류가 자유로우면 `SLOT`입니다.
+슬롯 안 레이어에는 컴포넌트 속성을 걸 수 없고 컴포넌트 최상위 레이어에는 슬롯 속성을 걸 수 없습니다.
 숨긴 레이어와 슬롯 안 인스턴스를 스크립트로 읽는 방법은 `script-check-plugin-api-pitfalls-before-writing`이 정합니다.
 
 참고: [Figma 도움말: 컴포넌트 속성](https://help.figma.com/hc/en-us/articles/5579474826519),

@@ -6,6 +6,7 @@ impactDescription: 한 기기 폭과 샘플 데이터로 그린 치수가 다른
 appliesWhen:
   - Figma 노드의 `width`, `height`, 좌표를 CSS 값으로 옮길 때
   - 샘플 문구 길이에 맞춰 칸 폭이나 줄 수를 정할 때
+  - 제외: 라이브러리 master의 `Size`별 치수를 옮기는 경우
 reviewWith: css/layout-reach-for-intrinsic-sizing-before-breakpoints, css/layout-keep-layout-intent-explicit
 tags: intent, layout, responsive, overflow
 ---
