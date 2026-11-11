@@ -7,6 +7,7 @@ appliesWhen:
   - 함수를 루트 `util` 폴더로 옮기거나 종류 폴더를 새로 만들 때
   - 두 소유자가 같은 함수를 쓰게 될 때
   - 제외: 소유자 안에서 파일 자리만 바꾸는 경우
+reviewWith: functions-give-each-function-its-own-file
 tags: functions, boundaries
 ---
 
@@ -21,15 +22,17 @@ tags: functions, boundaries
 ```mermaid
 flowchart LR
 	q1{"소유자를 지워도<br>계산이 남는가?"} -- 예 --> q2{"받는 값의 종류로<br>폴더 이름을 지을 수 있는가?"} -- 예 --> r2("루트 util 의 종류 폴더")
-	q1 -- 아니요 --> r1("소유자 아래 _function")
+	q1 -- 아니요 --> r1("소유자 안, 자리는<br>대표 수가 정함")
 	q2 -- 아니요 --> r1
 ```
 
 | 소유자를 지운 결과 | 배치 |
 | --- | --- |
-| 함수도 사라짐 | 해당 소유자의 `_function`에 둡니다. `toProfileSaveRequest`가 그 예입니다 |
+| 함수도 사라짐 | 해당 소유자 안에 둡니다. 부르는 대표가 하나면 대표 안 지역 함수, 둘 이상이면 `_function`입니다. `toProfileSaveRequest`가 그 예입니다 |
 | 함수가 남고 받는 값의 종류로 폴더 이름을 지을 수 있음 | 한 소유자만 써도 `util/<받는 값의 종류>/`에 둡니다. `formatDisplayDate`가 그 예입니다 |
-| 함수가 남지만 폴더 이름을 지을 수 없음 | 해당 소유자의 `_function`에 둡니다 |
+| 함수가 남지만 폴더 이름을 지을 수 없음 | 해당 소유자 안에 둡니다. 자리는 위 행과 같습니다 |
+
+소유자 안의 자리는 `functions-give-each-function-its-own-file`이 정합니다.
 
 ### 종류 폴더
 
@@ -56,7 +59,7 @@ flowchart LR
 
 <<< ../examples/functions-promote-owner-free-functions-to-root-util/01-incorrect.ts
 
-**Correct 1 (소유자와 함께 사라질 함수는 그 소유자의 `_function` 폴더에 둡니다):**
+**Correct 1 (소유자와 함께 사라질 함수는 그 소유자 안에 두고 대표 둘이 부르면 `_function` 폴더에 둡니다):**
 
 <<< ../examples/functions-promote-owner-free-functions-to-root-util/02-correct.ts
 

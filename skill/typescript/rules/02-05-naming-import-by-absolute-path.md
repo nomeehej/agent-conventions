@@ -48,7 +48,8 @@ flowchart LR
 | `service` | 서버 통신 클라이언트 |
 | `asset` | 아이콘 등 정적 자원 |
 
-루트의 소유자는 프로젝트이며 `constant`, `util`, `type`, `hook`에도 소유자 아래 역할 폴더의 규칙을 적용합니다.
+루트의 소유자는 프로젝트이며 `constant`, `type`, `hook`에도 소유자 아래 역할 폴더의 규칙을 적용합니다.
+`util`은 받는 값의 종류로 폴더를 나누며 `functions-promote-owner-free-functions-to-root-util`이 정합니다.
 배치는 `naming-place-project-constants-in-the-root-constant-folder`와
 `functions-give-each-function-its-own-file`이 정합니다.
 

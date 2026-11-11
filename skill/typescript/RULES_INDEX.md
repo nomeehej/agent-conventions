@@ -1,7 +1,7 @@
 # TypeScript 컨벤션 Rule Index
 
 - Skill: `typescript`
-- Routing digest: `sha256:ffe1f094820da9f17cf61202d2a54febb29c8a5f6a298d512355db721d7ad3c7`
+- Routing digest: `sha256:5498ac4e809a59a80c21c21efa3ed9e78030b25b39e8199705a2950b7d26af95`
 
 ## Local Rules
 
@@ -25,7 +25,7 @@
 - T03-03 | functions-extract-helpers-only-when-the-boundary-is-real | 보조 함수를 빼내거나 옮기거나 내보내거나 공유할 때. 범용 보조 파일, 소유자 하나만 쓰는 변환 함수, 자잘한 정리 단계의 경계를 바꿀 때. 한 함수 안에서 같은 계산을 되풀이해 적거나 지역 함수로 묶을 때. | reviewWith: docs-put-boxes-on-groups-and-blocks, functions-give-each-function-its-own-file, values-decide-once-and-carry-the-result
 - T03-04 | functions-give-each-function-its-own-file | 이름 붙인 보조 함수를 대표 함수 안에 둘지 파일로 뺄지 정할 때. \`helper.ts\`, \`helpers.ts\`, \`utils.ts\` 같은 파일을 만들거나 거기에 함수를 더할 때. 보조를 부르는 대표 함수가 늘거나 줄 때. 보조 함수만 따로 테스트하려 할 때. | reviewWith: functions-order-declarations-top-down, functions-promote-owner-free-functions-to-root-util
 - T03-05 | functions-order-declarations-top-down | \`.ts\` 파일에 선언을 추가하거나 선언 자리를 옮길 때. 내보낸 계약 타입이나 한 파일만 쓰는 상수를 내보낸 함수보다 아래에 두려 할 때. 함수 본문 안에 지역 함수를 추가하거나 옮길 때. 제외: React 컴포넌트 본문 안 선언 자리를 바꾸는 경우.
-- T03-06 | functions-promote-owner-free-functions-to-root-util | 함수를 루트 \`util\` 폴더로 옮기거나 종류 폴더를 새로 만들 때. 두 소유자가 같은 함수를 쓰게 될 때. 제외: 소유자 안에서 파일 자리만 바꾸는 경우.
+- T03-06 | functions-promote-owner-free-functions-to-root-util | 함수를 루트 \`util\` 폴더로 옮기거나 종류 폴더를 새로 만들 때. 두 소유자가 같은 함수를 쓰게 될 때. 제외: 소유자 안에서 파일 자리만 바꾸는 경우. | reviewWith: functions-give-each-function-its-own-file
 - T03-07 | functions-avoid-imperative-assembly-in-wide-scopes | 모듈 최상위나 함수 본문 최상위에 선언한 변수를 \`let\` 재할당, 배열 \`push\`, 조건부 누적으로 채울 때. 삼항 안에 삼항을 넣을 때. | reviewWith: functions-extract-helpers-only-when-the-boundary-is-real
 - T03-08 | functions-name-a-value-only-for-recompute-or-judgment | 계산, \`await\`, 훅 호출의 결과를 지역 변수\(\`const\`\)로 받는 줄을 추가, 삭제할 때. 표현식을 쓰는 자리에 그대로 적을지 변수로 뺄지 정할 때. | reviewWith: functions-avoid-imperative-assembly-in-wide-scopes, values-read-objects-through-chains
 - T03-09 | functions-name-functions-by-what-comes-out | 이름을 붙인 함수를 새로 만들거나 이름을 바꿀 때. 제외: 생성기, 프레임워크, 외부 계약이 정한 이름을 그대로 쓰는 경우.
