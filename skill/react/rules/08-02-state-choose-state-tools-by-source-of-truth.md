@@ -44,8 +44,8 @@ flowchart LR
 | 합성 부품이나 작은 묶음의 두세 단계 아래에서 공유하는 UI | `useState`가 소유하고 `Context`로 전달합니다 |
 | 묶음 밖의 화면, 레이아웃에서도 읽거나 바꾸는 UI | `Context`를 위로 올리지 않고 전역 스토어로 옮깁니다. 탭 `selectedId`처럼 파생이 아닌 값도 같습니다 |
 
-서버 상태는 섹션이 쿼리 키로, search 파라미터는 같은 `urlParsers`로 직접 읽습니다.
-둘 다 섹션 사이에 프롭으로 전달하지 않습니다.
+서버 상태는 내용물이 쿼리 키로, search 파라미터는 같은 `urlParsers`로 직접 읽습니다.
+둘 다 내용물 사이에 프롭으로 전달하지 않습니다.
 `Context`는 전역 상태 도구가 아니라 묶음 안의 전달 수단입니다.
 
 참고: [React 문서: 컴포넌트 사이 상태 공유](https://react.dev/learn/sharing-state-between-components),

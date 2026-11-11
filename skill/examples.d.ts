@@ -575,7 +575,12 @@ declare const useProductSave: (
 declare const useProductCreate: (
 	options?: ApiMutationOptions<Product, {data: ProductCreateRequest}>,
 ) => UseMutationResult<Product, {data: ProductCreateRequest}>;
-declare const useProductRemove: () => UseMutationResult<void, {params: {productId: string}}>;
+declare const useProductRemove: (
+	options?: ApiMutationOptions<void, {params: {productId: string}}>,
+) => UseMutationResult<void, {params: {productId: string}}>;
+declare const useMediaSave: (
+	options?: ApiMutationOptions<void, {data: unknown}>,
+) => UseMutationResult<void, {data: unknown}>;
 interface PermissionStore {
 	canEditProduct: boolean;
 	setCanEditProduct: (value: boolean) => void;

@@ -15,7 +15,7 @@ tags: data, query
 
 **Impact: MEDIUM (여러 응답의 가공 위치를 통일하고 화면 본문의 별칭을 줄입니다)**
 
-둘 이상의 쿼리 결과를 하나로 합칠 때는 값을 렌더하는 섹션에서 `combine`을 인라인으로 씁니다.
+둘 이상의 쿼리 결과를 하나로 합칠 때는 값을 렌더하는 내용물에서 `combine`을 인라인으로 씁니다.
 결과를 합칠 필요와 요청을 병렬로 시작할 필요는 따로 판단합니다.
 
 ```mermaid
@@ -36,6 +36,9 @@ flowchart LR
 `useSuspenseQuery`, `useSuspenseQueries`는 `enabled`를 받지 않습니다.
 필수 입력이 없으면 쿼리를 호출하는 자식의 렌더를 보류합니다.
 독립적인 Suspense 쿼리도 같은 컴포넌트에서 따로 호출하면 앞 요청부터 순서대로 실행됩니다.
+인라인 `combine`은 렌더마다 다시 실행되지만 결과는 구조 공유로 안정적이므로 `useCallback`을 더하지 않습니다.
+공식 문서는 안정 참조를 권하지만 이 규칙은 `perf-avoid-defensive-memoization`을 따릅니다.
+무거운 `combine`만 실측 뒤에 안정 참조로 뺍니다.
 한 쿼리만 가공하면 `data-shape-query-data-with-select`를 따릅니다.
 조합을 커스텀 훅으로 옮기는 기준은 `ownership-prefer-plain-ts-for-local-react-helpers`가 정합니다.
 
@@ -47,6 +50,6 @@ flowchart LR
 
 <<< ../examples/data-combine-multiple-queries-with-combine/01-incorrect.tsx
 
-**Correct 1 (값을 렌더하는 섹션이 인라인 `combine`으로 합칩니다):**
+**Correct 1 (값을 렌더하는 내용물이 인라인 `combine`으로 합칩니다):**
 
 <<< ../examples/data-combine-multiple-queries-with-combine/02-correct.tsx
