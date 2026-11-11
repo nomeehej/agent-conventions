@@ -983,3 +983,21 @@ declare module "@/component/widget/barcode-scanner/barcode-scanner" {
 declare module "@/util/date/get-today" {
 	export const getToday: () => string;
 }
+
+// ----------------------------------------------------------------------------------------
+// figma 예제: 라이브러리 master의 축을 프롭으로 옮긴 부품
+// ----------------------------------------------------------------------------------------
+declare module "@/component/ui/select/select" {
+	export interface SelectOption {
+		value: string;
+		label: string;
+	}
+	export interface SelectProps {
+		size: "small" | "medium" | "large";
+		value: string;
+		options: SelectOption[];
+		disabled?: boolean;
+		onChange: (value: string) => void;
+	}
+	export const Select: (props: SelectProps) => ReactElement;
+}
