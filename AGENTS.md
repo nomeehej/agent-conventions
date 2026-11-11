@@ -63,7 +63,7 @@ build tooling은 [content/public/tooling.md](./content/public/tooling.md).
 `css`는 TSX 클래스 계약을 함께 바꾸면 `typescript`를 켠다.
 `react`는 `typescript`를 항상 켜고 클래스 계약이나 스타일시트를 바꾸면 `css`를 켜는 그 위 계층이다.
 `testing`은 변경 범위에 따라 `react`, `css`를 켠다.
-`storybook`은 story가 렌더하는 JSX나 문맥 CSS를 고치면 `react`, `css`를, `play` 단언, 접근성 설정, story 테스트 project를 고치면 `testing`을 켜는 그 위 계층이다.
+`storybook`은 story가 렌더하는 JSX나 문맥 CSS를 고치면 `react`, `css`를, `play` 단언, 접근성 설정, story 테스트 project, `tags`의 `!test`를 고치면 `testing`을 켜는 그 위 계층이다.
 `figma`는 구현 범위에 따라 `react`, `css`를, story나 design 링크를 고치면 `storybook`을 켠다.
 `blueprint`는 Figma를 재료로 읽을 때 `figma`를, 설계 문서에서 테스트 케이스를 뽑을 때 `testing`을 켜는 가장 위 계층이다.
 아래에서 위를 가리키지 않는다.
