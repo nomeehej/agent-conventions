@@ -674,7 +674,7 @@
 		},
 		{
 			"id": "react-outlet-route-group-placement",
-			"prompt": "Move the existing products and orders screen folders under src/page/(main), move the shared list frame to src/page/(main)/main-outlet.tsx, and update only the matching route imports and nesting in src/route/app-routes.tsx. Preserve component bodies, styles, handlers, and runtime boundaries. Keep screen internals at one child-owner level; do not put a route group below a screen or import between sibling screens.",
+			"prompt": "Move the existing products and orders screen folders under src/page/(main), move the shared list frame to src/page/(main)/main-outlet.tsx, and update only the matching route imports and nesting in src/route/app-routes.tsx. Preserve component bodies, styles, handlers, and runtime boundaries. Keep each screen folder flat; do not put a route group below a screen or import between sibling screens.",
 			"files": [
 				"src/route/app-routes.tsx",
 				"src/page/(main)/main-outlet.tsx",
@@ -695,6 +695,154 @@
 				"typescript": [
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-import-by-absolute-path"
+				]
+			}
+		},
+		{
+			"id": "react-conditional-hook-button",
+			"prompt": "상품 목록 `product-list-section.tsx`에서 초안 행에만 나오는 삭제 버튼 때문에 `useProductRemove` 뮤테이션을 목록 본문이 부르고 있어. 그 훅은 버튼에서만 쓰니까 `delete-product-button.tsx`를 같은 폴더에 만들어서 버튼이 직접 부르게 옮겨 줘. 목록은 `productId`만 넘기면 돼.",
+			"files": [
+				"src/page/products/product-list-section.tsx",
+				"src/page/products/delete-product-button.tsx"
+			],
+			"expectedSkills": [
+				"react",
+				"typescript"
+			],
+			"expectedSelected": {
+				"react": [
+					"ownership-name-component-files-after-their-symbols",
+					"ownership-place-owner-files-in-role-folders",
+					"data-name-query-and-mutation-bindings-consistently",
+					"data-handle-mutation-failure-where-it-is-called",
+					"composition-read-props-without-destructuring",
+					"composition-declare-props-interface-above-the-component",
+					"composition-order-hooks-handlers-effects-then-return",
+					"composition-create-components-only-when-required",
+					"docs-explain-the-data-block-not-each-hook"
+				],
+				"typescript": [
+					"types-document-custom-types-and-shapes",
+					"naming-use-consistent-file-and-symbol-naming",
+					"naming-use-direct-imports-and-public-entry-points",
+					"docs-put-boxes-on-groups-and-blocks",
+					"docs-write-korean-comments-about-purpose-and-constraints"
+				]
+			}
+		},
+		{
+			"id": "react-merge-components-under-one-boundary",
+			"prompt": "상품 화면 `products-page.tsx`의 `Suspense` 하나 안에 `ProductListTotal`이랑 `ProductListTable`이 있는데 둘이 같은 `useProductListSuspense`를 따로 불러. `product-list-section.tsx` 하나로 합쳐 줘. 두 파일 CSS도 블록 하나로 합치고 옛 블록 이름은 요소로 바꿔 줘.",
+			"files": [
+				"src/page/products/products-page.tsx",
+				"src/page/products/product-list-total.tsx",
+				"src/page/products/product-list-total.css",
+				"src/page/products/product-list-table.tsx",
+				"src/page/products/product-list-table.css",
+				"src/page/products/product-list-section.tsx",
+				"src/page/products/product-list-section.css"
+			],
+			"expectedSkills": [
+				"react",
+				"typescript",
+				"css"
+			],
+			"expectedSelected": {
+				"react": [
+					"ownership-name-component-files-after-their-symbols",
+					"ownership-place-owner-files-in-role-folders",
+					"composition-create-components-only-when-required",
+					"screen-keep-route-flow-visible",
+					"screen-avoid-premature-abstraction",
+					"docs-explain-the-data-block-not-each-hook"
+				],
+				"typescript": [
+					"naming-use-consistent-file-and-symbol-naming",
+					"naming-use-direct-imports-and-public-entry-points",
+					"docs-put-boxes-on-groups-and-blocks",
+					"docs-write-korean-comments-about-purpose-and-constraints"
+				],
+				"css": [
+					"naming-use-block-element-modifier-syntax",
+					"naming-name-elements-and-modifiers-by-role",
+					"naming-keep-page-block-names-traceable",
+					"ownership-give-each-file-one-block",
+					"composition-compose-classes-with-clsx"
+				]
+			}
+		},
+		{
+			"id": "react-long-component-no-split",
+			"prompt": "`product-list-section.tsx`가 400줄이 넘어서 읽기가 힘들어. 쿼리, 선택 행 상태, 검색 폼, 저장 뮤테이션이 한 파일에 다 있는데 `ProductListHeader`, `ProductListFilterForm`, `ProductListFooter`로 나눠 줘.",
+			"files": [
+				"src/page/products/product-list-section.tsx"
+			],
+			"expectedSkills": [
+				"react",
+				"typescript"
+			],
+			"expectedSelected": {
+				"react": [
+					"ownership-place-owner-files-in-role-folders",
+					"composition-create-components-only-when-required",
+					"screen-avoid-premature-abstraction",
+					"docs-explain-the-data-block-not-each-hook",
+					"docs-describe-jsx-blocks-above-the-return"
+				],
+				"typescript": [
+					"naming-use-consistent-file-and-symbol-naming",
+					"naming-use-direct-imports-and-public-entry-points",
+					"docs-put-boxes-on-groups-and-blocks",
+					"docs-write-korean-comments-about-purpose-and-constraints"
+				]
+			}
+		},
+		{
+			"id": "react-screen-skeleton-boundary",
+			"prompt": "상품 상세 `product-detail-page.tsx`가 쿼리를 직접 부르는데 로딩 중에 상세 화면 모양의 스켈레톤을 보여 주고 싶어. 같은 폴더에 `product-detail-skeleton.tsx`를 만들고, 지금 화면 본문은 내용물 컴포넌트 `product-detail-section.tsx`로 빼서 진입이 `Suspense`로 감싸게 해 줘.",
+			"files": [
+				"src/page/product-detail/product-detail-page.tsx",
+				"src/page/product-detail/product-detail-skeleton.tsx",
+				"src/page/product-detail/product-detail-section.tsx"
+			],
+			"expectedSkills": [
+				"react",
+				"typescript"
+			],
+			"expectedSelected": {
+				"react": [
+					"ownership-layer-component-boundaries",
+					"ownership-name-component-files-after-their-symbols",
+					"ownership-place-owner-files-in-role-folders",
+					"composition-create-components-only-when-required",
+					"screen-keep-route-flow-visible",
+					"runtime-place-suspense-boundaries-at-the-section-owner",
+					"runtime-avoid-ad-hoc-loading-branches"
+				],
+				"typescript": [
+					"naming-use-consistent-file-and-symbol-naming",
+					"naming-use-direct-imports-and-public-entry-points"
+				]
+			}
+		},
+		{
+			"id": "react-biome-folder-boundary-plugin",
+			"prompt": "다른 폴더에서 `ui`나 `widget` 안쪽 컴포넌트 파일을 마음대로 가져오는 걸 린트로 막고 싶어. 폴더 밖에서는 진입 파일과 역할 폴더만 가져오게 Biome GritQL 플러그인을 `biome.json`에 등록해 줘. 한 파일에 컴포넌트가 둘 이상 있는 것도 같이 막아 줘.",
+			"files": [
+				"biome.json",
+				"biome/no-outside-non-entry-import.grit",
+				"biome/one-component-per-file.grit"
+			],
+			"expectedSkills": [
+				"react",
+				"typescript"
+			],
+			"expectedSelected": {
+				"react": [
+					"tooling-enable-the-biome-react-domain"
+				],
+				"typescript": [
+					"tooling-configure-biome-to-enforce-these-rules"
 				]
 			}
 		}
