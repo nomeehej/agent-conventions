@@ -38,10 +38,8 @@ tags: strategy, composition, props, variants, components
 
 <<< ../examples/strategy-avoid-boolean-prop-proliferation/02-correct.tsx
 
-**Correct (변형이 조립하는 틀 부품과 진입 파일, 나머지 변형입니다):**
+**Correct (변형이 조립하는 틀과 나머지 변형입니다):**
 
 <<< ../examples/strategy-avoid-boolean-prop-proliferation/03-correct-1.tsx
 
 <<< ../examples/strategy-avoid-boolean-prop-proliferation/03-correct-2.tsx
-
-<<< ../examples/strategy-avoid-boolean-prop-proliferation/03-correct-3.tsx

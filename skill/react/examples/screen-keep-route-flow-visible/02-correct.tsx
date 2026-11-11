@@ -2,9 +2,9 @@
 export const ProductsPage = () => {
 	return (
 		<Fragment>
-			<ProductFilterSection />
+			<ProductFilterBar />
 {/* [!code ++] */}
-			<Suspense fallback={<LoadingFallback ariaLabel="product 목록을 불러오는 중" />}>
+			<Suspense fallback={<ProductListSkeleton />}>
 {/* [!code ++] */}
 				<ProductListSection />
 {/* [!code ++] */}

@@ -4,7 +4,7 @@ titleKo: 파생값은 쓰는 자리 가까이에 둡니다
 impact: MEDIUM
 impactDescription: 파생값의 출처를 유지하고 화면 상단의 별칭과 준비 코드를 줄입니다
 appliesWhen:
-  - 화면 진입 파일이나 섹션 최상단에 `const` 별칭, 플래그, 표시값을 추가, 이동, 제거할 때
+  - 화면 진입 파일이나 내용물 최상단에 `const` 별칭, 플래그, 표시값을 추가, 이동, 제거할 때
   - 훅 인자, JSX 표시값, 이펙트 안 계산을 위쪽 `const`로 빼거나 되돌릴 때
 reviewWith: data-preserve-origin-chaining
 tags: screen, origin

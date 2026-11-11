@@ -1,4 +1,5 @@
-export const ProductRecommendationBoundary = () => {
+// page/products/products-page.tsx
+export const ProductsPage = () => {
 	const queryErrorResetBoundary = useQueryErrorResetBoundary();
 
 	return (

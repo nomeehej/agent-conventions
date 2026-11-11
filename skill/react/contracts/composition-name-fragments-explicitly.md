@@ -15,7 +15,7 @@
 export const ProductScreen = () => {
 	return (
 		<>
-			<ProductFilterSection />
+			<ProductFilterBar />
 			<ProductTableSection />
 		</>
 	);
@@ -30,7 +30,7 @@ import {Fragment} from "react";
 export const ProductScreen = () => {
 	return (
 		<Fragment>
-			<ProductFilterSection />
+			<ProductFilterBar />
 			<ProductTableSection />
 		</Fragment>
 	);

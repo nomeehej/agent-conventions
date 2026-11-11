@@ -2,7 +2,7 @@ export const ProductScreen = () => {
 	return (
 // [!code error]
 		<>
-			<ProductFilterSection />
+			<ProductFilterBar />
 			<ProductTableSection />
 // [!code error]
 		</>

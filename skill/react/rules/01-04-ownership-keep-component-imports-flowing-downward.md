@@ -59,7 +59,7 @@ flowchart LR
 테스트 파일과 `test/` 아래 gallery story는 마운트할 컴포넌트를 폴더 밖에서도 직접 가져옵니다.
 진입 파일이 아닌 컴포넌트의 프롭스 타입도 폴더 밖에서 가져오지 않습니다.
 폴더 밖과 함께 쓰는 계약은 `_type`에 둡니다.
-역할 폴더는 소유자의 공개 영역이므로 외부에서 쓴다는 이유만으로 루트로 옮기지 않습니다.
+`ui`, `widget`의 역할 폴더는 소유자의 공개 영역이므로 외부에서 쓴다는 이유만으로 루트로 옮기지 않습니다.
 함수를 루트 `util`로 올릴지는 `typescript/functions-promote-owner-free-functions-to-root-util`이 정합니다.
 검사는 `tooling-enable-the-biome-react-domain`의 플러그인과 경로 설정이 맡습니다.
 

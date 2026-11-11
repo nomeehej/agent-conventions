@@ -1,7 +1,7 @@
 # React 컨벤션 Rule Index
 
 - Skill: `react`
-- Routing digest: `sha256:462483f00bdcc3e2601e8b0af0d79d4e590c7cd81c76bd5a26f97e7b7587276e`
+- Routing digest: `sha256:dbdb92fdaa34e2d8c328c8afe697850fdb5d4f353e5d8639afe8df75fd4a3662`
 
 ## Direct Companions
 
@@ -40,10 +40,10 @@
 - R05-07 | composition-name-fragments-explicitly | JSX에서 여러 요소를 \`Fragment\`나 \`\<\>\`로 감싸는 문법을 추가, 변경할 때. \`Fragment\`에 \`key\`를 붙이거나 떼어 낼 때.
 - R05-08 | composition-render-one-branch-with-and | JSX 안에 조건부 렌더링을 추가하거나 조건식을 바꿀 때. 기존 JSX 삼항이나 \`조건 && …\`을 넣거나 뺄 때.
 - R05-09 | composition-order-hooks-handlers-effects-then-return | 컴포넌트 본문에 훅, 핸들러, 이펙트를 추가하거나 자리를 옮길 때. 본문 선언이 아래 선언을 참조해 순서를 다시 잡을 때. 컴포넌트 본문에 지역 함수나 이름 붙인 판정을 둘 때. | reviewWith: events-run-user-actions-in-handlers-not-effects, screen-keep-derived-values-close
-- R05-10 | composition-create-components-only-when-required | 컴포넌트를 새로 만들거나 파일로 떼거나 부모 JSX로 되돌릴 때. 경계 아래 내용물을 나누거나 조건부로 렌더하는 JSX의 훅을 옮길 때. 파일 하나에 컴포넌트를 둘 이상 두거나 모달을 만들 때. | reviewWith: composition-do-not-define-components-inside-components, ownership-place-owner-files-in-role-folders, runtime-place-suspense-boundaries-at-the-section-owner
-- R06-01 | screen-keep-route-flow-visible | 라우트 진입의 search 파라미터, 화면 이동, 쿼리, 뮤테이션, 화면 전체 이펙트를 옮기거나 나눌 때. 화면 섹션 조립의 순서나 소유자를 바꿀 때. 제외: 같은 소유자 안에서 표현만 바꾸는 경우. | reviewWith: composition-create-components-only-when-required, ownership-place-owner-files-in-role-folders
+- R05-10 | composition-create-components-only-when-required | 컴포넌트를 새로 만들거나 파일로 떼거나 부모 JSX로 되돌릴 때. 경계 아래 내용물을 나누거나 조건부로 렌더하는 JSX의 훅을 옮길 때. 파일 하나에 컴포넌트를 둘 이상 두거나 모달을 만들 때. | reviewWith: composition-do-not-define-components-inside-components, css/ownership-give-each-file-one-block, ownership-place-owner-files-in-role-folders, runtime-place-suspense-boundaries-at-the-section-owner
+- R06-01 | screen-keep-route-flow-visible | 라우트 진입의 search 파라미터, 화면 이동, 쿼리, 뮤테이션, 화면 전체 이펙트를 옮기거나 나눌 때. 경계 배치나 경계 아래 내용물의 소유자를 바꿀 때. 제외: 같은 소유자 안에서 표현만 바꾸는 경우. | reviewWith: composition-create-components-only-when-required, ownership-place-owner-files-in-role-folders
 - R06-02 | screen-avoid-premature-abstraction | 화면 코드를 보조 함수, 훅, 컴포넌트, 모듈로 추출할 때. 한 곳에서만 쓰는 기존 추상화를 다시 접어 넣을 때. | reviewWith: composition-create-components-only-when-required, typescript/functions-extract-helpers-only-when-the-boundary-is-real
-- R06-03 | screen-keep-derived-values-close | 화면 진입 파일이나 섹션 최상단에 \`const\` 별칭, 플래그, 표시값을 추가, 이동, 제거할 때. 훅 인자, JSX 표시값, 이펙트 안 계산을 위쪽 \`const\`로 빼거나 되돌릴 때. | reviewWith: data-preserve-origin-chaining
+- R06-03 | screen-keep-derived-values-close | 화면 진입 파일이나 내용물 최상단에 \`const\` 별칭, 플래그, 표시값을 추가, 이동, 제거할 때. 훅 인자, JSX 표시값, 이펙트 안 계산을 위쪽 \`const\`로 빼거나 되돌릴 때. | reviewWith: data-preserve-origin-chaining
 - R07-01 | runtime-place-suspense-boundaries-at-the-section-owner | \`Suspense\` 쿼리를 쓰는 화면에서 로딩 대체 화면의 위치를 정할 때. \`Suspense\` 경계를 추가하거나 옮길 때. | reviewWith: composition-create-components-only-when-required, css/layout-keep-layout-intent-explicit, runtime-place-error-boundaries-by-blast-radius
 - R07-02 | runtime-avoid-ad-hoc-loading-branches | \`Suspense\` 쿼리를 쓰는 화면 본문에 초기 로딩 반환을 추가, 변경할 때. \`isFetching\`이나 뮤테이션 \`isPending\`으로 화면을 가리는 분기를 넣을 때. | reviewWith: data-preserve-origin-chaining, screen-keep-derived-values-close, typescript/absence-expose-optional-values-instead-of-silent-fallbacks
 - R07-03 | runtime-place-error-boundaries-by-blast-radius | 오류 경계를 추가하거나 옮길 때. 화면 본문에 \`isError\` 분기나 실패 대체 화면 반환을 넣을 때. 캐시가 있는 쿼리의 재조회 실패 처리나 오류 경계의 다시 시도 연결을 바꿀 때.

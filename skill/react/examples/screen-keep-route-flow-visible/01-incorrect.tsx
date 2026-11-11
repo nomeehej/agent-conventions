@@ -7,7 +7,7 @@ export const ProductsPage = () => {
 
 	return (
 		<Fragment>
-			<ProductFilterSection />
+			<ProductFilterBar />
 // [!code error]
 			<ProductListSection products={responseProductListSuspense.data.items} />
 		</Fragment>

@@ -5,7 +5,7 @@ export const ProductScreen = () => {
 	return (
 // [!code ++]
 		<Fragment>
-			<ProductFilterSection />
+			<ProductFilterBar />
 			<ProductTableSection />
 {/* [!code ++] */}
 		</Fragment>

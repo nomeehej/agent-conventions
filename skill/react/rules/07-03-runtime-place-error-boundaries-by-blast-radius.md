@@ -22,19 +22,20 @@ tags: screen, errors
 
 ```mermaid
 flowchart LR
-	q1{"나머지 섹션만으로도<br>쓸모가 있는가?"} -- 아니요 --> q2{"내비게이션과 레이아웃 셸은<br>남겨야 하는가?"} -- 아니요 --> r3("앱 경계")
-	q1 -- 예 --> r1("섹션 경계")
+	q1{"나머지 구역만으로도<br>쓸모가 있는가?"} -- 아니요 --> q2{"내비게이션과 Outlet 프레임은<br>남겨야 하는가?"} -- 아니요 --> r3("앱 경계")
+	q1 -- 예 --> r1("구역 경계")
 	q2 -- 예 --> r2("화면 경계")
 ```
 
 | 층 | 위치 | 오류 뒤 남는 화면 |
 | --- | --- | --- |
 | 앱 | 루트에 한 번 | 없음. 마지막 안전망입니다 |
-| 화면 | 섹션이 있으면 라우트 진입. 진입이 직접 쿼리를 부르면 진입을 감싸는 레이아웃 셸 | 내비게이션과 레이아웃 셸 |
-| 섹션 | `Suspense` 경계와 같은 소유자 | 같은 화면의 다른 섹션 |
+| 화면 | 그 화면 모양의 대체 화면이 있으면 라우트 진입. 없으면 `Outlet` 프레임 | 내비게이션과 `Outlet` 프레임 |
+| 구역 | `Suspense` 경계를 놓는 컴포넌트 | 같은 화면의 다른 구역 |
 
 목록 실패 후 옆 필터로 할 수 있는 일이 없다면 화면 경계로 충분합니다.
-로딩, 오류 경계는 같은 소유자가 조립합니다.
+로딩, 오류 경계는 같은 컴포넌트가 조립합니다.
+오류 경계 하나가 `Suspense` 경계 여럿을 함께 감쌀 수 있고 내용물은 `Suspense` 경계마다 하나입니다.
 위치는 `runtime-place-suspense-boundaries-at-the-section-owner`를 따릅니다.
 
 ### 실패 상황별 처리
@@ -54,7 +55,7 @@ flowchart LR
 `react-error-boundary`를 쓰면 정상 화면은 유지하면서 오류 상태만 초기화하도록 URL 변경을 `resetKeys`에 연결합니다.
 경계의 `key`는 바꾸지 않습니다.
 재시도 버튼은 대체 화면에서 오류 경계의 재시도 함수를 호출합니다.
-경계의 `onReset`에는 `useQueryErrorResetBoundary`의 `reset`을 연결합니다.
+경계의 `onReset`에는 `useQueryErrorResetBoundary`의 `reset`을 연결하고 그 훅은 경계를 놓는 컴포넌트가 직접 부릅니다.
 
 참고: [React 문서: Component, 오류 경계로 렌더 오류 잡기](https://react.dev/reference/react/Component),
 [TanStack Query 문서: Suspense와 오류 경계](https://tanstack.com/query/latest/docs/framework/react/guides/suspense),
@@ -76,11 +77,11 @@ flowchart LR
 
 <<< ../examples/runtime-place-error-boundaries-by-blast-radius/04-correct.tsx
 
-**Correct (셸이 화면 층 오류 경계와 로딩 경계를 조립합니다):**
+**Correct (`Outlet` 프레임이 화면 층 오류 경계와 로딩 경계를 조립합니다):**
 
 <<< ../examples/runtime-place-error-boundaries-by-blast-radius/05-correct.tsx
 
-**Correct (나머지 섹션만으로도 쓸모가 있을 때만 섹션 경계를 둡니다):**
+**Correct (나머지 구역만으로도 쓸모가 있을 때만 구역 경계를 둡니다):**
 
 <<< ../examples/runtime-place-error-boundaries-by-blast-radius/06-correct.tsx
 

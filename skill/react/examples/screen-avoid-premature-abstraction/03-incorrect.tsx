@@ -5,5 +5,5 @@ import {useProductFilterForm} from "@/page/products/_hook/use-product-filter-for
 export const ProductsPage = () => {
 	const productFilterForm = useProductFilterForm();
 
-	return <ProductFilterSection keyword={productFilterForm.keyword} />;
+	return <ProductFilterBar keyword={productFilterForm.keyword} />;
 };

@@ -78,6 +78,4 @@ flowchart LR
 
 **Correct (합성 컴포넌트 안에서 부품끼리 나눠 쓰는 상태는 `Context`로 내려보냅니다):**
 
-<<< ../examples/state-choose-state-tools-by-source-of-truth/07-correct-1.ts
-
-<<< ../examples/state-choose-state-tools-by-source-of-truth/07-correct-2.tsx
+<<< ../examples/state-choose-state-tools-by-source-of-truth/07-correct.tsx
