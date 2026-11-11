@@ -1,7 +1,7 @@
 # Testing 컨벤션 Rule Index
 
 - Skill: `testing`
-- Routing digest: `sha256:caba245ff294148528ef4e4d119cbc1eda9d433f4268b9fe7f5de0469683929e`
+- Routing digest: `sha256:0926f9d26ed0626ca7ad4476a37d9dd7572c78108c22e5c52bb4c8be19069f35`
 
 ## Direct Companions
 
@@ -11,15 +11,15 @@
 
 ## Local Rules
 
-- T01-01 | scope-choose-the-smallest-reliable-boundary | 새 테스트의 실행 환경이나 unit, integration, E2E 범위를 정할 때. 제외: 기존 테스트의 기대 문구만 고치는 경우.
-- T01-02 | scope-assign-a-primary-layer-and-check-wiring | 같은 기능의 unit, integration, E2E 테스트 책임을 나누거나 중복을 정리할 때.
-- T01-03 | scope-place-tests-by-owner-and-separate-runner-globs | 테스트 파일, fixture, story의 위치나 이름을 정하거나 러너의 수집 패턴을 바꿀 때.
+- T01-01 | scope-choose-the-smallest-reliable-boundary | 새 테스트의 실행 환경이나 unit, component, integration, E2E 범위를 정할 때. 제외: 기존 테스트의 기대 문구만 고치는 경우.
+- T01-02 | scope-assign-a-primary-layer-and-check-wiring | 같은 기능의 unit, component, integration, E2E 테스트 책임을 나누거나 중복을 정리할 때.
+- T01-03 | scope-place-tests-by-owner-and-separate-runner-globs | 테스트 파일, fixture, story의 위치나 이름을 정하거나 러너의 수집 패턴, project, 스크립트를 바꿀 때.
 - T01-04 | scope-separate-test-level-from-suite-purpose | smoke, sanity, regression의 선정 기준, 태그, 실행 명령을 정하거나 바꿀 때.
 - T02-01 | case-describe-one-observable-behavior | 테스트 제목, 본문 구간, describe, step을 추가하거나 시나리오를 나눌 때. GIVEN, WHEN, THEN 주석을 새로 쓰거나 그 형식을 바꿀 때.
 - T02-02 | case-cover-relevant-states-and-boundaries | 새 기능의 테스트 사례를 고르거나 입력 범위, 비동기 상태, 오류 처리를 변경할 때.
 - T02-03 | case-derive-expectations-from-independent-contracts | 기대값을 추가, 변경하거나 테스트 안에서 기대 결과를 계산할 때.
 - T03-01 | data-build-small-valid-typed-fixtures | 테스트 데이터, 응답 생성기, 데이터 타입과 덮어쓰기 값을 추가하거나 바꿀 때.
-- T03-02 | data-control-time-randomness-and-environment | 테스트가 현재 시각이나 난수를 읽는 코드를 추가하거나 바꿀 때. 러너의 타임존, 로케일, 뷰포트 설정을 바꿀 때. 제외: 날짜 리터럴만 함수 인자로 넘기는 경우. 제외: 시각 비교의 렌더 환경만 맞추는 경우.
+- T03-02 | data-control-time-randomness-and-environment | 테스트나 story가 현재 시각이나 난수를 읽는 코드를 추가하거나 바꿀 때. 러너의 타임존, 로케일, 뷰포트 설정을 바꿀 때. 제외: 날짜 리터럴만 함수 인자로 넘기는 경우. 제외: 시각 비교의 렌더 환경만 맞추는 경우.
 - T03-03 | data-isolate-and-restore-test-state | 공유 context, 저장소, 캐시, mock, 타이머, 구독의 생성이나 초기화, 종료를 바꿀 때.
 - T04-01 | vitest-assert-values-errors-and-async-completion | Vitest 단언, 예외 검사, Promise 반환이나 비동기 테스트 본문을 추가, 변경할 때.
 - T04-02 | vitest-mock-dependencies-without-replacing-the-subject | Vitest의 모듈 mock, spy, 의존성 주입을 추가하거나 mock 범위를 바꿀 때. 제외: 네트워크 응답을 MSW handler나 page.route로 바꾸는 경우. | reviewWith: network-override-transport-and-keep-owned-logic-real
@@ -36,5 +36,8 @@
 - T07-02 | baseline-align-visual-environment-and-matcher-options | 이미지 기준값, 캡처 대상, 렌더 안정화, 비교 허용치나 matcher 설정을 바꿀 때.
 - T08-01 | verification-prove-regressions-detect-the-original-failure | 버그 재현 테스트를 추가하거나 기존 실패 테스트와 기준값을 수정할 때.
 - T08-02 | verification-report-failures-flakes-and-executed-scope | 테스트를 실행하고 그 결과를 보고할 때. 결과서, 커버리지, skip, retry, CI 종료 코드를 추가하거나 바꿀 때.
-- T09-01 | story-compose-owned-state-with-real-providers | story export, harness의 provider, 초기 라우트, props와 콜백 구성을 만들거나 바꿀 때.
+- T09-01 | story-compose-owned-state-with-real-providers | gallery story export, harness의 provider, 초기 라우트, props와 콜백 구성을 만들거나 바꿀 때. 제외: 부품 옆 \`\*.stories.tsx\`만 바꾸는 경우.
 - T09-02 | story-verify-states-through-consuming-tests | story를 mount하는 integration spec, gallery 실행 설정, 상태별 자동 단언을 만들거나 바꿀 때. | reviewWith: story-compose-owned-state-with-real-providers
+- T10-01 | component-run-every-story-as-a-test | 부품 옆 \`\*.stories.tsx\`에 story를 추가하거나 \`tags\`로 테스트에서 뺄 때. Vitest \`storybook\` project의 수집 범위나 story 테스트 결과를 정할 때. 제외: gallery story\(\`\*.story.tsx\`\)만 바꾸는 경우.
+- T10-02 | component-assert-the-state-each-play-reaches | story의 \`play\`를 추가하거나 \`play\`가 만든 상태의 단언을 바꿀 때. 제외: \`play\` 없이 args만 바꾸는 경우.
+- T10-03 | component-fail-stories-on-accessibility-violations | \`.storybook/preview\`나 story의 \`parameters.a11y\` 설정을 추가하거나 바꿀 때. story 테스트가 접근성 위반으로 실패해 예외를 두거나 설정 등급을 바꿀 때.

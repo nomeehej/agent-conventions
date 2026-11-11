@@ -819,6 +819,132 @@
 				],
 				"typescript": []
 			}
+		},
+		{
+			"id": "assert-play-state-in-component-story",
+			"prompt": "기존 부품 옆 story PickDay의 play가 달력에서 30일을 클릭하고 끝난다. 부품 spec에서 확인한 값으로 args.onChange가 '2026-05-30'으로 호출됐는지 단언을 play 끝에 더한다. story 이름, args, meta, 접근성 설정, 러너 설정과 가져오기는 그대로다.",
+			"files": [
+				"src/component/ui/date-picker/date-picker.stories.tsx"
+			],
+			"expectedSkills": [
+				"testing",
+				"typescript"
+			],
+			"expectedSelected": {
+				"testing": [
+					"case-derive-expectations-from-independent-contracts",
+					"component-assert-the-state-each-play-reaches"
+				],
+				"typescript": []
+			}
+		},
+		{
+			"id": "enable-accessibility-error-in-preview",
+			"prompt": "새 프로젝트의 .storybook/preview.tsx에 접근성 검사를 켠다. parameters.a11y.test를 'error'로 두고, 토큰 교체 전까지 색 대비를 고치지 못하는 Secondary story에만 'todo'와 이유 한 줄을 단다. 다른 story, args, 러너 설정은 그대로다.",
+			"files": [
+				".storybook/preview.tsx",
+				"src/component/ui/button/button.stories.tsx"
+			],
+			"expectedSkills": [
+				"testing",
+				"typescript"
+			],
+			"expectedSelected": {
+				"testing": [
+					"component-fail-stories-on-accessibility-violations"
+				],
+				"typescript": []
+			}
+		},
+		{
+			"id": "exclude-camera-story-from-test-run",
+			"prompt": "카메라가 있어야 열리는 BarcodeScanner의 Scanning story를 story 테스트에서 뺀다. 그 story에만 tags ['!test']와 이유 한 줄을 달고 다른 story의 태그, play, 러너 설정과 이름은 그대로 둔다.",
+			"files": [
+				"src/component/widget/barcode-scanner/barcode-scanner.stories.tsx"
+			],
+			"expectedSkills": [
+				"testing",
+				"typescript"
+			],
+			"expectedSelected": {
+				"testing": [
+					"component-run-every-story-as-a-test"
+				],
+				"typescript": []
+			}
+		},
+		{
+			"id": "add-storybook-project-to-vitest",
+			"prompt": "루트 vite.config.ts의 test.projects에 부품 옆 *.stories.tsx를 수집하는 storybook project를 unit, golden 옆에 더한다. package.json에는 --project storybook을 붙인 test:component 스크립트를 추가하고 test:unit에도 --project unit을 붙인다. story 파일과 테스트 본문은 바꾸지 않는다.",
+			"files": [
+				"vite.config.ts",
+				"package.json"
+			],
+			"expectedSkills": [
+				"testing",
+				"typescript"
+			],
+			"expectedSelected": {
+				"testing": [
+					"scope-place-tests-by-owner-and-separate-runner-globs",
+					"component-run-every-story-as-a-test"
+				],
+				"typescript": []
+			}
+		},
+		{
+			"id": "control-today-in-component-story",
+			"prompt": "date-picker의 PickToday story가 오늘 버튼을 누르면 오늘 날짜를 callback에 넘기는지 본다. play와 단언은 이미 있다. getToday 모듈을 preview에서 sb.mock으로 등록하고 story의 beforeEach에서 '2026-03-01'을 돌려주게 한다. 다른 story와 부품 코드는 그대로다.",
+			"files": [
+				".storybook/preview.tsx",
+				"src/component/ui/date-picker/date-picker.stories.tsx"
+			],
+			"expectedSkills": [
+				"testing",
+				"typescript"
+			],
+			"expectedSelected": {
+				"testing": [
+					"data-control-time-randomness-and-environment",
+					"data-isolate-and-restore-test-state"
+				],
+				"typescript": []
+			}
+		},
+		{
+			"id": "split-component-and-integration-layers",
+			"prompt": "설계만 요청받았다. 날짜 선택 부품의 달력 열기와 날짜 선택, 주문 화면에서 URL의 날짜가 입력란에 연결되는 구역 동작을 어느 층이 맡을지 정하고 같은 상태를 두 층에서 보지 않게 나눈다. 두 테스트 파일의 위치도 정한다. 테스트 코드는 쓰지 않는다.",
+			"files": [
+				"src/component/ui/date-picker/date-picker.stories.tsx",
+				"test/orders/orders.integration.spec.ts"
+			],
+			"expectedSkills": [
+				"testing",
+				"typescript"
+			],
+			"expectedSelected": {
+				"testing": [
+					"scope-choose-the-smallest-reliable-boundary",
+					"scope-assign-a-primary-layer-and-check-wiring",
+					"scope-place-tests-by-owner-and-separate-runner-globs"
+				],
+				"typescript": []
+			}
+		},
+		{
+			"id": "change-component-story-args-only",
+			"prompt": "부품 옆 button.stories.tsx에서 Secondary story의 args children 문구만 '저장'에서 '확인'으로 바꾼다. tags, play, parameters, meta, 러너 설정과 이름은 그대로다.",
+			"files": [
+				"src/component/ui/button/button.stories.tsx"
+			],
+			"expectedSkills": [
+				"testing",
+				"typescript"
+			],
+			"expectedSelected": {
+				"testing": [],
+				"typescript": []
+			}
 		}
 	]
 }

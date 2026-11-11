@@ -1,10 +1,10 @@
 {
 	"title": "Testing 컨벤션",
-	"lead": "실행 경계, 시나리오와 기대값, 데이터와 격리, Vitest, Playwright, 네트워크 경계, 골든과 시각 비교, 검증과 보고, Story",
+	"lead": "실행 경계, 시나리오와 기대값, 데이터와 격리, Vitest, Playwright, 네트워크 경계, 골든과 시각 비교, 검증과 보고, Gallery story, 컴포넌트 테스트",
 	"version": "1.1.0",
 	"organization": "Agent Conventions",
 	"date": "2026년 10월",
-	"abstract": "테스트를 설계, 작성, 검토하는 팀을 위한 컨벤션입니다. unit, integration, 앱 E2E의 실행 경계와 smoke, sanity의 선별 목적을 구분합니다. integration, E2E 사례는 GIVEN, WHEN, THEN으로 조건, 행동, 결과를 드러내고 독립된 기대값과 상태 격리를 정합니다. Kubb 등의 생성 DTO, faker, MSW 위에서 도메인 builder와 handler를 조립해 브라우저와 Node가 함께 쓰는 작성 순서를 다룹니다. Story는 실제 화면과 provider로 재현 상태를 구성하고 소비 spec에서 행동과 결과를 검증합니다. Vitest, Playwright, 골든과 시각 비교, 실행 범위의 보고도 포함합니다. 폴더 번호와 케이스 ID, 결과서 형식은 프로젝트에 남깁니다. 규칙 본문의 정본은 `rules/*.md`입니다.",
+	"abstract": "테스트를 설계, 작성, 검토하는 팀을 위한 컨벤션입니다. unit, component, integration, 앱 E2E의 실행 경계와 smoke, sanity의 선별 목적을 구분합니다. integration, E2E 사례는 GIVEN, WHEN, THEN으로 조건, 행동, 결과를 드러내고 독립된 기대값과 상태 격리를 정합니다. Kubb 등의 생성 DTO, faker, MSW 위에서 도메인 builder와 handler를 조립해 브라우저와 Node가 함께 쓰는 작성 순서를 다룹니다. Playwright gallery의 story는 화면 구역 integration 층에서 실제 화면과 provider로 재현 상태를 구성하고 소비 spec에서 행동과 결과를 검증합니다. 부품 하나는 component 층에서 Storybook Vitest addon이 story를 테스트로 실행하고 play 단언과 접근성 검사로 상호작용을 검증합니다. Vitest, Playwright, 골든과 시각 비교, 실행 범위의 보고도 포함합니다. 폴더 번호와 케이스 ID, 결과서 형식은 프로젝트에 남깁니다. 규칙 본문의 정본은 `rules/*.md`입니다.",
 	"companions": [
 		{
 			"skill": "typescript",
@@ -43,6 +43,11 @@
 		"https://playwright.dev/docs/locators",
 		"https://playwright.dev/docs/network",
 		"https://playwright.dev/docs/mock",
-		"https://playwright.dev/docs/test-retries"
+		"https://playwright.dev/docs/test-retries",
+		"https://storybook.js.org/docs/writing-tests/integrations/vitest-addon",
+		"https://storybook.js.org/docs/writing-tests/interaction-testing",
+		"https://storybook.js.org/docs/writing-stories/play-function",
+		"https://storybook.js.org/docs/writing-tests/accessibility-testing",
+		"https://storybook.js.org/docs/writing-stories/mocking-data-and-modules/mocking-modules"
 	]
 }

@@ -958,3 +958,28 @@ declare module "@test/_gallery/story-route" {
 declare module "@/component/widget/order-dialog/order-dialog" {
 	export const OrderDialog: (props: {orderId: string; onSave: (orderId: string) => void}) => ReactElement;
 }
+
+// ----------------------------------------------------------------------------------------
+// 컴포넌트 테스트 예제가 렌더하는 부품
+//
+// DatePicker: 달력은 팝업이라 play 가 canvas 바깥 screen 에서 찾음, 오늘 버튼은 getToday 를 읽음
+// getToday: 오늘 날짜를 `YYYY-MM-DD` 로 돌려주는 모듈, story 는 sb.mock 으로 바꿈
+// BarcodeScanner: 카메라가 있어야 스캔 화면이 열림
+// ----------------------------------------------------------------------------------------
+interface DatePickerProps {
+	label: string;
+	value: string;
+	onChange?: (value: string) => void;
+}
+interface BarcodeScannerProps {
+	onScan: (code: string) => void;
+}
+declare module "@/component/ui/date-picker/date-picker" {
+	export const DatePicker: (props: DatePickerProps) => ReactElement;
+}
+declare module "@/component/widget/barcode-scanner/barcode-scanner" {
+	export const BarcodeScanner: (props: BarcodeScannerProps) => ReactElement;
+}
+declare module "@/util/date/get-today" {
+	export const getToday: () => string;
+}

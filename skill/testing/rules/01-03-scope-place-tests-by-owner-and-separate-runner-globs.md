@@ -4,7 +4,7 @@ titleKo: 소유 대상을 찾기 쉽게 배치하고 러너 수집 범위를 분
 impact: MEDIUM
 impactDescription: 테스트 위치를 예측할 수 있고 다른 러너의 파일이 잘못 실행되지 않습니다
 appliesWhen:
-  - 테스트 파일, fixture, story의 위치나 이름을 정하거나 러너의 수집 패턴을 바꿀 때
+  - 테스트 파일, fixture, story의 위치나 이름을 정하거나 러너의 수집 패턴, project, 스크립트를 바꿀 때
 tags: testing, scope
 ---
 
@@ -19,15 +19,22 @@ tags: testing, scope
 | --- | --- |
 | 함수 테스트 | 대상 소유자 가까이(`src/**/*.test.ts`)에 둡니다 |
 | 골든 기준값 테스트 | 함수 테스트와 수집 project를 나누려고 `test/_golden/`에 모읍니다 |
-| 화면, 앱 여정, story | 프로젝트에 구조가 없으면 `test/<화면>/<화면>.integration.spec.ts`, `<화면>.e2e.spec.ts`, `<화면>.story.tsx`로 둡니다 |
+| 부품 story | 부품 옆(`<부품>.stories.tsx`)에 둡니다. Vitest `storybook` project가 수집합니다 |
+| 화면, 앱 여정, gallery story | 프로젝트에 구조가 없으면 `test/<화면>/<화면>.integration.spec.ts`, `<화면>.e2e.spec.ts`, `<화면>.story.tsx`로 둡니다 |
 | fixture, page object | 여러 테스트가 쓰므로 `test/_fixture/`에 모읍니다 |
+
+`storybook` project는 루트 vite 설정의 `test.projects`에 unit, golden과 나란히 둡니다.
+`.storybook/vite.config.ts`에 두면 Vitest가 읽지 않습니다.
+스크립트는 `--project`로 골라 둡니다.
+`--project` 없는 `vitest run`은 브라우저 project까지 함께 실행합니다.
 
 폴더 번호, 케이스 ID, 별칭, 실제 폴더 이름은 프로젝트 문서가 정합니다.
 단순 이동을 이유로 무관한 테스트와 프로덕션 파일을 재배치하지 않습니다.
 
 참고: [Vitest 문서: 테스트 파일 배치](https://vitest.dev/guide/learn/testing-in-practice#file-layout),
 [Vitest 문서: project별 설정과 수집 패턴](https://vitest.dev/guide/projects),
-[Playwright 문서: project의 testMatch와 testIgnore](https://playwright.dev/docs/test-projects).
+[Playwright 문서: project의 testMatch와 testIgnore](https://playwright.dev/docs/test-projects),
+[Storybook 문서: Vitest addon](https://storybook.js.org/docs/writing-tests/integrations/vitest-addon).
 
 **Incorrect 1 (역할이 섞여 어떤 러너가 읽는지 알기 어렵습니다):**
 
