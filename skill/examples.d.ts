@@ -1,9 +1,10 @@
-/**
- * 예제가 import 없이 쓰는 이름
- *
- * 실제 스택의 이름은 설치된 패키지의 타입을 그대로 가리키고, 예제 세계관의 이름은 여기서 선언합니다
- * tsc 가 Cannot find name 이나 Cannot find module 을 내면 그 이름을 알맞은 절에 더합니다
- */
+// ----------------------------------------------------------------------------------------
+// 예제가 import 없이 쓰는 이름
+//
+// 실제 스택의 이름은 설치된 패키지의 타입을 그대로 가리킴
+// 예제 세계관의 이름은 여기서 선언
+// tsc 가 Cannot find name 이나 Cannot find module 을 내면 그 이름을 알맞은 절에 추가
+// ----------------------------------------------------------------------------------------
 
 declare module "*.css";
 declare module "*.svg";
@@ -12,7 +13,9 @@ interface ImportMeta {
 	env: Record<string, string | undefined>;
 }
 
+// ----------------------------------------------------------------------------------------
 // 실제 스택
+// ----------------------------------------------------------------------------------------
 declare const useState: typeof import("react").useState;
 declare const useEffect: typeof import("react").useEffect;
 declare const useMemo: typeof import("react").useMemo;
@@ -62,7 +65,9 @@ type MouseEventHandler<T = Element> = import("react").MouseEventHandler<T>;
 type ChangeEventHandler<T = Element> = import("react").ChangeEventHandler<T>;
 type HTMLAttributes<T> = import("react").HTMLAttributes<T>;
 
+// ----------------------------------------------------------------------------------------
 // 예제 세계관: 작은 상점 관리자 콘솔의 도메인
+// ----------------------------------------------------------------------------------------
 type ProductStatus = "draft" | "active" | "hidden";
 declare const product_status: {readonly draft: "draft"; readonly active: "active"; readonly hidden: "hidden"};
 type ProductStatusFilter = ProductStatus | "all";
@@ -309,7 +314,9 @@ declare class MissingEnvironmentValueError extends Error {
 declare class NoActiveProductError extends Error {}
 declare class NotLoggedInError extends Error {}
 
+// ----------------------------------------------------------------------------------------
 // 예제 세계관: constant/ 의 값
+// ----------------------------------------------------------------------------------------
 declare const api_base_url: string;
 declare const pagination_default_page: number;
 declare const pagination_default_page_size: number;
@@ -327,7 +334,9 @@ declare const editable_order_statuses: readonly OrderStatus[];
 declare const product_list: Product[];
 declare const productColumns: TableColumn[];
 
-// 예제 세계관: 컴포넌트와 프롭. ui, widget, page 레이어 순서
+// ----------------------------------------------------------------------------------------
+// 예제 세계관: 컴포넌트와 프롭, 레이어 순서(ui, widget, page)
+// ----------------------------------------------------------------------------------------
 type Theme = "light" | "dark";
 interface ErrorFallbackProps {
 	error: Error;
@@ -507,7 +516,9 @@ interface ProductTableSectionProps {
 declare const ProductTableSection: (props: ProductTableSectionProps) => ReactElement;
 declare const ProductTreeSection: () => ReactElement;
 
+// ----------------------------------------------------------------------------------------
 // 예제 세계관: API 클라이언트, 생성된 쿼리 훅, 뮤테이션, 스토어
+// ----------------------------------------------------------------------------------------
 type UseSuspenseQueryResult<TData> = import("@tanstack/react-query").UseSuspenseQueryResult<TData>;
 type UseQueryResult<TData> = import("@tanstack/react-query").UseQueryResult<TData>;
 type UseMutationResult<TData, TVariables> = import("@tanstack/react-query").UseMutationResult<TData, Error, TVariables>;
@@ -586,7 +597,9 @@ interface FormHandle<T> {
 declare const useForm: <T>() => FormHandle<T>;
 declare const navigate: NavigateFunction;
 
+// ----------------------------------------------------------------------------------------
 // 예제 세계관: 보조 함수
+// ----------------------------------------------------------------------------------------
 interface ProductFilter {
 	status: ProductStatusFilter;
 	keyword: string;
@@ -632,7 +645,11 @@ declare const setStatusFilter: Dispatch<ProductStatusFilter>;
 declare const setSubmitErrorMessage: Dispatch<string | null>;
 declare const setVisibleRowCount: Dispatch<number>;
 
-// 조각 예제가 바깥에서 받는 변수. 조각은 컴포넌트 본문이나 함수 본문만 보여 주므로 이름만 선언
+// ----------------------------------------------------------------------------------------
+// 조각 예제가 바깥에서 받는 변수, 이름만 선언
+//
+// 조각은 컴포넌트 본문이나 함수 본문만 보여 줌 → 바깥에서 받는 값은 선언으로 대신
+// ----------------------------------------------------------------------------------------
 interface FragmentProps {
 	columns: TableColumn[];
 	formValues: ProductFormValues;
@@ -714,11 +731,17 @@ declare const mutationProductRemove: UseMutationResult<void, {params: {productId
 declare const mutationAttachmentUpload: UseMutationResult<{attachmentIds: string[]}, {files: File[]}>;
 declare const mutationMediaSave: UseMutationResult<void, {data: unknown}>;
 
+// ----------------------------------------------------------------------------------------
 // 아직 남은 이름
+// ----------------------------------------------------------------------------------------
 type ExampleQueryOptions<T> = {queryKey: readonly unknown[]; queryFn: () => Promise<T>};
 declare const products: Product[];
 
-// 예제 세계관: `@/` 모듈. 예제가 import 하는 것만 선언. 모듈 안에서 같은 이름을 다시 내보내려고 Shape, Component 별칭을 거침
+// ----------------------------------------------------------------------------------------
+// 예제 세계관: `@/` 모듈, 예제가 import 하는 것만 선언
+//
+// 모듈 안에서 같은 이름을 다시 내보내려고 Shape, Component 별칭을 거침
+// ----------------------------------------------------------------------------------------
 type ButtonPropsShape = ButtonProps;
 type ChartSeriesShape = ChartSeries;
 type PanelPartComponent = (props: PanelPartProps) => ReactElement;
@@ -832,96 +855,63 @@ declare module "@/util/date/format-display-date" {
 	export const formatDisplayDate: (value: string) => string;
 }
 
-// 테스트 예제가 사용하는 앱 계약. 러너 API는 설치된 패키지의 실제 타입을 사용합니다
+// ----------------------------------------------------------------------------------------
+// 테스트 예제가 쓰는 앱 계약, 러너 API는 설치된 패키지의 실제 타입
+// ----------------------------------------------------------------------------------------
 declare module "@/util/number/format-quantity" {
 	export const formatQuantity: (value: number | null) => string;
 }
 declare module "@/util/date/normalize-date-range" {
-	/**
-	 * 기간 보정의 입력과 출력
-	 */
+	// ----------------------------------------------------------------------------------------
+	// 기간 보정의 입력과 출력, 입력에서는 두 날짜 모두 빈 문자열 허용
+	// ----------------------------------------------------------------------------------------
 	export interface DateRange {
-		/**
-		 * 시작 날짜, 입력에서 빈 문자열 허용
-		 */
 		startDate: string;
-		/**
-		 * 종료 날짜, 입력에서 빈 문자열 허용
-		 */
 		endDate: string;
 	}
 	export const normalizeDateRange: (range: DateRange) => DateRange;
 }
 declare module "@/service/orders" {
-	/**
-	 * 서버가 반환하는 주문
-	 */
 	export interface OrderDto {
-		/**
-		 * 주문 ID
-		 */
 		id: string;
-		/**
-		 * 주문 수량
-		 */
 		quantity: number;
-		/**
-		 * 주문 처리 상태
-		 */
 		status: "open" | "closed";
 	}
 	export const getOrder: (id: string) => Promise<OrderDto>;
 }
 declare module "@/page/orders/_function/to-order-rows" {
-	/**
-	 * 목록이 표시하는 주문 행
-	 */
 	export interface OrderRow {
-		/**
-		 * 주문 ID
-		 */
 		id: string;
-		/**
-		 * 형식이 적용된 수량
-		 */
 		quantityLabel: string;
 	}
 	export const toOrderRows: (orders: import("@/service/orders").OrderDto[]) => OrderRow[];
 }
 
-// 생성 API 예제 계약. 실제 프로젝트에서는 Kubb 산출물의 이름과 signature를 확인합니다
+// ----------------------------------------------------------------------------------------
+// 생성 API 예제 계약, 실제 프로젝트에서는 Kubb 산출물의 이름과 signature 확인
+// ----------------------------------------------------------------------------------------
 declare module "@/service/__kubb/type/order-dto" {
 	export type OrderDto = import("@/service/orders").OrderDto;
 }
 declare module "@/service/__kubb/type/orders/get-orders" {
-	/**
-	 * 주문 목록 API의 성공 본문
-	 */
+	// ----------------------------------------------------------------------------------------
+	// 주문 목록 API의 성공 본문
+	//
+	// items: 조회한 페이지의 주문만
+	// total: 모든 페이지를 합친 주문 수
+	// updatedAt: 목록 기준 시각
+	// ----------------------------------------------------------------------------------------
 	export interface GetOrdersStatus200 {
-		/**
-		 * 해당 페이지의 주문
-		 */
 		items: import("@/service/__kubb/type/order-dto").OrderDto[];
-		/**
-		 * 전체 주문 수
-		 */
 		total: number;
-		/**
-		 * 조회한 페이지
-		 */
 		page: number;
-		/**
-		 * 목록 기준 시각
-		 */
 		updatedAt: string;
 	}
-	/**
-	 * 주문 조회의 서버 오류 본문
-	 */
+
+	// ----------------------------------------------------------------------------------------
+	// 주문 조회의 서버 오류 본문, message 는 사용자에게 전달할 오류 메시지
+	// ----------------------------------------------------------------------------------------
 	export interface GetOrdersStatus500 {
-		/**
-		 * 사용자에게 전달할 오류 메시지
-		 */
 		message: string;
 	}
 }
