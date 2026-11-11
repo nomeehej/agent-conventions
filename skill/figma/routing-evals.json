@@ -364,9 +364,9 @@
 		},
 		{
 			"id": "FGE12-draw-code-select-as-library-master",
-			"prompt": "draw the code select (src/component/ui/select/select.tsx, its CSS, and its stories) as a new master on a new ❖ select page of the DS library file (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds) and change no code: measure the stories first, give it Size, Value, and State axes with dummy option copy, a helper text that grows below the box, and a private option master, lay the variants out as a labeled matrix with an examples frame for the open menu story, and draw Large, Hover, Focus, and Disabled, which the code does not define; the hover border needs a color variable that does not exist yet; describe the master, add its # ui index card, and log the change.",
+			"prompt": "draw the code select (src/component/ui/select/select.tsx, its CSS, and its stories) as a new master on a new ❖ select page of the DS library file (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds) and change no code: measure the stories first, give it Size, Value, and State axes with dummy option copy, a helper text that grows below the box, and a private option master, lay the variants out as a labeled matrix with an examples frame for the open menu story, and draw Large, Hover, Focus, and Disabled, which the code does not define; the hover border needs a color variable that does not exist yet; describe the master, add its # ui index card, and log the change.",
 			"files": [
-				"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds"
+				"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds"
 			],
 			"expectedSkills": [
 				"figma"
@@ -403,9 +403,9 @@
 		},
 		{
 			"id": "FGE13-close-ds-release",
-			"prompt": "close the DS 1.1.0 release in the library file (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds): the 다음 column of ¶ Changelog holds a new loading-button master, a select hover border fix, and a Read me paragraph; confirm the version number from those rows, check that the changed masters kept their node ids, prepare the publish description, close the column and open a new one, and tell the screen files and the code which version to take.",
+			"prompt": "close the DS 1.1.0 release in the library file (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds): the 다음 column of ¶ Changelog holds a new loading-button master, a select hover border fix, and a Read me paragraph; confirm the version number from those rows, check that the changed masters kept their node ids, prepare the publish description, close the column and open a new one, and tell the screen files and the code which version to take.",
 			"files": [
-				"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds"
+				"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds"
 			],
 			"expectedSkills": [
 				"figma"
@@ -425,9 +425,9 @@
 		},
 		{
 			"id": "FGE14-settle-merged-checkbox-note",
-			"prompt": "the dated note on ❖ checkbox in the library file (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds) says checkbox-button was merged into checkbox's Label property and asks the code to follow; the code merge has shipped, so settle the note, drop the checkbox-button card under 코드에만 있음 in # ui, and record the change.",
+			"prompt": "the dated note on ❖ checkbox in the library file (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds) says checkbox-button was merged into checkbox's Label property and asks the code to follow; the code merge has shipped, so settle the note, drop the checkbox-button card under 코드에만 있음 in # ui, and record the change.",
 			"files": [
-				"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds"
+				"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds"
 			],
 			"expectedSkills": [
 				"figma"
@@ -448,9 +448,9 @@
 		},
 		{
 			"id": "FGE15-add-loading-to-button",
-			"prompt": "add a submitting (Loading) look to the button master in the library file (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds?node-id=335-119): the spinner widens the button, so the 135-variant Color × Variant × Size × State matrix would no longer line up; screen files already use button instances and Storybook stories link to its variant nodes; log the change.",
+			"prompt": "add a submitting (Loading) look to the button master in the library file (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds?node-id=335-119): the spinner widens the button, so the 135-variant Color × Variant × Size × State matrix would no longer line up; screen files already use button instances and Storybook stories link to its variant nodes; log the change.",
 			"files": [
-				"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds"
+				"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds"
 			],
 			"expectedSkills": [
 				"figma"
@@ -479,7 +479,7 @@
 		},
 		{
 			"id": "FGE16-implement-date-picker-against-master",
-			"prompt": "implement the existing date picker against its library master (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds?node-id=393-1350) in src/component/ui/date-picker/date-picker.tsx, date-picker.css, and date-picker.stories.tsx: the set is Size × Value × State, so add a size prop to the MUI wrapper and a size modifier class; colors are bound to bg/surface, border/control, and text/placeholder variables; Hover, Focus, and Disabled variants are described as 코드에 없는 제안; hidden Helper text layers sit behind a boolean property; the calendar icon is an icon instance; a range hint chip has no project counterpart and get_design_context returns it as absolutely positioned divs; the stories are still named Empty and Selected.",
+			"prompt": "implement the existing date picker against its library master (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds?node-id=393-1350) in src/component/ui/date-picker/date-picker.tsx, date-picker.css, and date-picker.stories.tsx: the set is Size × Value × State, so add a size prop to the MUI wrapper and a size modifier class; colors are bound to bg/surface, border/control, and text/placeholder variables; Hover, Focus, and Disabled variants are described as 코드에 없는 제안; hidden Helper text layers sit behind a boolean property; the calendar icon is an icon instance; a range hint chip has no project counterpart and get_design_context returns it as absolutely positioned divs; the stories are still named Empty and Selected.",
 			"files": [
 				"src/component/ui/date-picker/date-picker.tsx",
 				"src/component/ui/date-picker/date-picker.css",
@@ -489,7 +489,8 @@
 				"figma",
 				"react",
 				"typescript",
-				"css"
+				"css",
+				"storybook"
 			],
 			"expectedSelected": {
 				"figma": [
@@ -522,6 +523,12 @@
 					"composition-compose-classes-with-clsx",
 					"composition-write-modifiers-as-conditions",
 					"values-fall-back-only-outside-core-tokens"
+				],
+				"storybook": [
+					"file-name-stories-after-figma-property-values",
+					"story-cover-every-figma-value-once",
+					"design-link-each-story-to-its-figma-node",
+					"verify-build-storybook-and-run-story-tests"
 				]
 			}
 		}

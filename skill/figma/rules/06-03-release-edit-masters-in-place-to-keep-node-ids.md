@@ -7,6 +7,7 @@ appliesWhen:
   - 기존 master나 variant를 고치거나 상태, 값을 더할 때
   - master를 지우거나 합치거나 이름을 바꿀 때
   - 릴리스 전에 바뀐 master의 node id가 그대로인지 확인할 때
+reviewWith: storybook/design-regenerate-links-from-the-library-build
 tags: release, node-id, link
 ---
 

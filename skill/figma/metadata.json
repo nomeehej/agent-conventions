@@ -15,6 +15,11 @@
 			"skill": "css",
 			"mode": "conditional",
 			"appliesWhen": "스타일시트, `className`, 토큰 값을 추가하거나 수정한다."
+		},
+		{
+			"skill": "storybook",
+			"mode": "conditional",
+			"appliesWhen": "story 파일이나 story의 design 링크를 추가하거나 수정한다."
 		}
 	],
 	"references": [

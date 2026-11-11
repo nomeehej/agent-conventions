@@ -6,6 +6,7 @@ impactDescription: story가 렌더만으로 재현되고 조작이 필요한 상
 appliesWhen:
   - story의 상태를 `args`, `beforeEach`, `play`, `loaders`, 네트워크 mock 가운데 무엇으로 만들지 정하거나 바꿀 때
   - 프롭으로 열 수 없는 상태(열린 팝업, 입력 뒤 모습)를 story로 재현할 때
+reviewWith: testing/component-assert-the-state-each-play-reaches, testing/data-control-time-randomness-and-environment
 tags: story, state, play, before-each
 ---
 

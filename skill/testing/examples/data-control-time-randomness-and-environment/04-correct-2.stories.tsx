@@ -20,9 +20,9 @@ export const PickToday: Story = {
 		// [!code ++]
 		mocked(getToday).mockReturnValue("2026-03-01");
 	},
-	play: async ({ canvas, userEvent, args }) => {
-		await userEvent.click(canvas.getByRole("button", { name: "오늘" }));
+	play: async (context) => {
+		await context.userEvent.click(context.canvas.getByRole("button", { name: "오늘" }));
 
-		await expect(args.onChange).toHaveBeenCalledWith("2026-03-01");
+		await expect(context.args.onChange).toHaveBeenCalledWith("2026-03-01");
 	},
 };

@@ -16,11 +16,11 @@ type Story = StoryObj<typeof meta>;
 
 export const PickDay: Story = {
 	args: { value: "2026-05-01" },
-	play: async ({ canvas, userEvent, args }) => {
-		await userEvent.click(canvas.getByRole("button", { name: "달력 열기" }));
-		await userEvent.click(await screen.findByRole("gridcell", { name: "30" }));
+	play: async (context) => {
+		await context.userEvent.click(context.canvas.getByRole("button", { name: "달력 열기" }));
+		await context.userEvent.click(await screen.findByRole("gridcell", { name: "30" }));
 
 		// [!code ++]
-		await expect(args.onChange).toHaveBeenCalledWith("2026-05-30");
+		await expect(context.args.onChange).toHaveBeenCalledWith("2026-05-30");
 	},
 };

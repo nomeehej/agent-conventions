@@ -6,6 +6,7 @@ impactDescription: 화면 디자이너와 개발이 번호 하나로 어디까�
 appliesWhen:
   - 라이브러리를 publish하거나 릴리스 칸을 닫을 때
   - 라이브러리 변경을 코드에 반영하고 PR을 올릴 때
+reviewWith: storybook/docs-show-the-applied-library-version
 tags: release, publish, dev-mode
 ---
 

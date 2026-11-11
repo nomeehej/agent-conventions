@@ -16,8 +16,8 @@ type Story = StoryObj<typeof meta>;
 
 // [!code ++]
 export const Open: Story = {
-	play: async ({ canvas, userEvent }) => {
-		await userEvent.click(canvas.getByRole("button", { name: "달력 열기" }));
+	play: async (context) => {
+		await context.userEvent.click(context.canvas.getByRole("button", { name: "달력 열기" }));
 
 		await waitFor(() => expect(screen.getByRole("grid")).toBeVisible());
 	},

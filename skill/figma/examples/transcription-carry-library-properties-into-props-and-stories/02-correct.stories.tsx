@@ -28,26 +28,26 @@ type Story = StoryObj<typeof meta>;
 
 // [!code ++]
 export const Placeholder: Story = {
-	parameters: {design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds?node-id=40-12"}},
+	parameters: {design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds?node-id=40-12"}},
 };
 
 // [!code ++]
 export const Filled: Story = {
 	args: {value: "option-1"},
-	parameters: {design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds?node-id=40-13"}},
+	parameters: {design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds?node-id=40-13"}},
 };
 
 export const Small: Story = {
 	args: {size: "small"},
-	parameters: {design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds?node-id=40-4"}},
+	parameters: {design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds?node-id=40-4"}},
 };
 
 export const Large: Story = {
 	args: {size: "large"},
-	parameters: {design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds?node-id=40-20"}},
+	parameters: {design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds?node-id=40-20"}},
 };
 
 export const Disabled: Story = {
 	args: {disabled: true},
-	parameters: {design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds?node-id=40-15"}},
+	parameters: {design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds?node-id=40-15"}},
 };

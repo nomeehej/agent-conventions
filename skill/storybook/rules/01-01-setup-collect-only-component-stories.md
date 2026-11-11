@@ -6,6 +6,7 @@ impactDescription: CLI가 만든 예제 story, MDX, 쓰지 않는 addon이 사�
 appliesWhen:
   - `.storybook/main.ts`의 `stories`, `addons`, `framework`, `core`를 추가하거나 바꿀 때
   - Storybook 패키지나 addon을 설치, 업그레이드하거나 `storybook init`, `storybook add`를 실행할 때
+reviewWith: testing/component-fail-stories-on-accessibility-violations
 tags: setup, config, addons, versions
 ---
 

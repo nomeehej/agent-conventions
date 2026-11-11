@@ -45,6 +45,7 @@ metadata:
 TSX 화면이나 컴포넌트가 바뀌면 `convention-react`를 함께 활성화한다.
 `convention-react`가 `convention-typescript`를 켠다.
 stylesheet, `className`, 토큰 값이 바뀌면 `convention-css`를 함께 활성화한다.
+story 파일이나 story의 design 링크가 바뀌면 `convention-storybook`을 함께 활성화한다.
 Figma를 읽기만 하거나 Figma에만 쓰고 코드를 바꾸지 않으면 어느 companion도 켜지 않는다.
 
 `use_figma`를 부르기 전에 Figma 공식 `figma-use`, `figma-generate-library` 스킬을 도구 설명대로 먼저 읽는다.

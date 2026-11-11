@@ -6,6 +6,7 @@ impactDescription: 행렬로 보여 주지 못하는 조합만 예시로 남고 
 appliesWhen:
   - ❖ 페이지에 예시 frame이나 예시 칸을 만들 때
   - story를 Figma variant나 예시 칸에 대응시킬 때
+reviewWith: storybook/story-cover-every-figma-value-once
 tags: layer, example, story
 ---
 

@@ -6,6 +6,7 @@ impactDescription: Figma 값, 프롭 값, story 이름이 한 말로 이어져 �
 appliesWhen:
   - 라이브러리 master를 기준으로 `ui`, `widget` 부품을 구현하거나 고칠 때
   - 부품의 프롭이나 story 이름을 Figma 속성에 맞출 때
+reviewWith: storybook/file-name-stories-after-figma-property-values, storybook/design-link-each-story-to-its-figma-node, storybook/design-map-figma-properties-to-props-in-the-meta-box
 tags: transcription, props, story, library
 ---
 

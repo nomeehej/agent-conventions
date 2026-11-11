@@ -91,7 +91,9 @@
 				],
 				"testing": [
 					"case-derive-expectations-from-independent-contracts",
-					"vitest-assert-values-errors-and-async-completion"
+					"vitest-assert-values-errors-and-async-completion",
+					"component-run-every-story-as-a-test",
+					"component-assert-the-state-each-play-reaches"
 				]
 			}
 		},

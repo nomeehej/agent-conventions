@@ -6,6 +6,7 @@ impactDescription: 개발 서버에서만 렌더되는 story, 실행되지 않�
 appliesWhen:
   - story, `.storybook/` 설정, design 링크 작업을 마무리하거나 완료로 보고할 때
 requiredOnCompletion: true
+reviewWith: testing/component-run-every-story-as-a-test, testing/component-fail-stories-on-accessibility-violations
 tags: verify, build, test, report
 ---
 

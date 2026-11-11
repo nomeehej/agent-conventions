@@ -17,8 +17,8 @@ type Story = StoryObj<typeof meta>;
 export const PickDay: Story = {
 	args: { value: "2026-05-01" },
 	// [!code error]
-	play: async ({ canvas, userEvent }) => {
-		await userEvent.click(canvas.getByRole("button", { name: "달력 열기" }));
-		await userEvent.click(await screen.findByRole("gridcell", { name: "30" }));
+	play: async (context) => {
+		await context.userEvent.click(context.canvas.getByRole("button", { name: "달력 열기" }));
+		await context.userEvent.click(await screen.findByRole("gridcell", { name: "30" }));
 	},
 };

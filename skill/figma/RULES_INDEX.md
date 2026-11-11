@@ -1,27 +1,28 @@
 # Figma 컨벤션 Rule Index
 
 - Skill: `figma`
-- Routing digest: `sha256:790e5b75396ba82e57f89681247b5d151623d8fc7fc44a37a24b10a67160e689`
+- Routing digest: `sha256:5b7922067f52fa09cb94592f024b2ef5afb092053c30d8a921a26b7cbf23404b`
 
 ## Direct Companions
 
 - `css` (`conditional`) · Applies when: 스타일시트, \`className\`, 토큰 값을 추가하거나 수정한다. · [SKILL.md](../css/SKILL.md) · [RULES_INDEX.md](../css/RULES_INDEX.md)
 - `react` (`conditional`) · Applies when: TSX 화면이나 컴포넌트를 추가하거나 수정한다. · [SKILL.md](../react/SKILL.md) · [RULES_INDEX.md](../react/RULES_INDEX.md)
+- `storybook` (`conditional`) · Applies when: story 파일이나 story의 design 링크를 추가하거나 수정한다. · [SKILL.md](../storybook/SKILL.md) · [RULES_INDEX.md](../storybook/RULES_INDEX.md)
 
 ## Local Rules
 
 - F01-01 | file-keep-the-library-apart-from-screen-files | 화면 파일에 master를 만들거나 라이브러리 master를 복사하려 할 때. 화면 파일에서 라이브러리 인스턴스를 떼어 내 고치려 할 때. 라이브러리 변경을 화면 파일이나 코드에 전할 때.
 - F01-02 | file-mark-each-page-kind-with-one-symbol | 라이브러리 파일에 페이지를 만들거나 이름을 바꿀 때. 페이지 묶음 사이에 구분선을 넣거나 뺄 때.
-- F01-03 | file-name-component-pages-after-code-components | ❖ 페이지나 master를 만들거나 이름을 바꿀 때. 라이브러리 파일의 페이지 순서를 정하거나 바꿀 때.
+- F01-03 | file-name-component-pages-after-code-components | ❖ 페이지나 master를 만들거나 이름을 바꿀 때. 라이브러리 파일의 페이지 순서를 정하거나 바꿀 때. | reviewWith: storybook/file-title-stories-with-the-figma-page-name
 - F01-04 | file-merge-same-role-parts-into-one-master | 같은 역할의 코드 부품 둘 이상을 Figma에 그릴 때. 목차의 \`코드에만 있음\` 카드를 만들거나 고치거나 지울 때.
 - F02-01 | layer-use-sections-only-for-master-groups | ❖ 페이지에 섹션이나 frame을 만들 때. 예시, 목차, 안내, 토큰 견본을 페이지에 놓을 때.
 - F02-02 | layer-put-masters-directly-under-the-section | ❖ 페이지 섹션 안에 master, 이름표, 노트, \`\_header\`를 놓을 때. master를 frame이나 group으로 감싸려 할 때.
 - F02-03 | layer-prefix-doc-parts-and-private-masters | 문서용 부품이나 다른 master 안에서만 쓰는 부품을 만들 때. master나 레이어 이름 앞의 \`\_\`, \`.\`을 붙이거나 뗄 때.
 - F02-04 | layer-name-layers-by-role | master 안에 레이어를 만들거나 이름을 바꿀 때. master 안에 다른 부품의 인스턴스를 넣을 때.
 - F02-05 | layer-lay-variants-out-as-a-labeled-matrix | set 안 variant를 배치하거나 다시 배치할 때. 행렬 이름표, 괄호선, 칸을 그리거나 고칠 때.
-- F02-06 | layer-show-compositions-in-the-examples-frame | ❖ 페이지에 예시 frame이나 예시 칸을 만들 때. story를 Figma variant나 예시 칸에 대응시킬 때.
+- F02-06 | layer-show-compositions-in-the-examples-frame | ❖ 페이지에 예시 frame이나 예시 칸을 만들 때. story를 Figma variant나 예시 칸에 대응시킬 때. | reviewWith: storybook/story-cover-every-figma-value-once
 - F02-07 | layer-grow-masters-downward-for-attached-text | 오류, 도움말 글이 붙는 입력 master를 만들거나 고칠 때. 입력칸 옆에 이름, 단위 글자를 둘 때.
-- F03-01 | property-share-axis-names-values-and-order | master에 variant 속성을 만들거나 속성 이름, 값, 순서를 바꿀 때. variant 이름을 짓거나 바꿀 때.
+- F03-01 | property-share-axis-names-values-and-order | master에 variant 속성을 만들거나 속성 이름, 값, 순서를 바꿀 때. variant 이름을 짓거나 바꿀 때. | reviewWith: storybook/file-name-stories-after-figma-property-values
 - F03-02 | property-choose-the-type-by-what-changes | master에 속성을 더하거나 속성 종류를 바꿀 때. 아이콘이나 다른 부품이 들어갈 자리를 master에 만들 때.
 - F03-03 | property-draw-missing-states-as-marked-proposals | 코드에서 master를 그리며 코드가 정하지 않은 hover, focus, disabled 모양을 만날 때. 지금 화면이 쓰지 않는 크기나 상태를 master에 그릴 때.
 - F03-04 | property-split-states-that-break-the-grid | set에 상태나 속성 값을 더할 때. variant 수가 많아 set을 나눌지 정할 때.
@@ -33,8 +34,8 @@
 - F05-03 | note-describe-masters-with-purpose-and-code-path | master나 variant의 설명을 쓰거나 고칠 때. 목차 카드의 상태 말을 정하거나 바꿀 때.
 - F06-01 | release-version-the-whole-library-with-one-number | Changelog 줄의 변경 종류나 릴리스 번호를 정할 때. 부품마다 버전 번호를 붙이려 할 때.
 - F06-02 | release-log-changes-only-in-the-changelog-page | master를 고친 뒤 Changelog에 줄을 더할 때. 릴리스 칸을 닫거나 새 \`다음\` 칸을 열 때. 부품 페이지에 이력이나 변경 메모를 두려 할 때.
-- F06-03 | release-edit-masters-in-place-to-keep-node-ids | 기존 master나 variant를 고치거나 상태, 값을 더할 때. master를 지우거나 합치거나 이름을 바꿀 때. 릴리스 전에 바뀐 master의 node id가 그대로인지 확인할 때.
-- F06-04 | release-publish-with-the-version-and-record-it-in-code | 라이브러리를 publish하거나 릴리스 칸을 닫을 때. 라이브러리 변경을 코드에 반영하고 PR을 올릴 때.
+- F06-03 | release-edit-masters-in-place-to-keep-node-ids | 기존 master나 variant를 고치거나 상태, 값을 더할 때. master를 지우거나 합치거나 이름을 바꿀 때. 릴리스 전에 바뀐 master의 node id가 그대로인지 확인할 때. | reviewWith: storybook/design-regenerate-links-from-the-library-build
+- F06-04 | release-publish-with-the-version-and-record-it-in-code | 라이브러리를 publish하거나 릴리스 칸을 닫을 때. 라이브러리 변경을 코드에 반영하고 PR을 올릴 때. | reviewWith: storybook/docs-show-the-applied-library-version
 - F07-01 | script-read-the-official-skills-and-keep-these-names | \`use\_figma\`로 라이브러리 파일에 쓰기 시작할 때. 공식 \`figma-use\`, \`figma-generate-library\`의 기본값과 이 skill이 부딪힐 때.
 - F07-02 | script-write-one-script-at-a-time-from-one-owner | 여러 부품을 나눠 분석하거나 그릴 때. 부품을 그리다 새 변수나 스타일이 필요해질 때.
 - F07-03 | script-check-plugin-api-pitfalls-before-writing | Plugin API로 variant를 복제하거나 속성 값, 속성 순서를 바꿀 때. 변수를 칠하기에 묶거나 인스턴스, 슬롯 안 노드를 스크립트로 읽을 때. 같은 \`use\_figma\` 호출에서 만든 노드의 크기를 읽거나 글자 레이어 이름을 붙일 때.
@@ -53,6 +54,6 @@
 - F11-01 | transcription-reuse-project-components-before-new-markup | Figma 화면의 표, 탭, 페이지네이션, 입력, 버튼, 배지를 마크업으로 새로 만들 때. \`get\_design\_context\`가 준 JSX를 화면 파일에 옮길 때. | reviewWith: css/ownership-change-other-owners-through-their-api, react/strategy-avoid-boolean-prop-proliferation
 - F11-02 | transcription-do-not-copy-layer-structure | \`get\_design\_context\` 출력의 JSX, \`className\`, 인라인 SVG를 파일에 옮길 때. \`get\_design\_context\` 출력의 절대 좌표, \`rotate\`를 옮길 때. | reviewWith: css/composition-do-not-add-wrapper-elements-for-styling, css/composition-do-not-style-through-the-style-attribute
 - F11-03 | transcription-use-existing-icons-or-downloaded-assets | Figma의 아이콘, 로고, 이미지를 코드에 넣을 때. 코드에 \`figma.com/api/mcp/asset\` URL이나 손으로 쓴 SVG \`path\`가 들어갈 때.
-- F11-04 | transcription-carry-library-properties-into-props-and-stories | 라이브러리 master를 기준으로 \`ui\`, \`widget\` 부품을 구현하거나 고칠 때. 부품의 프롭이나 story 이름을 Figma 속성에 맞출 때.
-- F12-01 | verify-measure-rendered-values-before-claiming-parity | Figma 기준 구현이나 수정을 마무리하거나 완료로 보고할 때. Figma 라이브러리 파일을 고친 작업을 마무리하거나 완료로 보고할 때. | completionGate
+- F11-04 | transcription-carry-library-properties-into-props-and-stories | 라이브러리 master를 기준으로 \`ui\`, \`widget\` 부품을 구현하거나 고칠 때. 부품의 프롭이나 story 이름을 Figma 속성에 맞출 때. | reviewWith: storybook/design-link-each-story-to-its-figma-node, storybook/design-map-figma-properties-to-props-in-the-meta-box, storybook/file-name-stories-after-figma-property-values
+- F12-01 | verify-measure-rendered-values-before-claiming-parity | Figma 기준 구현이나 수정을 마무리하거나 완료로 보고할 때. Figma 라이브러리 파일을 고친 작업을 마무리하거나 완료로 보고할 때. | completionGate | reviewWith: storybook/verify-build-storybook-and-run-story-tests
 - F12-02 | verify-report-reads-decisions-and-gaps | Figma 기준 작업의 결과를 보고하거나 넘겨줄 때. | completionGate

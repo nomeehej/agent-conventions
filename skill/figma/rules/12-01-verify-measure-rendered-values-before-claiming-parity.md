@@ -7,6 +7,7 @@ appliesWhen:
   - Figma 기준 구현이나 수정을 마무리하거나 완료로 보고할 때
   - Figma 라이브러리 파일을 고친 작업을 마무리하거나 완료로 보고할 때
 requiredOnCompletion: true
+reviewWith: storybook/verify-build-storybook-and-run-story-tests
 tags: verify, parity, measurement, library
 ---
 

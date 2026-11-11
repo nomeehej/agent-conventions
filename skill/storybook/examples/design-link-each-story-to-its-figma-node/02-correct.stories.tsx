@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 export const Filled: Story = {
 	parameters: {
 		// [!code ++]
-		design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-console-ds?node-id=12-34"},
+		design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds?node-id=12-34"},
 	},
 };
 
@@ -25,6 +25,6 @@ export const Placeholder: Story = {
 	args: {value: ""},
 	parameters: {
 		// [!code ++]
-		design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-console-ds?node-id=12-35"},
+		design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds?node-id=12-35"},
 	},
 };

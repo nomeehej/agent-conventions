@@ -6,6 +6,7 @@ impactDescription: Figma 페이지, 코드 폴더, Storybook title이 한 이름
 appliesWhen:
   - ❖ 페이지나 master를 만들거나 이름을 바꿀 때
   - 라이브러리 파일의 페이지 순서를 정하거나 바꿀 때
+reviewWith: storybook/file-title-stories-with-the-figma-page-name
 tags: file, naming, page, storybook
 ---
 

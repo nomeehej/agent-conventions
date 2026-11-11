@@ -6,6 +6,7 @@ impactDescription: 부품을 바꿔 끼워도 값이 풀리지 않고 Figma 값�
 appliesWhen:
   - master에 variant 속성을 만들거나 속성 이름, 값, 순서를 바꿀 때
   - variant 이름을 짓거나 바꿀 때
+reviewWith: storybook/file-name-stories-after-figma-property-values
 tags: property, variant, naming
 ---
 

@@ -19,7 +19,7 @@ export const Placeholder: Story = {
 	parameters: {
 		// DS 1.2.0 publish 뒤 손으로 고친 노드
 		// [!code error]
-		design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-console-ds?node-id=12-53"},
+		design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds?node-id=12-53"},
 	},
 };
 
@@ -27,6 +27,6 @@ export const PlaceholderError: Story = {
 	args: {value: "", error: true, helperText: "상품명을 입력하세요"},
 	parameters: {
 		// [!code error]
-		design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-console-ds?node-id=12-52"},
+		design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds?node-id=12-52"},
 	},
 };
