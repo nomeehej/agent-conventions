@@ -1,0 +1,34 @@
+---
+title: Leave Usage Guidance to the Figma Library
+titleKo: 사용 지침은 Figma 라이브러리에 두고 Storybook에 문서 페이지를 만들지 않습니다
+impact: MEDIUM
+impactDescription: 사용 지침이 한 곳에만 있어 Figma와 Storybook의 설명이 서로 어긋나지 않습니다
+appliesWhen:
+  - MDX 문서, `autodocs` 태그, `parameters.docs`를 추가하거나 바꿀 때
+  - story 파일에 사용 지침이나 디자인 의도를 적으려 할 때
+tags: docs, mdx, autodocs, figma
+---
+
+## Leave Usage Guidance to the Figma Library
+
+**Impact: MEDIUM (사용 지침이 한 곳에만 있어 Figma와 Storybook의 설명이 서로 어긋나지 않습니다)**
+
+Storybook은 코드의 지금 모습만 보여 주고 사용 지침과 의도는 Figma 라이브러리의 안내 페이지와 master 설명에 둡니다.
+MDX 문서와 `autodocs` 태그를 두지 않고 story 파일의 주석은 코드가 말하지 않는 사실만 `//` 상자에 적습니다.
+설명 페이지가 꼭 필요하면 Storybook이 권하는 JSDoc 대신 `parameters.docs.description` 문자열을 씁니다.
+
+| 내용 | 자리 |
+| --- | --- |
+| 언제 쓰는지, 쓰지 않을 때, 문구 지침 | Figma 안내 페이지와 master 설명에 둡니다 |
+| 프롭 대응, `play`가 만드는 상태, 부모 문맥의 출처 | story 파일의 `//` 상자에 둡니다 |
+
+참고: [Storybook 문서: Autodocs](https://storybook.js.org/docs/writing-docs/autodocs#set-up-automated-documentation),
+[Storybook 문서: 설명 쓰기](https://storybook.js.org/docs/api/doc-blocks/doc-block-description#writing-descriptions).
+
+**Incorrect 1 (사용 지침을 JSDoc으로 적고 `autodocs`로 문서 페이지를 만듭니다):**
+
+<<< ../examples/docs-leave-usage-guidance-to-the-figma-library/01-incorrect.stories.tsx
+
+**Correct 1 (지침은 Figma에 두고 story 파일에는 코드가 말하지 않는 사실만 적습니다):**
+
+<<< ../examples/docs-leave-usage-guidance-to-the-figma-library/02-correct.stories.tsx

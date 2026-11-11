@@ -1,0 +1,11 @@
+src/
+├── stories/
+# [!code error]
+│   ├── text-field.stories.tsx
+# [!code error]
+│   └── form-fields.stories.tsx          text-field, date-picker story를 한 파일에
+└── component/ui/
+    ├── text-field/
+    │   └── text-field.tsx
+    └── date-picker/
+        └── date-picker.tsx

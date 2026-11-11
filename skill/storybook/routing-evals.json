@@ -1,0 +1,210 @@
+{
+	"version": 1,
+	"skill": "storybook",
+	"scenarios": [
+		{
+			"id": "SBE01-new-text-field-stories",
+			"prompt": "write the stories for the new text-field ui part in src/component/ui/text-field/text-field.stories.tsx from the Figma master on the ❖ text-field page: Value=Filled|Placeholder and State=Default|Error|Disabled, with Hover drawn only as a proposal. The props are value, error and disabled, the examples frame has a PlaceholderError cell that the product create form uses, and the field fills the product filter keyword column, so add that parent width to the existing .storybook/story-context.css; link every story to its variant node.",
+			"files": [
+				"src/component/ui/text-field/text-field.stories.tsx",
+				".storybook/story-context.css"
+			],
+			"expectedSkills": [
+				"storybook",
+				"typescript",
+				"react",
+				"css"
+			],
+			"expectedSelected": {
+				"storybook": [
+					"file-keep-one-story-file-next-to-each-component",
+					"file-title-stories-with-the-figma-page-name",
+					"file-name-stories-after-figma-property-values",
+					"story-type-meta-with-satisfies-and-put-defaults-in-args",
+					"story-reach-states-through-args-then-before-each-then-play",
+					"story-cover-every-figma-value-once",
+					"story-reproduce-parent-context-with-copied-values",
+					"design-link-each-story-to-its-figma-node",
+					"design-map-figma-properties-to-props-in-the-meta-box",
+					"verify-build-storybook-and-run-story-tests"
+				],
+				"typescript": [
+					"naming-use-consistent-file-and-symbol-naming",
+					"naming-import-by-absolute-path",
+					"docs-put-boxes-on-groups-and-blocks",
+					"docs-write-korean-comments-about-purpose-and-constraints"
+				],
+				"react": [],
+				"css": [
+					"naming-use-block-element-modifier-syntax",
+					"naming-name-elements-and-modifiers-by-role",
+					"composition-compose-classes-with-clsx",
+					"docs-close-comments-on-each-line"
+				]
+			}
+		},
+		{
+			"id": "SBE02-relink-after-library-publish",
+			"prompt": "the Figma library DS 1.2.0 publish rebuilt the text-field Placeholder and Error variants as new nodes; update .storybook/design-links.json, rewrite the design links in src/component/ui/text-field/text-field.stories.tsx with the link tool, and show 1.2.0 as the applied library version in .storybook/manager.ts. Story names, args, types and imports stay the same.",
+			"files": [
+				".storybook/design-links.json",
+				"src/component/ui/text-field/text-field.stories.tsx",
+				".storybook/manager.ts"
+			],
+			"expectedSkills": [
+				"storybook",
+				"typescript"
+			],
+			"expectedSelected": {
+				"storybook": [
+					"design-link-each-story-to-its-figma-node",
+					"design-regenerate-links-from-the-library-build",
+					"docs-show-the-applied-library-version",
+					"verify-build-storybook-and-run-story-tests"
+				],
+				"typescript": []
+			}
+		},
+		{
+			"id": "SBE03-profile-dialog-open-story",
+			"prompt": "add an Open story to the existing src/component/widget/profile-dialog/profile-dialog.stories.tsx: the dialog has no open prop and opens from its own 프로필 편집 button, its content renders into a body portal with an MUI fade, and the Figma examples frame cell is named Open. In the play, assert that the dialog showing the display name from the meta args is visible, and note in the meta box why Open needs a play. The profile already comes in through meta args.",
+			"files": [
+				"src/component/widget/profile-dialog/profile-dialog.stories.tsx"
+			],
+			"expectedSkills": [
+				"storybook",
+				"typescript",
+				"testing"
+			],
+			"expectedSelected": {
+				"storybook": [
+					"file-name-stories-after-figma-property-values",
+					"story-reach-states-through-args-then-before-each-then-play",
+					"story-cover-every-figma-value-once",
+					"design-link-each-story-to-its-figma-node",
+					"verify-build-storybook-and-run-story-tests"
+				],
+				"typescript": [
+					"values-read-objects-through-chains",
+					"docs-put-boxes-on-groups-and-blocks",
+					"docs-write-korean-comments-about-purpose-and-constraints"
+				],
+				"testing": [
+					"case-derive-expectations-from-independent-contracts",
+					"vitest-assert-values-errors-and-async-completion"
+				]
+			}
+		},
+		{
+			"id": "SBE04-add-a11y-addon-and-fix-cli-output",
+			"prompt": "after npx storybook add @storybook/addon-a11y, the CLI added the addon to .storybook/main.ts, wrote a storybook test project into .storybook/vite.config.ts and set playwright to latest in package.json. Keep the addon list to the addons in use, move the test project to test.projects in the root vite.config.ts next to unit and golden, and pin playwright to the @playwright/test version. Do not change a11y.test or any story.",
+			"files": [
+				".storybook/main.ts",
+				".storybook/vite.config.ts",
+				"vite.config.ts",
+				"package.json"
+			],
+			"expectedSkills": [
+				"storybook",
+				"typescript",
+				"testing"
+			],
+			"expectedSelected": {
+				"storybook": [
+					"setup-collect-only-component-stories",
+					"setup-keep-env-and-api-addresses-out-of-the-build",
+					"verify-build-storybook-and-run-story-tests"
+				],
+				"typescript": [],
+				"testing": [
+					"scope-place-tests-by-owner-and-separate-runner-globs"
+				]
+			}
+		},
+		{
+			"id": "SBE05-set-up-storybook-in-a-new-repository",
+			"prompt": "set up Storybook 10 in the new admin console repository after storybook init: collect only component stories in .storybook/main.ts with the addons in use, telemetry off and pinned package versions, point it to a Storybook-only .storybook/vite.config.ts with the @ alias, wrap every story in AppProviders with the global token CSS in .storybook/preview.tsx, sort the sidebar like the Figma library, show the applied DS 1.0.0 in .storybook/manager.ts, and delete the generated src/stories folder, Configure.mdx and the autodocs tag.",
+			"files": [
+				".storybook/main.ts",
+				".storybook/vite.config.ts",
+				".storybook/preview.tsx",
+				".storybook/manager.ts",
+				"package.json"
+			],
+			"expectedSkills": [
+				"storybook",
+				"typescript",
+				"react"
+			],
+			"expectedSelected": {
+				"storybook": [
+					"setup-collect-only-component-stories",
+					"setup-wrap-every-story-in-the-app-providers",
+					"setup-keep-env-and-api-addresses-out-of-the-build",
+					"setup-sort-the-sidebar-like-the-figma-file",
+					"docs-leave-usage-guidance-to-the-figma-library",
+					"docs-show-the-applied-library-version",
+					"verify-build-storybook-and-run-story-tests"
+				],
+				"typescript": [
+					"naming-import-by-absolute-path",
+					"docs-put-boxes-on-groups-and-blocks",
+					"docs-write-korean-comments-about-purpose-and-constraints"
+				],
+				"react": []
+			}
+		},
+		{
+			"id": "SBE06-gallery-story-stays-with-testing",
+			"prompt": "replace the test-only fake provider in the existing gallery story test/orders/orders.story.tsx with the already imported AppProviders. The screen, route, props, export names, comments, types, imports and CSS stay the same, and no spec or mock changes.",
+			"files": [
+				"test/orders/orders.story.tsx"
+			],
+			"expectedSkills": [
+				"testing",
+				"typescript",
+				"react"
+			],
+			"expectedSelected": {
+				"testing": [
+					"story-compose-owned-state-with-real-providers"
+				],
+				"typescript": [],
+				"react": []
+			},
+			"scopeDrift": {
+				"evidence": "the user then asks for a CSF story file src/component/widget/order-dialog/order-dialog.stories.tsx for the order-dialog widget with one story for the Figma default variant, orderId and onSave in meta args and its design link; skills add storybook.",
+				"files": [
+					"test/orders/orders.story.tsx",
+					"src/component/widget/order-dialog/order-dialog.stories.tsx"
+				],
+				"expectedSkills": [
+					"testing",
+					"typescript",
+					"react",
+					"storybook"
+				],
+				"expectedSelected": {
+					"testing": [
+						"story-compose-owned-state-with-real-providers"
+					],
+					"typescript": [
+						"naming-use-consistent-file-and-symbol-naming",
+						"naming-import-by-absolute-path"
+					],
+					"react": [],
+					"storybook": [
+						"file-keep-one-story-file-next-to-each-component",
+						"file-title-stories-with-the-figma-page-name",
+						"file-name-stories-after-figma-property-values",
+						"story-type-meta-with-satisfies-and-put-defaults-in-args",
+						"story-reach-states-through-args-then-before-each-then-play",
+						"story-cover-every-figma-value-once",
+						"design-link-each-story-to-its-figma-node",
+						"verify-build-storybook-and-run-story-tests"
+					]
+				}
+			}
+		}
+	]
+}

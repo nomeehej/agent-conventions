@@ -7,9 +7,9 @@ import Slugger from "github-slugger";
 import {generateSiteFiles} from "../src/site.js";
 import type {SiteFile} from "../src/site.js";
 
-const expectedRuleCount = 230;
-const expectedSectionCount = 57;
-const expectedSkillCount = 6;
+const expectedRuleCount = 247;
+const expectedSectionCount = 63;
+const expectedSkillCount = 7;
 
 // ----------------------------------------------------------------------------------------
 // frontmatter 키 하나의 값, 따옴표 scalar는 JSON으로 풀어 읽음

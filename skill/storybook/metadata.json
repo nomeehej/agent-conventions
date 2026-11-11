@@ -1,0 +1,45 @@
+{
+	"title": "Storybook 컨벤션",
+	"lead": "설정, story 파일과 이름, 상태 재현, design 링크, 문서와 버전, 빌드와 테스트 실행",
+	"version": "1.0.0",
+	"organization": "Agent Conventions",
+	"date": "2026년 11월",
+	"abstract": "Storybook으로 `ui`, `widget` 부품의 상태를 보여 주고 테스트하는 팀을 위한 컨벤션입니다. Figma 라이브러리의 부품 페이지, 코드 폴더, Storybook `title`을 한 이름으로 맞추고 story export 이름은 Figma 속성 값으로 짓습니다. story마다 같은 상태의 Figma 노드를 design 링크로 잇고 링크는 표에서 도구로 다시 씁니다. 설정은 부품 story만 모으고 앱과 같은 provider 안에서 렌더하며 빌드에 env 파일과 API 주소를 싣지 않습니다. 상태는 `args`, `beforeEach`, `play` 차례로 만들고 서버 데이터는 프롭으로 받아 네트워크 mock을 두지 않습니다. 사용 지침은 Figma 라이브러리에 두고 Storybook에는 코드에 반영한 라이브러리 버전을 보입니다. 마무리 전에 Storybook을 빌드하고 story 테스트를 돌려 실행 수를 보고합니다. story가 렌더하는 JSX는 React 규칙을, story 문맥 CSS는 CSS 규칙을, `play` 단언은 Testing 규칙을 함께 봅니다. 규칙 본문의 정본은 `rules/*.md`입니다.",
+	"companions": [
+		{
+			"skill": "typescript",
+			"mode": "required"
+		},
+		{
+			"skill": "react",
+			"mode": "conditional",
+			"appliesWhen": "데코레이터, `render` 함수, preview처럼 story가 렌더하는 JSX를 추가하거나 수정한다."
+		},
+		{
+			"skill": "css",
+			"mode": "conditional",
+			"appliesWhen": "story 문맥 CSS, 전역 스타일시트, 클래스 계약을 추가하거나 수정한다."
+		},
+		{
+			"skill": "testing",
+			"mode": "conditional",
+			"appliesWhen": "`play` 단언, 접근성 검사 설정, Vitest의 `storybook` project를 추가하거나 수정한다."
+		}
+	],
+	"references": [
+		"https://storybook.js.org/docs/writing-tests/integrations/vitest-addon",
+		"https://storybook.js.org/docs/writing-tests/interaction-testing",
+		"https://storybook.js.org/docs/writing-stories/play-function",
+		"https://storybook.js.org/docs/writing-tests/accessibility-testing",
+		"https://storybook.js.org/docs/writing-stories/mocking-data-and-modules/mocking-modules",
+		"https://storybook.js.org/docs/writing-stories/naming-components-and-hierarchy",
+		"https://storybook.js.org/docs/configure/user-interface/sidebar-and-urls",
+		"https://storybook.js.org/docs/configure/integration/typescript",
+		"https://storybook.js.org/docs/writing-stories/decorators",
+		"https://storybook.js.org/docs/builders/vite",
+		"https://storybook.js.org/docs/configure/environment-variables",
+		"https://storybook.js.org/docs/configure/user-interface/theming",
+		"https://storybook.js.org/docs/writing-docs/autodocs",
+		"https://github.com/storybookjs/addon-designs"
+	]
+}

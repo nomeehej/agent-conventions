@@ -1,0 +1,17 @@
+src/component/
+├── ui/
+│   ├── text-field/
+│   │   ├── text-field.tsx
+# [!code ++]
+│   │   └── text-field.stories.tsx
+│   └── date-picker/
+│       ├── date-picker.tsx
+# [!code ++]
+│       └── date-picker.stories.tsx
+└── widget/
+    └── profile-dialog/
+        ├── profile-dialog.tsx
+        ├── _profile-dialog-header.tsx
+        ├── _profile-dialog-body.tsx
+# [!code ++]
+        └── profile-dialog.stories.tsx   Header, Body를 조립한 모습만 렌더

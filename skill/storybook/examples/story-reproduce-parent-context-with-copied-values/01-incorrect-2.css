@@ -1,0 +1,6 @@
+/* .storybook/story-context.css */
+
+.storyContext__narrow {
+	/* [!code error] */
+	width: 300px;
+}

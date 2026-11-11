@@ -1001,3 +1001,28 @@ declare module "@/component/ui/select/select" {
 	}
 	export const Select: (props: SelectProps) => ReactElement;
 }
+
+// ----------------------------------------------------------------------------------------
+// Storybook 예제가 렌더하는 부품
+//
+// 서버 데이터는 화면이 조회해 프롭으로 전달 → story는 args로 수신
+// DatePicker, getToday 는 위 컴포넌트 테스트 절의 선언을 함께 씀
+// ----------------------------------------------------------------------------------------
+interface TextFieldProps {
+	label: string;
+	value: string;
+	placeholder?: string;
+	error?: boolean;
+	helperText?: string;
+	disabled?: boolean;
+	onChange: (value: string) => void;
+}
+declare module "@/component/ui/text-field/text-field" {
+	export const TextField: (props: TextFieldProps) => ReactElement;
+}
+declare module "@/component/ui/search-input/search-input" {
+	export const SearchInput: (props: SearchInputProps) => ReactElement;
+}
+declare module "@/component/widget/user-card/user-card" {
+	export const UserCard: (props: UserCardProps) => ReactElement;
+}

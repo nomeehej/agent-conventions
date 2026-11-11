@@ -1,0 +1,4 @@
+$ npm run storybook:design-links
+.storybook/design-links.json → src/component/**/*.stories.tsx
+# [!code ++]
+링크 갱신 1, 링크 삭제 1, 그대로 3, 표에 없는 story 0
