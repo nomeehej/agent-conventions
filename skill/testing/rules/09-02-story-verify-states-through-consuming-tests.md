@@ -22,7 +22,7 @@ story 파일이 있다는 이유로 자동화 integration 테스트가 있다고
 1. 구역의 대기, 빈 결과, 오류, 성공 중 변경 계약에 필요한 상태를 고릅니다.
    설계 문서의 상태 표가 있으면 그 줄을 그대로 씁니다.
 2. 공유 handler 목록을 fixture에 연결하고 덮어쓰기 handler를 요청 시작 전에 등록합니다.
-3. 초기 props와 라우트가 있는 story를 `mount`하고 반환된 locator로 범위를 좁힙니다.
+3. 초기 프롭스와 라우트가 있는 story를 `mount`하고 반환된 locator로 범위를 좁힙니다.
    Playwright 1.62부터 내장 `mount`는 `baseURL`의 gallery를 열고 `#root` locator를 돌려줍니다.
 4. GIVEN, WHEN, THEN으로 준비, 행동, 결과를 설명하고 DOM, URL, 파일 결과를 단언합니다.
 5. gallery를 포함한 테스트 빌드, 수집 목록과 그 spec의 실제 실행을 확인합니다.
@@ -35,7 +35,8 @@ gallery의 `baseURL`과 앱 E2E의 `baseURL`, 두 project의 수집 패턴을 �
 
 구역의 상태 조합은 integration에서, 실제 앱 진입과 화면 연결은 E2E에서 확인합니다.
 story에 넣은 router만으로 production 라우트 등록과 앱 초기화까지 검증했다고 하지 않습니다.
-callback 결과는 브라우저에서 기록한 값을 읽고 픽셀 결과는 별도 시각 비교 사례로 둡니다.
+`ui`, `widget`의 프롭스와 callback 호출은 component 층이 단언합니다(`component-assert-the-state-each-play-reaches`).
+구역이 받는 callback 결과는 브라우저에서 기록한 값을 읽고 픽셀 결과는 별도 시각 비교 사례로 둡니다.
 수집 목록과 실행 결과의 구분은 `verification-report-failures-flakes-and-executed-scope`를 따릅니다.
 
 참고: [Playwright 문서: story를 mount하는 컴포넌트 테스트](https://playwright.dev/docs/test-components).
@@ -48,7 +49,7 @@ callback 결과는 브라우저에서 기록한 값을 읽고 픽셀 결과는 �
 
 <<< ../examples/story-verify-states-through-consuming-tests/02-correct.test.ts
 
-**Correct (콜백 결과는 브라우저 story의 상태로 기록하고 테스트에서 읽습니다):**
+**Correct (구역이 받는 콜백 결과는 브라우저 story의 상태로 기록하고 테스트에서 읽습니다):**
 
 <<< ../examples/story-verify-states-through-consuming-tests/03-correct.story.tsx
 <<< ../examples/story-verify-states-through-consuming-tests/04-correct.test.ts

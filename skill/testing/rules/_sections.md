@@ -63,11 +63,11 @@
 **Lead:** Playwright gallery의 story, 실제 provider로 상태 구성, 소비 테스트에서 검증
 **Impact:** HIGH
 **Description:** Playwright gallery의 story는 실제 화면과 provider로 구역의 재현 가능한 상태를 만들고 integration 테스트가 소비합니다.
-브라우저 경계의 props, 콜백, 정리와 자동 단언의 책임을 구분합니다.
+브라우저 경계의 프롭스, 콜백, 정리와 자동 단언의 책임을 구분합니다.
 
 ## 10. Component Tests (component)
 **TitleKo:** 컴포넌트 테스트
 **Lead:** Storybook Vitest addon의 story 실행, play 단언, 접근성 검사
 **Impact:** HIGH
-**Description:** 부품 하나를 story로 렌더해 props, 입력, 상호작용, 접근성을 Storybook Vitest addon으로 검증합니다.
+**Description:** 부품 하나를 story로 렌더해 프롭스, 입력, 상호작용, 접근성을 Storybook Vitest addon으로 검증합니다.
 모든 story가 렌더 테스트이고 play가 만든 상태는 같은 play에서 단언하며 접근성 위반은 실패로 봅니다.

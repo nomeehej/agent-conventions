@@ -1,7 +1,7 @@
 # Testing 컨벤션 Rule Index
 
 - Skill: `testing`
-- Routing digest: `sha256:17dc60790b8828be3d2c9136e23c012d1b80fce84650aea7c5730995f8a1dcec`
+- Routing digest: `sha256:02bbed38814d3914f73db73fe40dfd038fae6511314980b5dd14f579dbaeb6a6`
 
 ## Direct Companions
 
@@ -26,7 +26,7 @@
 - T05-01 | playwright-use-semantic-and-scoped-locators | Playwright의 요소 탐색, 필터, 클릭 대상 locator를 추가하거나 바꿀 때.
 - T05-02 | playwright-wait-for-state-and-register-events-before-actions | 브라우저 테스트의 대기, 상태 단언, 요청, 다운로드, 팝업 이벤트 검사를 바꿀 때.
 - T05-03 | playwright-share-fixtures-and-page-objects-at-real-boundaries | Playwright fixture, page object, 공통 준비 helper를 만들거나 공유 범위를 바꿀 때.
-- T05-04 | playwright-prepare-state-and-exercise-the-target-journey | 브라우저 테스트의 초기 URL, 인증 준비, 이동 경로, 업로드나 다운로드 여정을 바꿀 때. 제외: story를 mount하는 integration spec의 초기 props와 라우트를 바꾸는 경우.
+- T05-04 | playwright-prepare-state-and-exercise-the-target-journey | 브라우저 테스트의 초기 URL, 인증 준비, 이동 경로, 업로드나 다운로드 여정을 바꿀 때. 제외: story를 mount하는 integration spec의 초기 프롭스와 라우트를 바꾸는 경우.
 - T06-01 | network-override-transport-and-keep-owned-logic-real | 화면 테스트의 API mock, 응답 덮어쓰기, 요청 본문 단언을 추가하거나 바꿀 때. 화면 테스트가 쓰는 공유 handler의 응답을 바꿀 때.
 - T06-02 | network-detect-unhandled-api-requests | mock 서버의 미처리 요청 정책, route fallback, handler 우선순위를 추가하거나 바꿀 때.
 - T06-03 | network-state-real-and-mocked-system-boundaries | 테스트의 실제 서버와 mock 경계를 정하거나 E2E, 인증, 저장 검증 범위를 설명할 때.
@@ -36,7 +36,7 @@
 - T07-02 | baseline-align-visual-environment-and-matcher-options | 이미지 기준값, 캡처 대상, 렌더 안정화, 비교 허용치나 matcher 설정을 바꿀 때.
 - T08-01 | verification-prove-regressions-detect-the-original-failure | 버그 재현 테스트를 추가하거나 기존 실패 테스트와 기준값을 수정할 때.
 - T08-02 | verification-report-failures-flakes-and-executed-scope | 테스트를 실행하고 그 결과를 보고할 때. 결과서, 커버리지, skip, retry, CI 종료 코드를 추가하거나 바꿀 때.
-- T09-01 | story-compose-owned-state-with-real-providers | gallery story export, harness의 provider, 초기 라우트, props와 콜백 구성을 만들거나 바꿀 때. 제외: 부품 옆 \`\*.stories.tsx\`만 바꾸는 경우.
+- T09-01 | story-compose-owned-state-with-real-providers | gallery story export, harness의 provider, 초기 라우트, 프롭스와 콜백 구성을 만들거나 바꿀 때. 제외: 부품 옆 \`\*.stories.tsx\`만 바꾸는 경우.
 - T09-02 | story-verify-states-through-consuming-tests | story를 mount하는 integration spec, gallery 실행 설정, 상태별 자동 단언을 만들거나 바꿀 때. | reviewWith: story-compose-owned-state-with-real-providers
 - T10-01 | component-run-every-story-as-a-test | 부품 옆 \`\*.stories.tsx\`에 story를 추가하거나 \`tags\`로 테스트에서 뺄 때. Vitest \`storybook\` project의 수집 범위나 story 테스트 결과를 정할 때. 제외: gallery story\(\`\*.story.tsx\`\)만 바꾸는 경우.
 - T10-02 | component-assert-the-state-each-play-reaches | story의 \`play\`를 추가하거나 \`play\`가 만든 상태의 단언을 바꿀 때. 제외: \`play\` 없이 args만 바꾸는 경우.

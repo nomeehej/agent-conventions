@@ -1,9 +1,9 @@
-// test/orders/order-dialog.integration.spec.ts
+// test/orders/order-edit-section.integration.spec.ts
 import { expect, test } from "@test/_fixture/test";
 
 test("주문을 저장하면 callback에 선택한 ID를 전달한다", async ({ mount }) => {
-	// WHEN callback 결과를 브라우저에 기록하는 story의 모달을 mount하고 저장
-	const view = await mount("orders/order-dialog/SaveResult");
+	// WHEN callback 결과를 브라우저에 기록하는 story의 구역을 mount하고 저장
+	const view = await mount("orders/order-edit-section/SaveResult");
 	await view.getByRole("button", { name: "저장", exact: true }).click();
 
 	// THEN story가 실제 callback으로 받은 주문 ID

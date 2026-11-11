@@ -4,7 +4,7 @@ titleKo: Gallery story는 실제 화면과 provider로 재현할 상태를 구�
 impact: HIGH
 impactDescription: 화면의 실제 처리 흐름을 유지하면서 상태를 작게 재현합니다
 appliesWhen:
-  - gallery story export, harness의 provider, 초기 라우트, props와 콜백 구성을 만들거나 바꿀 때
+  - gallery story export, harness의 provider, 초기 라우트, 프롭스와 콜백 구성을 만들거나 바꿀 때
   - 제외: 부품 옆 `*.stories.tsx`만 바꾸는 경우
 tags: testing, story, react
 ---
@@ -13,7 +13,7 @@ tags: testing, story, react
 
 **Impact: HIGH (화면의 실제 처리 흐름을 유지하면서 상태를 작게 재현합니다)**
 
-gallery story는 화면, 위젯의 특정 상태를 만드는 브라우저 지원 코드입니다.
+gallery story는 `page`가 소유한 화면 구역의 특정 상태를 만드는 브라우저 지원 코드입니다.
 Playwright 문서는 gallery 방식을 component testing이라 부르지만 여기서는 화면 구역 integration 층입니다.
 실제 컴포넌트와 provider를 사용하고 hook, mapper를 대체해 정답 화면을 만들지 않습니다.
 provider는 기본적으로 story가 감쌉니다.
@@ -22,15 +22,16 @@ gallery가 이미 제공하는 프로젝트에서만 story에서 빼 중복 설�
 | 구성 | 책임 |
 | --- | --- |
 | named export | 기본, 긴 이름, 선택 상태처럼 의미 있는 재현 상태 하나 |
-| props | 같은 상태의 값 차이. Node에서 넘길 때 직렬화 가능해야 합니다 |
+| `props` | `mount`가 넘기는 같은 상태의 값 차이. Node에서 넘길 때 직렬화 가능해야 합니다 |
 | router | 실제로 읽는 경로, params, search와 이동에 필요한 경계 |
 | provider | 앱과 같은 query, theme, modal 등 실제 문맥 |
 | gallery | `window.mount`, `window.unmount` 구현으로 story 발견, 렌더, 갱신과 렌더 실패의 전파 |
 
-상태를 가진 page 소유자와 우리 동작이 있는 위젯부터 story를 만듭니다.
+상태를 가진 `page` 소유자부터 story를 만듭니다.
+`ui`, `widget`의 프롭스와 콜백은 component 층이 맡으므로 gallery story로 만들지 않습니다.
 서드파티 자체의 속성이나 단순 래퍼를 모두 별도 story로 만들지 않습니다.
-콜백은 브라우저 story 안에서 만들고 결과를 DOM, URL 등 테스트가 볼 수 있는 값으로 남깁니다.
-Node spy나 함수를 props로 넘겨 브라우저에서 실행될 것으로 가정하지 않습니다.
+구역이 부모의 콜백을 받아야 하면 콜백은 브라우저 story 안에서 만들고 결과를 DOM, URL 등으로 남깁니다.
+Node spy나 함수를 `mount`의 `props`로 넘겨 브라우저에서 실행될 것으로 가정하지 않습니다.
 
 story 파일은 앱의 production 진입 경로로 가져오지 않고 테스트 gallery에서만 발견합니다.
 하나의 story에 모든 앱 여정을 붙이지 않고 세션과 라우트 트리 자체가 대상일 때만 범위를 넓힙니다.
@@ -49,6 +50,6 @@ Storybook story(`*.stories.tsx`)는 component 층이고 gallery story는 화면 
 
 <<< ../examples/story-compose-owned-state-with-real-providers/02-correct.story.tsx
 
-**Correct (같은 화면에 URL 입력만 바꾼 상태를 props로 받습니다):**
+**Correct (같은 화면에 URL 입력만 바꾼 상태를 프롭스로 받습니다):**
 
 <<< ../examples/story-compose-owned-state-with-real-providers/03-correct.story.tsx

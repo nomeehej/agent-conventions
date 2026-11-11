@@ -890,6 +890,9 @@ declare module "@/page/orders/_function/to-order-rows" {
 	}
 	export const toOrderRows: (orders: import("@/service/orders").OrderDto[]) => OrderRow[];
 }
+declare module "@/page/(main)/orders/order-edit-section" {
+	export const OrderEditSection: (props: {orderId: string; onSave: (orderId: string) => void}) => ReactElement;
+}
 
 // ----------------------------------------------------------------------------------------
 // 생성 API 예제 계약, 실제 프로젝트에서는 Kubb 산출물의 이름과 signature 확인

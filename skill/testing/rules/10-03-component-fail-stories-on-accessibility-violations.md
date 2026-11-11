@@ -17,6 +17,7 @@ tags: testing, component, accessibility
 `parameters.a11y.test`가 위반의 처리를 정합니다.
 `"error"`는 위반을 테스트 실패로 올리고 `"todo"`는 Storybook 화면에 경고로만 남깁니다.
 `"off"`는 검사하지 않으므로 쓰지 않습니다.
+규칙을 끄는 `parameters.a11y.config`와 요소를 빼는 `parameters.a11y.context`도 `"off"`처럼 쓰지 않습니다.
 설정은 `.storybook/preview`에 한 번 두고 story마다 반복하지 않습니다.
 
 | 프로젝트 | 설정 |

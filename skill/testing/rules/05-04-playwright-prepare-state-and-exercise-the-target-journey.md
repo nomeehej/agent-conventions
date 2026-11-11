@@ -5,7 +5,7 @@ impact: HIGH
 impactDescription: 불필요한 탐색을 줄이면서 라우팅과 상태 전달의 연결을 실제로 검증합니다
 appliesWhen:
   - 브라우저 테스트의 초기 URL, 인증 준비, 이동 경로, 업로드나 다운로드 여정을 바꿀 때
-  - 제외: story를 mount하는 integration spec의 초기 props와 라우트를 바꾸는 경우
+  - 제외: story를 mount하는 integration spec의 초기 프롭스와 라우트를 바꾸는 경우
 tags: testing, playwright
 ---
 

@@ -25,6 +25,8 @@ tags: testing, scope
 
 `storybook` project는 루트 vite 설정의 `test.projects`에 unit, golden과 나란히 둡니다.
 `.storybook/vite.config.ts`에 두면 Vitest가 읽지 않습니다.
+그 project는 `extends: true`로 루트 vite 설정을 물려받습니다.
+루트 `test` 설정도 물려받으므로 unit 전용 `setupFiles`, `environment`는 unit project 안에 둡니다.
 스크립트는 `--project`로 골라 둡니다.
 `--project` 없는 `vitest run`은 브라우저 project까지 함께 실행합니다.
 
