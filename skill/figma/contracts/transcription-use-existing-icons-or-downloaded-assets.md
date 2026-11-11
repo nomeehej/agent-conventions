@@ -45,4 +45,4 @@ export const PinIcon = () => {
 };
 ```
 
-> 나머지 예시와 예외는 [full rule](../rules/04-03-transcription-use-existing-icons-or-downloaded-assets.md)에 있습니다.
+> 나머지 예시와 예외는 [full rule](../rules/11-03-transcription-use-existing-icons-or-downloaded-assets.md)에 있습니다.

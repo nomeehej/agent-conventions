@@ -33,4 +33,4 @@ const productColumns = [
 ];
 ```
 
-> 나머지 예시와 예외는 [full rule](../rules/02-04-intent-implement-interactions-the-design-implies.md)에 있습니다.
+> 나머지 예시와 예외는 [full rule](../rules/09-04-intent-implement-interactions-the-design-implies.md)에 있습니다.

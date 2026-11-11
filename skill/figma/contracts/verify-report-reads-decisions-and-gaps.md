@@ -41,4 +41,4 @@ get_design_context  12:377 재고 경고 칩, 대응물 없음
 차이                2회차 기준 DRIFT 1, HARDCODED 0, VARIANT 1, MISSING 0, UNMEASURED 0
 ```
 
-> 나머지 예시와 예외는 [full rule](../rules/05-02-verify-report-reads-decisions-and-gaps.md)에 있습니다.
+> 나머지 예시와 예외는 [full rule](../rules/12-02-verify-report-reads-decisions-and-gaps.md)에 있습니다.

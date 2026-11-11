@@ -2,4 +2,4 @@
 
 **Impact: HIGH**
 
-> HIGH rule: must read the [full rule](../rules/02-01-intent-ask-when-ux-notes-and-gui-disagree.md) in full, prose and every example, before implementation or review.
+> HIGH rule: must read the [full rule](../rules/09-01-intent-ask-when-ux-notes-and-gui-disagree.md) in full, prose and every example, before implementation or review.
