@@ -13,9 +13,21 @@ JSX 이벤트 프롭에는 이름 붙인 핸들러 참조만 넘깁니다.
 **Incorrect 1 (분기와 비동기를 JSX 안에 숨깁니다):**
 
 ```tsx
+const mutationProductRemove = useProductRemove({
+	mutation: {
+		onSuccess: (_data, _variables, _onMutateResult, _context) => {
+			void navigate("/products");
+		},
+		onError: (error, _variables, _onMutateResult, _context) => {
+			setSubmitErrorMessage(toSubmitErrorMessage(error));
+		},
+	},
+});
+
 <Button
+	disabled={mutationProductRemove.isPending}
 	onClick={(_event) => {
-		if (!selectedProduct) {
+		if (!selectedProduct || mutationProductRemove.isPending) {
 			return;
 		}
 
@@ -23,7 +35,7 @@ JSX 이벤트 프롭에는 이름 붙인 핸들러 참조만 넘깁니다.
 	}}
 >
 	삭제
-</Button>
+</Button>;
 ```
 
 **Correct 1 (로직을 이름 붙인 핸들러로 뺍니다):**
@@ -31,16 +43,28 @@ JSX 이벤트 프롭에는 이름 붙인 핸들러 참조만 넘깁니다.
 ```tsx
 import type {MouseEventHandler} from "react";
 
-// 성공 뒤 이동은 mutation 콜백 담당
+const mutationProductRemove = useProductRemove({
+	mutation: {
+		onSuccess: (_data, _variables, _onMutateResult, _context) => {
+			void navigate("/products");
+		},
+		onError: (error, _variables, _onMutateResult, _context) => {
+			setSubmitErrorMessage(toSubmitErrorMessage(error));
+		},
+	},
+});
+
 const handleRemoveProductButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
-	if (!selectedProduct) {
+	if (!selectedProduct || mutationProductRemove.isPending) {
 		return;
 	}
 
 	mutationProductRemove.mutate({params: {productId: selectedProduct.id}});
 };
 
-<Button onClick={handleRemoveProductButtonClick}>삭제</Button>;
+<Button disabled={mutationProductRemove.isPending} onClick={handleRemoveProductButtonClick}>
+	삭제
+</Button>;
 ```
 
 > 나머지 예시와 예외는 [full rule](../rules/05-03-composition-named-handlers-over-inline.md)에 있습니다.

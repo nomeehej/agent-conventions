@@ -18,6 +18,8 @@ tags: data, mutation, errors
 
 뮤테이션 실패는 입력 문맥을 유지할 수 있도록 호출한 자리에서 처리합니다.
 기본은 `mutate`와 `useMutation`의 `onError`, `onSuccess`입니다.
+`mutate()`에 넘긴 콜백은 mutation이 끝나기 전에 호출한 컴포넌트가 사라지면 실행되지 않습니다.
+이동이나 무효화처럼 반드시 실행돼야 하는 처리는 `useMutation` 옵션의 콜백에 둡니다.
 핸들러에서는 호출과 중복 호출 차단만 합니다.
 
 ### 호출 방식 고르기
@@ -45,7 +47,9 @@ flowchart LR
 | 중복 실행 방지 | 버튼을 `isPending`으로 `disabled` 처리합니다. 핸들러 첫 줄에서도 `isPending`이면 이른 반환으로 끝냅니다 |
 | 성공 뒤 캐시 갱신 | `data-invalidate-queries-the-mutation-changed`를 따릅니다 |
 
-참고: [TkDodo: React Query 뮤테이션 정복, `mutate`와
+참고: [TanStack Query 문서: 뮤테이션 부수
+효과](https://tanstack.com/query/latest/docs/framework/react/guides/mutations),
+[TkDodo: React Query 뮤테이션 정복, `mutate`와
 `mutateAsync`](https://tkdodo.eu/blog/mastering-mutations-in-react-query#mutate-or-mutateasync),
 [TanStack Query 문서: 뮤테이션의
 Promise](https://tanstack.com/query/latest/docs/framework/react/guides/mutations#promises).
