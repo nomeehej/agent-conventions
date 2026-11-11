@@ -4,10 +4,11 @@
 	"scenarios": [
 		{
 			"id": "SBE01-new-text-field-stories",
-			"prompt": "write the stories for the new text-field ui part in src/component/ui/text-field/text-field.stories.tsx from the Figma master on the ❖ text-field page: Value=Filled|Placeholder and State=Default|Error|Disabled, with Hover drawn only as a proposal. The props are value, error and disabled, the examples frame has a PlaceholderError cell that the product create form uses, and the field fills the product filter keyword column, so add that parent width to the existing .storybook/story-context.css; link every story to its variant node.",
+			"prompt": "write the stories for the new text-field ui part in src/component/ui/text-field/text-field.stories.tsx from the Figma master on the ❖ text-field page: Value=Filled|Placeholder and State=Default|Error|Disabled, with Hover drawn only as a proposal. The props are value, error and disabled, the product create form uses Value=Placeholder with State=Error together, which the matrix draws as one variant, and the field fills the product filter keyword column, so add that parent width to the existing .storybook/story-context.css; add every story's row to .storybook/design-links.json and write the links with the link tool.",
 			"files": [
 				"src/component/ui/text-field/text-field.stories.tsx",
-				".storybook/story-context.css"
+				".storybook/story-context.css",
+				".storybook/design-links.json"
 			],
 			"expectedSkills": [
 				"storybook",
@@ -25,6 +26,7 @@
 					"story-cover-every-figma-value-once",
 					"story-reproduce-parent-context-with-copied-values",
 					"design-link-each-story-to-its-figma-node",
+					"design-regenerate-links-from-the-library-build",
 					"design-map-figma-properties-to-props-in-the-meta-box",
 					"verify-build-storybook-and-run-story-tests"
 				],
@@ -125,18 +127,20 @@
 		},
 		{
 			"id": "SBE05-set-up-storybook-in-a-new-repository",
-			"prompt": "set up Storybook 10 in the new admin console repository after storybook init: collect only component stories in .storybook/main.ts with the addons in use, telemetry off and pinned package versions, point it to a Storybook-only .storybook/vite.config.ts with the @ alias, wrap every story in AppProviders with the global token CSS in .storybook/preview.tsx, sort the sidebar like the Figma library, show the applied DS 1.0.0 in .storybook/manager.ts, and delete the generated src/stories folder, Configure.mdx and the autodocs tag.",
+			"prompt": "set up Storybook 10 in the new admin console repository after storybook init: collect only component stories in .storybook/main.ts with the addons in use, telemetry off and pinned package versions, point it to a Storybook-only .storybook/vite.config.ts with the @ alias, wrap every story in AppProviders with the global token CSS in .storybook/preview.tsx, sort the sidebar like the Figma library, show the applied DS 1.0.0 in .storybook/manager.ts, turn the story accessibility check on in .storybook/preview.tsx with parameters.a11y.test set to 'error' from the first story, add the storybook test project to the root vite.config.ts test.projects next to unit and golden, and delete the generated src/stories folder, Configure.mdx and the autodocs tag.",
 			"files": [
 				".storybook/main.ts",
 				".storybook/vite.config.ts",
 				".storybook/preview.tsx",
 				".storybook/manager.ts",
+				"vite.config.ts",
 				"package.json"
 			],
 			"expectedSkills": [
 				"storybook",
 				"typescript",
-				"react"
+				"react",
+				"testing"
 			],
 			"expectedSelected": {
 				"storybook": [
@@ -153,7 +157,12 @@
 					"docs-put-boxes-on-groups-and-blocks",
 					"docs-write-korean-comments-about-purpose-and-constraints"
 				],
-				"react": []
+				"react": [],
+				"testing": [
+					"scope-place-tests-by-owner-and-separate-runner-globs",
+					"component-run-every-story-as-a-test",
+					"component-fail-stories-on-accessibility-violations"
+				]
 			}
 		},
 		{
@@ -175,7 +184,7 @@
 				"react": []
 			},
 			"scopeDrift": {
-				"evidence": "the user then asks for a CSF story file src/component/widget/order-dialog/order-dialog.stories.tsx for the order-dialog widget with one story for the Figma default variant, orderId and onSave in meta args and its design link; skills add storybook.",
+				"evidence": "the user then asks for a CSF story file src/component/widget/order-dialog/order-dialog.stories.tsx for the order-dialog widget with one story that renders the meta args defaults, orderId and onSave in meta args and its design link; skills add storybook.",
 				"files": [
 					"test/orders/orders.story.tsx",
 					"src/component/widget/order-dialog/order-dialog.stories.tsx"
@@ -206,6 +215,119 @@
 						"verify-build-storybook-and-run-story-tests"
 					]
 				}
+			}
+		},
+		{
+			"id": "SBE07-panel-compound-root-story",
+			"prompt": "write src/component/ui/panel/panel.stories.tsx for the panel ui part: panel.tsx exports the Panel bundle {Root, Header, Body, Footer} from its own part files, the master has no property values, and the Figma examples frame has a HeaderAndBody cell showing a header and a body inside a Fragment. Put the Root in meta, assemble Header and Body through args.children, add no story file for the part files, add the story's row for its examples node to .storybook/design-links.json, write the link with the link tool and note the examples cell name in the meta box.",
+			"files": [
+				"src/component/ui/panel/panel.stories.tsx",
+				".storybook/design-links.json"
+			],
+			"expectedSkills": [
+				"storybook",
+				"typescript",
+				"react"
+			],
+			"expectedSelected": {
+				"storybook": [
+					"file-keep-one-story-file-next-to-each-component",
+					"file-title-stories-with-the-figma-page-name",
+					"file-name-stories-after-figma-property-values",
+					"story-type-meta-with-satisfies-and-put-defaults-in-args",
+					"story-cover-every-figma-value-once",
+					"design-link-each-story-to-its-figma-node",
+					"design-regenerate-links-from-the-library-build",
+					"verify-build-storybook-and-run-story-tests"
+				],
+				"typescript": [
+					"naming-use-consistent-file-and-symbol-naming",
+					"naming-import-by-absolute-path",
+					"docs-put-boxes-on-groups-and-blocks",
+					"docs-write-korean-comments-about-purpose-and-constraints"
+				],
+				"react": [
+					"composition-name-fragments-explicitly"
+				]
+			}
+		},
+		{
+			"id": "SBE08-nice-modal-open-story",
+			"prompt": "add the Empty story to the new src/component/widget/entry-modal/entry-modal.stories.tsx for the entry-modal widget: it is created with NiceModal.create, takes id, defaultVisible, indexName and onSubmit, and has no open prop. Open it from the meta args id and defaultVisible with no play and keep onSubmit as fn() in the meta args. The Figma master has one variant, Value=Empty, whose node id is already in .storybook/design-links.json; write the link with the link tool and note in the meta box why args open the modal.",
+			"files": [
+				"src/component/widget/entry-modal/entry-modal.stories.tsx",
+				".storybook/design-links.json"
+			],
+			"expectedSkills": [
+				"storybook",
+				"typescript"
+			],
+			"expectedSelected": {
+				"storybook": [
+					"file-keep-one-story-file-next-to-each-component",
+					"file-title-stories-with-the-figma-page-name",
+					"file-name-stories-after-figma-property-values",
+					"story-type-meta-with-satisfies-and-put-defaults-in-args",
+					"story-reach-states-through-args-then-before-each-then-play",
+					"story-cover-every-figma-value-once",
+					"design-link-each-story-to-its-figma-node",
+					"design-regenerate-links-from-the-library-build",
+					"verify-build-storybook-and-run-story-tests"
+				],
+				"typescript": [
+					"naming-use-consistent-file-and-symbol-naming",
+					"naming-import-by-absolute-path",
+					"docs-put-boxes-on-groups-and-blocks",
+					"docs-write-korean-comments-about-purpose-and-constraints"
+				]
+			}
+		},
+		{
+			"id": "SBE09-persisted-store-before-each-story",
+			"prompt": "add the TonUnit story to the existing src/component/widget/entry-modal/entry-modal.stories.tsx: the widget reads the query unit from the persisted useUnitStore, so set the unit to 'ton' in the story's beforeEach and return a function that restores the previous unit, and do not use loaders. The Figma value is Unit=Ton and its node id is already in .storybook/design-links.json; write the link with the link tool and note in the meta box why the store is set in beforeEach. The meta args and the other stories stay as they are.",
+			"files": [
+				"src/component/widget/entry-modal/entry-modal.stories.tsx",
+				".storybook/design-links.json"
+			],
+			"expectedSkills": [
+				"storybook",
+				"typescript"
+			],
+			"expectedSelected": {
+				"storybook": [
+					"file-name-stories-after-figma-property-values",
+					"story-reach-states-through-args-then-before-each-then-play",
+					"story-cover-every-figma-value-once",
+					"design-link-each-story-to-its-figma-node",
+					"design-regenerate-links-from-the-library-build",
+					"verify-build-storybook-and-run-story-tests"
+				],
+				"typescript": [
+					"docs-put-boxes-on-groups-and-blocks",
+					"docs-write-korean-comments-about-purpose-and-constraints"
+				]
+			}
+		},
+		{
+			"id": "SBE10-first-design-link-for-a-new-story",
+			"prompt": "add the Placeholder story with args value '' to the existing src/component/ui/text-field/text-field.stories.tsx; the Figma variant node for Value=Placeholder is known but .storybook/design-links.json has no row for it yet. Add the row and write the link into the story with the link tool, do not type the URL by hand. Meta, comments, imports and the other stories stay the same.",
+			"files": [
+				"src/component/ui/text-field/text-field.stories.tsx",
+				".storybook/design-links.json"
+			],
+			"expectedSkills": [
+				"storybook",
+				"typescript"
+			],
+			"expectedSelected": {
+				"storybook": [
+					"file-name-stories-after-figma-property-values",
+					"story-cover-every-figma-value-once",
+					"design-link-each-story-to-its-figma-node",
+					"design-regenerate-links-from-the-library-build",
+					"verify-build-storybook-and-run-story-tests"
+				],
+				"typescript": []
 			}
 		}
 	]

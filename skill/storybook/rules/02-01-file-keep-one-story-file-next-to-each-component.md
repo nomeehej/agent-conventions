@@ -21,6 +21,8 @@ story만 쓰는 도우미(공통 `args`, 데코레이터, `play` 조각)는 그 
 | --- | --- |
 | `ui`, `widget` 부품 | `src/component/<레이어>/<부품>/<부품>.stories.tsx` |
 | 합성 컴포넌트의 부품(`profile-dialog-header.tsx`) | 따로 두지 않습니다. 바깥 부품의 story가 조립한 모습으로 렌더합니다 |
+| 합성 컴포넌트의 meta | `component`와 `Meta` 타입은 묶음 객체가 아니라 `Root`(`Panel.Root`)입니다. Header, Body는 `args.children`으로 조립합니다 |
+| 진입 파일이 아닌 컴포넌트(반복 행, 경계 아래 내용물) | 따로 두지 않습니다. 진입 파일의 story가 그 안에서 렌더합니다 |
 | `page`와 화면 구역 | story를 두지 않습니다. 화면 integration과 앱 mock 모드가 맡습니다 |
 | gallery story(`test/**/*.story.tsx`) | `testing/story-compose-owned-state-with-real-providers`가 정합니다. CSF story와 서로 가져오지 않습니다 |
 
@@ -33,3 +35,7 @@ story만 쓰는 도우미(공통 `args`, 데코레이터, `play` 조각)는 그 
 **Correct 1 (부품 폴더마다 story 파일 하나를 부품 옆에 둡니다):**
 
 <<< ../examples/file-keep-one-story-file-next-to-each-component/02-correct.txt
+
+**Correct (합성 컴포넌트는 묶음이 아니라 `Root`를 meta에 두고 Header, Body를 `children`으로 조립합니다):**
+
+<<< ../examples/file-keep-one-story-file-next-to-each-component/03-correct.stories.tsx

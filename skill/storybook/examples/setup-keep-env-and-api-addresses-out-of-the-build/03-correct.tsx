@@ -6,9 +6,9 @@ import {AppProviders} from "@/app-providers";
 
 import "@/style/token.css";
 
-// 반환값은 story의 beforeEach에서 결정
+// 값은 story의 beforeEach에서 결정, 정하지 않은 story는 원래 구현을 씀
 // [!code ++]
-sb.mock("../src/util/date/get-today.ts");
+sb.mock("../src/util/date/get-today.ts", {spy: true});
 
 const preview: Preview = {
 	parameters: {layout: "centered"},

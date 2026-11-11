@@ -23,14 +23,14 @@ metadata:
 
 - gallery story(`test/**/*.story.tsx`)와 그것을 mount하는 spec. `convention-testing`이 맡는다
 - 화면 전체 story. 화면은 integration과 앱 mock 모드가 맡는다
-- story를 고치지 않는 부품 코드 변경
+- story를 고치지 않는 부품 코드 변경(프롭, 속성 값을 더하면 제외)
 
 적용되지 않는 규칙의 선택 사항을 새로 들여와 스스로 범위를 넓히지 않는다.
 
 `convention-typescript`는 항상 함께 활성화한다.
 데코레이터, `render`, preview처럼 story가 렌더하는 JSX를 바꿀 때만 `convention-react`를 켠다.
 story 문맥 CSS나 클래스 계약을 바꿀 때만 `convention-css`를 켠다.
-`play` 단언, 접근성 검사 설정, Vitest의 `storybook` project를 바꿀 때만 `convention-testing`을 켠다.
+`play` 단언, 접근성 검사 설정, `tags`의 `!test`, Vitest의 `storybook` project를 바꿀 때만 `convention-testing`을 켠다.
 
 ## 2. 인덱스 훑기
 

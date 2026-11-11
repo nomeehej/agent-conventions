@@ -23,7 +23,7 @@
 		{
 			"skill": "testing",
 			"mode": "conditional",
-			"appliesWhen": "`play` 단언, 접근성 검사 설정, Vitest의 `storybook` project를 추가하거나 수정한다."
+			"appliesWhen": "`play` 단언, 접근성 검사 설정, story `tags`의 `!test`, Vitest의 `storybook` project를 추가하거나 수정한다."
 		}
 	],
 	"references": [

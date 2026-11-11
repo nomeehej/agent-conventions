@@ -11,7 +11,8 @@ src/component/
 └── widget/
     └── profile-dialog/
         ├── profile-dialog.tsx
+        ├── profile-dialog-root.tsx
         ├── profile-dialog-header.tsx
         ├── profile-dialog-body.tsx
 # [!code ++]
-        └── profile-dialog.stories.tsx   Header, Body를 조립한 모습만 렌더
+        └── profile-dialog.stories.tsx   Root, Header, Body를 조립한 모습만 렌더

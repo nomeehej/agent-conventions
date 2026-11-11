@@ -25,6 +25,6 @@ export {ErrorStory as Error};
 // [!code ++]
 export const Disabled: Story = {args: {disabled: true}};
 
-// 상품 등록 폼이 쓰는 Figma examples 칸 조합
+// 상품 등록 폼이 쓰는 조합, Value=Placeholder와 State=Error를 합친 variant
 // [!code ++]
 export const PlaceholderError: Story = {args: {value: "", error: true, helperText: "상품명을 입력하세요"}};

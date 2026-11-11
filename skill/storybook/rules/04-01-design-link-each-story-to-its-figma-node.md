@@ -19,7 +19,8 @@ Figma 라이브러리에 master가 없는 부품은 링크를 두지 않고 meta
 | 링크를 두는 자리 | 가리키는 노드 |
 | --- | --- |
 | 속성 값 story | 그 값의 variant 노드입니다 |
-| 조합 story | 같은 이름의 `examples` 칸 노드입니다 |
+| 값 둘을 합친 story | 그 값들을 합친 variant 노드입니다 |
+| `examples` 칸 story | 같은 이름의 `examples` 칸 노드입니다 |
 | meta | 두지 않습니다. 모든 story가 한 노드를 가리키게 됩니다 |
 | 페이지, 섹션, 파일 | 가리키지 않습니다. 열어도 어느 상태인지 모릅니다 |
 

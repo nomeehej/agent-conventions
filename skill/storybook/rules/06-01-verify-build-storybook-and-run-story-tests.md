@@ -14,13 +14,13 @@ tags: verify, build, test, report
 
 **Impact: HIGH (개발 서버에서만 렌더되는 story, 실행되지 않은 테스트, 빠진 design 링크를 완료 보고 전에 잡습니다)**
 
-`storybook build`가 성공하고 `vitest --project=storybook`이 실패 없이 끝나야 완료로 보고합니다.
+`storybook build`가 성공하고 `vitest run --project storybook`이 실패 없이 끝나야 완료로 보고합니다.
 보고에는 아래 항목을 숫자로 적고 개발 서버에서 눈으로 본 결과로 대신하지 않습니다.
 
 | 항목 | 적을 것 |
 | --- | --- |
 | `storybook build` | 성공 여부를 적습니다 |
-| `vitest --project=storybook` | 실행, 통과, 실패 수를 적습니다. 바꾼 story 파일의 story가 실행 목록에 있는지 확인합니다 |
+| `vitest run --project storybook` | 실행, 통과, 실패 수를 적습니다. `run` 없이 돌리면 watch 모드로 끝나지 않습니다. 바꾼 story 파일의 story가 `vitest list --project storybook` 목록에 있는지 확인합니다 |
 | design 링크 | `parameters.design`이 없는 story 수를 적습니다. `코드에만 있음` 부품은 이름과 함께 따로 셉니다 |
 
 참고: [Storybook 문서: CI 실행](https://storybook.js.org/docs/writing-tests/integrations/vitest-addon#in-ci),

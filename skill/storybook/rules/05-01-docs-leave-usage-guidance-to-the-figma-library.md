@@ -15,7 +15,8 @@ tags: docs, mdx, autodocs, figma
 
 Storybook은 코드의 지금 모습만 보여 주고 사용 지침과 의도는 Figma 라이브러리의 안내 페이지와 master 설명에 둡니다.
 MDX 문서와 `autodocs` 태그를 두지 않고 story 파일의 주석은 코드가 말하지 않는 사실만 `//` 상자에 적습니다.
-설명 페이지가 꼭 필요하면 Storybook이 권하는 JSDoc 대신 `parameters.docs.description` 문자열을 씁니다.
+설명 페이지가 꼭 필요하면 `@storybook/addon-docs`를 다시 켤지 먼저 정합니다.
+`parameters.docs.description`은 그 addon의 Docs 블록이 읽으므로 addon 없이는 어디에도 보이지 않습니다.
 
 | 내용 | 자리 |
 | --- | --- |
