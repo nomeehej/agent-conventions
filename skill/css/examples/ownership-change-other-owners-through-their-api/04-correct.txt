@@ -2,6 +2,10 @@ before
   component/widget/chart-card/chart-card.tsx      product-detail 화면의 뷰모델 타입을 받음
   component/widget/chart-card/chart-card.css      productDetailPage만 내부를 덮어쓰고 있었음
 
-after
+after, 프레임워크 규약이 컴포넌트를 요구하는 표시가 있을 때
   page/product-detail/chart-card.tsx
   page/product-detail/chart-card.css  chartCard__*로 소유자 하나
+
+after, 그런 표시가 없을 때
+  page/product-detail/product-detail-page.tsx     JSX로 합침
+  page/product-detail/product-detail-page.css     productDetailPage__chart*로 합침

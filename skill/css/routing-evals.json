@@ -64,6 +64,24 @@
 			}
 		},
 		{
+			"id": "css-merge-component-blocks",
+			"prompt": "chart-card.tsx is already folded into product-detail-page.tsx as JSX; fold chart-card.css into product-detail-page.css and rename the old chartCard__root and chartCard__caption into elements of the productDetailPage block. Do not touch the TSX.",
+			"files": [
+				"src/page/product-detail/product-detail-page.css",
+				"src/page/product-detail/chart-card.css"
+			],
+			"expectedSkills": [
+				"css"
+			],
+			"expectedSelected": {
+				"css": [
+					"naming-use-block-element-modifier-syntax",
+					"naming-keep-page-block-names-traceable",
+					"ownership-give-each-file-one-block"
+				]
+			}
+		},
+		{
 			"id": "css-domain-state-class-contract",
 			"prompt": "split listButtonActive into base plus --active, add a direct clsx import, and compose with clsx() in products-page.tsx and products-page.css; do not change pseudo-states.",
 			"files": [

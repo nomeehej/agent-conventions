@@ -1,0 +1,6 @@
+/* page/product-detail/product-detail-page.css, chart-card 컴포넌트를 합친 뒤 */
+productDetailPage__root
+# [!code error]
+chartCard__root         <- 합치기 전 chart-card.css의 블록이 그대로 남음
+# [!code error]
+chartCard__caption

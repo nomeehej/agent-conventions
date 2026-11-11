@@ -1,0 +1,6 @@
+/* page/product-detail/product-detail-page.css, chart-card 컴포넌트를 합친 뒤 */
+productDetailPage__root
+# [!code ++]
+productDetailPage__chart            <- 옛 chartCard__root
+# [!code ++]
+productDetailPage__chartCaption     <- 옛 chartCard__caption

@@ -42,3 +42,11 @@ CSS 파일마다 고유한 블록 이름을 하나씩 씁니다.
 **Correct 2 (자기 CSS 파일이 있는 컴포넌트는 자기 블록 이름을 씁니다):**
 
 <<< ../examples/ownership-give-each-file-one-block/04-correct.txt
+
+**Incorrect 3 (컴포넌트를 합치고도 옛 블록 이름을 한 파일에 그대로 둡니다):**
+
+<<< ../examples/ownership-give-each-file-one-block/05-incorrect.txt
+
+**Correct 3 (합친 컴포넌트의 블록 이름 하나로 다시 짓고 옛 블록은 그 요소로 바꿉니다):**
+
+<<< ../examples/ownership-give-each-file-one-block/06-correct.txt
