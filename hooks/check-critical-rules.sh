@@ -7,11 +7,11 @@
 #   typescript/05-01  ??, || 오른쪽의 리터럴 폴백
 #   typescript/02-05  ../ 상대경로와 같은 폴더 심볼 가져오기(./ 는 심볼 없는 css 같은 파일만 허용)
 #   react/01-04       레이어 역방향 가져오기(ui→widget, page. widget→page. 루트 레이어→component, page)
+#   css/02-01         한 블록 이름을 두 파일 이상이 쓰는 것. 트리 전체 검사, 추적하지 않는 새 CSS 파일 포함
 #   css/07-02         블록__동작 형식이 아닌 @keyframes 이름
 # 응답 필드 이름 바꿔치기(react/02-04)나 래퍼 프롭 공개 범위(react/03-02)는 grep으로 못 잡아 문장으로만 남음
-# 이름 규칙의 바닥도 함께 검사
+# MEDIUM 이름 규칙의 바닥도 함께 검사
 #   react/01-02       새로 만들거나 옮긴 컴포넌트 파일 이름이 진입 파일이 아닌데 역할 낱말 하나(header.tsx)인 것
-#   css/02-01         한 블록 이름을 두 파일 이상이 쓰는 것. 트리 전체 검사
 set -u
 
 input=$(cat 2>/dev/null || true)
@@ -51,7 +51,7 @@ out=$(
 		grep -E '^src/(page|component)/.*/[a-z0-9]+\.(tsx|css)$' |
 		awk -F/ '{ name = $NF; sub(/\.(tsx|css)$/, "", name); if (name != $(NF-1)) printf "[react/01-02 역할 낱말 하나] %s  컴포넌트 이름은 무엇의 것인지 말하는 낱말을 앞에 둔다\n", $0 }'
 	# 같은 블록 이름을 두 파일이 쓰면 css/02-01 위반
-	git ls-files -z -- '*.css' 2>/dev/null | xargs -0 grep -HoE '^\.[a-z][A-Za-z0-9]*__' 2>/dev/null | sed -E 's#^([^:]+):\.([A-Za-z0-9]+)__$#\1 \2#' | sort -u |
+	{ git ls-files -z -- '*.css' 2>/dev/null; git ls-files -z --others --exclude-standard -- '*.css' 2>/dev/null; } | xargs -0 grep -HoE '^\.[a-z][A-Za-z0-9]*__' 2>/dev/null | sed -E 's#^([^:]+):\.([A-Za-z0-9]+)__$#\1 \2#' | sort -u |
 		awk '{ count[$2]++; files[$2] = files[$2] " " $1 } END { for (block in count) if (count[block] > 1) printf "[css/02-01 블록 이름 중복] %s  %s\n", block, files[block] }'
 	printf '%s\n' "$lines" | awk -F'\t' '$1 ~ /\.css$/ && match($3, /@keyframes[[:space:]]+[A-Za-z0-9_-]+/) {
 		name = substr($3, RSTART, RLENGTH); sub(/@keyframes[[:space:]]+/, "", name)
