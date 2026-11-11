@@ -33,7 +33,7 @@ flowchart LR
 | 반환 타입 | `typing-take-handler-types-from-existing-contracts`에 따라 React 별칭이나 `<래퍼 이름>Props`의 프롭 타입을 씁니다 |
 | 함수 형태 | 화살표 두 단계로 적습니다. 안쪽 함수에 별도 이름을 붙여 반환하지 않습니다 |
 | 반환 전 준비 계산이 있음 | 이때만 바깥 블록 본문을 엽니다. 반환하는 화살표는 이름을 붙이지 않습니다 |
-| `useEffectEvent` 반환 함수 | DOM 이벤트 매개변수나 커링을 덧붙이지 않습니다 |
+| `useEffectEvent` 반환 함수 | DOM 이벤트 매개변수나 커링을 덧붙이지 않습니다. JSX 이벤트 프롭에 넘길 수 없는 함수입니다(`state-use-effectevent-for-non-reactive-effect-callbacks`) |
 
 **Incorrect 1 (인라인 래퍼로 인자를 넘깁니다):**
 

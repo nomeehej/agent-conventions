@@ -1,7 +1,7 @@
 # React 컨벤션 Rule Index
 
 - Skill: `react`
-- Routing digest: `sha256:c1e720582f30b68dd34f366514c1432c7b9c695992b231347a970ce62ac8dd01`
+- Routing digest: `sha256:113e36cfe39356751f5495e34bc163bd9673d3cd5396cd4fb6e5ab5315058b07`
 
 ## Direct Companions
 
@@ -48,7 +48,7 @@
 - R07-02 | runtime-avoid-ad-hoc-loading-branches | \`Suspense\` 쿼리를 쓰는 화면 본문에 초기 로딩 반환을 추가, 변경할 때. \`isFetching\`이나 뮤테이션 \`isPending\`으로 화면을 가리는 분기를 넣을 때. | reviewWith: data-preserve-origin-chaining, screen-keep-derived-values-close, typescript/absence-expose-optional-values-instead-of-silent-fallbacks
 - R07-03 | runtime-place-error-boundaries-by-blast-radius | 오류 경계를 추가하거나 옮길 때. 화면 본문에 \`isError\` 분기나 실패 대체 화면 반환을 넣을 때. 캐시가 있는 쿼리의 재조회 실패 처리나 오류 경계의 다시 시도 연결을 바꿀 때.
 - R08-01 | state-calculate-derived-values-during-render | 현재 프롭스, 상태, search 파라미터, 응답에서 계산 가능한 값을 별도 상태와 이펙트로 동기화할 때. 파생값 동기화 이펙트를 제거할 때. | reviewWith: screen-keep-derived-values-close, state-store-derived-authority
-- R08-02 | state-choose-state-tools-by-source-of-truth | 로컬 UI, 전역 클라이언트, 서버 데이터를 새 상태 도구로 옮길 때. 합성 컴포넌트나 컴포넌트 묶음에 공유 상태를 넣을 때. 서로 다른 진짜 출처 사이에 값을 복제하거나 동기화할 때. | reviewWith: state-store-derived-authority, strategy-choose-single-composition-compound-and-variants
+- R08-02 | state-choose-state-tools-by-source-of-truth | 화면에 필터, 정렬, 페이지, 선택 같은 새 상태를 추가할 때. 로컬 UI, 전역 클라이언트, 서버 데이터를 새 상태 도구로 옮길 때. 합성 컴포넌트나 컴포넌트 묶음에 공유 상태를 넣을 때. 서로 다른 진짜 출처 사이에 값을 복제하거나 동기화할 때. | reviewWith: state-store-derived-authority, strategy-choose-single-composition-compound-and-variants
 - R08-03 | state-store-derived-authority | 여러 화면, 메뉴, 라우트 가드가 쓰는 접근 권한 같은 파생 판단을 스토어에 저장, 동기화할 때. 단일 화면에서만 쓰는 값까지 스토어로 올리려 할 때. | reviewWith: docs-explain-the-data-block-not-each-hook, state-calculate-derived-values-during-render
 - R08-04 | state-use-functional-setstate-updates | 다음 상태가 현재 상태에 의존하는 갱신을 추가, 변경할 때. 핸들러, 비동기 콜백, 연속 호출에서 \`setState\` 방식을 바꿀 때.
 - R08-05 | state-use-effectevent-for-non-reactive-effect-callbacks | 구독 이펙트가 최신 프롭, 상태 콜백을 읽어야 할 때. ref 동기화 우회, 의존성 재설치, \`useEffectEvent\`를 추가, 변경할 때. | reviewWith: docs-explain-the-data-block-not-each-hook, events-curry-extra-handler-arguments, events-run-user-actions-in-handlers-not-effects
