@@ -7,8 +7,7 @@ export const ProductTableSection = () => {
 	const responseProductRowsSuspense = useSuspenseQueries({
 		queries: [productListQueryOptions(), categoryListQueryOptions()],
 		combine: ([productResult, categoryResult]) => {
-			// 분류 응답의 id는 유일
-			// 모든 행이 같은 분류 목록 조회, Map은 한 번만 생성
+			// 분류 응답의 id는 유일 → Map 키 충돌 없음
 			const categoryById = new Map(categoryResult.data.categories.map((category) => [category.id, category]));
 
 			return {

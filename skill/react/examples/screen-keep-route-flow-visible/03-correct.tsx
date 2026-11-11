@@ -1,6 +1,7 @@
 // page/products/product-list-section.tsx
 export const ProductListSection = () => {
 	const [urlParams, setUrlParams] = useQueryStates(urlParsers);
+	const [saveErrorMessage, setSaveErrorMessage] = useState<string | null>(null);
 
 	// ----------------------------------------------------------------------------------------
 	// 상품 목록 조회와 저장 요청
@@ -21,13 +22,24 @@ export const ProductListSection = () => {
 				void queryClient.invalidateQueries({queryKey: productListQueryKey()});
 				void setUrlParams({page: 1});
 			},
+			onError: (error, _variables, _onMutateResult, _context) => {
+				setSaveErrorMessage(toSubmitErrorMessage(error));
+			},
 		},
 	});
 
-	// 저장 뒤 흐름은 mutation 콜백 담당
 	const handleProductSave: TableProps["onSave"] = (formValues) => {
+		if (mutationProductSave.isPending) {
+			return;
+		}
+
 		mutationProductSave.mutate({data: toProductSaveRequest(formValues)});
 	};
 
-	return <Table rows={responseProductListSuspense.data.items} onSave={handleProductSave} />;
+	return (
+		<Fragment>
+			{saveErrorMessage !== null && <p className={clsx("productListSection__error")}>{saveErrorMessage}</p>}
+			<Table rows={responseProductListSuspense.data.items} onSave={handleProductSave} />
+		</Fragment>
+	);
 };

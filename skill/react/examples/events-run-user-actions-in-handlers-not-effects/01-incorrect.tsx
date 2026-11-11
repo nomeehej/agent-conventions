@@ -3,6 +3,9 @@ const mutationProductCreate = useProductCreate({
 		onSuccess: (_data, _variables, _onMutateResult, _context) => {
 			void navigate("/products");
 		},
+		onError: (error, _variables, _onMutateResult, _context) => {
+			setSubmitErrorMessage(toSubmitErrorMessage(error));
+		},
 	},
 });
 
@@ -24,6 +27,14 @@ useEffect(() => {
 }, [mutationProductCreate, formValues, shouldSubmit]);
 
 const handleSaveButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
+	if (mutationProductCreate.isPending) {
+		return;
+	}
+
 // [!code error]
 	setShouldSubmit(true);
 };
+
+<Button disabled={mutationProductCreate.isPending} onClick={handleSaveButtonClick}>
+	저장
+</Button>;

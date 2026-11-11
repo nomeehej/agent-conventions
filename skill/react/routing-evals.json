@@ -243,7 +243,7 @@
 		},
 		{
 			"id": "RTE09-route-runtime-section",
-			"prompt": "extract only the tree section that renders under its own Suspense boundary, together with its local search, expanded state, and tree adapter, into a file in the route folder, implement a named selection handler from TreeProps[\"onSelectedItemsChange\"], mark the remaining page sections in JSX, and keep section assembly, Suspense boundaries, and route navigation decisions visible at the route entry while the section owns its data and interaction.",
+			"prompt": "extract only the tree content that renders under its own Suspense boundary, together with its local search, expanded state, and tree adapter, into a file in the route folder, implement a named selection handler from TreeProps[\"onSelectedItemsChange\"], list the remaining page sections in a screen-layout comment box above the return, and keep boundary placement and route navigation decisions visible at the route entry while the content component owns its data and interaction.",
 			"files": [
 				"src/page/products/products-page.tsx",
 				"src/page/products/product-tree-section.tsx"
@@ -843,6 +843,37 @@
 				],
 				"typescript": [
 					"tooling-configure-biome-to-enforce-these-rules"
+				]
+			}
+		},
+		{
+			"id": "react-url-filter-and-page",
+			"prompt": "`product-list-section.tsx`에 상태 필터 셀렉트와 이전, 다음 쪽 버튼을 붙여 줘. 새로고침하거나 링크를 보내도 같은 필터와 쪽이 열려야 하고, 목록 조회는 필터와 쪽을 키로 써. 쪽을 넘길 때 이미 보이던 목록이 대체 화면으로 깜빡이지 않게 해 줘.",
+			"files": [
+				"src/page/products/product-list-section.tsx"
+			],
+			"expectedSkills": [
+				"react",
+				"typescript"
+			],
+			"expectedSelected": {
+				"react": [
+					"data-name-query-and-mutation-bindings-consistently",
+					"composition-order-hooks-handlers-effects-then-return",
+					"state-choose-state-tools-by-source-of-truth",
+					"state-name-url-state-bindings-as-a-set",
+					"events-name-handlers-predictably",
+					"perf-defer-heavy-renders-with-measured-evidence",
+					"a11y-give-interactive-elements-an-accessible-name",
+					"docs-explain-the-data-block-not-each-hook"
+				],
+				"typescript": [
+					"types-prefer-function-variable-types-over-parameter-annotations",
+					"naming-place-owner-constants-in-the-owner-constant-folder",
+					"naming-use-consistent-file-and-symbol-naming",
+					"naming-use-direct-imports-and-public-entry-points",
+					"docs-put-boxes-on-groups-and-blocks",
+					"docs-write-korean-comments-about-purpose-and-constraints"
 				]
 			}
 		}

@@ -26,6 +26,7 @@ tags: state, effects
 | 클릭, 제출 등 사용자 액션 | 이름 붙인 핸들러에 둡니다. 이펙트로 옮기지 않습니다 |
 | Effect Event 호출 | 같은 컴포넌트의 이펙트나 다른 Effect Event 안에서만 호출합니다 |
 | Effect Event 전달 | 다른 컴포넌트, 훅, JSX 이벤트 프롭에 넘기지 않습니다 |
+| Effect Event 이름 | `handle` 접두사로 짓습니다. `on*`은 프롭 이름에만 씁니다(`events-name-handlers-predictably`) |
 
 반환 함수는 참조 동일성을 보장하지 않으며 이펙트 의존성에 넣지 않습니다.
 의존성 경고를 없애려고 반응해야 할 값까지 감싸지 않습니다.

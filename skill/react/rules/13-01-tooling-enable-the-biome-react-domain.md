@@ -62,6 +62,9 @@ tags: tooling
 플러그인 `includes`는 `**/src/**`처럼 `**/`로 시작합니다.
 Biome 2.5.15까지는 `src/**`로 적은 플러그인이 어느 파일에도 실행되지 않습니다.
 
+`one-component-per-file.grit`는 화살표 함수와 `NiceModal.create`만 셉니다.
+`memo`로 감싼 컴포넌트, 타입을 붙인 `const X: FC = …`, `function` 선언은 세지 않으므로 리뷰에서 확인합니다.
+
 ### 주석
 
 JSX 자식 자리에 글자로 적은 `//`는 `preset: "recommended"`의 `suspicious/noCommentText`가 잡습니다.
@@ -73,11 +76,12 @@ JSX 자식 자리에 글자로 적은 `//`는 `preset: "recommended"`의 `suspic
 | 켜지 않는 규칙 | 이유 |
 | --- | --- |
 | `style/useFragmentSyntax` | `recommended`에 없으며 켜면 `Fragment`를 요구하는 `react/composition-name-fragments-explicitly`와 충돌합니다 |
-| `style/useReactFunctionComponents` | 도메인 `all`에만 있고 기본 심각도가 `info`라 통과 여부를 판정하지 못합니다 |
+| `style/useReactFunctionComponents` | 도메인 `all`에만 있고 클래스 컴포넌트만 검사합니다(`componentDidCatch`를 구현한 클래스는 예외). 이 컨벤션에 클래스 컴포넌트를 막는 규칙이 없어 켜지 않습니다 |
 
 참고: [Biome 문서: 린터 도메인의 react 활성화와 규칙 목록](https://biomejs.dev/linter/domains/#react-activation),
 [Biome: noNestedComponentDefinitions](https://biomejs.dev/linter/rules/no-nested-component-definitions/javascript/),
 [Biome: noCommentText](https://biomejs.dev/linter/rules/no-comment-text/javascript/),
+[Biome: useReactFunctionComponents](https://biomejs.dev/linter/rules/use-react-function-components/),
 [Biome 문서: 린터 플러그인(GritQL)](https://biomejs.dev/linter/plugins/),
 [Biome: useFilenamingConvention의 match](https://biomejs.dev/linter/rules/use-filenaming-convention/).
 

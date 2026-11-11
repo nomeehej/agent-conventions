@@ -1,12 +1,24 @@
 import type {MouseEventHandler} from "react";
 
-// 성공 뒤 이동은 mutation 콜백 담당
+const mutationProductRemove = useProductRemove({
+	mutation: {
+		onSuccess: (_data, _variables, _onMutateResult, _context) => {
+			void navigate("/products");
+		},
+		onError: (error, _variables, _onMutateResult, _context) => {
+			setSubmitErrorMessage(toSubmitErrorMessage(error));
+		},
+	},
+});
+
 const handleRemoveProductButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
-	if (!selectedProduct) {
+	if (!selectedProduct || mutationProductRemove.isPending) {
 		return;
 	}
 
 	mutationProductRemove.mutate({params: {productId: selectedProduct.id}});
 };
 
-<Button onClick={handleRemoveProductButtonClick}>삭제</Button>;
+<Button disabled={mutationProductRemove.isPending} onClick={handleRemoveProductButtonClick}>
+	삭제
+</Button>;
