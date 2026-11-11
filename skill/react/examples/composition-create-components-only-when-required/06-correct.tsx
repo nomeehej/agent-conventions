@@ -1,4 +1,4 @@
-// page/products/_product-tree-section.tsx
+// page/products/product-tree-section.tsx: 진입 파일의 `Suspense` 아래 내용물, 사이드바 래퍼는 진입 파일의 JSX
 export const ProductTreeSection = () => {
 	const [urlParams, setUrlParams] = useQueryStates(urlParsers);
 	const [expandedItems, setExpandedItems] = useState<string[]>([]);
@@ -23,7 +23,7 @@ export const ProductTreeSection = () => {
 	};
 
 	return (
-		<section className={clsx("productsPage__sidebar")}>
+		<section className={clsx("productTreeSection__root")}>
 			{responseProductTreeSuspense.data.categoryNodes.length > 0 && (
 				<Tree
 					items={responseProductTreeSuspense.data.categoryNodes}

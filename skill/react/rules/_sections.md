@@ -38,21 +38,22 @@
 
 ## 5. Component Structure and JSX (composition)
 **TitleKo:** 컴포넌트 구조와 JSX
-**Lead:** props 읽기, 이름 붙인 핸들러, ref와 Activity, 프롭스 interface 위치, JSX 분기, 본문 순서, 파일 나누기
+**Lead:** props 읽기, 이름 붙인 핸들러, ref와 Activity, 프롭스 interface 위치, JSX 분기, 본문 순서, 컴포넌트를 만드는 조건
 **Impact:** HIGH
 **Description:** 프롭스 계약은 컴포넌트 바로 위에 선언하고 값은 `props.`로 읽어 출처를 남깁니다.
 본문은 훅, 핸들러, 이펙트, 반환 순으로 읽힙니다.
 JSX 안에는 동작을 숨기지 않습니다.
 컴포넌트를 컴포넌트 안에서 정의하지 않습니다.
+컴포넌트는 요구하는 표시가 있을 때만 만들고 파일 하나에 하나만 둡니다.
 `ref`는 실제 명령형 계약이 있을 때만 엽니다.
 `Activity`는 숨긴 상태와 DOM을 보존해야 할 때만 씁니다.
 `Fragment`와 조건부 렌더링은 형태를 하나로 고정합니다.
 
 ## 6. Screen File Discipline (screen)
 **TitleKo:** 화면 파일 규율
-**Lead:** 라우트 진입 파일의 역할, 이른 추상화 금지, 지역 컴포넌트 추출 기준, 파생값 자리
+**Lead:** 라우트 진입 파일의 역할, 이른 추상화 금지, 파생값 자리
 **Impact:** MEDIUM
-**Description:** 라우트 진입 파일에 화면 흐름을 드러내고 상태나 비동기를 직접 소유한 섹션만 추출합니다.
+**Description:** 라우트 진입 파일에 화면 흐름과 경계 배치를 드러냅니다.
 파생값은 사용처에서 계산하고 필요가 확인되기 전에 분리하지 않습니다.
 
 ## 7. Runtime Boundaries (runtime)

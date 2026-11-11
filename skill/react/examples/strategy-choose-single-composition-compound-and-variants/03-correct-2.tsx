@@ -1,4 +1,4 @@
-// component/widget/profile-dialog/_profile-dialog-root.tsx
+// component/widget/profile-dialog/profile-dialog-root.tsx
 import {clsx} from "clsx";
 
 export interface ProfileDialogRootProps {

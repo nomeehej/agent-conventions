@@ -1,16 +1,11 @@
-// component/ui/badge/badge.tsx: 칩까지 한 파일에 두고 타입은 위쪽에 모음
-interface BadgeProps {
-	label: string;
+// component/widget/product-status-badge/product-status-badge.tsx
+// [!code error]
+interface ProductStatusBadgeProps {
+	status: ProductStatus;
 }
 
-interface ChipProps {
-	label: string;
-}
+const product_status_badge_label = {draft: "초안", active: "판매 중", hidden: "숨김"} as const;
 
-export const Badge = (props: BadgeProps) => {
-	return <span className={clsx("badge__root")}>{props.label}</span>;
-};
-
-export const Chip = (props: ChipProps) => {
-	return <span className={clsx("chip__root")}>{props.label}</span>;
+export const ProductStatusBadge = (props: ProductStatusBadgeProps) => {
+	return <span className={clsx("productStatusBadge__root")}>{product_status_badge_label[props.status]}</span>;
 };

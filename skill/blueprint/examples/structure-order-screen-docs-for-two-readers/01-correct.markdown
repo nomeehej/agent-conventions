@@ -77,7 +77,7 @@ Design. Figma 10-02, spec 10-01, 데모 3.
 | 1 | 조건 칸 3개 | 상태 select, 기간, 고객명. 빈 칸 = 조건 없음 | [![](../img/figma.svg) 12:350](https://www.figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=12-350) |
 | 2 | 적용, 초기화 | 적용 = 주소에 반영 → 목록 조회. 초기화 = 빈 칸으로 | [![](../img/figma.svg) 12:356](https://www.figma.com/design/Ab12Cd34Ef56Gh78Ij90Kl/admin?node-id=12-356) |
 
-```text [src/page/orders/_condition-popover.tsx]
+```text [src/page/orders/condition-popover.tsx]
 ├── ConditionPopover   // 적용, 초기화. 입력 중 값은 폼
 └── ConditionFields    // 조건 칸 3개
 ```
@@ -160,8 +160,8 @@ flowchart LR
 
 ```text [src/page/orders/]
 ├── orders-page.tsx            // 진입. 표 경계
-├── _condition-popover.tsx     // 조건
-└── _orders-table.tsx          // 표, 페이지
+├── condition-popover.tsx     // 조건
+└── orders-table.tsx          // 표, 페이지
 ```
 
 ::part[Check]

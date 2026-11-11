@@ -1,4 +1,4 @@
-// component/ui/tabs/_tabs-root.tsx
+// component/ui/tabs/tabs-root.tsx
 import {TabsContext} from "@/component/ui/tabs/_hook/use-tabs";
 
 export interface TabsRootProps {

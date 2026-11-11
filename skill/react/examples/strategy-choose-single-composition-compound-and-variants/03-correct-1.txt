@@ -1,5 +1,5 @@
 component/widget/profile-dialog/
 ├── profile-dialog.tsx                 진입. 부품을 모아 공개
-├── _profile-dialog-root.tsx           부품마다 자기 파일에 프롭스를 선언
-├── _profile-dialog-header.tsx
-└── _profile-dialog-body.tsx
+├── profile-dialog-root.tsx           부품마다 자기 파일에 프롭스를 선언
+├── profile-dialog-header.tsx
+└── profile-dialog-body.tsx

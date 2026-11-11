@@ -1,5 +1,5 @@
 // [!code ++]
-// page/products/_delete-product-button.tsx
+// page/products/delete-product-button.tsx
 // [!code ++]
 export const DeleteProductButton = () => {
 	const navigate = useNavigate();

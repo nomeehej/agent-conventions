@@ -1,4 +1,4 @@
-// component/ui/panel/_panel-root.tsx
+// component/ui/panel/panel-root.tsx
 import {clsx} from "clsx";
 
 export interface PanelRootProps {

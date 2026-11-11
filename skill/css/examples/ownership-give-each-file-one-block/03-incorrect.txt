@@ -1,3 +1,3 @@
-/* page/product-detail/_chart-card.css */
+/* page/product-detail/chart-card.css */
 # [!code error]
 productDetailPage__chartCard

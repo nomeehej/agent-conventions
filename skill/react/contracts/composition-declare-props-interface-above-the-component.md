@@ -3,15 +3,13 @@
 **Impact: MEDIUM (계약과 구현을 일정한 순서로 읽을 수 있습니다)**
 
 프롭스는 `<컴포넌트 이름>Props`라는 `interface`로 선언하고 해당 컴포넌트 바로 위에 둡니다.
-파일 상단에 프롭스 타입을 따로 모으지 않습니다.
+프롭스 타입을 파일 맨 위에 따로 두지 않습니다.
 
 | 상황 | 선언과 공개 위치 |
 | --- | --- |
-| 다른 파일에서 사용하는 컴포넌트 | 사용처가 계약을 참조하도록 프롭스 `interface`를 `export`합니다 |
-| 같은 파일 안에서만 쓰는 화면 지역 컴포넌트 | 프롭스 `interface`를 `export`하지 않습니다 |
+| 컴포넌트 | 프롭스 `interface`를 `export`합니다. 파일 하나에 컴포넌트 하나라 사용처는 늘 다른 파일입니다 |
 | 합성 부품의 프롭스 형태가 완전히 같음 | 공통 이름 하나로 공유합니다. 모두 `{children}`인 `SectionRoot`, `SectionHeader`, `SectionFooter`는 `SectionProps`를 씁니다 |
-| 공유하는 부품이 한 파일에 있음 | 공유 `interface`를 첫 부품 위에 둡니다 |
-| 공유하는 부품이 여러 파일에 나뉨 | 공유 `interface`를 소유자 `_type` 폴더에 둡니다 |
+| 공유하는 `interface` | 부품이 파일마다 나뉘므로 소유자 `_type` 폴더에 둡니다 |
 
 `interface`를 컴포넌트 바로 위에 붙여 계약을 먼저 읽게 합니다.
 설명할 것이 있으면 그 위에 상자를 둡니다.
@@ -21,37 +19,33 @@
 참고: [React TypeScript Cheatsheet: 타입과
 인터페이스](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/basic_type_example/).
 
-**Incorrect 1 (파일 위쪽에 타입을 모으고 내보내지 않습니다):**
+**Incorrect 1 (프롭스와 컴포넌트 사이에 상수가 끼고 프롭스를 내보내지 않습니다):**
 
 ```tsx
-// component/ui/badge/badge.tsx: 칩까지 한 파일에 두고 타입은 위쪽에 모음
-interface BadgeProps {
-	label: string;
+// component/widget/product-status-badge/product-status-badge.tsx
+interface ProductStatusBadgeProps {
+	status: ProductStatus;
 }
 
-interface ChipProps {
-	label: string;
-}
+const product_status_badge_label = {draft: "초안", active: "판매 중", hidden: "숨김"} as const;
 
-export const Badge = (props: BadgeProps) => {
-	return <span className={clsx("badge__root")}>{props.label}</span>;
-};
-
-export const Chip = (props: ChipProps) => {
-	return <span className={clsx("chip__root")}>{props.label}</span>;
+export const ProductStatusBadge = (props: ProductStatusBadgeProps) => {
+	return <span className={clsx("productStatusBadge__root")}>{product_status_badge_label[props.status]}</span>;
 };
 ```
 
-**Correct 1 (컴포넌트 파일마다 계약을 바로 위에 선언하고 내보냅니다):**
+**Correct 1 (상수는 파일 위쪽에 두고 프롭스는 컴포넌트 바로 위에서 내보냅니다):**
 
 ```tsx
-// component/ui/badge/badge.tsx
-export interface BadgeProps {
-	label: string;
+// component/widget/product-status-badge/product-status-badge.tsx
+const product_status_badge_label = {draft: "초안", active: "판매 중", hidden: "숨김"} as const;
+
+export interface ProductStatusBadgeProps {
+	status: ProductStatus;
 }
 
-export const Badge = (props: BadgeProps) => {
-	return <span className={clsx("badge__root")}>{props.label}</span>;
+export const ProductStatusBadge = (props: ProductStatusBadgeProps) => {
+	return <span className={clsx("productStatusBadge__root")}>{product_status_badge_label[props.status]}</span>;
 };
 ```
 

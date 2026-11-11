@@ -1,5 +1,5 @@
 // [!code error]
-// component/widget/product-toolbar/_product-toolbar-delete-button.tsx
+// component/widget/product-toolbar/product-toolbar-delete-button.tsx
 // [!code error]
 export const ProductToolbarDeleteButton = () => {
 	const navigate = useNavigate();

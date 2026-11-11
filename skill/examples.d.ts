@@ -515,6 +515,7 @@ interface ProductTableSectionProps {
 }
 declare const ProductTableSection: (props: ProductTableSectionProps) => ReactElement;
 declare const ProductTreeSection: () => ReactElement;
+declare const DeleteProductButton: (props: {productId: string}) => ReactElement;
 
 // ----------------------------------------------------------------------------------------
 // 예제 세계관: API 클라이언트, 생성된 쿼리 훅, 뮤테이션, 스토어
@@ -766,16 +767,16 @@ declare module "@/component/ui/line-chart/_type/chart-series" {
 declare module "@/component/ui/line-chart/line-chart" {
 	export const LineChart: LineChartComponent;
 }
-declare module "@/component/ui/panel/_panel-body" {
+declare module "@/component/ui/panel/panel-body" {
 	export const PanelBody: PanelPartComponent;
 }
-declare module "@/component/ui/panel/_panel-footer" {
+declare module "@/component/ui/panel/panel-footer" {
 	export const PanelFooter: PanelPartComponent;
 }
-declare module "@/component/ui/panel/_panel-header" {
+declare module "@/component/ui/panel/panel-header" {
 	export const PanelHeader: PanelPartComponent;
 }
-declare module "@/component/ui/panel/_panel-root" {
+declare module "@/component/ui/panel/panel-root" {
 	export const PanelRoot: PanelPartComponent;
 }
 declare module "@/component/ui/panel/panel" {
@@ -795,7 +796,7 @@ declare module "@/component/ui/tabs/tabs" {
 declare module "@/component/widget/product-table/product-table" {
 	export const ProductTable: (props: ProductTableProps) => ReactElement;
 }
-declare module "@/component/widget/product-toolbar/_product-toolbar-root" {
+declare module "@/component/widget/product-toolbar/product-toolbar-root" {
 	export const ProductToolbarRoot: (props: {children?: ReactNode}) => ReactElement;
 }
 declare module "@/component/widget/product-toolbar/product-toolbar" {
@@ -803,13 +804,13 @@ declare module "@/component/widget/product-toolbar/product-toolbar" {
 		Root: (props: {children?: ReactNode}) => ReactElement;
 	};
 }
-declare module "@/component/widget/profile-dialog/_profile-dialog-body" {
+declare module "@/component/widget/profile-dialog/profile-dialog-body" {
 	export const ProfileDialogBody: ProfileDialogPartComponent;
 }
-declare module "@/component/widget/profile-dialog/_profile-dialog-header" {
+declare module "@/component/widget/profile-dialog/profile-dialog-header" {
 	export const ProfileDialogHeader: ProfileDialogPartComponent;
 }
-declare module "@/component/widget/profile-dialog/_profile-dialog-root" {
+declare module "@/component/widget/profile-dialog/profile-dialog-root" {
 	export const ProfileDialogRoot: ProfileDialogPartComponent;
 }
 declare module "@/config/env" {
@@ -839,10 +840,10 @@ declare module "@/page/product-detail/_function/to-summary" {
 declare module "@/page/(main)/product-detail/product-detail-page" {
 	export const ProductDetailPage: () => ReactElement;
 }
-declare module "@/page/product-detail/product-table-section/_review-section" {
+declare module "@/page/product-detail/review-section" {
 	export const ReviewSection: () => ReactElement;
 }
-declare module "@/page/product-detail/product-table-section/product-table-section" {
+declare module "@/page/product-detail/product-table-section" {
 	export const ProductTableSection: ProductTableSectionComponent;
 }
 declare module "@/page/profile/_function/to-profile-save-request" {

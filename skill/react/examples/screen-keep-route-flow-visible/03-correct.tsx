@@ -1,4 +1,4 @@
-// page/products/_product-list-section.tsx
+// page/products/product-list-section.tsx
 export const ProductListSection = () => {
 	const [urlParams, setUrlParams] = useQueryStates(urlParsers);
 

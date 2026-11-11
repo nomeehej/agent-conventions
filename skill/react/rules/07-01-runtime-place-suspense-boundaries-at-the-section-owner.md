@@ -8,7 +8,7 @@ appliesWhen:
   - `Suspense` 경계를 추가하거나 옮길 때
 requiresSelected: runtime-avoid-ad-hoc-loading-branches
 reviewWith: >-
-  screen-extract-local-section-components-for-runtime-boundaries,
+  composition-create-components-only-when-required,
   runtime-place-error-boundaries-by-blast-radius,
   css/layout-keep-layout-intent-explicit
 tags: screen, suspense, loading
@@ -30,7 +30,7 @@ flowchart LR
 
 | 상황 | 경계 위치 |
 | --- | --- |
-| 섹션이 있고 함께 채워져도 됨 | 라우트 진입에 경계 하나 |
+| 섹션이 있고 함께 채워져도 됨 | 라우트 진입에 경계 하나. 섹션들은 그 아래 내용물 컴포넌트 하나의 JSX입니다 |
 | 섹션이 따로 없어 라우트 진입이 직접 쿼리를 호출함 | 해당 라우트의 레이아웃 또는 상위 라우트 |
 | 섹션이 독립적으로 채워져야 함 | 이때만 경계를 나눕니다. 한 화면에 불필요하게 여러 겹 쌓지 않습니다 |
 

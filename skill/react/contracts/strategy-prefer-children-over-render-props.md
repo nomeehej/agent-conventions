@@ -45,7 +45,7 @@ export const Panel = (props: PanelProps) => {
 **Correct 1 (틀 부품이 `children`으로 사용처가 넣을 자리를 엽니다):**
 
 ```tsx
-// component/ui/panel/_panel-root.tsx
+// component/ui/panel/panel-root.tsx
 import {clsx} from "clsx";
 
 export interface PanelRootProps {

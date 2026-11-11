@@ -1,4 +1,4 @@
-// component/widget/product-toolbar/_product-toolbar-root.tsx
+// component/widget/product-toolbar/product-toolbar-root.tsx
 export interface ProductToolbarRootProps {
 	children: ReactNode;
 }

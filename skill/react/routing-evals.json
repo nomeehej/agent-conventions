@@ -258,10 +258,9 @@
 					"ownership-place-owner-files-in-role-folders",
 					"typing-take-handler-types-from-existing-contracts",
 					"composition-read-props-without-destructuring",
-					"composition-split-owner-parts-only-for-runtime-boundaries",
+					"composition-create-components-only-when-required",
 					"screen-keep-route-flow-visible",
 					"screen-avoid-premature-abstraction",
-					"screen-extract-local-section-components-for-runtime-boundaries",
 					"runtime-place-suspense-boundaries-at-the-section-owner",
 					"runtime-avoid-ad-hoc-loading-branches",
 					"events-name-handlers-predictably",
@@ -665,7 +664,7 @@
 				"react": [
 					"ownership-name-component-files-after-their-symbols",
 					"ownership-place-owner-files-in-role-folders",
-					"composition-split-owner-parts-only-for-runtime-boundaries",
+					"composition-create-components-only-when-required",
 					"docs-describe-jsx-blocks-above-the-return"
 				],
 				"typescript": [

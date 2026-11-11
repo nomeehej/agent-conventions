@@ -1,4 +1,4 @@
-// component/widget/profile-dialog/_profile-dialog-root.tsx
+// component/widget/profile-dialog/profile-dialog-root.tsx
 
 // ----------------------------------------------------------------------------------------
 // 대화상자 부품이 나눠 읽는 접힘 상태, toggleBody는 헤더가 호출

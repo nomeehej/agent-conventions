@@ -8,7 +8,7 @@ appliesWhen:
   - 화면 섹션 조립의 순서나 소유자를 바꿀 때
   - 제외: 같은 소유자 안에서 표현만 바꾸는 경우
 reviewWith: >-
-  screen-extract-local-section-components-for-runtime-boundaries,
+  composition-create-components-only-when-required,
   ownership-place-owner-files-in-role-folders
 tags: screen, routes, flow
 ---

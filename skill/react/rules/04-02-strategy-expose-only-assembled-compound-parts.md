@@ -24,6 +24,10 @@ tags: strategy, composition
 | 부품 안쪽에서 자기 DOM을 꾸미기만 하는 래퍼, 사용처가 내용을 넣지 않는 내부 구조 | 공개하지 않습니다 |
 | 여백 보정용 DOM | `css/composition-do-not-add-wrapper-elements-for-styling`에 따라 만들지 않습니다 |
 
+공개 부품은 같은 폴더의 자기 파일에 두고 진입 파일이 묶음 객체 하나로 내보냅니다.
+폴더 밖에서는 이 묶음 객체로만 부품을 쓰고 부품 파일을 직접 가져오지 않습니다.
+가져오기 경계는 `ownership-keep-component-imports-flowing-downward`를 따릅니다.
+
 참고: [Hyrum의 법칙](https://www.hyrumslaw.com/).
 
 **Incorrect 1 (내부 구조를 전부 공개해 계약으로 굳힙니다):**

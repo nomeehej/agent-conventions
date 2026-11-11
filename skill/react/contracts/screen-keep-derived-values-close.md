@@ -63,4 +63,4 @@ export const ProductTableSection = () => {
 };
 ```
 
-> 나머지 예시와 예외는 [full rule](../rules/06-04-screen-keep-derived-values-close.md)에 있습니다.
+> 나머지 예시와 예외는 [full rule](../rules/06-03-screen-keep-derived-values-close.md)에 있습니다.

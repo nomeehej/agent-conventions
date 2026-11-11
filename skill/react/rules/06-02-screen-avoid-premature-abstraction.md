@@ -7,7 +7,7 @@ appliesWhen:
   - 화면 코드를 보조 함수, 훅, 컴포넌트, 모듈로 추출할 때
   - 한 곳에서만 쓰는 기존 추상화를 다시 접어 넣을 때
 reviewWith: >-
-  screen-extract-local-section-components-for-runtime-boundaries,
+  composition-create-components-only-when-required,
   typescript/functions-extract-helpers-only-when-the-boundary-is-real
 tags: screen
 ---
@@ -35,7 +35,7 @@ tags: screen
 
 | 추출 대상 | 허용 경계 |
 | --- | --- |
-| 컴포넌트 | `screen-extract-local-section-components-for-runtime-boundaries` |
+| 컴포넌트 | `composition-create-components-only-when-required` |
 | 함수 | `typescript/functions-extract-helpers-only-when-the-boundary-is-real` |
 | 훅 | `ownership-prefer-plain-ts-for-local-react-helpers` |
 

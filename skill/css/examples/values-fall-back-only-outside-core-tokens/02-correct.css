@@ -4,7 +4,7 @@
 	--app-color-text-primary: #212529;
 }
 
-/* src/page/orders/_order-filter-dialog.css */
+/* src/page/orders/order-filter-dialog.css */
 .orderFilterDialog__panel {
 	gap: var(--app-space-inline);
 	color: var(--app-color-text-primary);

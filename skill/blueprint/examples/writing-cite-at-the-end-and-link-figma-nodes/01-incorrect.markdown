@@ -1,4 +1,4 @@
-- 8949:46508 프레임의 조건 팝오버는 src/page/orders/_condition-popover.tsx 46번째 줄의 폭을 따름
+- 8949:46508 프레임의 조건 팝오버는 src/page/orders/condition-popover.tsx 46번째 줄의 폭을 따름
 - 툴팁 문구는 8949:46512, 8949:46513, 8949:46514 세 노드
 
 | # | Part | Rule | Figma |

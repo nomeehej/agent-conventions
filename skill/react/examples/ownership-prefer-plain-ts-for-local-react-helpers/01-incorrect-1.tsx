@@ -1,4 +1,4 @@
-// page/products/_media-upload-panel.tsx
+// page/products/media-upload-panel.tsx
 // [!code error]
 import {useMediaUploadPayload} from "@/page/products/_hook/use-media-upload-payload";
 

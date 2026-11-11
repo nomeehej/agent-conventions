@@ -1,5 +1,5 @@
 // [!code error]
-// page/product-detail/_product-status-badge.tsx
+// page/product-detail/product-status-badge.tsx
 export interface ProductStatusBadgeProps {
 	status: ProductStatus;
 	children: ReactNode;

@@ -1,4 +1,4 @@
-// page/products/_product-tree-section.tsx
+// page/products/product-tree-section.tsx
 export const ProductTreeSection = () => {
 	// ----------------------------------------------------------------------------------------
 	// 사이드바 분류 트리 조회, 멈추는 동안은 진입 파일의 경계가 처리

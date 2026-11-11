@@ -4,5 +4,5 @@ export interface ChartSeries {
 	points: ChartPoint[];
 }
 
-// page/product-detail/product-table-section/_function/to-chart-option.ts
+// page/product-detail/_function/to-chart-option.ts
 import type {ChartSeries} from "@/type/chart-series";
