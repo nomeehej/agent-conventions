@@ -33,10 +33,10 @@
 		},
 		{
 			"id": "RTE02-owner-placement-css-drift",
-			"prompt": "move a route-only tree renderer from shared UI to src/page/products/_product-tree.tsx and rename it as owner-private; carry its existing className and style import through unchanged and make no styling change.",
+			"prompt": "move a route-only tree renderer from shared UI to src/page/products/product-tree.tsx and name it for the route folder; carry its existing className and style import through unchanged and make no styling change.",
 			"files": [
 				"src/component/ui/product-tree/product-tree.tsx",
-				"src/page/products/_product-tree.tsx"
+				"src/page/products/product-tree.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -57,11 +57,11 @@
 				]
 			},
 			"scopeDrift": {
-				"evidence": "in a project without a CSS Modules standard, add directly imported src/page/products/_product-tree.css, create owner-unique productTree__* role-named classes, and compose the changed className contract with the existing direct clsx import; final skills add CSS with no additional React rule.",
+				"evidence": "in a project without a CSS Modules standard, add directly imported src/page/products/product-tree.css, create owner-unique productTree__* role-named classes, and compose the changed className contract with the existing direct clsx import; final skills add CSS with no additional React rule.",
 				"files": [
 					"src/component/ui/product-tree/product-tree.tsx",
-					"src/page/products/_product-tree.tsx",
-					"src/page/products/_product-tree.css"
+					"src/page/products/product-tree.tsx",
+					"src/page/products/product-tree.css"
 				],
 				"expectedSkills": [
 					"react",
@@ -243,10 +243,10 @@
 		},
 		{
 			"id": "RTE09-route-runtime-section",
-			"prompt": "extract only the tree section that owns local search and expanded state plus a tree adapter into the owner component folder, implement a named selection handler from TreeProps[\"onSelectedItemsChange\"], mark the remaining page sections in JSX, and keep section assembly, Suspense boundaries, and route navigation decisions visible at the route entry while the section owns its data and interaction.",
+			"prompt": "extract only the tree section that renders under its own Suspense boundary, together with its local search, expanded state, and tree adapter, into a file in the route folder, implement a named selection handler from TreeProps[\"onSelectedItemsChange\"], mark the remaining page sections in JSX, and keep section assembly, Suspense boundaries, and route navigation decisions visible at the route entry while the section owns its data and interaction.",
 			"files": [
 				"src/page/products/products-page.tsx",
-				"src/page/products/_product-tree-section.tsx"
+				"src/page/products/product-tree-section.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -365,7 +365,7 @@
 			"id": "RTE13-heavy-search",
 			"prompt": "for a 50k-row search, directly import newly used React hooks, use lazy initialization, urgent input plus deferred result, a non-urgent category transition, and only evidence-backed memoization; update the constraint comment.",
 			"files": [
-				"src/page/products/_product-search.tsx"
+				"src/page/products/product-search.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -392,7 +392,7 @@
 			"id": "RTE14-subscription-effectevent",
 			"prompt": "directly import useEffectEvent, replace only a socket subscription latest-callback ref-sync hack with a named handleMessage = useEffectEvent(...), and update the subscription effect header comment box; do not change click or submit actions.",
 			"files": [
-				"src/page/products/_product-socket.tsx"
+				"src/page/products/product-socket.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -444,11 +444,11 @@
 		},
 		{
 			"id": "RTE16-private-component-import-direction",
-			"prompt": "two sibling files under src/page/detail/product-table-section/ import each other's legend row through ../; make the panel own the shared legend row and pass it down as an element prop, and remove the sibling and @/page component imports.",
+			"prompt": "review-section.tsx and product-summary.tsx in src/page/product-detail/ import a legend row from a product-table-section/ sub-folder through ../; flatten that folder into the route folder, make product-table-section.tsx own the legend row and pass it down as an element prop, and remove the relative component imports.",
 			"files": [
-				"src/page/detail/product-table-section/product-table-section.tsx",
-				"src/page/detail/product-table-section/_review-section.tsx",
-				"src/page/detail/product-table-section/_product-summary.tsx"
+				"src/page/product-detail/product-table-section.tsx",
+				"src/page/product-detail/review-section.tsx",
+				"src/page/product-detail/product-summary.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -470,7 +470,7 @@
 			"id": "RTE17-chart-lifecycle-ownership",
 			"prompt": "the ECharts init, resize listener, and dispose currently sit in src/component/widget/chart/_hook/use-chart-instance.ts only to shorten the component; fold that lifecycle back into the owning chart root and leave the domain option builder in function/.",
 			"files": [
-				"src/component/widget/chart/chart-root/chart-root.tsx",
+				"src/component/widget/chart/chart-root.tsx",
 				"src/component/widget/chart/_hook/use-chart-instance.ts",
 				"src/component/widget/chart/_function/to-chart-option.ts"
 			],
@@ -559,7 +559,7 @@
 			"id": "react-query-jsx-map-near-miss",
 			"prompt": "Replace only ProductList receiving responseProductListSuspense.data.items with a direct items.map that renders an h3 keyed by item.id and displaying item.label. The query select already provides the final items; do not reshape data, alter the query declaration, introduce aliases, or change styles.",
 			"files": [
-				"src/page/products/_product-list-section.tsx"
+				"src/page/products/product-list-section.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -576,7 +576,7 @@
 			"id": "react-user-refresh-near-miss",
 			"prompt": "Replace only the existing named refresh handler body with void responseProductListSuspense.refetch() for the user refresh button. There is no mutation or cache-writing change; preserve the handler name, type, comment, and JSX.",
 			"files": [
-				"src/page/products/_product-list-section.tsx"
+				"src/page/products/product-list-section.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -593,7 +593,7 @@
 			"id": "react-independent-disabled-prop-near-miss",
 			"prompt": "On an existing Button usage change only disabled={false} to disabled={true}. Keep its visible text, type, existing click handler, className, wrapper implementation, and props declarations unchanged.",
 			"files": [
-				"src/page/products/_product-toolbar.tsx"
+				"src/page/products/product-toolbar.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -610,7 +610,7 @@
 			"id": "react-suspense-dependent-query",
 			"prompt": "Change the existing query declarations so the second Suspense query waits for the first response ID, using the already imported useSuspenseQuery in order instead of enabled. Preserve binding names, render code, handlers, and boundaries; update the query header comment box to describe the dependency.",
 			"files": [
-				"src/page/products/_product-detail-section.tsx"
+				"src/page/products/product-detail-section.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -632,7 +632,7 @@
 			"id": "react-suspense-cached-refetch-error",
 			"prompt": "The existing Suspense query has cached data, but this confirmation screen must stop showing stale recommendations after a failed refetch. Add only a render-time error check that throws the existing query error after isFetching is false, using the existing ancestor boundaries. Keep the query declaration, hooks, JSX, and comments unchanged.",
 			"files": [
-				"src/page/products/_product-recommendation-section.tsx"
+				"src/page/products/product-recommendation-section.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -649,12 +649,12 @@
 			}
 		},
 		{
-			"id": "react-widget-part-split-and-private-part-naming",
-			"prompt": "In the chatbot widget, move the `_chatbot-content.tsx` part that only reads context and picks a branch back into `chatbot.tsx`, rename the private header part `_header.tsx`/`Header` to `_chatbot-header.tsx`/`ChatbotHeader` so the owner name is carried, and list each multi-line JSX block of the entry file in a screen-layout comment box above its return. Keep behavior, props, and hooks unchanged.",
+			"id": "react-widget-part-split-and-part-naming",
+			"prompt": "In the chatbot widget, move the `chatbot-content.tsx` component that only reads context and picks a branch back into `chatbot.tsx`, rename the header file `header.tsx`/`Header` to `chatbot-header.tsx`/`ChatbotHeader` so the owner name is carried, and list each multi-line JSX block of the entry file in a screen-layout comment box above its return. Keep behavior, props, and hooks unchanged.",
 			"files": [
 				"src/component/widget/chatbot/chatbot.tsx",
-				"src/component/widget/chatbot/_chatbot-content.tsx",
-				"src/component/widget/chatbot/_header.tsx"
+				"src/component/widget/chatbot/chatbot-content.tsx",
+				"src/component/widget/chatbot/header.tsx"
 			],
 			"expectedSkills": [
 				"react",

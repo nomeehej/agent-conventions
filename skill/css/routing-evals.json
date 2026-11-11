@@ -50,7 +50,7 @@
 			"prompt": "post-index-page.css holds both the page shell and the filter dialog; move the dialog styles into the component own CSS file and give that file its own block name.",
 			"files": [
 				"src/page/post-index/post-index-page.css",
-				"src/page/post-index/_post-filter-dialog.css"
+				"src/page/post-index/post-filter-dialog.css"
 			],
 			"expectedSkills": [
 				"css"
@@ -65,7 +65,7 @@
 		},
 		{
 			"id": "css-domain-state-class-contract",
-			"prompt": "split listButtonActive into base plus --active, add a direct clsx import, and compose with clsx() in products-page.tsx and _index.css; do not change pseudo-states.",
+			"prompt": "split listButtonActive into base plus --active, add a direct clsx import, and compose with clsx() in products-page.tsx and products-page.css; do not change pseudo-states.",
 			"files": [
 				"src/page/products/products-page.tsx",
 				"src/page/products/products-page.css"
@@ -137,8 +137,8 @@
 			"id": "css-ui-wrapper-third-party-dom",
 			"prompt": "add a direct clsx import and style Collapse Ant DOM from a new owned wrapper with the shortest chain in post-filter-dialog.tsx and post-filter-dialog.css; keep the existing hard-coded wrapper color.",
 			"files": [
-				"src/page/post-index/_post-filter-dialog.tsx",
-				"src/page/post-index/_post-filter-dialog.css"
+				"src/page/post-index/post-filter-dialog.tsx",
+				"src/page/post-index/post-filter-dialog.css"
 			],
 			"expectedSkills": [
 				"react",
@@ -161,8 +161,8 @@
 			"scopeDrift": {
 				"evidence": "replace the hard-coded wrapper color with an optional CSS variable and provide its fallback.",
 				"files": [
-					"src/page/post-index/_post-filter-dialog.tsx",
-					"src/page/post-index/_post-filter-dialog.css"
+					"src/page/post-index/post-filter-dialog.tsx",
+					"src/page/post-index/post-filter-dialog.css"
 				],
 				"expectedSkills": [
 					"react",
@@ -190,7 +190,7 @@
 			"prompt": "narrow ButtonProps so it extends ButtonHTMLAttributes and opens only the library props we use, expose it documented, read props through the props object in button.tsx, and pass an existing layout class from order-actions.tsx; add no internal selector or new class.",
 			"files": [
 				"src/component/ui/button/button.tsx",
-				"src/page/order-index/_order-actions.tsx"
+				"src/page/order-index/order-actions.tsx"
 			],
 			"expectedSkills": [
 				"react",
@@ -222,7 +222,7 @@
 			"prompt": "Remove a div that wraps Collapse only for spacing and move its existing className onto Collapse, whose existing root already forwards className. Keep class names, CSS declarations, prop types, imports, and the component implementation unchanged.",
 			"files": [
 				"src/component/ui/collapse/collapse.tsx",
-				"src/page/post-index/_post-filter-dialog.tsx"
+				"src/page/post-index/post-filter-dialog.tsx"
 			],
 			"expectedSkills": [
 				"react",

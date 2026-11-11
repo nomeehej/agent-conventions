@@ -1,4 +1,4 @@
-# Place Owner Files in Role Folders
+# Keep Owner Folders Flat with Role Folders
 
 **Impact: HIGH**
 

@@ -1,55 +1,57 @@
 ---
-title: Place Owner Files in Role Folders
-titleKo: 추출한 파일은 소유자 아래 역할 폴더에 둡니다
+title: Keep Owner Folders Flat with Role Folders
+titleKo: 폴더는 라우트와 컴포넌트마다 하나이고 안은 평평하게 두며 `_`는 역할 폴더에만 씁니다
 impact: HIGH
-impactDescription: 추출한 파일의 소유자와 역할을 경로에서 확인할 수 있습니다
+impactDescription: 파일 자리와 이름 앞 `_`를 따지지 않고 경로만 보고 소유자와 역할을 압니다
 appliesWhen:
-  - 소유자 아래 `_constant`, `_function`, `_hook`, `_type` 폴더나 하위 소유자 폴더를 만들거나 옮길 때
-  - 추출한 컴포넌트, 함수, 타입의 배치 위치를 정할 때
+  - '`page`, `component` 아래 폴더나 `_constant`, `_function`, `_hook`, `_type` 폴더를 만들거나 옮길 때'
+  - 새 컴포넌트, 함수, 타입 파일의 자리나 이름을 정할 때
   - 제외: 기존 파일 내부 구현만 바꾸는 경우
 reviewWith: ownership-keep-component-imports-flowing-downward, ownership-group-route-frames-with-outlets
 tags: ownership
 ---
 
-## Place Owner Files in Role Folders
+## Keep Owner Folders Flat with Role Folders
 
-**Impact: HIGH (추출한 파일의 소유자와 역할을 경로에서 확인할 수 있습니다)**
+**Impact: HIGH (파일 자리와 이름 앞 `_`를 따지지 않고 경로만 보고 소유자와 역할을 압니다)**
 
-추출한 파일은 소유자 폴더에 두고 역할과 공개 범위에 맞춰 이름을 정합니다.
-화면 내부의 호출 계층은 폴더를 중첩하지 않고 진입 파일의 조립으로 드러냅니다.
+폴더로 컴포넌트 계층을 나타내지 않습니다.
+화면 안의 호출 계층은 진입 파일의 조립과 가져오기로 드러납니다.
 라우트 그룹과 `Outlet` 프레임의 자리는 `ownership-group-route-frames-with-outlets`가 정합니다.
 
-### 배치와 이름
+### 폴더와 파일 배치
 
-| 구분        | 배치와 이름                                                                                                                                |
-|-------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| 소유자      | 자기만 쓰는 파일이 있거나 여러 하위 소유자가 함께 쓰는 컴포넌트는 자기 이름의 폴더를 갖습니다                                              |
-| 진입 파일   | 이름을 폴더와 맞춥니다. 화면은 `<folder>-page`이고 같은 지원 코드를 쓰는 라우트가 한 폴더에 여럿이면 나머지는 `<folder>-<변형>-page`입니다 |
-| 부품        | 역할 폴더에 넣지 않고 소유자 폴더의 `_` 파일로 둡니다. `_` 파일은 같은 폴더에서만 가져옵니다. 동반 `.css`도 같은 이름을 씁니다             |
-| 하위 소유자 | 각 화면, `ui`, `widget` 소유자 안에 한 겹만 두고 이름은 `panel`처럼 역할 낱말 하나로 짓지 않습니다                                         |
-| 역할 폴더   | 필요한 것만 만들고 파일이 하나여도 유지합니다. 아래 네 종류만 허용합니다                                                                   |
+| 대상 | 배치 |
+| --- | --- |
+| `page` 아래 폴더 | 라우트만 만듭니다. 폴더 트리는 라우트 선언과 같습니다 |
+| `component/ui`, `component/widget` 아래 폴더 | 컴포넌트 하나가 폴더 하나입니다 |
+| 폴더 안 | 컴포넌트 파일을 폴더 바로 아래에 나열합니다. 컴포넌트를 위한 하위 폴더는 만들지 않습니다 |
+| 진입 파일 | 폴더와 이름이 같습니다. 화면은 `<folder>-page`이고 같은 지원 코드를 쓰는 라우트가 한 폴더에 여럿이면 나머지는 `<folder>-<변형>-page`입니다 |
+| 이름 앞 `_` | 역할 폴더 네 개에만 씁니다. 컴포넌트, 함수, CSS 파일에는 붙이지 않습니다 |
+| 역할 폴더 안 | 하위 폴더 없이 파일을 나열합니다 |
+| 폴더 밖에서 가져오기 | 진입 파일과 역할 폴더만 가져옵니다 |
 
-부품 하나만 있어도 소유자 폴더를 만듭니다.
-라우트는 항상 소유자입니다.
+라우트 폴더와 `ui`, `widget`의 컴포넌트 폴더가 소유자입니다.
 전용 지원 코드가 없는 화면은 `page/not-found-page.tsx`처럼 `page`나 라우트 그룹 바로 아래에 파일로 둘 수 있습니다.
 동반 CSS만 있어도 폴더는 필요하지 않습니다.
-소유자 안에서 역할 폴더 네 개를 제외한 폴더는 모두 하위 소유자입니다.
-하위 소유자가 한 겹보다 깊어지면 형제로 올리거나 `widget`으로 분리합니다.
-어느 쪽인지는 `ownership-layer-component-boundaries`의 판정으로 정합니다.
+폴더 안에 둘 컴포넌트는 `composition-create-components-only-when-required`가 정합니다.
+가져오기 경계는 `ownership-keep-component-imports-flowing-downward`를 따릅니다.
+검사는 `tooling-enable-the-biome-react-domain`이 정합니다.
 
 ### 역할 폴더
 
-| 역할 폴더   | 담는 것                                                                                                                                    |
-|-------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| `_constant` | 입력을 받지 않는 상수, 기본값, 기준값, 파서 묶음 등 선언형 계약. 한 파일만 쓰는 상수는 그 파일 위쪽에 두고 다른 파일도 쓰게 될 때 옮깁니다 |
-| `_function` | 이름 붙여 내보낸 도메인 계산. 한 컴포넌트나 함수만 쓰는 보조는 그 안에 둡니다                                                              |
-| `_hook`     | 실제 상태, 이펙트, 컨텍스트를 소유한 커스텀 훅                                                                                             |
-| `_type`     | 여러 파일이 공유하는 계약. 개별 컴포넌트의 프롭스는 해당 TSX에 둡니다                                                                      |
+| 역할 폴더 | 담는 것 |
+| --- | --- |
+| `_constant` | 입력을 받지 않는 상수, 기본값, 기준값, 파서 묶음 등 선언형 계약 |
+| `_function` | 이름 붙여 내보낸 도메인 계산 |
+| `_hook` | 실제 상태, 이펙트, 컨텍스트를 소유한 커스텀 훅 |
+| `_type` | 여러 파일이 공유하는 계약. 개별 컴포넌트의 프롭스는 해당 TSX에 둡니다 |
 
-소유자 폴더에서 `_`가 없는 이름은 진입 파일과 하위 소유자 폴더뿐입니다.
-`_` 파일은 같은 폴더에서만 가져옵니다.
-역할 폴더는 외부에서도 가져올 수 있는 공개 영역입니다.
-가져오기 경계는 `ownership-keep-component-imports-flowing-downward`를 따릅니다.
+지원 코드는 쓰는 파일 안에 둡니다.
+다른 파일이 가져가야 할 때만 역할 폴더로 빼고 테스트 파일도 다른 파일로 셉니다.
+가져가는 파일이 하나로 줄면 쓰는 파일 안으로 되돌립니다.
+함수 안 보조는 테스트하려고 빼지 않습니다(`typescript/functions-give-each-function-its-own-file`).
+역할 폴더는 필요한 것만 만들고 외부에서도 가져올 수 있는 공개 영역입니다.
 
 ### 폴더 이름 기준
 
@@ -60,6 +62,7 @@ tags: ownership
 
 | 함께 판단할 내용       | 기준                                                                  |
 |------------------------|-----------------------------------------------------------------------|
+| 컴포넌트를 만들 조건   | `composition-create-components-only-when-required`                    |
 | 보조 함수 추출         | `typescript/functions-extract-helpers-only-when-the-boundary-is-real` |
 | 보조 함수의 자리       | `typescript/functions-give-each-function-its-own-file`                |
 | 파일 이름과 심볼       | `ownership-name-component-files-after-their-symbols`                  |
@@ -78,10 +81,10 @@ tags: ownership
 
 <<< ../examples/ownership-place-owner-files-in-role-folders/02-correct.txt
 
-**Incorrect 2 (범용 이름 폴더를 섞어 쓰고 하위 소유자 안에 소유자를 다시 둡니다):**
+**Incorrect 2 (컴포넌트마다 하위 폴더를 만들고 범용 이름 폴더와 `_` 파일을 섞습니다):**
 
 <<< ../examples/ownership-place-owner-files-in-role-folders/03-incorrect.txt
 
-**Correct 2 (필요한 역할 폴더만 만들고 부품은 파일로 둡니다):**
+**Correct 2 (컴포넌트 파일은 폴더 바로 아래에 두고 역할 폴더만 만듭니다):**
 
 <<< ../examples/ownership-place-owner-files-in-role-folders/04-correct.txt

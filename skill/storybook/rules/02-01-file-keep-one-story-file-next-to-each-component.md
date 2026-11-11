@@ -20,7 +20,7 @@ story만 쓰는 도우미(공통 `args`, 데코레이터, `play` 조각)는 그 
 | 대상 | 자리 |
 | --- | --- |
 | `ui`, `widget` 부품 | `src/component/<레이어>/<부품>/<부품>.stories.tsx` |
-| 합성 컴포넌트의 부품(`_profile-dialog-header.tsx`) | 따로 두지 않습니다. 바깥 부품의 story가 조립한 모습으로 렌더합니다 |
+| 합성 컴포넌트의 부품(`profile-dialog-header.tsx`) | 따로 두지 않습니다. 바깥 부품의 story가 조립한 모습으로 렌더합니다 |
 | `page`와 화면 구역 | story를 두지 않습니다. 화면 integration과 앱 mock 모드가 맡습니다 |
 | gallery story(`test/**/*.story.tsx`) | `testing/story-compose-owned-state-with-real-providers`가 정합니다. CSF story와 서로 가져오지 않습니다 |
 

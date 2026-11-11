@@ -1,7 +1,7 @@
 # Storybook 컨벤션 Rule Index
 
 - Skill: `storybook`
-- Routing digest: `sha256:b18a0b43352c42fb337936c5fe0917f8a04505e707ae3c804e0a0de144f0563e`
+- Routing digest: `sha256:0a5180af33963842c96b843e042184193b9831e5fa2eb635eb74dfc3544b55e5`
 
 ## Direct Companions
 

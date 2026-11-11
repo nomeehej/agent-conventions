@@ -1,8 +1,0 @@
-page/product-detail/
-├── product-detail-page.tsx
-# [!code error]
-├── _section-heading.tsx
-├── product-summary-section/
-│   └── product-summary-section.tsx    _section-heading을 import
-└── product-table-section/
-    └── product-table-section.tsx      _section-heading을 import

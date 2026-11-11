@@ -4,8 +4,7 @@ page/
     ├── main-outlet.tsx
     ├── products/
     │   ├── products-page.tsx
-    │   └── product-table-section/
-    │       └── product-table-section.tsx
+    │   └── product-table-section.tsx
 # [!code ++]
     ├── product-detail/
     │   └── product-detail-page.tsx

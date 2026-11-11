@@ -1,7 +1,7 @@
 # CSS 컨벤션 Rule Index
 
 - Skill: `css`
-- Routing digest: `sha256:7e32b0821f12d9d92ca71c06f13a33fb6d483f2c76e89b9565fbaf66709dc046`
+- Routing digest: `sha256:7af76f06c349a3b2207ca69beb5cbd38e44b12c62c6b8e0f6ad6be8b97732fbb`
 
 ## Direct Companions
 
@@ -13,7 +13,7 @@
 - C01-02 | naming-use-block-element-modifier-syntax | 일반 CSS에서 프로젝트가 소유한 클래스를 새로 만들 때. 클래스 이름의 블록, 요소, 수정자 구분자나 대소문자 표기를 바꿀 때.
 - C01-03 | naming-name-elements-and-modifiers-by-role | 요소나 수정자 클래스 이름을 새로 지을 때. \`container\`, \`wrapper\`, \`box\` 같은 구조 낱말이나 치수, 간격 중심 이름을 변경할 때.
 - C01-04 | naming-keep-page-block-names-traceable | \`page\` 아래 CSS 파일의 블록 이름을 새로 짓거나 바꿀 때. 같은 이름 컴포넌트가 여러 소유자에 생겨 블록 이름을 구분해야 할 때.
-- C02-01 | ownership-give-each-file-one-block | 새 블록 이름을 짓거나 기존 블록 이름을 복사하거나 바꿀 때. 부품에 CSS 파일을 새로 만들면서 부모 블록 이름을 그대로 쓸 때.
+- C02-01 | ownership-give-each-file-one-block | 새 블록 이름을 짓거나 기존 블록 이름을 복사하거나 바꿀 때. 부품에 CSS 파일을 새로 만들면서 부모 블록 이름을 그대로 쓸 때. 컴포넌트를 합쳐 CSS 파일 하나에 블록이 여럿 생길 때.
 - C02-02 | ownership-use-foreign-classes-only-under-your-own-root | \`.ant-\*\`, \`.rc-\*\`, \`.Mui-\*\` 같은 외부 라이브러리 클래스를 쓸 때. 다른 소유자의 클래스를 선택자로 잡을 때. | reviewWith: ownership-change-other-owners-through-their-api, ownership-give-each-file-one-block, selector-limit-nesting-block-depth
 - C02-03 | ownership-change-other-owners-through-their-api | 다른 컴포넌트의 배치나 내부 모습을 바꿔야 할 때. 컴포넌트에 클래스 관련 프롭을 추가할 때. | reviewWith: composition-inject-classes-only-at-the-entry-point, ownership-use-foreign-classes-only-under-your-own-root
 - C03-01 | composition-compose-classes-with-clsx | TSX의 \`className\`을 추가, 수정할 때. 기본 클래스, 수정자, 선택 클래스를 함께 엮을 때. | reviewWith: composition-write-modifiers-as-conditions, typescript/values-avoid-lookup-tables-for-simple-choices

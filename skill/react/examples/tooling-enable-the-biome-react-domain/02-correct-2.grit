@@ -1,0 +1,21 @@
+// biome/no-outside-non-entry-import.grit
+language js
+
+`import $_ from $source` where {
+	not $source <: includes "/_",
+	or {
+		and {
+			$source <: r"[\"']@/component/(ui|widget)/([a-z0-9-]+)/([a-z0-9-]+)[\"']"($layer, $folder, $file),
+			not $file <: $folder,
+			$folderPath = join(list = ["/component/", $layer, "/", $folder, "/"], separator = ""),
+			not $filename <: includes $folderPath
+		},
+		and {
+			$source <: r"[\"']@/page/(.+)/([a-z0-9-]+)[\"']"($route, $file),
+			not $file <: r".*-(?:page|outlet)",
+			$folderPath = join(list = ["/page/", $route, "/"], separator = ""),
+			not $filename <: includes $folderPath
+		}
+	},
+	register_diagnostic(span = $source, message = "Outside a folder, import only its entry file or role folders.")
+}

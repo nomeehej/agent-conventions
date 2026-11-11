@@ -10,7 +10,7 @@
 #   css/07-02         블록__동작 형식이 아닌 @keyframes 이름
 # 응답 필드 이름 바꿔치기(react/02-04)나 래퍼 프롭 공개 범위(react/03-02)는 grep으로 못 잡아 문장으로만 남음
 # 이름 규칙의 바닥도 함께 검사
-#   react/01-02       새로 만들거나 옮긴 부품 파일 이름이 역할 낱말 하나(_header.tsx)인 것
+#   react/01-02       새로 만들거나 옮긴 컴포넌트 파일 이름이 진입 파일이 아닌데 역할 낱말 하나(header.tsx)인 것
 #   css/02-01         한 블록 이름을 두 파일 이상이 쓰는 것. 트리 전체 검사
 set -u
 
@@ -46,9 +46,10 @@ out=$(
 	report "react/01-04 ui 가 위 레이어를 가져옴" '^src/component/ui/' "from[[:space:]]+['\"]@/(component/widget|page)/"
 	report "react/01-04 widget 이 page 를 가져옴" '^src/component/widget/' "from[[:space:]]+['\"]@/page/"
 	report "react/01-04 루트 레이어가 컴포넌트를 가져옴" '^src/(util|constant|type|hook|store|service|config|asset)/' "from[[:space:]]+['\"]@/(component|page)/"
-	# 새로 만들거나 옮긴 부품 파일 이름이 낱말 하나면 무엇의 부품인지 모름
+	# 새로 만들거나 옮긴 컴포넌트 파일 이름이 낱말 하나인데 폴더 이름(진입 파일)과 다르면 무엇의 컴포넌트인지 모름
 	{ git diff --name-status HEAD -- . 2>/dev/null | awk '$1 ~ /^(A|R)/ { print $NF }'; git ls-files --others --exclude-standard 2>/dev/null; } |
-		grep -E '(^|/)_[a-z0-9]+\.(tsx|css)$' | awk '{ printf "[react/01-02 역할 낱말 하나] %s  부품 이름은 무엇의 것인지 말하는 낱말을 앞에 둔다\n", $0 }'
+		grep -E '^src/(page|component)/.*/[a-z0-9]+\.(tsx|css)$' |
+		awk -F/ '{ name = $NF; sub(/\.(tsx|css)$/, "", name); if (name != $(NF-1)) printf "[react/01-02 역할 낱말 하나] %s  컴포넌트 이름은 무엇의 것인지 말하는 낱말을 앞에 둔다\n", $0 }'
 	# 같은 블록 이름을 두 파일이 쓰면 css/02-01 위반
 	git ls-files -z -- '*.css' 2>/dev/null | xargs -0 grep -HoE '^\.[a-z][A-Za-z0-9]*__' 2>/dev/null | sed -E 's#^([^:]+):\.([A-Za-z0-9]+)__$#\1 \2#' | sort -u |
 		awk '{ count[$2]++; files[$2] = files[$2] " " $1 } END { for (block in count) if (count[block] > 1) printf "[css/02-01 블록 이름 중복] %s  %s\n", block, files[block] }'

@@ -793,6 +793,9 @@ declare module "@/component/ui/tabs/_hook/use-tabs" {
 declare module "@/component/ui/tabs/tabs" {
 	export const Tabs: TabsComponent;
 }
+declare module "@/component/widget/order-table/order-table" {
+	export const OrderTable: (props: {rows: readonly OrderRow[]}) => ReactElement;
+}
 declare module "@/component/widget/product-table/product-table" {
 	export const ProductTable: (props: ProductTableProps) => ReactElement;
 }

@@ -1,9 +1,0 @@
-page/product-detail/
-├── product-detail-page.tsx
-# [!code ++]
-├── section-heading/                   두 하위 소유자가 함께 쓰는 컴포넌트
-│   └── section-heading.tsx
-├── product-summary-section/
-│   └── product-summary-section.tsx    section-heading의 진입 파일을 import
-└── product-table-section/
-    └── product-table-section.tsx      section-heading의 진입 파일을 import

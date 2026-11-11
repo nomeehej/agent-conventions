@@ -1,12 +1,13 @@
 page/product-detail/
 ├── product-detail-page.tsx
+# [!code error]
+├── _product-summary.tsx
+# [!code error]
 ├── components/
-├── constants/
+# [!code error]
 ├── utils/
-├── helpers/
+# [!code error]
 └── product-table-section/
     ├── product-table-section.tsx
-    └── review/
-        ├── review.tsx
-        └── _function/
-            └── to-review-rows.ts
+    └── _function/
+        └── to-review-rows.ts

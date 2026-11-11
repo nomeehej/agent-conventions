@@ -13,7 +13,9 @@
 | `correctness/noNestedComponentDefinitions` | `react/composition-do-not-define-components-inside-components`의 컴포넌트 정의 | 도메인 `recommended`에 없어 별도로 켭니다. JSX를 반환하는 지역 함수는 리뷰에서 확인합니다 |
 | `correctness/useExhaustiveDependencies` | `react/state-use-effectevent-for-non-reactive-effect-callbacks`의 누락된 의존성 검사 | `useEffectEvent`로 분리할지는 리뷰에서 판단합니다 |
 | `correctness/useJsxKeyInIterable` | `react/composition-name-fragments-explicitly`의 `key` 유무 | `<>` 대신 `Fragment`를 썼는지는 리뷰에서 확인합니다 |
-| `style/noRestrictedImports` + `overrides` | `react/ownership-keep-component-imports-flowing-downward`의 레이어, 라우트 방향 | 아래 경로 설정을 추가합니다. 소유자 경계는 별도로 판단합니다 |
+| `style/noRestrictedImports` + `overrides` | `react/ownership-keep-component-imports-flowing-downward`의 레이어, 라우트 방향 | 아래 경로 설정을 추가합니다. 폴더 경계는 GritQL 플러그인이 검사합니다 |
+| `plugins`의 GritQL 파일 | `react/ownership-keep-component-imports-flowing-downward`의 폴더 경계, `react/composition-create-components-only-when-required`의 파일 하나에 컴포넌트 하나 | 아래 두 파일을 등록합니다 |
+| `style/useFilenamingConvention`의 `match` | `react/ownership-place-owner-files-in-role-folders`의 파일 이름 앞 `_` 금지 | 폴더 이름은 검사 대상이 아니라 역할 폴더는 통과합니다 |
 
 ### 접근성 검사
 
@@ -36,7 +38,18 @@
 
 라우트가 늘면 해당 `overrides`도 추가합니다.
 `overrides`는 규칙 옵션을 통째로 바꾸므로 기본 설정의 경로 패턴을 각 항목에 함께 적습니다.
-소유자 경계는 가져오는 파일의 위치에 따라 달라지므로 `import` 문자열만으로 판정하지 못하고 리뷰에서 확인합니다.
+폴더 경계는 가져오는 파일의 위치에 따라 달라지므로 `noRestrictedImports`로 판정하지 못하고 GritQL 플러그인이 맡습니다.
+
+### 폴더 경계와 파일 하나에 컴포넌트 하나
+
+| 플러그인 | 잡는 것 | 통과하는 것 |
+| --- | --- | --- |
+| `no-outside-non-entry-import.grit` | 폴더 밖에서 `ui`, `widget`의 진입 파일이 아닌 파일, 화면 폴더의 `-page`, `-outlet`이 아닌 파일을 가져옴 | 같은 폴더의 파일, 역할 폴더 |
+| `one-component-per-file.grit` | 대문자 이름의 화살표 함수나 `NiceModal.create(…)` 선언이 한 파일에 둘 이상 | story 파일 |
+
+다른 라우트의 역할 폴더는 위 라우트 `overrides`가 막습니다.
+플러그인 `includes`는 `**/src/**`처럼 `**/`로 시작합니다.
+Biome 2.5.15까지는 `src/**`로 적은 플러그인이 어느 파일에도 실행되지 않습니다.
 
 ### 주석
 
@@ -53,7 +66,9 @@ JSX 자식 자리에 글자로 적은 `//`는 `preset: "recommended"`의 `suspic
 
 참고: [Biome 문서: 린터 도메인의 react 활성화와 규칙 목록](https://biomejs.dev/linter/domains/#react-activation),
 [Biome: noNestedComponentDefinitions](https://biomejs.dev/linter/rules/no-nested-component-definitions/javascript/),
-[Biome: noCommentText](https://biomejs.dev/linter/rules/no-comment-text/javascript/).
+[Biome: noCommentText](https://biomejs.dev/linter/rules/no-comment-text/javascript/),
+[Biome 문서: 린터 플러그인(GritQL)](https://biomejs.dev/linter/plugins/),
+[Biome: useFilenamingConvention의 match](https://biomejs.dev/linter/rules/use-filenaming-convention/).
 
 **Correct (도메인과 추가 검사를 켜고 레이어, 라우트 `overrides`를 설정합니다):**
 

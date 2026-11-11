@@ -146,7 +146,7 @@ Vitest, Playwright, MSW는 테스트 예제의 실제 API 타입 검사를 위�
 | 리터럴 폴백 | TypeScript 05-01 |
 | `../`와 같은 폴더 심볼 가져오기 | TypeScript 02-05 |
 | 레이어 역방향 가져오기 | React 01-04 |
-| 역할 낱말 하나인 새 부품 파일 이름 (`_header.tsx`) | React 01-02 |
+| 역할 낱말 하나인 새 컴포넌트 파일 이름 (`header.tsx`) | React 01-02 |
 | 한 블록 이름을 두 파일 이상이 씀 (트리 전체 검사) | CSS 02-01 |
 | `블록__동작` 형식이 아닌 `@keyframes` | CSS 07-02 |
 

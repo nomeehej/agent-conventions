@@ -1,16 +1,14 @@
 page/product-detail/
-├── product-detail-page.tsx
+├── product-detail-page.tsx            진입. 경계 배치가 모두 여기서 보임
 ├── product-detail-page.css
-├── _product-summary.tsx               자기만 쓰는 파일 없음, 파일로 유지
-├── _product-summary.css
+├── product-summary-section.tsx        경계 아래 내용물
+├── product-summary-section.css
+├── product-table-section.tsx          경계 아래 내용물
+├── product-table-section.css
+# [!code ++]
 ├── _function/
-│   ├── to-product-summary.ts
-│   └── to-trend-chart.ts
-├── _type/
-│   └── summary-content.ts
-└── product-table-section/             자기만 쓰는 파일 있음, 하위 소유자 폴더
-    ├── product-table-section.tsx
-    ├── product-table-section.css
-    ├── _review-section.tsx
-    └── _function/
-        └── to-review-rows.ts
+│   ├── to-review-rows.ts              표가 쓰고 테스트도 가져감
+│   └── to-review-rows.test.ts
+# [!code ++]
+└── _type/
+    └── summary-content.ts             요약과 표가 함께 씀

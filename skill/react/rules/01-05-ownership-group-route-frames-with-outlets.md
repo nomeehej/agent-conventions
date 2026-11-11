@@ -2,7 +2,7 @@
 title: Group Route Frames with Outlets
 titleKo: 공통 라우트 프레임은 `Outlet` 그룹으로 묶습니다
 impact: HIGH
-impactDescription: 라우트 중첩을 폴더로 드러내면서 화면 아래 한 겹 소유 경계를 지킵니다
+impactDescription: 라우트 중첩을 폴더로 드러내고 화면 폴더 안은 평평하게 유지합니다
 appliesWhen:
   - 라우트 트리나 `Outlet` 진입 파일을 추가, 변경할 때
   - '`page` 아래 라우트 그룹을 만들거나 화면을 그룹 사이로 옮길 때'
@@ -13,7 +13,7 @@ tags: ownership, routing
 
 ## Group Route Frames with Outlets
 
-**Impact: HIGH (라우트 중첩을 폴더로 드러내면서 화면 아래 한 겹 소유 경계를 지킵니다)**
+**Impact: HIGH (라우트 중첩을 폴더로 드러내고 화면 폴더 안은 평평하게 유지합니다)**
 
 라우트의 중첩과 화면 안 컴포넌트의 중첩은 서로 다른 축입니다.
 공통 외곽이 필요한 자리에만 `Outlet` 프레임을 두고 폴더의 포함 관계를 라우트 선언과 맞춥니다.
@@ -35,11 +35,11 @@ tags: ownership, routing
 
 ### 깊이와 소유자 경계
 
-화면 폴더부터는 하위 소유자 한 겹 제한이 그대로 적용됩니다.
-화면이나 하위 소유자 아래에는 그룹을 만들지 않습니다.
+화면 폴더 안은 `ownership-place-owner-files-in-role-folders`에 따라 평평합니다.
+화면 폴더 아래에는 그룹을 만들지 않습니다.
 더 깊은 URL이 필요해도 화면 폴더는 다른 화면과 형제로 두고 중첩은 라우터가 선언합니다.
 기본 프레임, 그룹 프레임, 각 화면은 서로 다른 소유자입니다.
-다른 프레임이나 화면의 `_` 부품과 역할 폴더는 같은 그룹 안에서도 가져오지 않습니다.
+다른 프레임이나 화면의 컴포넌트와 역할 폴더는 같은 그룹 안에서도 가져오지 않습니다.
 프레임은 자식 화면을 직접 가져오지 않고 `Outlet`으로 받습니다.
 진입 파일을 가져오는 것은 라우터뿐입니다.
 
@@ -63,11 +63,11 @@ tags: ownership, routing
 [React Router 문서: 경로 없는 레이아웃 라우트](https://reactrouter.com/start/data/routing#layout-routes),
 [Next.js 문서: 경로 그룹 `(folder)`](https://nextjs.org/docs/app/getting-started/project-structure#route-groups).
 
-**Incorrect 1 (화면 아래에 그룹을 만들어 소유자를 한 겹 더 쌓습니다):**
+**Incorrect 1 (화면 폴더 안에 그룹을 만들어 다른 화면을 넣습니다):**
 
 <<< ../examples/ownership-group-route-frames-with-outlets/01-incorrect.txt
 
-**Correct 1 (더 깊은 URL을 쓰는 화면도 같은 프레임 아래 `products`의 형제 소유자로 둡니다):**
+**Correct 1 (더 깊은 URL을 쓰는 화면도 같은 프레임 아래 `products`의 형제 폴더로 둡니다):**
 
 <<< ../examples/ownership-group-route-frames-with-outlets/02-correct.txt
 

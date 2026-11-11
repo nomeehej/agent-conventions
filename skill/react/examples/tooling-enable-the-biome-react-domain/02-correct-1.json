@@ -1,0 +1,16 @@
+{
+	"plugins": [
+		{"path": "./biome/no-outside-non-entry-import.grit", "includes": ["**/src/**"]},
+		{"path": "./biome/one-component-per-file.grit", "includes": ["**/src/**/*.tsx", "!**/*.stories.tsx", "!**/*.story.tsx"]}
+	],
+	"linter": {
+		"rules": {
+			"style": {
+				"useFilenamingConvention": {
+					"level": "error",
+					"options": {"filenameCases": ["kebab-case"], "match": "([^_.][^.]*)[.](.+)"}
+				}
+			}
+		}
+	}
+}

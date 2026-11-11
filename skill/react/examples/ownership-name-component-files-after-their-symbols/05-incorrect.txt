@@ -1,5 +1,5 @@
 component/widget/chatbot/
-├── _launcher.tsx    # Launcher, launcher
-└── panel/
-    ├── panel.tsx    # Panel, panel
-    └── _header.tsx  # Header, header
+├── chatbot.tsx      # Chatbot
+├── launcher.tsx     # Launcher
+├── panel.tsx        # Panel
+└── header.tsx       # Header

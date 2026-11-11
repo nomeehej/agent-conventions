@@ -1,0 +1,13 @@
+// biome/one-component-per-file.grit
+language js
+
+`const $name = $value` where {
+	$name <: r"^[A-Z][A-Za-z0-9]*$",
+	$value <: or { `($_) => $_`, `() => $_`, `$_.create($_)` },
+	$program <: contains `const $other = $otherValue` where {
+		$other <: r"^[A-Z][A-Za-z0-9]*$",
+		not $other <: $name,
+		$otherValue <: or { `($_) => $_`, `() => $_`, `$_.create($_)` }
+	},
+	register_diagnostic(span = $name, message = "Keep one component per file.")
+}

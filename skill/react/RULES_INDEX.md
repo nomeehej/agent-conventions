@@ -1,7 +1,7 @@
 # React 컨벤션 Rule Index
 
 - Skill: `react`
-- Routing digest: `sha256:7f62835434fcb8edd1828b9eeb906e1ef7b2d73dfd93b82743a26670efa997fa`
+- Routing digest: `sha256:7be7d51305964a1c8a4055325e82345ccde97f5160b8eeed6e160785667e9449`
 
 ## Direct Companions
 
@@ -11,9 +11,9 @@
 ## Local Rules
 
 - R01-01 | ownership-layer-component-boundaries | 컴포넌트를 \`ui\`, \`widget\`, \`page\` 중 어느 소유 레이어에 둘지 정할 때. 컴포넌트를 레이어 사이에서 옮기거나 공용화할 때. \`ui\`나 \`widget\` 컴포넌트가 쿼리, 뮤테이션, 라우터 훅, 화면 스토어를 새로 호출하거나 화면 타입을 참조할 때. | reviewWith: ownership-place-owner-files-in-role-folders
-- R01-02 | ownership-name-component-files-after-their-symbols | 컴포넌트 파일이나 심볼 이름을 새로 지을 때. 컴포넌트 파일을 다른 레이어나 소유자 폴더로 옮길 때. 부품이나 하위 소유자의 이름을 짓거나 바꿀 때. | reviewWith: ownership-layer-component-boundaries, typescript/naming-use-consistent-file-and-symbol-naming
-- R01-03 | ownership-place-owner-files-in-role-folders | 소유자 아래 \`\_constant\`, \`\_function\`, \`\_hook\`, \`\_type\` 폴더나 하위 소유자 폴더를 만들거나 옮길 때. 추출한 컴포넌트, 함수, 타입의 배치 위치를 정할 때. 제외: 기존 파일 내부 구현만 바꾸는 경우. | reviewWith: ownership-group-route-frames-with-outlets, ownership-keep-component-imports-flowing-downward
-- R01-04 | ownership-keep-component-imports-flowing-downward | 소유자 폴더 안의 컴포넌트 파일을 가져올 때. 다른 소유자나 다른 라우트의 파일을 가져오려 할 때. 여러 자식이 같은 컴포넌트를 써야 해서 배치를 다시 정할 때. 제외: 같은 소유자 안에서만 역할 폴더 네 개의 파일을 가져오는 경우. | reviewWith: ownership-group-route-frames-with-outlets, ownership-layer-component-boundaries
+- R01-02 | ownership-name-component-files-after-their-symbols | 컴포넌트 파일이나 심볼 이름을 새로 지을 때. 컴포넌트 파일을 다른 레이어나 소유자 폴더로 옮길 때. 진입 파일이 아닌 컴포넌트의 이름을 짓거나 바꿀 때. | reviewWith: ownership-layer-component-boundaries, typescript/naming-use-consistent-file-and-symbol-naming
+- R01-03 | ownership-place-owner-files-in-role-folders | \`page\`, \`component\` 아래 폴더나 \`\_constant\`, \`\_function\`, \`\_hook\`, \`\_type\` 폴더를 만들거나 옮길 때. 새 컴포넌트, 함수, 타입 파일의 자리나 이름을 정할 때. 제외: 기존 파일 내부 구현만 바꾸는 경우. | reviewWith: ownership-group-route-frames-with-outlets, ownership-keep-component-imports-flowing-downward
+- R01-04 | ownership-keep-component-imports-flowing-downward | 다른 레이어, 다른 폴더, 다른 라우트의 파일을 가져오려 할 때. 컴포넌트 파일이나 역할 폴더 파일의 가져오기 경로를 새로 쓰거나 바꿀 때. 제외: 같은 폴더 안의 파일끼리 가져오는 경우. | reviewWith: ownership-group-route-frames-with-outlets, ownership-layer-component-boundaries
 - R01-05 | ownership-group-route-frames-with-outlets | 라우트 트리나 \`Outlet\` 진입 파일을 추가, 변경할 때. \`page\` 아래 라우트 그룹을 만들거나 화면을 그룹 사이로 옮길 때. | reviewWith: ownership-name-component-files-after-their-symbols, runtime-place-error-boundaries-by-blast-radius
 - R01-06 | ownership-prefer-plain-ts-for-local-react-helpers | 화면 전용 계산, 정규화, 전송 값 조립을 커스텀 훅으로 추출하려 할 때. 화면 전용 순수 로직을 별도 보조 모듈로 옮기려 할 때. 화면 지역 함수에 \`use\` 접두사를 붙이거나 커스텀 훅 이름을 바꿀 때. 제외: 상태, 컨텍스트, 다른 훅 호출 순서를 실제로 캡슐화하는 경우. | reviewWith: ownership-keep-lifecycle-in-the-owning-component, ownership-place-owner-files-in-role-folders, typescript/functions-extract-helpers-only-when-the-boundary-is-real, typescript/naming-use-direct-imports-and-public-entry-points
 - R01-07 | ownership-keep-lifecycle-in-the-owning-component | 외부 라이브러리 인스턴스 생성, 크기 변경, 구독, 정리를 한 컴포넌트가 소유할 때. 생명주기 코드를 커스텀 훅으로 옮겨 파일을 줄이려 할 때. 제외: 여러 소유자가 같은 생명주기 계약을 실제로 호출하는 경우. | reviewWith: ownership-prefer-plain-ts-for-local-react-helpers
@@ -62,4 +62,4 @@
 - R11-01 | a11y-give-interactive-elements-an-accessible-name | 클릭이나 입력을 받는 요소를 추가, 변경할 때. 글자 없이 아이콘만 있는 버튼을 추가할 때.
 - R12-01 | docs-explain-the-data-block-not-each-hook | 컴포넌트 본문의 쿼리, 뮤테이션 바인딩을 추가, 변경할 때. 핸들러, 이펙트, 커스텀 훅, 합성 컴포넌트 부품을 추가, 변경하거나 그 위 주석을 고칠 때.
 - R12-02 | docs-describe-jsx-blocks-above-the-return | JSX 자식 자리에 주석을 쓰거나 기존 JSX 주석을 옮길 때. 화면을 구역으로 나누고 그 구역이 무엇을 담당하는지 적을 때. JSX에 여러 줄로 펼쳐진 형제 블록을 새로 만들거나 나눌 때. | reviewWith: typescript/docs-write-korean-comments-about-purpose-and-constraints
-- R13-01 | tooling-enable-the-biome-react-domain | 프로젝트에 \`biome\` 설정을 처음 넣거나 lint 규칙을 바꿀 때. \`biome.json\`의 \`linter.domains\`나 \`linter.rules\`에 항목을 추가, 삭제할 때.
+- R13-01 | tooling-enable-the-biome-react-domain | 프로젝트에 \`biome\` 설정을 처음 넣거나 lint 규칙을 바꿀 때. \`biome.json\`의 \`linter.domains\`, \`linter.rules\`, \`plugins\`에 항목을 추가, 삭제할 때.
