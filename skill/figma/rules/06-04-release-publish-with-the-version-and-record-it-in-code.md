@@ -17,11 +17,14 @@ tags: release, publish, dev-mode
 publish 설명 첫 줄에 `DS 1.1.0`을, 다음 줄부터 그 릴리스 칸의 줄을 적습니다.
 설명은 버전 기록과 받는 쪽 Updates 창에 그대로 남으므로 이름 붙인 버전을 따로 만들지 않습니다.
 publish는 Plugin API에 없으므로 사람이 Figma에서 직접 하고 Done with changes도 사람이 표시합니다.
+새로 그린 섹션은 개발에 넘길 때 사람이 Ready for dev로 표시합니다.
+표시한 섹션을 고치면 Figma가 `Changed`로 바꾸고 릴리스 담당이 Done with changes를 눌러 Ready for dev로 되돌립니다.
+`Completed`는 Education, Organization, Government, Enterprise 요금제에서만 쓸 수 있어 필수로 두지 않습니다.
 
 | 누가 | 차례 |
 | --- | --- |
 | 릴리스 담당 | `다음` 칸에 번호와 날짜를 적고 publish 창에서 바뀐 목록과 Hidden 목록을 확인한 뒤 publish합니다. 바뀐 섹션은 Done with changes로 표시하고 맨 위에 새 `다음` 칸을 엽니다 |
-| 개발 | 반영한 버전을 Storybook 첫 화면에 적고 그 뒤 릴리스 칸만 읽습니다. PR 제목에 `DS 1.1.0`과 부품 이름을 씁니다 |
+| 개발 | 반영한 버전을 Storybook 제목(`brandTitle`)에 적고 그 뒤 릴리스 칸만 읽습니다. PR 제목에 `DS 1.1.0`과 부품 이름을 씁니다 |
 | 화면 디자이너 | Updates 창에서 설명을 보고 받습니다. `Breaking`이 든 릴리스는 publish 전에 알림을 받습니다 |
 
 급한 고침 하나만 낼 때도 번호(`DS 1.0.1`)와 Changelog 줄을 씁니다.

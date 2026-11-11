@@ -3,7 +3,7 @@
 **Impact: MEDIUM (만료되는 에셋 URL과 손으로 그린 도형이 코드에 남지 않습니다)**
 
 아이콘은 프로젝트 아이콘 세트에서 먼저 찾고 없으면 Figma 에셋을 내려받아 저장소의 `asset/icon/`에 저장합니다.
-스크린샷 URL은 수명이 짧고 `get_design_context` 에셋 URL도 7일 동안만 유효합니다.
+스크린샷 URL은 수명이 짧고 `get_design_context` 에셋 URL도 시간이 지나면 만료됩니다.
 두 URL을 코드에 남기면 배포한 화면에서 그림이 사라집니다.
 
 ```mermaid

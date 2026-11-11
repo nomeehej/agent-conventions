@@ -6,6 +6,7 @@ impactDescription: 눈으로 대조해서는 놓치는 간격, 색, 빠진 상�
 appliesWhen:
   - Figma 기준 구현이나 수정을 마무리하거나 완료로 보고할 때
   - Figma 라이브러리 파일을 고친 작업을 마무리하거나 완료로 보고할 때
+  - 라이브러리 파일의 검사만 돌려 위반을 보고할 때
 requiredOnCompletion: true
 reviewWith: storybook/verify-build-storybook-and-run-story-tests
 tags: verify, parity, measurement, library
@@ -17,13 +18,14 @@ tags: verify, parity, measurement, library
 
 스크린샷을 눈으로 대조하면 1px 간격, 비슷한 회색, 빠진 상태를 놓칩니다.
 실제 라우트에서 렌더 값을 읽어 대조 행마다 견줍니다.
+라우트가 없는 `ui`, `widget` 부품은 그 부품의 story에서 읽습니다.
 수치로 확인한 행만 일치로 보고합니다.
 무엇을 확인할지는 작업 종류가 정합니다.
 
 | 작업 | 확인 |
 | --- | --- |
 | 구현. 코드를 바꿈 | 재는 차례와 판정을 따릅니다 |
-| 라이브러리 구성. Figma 라이브러리 파일에 씀 | 라이브러리 검사를 따릅니다. 렌더 값은 재지 않습니다 |
+| 라이브러리 구성. Figma 라이브러리 파일에 쓰거나 검사만 돌림 | 라이브러리 검사를 따릅니다. 렌더 값은 재지 않습니다 |
 | 둘 다 | 둘 다 합니다 |
 | 읽기만 함. 코드도 Figma도 바꾸지 않음 | 잴 값이 없습니다. 보고에 측정 대상 없음을 적고 끝냅니다 |
 
@@ -37,7 +39,8 @@ tags: verify, parity, measurement, library
    Figma 쪽 값을 `get_variable_defs`나 이미 받은 응답에서 얻지 못한 행은 `UNMEASURED`로 두고 보고에 남깁니다.
    그 행에는 `PASS`, `DRIFT`를 붙이지 않습니다.
    에셋은 로컬 파일이 비어 있지 않은지, 렌더 폭과 높이가 Figma 비율과 맞는지도 행으로 둡니다.
-2. 실제 라우트를 열고 `getComputedStyle`, `getBoundingClientRect`로 값을 읽습니다.
+2. 실제 라우트나 부품의 story를 열고 `getComputedStyle`, `getBoundingClientRect`로 값을 읽습니다.
+   story는 Storybook의 `iframe.html?id=<story id>&viewMode=story` 주소로 엽니다.
 3. 행마다 판정을 붙입니다.
 4. 요청 범위 안의 차이만 고치고 다시 잽니다.
    범위 밖 차이는 고치지 않고 보고합니다.
@@ -73,18 +76,26 @@ flowchart LR
 ### 라이브러리 검사
 
 라이브러리 파일을 고쳤으면 읽기만 하는 `use_figma` 스크립트로 바뀐 페이지의 위반을 셉니다.
+검사 범위는 바뀐 ❖ 페이지의 master와 그 섹션입니다.
+인스턴스 안쪽 노드, ✱ utility의 문서용 부품, 아이콘 master(`icon/<이름>`)는 세지 않습니다.
+페이지 구분선(`isPageDivider`)도 세지 않습니다.
 위반이 0이 될 때까지 고칩니다.
 바뀐 섹션마다 `get_screenshot`을 찍어 Storybook의 같은 story와 나란히 놓고 정렬, 잘림, 겹침, 색을 봅니다.
 
 | 검사 | 위반 | 규칙 |
 | --- | --- | --- |
 | 페이지 이름 | 기호 없는 이름, 이모지 | `file-mark-each-page-kind-with-one-symbol` |
-| master 깊이 | 섹션 바로 아래가 아닌 master, master 없는 섹션 | `layer-put-masters-directly-under-the-section` |
+| 페이지 구성 | ❖ 페이지의 섹션이 하나가 아님, 섹션과 `examples` frame 밖의 노드, master 없는 섹션 | `layer-use-sections-only-for-master-groups` |
+| master 깊이 | 섹션 바로 아래가 아닌 master, master도 `_` 문서용 레이어도 아닌 섹션 직속 노드 | `layer-put-masters-directly-under-the-section` |
 | 레이어 이름 | `Frame 12` 같은 기본 이름, 가운뎃점 | `layer-name-layers-by-role` |
-| 묶이지 않은 값 | 변수에 묶이지 않은 칠하기와 테두리, 글자 스타일 없는 글자 | `variable-bind-visual-values-to-variables-and-styles` |
+| 행렬 이름표 | `_labels` 안에 `_Matrix` 인스턴스가 아닌 노드 | `layer-lay-variants-out-as-a-labeled-matrix` |
+| 예시 frame | master가 든 예시 frame, 예시 frame 바로 아래의 글자, `_header`가 없는 예시 frame | `layer-show-compositions-in-the-examples-frame` |
+| 배치 | 줄 첫 상자의 왼쪽 끝이 한 기준선이 아님, 세로로 겹치는 상자의 위 끝이 다름, 상자, 머리글, 노트가 겹침, 예시 frame의 x나 폭이 섹션과 다름 | `layer-lay-variants-out-as-a-labeled-matrix`, `layer-show-compositions-in-the-examples-frame` |
+| 묶이지 않은 값 | 변수에 묶이지 않은 칠하기와 테두리, 글자 스타일 없는 글자, primitive 변수에 직접 묶인 색 | `variable-bind-visual-values-to-variables-and-styles` |
+| 변수 | scope가 `ALL_SCOPES`인 semantic 변수, Web 코드 문법이 없는 semantic 변수, publish에서 숨기지 않은 primitive 변수 | `variable-name-variables-after-code-tokens` |
 | 속성 순서 | 종류 → `Size` → 내용 → `State`가 아닌 속성, 어긋난 `Size`, `State` 값 순서 | `property-share-axis-names-values-and-order` |
 | 노트 | 작성자나 날짜가 없는 노란 노트 | `note-sign-dated-notes-and-remove-them-when-settled` |
-| master 설명 | 설명이 없는 master | `note-describe-masters-with-purpose-and-code-path` |
+| master 설명 | 설명이 없는 master. 아이콘 master는 뺍니다 | `note-describe-masters-with-purpose-and-code-path` |
 
 참고: [Figma 문서: 사용자 지정 규칙](https://developers.figma.com/docs/figma-mcp-server/add-custom-rules/#output-rules),
 [MDN: getComputedStyle()](https://developer.mozilla.org/en-US/docs/Web/API/Window/getComputedStyle),

@@ -25,7 +25,7 @@ tags: property, state, proposal
 | 화면이 쓰지 않는 크기 | 같은 묶음 부품의 같은 `Size` 높이 |
 
 맞는 변수가 없으면 새 변수를 `script-write-one-script-at-a-time-from-one-owner`의 목록에 올립니다.
-GUI실 확인이 필요하면 노란 노트로 묻습니다.
+GUI 담당 디자이너의 확인이 필요하면 노란 노트로 묻습니다.
 제안을 코드에 구현할지는 `transcription-carry-library-properties-into-props-and-stories`가 정합니다.
 
 **Incorrect 1 (제안 표시 없이 코드에 없는 새 색으로 Hover를 그립니다):**

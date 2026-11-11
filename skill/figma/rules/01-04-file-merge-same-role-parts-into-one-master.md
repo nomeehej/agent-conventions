@@ -6,6 +6,7 @@ impactDescription: 디자이너가 역할마다 부품 하나만 고르고 코�
 appliesWhen:
   - 같은 역할의 코드 부품 둘 이상을 Figma에 그릴 때
   - 목차의 `코드에만 있음` 카드를 만들거나 고치거나 지울 때
+reviewWith: storybook/file-title-stories-with-the-figma-page-name, storybook/design-link-each-story-to-its-figma-node
 tags: file, master, merge, index
 ---
 
@@ -23,6 +24,8 @@ master를 그리지 않는 코드 부품은 ❖ 페이지 없이 `# ui`, `# widg
 | 감싸기만 하는 부품. provider, `Suspense` 경계 | ❖ 페이지 없이 `코드에만 있음` 카드 |
 | 다른 부품의 조합 | 그 부품 ❖ 페이지의 예시 frame. 목차 카드 `예시 → ❖ <부품>` |
 
+합친 코드 부품의 story는 자기 폴더 이름을 `title`의 끝 마디로 씁니다.
+design 링크는 합쳐진 master의 variant나 `examples/<부품>` 칸에 잇습니다.
 코드가 합쳐지면 노트를 지우고 `코드에만 있음` 카드도 지웁니다.
 카드의 상태 말은 `note-describe-masters-with-purpose-and-code-path`가 정합니다.
 

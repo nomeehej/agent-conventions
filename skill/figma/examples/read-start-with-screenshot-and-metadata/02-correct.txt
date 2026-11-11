@@ -1,6 +1,8 @@
-get_metadata        12:340 상품 목록_전체                     약 10k
-get_screenshot      12:341 상품 목록       maxDimension 1600  약 3k
-get_variable_defs   12:341 상품 목록                          약 1k
-저장소 대응         표 ui Table, 탭 ui Tabs, 상태 ui Badge
-get_design_context  12:377 재고 경고 칩    excludeScreenshot  약 1.2k
-합계                                                          약 15k
+create_session        Ab12Cd34Ef56Gh78Ij90Kl                    sessionId를 이후 호출에 넘김
+get_metadata          12:340 상품 목록_전체                     약 10k
+get_screenshot        12:341 상품 목록       maxDimension 1600  약 3k
+get_variable_defs     12:341 상품 목록                          약 1k
+get_code_connect_map  12:341 상품 목록                          매핑 없음
+저장소 대응           표 ui Table, 탭 ui Tabs, 상태 ui Badge
+get_design_context    12:377 재고 경고 칩    excludeScreenshot  약 1.2k
+합계                                                            약 15k

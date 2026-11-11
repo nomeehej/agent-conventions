@@ -24,6 +24,8 @@ Figma publish는 파일 하나를 한 번에 올리고 라이브러리에는 번
 | `Fixed` | 모양만 바꿈. 색, 간격, 글꼴, 아이콘 | 1.0.1 |
 | `Docs` | Read me, 예시, 노트 | 그대로 |
 
+`Docs`만 든 `다음` 칸은 publish할 것이 없어 번호를 받지 않고 열어 둡니다.
+그 칸에 다음 `Breaking`, `Added`, `Fixed` 줄이 생겨 번호를 받을 때 `Docs` 줄도 함께 실립니다.
 표기는 `DS 1.1.0`입니다. `v`나 가운뎃점을 붙이지 않습니다.
 
 참고: [Figma 도움말: 라이브러리 publish](https://help.figma.com/hc/en-us/articles/360025508373),

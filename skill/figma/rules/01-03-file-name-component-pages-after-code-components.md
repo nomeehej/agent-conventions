@@ -23,10 +23,13 @@ tags: file, naming, page, storybook
 | master | `date-picker` |
 | 코드 폴더 | `src/component/ui/date-picker/` |
 | Storybook title | `component/ui/date-picker` |
+| 아이콘 | 페이지 `❖ icon`(`# foundation` 묶음), master `icon/pin`. 코드는 `src/asset/icon/pin.svg` |
 
 페이지는 표지 → 안내 → foundation → `ui` → `widget` → utility 차례로 둡니다.
 `ui`, `widget` 묶음 안은 이름 순이라 코드 폴더 목록, Storybook 사이드바와 순서가 같습니다.
 코드 이름을 바꾸면 페이지와 master 이름도 같은 릴리스에서 바꿉니다.
+아이콘은 코드 부품이 아니라 `asset/icon/`의 파일과 짝이라 위 이름 규칙의 예외입니다.
+❖ 페이지를 만들면 같은 묶음의 `#` 목차에 그 부품의 카드도 함께 만들고 이름을 바꾸면 카드 이름도 바꿉니다.
 
 참고: [Storybook 문서: 이름과 계층](https://storybook.js.org/docs/writing-stories/naming-components-and-hierarchy).
 

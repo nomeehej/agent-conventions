@@ -5,8 +5,11 @@ const white = variables.find((variable) => variable.name === "common/white");
 // [!code ++]
 const surface = figma.variables.createVariable("bg/surface", color, "COLOR");
 
-// [!code ++]
-surface.setValueForMode(color.defaultModeId, figma.variables.createVariableAlias(white));
+for (const mode of color.modes) {
+	// [!code ++]
+	surface.setValueForMode(mode.modeId, figma.variables.createVariableAlias(white));
+}
+
 // [!code ++]
 surface.scopes = ["FRAME_FILL", "SHAPE_FILL"];
 // [!code ++]

@@ -6,5 +6,6 @@ date-picker / Size=Medium, Value=Filled, State=Hover 설명
   코드에 없는 제안. select :hover 테두리와 같은 border/hover
 
 # ui 목차 카드
-  date-picker      30 variants
-  checkbox-button  합침 → checkbox
+  date-picker          30 variants
+  코드에만 있음
+    checkbox-button    합침 → checkbox

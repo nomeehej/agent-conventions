@@ -4,7 +4,7 @@ import {fn} from "storybook/test";
 
 import {Select} from "@/component/ui/select/select";
 
-const selectOptions = [
+const select_options = [
 	{value: "option-1", label: "옵션 1"},
 	{value: "option-2", label: "옵션 2"},
 ];
@@ -19,7 +19,7 @@ const meta = {
 	// [!code ++]
 	title: "component/ui/select",
 	component: Select,
-	args: {size: "medium", value: "", options: selectOptions, onChange: fn()},
+	args: {size: "medium", value: "", options: select_options, onChange: fn()},
 } satisfies Meta<typeof Select>;
 
 export default meta;

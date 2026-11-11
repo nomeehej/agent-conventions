@@ -3,8 +3,8 @@ publish 설명
   loading-button  Added  제출 중 버튼 master
   select          Fixed  Hover 테두리 border/hover
 
-Storybook 첫 화면
-  DS 1.1.0 반영
+Storybook 제목
+  관리자 콘솔 DS 1.1.0
 
 PR 제목
   DS 1.1.0 select Hover 테두리

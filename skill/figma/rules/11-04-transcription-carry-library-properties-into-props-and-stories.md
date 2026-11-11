@@ -25,14 +25,14 @@ tags: transcription, props, story, library
 | `State=Disabled`, `State=Error` | boolean 프롭 `disabled`, `error` |
 | `State=Hover`, `State=Focus`, `State=Pressed` | 프롭이 아니라 CSS 의사 클래스 |
 | `TEXT`, `BOOLEAN`, `INSTANCE_SWAP`, `SLOT` 속성 | 글자, 켜기, 아이콘, `children` 같은 프롭 |
-| 프롭이 되는 속성 값 하나 | story 하나. export 이름은 그 값의 PascalCase이고 첫 story는 기본 variant |
+| 프롭이 되는 속성 값 하나 | story 하나. export 이름은 그 값의 PascalCase이고 첫 story는 meta `args`의 기본값으로 렌더하는 story |
 | variant 노드, 예시 칸 노드 | 그 story의 `parameters.design` |
 | `코드에 없는 제안.` variant | 구현할지 정해 story 파일 위 상자와 보고에 남깁니다 |
 
 프롭 값이 Figma 값과 다르면(`Variant=Fill`과 `variant="contained"`) story 파일 위 상자에 대응을 적습니다.
 master의 `Size`별 높이와 안쪽 여백은 표본이 아니라 그 크기 값의 기준입니다.
 `intent-treat-frame-sizes-and-sample-text-as-samples`는 화면 프레임의 치수에만 겁니다.
-master를 읽는 MCP 호출 순서는 `read-start-with-screenshot-and-metadata`가 정합니다.
+master를 읽는 MCP 호출은 `read-choose-the-node-each-tool-reads`의 master set 행이 정합니다.
 
 참고: [Storybook 문서: 이름과 계층](https://storybook.js.org/docs/writing-stories/naming-components-and-hierarchy),
 [addon-designs](https://github.com/storybookjs/addon-designs).

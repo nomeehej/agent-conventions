@@ -17,7 +17,7 @@ tags: mcp, budget, screenshot, metadata
 Figma 노드는 `get_metadata`, `get_screenshot` 순서로 먼저 읽습니다.
 URL이 래퍼를 가리키면 `get_metadata`가 첫 호출입니다.
 두 도구는 노드 수와 픽셀 수로 비용을 미리 가늠할 수 있습니다.
-`get_variable_defs`와 `get_design_context`는 코드로 옮길 때만 뒤에 더합니다.
+`get_variable_defs`, `get_code_connect_map`, `get_design_context`는 코드로 옮길 때만 뒤에 더합니다.
 `get_design_context`는 레이어가 정리되지 않았을수록 같은 화면에서도 노드가 몇 배로 늘어납니다.
 
 ### 도구별 역할과 비용
@@ -27,6 +27,7 @@ URL이 래퍼를 가리키면 `get_metadata`가 첫 호출입니다.
 | `get_screenshot` | 시각 기준. 실제 문구, 색, 배치 | 픽셀 수에 비례합니다. 1600px 한 장이 약 3k입니다 |
 | `get_metadata` | 노드 트리, 타입, 이름, 좌표, 크기, `hidden` | 노드당 약 35입니다. 노드 270개가 약 10k입니다 |
 | `get_variable_defs` | 노드가 쓰는 변수 이름과 값 | 목록 항목 하나에 수백입니다. 화면 프레임은 그보다 큽니다 |
+| `get_code_connect_map` | 노드 id마다 매핑된 코드 컴포넌트 이름과 경로 | 측정하지 않았고 매핑 목록만 오므로 작다고 봅니다 |
 | `get_design_context` | 참고 코드, 실제 텍스트, 에셋 URL | 노드 수에 비례합니다. 같은 화면 전체가 Dev Mode 추정 약 63k입니다 |
 
 측정값은 2026년 9월 Figma 공식 MCP 플러그인(`figma/mcp-server-guide`) 2.2 계열, 원격 서버에서 화면 하나로 잰 것입니다.
@@ -37,11 +38,14 @@ URL이 래퍼를 가리키면 `get_metadata`가 첫 호출입니다.
 
 1. URL에서 `fileKey`와 노드 id를 뽑습니다.
    노드 고르기는 `read-choose-the-node-each-tool-reads`가 정합니다.
-2. `get_metadata`를 부릅니다.
-3. `get_screenshot`을 `maxDimension: 1600`으로 부릅니다.
+2. 서버가 `create_session`을 요구하면 `fileKey`와 작업 설명으로 한 번 부릅니다.
+   받은 `sessionId`는 이후 파일 도구마다 넘깁니다.
+3. `get_metadata`를 부릅니다.
+4. `get_screenshot`을 `maxDimension: 1600`으로 부릅니다.
 
 설계 문서의 재료로 읽을 때는 여기서 끝납니다.
 코드로 옮길 때는 `get_variable_defs`를 `source-map-figma-values-to-project-tokens`에 따라 한 번 부릅니다.
+`get_code_connect_map`은 `transcription-reuse-project-components-before-new-markup`에 따라 화면 프레임에 한 번 부릅니다.
 대응물이 없는 요소만 `read-call-design-context-only-on-small-unmatched-nodes`에 따라 코드로 읽습니다.
 
 `get_screenshot` 응답은 수명이 짧은 URL입니다.
