@@ -31,7 +31,7 @@ tags: docs, comments
 | 도구 지시 | `// biome-ignore`처럼 도구가 정한 꼴로 그 줄 바로 위에 둡니다 |
 | 한 줄 주석 앞 | 앞 줄이 코드면 빈 줄 하나를 둡니다. 블록, 객체, 배열의 첫 줄, JSX 여는 태그 안, 앞 줄이 주석인 줄은 예외 |
 | 테스트 사례의 준비, 실행, 검증 구간 | 테스트 규칙이 정한 한 줄 구간 주석을 따릅니다. 구획 상자를 두지 않습니다 |
-| JSX 자식 | `//`를 쓸 수 없으므로 프레임워크 규칙을 따릅니다 |
+| JSX 자식 | JSX 자식에는 주석을 두지 않습니다. 구역 설명 자리는 프레임워크 규칙이 정합니다 |
 
 상자를 둘 자리는 `docs-put-boxes-on-groups-and-blocks`가 정합니다.
 상자 모양과 문장은 `docs-write-korean-comments-about-purpose-and-constraints`가 정합니다.
