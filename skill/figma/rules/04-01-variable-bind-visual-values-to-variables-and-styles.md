@@ -14,8 +14,8 @@ tags: variable, style, token
 **Impact: HIGH (토큰 값을 바꾸면 모든 master가 따라 바뀌고 Dev Mode가 값 대신 코드 토큰 이름을 보여 줍니다)**
 
 master의 색, 간격, 모서리는 변수에, 글자와 효과는 스타일에 묶습니다.
-master는 semantic 컬렉션(`color`)의 변수만 씁니다.
-primitive 컬렉션은 semantic 변수의 별칭 원본으로만 둡니다.
+master의 색은 semantic 컬렉션(`color`)의 변수만 씁니다.
+primitive 컬렉션은 semantic 변수의 별칭 원본으로만 두고 master에 직접 묶지 않습니다.
 
 | 값 | 묶는 곳 |
 | --- | --- |

@@ -26,7 +26,7 @@ Figma는 섹션 단위로 Ready for dev를 표시하므로 섹션이면 개발�
 ❖ 페이지 바로 아래에는 그 섹션과 예시 frame만 둡니다.
 master가 없는 섹션은 만들지 않습니다.
 
-참고: [Figma 도움말: 섹션](https://help.figma.com/hc/en-us/articles/9771500257687-Organize-your-canvas-with-sections),
+참고: [Figma 도움말: 섹션](https://help.figma.com/hc/en-us/articles/9771500257687),
 [Figma 도움말: Dev Mode 상태](https://help.figma.com/hc/en-us/articles/26781702258583).
 
 **Incorrect 1 (예시와 안내까지 섹션으로 만들어 개발에 넘길 대상처럼 보입니다):**

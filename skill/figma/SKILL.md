@@ -1,6 +1,6 @@
 ---
 name: convention-figma
-description: Use when a request includes a figma.com URL, Figma node, or design screenshot and asks to implement, update, or match UI against it. Governs Figma MCP call order and token budget, reading messy or annotated design files, and verifying parity.
+description: Use when a request includes a figma.com URL, Figma node, or design screenshot and asks to implement, update, or match UI against it, or asks to build or change components, properties, variables, notes, or releases in a Figma library file. Governs library file structure and naming, Figma MCP call order and token budget, reading messy or annotated design files, and verifying parity.
 metadata:
   author: agent-conventions
   version: "1.0.0"
@@ -16,6 +16,8 @@ metadata:
 
 - 요청에 `figma.com` URL, Figma 노드 id, 디자인 스크린샷이 있고 화면을 구현, 수정, 대조하라는 실제 변경
 - Figma에서 읽은 값, 문구, 아이콘, 구조를 코드에 추가, 삭제, 이동, 이름 변경하는 것
+- Figma 라이브러리 파일의 페이지, master, 속성, 변수, 노트, 릴리스를 만들거나 고치는 것.
+  코드 부품을 master로 그리는 것도 든다
 - `convention-blueprint`가 설계 문서의 재료로 Figma를 읽는 경우.
   `read` 규칙대로 읽고 코드를 바꾸지 않았으면 `verify` 규칙은 측정 대상 없음과 읽은 노드, `get_design_context`, 질문 항목만 보고한다
 
@@ -28,13 +30,27 @@ metadata:
   `/file/` URL은 `/design/`과 같게 본다.
 - 이동에 그대로 딸려 온 마크업과 스타일.
   diff에 삭제+추가로 보여도 변경으로 다시 세지 않는다.
+- 화면 파일 안의 구성. 화면 파일에 화면을 그리는 일은 이 skill이 정하지 않는다
 
 적용되지 않는 규칙의 선택 사항을 새로 들여와 스스로 범위를 넓히지 않는다.
+
+작업 종류를 먼저 가른다.
+
+| 작업 | 신호 | 먼저 읽을 절 |
+| --- | --- | --- |
+| 라이브러리 구성 | Figma 라이브러리 파일에 쓴다. master, 속성, 변수, 노트, 릴리스를 만들거나 고친다. 코드 부품을 master로 그린다 | 1~7절 `file`, `layer`, `property`, `variable`, `note`, `release`, `script` |
+| 구현 | Figma URL, 노드, 스크린샷을 읽고 코드를 바꾼다 | 8절 `read` |
+| 둘 다 | master를 고치고 코드도 맞춘다 | 1~7절 다음 8절 |
 
 TSX 화면이나 컴포넌트가 바뀌면 `convention-react`를 함께 활성화한다.
 `convention-react`가 `convention-typescript`를 켠다.
 stylesheet, `className`, 토큰 값이 바뀌면 `convention-css`를 함께 활성화한다.
-Figma를 읽기만 하고 코드를 바꾸지 않으면 어느 companion도 켜지 않는다.
+Figma를 읽기만 하거나 Figma에만 쓰고 코드를 바꾸지 않으면 어느 companion도 켜지 않는다.
+
+`use_figma`를 부르기 전에 Figma 공식 `figma-use`, `figma-generate-library` 스킬을 도구 설명대로 먼저 읽는다.
+그 공식 스킬과 이 skill이 부딪히면 이 skill이 우선한다.
+특히 PascalCase 부품 이름, `_` 내부 부품, variant 30개 상한, 여러 페이지 동시 쓰기는 따르지 않는다.
+근거와 대신 할 일은 `script-read-the-official-skills-and-keep-these-names` contract가 말한다.
 
 `get_design_context`를 부를 때 Figma 공식 `figma-design-to-code` 스킬을 도구 설명대로 먼저 읽는다.
 그 공식 스킬과 이 skill이 부딪히면 이 skill이 우선한다.
@@ -53,6 +69,8 @@ Figma를 읽기만 하고 코드를 바꾸지 않으면 어느 companion도 켜�
 
 MCP를 부르기 전에 `read` 섹션 규칙부터 읽는다.
 호출 순서와 대상 노드가 거기서 정해진다.
+`use_figma`로 쓰기 전에 `script` 섹션 규칙부터 읽는다.
+쓰는 차례와 Plugin API 함정이 거기서 정해진다.
 
 ## 3. 규칙 읽고 구현
 
@@ -95,7 +113,9 @@ conditional companion도 다시 판정한다.
 
 변경 diff를 적용한 규칙에 비춰 다시 훑는다.
 위반이 있으면 file/line과 수정안으로 보고한다.
+Figma 라이브러리 변경은 file/line 대신 페이지와 node id로 보고한다.
 `completionGate` 규칙의 실측 판정과 보고 항목을 마무리 보고에 싣는다.
+라이브러리 구성만 한 작업은 렌더 실측 대신 그 규칙의 라이브러리 검사와 보고 항목을 싣는다.
 lint, typecheck, build, 스크린샷을 눈으로 대조한 결과는 컨벤션을 지켰다는 근거가 아니다.
 
 전체 검토를 명시적으로 요청받거나 index, contract가 손상됐을 때만 `rules/*.md`를 번호 순서로 읽는다.

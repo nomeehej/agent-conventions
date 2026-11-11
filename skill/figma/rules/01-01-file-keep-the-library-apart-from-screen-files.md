@@ -28,8 +28,8 @@ tags: file, library, publish
 화면 파일은 Libraries의 Updates 창에서 publish 설명을 보고 새 판을 받습니다.
 화면 파일 안의 구성은 이 skill이 정하지 않습니다.
 
-참고: [Figma 도움말: 라이브러리 publish](https://help.figma.com/hc/en-us/articles/360025508373-Publish-a-library),
-[Figma 도움말: 업데이트 받기](https://help.figma.com/hc/en-us/articles/360039234193-Review-and-accept-library-updates).
+참고: [Figma 도움말: 라이브러리 publish](https://help.figma.com/hc/en-us/articles/360025508373),
+[Figma 도움말: 업데이트 받기](https://help.figma.com/hc/en-us/articles/360039234193).
 
 **Incorrect 1 (화면 파일이 master를 복사해 두고 떼어 낸 인스턴스를 고칩니다):**
 

@@ -1,7 +1,7 @@
-# Figma 구현 컨벤션 Rule Index
+# Figma 컨벤션 Rule Index
 
 - Skill: `figma`
-- Routing digest: `sha256:47e9a2e517a3713359ae6f2e29409dfa89e7d8e407ce0333d3e6fe37bd68dd86`
+- Routing digest: `sha256:c292f1021b831d9a376ab07c2fb4231ffdf9e8fc37243eba3ac66063acb81a6e`
 
 ## Direct Companions
 
@@ -54,5 +54,5 @@
 - F11-02 | transcription-do-not-copy-layer-structure | \`get\_design\_context\` 출력의 JSX, \`className\`, 인라인 SVG를 파일에 옮길 때. \`get\_design\_context\` 출력의 절대 좌표, \`rotate\`를 옮길 때. | reviewWith: css/composition-do-not-add-wrapper-elements-for-styling, css/composition-do-not-style-through-the-style-attribute
 - F11-03 | transcription-use-existing-icons-or-downloaded-assets | Figma의 아이콘, 로고, 이미지를 코드에 넣을 때. 코드에 \`figma.com/api/mcp/asset\` URL이나 손으로 쓴 SVG \`path\`가 들어갈 때.
 - F11-04 | transcription-carry-library-properties-into-props-and-stories | 라이브러리 master를 기준으로 \`ui\`, \`widget\` 부품을 구현하거나 고칠 때. 부품의 프롭이나 story 이름을 Figma 속성에 맞출 때.
-- F12-01 | verify-measure-rendered-values-before-claiming-parity | Figma 기준 구현이나 수정을 마무리하거나 완료로 보고할 때. | completionGate
+- F12-01 | verify-measure-rendered-values-before-claiming-parity | Figma 기준 구현이나 수정을 마무리하거나 완료로 보고할 때. Figma 라이브러리 파일을 고친 작업을 마무리하거나 완료로 보고할 때. | completionGate
 - F12-02 | verify-report-reads-decisions-and-gaps | Figma 기준 작업의 결과를 보고하거나 넘겨줄 때. | completionGate

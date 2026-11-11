@@ -1,0 +1,7 @@
+바뀐 master    select 40:2, variant 0 → 24. .select/option 40:30, variant 0 → 3
+제안 상태      Size Large, State Hover, Focus, Disabled
+새 토큰        NEW color/border/hover = cool-gray/20 [STROKE_COLOR] — 제안 Hover 테두리
+갱신한 링크    없음. 새 master라 이어 둔 story 없음
+Changelog      다음  select  Added  코드의 select를 master로 그림
+남은 노트      없음
+검사           위반 0, select 섹션과 Storybook component/ui/select story 5개 대조

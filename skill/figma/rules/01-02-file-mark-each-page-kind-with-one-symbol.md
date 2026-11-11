@@ -30,7 +30,7 @@ tags: file, page, divider
 Figma에서는 빈 페이지 이름을 `-`로 시작하면 구분선이 되고 Plugin API는 `figma.createPageDivider()`로 만듭니다.
 이름으로 페이지를 찾는 스크립트는 `isPageDivider`가 참인 페이지를 건너뜁니다.
 
-참고: [Figma 도움말: 페이지와 구분선](https://help.figma.com/hc/en-us/articles/360038511293-Create-and-manage-pages),
+참고: [Figma 도움말: 페이지와 구분선](https://help.figma.com/hc/en-us/articles/360038511293),
 [Figma 문서: PageNode](https://developers.figma.com/docs/plugins/api/PageNode/).
 
 **Incorrect 1 (이모지와 맨 이름이 섞여 페이지 종류를 이름으로 가를 수 없습니다):**

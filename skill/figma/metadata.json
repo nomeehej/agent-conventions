@@ -1,10 +1,10 @@
 {
-	"title": "Figma 구현 컨벤션",
-	"lead": "MCP 읽기 순서, 디자인 의도와 빈자리, 값의 출처, 코드로 옮기기, 검증과 보고",
+	"title": "Figma 컨벤션",
+	"lead": "라이브러리 구성(파일과 페이지, 레이어, 속성, 변수, 노트, 릴리스, Plugin API 스크립트)과 구현(MCP 읽기, 디자인 의도, 값의 출처, 코드로 옮기기), 검증과 보고",
 	"version": "1.0.0",
 	"organization": "Agent Conventions",
-	"date": "2026년 9월",
-	"abstract": "Figma 디자인을 코드로 옮기는 팀을 위한 컨벤션입니다. Figma는 참고 자료이고 스펙은 코드입니다. 화면은 스크린샷과 메타데이터로 먼저 읽습니다. `get_design_context`는 저장소에 대응물이 없는 가장 작은 노드에만 불러 LLM 토큰을 아낍니다. 숨긴 레이어, UX 메모, 그려지지 않은 상태를 구현 전에 모읍니다. 값은 프로젝트 토큰으로, 구조는 기존 컴포넌트로 옮기고 완료 전에 렌더 값을 실측합니다. 디자인 파일의 레이어가 정리돼 있든, Code Connect가 있든 없든 결과 품질이 크게 흔들리지 않게 합니다. TSX를 바꿀 때는 React 규칙을, 스타일을 바꿀 때는 CSS 규칙을 함께 봅니다. 규칙 본문의 정본은 `rules/*.md`입니다.",
+	"date": "2026년 11월",
+	"abstract": "Figma 라이브러리를 구성하고 Figma 디자인을 코드로 옮기는 팀을 위한 컨벤션입니다. 구성 규칙은 라이브러리 파일의 페이지, 레이어, 속성, 변수, 노트, 릴리스와 Plugin API 스크립트를 다룹니다. 부품 페이지와 master는 코드 부품과 같은 이름을 쓰고 속성 축과 값은 모든 master가 같은 말을 씁니다. 라이브러리 master는 부품의 모양과 속성 축의 기준이고 동작과 데이터의 스펙은 코드입니다. 구현 규칙은 Figma를 읽어 코드로 옮기는 과정을 다룹니다. 화면 파일의 Figma는 참고 자료이고 스펙은 코드입니다. 화면은 스크린샷과 메타데이터로 먼저 읽습니다. `get_design_context`는 저장소에 대응물이 없는 가장 작은 노드에만 불러 LLM 토큰을 아낍니다. 숨긴 레이어, UX 메모, 그려지지 않은 상태를 구현 전에 모읍니다. 값은 프로젝트 토큰으로, 구조는 기존 컴포넌트로 옮기고 master의 속성 축은 프롭과 story로 옮깁니다. 구현은 완료 전에 렌더 값을 실측하고 라이브러리 구성은 검사 위반과 바뀐 섹션으로 마무리합니다. 디자인 파일의 레이어가 정리돼 있든, Code Connect가 있든 없든 결과 품질이 크게 흔들리지 않게 합니다. TSX를 바꿀 때는 React 규칙을, 스타일을 바꿀 때는 CSS 규칙을 함께 봅니다. 규칙 본문의 정본은 `rules/*.md`입니다.",
 	"companions": [
 		{
 			"skill": "react",
@@ -22,6 +22,20 @@
 		"https://help.figma.com/hc/en-us/articles/39166810751895-Figma-skills-for-MCP",
 		"https://github.com/figma/mcp-server-guide/blob/main/skills/figma-design-to-code/SKILL.md",
 		"https://github.com/figma/mcp-server-guide",
-		"https://github.com/jeltehomminga/figma-design-skills"
+		"https://github.com/jeltehomminga/figma-design-skills",
+		"https://help.figma.com/hc/en-us/articles/360025508373-Publish-a-library",
+		"https://help.figma.com/hc/en-us/articles/360039238193-Hide-styles-components-and-variables-when-publishing",
+		"https://help.figma.com/hc/en-us/articles/360039234193-Review-and-accept-library-updates",
+		"https://help.figma.com/hc/en-us/articles/360038006754-View-a-file-s-version-history",
+		"https://help.figma.com/hc/en-us/articles/360038511293-Create-and-manage-pages",
+		"https://help.figma.com/hc/en-us/articles/9771500257687-Organize-your-canvas-with-sections",
+		"https://help.figma.com/hc/en-us/articles/26781702258583-Dev-Mode-statuses-and-notifications",
+		"https://help.figma.com/hc/en-us/articles/5579474826519-Explore-component-properties",
+		"https://help.figma.com/hc/en-us/articles/38231200344599-Use-slots-to-build-flexible-components-in-Figma",
+		"https://help.figma.com/hc/en-us/articles/14506821864087-Overview-of-variables-collections-and-modes",
+		"https://help.figma.com/hc/en-us/articles/15145852043927-Create-and-manage-variables-and-collections",
+		"https://help.figma.com/hc/en-us/articles/18490793776023-Update-1-Tokens-variables-and-styles",
+		"https://developers.figma.com/docs/plugins/api/PageNode/",
+		"https://developers.figma.com/docs/plugins/updates/2026/06/10/update/"
 	]
 }

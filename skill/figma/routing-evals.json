@@ -361,6 +361,169 @@
 					"naming-import-by-absolute-path"
 				]
 			}
+		},
+		{
+			"id": "FGE12-draw-code-select-as-library-master",
+			"prompt": "draw the code select (src/component/ui/select/select.tsx, its CSS, and its stories) as a new master on a new ❖ select page of the DS library file (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds) and change no code: measure the stories first, give it Size, Value, and State axes with dummy option copy, a helper text that grows below the box, and a private option master, lay the variants out as a labeled matrix with an examples frame for the open menu story, and draw Large, Hover, Focus, and Disabled, which the code does not define; the hover border needs a color variable that does not exist yet; describe the master, add its # ui index card, and log the change.",
+			"files": [
+				"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds"
+			],
+			"expectedSkills": [
+				"figma"
+			],
+			"expectedSelected": {
+				"figma": [
+					"file-mark-each-page-kind-with-one-symbol",
+					"file-name-component-pages-after-code-components",
+					"layer-use-sections-only-for-master-groups",
+					"layer-put-masters-directly-under-the-section",
+					"layer-prefix-doc-parts-and-private-masters",
+					"layer-name-layers-by-role",
+					"layer-lay-variants-out-as-a-labeled-matrix",
+					"layer-show-compositions-in-the-examples-frame",
+					"layer-grow-masters-downward-for-attached-text",
+					"property-share-axis-names-values-and-order",
+					"property-choose-the-type-by-what-changes",
+					"property-draw-missing-states-as-marked-proposals",
+					"property-split-states-that-break-the-grid",
+					"property-keep-placeholder-copy-in-ui-masters",
+					"variable-bind-visual-values-to-variables-and-styles",
+					"variable-name-variables-after-code-tokens",
+					"note-describe-masters-with-purpose-and-code-path",
+					"release-version-the-whole-library-with-one-number",
+					"release-log-changes-only-in-the-changelog-page",
+					"script-read-the-official-skills-and-keep-these-names",
+					"script-write-one-script-at-a-time-from-one-owner",
+					"script-check-plugin-api-pitfalls-before-writing",
+					"script-derive-properties-from-code-and-measured-stories",
+					"verify-measure-rendered-values-before-claiming-parity",
+					"verify-report-reads-decisions-and-gaps"
+				]
+			}
+		},
+		{
+			"id": "FGE13-close-ds-release",
+			"prompt": "close the DS 1.1.0 release in the library file (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds): the 다음 column of ¶ Changelog holds a new loading-button master, a select hover border fix, and a Read me paragraph; confirm the version number from those rows, check that the changed masters kept their node ids, prepare the publish description, close the column and open a new one, and tell the screen files and the code which version to take.",
+			"files": [
+				"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds"
+			],
+			"expectedSkills": [
+				"figma"
+			],
+			"expectedSelected": {
+				"figma": [
+					"file-keep-the-library-apart-from-screen-files",
+					"release-version-the-whole-library-with-one-number",
+					"release-log-changes-only-in-the-changelog-page",
+					"release-edit-masters-in-place-to-keep-node-ids",
+					"release-publish-with-the-version-and-record-it-in-code",
+					"script-read-the-official-skills-and-keep-these-names",
+					"verify-measure-rendered-values-before-claiming-parity",
+					"verify-report-reads-decisions-and-gaps"
+				]
+			}
+		},
+		{
+			"id": "FGE14-settle-merged-checkbox-note",
+			"prompt": "the dated note on ❖ checkbox in the library file (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds) says checkbox-button was merged into checkbox's Label property and asks the code to follow; the code merge has shipped, so settle the note, drop the checkbox-button card under 코드에만 있음 in # ui, and record the change.",
+			"files": [
+				"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds"
+			],
+			"expectedSkills": [
+				"figma"
+			],
+			"expectedSelected": {
+				"figma": [
+					"file-merge-same-role-parts-into-one-master",
+					"note-write-only-what-the-canvas-cannot-show",
+					"note-sign-dated-notes-and-remove-them-when-settled",
+					"note-describe-masters-with-purpose-and-code-path",
+					"release-version-the-whole-library-with-one-number",
+					"release-log-changes-only-in-the-changelog-page",
+					"script-read-the-official-skills-and-keep-these-names",
+					"verify-measure-rendered-values-before-claiming-parity",
+					"verify-report-reads-decisions-and-gaps"
+				]
+			}
+		},
+		{
+			"id": "FGE15-add-loading-to-button",
+			"prompt": "add a submitting (Loading) look to the button master in the library file (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds?node-id=335-119): the spinner widens the button, so the 135-variant Color × Variant × Size × State matrix would no longer line up; screen files already use button instances and Storybook stories link to its variant nodes; log the change.",
+			"files": [
+				"figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds"
+			],
+			"expectedSkills": [
+				"figma"
+			],
+			"expectedSelected": {
+				"figma": [
+					"file-name-component-pages-after-code-components",
+					"layer-put-masters-directly-under-the-section",
+					"layer-name-layers-by-role",
+					"layer-lay-variants-out-as-a-labeled-matrix",
+					"property-share-axis-names-values-and-order",
+					"property-choose-the-type-by-what-changes",
+					"property-split-states-that-break-the-grid",
+					"property-keep-placeholder-copy-in-ui-masters",
+					"variable-bind-visual-values-to-variables-and-styles",
+					"note-describe-masters-with-purpose-and-code-path",
+					"release-version-the-whole-library-with-one-number",
+					"release-log-changes-only-in-the-changelog-page",
+					"release-edit-masters-in-place-to-keep-node-ids",
+					"script-read-the-official-skills-and-keep-these-names",
+					"script-check-plugin-api-pitfalls-before-writing",
+					"verify-measure-rendered-values-before-claiming-parity",
+					"verify-report-reads-decisions-and-gaps"
+				]
+			}
+		},
+		{
+			"id": "FGE16-implement-date-picker-against-master",
+			"prompt": "implement the existing date picker against its library master (figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/ds?node-id=393-1350) in src/component/ui/date-picker/date-picker.tsx, date-picker.css, and date-picker.stories.tsx: the set is Size × Value × State, so add a size prop to the MUI wrapper and a size modifier class; colors are bound to bg/surface, border/control, and text/placeholder variables; Hover, Focus, and Disabled variants are described as 코드에 없는 제안; hidden Helper text layers sit behind a boolean property; the calendar icon is an icon instance; a range hint chip has no project counterpart and get_design_context returns it as absolutely positioned divs; the stories are still named Empty and Selected.",
+			"files": [
+				"src/component/ui/date-picker/date-picker.tsx",
+				"src/component/ui/date-picker/date-picker.css",
+				"src/component/ui/date-picker/date-picker.stories.tsx"
+			],
+			"expectedSkills": [
+				"figma",
+				"react",
+				"typescript",
+				"css"
+			],
+			"expectedSelected": {
+				"figma": [
+					"read-start-with-screenshot-and-metadata",
+					"read-choose-the-node-each-tool-reads",
+					"read-call-design-context-only-on-small-unmatched-nodes",
+					"read-take-copy-from-the-render-not-layer-names",
+					"read-collect-hidden-layers-and-annotations",
+					"source-map-figma-values-to-project-tokens",
+					"transcription-reuse-project-components-before-new-markup",
+					"transcription-do-not-copy-layer-structure",
+					"transcription-use-existing-icons-or-downloaded-assets",
+					"transcription-carry-library-properties-into-props-and-stories",
+					"verify-measure-rendered-values-before-claiming-parity",
+					"verify-report-reads-decisions-and-gaps"
+				],
+				"react": [
+					"typing-narrow-library-wrapper-contracts",
+					"composition-read-props-without-destructuring"
+				],
+				"typescript": [
+					"types-document-custom-types-and-shapes",
+					"naming-import-by-absolute-path",
+					"docs-put-boxes-on-groups-and-blocks",
+					"docs-write-korean-comments-about-purpose-and-constraints"
+				],
+				"css": [
+					"naming-use-block-element-modifier-syntax",
+					"naming-name-elements-and-modifiers-by-role",
+					"composition-compose-classes-with-clsx",
+					"composition-write-modifiers-as-conditions",
+					"values-fall-back-only-outside-core-tokens"
+				]
+			}
 		}
 	]
 }

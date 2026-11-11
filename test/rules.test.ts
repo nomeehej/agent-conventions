@@ -14,7 +14,7 @@ import {generateSiteFiles} from "../src/site.js";
 import {inlineSnippets} from "../src/snippets.js";
 import type {LoadedSkillDocument} from "../src/types.js";
 
-const expectedRuleCount = 200;
+const expectedRuleCount = 230;
 
 // ----------------------------------------------------------------------------------------
 // 사이트가 노출하는 skill 문서 전부
