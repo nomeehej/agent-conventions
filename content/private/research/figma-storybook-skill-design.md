@@ -341,3 +341,17 @@ devDependencies 에 `storybook`, `@storybook/react-vite` 를 더한다. 예제 t
 - Playwright: [Components](https://playwright.dev/docs/test-components)
 - Vitest: [Visual regression testing](https://vitest.dev/guide/browser/visual-regression-testing)
 - Figma: [Component properties](https://help.figma.com/hc/en-us/articles/5579474826519-Explore-component-properties), [Slots](https://help.figma.com/hc/en-us/articles/38231200344599-Use-slots-to-build-flexible-components-in-Figma), [Variables, collections, modes](https://help.figma.com/hc/en-us/articles/14506821864087-Overview-of-variables-collections-and-modes), [Tokens, variables, styles](https://help.figma.com/hc/en-us/articles/18490793776023-Update-1-Tokens-variables-and-styles), [Sections](https://help.figma.com/hc/en-us/articles/9771500257687-Organize-your-canvas-with-sections), [Dev Mode statuses](https://help.figma.com/hc/en-us/articles/26781702258583-Dev-Mode-statuses-and-notifications), [Publish a library](https://help.figma.com/hc/en-us/articles/360025508373-Publish-a-library), [Review library updates](https://help.figma.com/hc/en-us/articles/360039234193-Review-and-accept-library-updates), [Code Connect](https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect), [Pages and dividers](https://help.figma.com/hc/en-us/articles/360038511293-Create-and-manage-pages), [PageNode](https://developers.figma.com/docs/plugins/api/PageNode/)
+
+## 구현 결과
+
+2026-11-11 같은 날 끝냈다. 규칙 247(`figma` 46, `storybook` 17, `testing` 30), 테스트 109.
+세 갈래를 worktree 에이전트로 나눠 만들고 메인이 이어 붙인 뒤 교차 참조, `figma` → `storybook` companion, 갈래 사이 evals 를 넣었다.
+
+| 설계와 다른 것 | 이유 |
+| --- | --- |
+| Figma 값 `Error` 의 story 는 `export {ErrorStory as Error}` | `const Error` 는 전역 `Error` 를 가려 biome `noShadowRestrictedNames` 에 걸린다. story id 는 Figma 값 그대로 남는다 |
+| F12-02 등급은 MEDIUM 그대로 | 지금 규칙의 등급을 바꿀 근거가 없었다 |
+| `play` 는 `context.canvas` 체인 | typescript `values-read-objects-through-chains`. 구조분해는 `mount` 를 쓸 때만 |
+| 예제의 라이브러리 파일은 `Lb12…/admin-ds` | 화면 파일 `Ab12…/admin` 과 나눈다(`file-keep-the-library-apart-from-screen-files`) |
+| storybook evals 여섯, figma 새 시나리오 다섯 | 설계 시나리오만으로는 고르지 않는 새 규칙이 남아 validate 가 막았다 |
+| S04-03 예제는 세계관 `Button` 의 `variant="primary"` | 세계관 `Button` 이 이미 `primary`, `secondary` 로 선언돼 있다 |
