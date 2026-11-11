@@ -60,6 +60,8 @@ build tooling은 [content/public/tooling.md](./content/public/tooling.md).
 계층은 이 선언이 정한다.
 나를 companion으로 켜는 skill이 위 계층이다.
 `typescript`는 아무 skill도 켜지 않으므로 가장 아래다.
+`css`는 TSX 클래스 계약을 함께 바꾸면 `typescript`를 켠다.
+`react`는 `typescript`를 항상 켜고 클래스 계약이나 스타일시트를 바꾸면 `css`를 켜는 그 위 계층이다.
 `testing`은 변경 범위에 따라 `react`, `css`를 켠다.
 `storybook`은 story가 렌더하는 JSX나 문맥 CSS를 고치면 `react`, `css`를, `play` 단언, 접근성 설정, story 테스트 project를 고치면 `testing`을 켜는 그 위 계층이다.
 `figma`는 구현 범위에 따라 `react`, `css`를, story나 design 링크를 고치면 `storybook`을 켠다.
@@ -100,7 +102,8 @@ build tooling은 [content/public/tooling.md](./content/public/tooling.md).
 5. 생성물은 직접 편집하지 않는다.
 6. `validate` → `build` → `check` 순서로 검증한다.
 7. skill 인벤토리나 artifact 역할이 바뀌면 [README.md](./README.md),
-   [CONTRIBUTING.md](./CONTRIBUTING.md), [content/public/tooling.md](./content/public/tooling.md)도 갱신한다.
+   [CONTRIBUTING.md](./CONTRIBUTING.md), [content/public/tooling.md](./content/public/tooling.md),
+   [content/public/usage.md](./content/public/usage.md)도 갱신한다. 갱신 대상은 CONTRIBUTING 6절 표에 있다.
 
 새 skill은 이미 정리된 `react`, `typescript`, `css`, `testing`, `figma`, `storybook`, `blueprint`를 템플릿으로 삼는다.
 

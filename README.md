@@ -8,7 +8,7 @@
 
 **Coding conventions for AI-assisted development.**
 
-Rules, examples and the reasoning behind everyday decisions in React, TypeScript, CSS and Figma.
+Rules, examples and the reasoning behind everyday decisions in React, TypeScript, CSS, Testing, Figma, Storybook and Blueprint.
 
 [![MIT](https://img.shields.io/badge/license-MIT-1111aa?style=flat-square)](LICENSE)
 [![Documentation](https://img.shields.io/github/actions/workflow/status/nomeehej/agent-conventions/docs.yml?branch=main&label=docs&style=flat-square)](https://github.com/nomeehej/agent-conventions/actions/workflows/docs.yml)
@@ -44,7 +44,7 @@ Testing activates TypeScript and adds React or CSS when a test harness or the im
 Blueprint activates Figma only when a Figma file is read as design material, and Testing only when test cases are derived from the design document.
 This keeps common rules in one place while each area owns its specific decisions.
 
-Testing conventions live under Coding. Unit and component tests run on Vitest, component tests through Storybook stories, and integration and E2E tests run on Playwright, all sharing the same rules for scenarios, expectations and isolation.
+Testing conventions live under Coding. Unit tests run on Vitest, component tests run on Vitest through Storybook stories, and integration and E2E tests run on Playwright, all sharing the same rules for scenarios, expectations and isolation.
 Project-specific case IDs, folder numbering and report formats stay with the project.
 
 ## From a task to the relevant rules

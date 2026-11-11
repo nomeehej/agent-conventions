@@ -36,7 +36,7 @@ build 결과를 직접 편집해 overlay를 우회하지 않습니다.
 
 스킬 연결과 프로젝트 적용 방법은 [Usage](usage.md)에서 확인합니다.
 
-Node.js 22.12.0 이상에서 for-humanity `0.20.0`을 사용합니다.
+Node.js 22.12.0 이상에서 for-humanity `0.33.0`을 사용합니다.
 버전은 `package.json`과 `package-lock.json`에 고정합니다.
 `for-humanity.config.ts`는 패키지의 `SiteConfig` 타입을 사용하며 저장소의 타입 검사와 린트에 포함합니다.
 
@@ -84,7 +84,7 @@ Mermaid는 필요한 페이지에서 자체 호스팅 모듈을 불러옵니다.
 | `npm run content:preview` | `content/dist`의 공개 사이트를 포트 4322에서 미리 봅니다. 빌드 결과가 필요합니다. |
 | `npm run test` | 라우터와 생성물 계약, 매니페스트 검증기, build, validate fixture, 규칙 문체, 사이트 생성 테스트를 실행합니다. 규칙 산문은 핀하지 않습니다. |
 | `npm run lint`, `npm run lint:fix` | 도구 소스의 Biome 검사와 자동 수정입니다. |
-| `npm run lint:examples` | `Correct` 예제 파일을 규칙이 보여 주는 설정 그대로 검사합니다. `skill/examples.biome.json`은 typescript 07-01의 예제 파일을 `extends`와 `plugins`로 읽고 미사용 변수 예외만 더합니다. `skill/stylelint.config.mjs`는 css 09-01의 예제 파일을 `extends`로 읽고 예제에만 필요한 예외를 더합니다. `Incorrect` 예제는 일부러 어기므로 `skill/incorrect.biome.json`, `skill/incorrect.stylelint.config.mjs`로 규칙 없이 문법만 검사합니다. |
+| `npm run lint:examples` | `Correct` 예제 파일을 규칙이 보여 주는 설정 그대로 검사합니다. `skill/examples.biome.json`은 typescript 07-01의 예제 파일을 `extends`와 `plugins`로 읽고 예제에 필요한 예외(미사용 변수, 가져오기, 매개변수, 재선언, 훅 위치)만 더합니다. `skill/stylelint.config.mjs`는 css 09-01의 예제 파일을 `extends`로 읽고 예제에만 필요한 예외를 더합니다. `Incorrect` 예제는 일부러 어기므로 `skill/incorrect.biome.json`, `skill/incorrect.stylelint.config.mjs`로 규칙 없이 문법만 검사합니다. |
 | `npm run typecheck` | `tsc --noEmit`입니다. |
 | `npm run typecheck:examples` | `Correct` 예제 파일을 `skill/examples.tsconfig.json`으로 타입 검사합니다. 예제가 import 없이 쓰는 이름은 `skill/examples.d.ts`가 선언합니다. React, es-toolkit, nuqs, react-router, TanStack Query, MUI, dayjs, clsx는 설치된 패키지의 타입을 그대로 가리키므로 실제 스택에 없는 API를 쓰면 실패합니다. 예제 세계관(작은 상점 관리자 콘솔)의 도메인, 컴포넌트와 프롭, 생성된 쿼리 훅, `@/` 모듈도 같은 파일이 실제 타입으로 선언하므로 이 파일이 예제의 스키마입니다. 규칙마다 같은 컴포넌트가 다른 프롭을 받거나 응답 모양이 어긋나면 여기서 잡힙니다. 새 이름을 쓰면 tsc가 `Cannot find name`이나 `Cannot find module`로 알려 주니 그 이름을 알맞은 절에 더합니다. |
 
@@ -138,7 +138,7 @@ Vitest, Playwright, MSW는 테스트 예제의 실제 API 타입 검사를 위�
 ## CRITICAL Stop hook
 
 `CRITICAL` 규칙은 작업 마무리에 결과 코드와 다시 대조합니다.
-`hooks/check-critical-rules.sh`는 HEAD 대비 추가된 줄과 새 파일에서 기계로 검사할 수 있는 `CRITICAL` 네 항목과 이름 규칙의 바닥 둘, 모두 여섯 항목을 확인합니다.
+`hooks/check-critical-rules.sh`는 HEAD 대비 추가된 줄과 새 파일에서 기계로 검사할 수 있는 `CRITICAL` 다섯 항목과 `MEDIUM` 이름 규칙 하나, 모두 여섯 항목을 확인합니다.
 위반이 있으면 목록을 반환하며 마무리를 한 번 막습니다.
 
 | 항목 | 규칙 |
@@ -147,7 +147,7 @@ Vitest, Playwright, MSW는 테스트 예제의 실제 API 타입 검사를 위�
 | `../`와 같은 폴더 심볼 가져오기 | TypeScript 02-05 |
 | 레이어 역방향 가져오기 | React 01-04 |
 | 역할 낱말 하나인 새 컴포넌트 파일 이름 (`header.tsx`) | React 01-02 |
-| 한 블록 이름을 두 파일 이상이 씀 (트리 전체 검사) | CSS 02-01 |
+| 한 블록 이름을 두 파일 이상이 씀 (트리 전체 검사, 추적하지 않는 새 CSS 파일 포함) | CSS 02-01 |
 | `블록__동작` 형식이 아닌 `@keyframes` | CSS 07-02 |
 
 사용할 프로젝트의 `.claude/settings.local.json`에 Stop 훅을 추가합니다.

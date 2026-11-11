@@ -17,6 +17,7 @@
     - 3.1 [appliesWhen 작성 기준](#31-applieswhen-작성-기준)
     - 3.2 [requiresSelected와 reviewWith](#32-requiresselected와-reviewwith)
     - 3.3 [낱말 고르기](#33-낱말-고르기)
+    - 3.4 [짧게 읽히는 규칙](#34-짧게-읽히는-규칙)
 4. [배치 기준](#4-배치-기준) — 어느 skill에 둘 것인가
 5. [명령](#5-명령) — 재생성과 검증
 6. [함께 갱신할 문서](#6-함께-갱신할-문서)
@@ -33,13 +34,14 @@ skill/react/
     _sections.md      섹션 순서, Impact, 설명. 괄호 안이 파일명 prefix
     _template.md      새 규칙 템플릿
     NN-MM-*.md        규칙 정본. 번호는 사람용 탐색 표지고 규칙 ID에는 안 들어간다
+  examples/<규칙 ID>/ 규칙이 <<< 줄로 불러오는 예제 파일
   routing-evals.json  시나리오별로 걸려야 할 규칙의 테스트 오라클
   RULES_INDEX.md      생성물
   contracts/*.md      생성물
 ```
 
 정본은 `rules/*.md`, `examples/<규칙 ID>/*`, `rules/_sections.md`, `rules/_template.md`, `metadata.json`,
-`SKILL.md`, `routing-evals.json` 여섯.
+`SKILL.md`, `routing-evals.json` 일곱.
 
 생성물은 `RULES_INDEX.md`, `contracts/*.md` 둘.
 사람이 읽는 전체 보기는 `content/` 사이트다.
@@ -131,9 +133,10 @@ skill/react/
   파일마다 예제 파일을 나누고 `<<<` 줄을 잇는다.
   `Incorrect`는 잘못을 보여 주려고 세계관에 없는 이름을 만들어도 된다.
   선언하면 잘못이 선언에 가려진다.
-  예제 세계관에는 테마가 없다.
+  CSS 예제 세계에는 테마가 없다.
   여러 파일이 쓰는 값만 `--app-*` 토큰이고 한 파일에서만 쓰는 색은 원시 값으로 적는다.
-  다크 모드가 있는 세계는 css `values-switch-themes-by-changing-token-values` 예제뿐이다.
+  다크 모드가 있는 스타일시트는 css `values-switch-themes-by-changing-token-values` 예제뿐이다.
+  테마 값을 다루는 상태 예제(`useThemeStore`)는 스타일을 바꾸지 않는다.
   함수 밖 `return` 조각처럼 혼자서는 파싱되지 않는 예제는 감싸지 않는다.
   `skill/examples.tsconfig.json`과 `skill/examples.biome.json`의 제외 목록에 같은 파일을 적는다.
   JSX 자식 자리에서는 줄 표기를 `{/* [!code ++] */}`로 쓴다.
@@ -346,6 +349,8 @@ API 이름과 코드 식별자도 그대로 둔다.
 
 언어, 타입, 모듈 공통 규칙은 `typescript`, 스타일 공통 규칙은 `css`에 둔다.
 테스트 범위, 기대값, 격리, mock, 기준값과 실행 결과 규칙은 `testing`에 둔다.
+Figma 파일의 구성과 읽기, 코드로 옮기는 규칙은 `figma`, Storybook 설정과 story 파일, design 링크 규칙은 `storybook`에 둔다.
+화면 설계 문서의 재료, 질문, 짜임, 글, 단계 규칙은 `blueprint`에 둔다.
 `testing`은 사이트의 Coding에 속하며 Vitest와 Playwright 전용 규칙도 해당 섹션에서 좁혀 읽는다.
 generic TypeScript 규칙은 `skill/typescript`가 정본이며 테스트 전용 예외도 그 규칙에서 정한다.
 
@@ -408,8 +413,9 @@ skill 하나가 개요 한 장, 섹션 하나가 한 장이고 규칙은 그 페
 
 | 변경 | 갱신 대상 |
 | --- | --- |
-| skill 추가, 제거 | [README.md](./README.md)의 skill 표, [AGENTS.md](./AGENTS.md)의 목록 |
-| 로딩, companion 계약 변경 | [AGENTS.md](./AGENTS.md) |
+| skill 추가, 제거 | [README.md](./README.md)의 skill 표, [AGENTS.md](./AGENTS.md)의 목록, 이 문서 1절의 skill 수, [content/public/usage.md](./content/public/usage.md)의 적용 예시와 함께 읽는 스킬, [content/public/tooling.md](./content/public/tooling.md)의 로딩 표, `src/site.ts`의 skill 배치, `for-humanity.config.ts`와 `package.json`의 설명 |
+| 로딩, companion 계약 변경 | [AGENTS.md](./AGENTS.md) 2절, [content/public/usage.md](./content/public/usage.md), [content/public/tooling.md](./content/public/tooling.md)의 로딩 표 |
 | 문서 인벤토리, 명령 변경 | [content/public/tooling.md](./content/public/tooling.md) |
+| `CRITICAL` 규칙의 판정 조건 변경 | `hooks/check-critical-rules.sh`와 [content/public/tooling.md](./content/public/tooling.md)의 훅 표 |
 
 이 저장소에서 AI 에이전트로 작업할 때의 규칙은 [AGENTS.md](./AGENTS.md).

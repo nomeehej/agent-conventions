@@ -8,7 +8,7 @@ order: 10
 agent-conventions, 2026-07-21 → 07-27, 43 commits
 
 :::note[기록 시점]
-2026년 7월 작업을 그대로 옮긴 기록입니다. 당시 생성 핸드북 이름은 `AGENTS.md`였고 지금은 `HANDBOOK.md`입니다.
+2026년 7월 작업을 그대로 옮긴 기록입니다. 당시 생성 핸드북 이름은 `AGENTS.md`였고 지금은 핸드북을 만들지 않습니다.
 `convention-audit` skill은 이후 없앴고, 측정 스크립트와 평가 디렉터리는 저장소에서 지워 git 이력에만 있습니다.
 현재 구조는 저장소 README와 [Tooling](../tooling.md)을 봅니다.
 :::

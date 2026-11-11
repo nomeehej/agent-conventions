@@ -6,7 +6,7 @@ order: 20
 ---
 
 :::note[기록 시점]
-2026-07-21 설계 당시 문서를 그대로 둡니다. 생성 핸드북은 `AGENTS.md`에서 `HANDBOOK.md`로 이름이 바뀌었고 `convention-audit` skill은 이후 없앴습니다.
+2026-07-21 설계 당시 문서를 그대로 둡니다. 생성 핸드북과 `convention-audit` skill은 이후 없앴고 지금 산출물은 `RULES_INDEX.md`와 `contracts/*.md`입니다.
 결과와 한계는 [Progressive loading](progressive-loading.md), 현재 구조는 [Tooling](../tooling.md)을 봅니다.
 :::
 
