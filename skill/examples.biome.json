@@ -64,7 +64,8 @@
 		{
 			"includes": [
 				"**/examples/**/*.stories.tsx",
-				"**/storybook/examples/setup-*/**"
+				"**/storybook/examples/setup-*/**",
+				"**/component-fail-stories-on-accessibility-violations/02-correct.tsx"
 			],
 			"linter": {
 				"rules": {
