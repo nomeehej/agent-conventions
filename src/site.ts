@@ -41,7 +41,8 @@ const placementBySkillName: Record<string, SitePlacement> = {
 	typescript: {name: "TypeScript", group: "Coding", order: 3},
 	testing: {name: "Testing", group: "Coding", order: 4},
 	figma: {name: "Figma", group: "Tool", order: 1},
-	blueprint: {name: "Blueprint", group: "Tool", order: 2},
+	storybook: {name: "Storybook", group: "Tool", order: 2},
+	blueprint: {name: "Blueprint", group: "Tool", order: 3},
 };
 
 // ----------------------------------------------------------------------------------------

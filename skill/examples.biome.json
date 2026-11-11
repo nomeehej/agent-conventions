@@ -60,6 +60,19 @@
 					}
 				}
 			}
+		},
+		{
+			"includes": [
+				"**/examples/**/*.stories.tsx",
+				"**/storybook/examples/setup-*/**"
+			],
+			"linter": {
+				"rules": {
+					"style": {
+						"noDefaultExport": "off"
+					}
+				}
+			}
 		}
 	]
 }
