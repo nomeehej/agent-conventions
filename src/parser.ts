@@ -1,8 +1,8 @@
 import {readFile, readdir} from "node:fs/promises";
 import path from "node:path";
 
-import {assertRealSkillDirectory, getSkillPaths, isBuildableSkill} from "./config.js";
-import {assertMetadataObject, getRuleStableId, parseDependencyDeclaration} from "./dependencies.js";
+import {assertRealSkillDirectory, buildSkillPaths, isBuildableSkill} from "./config.js";
+import {assertMetadataObject, toRuleStableId, parseDependencyDeclaration} from "./dependencies.js";
 import {assertProgressiveSkillEntrypoint} from "./progressive.js";
 import {inlineSnippets} from "./snippets.js";
 import type {LoadedSkillDocument, SkillMetadata, SkillPaths, SkillRule, SkillSection} from "./types.js";
@@ -234,7 +234,7 @@ export const readSkillRules = async (skillPaths: SkillPaths): Promise<SkillRule[
 			throw new Error(`${skillPaths.skillName}: ${ruleFileName} ${error instanceof Error ? error.message : String(error)}`);
 		}
 		// 번호 접두사(`NN-MM-`)를 뗀 stable ID의 첫 토큰이 section 접두사
-		const prefix = getRuleStableId(ruleFileName).split("-")[0];
+		const prefix = toRuleStableId(ruleFileName).split("-")[0];
 
 		rules.push({
 			fileName: ruleFileName,
@@ -244,7 +244,7 @@ export const readSkillRules = async (skillPaths: SkillPaths): Promise<SkillRule[
 			impact: frontmatter.impact ?? "",
 			impactDescription: frontmatter.impactDescription ?? "",
 			tags: splitScalarList(frontmatter.tags),
-			...resolveAppliesWhen(frontmatter.appliesWhen),
+			...parseAppliesWhen(frontmatter.appliesWhen),
 			requiresSelected: splitScalarList(frontmatter.requiresSelected),
 			requiredOnCompletion: parseBooleanScalar(frontmatter.requiredOnCompletion, "requiredOnCompletion"),
 			reviewWith: splitScalarList(frontmatter.reviewWith),
@@ -262,7 +262,7 @@ export const readSkillRules = async (skillPaths: SkillPaths): Promise<SkillRule[
 // block list: 불렛을 마침표로 이어 라우팅 문장 생성
 // scalar: 원문을 그대로 라우팅 문장으로 사용
 // ----------------------------------------------------------------------------------------
-const resolveAppliesWhen = (value: string | undefined): {appliesWhen?: string; appliesWhenBullets: string[]} => {
+const parseAppliesWhen = (value: string | undefined): {appliesWhen?: string; appliesWhenBullets: string[]} => {
 	if (value === undefined) {
 		return {appliesWhenBullets: []};
 	}
@@ -323,7 +323,7 @@ interface ResolutionState {
 //
 // lineage: 지금까지 거쳐 온 skill 이름 → 순환 companion 검출
 // ----------------------------------------------------------------------------------------
-const resolveSkillDocuments = async (skillPaths: SkillPaths, lineage: string[], state: ResolutionState): Promise<LoadedSkillDocument[]> => {
+const loadSkillDocuments = async (skillPaths: SkillPaths, lineage: string[], state: ResolutionState): Promise<LoadedSkillDocument[]> => {
 	const cachedDocuments = state.resolvedDocumentCache.get(skillPaths.skillName);
 
 	if (cachedDocuments) {
@@ -354,8 +354,8 @@ const resolveSkillDocuments = async (skillPaths: SkillPaths, lineage: string[], 
 			throw new Error(`Companion skill "${inheritedSkillName}" referenced by "${skillPaths.skillName}" is not buildable.`);
 		}
 
-		const inheritedSkillPaths = getSkillPaths(inheritedSkillName, targetSkillRootDir);
-		const resolvedInheritedDocuments = await resolveSkillDocuments(inheritedSkillPaths, nextLineage, state);
+		const inheritedSkillPaths = buildSkillPaths(inheritedSkillName, targetSkillRootDir);
+		const resolvedInheritedDocuments = await loadSkillDocuments(inheritedSkillPaths, nextLineage, state);
 		const inheritedRootDocument = resolvedInheritedDocuments.find((resolvedDocument) => resolvedDocument.skillName === inheritedSkillName);
 
 		if (!inheritedRootDocument) {
@@ -372,5 +372,5 @@ const resolveSkillDocuments = async (skillPaths: SkillPaths, lineage: string[], 
 };
 
 export const readResolvedSkillDocuments = async (skillPaths: SkillPaths, lineage: string[] = []): Promise<LoadedSkillDocument[]> => {
-	return await resolveSkillDocuments(skillPaths, lineage, {documentCache: new Map(), resolvedDocumentCache: new Map()});
+	return await loadSkillDocuments(skillPaths, lineage, {documentCache: new Map(), resolvedDocumentCache: new Map()});
 };

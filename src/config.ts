@@ -57,7 +57,7 @@ export const parseCliArgs = (args: string[]): CliArgs => {
 	return {all, skill, ...parsedSkillRoot};
 };
 
-export const getSkillPaths = (skillName: string, targetSkillRootDir: string = skillRootDir): SkillPaths => {
+export const buildSkillPaths = (skillName: string, targetSkillRootDir: string = skillRootDir): SkillPaths => {
 	assertValidSkillName(skillName);
 	const resolvedSkillRootDir = path.resolve(targetSkillRootDir);
 	const skillDir = path.resolve(resolvedSkillRootDir, skillName);
@@ -108,7 +108,7 @@ export const listSkillNames = async (targetSkillRootDir: string = skillRootDir):
 // ----------------------------------------------------------------------------------------
 // CLI 인자가 가리키는 buildable skill 경로 목록, 이름을 지정했는데 buildable이 아니면 오류
 // ----------------------------------------------------------------------------------------
-export const resolveTargetSkillPaths = async (args: string[]): Promise<SkillPaths[]> => {
+export const loadTargetSkillPaths = async (args: string[]): Promise<SkillPaths[]> => {
 	const {all, skill, skillRootDir: targetSkillRootDir = skillRootDir} = parseCliArgs(args);
 	const targetSkillNames = all ? await listSkillNames(targetSkillRootDir) : [skill];
 	const targets: SkillPaths[] = [];
@@ -126,14 +126,14 @@ export const resolveTargetSkillPaths = async (args: string[]): Promise<SkillPath
 			throw new Error(`Skill "${skillName}" is not buildable yet. Expected rules/_sections.md and metadata.json under skill/${skillName}.`);
 		}
 
-		targets.push(getSkillPaths(skillName, targetSkillRootDir));
+		targets.push(buildSkillPaths(skillName, targetSkillRootDir));
 	}
 
 	return targets;
 };
 
 export const isBuildableSkill = async (skillName: string, targetSkillRootDir: string = skillRootDir): Promise<boolean> => {
-	const skillPaths = getSkillPaths(skillName, targetSkillRootDir);
+	const skillPaths = buildSkillPaths(skillName, targetSkillRootDir);
 
 	try {
 		await assertRealSkillDirectory(skillPaths);

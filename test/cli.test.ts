@@ -88,7 +88,7 @@ const _listMarkdownFiles = async (dirPath: string): Promise<string[]> => {
 // ----------------------------------------------------------------------------------------
 // fenced/indented code와 HTML 주석을 제외한 Markdown 렌더링 line 목록 생성
 // ----------------------------------------------------------------------------------------
-const getRenderableMarkdownLines = (sourceLines: readonly string[]): string[] => {
+const filterRenderableMarkdownLines = (sourceLines: readonly string[]): string[] => {
 	const renderableLines: string[] = [];
 	let fenceCharacter: "`" | "~" | undefined;
 	let fenceLength = 0;
@@ -188,7 +188,7 @@ const getRenderableMarkdownLines = (sourceLines: readonly string[]): string[] =>
 const _extractMarkdownSection = (query: MarkdownSectionQuery): string => {
 	const {source, heading, level} = query;
 	const sourceLines = source.split("\n");
-	const renderableLines = getRenderableMarkdownLines(sourceLines);
+	const renderableLines = filterRenderableMarkdownLines(sourceLines);
 	const marker = `${"#".repeat(level)} ${heading}`;
 	const markerIndexes: number[] = [];
 	const headingLevelsByLine = new Map<number, number>();
@@ -233,7 +233,7 @@ const _extractMarkdownSection = (query: MarkdownSectionQuery): string => {
 // ----------------------------------------------------------------------------------------
 const _parseMarkdownTableRows = (query: MarkdownTableQuery): string[][] => {
 	const {section, expectedHeader} = query;
-	const lines = getRenderableMarkdownLines(section.split("\n"));
+	const lines = filterRenderableMarkdownLines(section.split("\n"));
 	const tableLineIndexes: number[] = [];
 
 	for (const [index, line] of lines.entries()) {

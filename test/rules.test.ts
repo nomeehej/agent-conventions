@@ -5,10 +5,10 @@ import path from "node:path";
 import test from "node:test";
 
 import {checkDiagrams, maxDiagramColumns} from "../src/check-diagrams.js";
-import {getSkillPaths, isBuildableSkill, listSkillNames} from "../src/config.js";
+import {buildSkillPaths, isBuildableSkill, listSkillNames} from "../src/config.js";
 import {parseFrontmatter, parseSections, readSkillDocument, readSkillRules} from "../src/parser.js";
 import {parseRuleBody} from "../src/rule-body.js";
-import {getRulesForSection} from "../src/routing.js";
+import {filterRulesForSection} from "../src/routing.js";
 import {validateRoutingEvalManifests} from "../src/routing-evals.js";
 import {generateSiteFiles} from "../src/site.js";
 import {inlineSnippets} from "../src/snippets.js";
@@ -27,7 +27,7 @@ const readProgressiveDocuments = async (): Promise<LoadedSkillDocument[]> => {
 			continue;
 		}
 
-		documents.push(await readSkillDocument(getSkillPaths(skillName)));
+		documents.push(await readSkillDocument(buildSkillPaths(skillName)));
 	}
 
 	return documents;
@@ -276,7 +276,7 @@ test("every rule loads its examples from files and no rule keeps an example fenc
 });
 
 test("the example lint config extends the TypeScript tooling rule's own config and plugin files", async () => {
-	const skillDir = getSkillPaths("typescript").skillDir;
+	const skillDir = buildSkillPaths("typescript").skillDir;
 	const used = JSON.parse(await readFile(path.join(skillDir, "..", "examples.biome.json"), "utf8"));
 	const exampleDir = "./typescript/examples/tooling-configure-biome-to-enforce-these-rules";
 
@@ -286,7 +286,7 @@ test("the example lint config extends the TypeScript tooling rule's own config a
 });
 
 test("the example tsconfig skips exactly the fragments the example lint config skips", async () => {
-	const skillDir = path.join(getSkillPaths("typescript").skillDir, "..");
+	const skillDir = path.join(buildSkillPaths("typescript").skillDir, "..");
 	const lint = JSON.parse(await readFile(path.join(skillDir, "examples.biome.json"), "utf8"));
 	const typecheck = JSON.parse(await readFile(path.join(skillDir, "examples.tsconfig.json"), "utf8"));
 	const skipped = lint.files.includes
@@ -297,7 +297,7 @@ test("the example tsconfig skips exactly the fragments the example lint config s
 });
 
 test("the example stylelint config extends the css tooling rule's own config without redefining class rules", async () => {
-	const skillDir = path.join(getSkillPaths("css").skillDir, "..");
+	const skillDir = path.join(buildSkillPaths("css").skillDir, "..");
 	const used = (await import(path.join(skillDir, "stylelint.config.mjs"))) as {
 		default: {extends: string[]; rules: Record<string, unknown>};
 	};
@@ -307,7 +307,7 @@ test("the example stylelint config extends the css tooling rule's own config wit
 });
 
 test("readSkillRules exposes titleKo and tolerates its absence", async () => {
-	const rules = await readSkillRules(getSkillPaths("react"));
+	const rules = await readSkillRules(buildSkillPaths("react"));
 	const sample = rules.find((rule) => rule.fileName.endsWith("composition-named-handlers-over-inline.md"));
 
 	assert.ok(sample, "expected react composition-named-handlers-over-inline.md");
@@ -337,7 +337,7 @@ test("parseFrontmatter rejects an appliesWhen block list without items", () => {
 });
 
 test("readSkillRules joins appliesWhen bullets into one routing sentence", async () => {
-	const rules = await readSkillRules(getSkillPaths("react"));
+	const rules = await readSkillRules(buildSkillPaths("react"));
 	const sample = rules.find((rule) => rule.fileName.endsWith("composition-do-not-define-components-inside-components.md"));
 
 	assert.ok(sample, "expected react composition-do-not-define-components-inside-components rule");
@@ -398,7 +398,7 @@ test("every rule carries a stable number that matches its file number and the si
 	);
 
 	for (const section of react.sections) {
-		getRulesForSection(section, react.rules).forEach((rule, index) => {
+		filterRulesForSection(section, react.rules).forEach((rule, index) => {
 			const number = `${section.order}.${index + 1}`;
 			const fileNumber = rule.fileName.replace(/^(\d+)-(\d+)-.*$/, (_, major, minor) => `${Number(major)}.${Number(minor)}`);
 

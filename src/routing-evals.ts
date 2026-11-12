@@ -1,10 +1,10 @@
 import {readFile} from "node:fs/promises";
 import path from "node:path";
 
-import {getSkillPaths, isBuildableSkill, listSkillNames, packagePaths} from "./config.js";
+import {buildSkillPaths, isBuildableSkill, listSkillNames, packagePaths} from "./config.js";
 import {parseDependencyDeclaration} from "./dependencies.js";
 import {readResolvedSkillDocuments, readSkillDocument} from "./parser.js";
-import {getCanonicalRoutingRuleIds, getRuleId} from "./routing.js";
+import {toCanonicalRoutingRuleIds, toRuleId} from "./routing.js";
 import type {
 	LoadedSkillDocument,
 	RoutingEvalManifest,
@@ -231,7 +231,7 @@ const readExpectedSkillDocument = async (args: ReadExpectedSkillDocumentArgs): P
 		throw new Error(`Routing fixture references unknown skill "${skillName}".`);
 	}
 
-	const resolvedDocuments = await readResolvedSkillDocuments(getSkillPaths(skillName, skillRootDir));
+	const resolvedDocuments = await readResolvedSkillDocuments(buildSkillPaths(skillName, skillRootDir));
 
 	for (const resolvedDocument of resolvedDocuments) {
 		documents.set(resolvedDocument.skillName, resolvedDocument);
@@ -248,7 +248,7 @@ const readExpectedSkillDocument = async (args: ReadExpectedSkillDocumentArgs): P
 
 const validateRulePartition = (args: ValidateRulePartitionArgs): void => {
 	const {label, document, selected} = args;
-	const universe = getCanonicalRoutingRuleIds(document);
+	const universe = toCanonicalRoutingRuleIds(document);
 	const universeSet = new Set(universe);
 
 	for (const ruleId of selected) {
@@ -301,14 +301,14 @@ const validateExpectedPartition = async (args: ValidateExpectedPartitionArgs): P
 		validateRulePartition({label, document, selected: partition.expectedSelected[skillName] ?? []});
 
 		const selectedRuleIds = new Set(partition.expectedSelected[skillName] ?? []);
-		const missingCompletionRule = document.rules.find((rule) => rule.requiredOnCompletion && !selectedRuleIds.has(getRuleId(rule)));
+		const missingCompletionRule = document.rules.find((rule) => rule.requiredOnCompletion && !selectedRuleIds.has(toRuleId(rule)));
 
 		if (missingCompletionRule) {
-			throw new Error(`${label} must select requiredOnCompletion rule "${skillName}/${getRuleId(missingCompletionRule)}".`);
+			throw new Error(`${label} must select requiredOnCompletion rule "${skillName}/${toRuleId(missingCompletionRule)}".`);
 		}
 
 		for (const selectedRuleId of selectedRuleIds) {
-			const selectedRule = document.rules.find((rule) => getRuleId(rule) === selectedRuleId);
+			const selectedRule = document.rules.find((rule) => toRuleId(rule) === selectedRuleId);
 
 			if (!selectedRule) {
 				continue;
@@ -427,14 +427,14 @@ export const validateRoutingEvalManifests = async (skillRootDir: string = packag
 			continue;
 		}
 
-		skillDocuments.set(skillName, await readSkillDocument(getSkillPaths(skillName, skillRootDir)));
+		skillDocuments.set(skillName, await readSkillDocument(buildSkillPaths(skillName, skillRootDir)));
 	}
 
 	const scenarioOwners = new Map<string, string>();
 	const selectedBySkill = new Map<string, Set<string>>();
 
 	for (const skillName of skillDocuments.keys()) {
-		const {manifest} = await validateManifest(getSkillPaths(skillName, skillRootDir));
+		const {manifest} = await validateManifest(buildSkillPaths(skillName, skillRootDir));
 
 		for (const scenario of manifest.scenarios) {
 			const previousOwner = scenarioOwners.get(scenario.id);
@@ -466,7 +466,7 @@ export const validateRoutingEvalManifests = async (skillRootDir: string = packag
 
 	for (const [skillName, document] of skillDocuments) {
 		const selected = selectedBySkill.get(skillName) ?? new Set<string>();
-		const missingRuleIds = document.rules.map((rule) => getRuleId(rule)).filter((ruleId) => !selected.has(ruleId));
+		const missingRuleIds = document.rules.map((rule) => toRuleId(rule)).filter((ruleId) => !selected.has(ruleId));
 
 		if (missingRuleIds.length > 0) {
 			throw new Error(`Routing positive coverage for "${skillName}" is missing: ${missingRuleIds.join(", ")}.`);

@@ -20,10 +20,10 @@ const safeStableNamePattern = /^[A-Za-z0-9][A-Za-z0-9._@-]*$/;
 //
 // 사람이 번호로 찾도록 붙인 `NN-MM-` 접두사는 ID에서 제외 → 번호가 바뀌어도 참조 유지
 //
-// getRuleStableId("03-02-name-things.md") → "name-things"
-// getRuleStableId("name-things.md") → "name-things"
+// toRuleStableId("03-02-name-things.md") → "name-things"
+// toRuleStableId("name-things.md") → "name-things"
 // ----------------------------------------------------------------------------------------
-export const getRuleStableId = (fileName: string): string => {
+export const toRuleStableId = (fileName: string): string => {
 	return fileName.replace(/\.md$/, "").replace(/^\d+-\d+-/, "");
 };
 

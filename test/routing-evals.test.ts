@@ -9,7 +9,7 @@ import {tmpdir} from "node:os";
 import path from "node:path";
 import test from "node:test";
 
-import {getSkillPaths} from "../src/config.js";
+import {buildSkillPaths} from "../src/config.js";
 import {readRoutingEvalManifest, validateRoutingEvalManifest, validateRoutingEvalManifests} from "../src/routing-evals.js";
 import type {RoutingEvalManifest, RoutingScopeDrift, SkillCompanion} from "../src/types.js";
 
@@ -116,7 +116,7 @@ const writeFixtureSkill = async (args: WriteFixtureSkillArgs): Promise<void> => 
 // ----------------------------------------------------------------------------------------
 // 첫 시나리오의 `scopeDrift`, 없으면 fixture가 깨진 것이라 바로 던짐
 // ----------------------------------------------------------------------------------------
-const toFirstScopeDrift = (candidate: RoutingEvalManifest): RoutingScopeDrift => {
+const getFirstScopeDrift = (candidate: RoutingEvalManifest): RoutingScopeDrift => {
 	const drift = candidate.scenarios[0]?.scopeDrift;
 
 	if (drift === undefined) {
@@ -147,7 +147,7 @@ test("fixture manifests accept exact partitions", async () => {
 		const manifest = createValidManifest();
 		await writeManifest({skillRootDir, skillName: "owner", manifest});
 
-		await validateRoutingEvalManifest(getSkillPaths("owner", skillRootDir));
+		await validateRoutingEvalManifest(buildSkillPaths("owner", skillRootDir));
 		await validateRoutingEvalManifests(skillRootDir);
 	});
 });
@@ -163,16 +163,16 @@ test("manifest canonical order matches the compact index codepoint order", async
 		manifest.scenarios[0].expectedSelected.owner = ["fixture-second", "fixture-first"];
 		await writeManifest({skillRootDir, skillName: "owner", manifest});
 
-		await validateRoutingEvalManifest(getSkillPaths("owner", skillRootDir));
+		await validateRoutingEvalManifest(buildSkillPaths("owner", skillRootDir));
 	});
 });
 
 test("manifest reader rejects invalid JSON and strict shape/version/owner violations", async () => {
 	await withFixtureRoot(async (skillRootDir) => {
 		await writeFixtureSkill({skillRootDir, skillName: "owner"});
-		const manifestPath = getSkillPaths("owner", skillRootDir).routingEvalsPath;
+		const manifestPath = buildSkillPaths("owner", skillRootDir).routingEvalsPath;
 		await writeFile(manifestPath, "{not json", "utf8");
-		await assert.rejects(() => readRoutingEvalManifest(getSkillPaths("owner", skillRootDir)), /invalid JSON/i);
+		await assert.rejects(() => readRoutingEvalManifest(buildSkillPaths("owner", skillRootDir)), /invalid JSON/i);
 
 		const cases: [string, unknown, RegExp][] = [
 			["version", {...createValidManifest(), version: 2}, /version.*1/i],
@@ -226,7 +226,7 @@ test("manifest reader rejects invalid JSON and strict shape/version/owner violat
 
 		for (const [label, candidate, expected] of cases) {
 			await writeManifest({skillRootDir, skillName: "owner", manifest: candidate});
-			await assert.rejects(() => readRoutingEvalManifest(getSkillPaths("owner", skillRootDir)), expected, label);
+			await assert.rejects(() => readRoutingEvalManifest(buildSkillPaths("owner", skillRootDir)), expected, label);
 		}
 	});
 });
@@ -234,7 +234,7 @@ test("manifest reader rejects invalid JSON and strict shape/version/owner violat
 test("manifest parser preserves hostile own partition keys for strict rejection", async () => {
 	await withFixtureRoot(async (skillRootDir) => {
 		await writeFixtureSkill({skillRootDir, skillName: "owner"});
-		const manifestPath = getSkillPaths("owner", skillRootDir).routingEvalsPath;
+		const manifestPath = buildSkillPaths("owner", skillRootDir).routingEvalsPath;
 		await writeFile(
 			manifestPath,
 			`${JSON.stringify(createValidManifest(), null, 2).replace(
@@ -244,7 +244,7 @@ test("manifest parser preserves hostile own partition keys for strict rejection"
 			"utf8",
 		);
 
-		await assert.rejects(() => validateRoutingEvalManifest(getSkillPaths("owner", skillRootDir)), /unexpected partition.*__proto__/i);
+		await assert.rejects(() => validateRoutingEvalManifest(buildSkillPaths("owner", skillRootDir)), /unexpected partition.*__proto__/i);
 	});
 });
 
@@ -279,7 +279,7 @@ test("manifest validator rejects duplicate arrays, unknown skills/rules, overlap
 			const manifest = structuredClone(createValidManifest());
 			mutate(manifest);
 			await writeManifest({skillRootDir, skillName: "owner", manifest});
-			await assert.rejects(() => validateRoutingEvalManifest(getSkillPaths("owner", skillRootDir)), expected, label);
+			await assert.rejects(() => validateRoutingEvalManifest(buildSkillPaths("owner", skillRootDir)), expected, label);
 		}
 	});
 });
@@ -301,25 +301,25 @@ test("manifest validator enforces required closure and partitions an explicitly 
 		});
 		const manifest = createValidManifest();
 		await writeManifest({skillRootDir, skillName: "owner", manifest});
-		await assert.rejects(() => validateRoutingEvalManifest(getSkillPaths("owner", skillRootDir)), /required companion.*required/i);
+		await assert.rejects(() => validateRoutingEvalManifest(buildSkillPaths("owner", skillRootDir)), /required companion.*required/i);
 
 		manifest.scenarios[0].expectedSkills.push("required");
 		manifest.scenarios[0].expectedSelected.required = [...fixtureRuleIds];
 		await writeManifest({skillRootDir, skillName: "owner", manifest});
-		await assert.rejects(() => validateRoutingEvalManifest(getSkillPaths("owner", skillRootDir)), /required companion.*leaf/i);
+		await assert.rejects(() => validateRoutingEvalManifest(buildSkillPaths("owner", skillRootDir)), /required companion.*leaf/i);
 
 		manifest.scenarios[0].expectedSkills.push("leaf");
 		manifest.scenarios[0].expectedSelected.leaf = [...fixtureRuleIds];
 		manifest.scenarios[0].expectedSkills.push("conditional");
 		await writeManifest({skillRootDir, skillName: "owner", manifest});
 		await assert.rejects(
-			() => validateRoutingEvalManifest(getSkillPaths("owner", skillRootDir)),
+			() => validateRoutingEvalManifest(buildSkillPaths("owner", skillRootDir)),
 			/expectedSelected.*conditional|conditional.*partition/i,
 		);
 
 		manifest.scenarios[0].expectedSelected.conditional = [...fixtureRuleIds];
 		await writeManifest({skillRootDir, skillName: "owner", manifest});
-		await validateRoutingEvalManifest(getSkillPaths("owner", skillRootDir));
+		await validateRoutingEvalManifest(buildSkillPaths("owner", skillRootDir));
 	});
 });
 
@@ -335,7 +335,7 @@ test("manifest validator enforces requiresSelected and requiredOnCompletion rule
 		await writeManifest({skillRootDir, skillName: "owner", manifest});
 
 		await assert.rejects(
-			() => validateRoutingEvalManifest(getSkillPaths("owner", skillRootDir)),
+			() => validateRoutingEvalManifest(buildSkillPaths("owner", skillRootDir)),
 			/requiresSelected target "owner\/fixture-second"/i,
 		);
 	});
@@ -347,7 +347,7 @@ test("manifest validator enforces requiresSelected and requiredOnCompletion rule
 		await writeManifest({skillRootDir, skillName: "owner", manifest});
 
 		await assert.rejects(
-			() => validateRoutingEvalManifest(getSkillPaths("owner", skillRootDir)),
+			() => validateRoutingEvalManifest(buildSkillPaths("owner", skillRootDir)),
 			/requiredOnCompletion rule "owner\/fixture-second"/i,
 		);
 	});
@@ -380,15 +380,15 @@ test("manifest owner may activate first in drift but must stay active and fully 
 		await writeManifest({skillRootDir, skillName: "owner", manifest});
 		await writeManifest({skillRootDir, skillName: "typescript", manifest: createValidManifest("typescript")});
 		await writeManifest({skillRootDir, skillName: "react", manifest: createValidManifest("react")});
-		await validateRoutingEvalManifest(getSkillPaths("owner", skillRootDir));
+		await validateRoutingEvalManifest(buildSkillPaths("owner", skillRootDir));
 		await validateRoutingEvalManifests(skillRootDir);
 
 		const ownerNeverActive = structuredClone(manifest);
-		toFirstScopeDrift(ownerNeverActive).expectedSkills.pop();
-		delete toFirstScopeDrift(ownerNeverActive).expectedSelected.owner;
+		getFirstScopeDrift(ownerNeverActive).expectedSkills.pop();
+		delete getFirstScopeDrift(ownerNeverActive).expectedSelected.owner;
 		await writeManifest({skillRootDir, skillName: "owner", manifest: ownerNeverActive});
 		await assert.rejects(
-			() => validateRoutingEvalManifest(getSkillPaths("owner", skillRootDir)),
+			() => validateRoutingEvalManifest(buildSkillPaths("owner", skillRootDir)),
 			/must activate its owner skill.*owner.*initial.*scopeDrift|initial.*scopeDrift.*owner/i,
 		);
 
@@ -401,14 +401,14 @@ test("manifest owner may activate first in drift but must stay active and fully 
 		};
 		await writeManifest({skillRootDir, skillName: "owner", manifest: ownerRemovedByDrift});
 		await assert.rejects(
-			() => validateRoutingEvalManifest(getSkillPaths("owner", skillRootDir)),
+			() => validateRoutingEvalManifest(buildSkillPaths("owner", skillRootDir)),
 			/scopeDrift.*skill set.*monotonic.*owner/i,
 		);
 
 		const missingDriftOwnerMap = structuredClone(manifest);
-		delete toFirstScopeDrift(missingDriftOwnerMap).expectedSelected.owner;
+		delete getFirstScopeDrift(missingDriftOwnerMap).expectedSelected.owner;
 		await writeManifest({skillRootDir, skillName: "owner", manifest: missingDriftOwnerMap});
-		await assert.rejects(() => validateRoutingEvalManifest(getSkillPaths("owner", skillRootDir)), /scopeDrift.*expectedSelected.*owner/i);
+		await assert.rejects(() => validateRoutingEvalManifest(buildSkillPaths("owner", skillRootDir)), /scopeDrift.*expectedSelected.*owner/i);
 	});
 });
 
@@ -426,22 +426,22 @@ test("scope drift is monotonic for files, activated skills, and selected rules",
 			expectedSelected: {owner: [...fixtureRuleIds], other: [...fixtureRuleIds]},
 		};
 		await writeManifest({skillRootDir, skillName: "owner", manifest});
-		await validateRoutingEvalManifest(getSkillPaths("owner", skillRootDir));
+		await validateRoutingEvalManifest(buildSkillPaths("owner", skillRootDir));
 
 		const cases: [string, (candidate: RoutingEvalManifest) => void, RegExp][] = [
-			["file removal", (candidate) => toFirstScopeDrift(candidate).files.shift(), /scopeDrift.*file.*monotonic/i],
+			["file removal", (candidate) => getFirstScopeDrift(candidate).files.shift(), /scopeDrift.*file.*monotonic/i],
 			[
 				"skill removal",
 				(candidate) => {
-					toFirstScopeDrift(candidate).expectedSkills.pop();
-					delete toFirstScopeDrift(candidate).expectedSelected.other;
+					getFirstScopeDrift(candidate).expectedSkills.pop();
+					delete getFirstScopeDrift(candidate).expectedSelected.other;
 				},
 				/scopeDrift.*skill.*monotonic/i,
 			],
 			[
 				"selection removal",
 				(candidate) => {
-					toFirstScopeDrift(candidate).expectedSelected.owner.pop();
+					getFirstScopeDrift(candidate).expectedSelected.owner.pop();
 				},
 				/scopeDrift.*selected.*monotonic/i,
 			],
@@ -451,7 +451,7 @@ test("scope drift is monotonic for files, activated skills, and selected rules",
 			const candidate = structuredClone(manifest);
 			mutate(candidate);
 			await writeManifest({skillRootDir, skillName: "owner", manifest: candidate});
-			await assert.rejects(() => validateRoutingEvalManifest(getSkillPaths("owner", skillRootDir)), expected, label);
+			await assert.rejects(() => validateRoutingEvalManifest(buildSkillPaths("owner", skillRootDir)), expected, label);
 		}
 	});
 });
@@ -488,7 +488,7 @@ test("single and all manifest APIs reject required companion cycles", async () =
 		}
 
 		await assert.rejects(
-			() => validateRoutingEvalManifest(getSkillPaths("alpha", skillRootDir)),
+			() => validateRoutingEvalManifest(buildSkillPaths("alpha", skillRootDir)),
 			/Circular skill companions.*alpha -> beta -> alpha/i,
 		);
 		await assert.rejects(() => validateRoutingEvalManifests(skillRootDir), /Circular skill companions.*alpha -> beta -> alpha/i);

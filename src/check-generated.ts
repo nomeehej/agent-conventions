@@ -1,11 +1,11 @@
 import path from "node:path";
 
-import {getSkillPaths, isBuildableSkill} from "./config.js";
+import {buildSkillPaths, isBuildableSkill} from "./config.js";
 import {parseDependencyDeclaration} from "./dependencies.js";
 import {readGeneratedDirectoryFileNames, readGeneratedRegularFile} from "./generated-files.js";
 import {readSkillDocument} from "./parser.js";
 import {assertProgressiveSkillEntrypoint} from "./progressive.js";
-import {generateRuleContractMarkdown, generateRulesIndexMarkdown, getRuleId} from "./routing.js";
+import {generateRuleContractMarkdown, generateRulesIndexMarkdown, toRuleId} from "./routing.js";
 import type {SkillPaths} from "./types.js";
 
 const checkGeneratedSkillTree = async (skillPaths: SkillPaths, visiting: Set<string>, completed: Set<string>): Promise<void> => {
@@ -31,7 +31,7 @@ const checkGeneratedSkillTree = async (skillPaths: SkillPaths, visiting: Set<str
 			throw new Error(`Companion skill "${companion.skill}" referenced by "${localDocument.skillName}" is not buildable.`);
 		}
 
-		const companionPaths = getSkillPaths(companion.skill, targetSkillRootDir);
+		const companionPaths = buildSkillPaths(companion.skill, targetSkillRootDir);
 		const companionDocument = await readSkillDocument(companionPaths);
 		await assertProgressiveSkillEntrypoint(companionPaths, companionDocument);
 		directCompanionPaths.push(companionPaths);
@@ -58,7 +58,7 @@ const checkGeneratedSkillTree = async (skillPaths: SkillPaths, visiting: Set<str
 
 	// contract 파일명은 번호 접두사 없는 stable ID 기준
 	const expectedContracts = new Map<string, string>(
-		localDocument.rules.map((rule) => [`${getRuleId(rule)}.md`, generateRuleContractMarkdown(rule)]),
+		localDocument.rules.map((rule) => [`${toRuleId(rule)}.md`, generateRuleContractMarkdown(rule)]),
 	);
 
 	for (const [fileName, expectedContract] of expectedContracts) {

@@ -4,7 +4,7 @@ import path from "node:path";
 import {parseDependencyDeclaration} from "./dependencies.js";
 import {readGeneratedDirectoryFileNames, replaceGeneratedFiles} from "./generated-files.js";
 import {readResolvedSkillDocuments} from "./parser.js";
-import {generateRuleContractMarkdown, generateRulesIndexMarkdown, getRuleId} from "./routing.js";
+import {generateRuleContractMarkdown, generateRulesIndexMarkdown, toRuleId} from "./routing.js";
 import type {SkillPaths} from "./types.js";
 
 // ----------------------------------------------------------------------------------------
@@ -24,7 +24,7 @@ export const buildSkill = async (skillPaths: SkillPaths): Promise<void> => {
 	const rulesIndexMarkdown = generateRulesIndexMarkdown(rootDocument, dependencies.companions);
 	// contract 파일명은 번호 접두사 없는 stable ID 기준. 규칙 파일 번호가 바뀌어도 참조 유지
 	const contractMarkdownByFileName = new Map<string, string>(
-		rootDocument.rules.map((rule) => [`${getRuleId(rule)}.md`, generateRuleContractMarkdown(rule)]),
+		rootDocument.rules.map((rule) => [`${toRuleId(rule)}.md`, generateRuleContractMarkdown(rule)]),
 	);
 	// 지워진 규칙의 옛 contract 는 content 없이 넘겨 함께 지움
 	const existingContractFileNames = await readGeneratedDirectoryFileNames(skillPaths.ruleContractsDir);

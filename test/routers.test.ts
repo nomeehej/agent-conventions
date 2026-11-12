@@ -6,9 +6,9 @@ import {access, readFile} from "node:fs/promises";
 import path from "node:path";
 import test from "node:test";
 
-import {getSkillPaths, isBuildableSkill, listSkillNames} from "../src/config.js";
+import {buildSkillPaths, isBuildableSkill, listSkillNames} from "../src/config.js";
 import {readSkillDocument} from "../src/parser.js";
-import {getCanonicalRoutingRuleIds} from "../src/routing.js";
+import {toCanonicalRoutingRuleIds} from "../src/routing.js";
 import type {LoadedSkillDocument} from "../src/types.js";
 import {
 	assertMentions,
@@ -26,7 +26,7 @@ const readProgressiveDocuments = async (): Promise<LoadedSkillDocument[]> => {
 
 	for (const skillName of await listSkillNames()) {
 		if (await isBuildableSkill(skillName)) {
-			documents.push(await readSkillDocument(getSkillPaths(skillName)));
+			documents.push(await readSkillDocument(buildSkillPaths(skillName)));
 		}
 	}
 
@@ -35,13 +35,13 @@ const readProgressiveDocuments = async (): Promise<LoadedSkillDocument[]> => {
 
 test("every generated index lists exactly the local rules in canonical order with a contract each", async () => {
 	for (const document of await readProgressiveDocuments()) {
-		const skillPaths = getSkillPaths(document.skillName);
+		const skillPaths = buildSkillPaths(document.skillName);
 		const index = await readFile(skillPaths.rulesIndexPath, "utf8");
 		const entries = Array.from(index.matchAll(/^- [A-Z]\d+(?:-\d+)? \| ([^ |]+) \|/gm), (match) => match[1] ?? "");
 
 		assert.deepEqual(
 			entries,
-			getCanonicalRoutingRuleIds(document),
+			toCanonicalRoutingRuleIds(document),
 			`${document.skillName}: index order must match the canonical rule order`,
 		);
 		assert.equal(entries.length, document.rules.length);
@@ -53,7 +53,7 @@ test("every generated index lists exactly the local rules in canonical order wit
 });
 
 test("TypeScript SKILL.md is a compact router without receipt or audit machinery", async () => {
-	const source = await readFile(getSkillPaths("typescript").skillEntrypointPath, "utf8");
+	const source = await readFile(buildSkillPaths("typescript").skillEntrypointPath, "utf8");
 	const {body} = splitFrontmatter(source);
 
 	assertRouterShape(source, "convention-typescript");
@@ -65,7 +65,7 @@ test("TypeScript SKILL.md is a compact router without receipt or audit machinery
 });
 
 test("React SKILL.md is a compact router with required TypeScript and conditional CSS", async () => {
-	const source = await readFile(getSkillPaths("react").skillEntrypointPath, "utf8");
+	const source = await readFile(buildSkillPaths("react").skillEntrypointPath, "utf8");
 	const {body} = splitFrontmatter(source);
 
 	assertRouterShape(source, "convention-react");
@@ -83,7 +83,7 @@ test("React SKILL.md is a compact router with required TypeScript and conditiona
 });
 
 test("CSS SKILL.md is a compact router with companion boundaries", async () => {
-	const source = await readFile(getSkillPaths("css").skillEntrypointPath, "utf8");
+	const source = await readFile(buildSkillPaths("css").skillEntrypointPath, "utf8");
 	const {body} = splitFrontmatter(source);
 
 	assertRouterShape(source, "convention-css");

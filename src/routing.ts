@@ -1,6 +1,6 @@
 import {createHash} from "node:crypto";
 
-import {assertRoutingCondition, assertValidRoutingIdentifier, assertValidRuleTarget, getRuleStableId} from "./dependencies.js";
+import {assertRoutingCondition, assertValidRoutingIdentifier, assertValidRuleTarget, toRuleStableId} from "./dependencies.js";
 import type {LoadedSkillDocument, SkillCompanion, SkillRule, SkillSection} from "./types.js";
 
 // ----------------------------------------------------------------------------------------
@@ -54,8 +54,8 @@ const encodePathSegment = (value: string): string => encodeURIComponent(value);
 // ----------------------------------------------------------------------------------------
 // 기준 라우팅 원본 조립 입력
 //
-// sections: getOrderedSections로 정렬된 local section 목록
-// companions: getOrderedCompanions로 정렬된 직접 companion 목록
+// sections: sortSections로 정렬된 local section 목록
+// companions: sortCompanions로 정렬된 직접 companion 목록
 // ----------------------------------------------------------------------------------------
 interface CanonicalRoutingSourceArgs {
 	document: LoadedSkillDocument;
@@ -63,12 +63,12 @@ interface CanonicalRoutingSourceArgs {
 	companions: SkillCompanion[];
 }
 
-export const getRuleId = (rule: SkillRule): string => getRuleStableId(rule.fileName);
+export const toRuleId = (rule: SkillRule): string => toRuleStableId(rule.fileName);
 
 // ----------------------------------------------------------------------------------------
 // 파일명 번호 접두사에서 section 안 정렬 키 계산, 번호가 없으면 제목 정렬
 // ----------------------------------------------------------------------------------------
-const getRuleFileOrder = (rule: SkillRule): number => {
+const calculateRuleFileOrder = (rule: SkillRule): number => {
 	const numbered = /^(\d+)-(\d+)-/.exec(rule.fileName);
 
 	return numbered ? Number(numbered[1]) * sectionOrdinalStride + Number(numbered[2]) : Number.MAX_SAFE_INTEGER;
@@ -77,33 +77,33 @@ const getRuleFileOrder = (rule: SkillRule): number => {
 // ----------------------------------------------------------------------------------------
 // 라우팅 간선 대상을 생성물과 검증기가 공유하는 코드 포인트 순서로 정렬
 // ----------------------------------------------------------------------------------------
-export const getCanonicalRoutingTargets = (targets: string[]): string[] => [...targets].sort(compareRoutingText);
+export const sortRoutingTargets = (targets: string[]): string[] => [...targets].sort(compareRoutingText);
 
 // ----------------------------------------------------------------------------------------
 // 섹션 접두사가 같은 local 규칙 목록, 제목과 ID는 en-US 로캘 순서로 비교
 // ----------------------------------------------------------------------------------------
-export const getRulesForSection = (section: SkillSection, rules: SkillRule[]): SkillRule[] => {
+export const filterRulesForSection = (section: SkillSection, rules: SkillRule[]): SkillRule[] => {
 	return rules
 		.filter((rule) => rule.prefix === section.prefix)
 		.sort(
 			(left, right) =>
-				getRuleFileOrder(left) - getRuleFileOrder(right) ||
+				calculateRuleFileOrder(left) - calculateRuleFileOrder(right) ||
 				compareEnglishText(left.title, right.title) ||
-				compareEnglishText(getRuleId(left), getRuleId(right)),
+				compareEnglishText(toRuleId(left), toRuleId(right)),
 		);
 };
 
 // ----------------------------------------------------------------------------------------
 // compact index 전용, 제목과 ID는 로캘이 아닌 코드 포인트 순서로 비교
 // ----------------------------------------------------------------------------------------
-const getRoutingRulesForSection = (section: SkillSection, rules: SkillRule[]): SkillRule[] => {
+const filterRoutingRulesForSection = (section: SkillSection, rules: SkillRule[]): SkillRule[] => {
 	return rules
 		.filter((rule) => rule.prefix === section.prefix)
 		.sort(
 			(left, right) =>
-				getRuleFileOrder(left) - getRuleFileOrder(right) ||
+				calculateRuleFileOrder(left) - calculateRuleFileOrder(right) ||
 				compareRoutingText(left.title, right.title) ||
-				compareRoutingText(getRuleId(left), getRuleId(right)),
+				compareRoutingText(toRuleId(left), toRuleId(right)),
 		);
 };
 
@@ -193,7 +193,7 @@ const readNormativeRuleContract = (rule: SkillRule): NormativeRuleContract => {
 
 				if (incorrectBoundaryOffset === undefined && fenceLanguage !== proseFenceLanguage) {
 					throw new Error(
-						`${getRuleId(rule)}: compact contract must not contain a fenced example before the Incorrect boundary; only a ${proseFenceLanguage} diagram may sit in the prose.`,
+						`${toRuleId(rule)}: compact contract must not contain a fenced example before the Incorrect boundary; only a ${proseFenceLanguage} diagram may sit in the prose.`,
 					);
 				}
 
@@ -209,7 +209,7 @@ const readNormativeRuleContract = (rule: SkillRule): NormativeRuleContract => {
 				(fenceMatch[2] ?? "").trim().length === 0
 			) {
 				if (activeExampleMarker !== undefined && !activeExampleHasContent) {
-					throw new Error(`${getRuleId(rule)}: ${activeExampleMarker} fenced example must contain non-whitespace content.`);
+					throw new Error(`${toRuleId(rule)}: ${activeExampleMarker} fenced example must contain non-whitespace content.`);
 				}
 
 				if (activeExampleMarker === "Correct") {
@@ -232,7 +232,7 @@ const readNormativeRuleContract = (rule: SkillRule): NormativeRuleContract => {
 
 			if (marker) {
 				if (pendingExampleMarker !== undefined) {
-					throw new Error(`${getRuleId(rule)}: ${pendingExampleMarker} marker must be followed by a fenced example.`);
+					throw new Error(`${toRuleId(rule)}: ${pendingExampleMarker} marker must be followed by a fenced example.`);
 				}
 
 				// 첫 예시 라벨이 규범과 예시의 경계. 도구 설정처럼 대비가 뜻이 없는 규칙은 Correct만 가능
@@ -243,7 +243,7 @@ const readNormativeRuleContract = (rule: SkillRule): NormativeRuleContract => {
 				pendingExampleMarker = marker[1] as "Incorrect" | "Correct";
 			} else if (incorrectBoundaryOffset !== undefined && line.trim().length > 0) {
 				throw new Error(
-					`${getRuleId(rule)}: compact contract has prose after the first Incorrect boundary at body line ${lineIndex + 1}; move normative prose before examples.`,
+					`${toRuleId(rule)}: compact contract has prose after the first Incorrect boundary at body line ${lineIndex + 1}; move normative prose before examples.`,
 				);
 			}
 		} else if (activeExampleMarker !== undefined && line.trim().length > 0) {
@@ -254,19 +254,19 @@ const readNormativeRuleContract = (rule: SkillRule): NormativeRuleContract => {
 	}
 
 	if (activeFenceCharacter !== undefined) {
-		throw new Error(`${getRuleId(rule)}: full rule body has an unclosed fenced example.`);
+		throw new Error(`${toRuleId(rule)}: full rule body has an unclosed fenced example.`);
 	}
 
 	if (pendingExampleMarker !== undefined) {
-		throw new Error(`${getRuleId(rule)}: ${pendingExampleMarker} marker must be followed by a fenced example.`);
+		throw new Error(`${toRuleId(rule)}: ${pendingExampleMarker} marker must be followed by a fenced example.`);
 	}
 
 	if (incorrectBoundaryOffset === undefined) {
-		throw new Error(`${getRuleId(rule)}: compact contract requires an anchored Incorrect or Correct example boundary.`);
+		throw new Error(`${toRuleId(rule)}: compact contract requires an anchored Incorrect or Correct example boundary.`);
 	}
 
 	if (!correctMarkerFound || firstExamplePairEndOffset === undefined) {
-		throw new Error(`${getRuleId(rule)}: full rule body requires at least one fenced Correct example after the first example marker.`);
+		throw new Error(`${toRuleId(rule)}: full rule body requires at least one fenced Correct example after the first example marker.`);
 	}
 
 	const normativeLines = joinFoldedImpactDeclaration(
@@ -282,15 +282,15 @@ const readNormativeRuleContract = (rule: SkillRule): NormativeRuleContract => {
 	);
 
 	if (normativeLines[0] !== expectedHeading || headingCount !== 1) {
-		throw new Error(`${getRuleId(rule)}: compact contract requires exactly one heading matching frontmatter title.`);
+		throw new Error(`${toRuleId(rule)}: compact contract requires exactly one heading matching frontmatter title.`);
 	}
 
 	if (impactLines.length !== 1 || impactLines[0] !== expectedImpact) {
-		throw new Error(`${getRuleId(rule)}: compact contract requires exactly one Impact declaration matching frontmatter.`);
+		throw new Error(`${toRuleId(rule)}: compact contract requires exactly one Impact declaration matching frontmatter.`);
 	}
 
 	if (guidanceLines.length === 0) {
-		throw new Error(`${getRuleId(rule)}: compact contract requires normative guidance before the Incorrect boundary.`);
+		throw new Error(`${toRuleId(rule)}: compact contract requires normative guidance before the Incorrect boundary.`);
 	}
 
 	return {
@@ -304,7 +304,7 @@ const readNormativeRuleContract = (rule: SkillRule): NormativeRuleContract => {
 // ----------------------------------------------------------------------------------------
 export const generateRuleContractMarkdown = (rule: SkillRule): string => {
 	if (!supportedImpactLevels.has(rule.impact)) {
-		throw new Error(`${getRuleId(rule)}: unsupported impact level "${rule.impact}"; expected CRITICAL, HIGH, or MEDIUM.`);
+		throw new Error(`${toRuleId(rule)}: unsupported impact level "${rule.impact}"; expected CRITICAL, HIGH, or MEDIUM.`);
 	}
 
 	const {normativeBody, firstExamplePair} = readNormativeRuleContract(rule);
@@ -312,7 +312,7 @@ export const generateRuleContractMarkdown = (rule: SkillRule): string => {
 	const routingMetadata = [
 		rule.requiresSelected.length === 0
 			? undefined
-			: `**Requires selected:** ${getCanonicalRoutingTargets(rule.requiresSelected).map(formatInlineCode).join(", ")} (함께 적용)`,
+			: `**Requires selected:** ${sortRoutingTargets(rule.requiresSelected).map(formatInlineCode).join(", ")} (함께 적용)`,
 		rule.requiredOnCompletion ? "**Required on completion:** 마무리 시 항상 적용" : undefined,
 	]
 		.filter((line): line is string => line !== undefined)
@@ -333,7 +333,7 @@ export const generateRuleContractMarkdown = (rule: SkillRule): string => {
 	return `${normativeBody}${routingMetadataBlock}\n\n${firstExamplePair}\n\n> 나머지 예시와 예외는 [full rule](${fullRuleLink})에 있습니다.\n`;
 };
 
-const getOrderedSections = (sections: SkillSection[]): SkillSection[] => {
+const sortSections = (sections: SkillSection[]): SkillSection[] => {
 	return [...sections].sort(
 		(left, right) =>
 			left.order - right.order || compareRoutingText(left.title, right.title) || compareRoutingText(left.prefix, right.prefix),
@@ -343,11 +343,11 @@ const getOrderedSections = (sections: SkillSection[]): SkillSection[] => {
 // ----------------------------------------------------------------------------------------
 // compact index와 같은 순서의 local 규칙 stable ID 목록 계산
 // ----------------------------------------------------------------------------------------
-export const getCanonicalRoutingRuleIds = (document: LoadedSkillDocument): string[] => {
-	return getOrderedSections(document.sections).flatMap((section) => getRoutingRulesForSection(section, document.rules).map(getRuleId));
+export const toCanonicalRoutingRuleIds = (document: LoadedSkillDocument): string[] => {
+	return sortSections(document.sections).flatMap((section) => filterRoutingRulesForSection(section, document.rules).map(toRuleId));
 };
 
-const getOrderedCompanions = (companions: SkillCompanion[]): SkillCompanion[] => {
+const sortCompanions = (companions: SkillCompanion[]): SkillCompanion[] => {
 	return [...companions].sort(
 		(left, right) =>
 			compareRoutingText(left.skill, right.skill) ||
@@ -363,7 +363,7 @@ const assertRuleAssignments = (document: LoadedSkillDocument, sections: SkillSec
 		assertValidRoutingIdentifier(section.prefix, `${document.skillName}: section prefix`);
 	}
 
-	const ruleIds = document.rules.map(getRuleId);
+	const ruleIds = document.rules.map(toRuleId);
 	const duplicateRuleId = ruleIds.find((ruleId, index) => ruleIds.indexOf(ruleId) !== index);
 
 	if (duplicateRuleId) {
@@ -375,7 +375,7 @@ const assertRuleAssignments = (document: LoadedSkillDocument, sections: SkillSec
 			throw new Error(`${document.skillName}: invalid rule filename "${rule.fileName}"; routing rules must use a .md suffix.`);
 		}
 
-		assertValidRoutingIdentifier(getRuleId(rule), `${document.skillName}: ${rule.fileName} stable ID`);
+		assertValidRoutingIdentifier(toRuleId(rule), `${document.skillName}: ${rule.fileName} stable ID`);
 		assertValidRoutingIdentifier(rule.prefix, `${document.skillName}: ${rule.fileName} section prefix`);
 
 		for (const tag of rule.tags) {
@@ -394,7 +394,7 @@ const assertRuleAssignments = (document: LoadedSkillDocument, sections: SkillSec
 
 		if (assignmentCount !== 1) {
 			throw new Error(
-				`${document.skillName}: every local rule must be assigned exactly once; "${getRuleId(rule)}" matched ${assignmentCount} sections.`,
+				`${document.skillName}: every local rule must be assigned exactly once; "${toRuleId(rule)}" matched ${assignmentCount} sections.`,
 			);
 		}
 
@@ -435,22 +435,22 @@ const createCanonicalRoutingSource = (args: CanonicalRoutingSourceArgs): string 
 			title: section.title,
 			prefix: section.prefix,
 			impact: section.impact,
-			rules: getRoutingRulesForSection(section, document.rules).map((rule) => ({
-				id: getRuleId(rule),
+			rules: filterRoutingRulesForSection(section, document.rules).map((rule) => ({
+				id: toRuleId(rule),
 				bodySha256: createHash("sha256").update(rule.body).digest("hex"),
 				title: rule.title,
 				impact: rule.impact,
 				appliesWhen: rule.appliesWhen,
-				requiresSelected: getCanonicalRoutingTargets(rule.requiresSelected),
+				requiresSelected: sortRoutingTargets(rule.requiresSelected),
 				requiredOnCompletion: rule.requiredOnCompletion,
-				reviewWith: getCanonicalRoutingTargets(rule.reviewWith),
+				reviewWith: sortRoutingTargets(rule.reviewWith),
 				tags: [...rule.tags].sort(compareRoutingText),
 			})),
 		})),
 	});
 };
 
-export const getRoutingOrdinalPrefix = (skillName: string): string => {
+export const toRoutingOrdinalPrefix = (skillName: string): string => {
 	const firstAlphanumericCharacter = Array.from(skillName).find((character) => /[A-Za-z0-9]/.test(character));
 
 	if (!firstAlphanumericCharacter) {
@@ -466,11 +466,11 @@ export const getRoutingOrdinalPrefix = (skillName: string): string => {
 // 사이트 번호와 `rules/` 파일명 번호가 같아야 사람이 규칙을 바로 찾음
 // 파일명 번호는 validate에서 선택이라 번호가 없으면 예전처럼 순번
 //
-// getRoutingOrdinal("react", "03-02-foo.md", 5) → "R03-02"
-// getRoutingOrdinal("react", "foo.md", 5) → "R05"
+// formatRoutingOrdinal("react", "03-02-foo.md", 5) → "R03-02"
+// formatRoutingOrdinal("react", "foo.md", 5) → "R05"
 // ----------------------------------------------------------------------------------------
-export const getRoutingOrdinal = (skillName: string, fileName: string, localOrdinal: number): string => {
-	const ordinalPrefix = getRoutingOrdinalPrefix(skillName);
+export const formatRoutingOrdinal = (skillName: string, fileName: string, localOrdinal: number): string => {
+	const ordinalPrefix = toRoutingOrdinalPrefix(skillName);
 	const numberMatch = /^(\d+)-(\d+)-/.exec(fileName);
 
 	if (!numberMatch) {
@@ -486,8 +486,8 @@ export const getRoutingOrdinal = (skillName: string, fileName: string, localOrdi
 // compact `RULES_INDEX.md` 생성, 같은 입력은 항상 같은 결과
 // ----------------------------------------------------------------------------------------
 export const generateRulesIndexMarkdown = (document: LoadedSkillDocument, directCompanions: SkillCompanion[]): string => {
-	const orderedSections = getOrderedSections(document.sections);
-	const orderedCompanions = getOrderedCompanions(directCompanions);
+	const orderedSections = sortSections(document.sections);
+	const orderedCompanions = sortCompanions(directCompanions);
 	assertRuleAssignments(document, orderedSections);
 	assertDirectCompanions(document.skillName, orderedCompanions);
 
@@ -516,14 +516,14 @@ export const generateRulesIndexMarkdown = (document: LoadedSkillDocument, direct
 	let localOrdinal = 0;
 
 	for (const section of orderedSections) {
-		const rules = getRoutingRulesForSection(section, document.rules);
+		const rules = filterRoutingRulesForSection(section, document.rules);
 
 		for (const rule of rules) {
 			localOrdinal += 1;
-			const ordinal = getRoutingOrdinal(document.skillName, rule.fileName, localOrdinal);
-			const reviewWith = rule.reviewWith.length > 0 ? ` | reviewWith: ${getCanonicalRoutingTargets(rule.reviewWith).join(", ")}` : "";
+			const ordinal = formatRoutingOrdinal(document.skillName, rule.fileName, localOrdinal);
+			const reviewWith = rule.reviewWith.length > 0 ? ` | reviewWith: ${sortRoutingTargets(rule.reviewWith).join(", ")}` : "";
 			const completionGate = rule.requiredOnCompletion ? " | completionGate" : "";
-			lines.push(`- ${ordinal} | ${getRuleId(rule)} | ${escapeMarkdownText(rule.appliesWhen ?? "")}${completionGate}${reviewWith}`);
+			lines.push(`- ${ordinal} | ${toRuleId(rule)} | ${escapeMarkdownText(rule.appliesWhen ?? "")}${completionGate}${reviewWith}`);
 		}
 	}
 

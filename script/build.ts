@@ -1,5 +1,5 @@
 import {buildSkill} from "../src/build.js";
-import {parseCliArgs, resolveTargetSkillPaths} from "../src/config.js";
+import {parseCliArgs, loadTargetSkillPaths} from "../src/config.js";
 import {buildSite} from "../src/site.js";
 
 // ----------------------------------------------------------------------------------------
@@ -9,7 +9,7 @@ import {buildSite} from "../src/site.js";
 // ----------------------------------------------------------------------------------------
 const args = process.argv.slice(2);
 
-for (const skillPaths of await resolveTargetSkillPaths(args)) {
+for (const skillPaths of await loadTargetSkillPaths(args)) {
 	await buildSkill(skillPaths);
 }
 

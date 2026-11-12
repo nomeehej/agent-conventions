@@ -4,11 +4,11 @@ import path from "node:path";
 
 import {slug} from "github-slugger";
 
-import {getSkillPaths, isBuildableSkill, listSkillNames, siteOutputDir} from "./config.js";
+import {buildSkillPaths, isBuildableSkill, listSkillNames, siteOutputDir} from "./config.js";
 import {replaceGeneratedFiles} from "./generated-files.js";
 import {normalizeHeadingTitle, readSkillDocument} from "./parser.js";
 import {snippetLinePattern} from "./snippets.js";
-import {escapeMarkdownProse, getRuleId, getRulesForSection} from "./routing.js";
+import {escapeMarkdownProse, toRuleId, filterRulesForSection} from "./routing.js";
 import type {LoadedSkillDocument, SkillCompanion, SkillMetadata, SkillRule, SkillSection} from "./types.js";
 
 // ----------------------------------------------------------------------------------------
@@ -155,11 +155,11 @@ const collectRuleLocations = (documents: LoadedSkillDocument[]): Map<string, Rul
 
 	for (const document of documents) {
 		for (const section of document.sections) {
-			getRulesForSection(section, document.rules).forEach((rule, index) => {
+			filterRulesForSection(section, document.rules).forEach((rule, index) => {
 				const number = `${section.order}.${index + 1}`;
 				const heading = `${number} ${ruleDisplayTitle(rule)}`;
 
-				locations.set(`${document.skillName}/${getRuleId(rule)}`, {
+				locations.set(`${document.skillName}/${toRuleId(rule)}`, {
 					page: sectionPagePath(document.skillName, section),
 					anchor: slug(heading.replace(/`/g, "")),
 					number,
@@ -188,7 +188,7 @@ interface RuleRenderContext {
 	copies: Map<string, string>;
 }
 
-const resolveReference = (reference: string, context: RuleRenderContext): RuleLocation | undefined => {
+const findRuleLocation = (reference: string, context: RuleRenderContext): RuleLocation | undefined => {
 	return context.locations.get(reference.includes("/") ? reference : `${context.document.skillName}/${reference}`);
 };
 
@@ -202,7 +202,7 @@ const skillPrefix = (target: RuleLocation, context: RuleRenderContext): string =
 // `규칙 2.4` 꼴 → 조사가 자연스럽게 붙음
 // ----------------------------------------------------------------------------------------
 const renderReference = (reference: string, context: RuleRenderContext): string => {
-	const target = resolveReference(reference, context);
+	const target = findRuleLocation(reference, context);
 
 	return target
 		? `[${skillPrefix(target, context)}규칙 ${target.number}](${relativeLink(context.page, target.page, target.anchor)})`
@@ -214,7 +214,7 @@ const renderReference = (reference: string, context: RuleRenderContext): string 
 // ----------------------------------------------------------------------------------------
 const renderRelated = (rule: SkillRule, context: RuleRenderContext): string[] => {
 	const items = [...new Set([...rule.requiresSelected, ...rule.reviewWith])]
-		.map((reference) => resolveReference(reference, context))
+		.map((reference) => findRuleLocation(reference, context))
 		.filter((target): target is RuleLocation => target !== undefined)
 		.map((target) => `- [${skillPrefix(target, context)}${target.heading}](${relativeLink(context.page, target.page, target.anchor)})`);
 
@@ -273,7 +273,7 @@ interface ExampleCopy {
 // ----------------------------------------------------------------------------------------
 // 예제 파일을 읽어 첫 줄의 경로 주석을 제목으로 올림, 그 앞의 줄 표기 주석도 함께 뺌
 // ----------------------------------------------------------------------------------------
-const toExampleCopy = (sourcePath: string): ExampleCopy => {
+const readExampleCopy = (sourcePath: string): ExampleCopy => {
 	const lines = readFileSync(sourcePath, "utf8").split("\n");
 	const first = lines.findIndex((line) => !notationLinePattern.test(line));
 	const title = first < 0 ? undefined : pathCommentPattern.exec(lines[first] ?? "")?.[1];
@@ -317,7 +317,7 @@ const renderExamples = (rule: SkillRule, context: RuleRenderContext): string[] =
 			const description = (label[3] ?? "").trim();
 
 			if (description !== "") {
-				out.push(toSummarySentence(description), "");
+				out.push(normalizeSummarySentence(description), "");
 			}
 
 			continue;
@@ -339,7 +339,7 @@ const renderExamples = (rule: SkillRule, context: RuleRenderContext): string[] =
 		const insideExamples = path.posix.normalize(path.posix.join("rules", reference)).replace(/^examples\//, "");
 		const copyPath = `${exampleCopyDir}/${context.document.skillName}/${insideExamples}`;
 
-		const copy = toExampleCopy(sourcePath);
+		const copy = readExampleCopy(sourcePath);
 		const title = copy.title === undefined ? "" : ` [${copy.title}]`;
 
 		context.copies.set(copyPath, copy.content);
@@ -356,11 +356,11 @@ const renderExamples = (rule: SkillRule, context: RuleRenderContext): string[] =
 // ----------------------------------------------------------------------------------------
 // 요지를 완결 문장으로, frontmatter의 괄호 설명은 마침표 없이 끝남
 //
-// toSummarySentence("타입 먼저") → "타입 먼저."
-// toSummarySentence("이미 끝.") → "이미 끝."
-// toSummarySentence("") → ""
+// normalizeSummarySentence("타입 먼저") → "타입 먼저."
+// normalizeSummarySentence("이미 끝.") → "이미 끝."
+// normalizeSummarySentence("") → ""
 // ----------------------------------------------------------------------------------------
-const toSummarySentence = (summary: string): string => (summary === "" || /[.!?]$/.test(summary) ? summary : `${summary}.`);
+const normalizeSummarySentence = (summary: string): string => (summary === "" || /[.!?]$/.test(summary) ? summary : `${summary}.`);
 
 // ----------------------------------------------------------------------------------------
 // 규칙 본문 하나를 섹션 페이지 조각으로
@@ -369,7 +369,7 @@ const toSummarySentence = (summary: string): string => (summary === "" || /[.!?]
 // 등급, 순번, ID, 적용 조건은 에이전트의 인덱스와 계약에만 나감 → 이 페이지에는 안 실림
 // ----------------------------------------------------------------------------------------
 const renderRule = (rule: SkillRule, context: RuleRenderContext): string => {
-	const location = context.locations.get(`${context.document.skillName}/${getRuleId(rule)}`);
+	const location = context.locations.get(`${context.document.skillName}/${toRuleId(rule)}`);
 
 	if (!location) {
 		throw new Error(`Rule "${rule.title}" has no site location.`);
@@ -388,7 +388,7 @@ const renderRule = (rule: SkillRule, context: RuleRenderContext): string => {
 
 	if (impactIndex >= 0) {
 		// 등급은 빼고 괄호 안 설명만 요지로 남김
-		lines.splice(impactIndex, 1, ...(location.summary === "" ? [] : [toSummarySentence(location.summary)]));
+		lines.splice(impactIndex, 1, ...(location.summary === "" ? [] : [normalizeSummarySentence(location.summary)]));
 	}
 
 	// 산문은 첫 예제 머리말 앞까지. 예제는 분해한 뒤 다시 그림
@@ -417,7 +417,7 @@ const renderSectionPage = (args: SectionPageArgs): string => {
 	const {document, section, rules, locations, copies} = args;
 	const placement = getPlacement(document.skillName);
 	const page = sectionPagePath(document.skillName, section);
-	const context: RuleRenderContext = {document, page, locations, rulesDir: getSkillPaths(document.skillName).rulesDir, copies};
+	const context: RuleRenderContext = {document, page, locations, rulesDir: buildSkillPaths(document.skillName).rulesDir, copies};
 	const lines = [
 		"---",
 		`name: ${yamlScalar(`${section.order}. ${sectionDisplayTitle(section)}`)}`,
@@ -486,7 +486,7 @@ const renderOverviewPage = (document: LoadedSkillDocument, locations: Map<string
 	lines.push("## 규칙", "");
 
 	for (const section of document.sections) {
-		const rules = getRulesForSection(section, document.rules);
+		const rules = filterRulesForSection(section, document.rules);
 
 		if (rules.length === 0) {
 			continue;
@@ -499,7 +499,7 @@ const renderOverviewPage = (document: LoadedSkillDocument, locations: Map<string
 		lines.push("| 규칙 | 요지 |", "| --- | --- |");
 
 		for (const rule of rules) {
-			const location = locations.get(`${document.skillName}/${getRuleId(rule)}`);
+			const location = locations.get(`${document.skillName}/${toRuleId(rule)}`);
 
 			if (!location) {
 				throw new Error(`Rule "${rule.title}" has no site location.`);
@@ -531,7 +531,7 @@ export const generateSiteFiles = async (): Promise<SiteFile[]> => {
 			continue;
 		}
 
-		documents.push(await readSkillDocument(getSkillPaths(skillName)));
+		documents.push(await readSkillDocument(buildSkillPaths(skillName)));
 	}
 
 	documents.sort(comparePlacement);
@@ -544,7 +544,7 @@ export const generateSiteFiles = async (): Promise<SiteFile[]> => {
 		files.push({path: `${document.skillName}.md`, content: renderOverviewPage(document, locations)});
 
 		for (const section of document.sections) {
-			const rules = getRulesForSection(section, document.rules);
+			const rules = filterRulesForSection(section, document.rules);
 
 			if (rules.length === 0) {
 				continue;

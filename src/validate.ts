@@ -1,11 +1,11 @@
 import path from "node:path";
 
-import {getSkillPaths, isBuildableSkill, listSkillNames} from "./config.js";
+import {buildSkillPaths, isBuildableSkill, listSkillNames} from "./config.js";
 import {
 	assertRoutingCondition,
 	assertValidRoutingIdentifier,
 	assertValidRuleTarget,
-	getRuleStableId,
+	toRuleStableId,
 	parseDependencyDeclaration,
 } from "./dependencies.js";
 import type {DependencyDeclaration} from "./dependencies.js";
@@ -87,7 +87,7 @@ const collectSkillsAbove = async (skillName: string, skillRootDir?: string): Pro
 			continue;
 		}
 
-		const candidate = await readSkillDocument(getSkillPaths(candidateName, skillRootDir));
+		const candidate = await readSkillDocument(buildSkillPaths(candidateName, skillRootDir));
 
 		for (const companion of candidate.metadata.companions ?? []) {
 			const parents = parentsBySkill.get(companion.skill) ?? new Set<string>();
@@ -160,7 +160,7 @@ const validateLocalSkill = async (skillPaths: SkillPaths): Promise<LocalValidati
 	const validPrefixes = new Set(sections.map((section) => section.prefix));
 
 	for (const rule of rules) {
-		const ruleId = getRuleStableId(rule.fileName);
+		const ruleId = toRuleStableId(rule.fileName);
 
 		if (!validPrefixes.has(rule.prefix)) {
 			throw new Error(`${skillPaths.skillName}: unknown prefix "${rule.prefix}" in ${rule.fileName}.`);
@@ -307,7 +307,7 @@ const validateSkillTree = async (args: ValidateSkillTreeArgs): Promise<LocalVali
 		}
 
 		await validateSkillTree({
-			skillPaths: getSkillPaths(dependencyName, targetSkillRootDir),
+			skillPaths: buildSkillPaths(dependencyName, targetSkillRootDir),
 			lineage: nextLineage,
 			validatedSkillNames: args.validatedSkillNames,
 			documents: args.documents,
@@ -333,8 +333,8 @@ const collectAllRuleIds = async (skillRootDir?: string): Promise<{ids: Set<strin
 			continue;
 		}
 
-		for (const fileName of await readSkillRuleFileNames(getSkillPaths(skillName, skillRootDir))) {
-			const stableId = getRuleStableId(fileName);
+		for (const fileName of await readSkillRuleFileNames(buildSkillPaths(skillName, skillRootDir))) {
+			const stableId = toRuleStableId(fileName);
 			ids.add(`${skillName}/${stableId}`);
 			prefixes.add(stableId.split("-")[0] ?? "");
 		}
@@ -365,7 +365,7 @@ const validateRoutingTargets = (
 	dependenciesBySkill: Map<string, DependencyDeclaration>,
 ): void => {
 	for (const [skillName, document] of documents) {
-		const localRuleIds = new Set(document.rules.map((rule) => getRuleStableId(rule.fileName)));
+		const localRuleIds = new Set(document.rules.map((rule) => toRuleStableId(rule.fileName)));
 		const reachableSkillNames = collectReachableSkillNames(skillName, dependenciesBySkill);
 
 		for (const rule of document.rules) {
@@ -392,7 +392,7 @@ const validateRoutingTargets = (
 					}
 
 					const targetDocument = documents.get(targetSkillName);
-					const targetExists = targetDocument?.rules.some((targetRule) => getRuleStableId(targetRule.fileName) === targetRuleId);
+					const targetExists = targetDocument?.rules.some((targetRule) => toRuleStableId(targetRule.fileName) === targetRuleId);
 
 					if (!targetExists) {
 						throw new Error(`${skillName}: ${rule.fileName} has unknown ${fieldName} target "${target}".`);

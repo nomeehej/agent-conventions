@@ -1,5 +1,5 @@
 import {renderMermaidASCII} from "beautiful-mermaid";
-import {getSkillPaths, isBuildableSkill, listSkillNames} from "./config.js";
+import {buildSkillPaths, isBuildableSkill, listSkillNames} from "./config.js";
 import {readSkillRules} from "./parser.js";
 import {parseRuleBody} from "./rule-body.js";
 
@@ -40,7 +40,7 @@ export const checkDiagrams = async (): Promise<DiagramReport[]> => {
 			continue;
 		}
 
-		for (const rule of await readSkillRules(getSkillPaths(skillName))) {
+		for (const rule of await readSkillRules(buildSkillPaths(skillName))) {
 			const fences = parseRuleBody(rule.body).prose.filter((node) => node.type === "code" && node.lang === "mermaid");
 
 			fences.forEach((fence, index) => {

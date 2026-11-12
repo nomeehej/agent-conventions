@@ -2,14 +2,14 @@ import assert from "node:assert/strict";
 import {readFile, readdir} from "node:fs/promises";
 import test from "node:test";
 
-import {getSkillPaths, isBuildableSkill} from "../src/config.js";
+import {buildSkillPaths, isBuildableSkill} from "../src/config.js";
 import {readSkillDocument} from "../src/parser.js";
 import {generateSiteFiles} from "../src/site.js";
 import {assertRemovedApparatusStaysGone, assertRouterProtocol, assertRouterShape, splitFrontmatter} from "./helpers/router-contract.js";
 
 test("Testing is discoverable with conditional framework companions and the shared router protocol", async () => {
 	assert.equal(await isBuildableSkill("testing"), true);
-	const skillPaths = getSkillPaths("testing");
+	const skillPaths = buildSkillPaths("testing");
 	const document = await readSkillDocument(skillPaths);
 	const source = await readFile(skillPaths.skillEntrypointPath, "utf8");
 	const {body} = splitFrontmatter(source);
@@ -77,7 +77,7 @@ test("Playwright examples expose GIVEN, WHEN and THEN while Vitest examples stay
 
 test("Testing exposes suite selection, stories and generated API composition as reader-facing rules", async () => {
 	// GIVEN Testing 규칙과 사이트를 읽는 소비자
-	const document = await readSkillDocument(getSkillPaths("testing"));
+	const document = await readSkillDocument(buildSkillPaths("testing"));
 
 	// WHEN 문서와 예제의 생성
 	const files = await generateSiteFiles();
