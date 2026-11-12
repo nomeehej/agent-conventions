@@ -20,7 +20,7 @@ flowchart LR
 | --- | --- |
 | 직접 호출하는 상태 갱신이 무거운 렌더를 일으킴 | `startTransition`으로 호출을 감쌉니다. 프롭으로 받은 갱신 함수도 같습니다 |
 | 값은 즉시 반응해야 하지만 파생 렌더는 미룰 수 있음 | `useDeferredValue`로 지연 값을 만듭니다 |
-| `Suspense` 쿼리의 키를 바꾸는 갱신으로 이미 보인 내용물이 대체 화면으로 바뀜 | 측정 없이 `startTransition`으로 감쌉니다. search 파라미터는 `setUrlParams` 호출을 직접 감쌉니다. 진행 표시는 `useTransition`의 `isPending`입니다 |
+| `Suspense` 쿼리의 키를 바꾸는 갱신으로 이미 보인 내용물이 대체 화면으로 바뀜 | 측정 없이 `startTransition`으로 감쌉니다. search 파라미터를 nuqs로 바꾸면 `setUrlParams` 호출을 직접 감쌉니다. 진행 표시는 `useTransition`의 `isPending`입니다 |
 | 갱신 함수를 호출할 수 없고 프롭, 훅 반환값만 받음 | `useDeferredValue`를 씁니다 |
 | 트랜지션 진행 표시가 필요함 | 대기 상태를 주지 않는 `startTransition` 대신 `useTransition`의 `isPending`을 씁니다 |
 

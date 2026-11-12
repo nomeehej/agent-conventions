@@ -34,7 +34,7 @@ flowchart LR
 | 한 컴포넌트 묶음에서 공유하는 UI | `useState` + `Context` |
 | 전역 클라이언트 | `Zustand` |
 | 서버 | `@tanstack/react-query` |
-| 링크를 공유해도 같은 화면이 열려야 하는 값 | 라우트 search 파라미터(`nuqs`의 `useQueryStates`) |
+| 링크를 공유해도 같은 화면이 열려야 하는 값 | 라우트 search 파라미터. 라우터가 라우트마다 search 파라미터를 검증하면 그 라우터의 API, 아니면 `nuqs`의 `useQueryStates` |
 
 ### 혼동하기 쉬운 상태
 
@@ -45,7 +45,7 @@ flowchart LR
 | 합성 부품이나 작은 묶음의 두세 단계 아래에서 공유하는 UI | `useState`가 소유하고 `Context`로 전달합니다 |
 | 묶음 밖의 화면, 레이아웃에서도 읽거나 바꾸는 UI | `Context`를 위로 올리지 않고 전역 스토어로 옮깁니다. 탭 `selectedId`처럼 파생이 아닌 값도 같습니다 |
 
-서버 상태는 내용물이 쿼리 키로, search 파라미터는 같은 `urlParsers`로 직접 읽습니다.
+서버 상태는 내용물이 쿼리 키로, search 파라미터는 같은 `urlParsers`나 라우트의 search 스키마로 직접 읽습니다.
 둘 다 내용물 사이에 프롭으로 전달하지 않습니다.
 `Context`는 전역 상태 도구가 아니라 묶음 안의 전달 수단입니다.
 

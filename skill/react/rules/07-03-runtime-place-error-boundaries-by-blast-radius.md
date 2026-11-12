@@ -51,7 +51,9 @@ flowchart LR
 
 오류 포착 구현은 `ui`의 `ErrorBoundary`에서 한 번만 제공합니다.
 이 구현은 `react-error-boundary` 같은 라이브러리에 맡길 수 있습니다.
-데이터 라우터의 `errorElement`와 `ui`의 `ErrorBoundary`를 같은 실패 범위에 겹쳐 쓰지 않습니다.
+라우터가 주는 라우트 오류 화면과 `ui`의 `ErrorBoundary`를 같은 실패 범위에 겹쳐 쓰지 않습니다.
+라우트 오류 화면의 이름은 라우터마다 다릅니다.
+React Router는 라우트의 `ErrorBoundary`, TanStack Router는 `errorComponent`, Next.js는 `error.js`입니다.
 `react-error-boundary`를 쓰면 정상 화면은 유지하면서 오류 상태만 초기화하도록 URL 변경을 `resetKeys`에 연결합니다.
 경계의 `key`는 바꾸지 않습니다.
 재시도 버튼은 대체 화면에서 오류 경계의 재시도 함수를 호출합니다.
@@ -59,7 +61,11 @@ flowchart LR
 
 참고: [React 문서: Component, 오류 경계로 렌더 오류 잡기](https://react.dev/reference/react/Component),
 [TanStack Query 문서: Suspense와 오류 경계](https://tanstack.com/query/latest/docs/framework/react/guides/suspense),
-[react-error-boundary README: resetKeys와 onReset](https://github.com/bvaughn/react-error-boundary).
+[react-error-boundary README: resetKeys와 onReset](https://github.com/bvaughn/react-error-boundary),
+[React Router 문서: 라우트 오류 경계](https://reactrouter.com/how-to/error-boundary),
+[TanStack Router 문서: `errorComponent`로 오류
+처리](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading),
+[Next.js 문서: `error.js`](https://nextjs.org/docs/app/api-reference/file-conventions/error).
 
 **Incorrect 1 (캐시가 있는 재조회 실패도 자동으로 경계에 전달된다고 가정합니다):**
 

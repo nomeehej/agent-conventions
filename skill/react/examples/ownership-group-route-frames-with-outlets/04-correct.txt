@@ -1,0 +1,18 @@
+src/
+# [!code ++]
+├── routes/
+│   ├── __root.tsx
+│   ├── _main.tsx
+│   └── _main/
+│       ├── products.tsx
+│       └── orders.tsx
+└── page/
+    ├── root-outlet.tsx
+    └── (main)/
+        ├── main-outlet.tsx
+        ├── products/
+        │   ├── _function/
+        │   │   └── to-product-save-request.ts
+        │   └── products-page.tsx
+        └── orders/
+            └── orders-page.tsx

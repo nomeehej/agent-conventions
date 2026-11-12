@@ -17,7 +17,18 @@ tags: ownership, routing
 
 라우트의 중첩과 화면 안 컴포넌트의 중첩은 서로 다른 축입니다.
 공통 외곽이 필요한 자리에만 `Outlet` 프레임을 두고 폴더의 포함 관계를 라우트 선언과 맞춥니다.
-파일 기반 라우터를 쓰는 프로젝트는 그 라우터가 강제하는 표기를 먼저 따릅니다.
+이 규칙은 폴더와 진입 파일의 소유만 정하고 라우터 API는 각 라우터 문서를 따릅니다.
+
+### 라우터와 나누는 일
+
+| 정하는 쪽 | 대상 |
+| --- | --- |
+| 이 규칙 | 프레임과 화면의 폴더, 진입 파일 이름, 진입 파일을 가져오는 쪽 |
+| 라우터 문서 | 라우트 선언 방식, 자식 라우트를 그리는 자리, params와 search 파라미터 읽기, 이동, 라우트 오류 화면 |
+
+`Outlet` 프레임은 공통 외곽과 자식 라우트를 그리는 자리를 함께 가진 진입 파일입니다.
+React Router와 TanStack Router는 그 자리에 `Outlet`을 두고 Next.js 레이아웃은 `children` 프롭으로 받습니다.
+자리를 그리는 API가 달라도 규칙에서는 모두 `Outlet` 프레임이라고 부릅니다.
 
 ### 진입 파일과 그룹
 
@@ -32,6 +43,11 @@ tags: ownership, routing
 분류만 하는 그룹, `Outlet`만 렌더하는 빈 프레임, `page` 전체를 한 번 더 감싸는 `(app)` 같은 그룹은 만들지 않습니다.
 `(이름)` 폴더는 URL에 나타나지 않습니다.
 폴더를 만드는 것만으로 라우트가 생기지도 않습니다.
+
+파일 기반 라우터는 라우트 파일의 이름과 자리를 그 라우터의 규약대로 둡니다.
+규약이 `page`의 폴더 표기와 겹치면 라우트 파일은 `page` 밖의 라우트 폴더에 두고 진입 파일만 가져옵니다.
+TanStack Router는 `_`로 시작하는 파일과 폴더를 경로 없는 레이아웃으로 읽으므로 `_constant` 같은 역할 폴더와 겹칩니다.
+이때 라우트 폴더가 위 표의 라우터 자리입니다.
 
 ### 깊이와 소유자 경계
 
@@ -48,6 +64,8 @@ tags: ownership, routing
 일부 그룹에만 적용하는 가드는 그 그룹의 `Outlet` 프레임이 소유합니다.
 화면마다 다른 접근 정책은 라우터가 연결합니다.
 `page`는 라우터의 구현을 가져오지 않습니다.
+타입이 붙은 params나 search 파라미터를 읽으려고 라우트 파일을 가져와야 하면 라우터가 주는 경로 id 조회를 씁니다.
+TanStack Router에서는 `getRouteApi`입니다.
 같은 화면을 여러 URL에서 열면 라우터가 같은 진입 파일을 연결합니다.
 차이는 params나 진입 프롭으로 전달합니다.
 
@@ -61,7 +79,15 @@ tags: ownership, routing
 
 참고: [React Router 문서: 중첩 라우트와 `Outlet`](https://reactrouter.com/start/data/routing#nested-routes),
 [React Router 문서: 경로 없는 레이아웃 라우트](https://reactrouter.com/start/data/routing#layout-routes),
-[Next.js 문서: 경로 그룹 `(folder)`](https://nextjs.org/docs/app/getting-started/project-structure#route-groups).
+[Next.js 문서: 경로 그룹 `(folder)`](https://nextjs.org/docs/app/getting-started/project-structure#route-groups),
+[Next.js 문서: `layout`의 `children`](https://nextjs.org/docs/app/api-reference/file-conventions/layout),
+[TanStack Router 문서: `Outlet`](https://tanstack.com/router/latest/docs/framework/react/guide/outlets),
+[TanStack Router 문서: 레이아웃
+라우트](https://tanstack.com/router/latest/docs/framework/react/routing/routing-concepts),
+[TanStack Router 문서: 파일 이름
+규약](https://tanstack.com/router/latest/docs/framework/react/routing/file-naming-conventions),
+[TanStack Router 문서:
+`getRouteApi`](https://tanstack.com/router/latest/docs/framework/react/guide/search-params).
 
 **Incorrect 1 (화면 폴더 안에 그룹을 만들어 다른 화면을 넣습니다):**
 
@@ -71,6 +97,10 @@ tags: ownership, routing
 
 <<< ../examples/ownership-group-route-frames-with-outlets/02-correct.txt
 
-**Correct (라우터가 프레임과 화면의 진입 파일을 중첩으로 잇습니다):**
+**Correct (React Router의 라우트 선언이 프레임과 화면의 진입 파일을 중첩으로 잇습니다):**
 
 <<< ../examples/ownership-group-route-frames-with-outlets/03-correct.tsx
+
+**Correct (파일 기반 라우터의 규약이 역할 폴더와 겹치면 라우트 폴더를 `page` 밖에 두고 진입 파일만 잇습니다):**
+
+<<< ../examples/ownership-group-route-frames-with-outlets/04-correct.txt
