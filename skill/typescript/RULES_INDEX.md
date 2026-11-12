@@ -1,7 +1,7 @@
 # TypeScript 컨벤션 Rule Index
 
 - Skill: `typescript`
-- Routing digest: `sha256:d48bdb238627eb0eb82edce487bb491a2a3c88dfc8d6c1fc453d2151309b8917`
+- Routing digest: `sha256:b1d3e17312048916f40ab2cb68eadbd7d180c15df7b4f89059a804af5f5c0289`
 
 ## Local Rules
 
@@ -41,8 +41,8 @@
 - T05-02 | absence-resolve-defaults-at-the-boundary | 선택 값의 기본값을 어디서 채울지 정할 때. 같은 선택 값에 \`??\` 기본값 해소가 둘 이상의 사용처에 흩어질 때. search 스키마, 응답 매핑, 쿼리 \`select\`에 기본값 채움을 추가, 변경할 때. | reviewWith: absence-expose-optional-values-instead-of-silent-fallbacks, functions-name-a-value-only-for-recompute-or-judgment, values-read-objects-through-chains
 - T05-03 | absence-do-not-guard-what-types-guarantee | \`isNil\`, \`typeof\`, 옵셔널 체이닝으로 값을 검사하는 분기를 추가, 변경할 때. 선택 필드에 값을 넣으면서 \`undefined\`를 피하려고 조건부 스프레드를 쓸 때. 제외: \`unknown\`이나 앱 밖에서 온 값을 좁히는 경우. | reviewWith: absence-check-once-at-the-boundary, absence-expose-optional-values-instead-of-silent-fallbacks, types-narrow-unknown-instead-of-asserting
 - T05-04 | absence-check-once-at-the-boundary | \`isNil\`, \`Number.isFinite\` 같은 검사를 함수에 넣을 때. \`null\`, \`undefined\`, \`unknown\`을 매개변수, 반환 타입에 넣거나 뺄 때. 응답 매핑, 쿼리, search 스키마에서 없음, 유한 수 검사로 타입을 좁힐 때. | reviewWith: absence-do-not-guard-what-types-guarantee, absence-resolve-defaults-at-the-boundary, values-decide-once-and-carry-the-result
-- T06-01 | docs-keep-body-comments-for-intent-and-steps | 함수, 컴포넌트 본문의 주석을 추가, 수정, 유지할 때. 도메인 규칙, 예외 방어, 외부 제약, 부수효과 순서, 긴 본문의 구획을 주석으로 설명할 때. | reviewWith: docs-justify-convention-exceptions-with-a-reason-comment, docs-write-korean-comments-about-purpose-and-constraints
+- T06-01 | docs-keep-body-comments-for-intent-and-steps | 함수, 컴포넌트 본문의 주석을 추가, 수정, 유지할 때. 도메인 규칙, 예외 방어, 외부 제약, 부수효과 순서, 긴 본문의 구획을 주석으로 설명할 때. | reviewWith: docs-justify-convention-exceptions-with-a-reason-comment, docs-write-comments-about-purpose-and-constraints
 - T06-02 | docs-put-boxes-on-groups-and-blocks | 주석 상자를 추가, 옮기거나 지울 때. 공용 값 함수, 파일 위 상수 묶음, 긴 본문의 구획을 추가, 변경할 때.
-- T06-03 | docs-write-korean-comments-about-purpose-and-constraints | TypeScript, TSX의 상자나 한 줄 주석 문구를 추가, 수정, 번역하거나 검토할 때. 상자 바로 아래 코드를 바꿀 때. 주석 모양을 바꾸거나 블록 주석, TSDoc 태그를 쓰려 할 때.
-- T06-04 | docs-justify-convention-exceptions-with-a-reason-comment | 규칙이 허용한 예외를 코드에 남길 때. 이미 있는 예외 주석의 내용을 바꿀 때. 제외: 규칙이 요구하지 않은 일반 설명 주석인 경우. | reviewWith: docs-write-korean-comments-about-purpose-and-constraints
+- T06-03 | docs-write-comments-about-purpose-and-constraints | TypeScript, TSX의 상자나 한 줄 주석 문구를 추가, 수정, 번역하거나 검토할 때. 상자 바로 아래 코드를 바꿀 때. 주석 모양을 바꾸거나 블록 주석, TSDoc 태그를 쓰려 할 때.
+- T06-04 | docs-justify-convention-exceptions-with-a-reason-comment | 규칙이 허용한 예외를 코드에 남길 때. 이미 있는 예외 주석의 내용을 바꿀 때. 제외: 규칙이 요구하지 않은 일반 설명 주석인 경우. | reviewWith: docs-write-comments-about-purpose-and-constraints
 - T07-01 | tooling-configure-biome-to-enforce-these-rules | 프로젝트에 \`biome\` 설정을 처음 넣거나 lint 규칙을 바꿀 때. \`biome.json\`의 \`linter.rules\`에 항목을 추가, 삭제할 때.

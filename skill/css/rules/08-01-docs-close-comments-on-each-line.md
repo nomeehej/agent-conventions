@@ -17,20 +17,21 @@ tags: docs, comments
 CSS에는 `//` 줄 주석이 없어 `/* */`만 씁니다.
 여러 줄에 걸친 블록 주석은 쓰지 않고 줄마다 `/* … */`로 닫습니다.
 한 줄 설명은 그 블록 바로 위 `/* 설명 */` 한 줄입니다.
-어투와 낱말은 `typescript/docs-write-korean-comments-about-purpose-and-constraints`를 따릅니다.
+어투와 낱말은 `typescript/docs-write-comments-about-purpose-and-constraints`를 따릅니다.
 
 ### 상자
 
 설명이 두 줄 이상이거나 스타일시트를 구역으로 나눌 때는 상자를 씁니다.
 위아래 줄은 `/* ` 뒤 대시 85개와 ` */`로 TypeScript 주석 상자와 같은 91칸입니다.
-안쪽 첫 줄은 무엇과 핵심을 쉼표로 이은 요약 줄이고 덧붙일 사실은 다음 줄부터 한 줄씩 `/* 내용 */`로 닫습니다.
+안쪽 첫 줄은 제목이고 덧붙일 내용은 다음 줄부터 문장으로 쓰되 줄마다 `/* … */`로 닫습니다.
+항목은 `/*   이름 */` 줄 다음에 `/*      설명 */` 줄로 씁니다.
 TypeScript 상자에서 빈 `//` 줄이 오는 자리에는 아무 줄도 두지 않습니다.
 빈 주석은 `comment-no-empty`에 걸립니다.
 
 | 자리 | 모양 |
 | --- | --- |
 | 한 줄 설명 | 그 블록 바로 위 `/* 설명 */` 한 줄 |
-| 두 줄 이상의 설명, 구역 구분 | 위아래 대시 줄 사이에 `/* 요약 */`, `/* 본문 */`을 줄마다 닫아 씁니다. 구역 구분은 요약 한 줄로 충분합니다 |
+| 두 줄 이상의 설명, 구역 구분 | 위아래 대시 줄 사이에 `/* 제목 */`, `/* 본문 문장 */`을 줄마다 닫아 씁니다. 구역 구분은 제목 한 줄로 충분합니다 |
 | 여러 줄에 걸친 `/* … */` | 쓰지 않습니다 |
 | 빈 주석 `/* */` | 쓰지 않습니다 |
 | `stylelint-disable` 같은 도구 지시 | 그 도구의 꼴을 따릅니다 |
@@ -55,6 +56,6 @@ stylelint `comment-empty-line-before`의 `ignore`에 `"after-comment"`를 더해
 
 <<< ../examples/docs-close-comments-on-each-line/03-incorrect.css
 
-**Correct 2 (빈 주석 없이 요약 줄 다음 줄에 본문을 잇습니다):**
+**Correct 2 (빈 주석 없이 제목 다음 줄에 본문을 잇습니다):**
 
 <<< ../examples/docs-close-comments-on-each-line/04-correct.css

@@ -10,14 +10,14 @@
 | 자리 | 상자 |
 | --- | --- |
 | 선언 하나(바인딩, 핸들러, 이펙트, 내보낸 함수) | 의무가 없습니다. 설명할 것이 있을 때만 바로 위에 둡니다 |
-| 공용 값 함수 | 함수 바로 위에 두고 요약 줄과 `호출 → 결과` 예시를 적습니다 |
-| 파일 위 상수 묶음 | 묶음 바로 위에 하나만 둡니다. 상수마다 할 말이 있으면 `이름: 설명` 목록을 적습니다 |
-| 긴 본문의 구획 | 구획 첫 줄 바로 위에 두고 요약 한 줄을 기본으로 씁니다. `docs-keep-body-comments-for-intent-and-steps`가 정합니다 |
+| 공용 값 함수 | 함수 바로 위에 두고 제목, 필요한 본문, `호출 → 결과` 예시를 적습니다 |
+| 파일 위 상수 묶음 | 묶음 바로 위에 하나만 둡니다. 상수마다 할 말이 있으면 상수 이름을 항목으로 두고 설명을 들여 씁니다 |
+| 긴 본문의 구획 | 구획 첫 줄 바로 위에 두고 제목만 두는 것을 기본으로 씁니다. `docs-keep-body-comments-for-intent-and-steps`가 정합니다 |
 | 커스텀 `type`, `interface` | `types-document-custom-types-and-shapes`가 정합니다 |
 | 코드 줄 사이 | 상자를 두지 않습니다. 그 줄만의 이유와 도구 지시를 `//` 한 줄로 적습니다 |
 
 컴포넌트 본문의 상자 자리는 프레임워크 규칙이 더 정합니다.
-상자 모양과 문장은 `docs-write-korean-comments-about-purpose-and-constraints`가 정합니다.
+상자 모양과 문장은 `docs-write-comments-about-purpose-and-constraints`가 정합니다.
 
 ### 공용 값 함수의 예시
 
@@ -30,7 +30,7 @@
 참고: [Go 블로그: 테스트로 실행되는 예시](https://go.dev/blog/examples),
 [rustdoc: 문서 테스트](https://doc.rust-lang.org/rustdoc/write-documentation/documentation-tests.html).
 
-**Requires selected:** `docs-write-korean-comments-about-purpose-and-constraints` (함께 적용)
+**Requires selected:** `docs-write-comments-about-purpose-and-constraints` (함께 적용)
 
 **Incorrect 1 (이름과 코드가 말하는 내용을 선언 위 상자에 다시 적습니다):**
 

@@ -1,7 +1,7 @@
 # React 컨벤션 Rule Index
 
 - Skill: `react`
-- Routing digest: `sha256:010ad0fe742bee75aae15a784dade3647244733dc8de9956f0d6ab1ed388761d`
+- Routing digest: `sha256:50bc1105ad45100f35c5bc5dd9d5191c7ab63c517708b0279f8b9600b8d19da2`
 
 ## Direct Companions
 
@@ -61,5 +61,5 @@
 - R10-03 | perf-defer-heavy-renders-with-measured-evidence | \`startTransition\`, \`useTransition\`, \`useDeferredValue\`를 추가, 삭제할 때. 목록이나 표가 커져 입력 반응이 늦다는 보고를 받았을 때. \`Suspense\` 쿼리의 키가 되는 search 파라미터나 상태 갱신을 추가할 때. | reviewWith: perf-avoid-defensive-memoization
 - R11-01 | a11y-give-interactive-elements-an-accessible-name | 클릭이나 입력을 받는 요소를 추가, 변경할 때. 글자 없이 아이콘만 있는 버튼을 추가할 때.
 - R12-01 | docs-explain-the-data-block-not-each-hook | 컴포넌트 본문의 쿼리, 뮤테이션 바인딩을 추가, 변경할 때. 핸들러, 이펙트, 커스텀 훅, 합성 컴포넌트 부품을 추가, 변경하거나 그 위 주석을 고칠 때.
-- R12-02 | docs-describe-jsx-blocks-above-the-return | JSX 자식 자리에 주석을 쓰거나 기존 JSX 주석을 옮길 때. 화면을 구역으로 나누고 그 구역이 무엇을 담당하는지 적을 때. JSX에 여러 줄로 펼쳐진 형제 블록을 새로 만들거나 나눌 때. | reviewWith: typescript/docs-write-korean-comments-about-purpose-and-constraints
+- R12-02 | docs-describe-jsx-blocks-above-the-return | JSX 자식 자리에 주석을 쓰거나 기존 JSX 주석을 옮길 때. 화면을 구역으로 나누고 그 구역이 무엇을 담당하는지 적을 때. JSX에 여러 줄로 펼쳐진 형제 블록을 새로 만들거나 나눌 때. | reviewWith: typescript/docs-write-comments-about-purpose-and-constraints
 - R13-01 | tooling-enable-the-biome-react-domain | 프로젝트에 \`biome\` 설정을 처음 넣거나 lint 규칙을 바꿀 때. \`biome.json\`의 \`linter.domains\`, \`linter.rules\`, \`plugins\`에 항목을 추가, 삭제할 때.

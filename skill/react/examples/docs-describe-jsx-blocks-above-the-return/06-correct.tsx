@@ -2,11 +2,16 @@ export const OrderTable = () => {
 	// ----------------------------------------------------------------------------------------
 	// 주문 표 화면 구성
 	//
-	// OrderTableHeader: 정렬 기준과 단위 표시
+	//   OrderTableHeader
+	//      정렬 기준과 단위를 보여 준다.
+	//
 	// [!code ++]
-	// OrderTableRow: 상세 버튼과 아코디언이 있는 기본 행
+	//   OrderTableRow
+	//      상세 버튼과 아코디언이 있는 기본 행이다.
+	//
 	// [!code ++]
-	// OrderTableChildRow: 펼친 자식 주문 행, 상세 버튼과 아코디언 없음
+	//   OrderTableChildRow
+	//      펼친 자식 주문 행이고 상세 버튼과 아코디언이 없다.
 	// ----------------------------------------------------------------------------------------
 	return (
 		<section className={clsx("orderTable__root")}>

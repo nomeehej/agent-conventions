@@ -59,7 +59,7 @@ tags: tooling
 | 사용하지 않는 매개변수를 아예 생략 | 검사는 남겨 둔 매개변수만 봄 | 리뷰합니다 |
 | 매개변수가 넷이나 다섯인 직접 선언한 함수 | `useMaxParams`의 `max`가 라이브러리 콜백에 맞춰 5임 | 객체 매개변수로 묶었는지 리뷰합니다 |
 | `as`, `@ts-expect-error` | 의도를 구분하지 못함 | 위의 타입 좁히기 규칙에 따라 리뷰합니다 |
-| 블록 주석 `/* */`, `/** */`, 주석 상자 모양 | Biome에 주석 모양 규칙이 없음 | `typescript/docs-write-korean-comments-about-purpose-and-constraints`에 따라 리뷰합니다 |
+| 블록 주석 `/* */`, `/** */`, 주석 상자 모양 | Biome에 주석 모양 규칙이 없음 | `typescript/docs-write-comments-about-purpose-and-constraints`에 따라 리뷰합니다 |
 | `config/env.ts` 밖의 `import.meta.env`, `process.env` | 대응 검사가 없음 | `typescript/naming-read-environment-values-through-config-env`에 따라 리뷰합니다 |
 
 ESLint를 함께 쓰는 프로젝트는 `@stylistic/multiline-comment-style`을 `separate-lines`, `checkJSDoc: true`로 켭니다.

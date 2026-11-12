@@ -16,7 +16,7 @@ tags: docs, comments, hooks, handlers, effects
 
 컴포넌트 본문의 쿼리, 뮤테이션 바인딩 묶음을 데이터 블록으로 봅니다.
 적을 이유가 있을 때만 블록 첫 바인딩 위에 상자 하나를 둡니다.
-요약 줄에는 무엇을 조회하고 요청하는지 적고 본문에는 블록 전체의 이유를 적습니다.
+제목에는 무엇을 조회하고 요청하는지 적고 본문 문장에는 블록 전체의 이유를 적습니다.
 같은 쿼리 키를 쓰는 다른 구역, 무효화를 누가 맡는지, 다른 응답을 기다리는 순서처럼 파일 밖과의 관계가 그 이유입니다.
 그런 관계가 없으면 상자를 두지 않습니다.
 변수마다 줄을 나누지 않습니다.
@@ -29,7 +29,7 @@ tags: docs, comments, hooks, handlers, effects
 | 부르는 API 경로 | 적지 않습니다. 생성 훅 정의로 이동하면 보입니다 |
 
 상자 자리의 공통 기준은 `typescript/docs-put-boxes-on-groups-and-blocks`가 정합니다.
-상자 모양과 문장은 `typescript/docs-write-korean-comments-about-purpose-and-constraints`를 따릅니다.
+상자 모양과 문장은 `typescript/docs-write-comments-about-purpose-and-constraints`를 따릅니다.
 
 참고: [Google 코드 리뷰 가이드: 주석](https://google.github.io/eng-practices/review/reviewer/looking-for.html#comments).
 

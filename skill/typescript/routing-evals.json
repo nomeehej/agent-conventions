@@ -57,7 +57,7 @@
 					"types-document-custom-types-and-shapes",
 					"types-narrow-unknown-instead-of-asserting",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -74,7 +74,7 @@
 				"typescript": [
 					"types-document-custom-types-and-shapes",
 					"types-choose-interface-for-object-contracts-and-type-for-composition",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -92,7 +92,7 @@
 					"types-document-custom-types-and-shapes",
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-name-types-by-role-and-lifetime",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -114,7 +114,7 @@
 					"functions-name-functions-by-what-comes-out",
 					"docs-keep-body-comments-for-intent-and-steps",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			},
 			"scopeDrift": {
@@ -138,7 +138,7 @@
 						"functions-name-functions-by-what-comes-out",
 						"docs-keep-body-comments-for-intent-and-steps",
 						"docs-put-boxes-on-groups-and-blocks",
-						"docs-write-korean-comments-about-purpose-and-constraints"
+						"docs-write-comments-about-purpose-and-constraints"
 					]
 				}
 			}
@@ -208,7 +208,7 @@
 					"types-replace-enum-with-as-const-objects",
 					"naming-use-consistent-file-and-symbol-naming",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints",
+					"docs-write-comments-about-purpose-and-constraints",
 					"tooling-configure-biome-to-enforce-these-rules"
 				]
 			}
@@ -261,7 +261,7 @@
 					"absence-expose-optional-values-instead-of-silent-fallbacks",
 					"absence-resolve-defaults-at-the-boundary",
 					"docs-keep-body-comments-for-intent-and-steps",
-					"docs-write-korean-comments-about-purpose-and-constraints",
+					"docs-write-comments-about-purpose-and-constraints",
 					"docs-justify-convention-exceptions-with-a-reason-comment"
 				]
 			}
@@ -386,7 +386,7 @@
 				"typescript": [
 					"types-derive-subsets-with-indexed-access",
 					"types-document-custom-types-and-shapes",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -418,7 +418,7 @@
 				"typescript": [
 					"types-document-custom-types-and-shapes",
 					"naming-use-consistent-file-and-symbol-naming",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},

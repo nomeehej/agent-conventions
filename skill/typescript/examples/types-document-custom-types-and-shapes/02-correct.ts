@@ -2,9 +2,14 @@
 // 게시 요청 결과
 //
 // [!code ++]
-// published: 예약 게시 대기 중이면 false
+//   published
 // [!code ++]
-// scheduledAt: 서버 시간대 기준 예약 게시 시각, 즉시 게시면 없음
+//      예약 게시를 기다리는 중이면 false다.
+//
+// [!code ++]
+//   scheduledAt
+// [!code ++]
+//      서버 시간대 기준 예약 게시 시각이다. 즉시 게시면 없다.
 // ----------------------------------------------------------------------------------------
 interface PublishResult {
 	documentId: string;

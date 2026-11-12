@@ -121,7 +121,7 @@ skill/react/
 - `Correct`는 저장소 전체 규칙을 지킨다.
   다른 스킬의 규칙도 포함한다.
   `rule-discipline.ts`가 잡는 교차 위반(`mutateAsync` 없는 `try`, `li onClick`, 리터럴 폴백, 손으로 쓴 `sort`, `reduce`, 블록 주석, 상자 모양, 스택 밖 이름 등)은 `validate`가 막는다.
-  상자 모양 검사는 대시 줄 짝, 안쪽 91칸, 요약 줄로 시작, 위 빈 줄과 바로 아래 코드를 본다.
+  상자 모양 검사는 대시 줄 짝, 안쪽 91칸, 제목으로 시작, 위 빈 줄과 바로 아래 코드를 본다.
   `Correct` 예제 파일은 `npm run lint:examples`가 규칙이 보여 주는 biome, stylelint 설정 그대로 검사한다.
   규칙이 lint 설정으로 표현된다는 증명이다.
   `Incorrect` 예제는 규칙 없이 문법만 검사한다.
@@ -213,8 +213,8 @@ titleKo: JSX 안 로직은 이름 붙인 핸들러로 뺍니다
 루트 `README.md`와 여기서 생성하는 사이트 홈은 영어로 프로젝트의 목적과 구성을 설명한다.
 설치와 적용 절차는 [Usage](./content/public/usage.md)에 둔다.
 코드 주석을 둘 자리는 typescript `docs-put-boxes-on-groups-and-blocks`를 따른다.
-문장은 `docs-write-korean-comments-about-purpose-and-constraints`를 따른다.
-상자는 선언마다 달지 않고 묶음과 블록 위에 두며 안은 커밋 메시지처럼 요약 줄부터 짧은 명사형으로 쓴다.
+문장은 `docs-write-comments-about-purpose-and-constraints`를 따른다.
+상자는 선언마다 달지 않고 묶음과 블록 위에 두며 안은 제목, 문장 본문, 이름 줄 항목 차례로 쓴다.
 수정할 때는 파일의 역할에 맞는 문체를 유지한다.
 `appliesWhen`의 `~할 때`, `~경우`만 예외다.
 이는 문체가 아니라 라우팅 문장을 만드는 규칙이라

@@ -27,7 +27,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -53,7 +53,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			},
 			"scopeDrift": {
@@ -79,7 +79,7 @@
 						"naming-use-consistent-file-and-symbol-naming",
 						"naming-use-direct-imports-and-public-entry-points",
 						"docs-put-boxes-on-groups-and-blocks",
-						"docs-write-korean-comments-about-purpose-and-constraints"
+						"docs-write-comments-about-purpose-and-constraints"
 					],
 					"css": [
 						"naming-default-to-plain-css-when-no-module-convention",
@@ -120,7 +120,7 @@
 					"functions-use-named-object-params-for-complex-signatures",
 					"functions-extract-helpers-only-when-the-boundary-is-real",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -146,7 +146,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -176,7 +176,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -205,7 +205,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -237,7 +237,7 @@
 					"naming-use-direct-imports-and-public-entry-points",
 					"functions-extract-helpers-only-when-the-boundary-is-real",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -275,7 +275,7 @@
 					"naming-use-direct-imports-and-public-entry-points",
 					"absence-expose-optional-values-instead-of-silent-fallbacks",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -304,7 +304,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -331,7 +331,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -357,7 +357,7 @@
 				"typescript": [
 					"naming-use-consistent-file-and-symbol-naming",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -383,7 +383,7 @@
 					"naming-use-direct-imports-and-public-entry-points",
 					"docs-keep-body-comments-for-intent-and-steps",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints",
+					"docs-write-comments-about-purpose-and-constraints",
 					"docs-justify-convention-exceptions-with-a-reason-comment"
 				]
 			}
@@ -410,7 +410,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -437,7 +437,7 @@
 				"typescript": [
 					"absence-expose-optional-values-instead-of-silent-fallbacks",
 					"docs-keep-body-comments-for-intent-and-steps",
-					"docs-write-korean-comments-about-purpose-and-constraints",
+					"docs-write-comments-about-purpose-and-constraints",
 					"docs-justify-convention-exceptions-with-a-reason-comment"
 				]
 			}
@@ -487,7 +487,7 @@
 				],
 				"typescript": [
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -512,7 +512,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -624,7 +624,7 @@
 				],
 				"typescript": [
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -726,7 +726,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -760,7 +760,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				],
 				"css": [
 					"naming-use-block-element-modifier-syntax",
@@ -793,7 +793,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		},
@@ -873,7 +873,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-use-direct-imports-and-public-entry-points",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				]
 			}
 		}

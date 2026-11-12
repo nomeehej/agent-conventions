@@ -4,7 +4,11 @@
 // 상품 저장 요청, 서버 검증 기준으로 미리 정리
 //
 // [!code error]
-// 서버가 빈 문자열과 앞뒤 공백을 거부하고, 가격은 원 단위 정수만 받으며, 태그는 한도를 넘기면 저장 자체가 실패하기 때문에 여기서 미리 정리해서 보낸다.
+// name: 빈 문자열과 앞뒤 공백 불가
+// [!code error]
+// price: 원 단위 정수만 허용
+// [!code error]
+// tags: 한도 초과 시 저장 실패
 // ----------------------------------------------------------------------------------------
 export const buildProductSaveRequest = (draft: ProductDraft): ProductSaveRequest => {
 	return {

@@ -75,7 +75,7 @@
 					"naming-use-consistent-file-and-symbol-naming",
 					"naming-import-by-absolute-path",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				],
 				"css": [
 					"naming-use-block-element-modifier-syntax",
@@ -511,7 +511,7 @@
 					"types-document-custom-types-and-shapes",
 					"naming-import-by-absolute-path",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				],
 				"css": [
 					"naming-use-block-element-modifier-syntax",
@@ -569,7 +569,7 @@
 					"types-document-custom-types-and-shapes",
 					"naming-import-by-absolute-path",
 					"docs-put-boxes-on-groups-and-blocks",
-					"docs-write-korean-comments-about-purpose-and-constraints"
+					"docs-write-comments-about-purpose-and-constraints"
 				],
 				"css": [
 					"naming-use-block-element-modifier-syntax",

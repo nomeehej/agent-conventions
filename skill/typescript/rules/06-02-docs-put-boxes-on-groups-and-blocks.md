@@ -6,7 +6,7 @@ impactDescription: 주석이 코드보다 커지지 않고 설명이 필요한 �
 appliesWhen:
   - 주석 상자를 추가, 옮기거나 지울 때
   - 공용 값 함수, 파일 위 상수 묶음, 긴 본문의 구획을 추가, 변경할 때
-requiresSelected: docs-write-korean-comments-about-purpose-and-constraints
+requiresSelected: docs-write-comments-about-purpose-and-constraints
 tags: docs, comments, declarations
 ---
 
@@ -22,14 +22,14 @@ tags: docs, comments, declarations
 | 자리 | 상자 |
 | --- | --- |
 | 선언 하나(바인딩, 핸들러, 이펙트, 내보낸 함수) | 의무가 없습니다. 설명할 것이 있을 때만 바로 위에 둡니다 |
-| 공용 값 함수 | 함수 바로 위에 두고 요약 줄과 `호출 → 결과` 예시를 적습니다 |
-| 파일 위 상수 묶음 | 묶음 바로 위에 하나만 둡니다. 상수마다 할 말이 있으면 `이름: 설명` 목록을 적습니다 |
-| 긴 본문의 구획 | 구획 첫 줄 바로 위에 두고 요약 한 줄을 기본으로 씁니다. `docs-keep-body-comments-for-intent-and-steps`가 정합니다 |
+| 공용 값 함수 | 함수 바로 위에 두고 제목, 필요한 본문, `호출 → 결과` 예시를 적습니다 |
+| 파일 위 상수 묶음 | 묶음 바로 위에 하나만 둡니다. 상수마다 할 말이 있으면 상수 이름을 항목으로 두고 설명을 들여 씁니다 |
+| 긴 본문의 구획 | 구획 첫 줄 바로 위에 두고 제목만 두는 것을 기본으로 씁니다. `docs-keep-body-comments-for-intent-and-steps`가 정합니다 |
 | 커스텀 `type`, `interface` | `types-document-custom-types-and-shapes`가 정합니다 |
 | 코드 줄 사이 | 상자를 두지 않습니다. 그 줄만의 이유와 도구 지시를 `//` 한 줄로 적습니다 |
 
 컴포넌트 본문의 상자 자리는 프레임워크 규칙이 더 정합니다.
-상자 모양과 문장은 `docs-write-korean-comments-about-purpose-and-constraints`가 정합니다.
+상자 모양과 문장은 `docs-write-comments-about-purpose-and-constraints`가 정합니다.
 
 ### 공용 값 함수의 예시
 
@@ -54,15 +54,15 @@ tags: docs, comments, declarations
 
 <<< ../examples/docs-put-boxes-on-groups-and-blocks/03-incorrect.ts
 
-**Correct 2 (상수 묶음 위 상자 하나에 상수마다 목록 한 줄을 적습니다):**
+**Correct 2 (상수 묶음 위 상자 하나에 상수마다 항목을 둡니다):**
 
 <<< ../examples/docs-put-boxes-on-groups-and-blocks/04-correct.ts
 
-**Incorrect 3 (공용 값 함수의 상자에 요약만 있어 반올림과 빈 값의 결과가 보이지 않습니다):**
+**Incorrect 3 (공용 값 함수의 상자에 제목만 있어 반올림과 빈 값의 결과가 보이지 않습니다):**
 
 <<< ../examples/docs-put-boxes-on-groups-and-blocks/05-incorrect.ts
 
-**Correct 3 (요약 뒤에 경계값을 포함한 `호출 → 결과` 예시를 두고 단위 테스트에도 같은 값을 둡니다):**
+**Correct 3 (제목 뒤에 경계값을 포함한 `호출 → 결과` 예시를 두고 단위 테스트에도 같은 값을 둡니다):**
 
 <<< ../examples/docs-put-boxes-on-groups-and-blocks/06-correct-1.ts
 
