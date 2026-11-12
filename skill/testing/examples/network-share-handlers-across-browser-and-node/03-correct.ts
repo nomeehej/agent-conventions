@@ -1,4 +1,4 @@
-// test/_fixture/to-mock-route.ts
+// test/_fixture/create-mock-route.ts
 import { Buffer } from "node:buffer";
 import { getResponse } from "msw";
 
@@ -8,7 +8,7 @@ import type { RequestHandler } from "msw";
 // ----------------------------------------------------------------------------------------
 // API 전용 page.route 콜백, 미처리와 passthrough 요청은 외부로 보내지 않고 오류
 // ----------------------------------------------------------------------------------------
-export const toMockRoute = (handlers: RequestHandler[]) => {
+export const createMockRoute = (handlers: RequestHandler[]) => {
 	return async (route: Route) => {
 		const request = route.request();
 		const requestBody = request.postDataBuffer();

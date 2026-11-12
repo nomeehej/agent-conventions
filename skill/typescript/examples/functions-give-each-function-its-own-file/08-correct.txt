@@ -1,4 +1,4 @@
 page/product-detail/_function/
-├── to-product-overview.ts          toTrendChart는 본문 안 지역 함수
+├── build-product-overview.ts       buildTrendChart는 본문 안 지역 함수
 # [!code ++]
-└── to-product-overview.test.ts     추세 차트의 경우도 toProductOverview 입력으로 확인
+└── build-product-overview.test.ts  추세 차트의 경우도 buildProductOverview 입력으로 확인

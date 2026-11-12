@@ -1,1 +1,1 @@
-const columns = toTableColumns(props.columns);
+const columns = buildTableColumns(props.columns);

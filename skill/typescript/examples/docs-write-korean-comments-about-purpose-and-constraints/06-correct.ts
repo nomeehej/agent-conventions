@@ -1,4 +1,4 @@
-// service/product/to-product-save-request.ts
+// service/product/build-product-save-request.ts
 
 // ----------------------------------------------------------------------------------------
 // 상품 저장 요청, 서버 검증 기준으로 미리 정리
@@ -10,7 +10,7 @@
 // [!code ++]
 // tags: 한도 초과 시 저장 실패
 // ----------------------------------------------------------------------------------------
-export const toProductSaveRequest = (draft: ProductDraft): ProductSaveRequest => {
+export const buildProductSaveRequest = (draft: ProductDraft): ProductSaveRequest => {
 	return {
 		name: draft.name.trim(),
 		price: Math.round(draft.price),

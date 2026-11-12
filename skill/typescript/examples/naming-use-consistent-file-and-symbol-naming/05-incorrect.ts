@@ -1,6 +1,6 @@
 // [!code error]
 // 서버 계약은 {category_id, product_name}, 우리 표기로 변환 전송
-const toProductSaveBody = (values: ProductFormValues) => {
+const buildProductSaveBody = (values: ProductFormValues) => {
 	return {
 // [!code error]
 		categoryId: values.categoryId,

@@ -1,5 +1,5 @@
 // [!code error]
-const toEditHref = ({editHrefBase, row}: {editHrefBase: string; row: ProductRow}) =>
+const buildEditHref = ({editHrefBase, row}: {editHrefBase: string; row: ProductRow}) =>
 // [!code error]
 	`${editHrefBase}${row.id}/`;
 
@@ -14,7 +14,7 @@ export const ProductListTable = (props: ProductListTableProps) => {
 
 	return responseProductListSuspense.data.map((row) => (
 // [!code error]
-		<a href={toEditHref({editHrefBase: props.editHrefBase, row})} key={row.id}>
+		<a href={buildEditHref({editHrefBase: props.editHrefBase, row})} key={row.id}>
 			{row.name}
 		</a>
 	));

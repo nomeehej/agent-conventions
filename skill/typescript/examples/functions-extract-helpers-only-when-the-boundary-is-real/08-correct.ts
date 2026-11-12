@@ -1,15 +1,15 @@
-// page/orders/_function/to-order-status-groups.ts
+// page/orders/_function/group-orders-by-status.ts
 
 // ----------------------------------------------------------------------------------------
 // 결제, 취소 주문 묶음, 합계는 통화 없는 숫자 문자열
 // ----------------------------------------------------------------------------------------
-export const toOrderStatusGroups = (rows: OrderRow[]): SummaryStatusGroup[] => {
+export const groupOrdersByStatus = (rows: OrderRow[]): SummaryStatusGroup[] => {
 // [!code ++]
 	// ----------------------------------------------------------------------------------------
 	// 상태 하나의 묶음, 설명은 건수
 	// ----------------------------------------------------------------------------------------
 // [!code ++]
-	const toStatusGroup = (status: OrderStatus, title: string): SummaryStatusGroup => {
+	const buildStatusGroup = (status: OrderStatus, title: string): SummaryStatusGroup => {
 		const statusRows = rows.filter((row) => row.status === status);
 		return {
 			id: status,
@@ -21,5 +21,5 @@ export const toOrderStatusGroups = (rows: OrderRow[]): SummaryStatusGroup[] => {
 	};
 
 // [!code ++]
-	return [toStatusGroup("paid", "결제"), toStatusGroup("cancelled", "취소")];
+	return [buildStatusGroup("paid", "결제"), buildStatusGroup("cancelled", "취소")];
 };

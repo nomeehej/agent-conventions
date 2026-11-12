@@ -7,4 +7,4 @@ import {range} from "es-toolkit";
 // [!code ++]
 const chart_axis_tick_count = 6;
 
-const tickTimes = range(chart_axis_tick_count).map((tickIndex) => toTickTime(tickIndex));
+const tickTimes = range(chart_axis_tick_count).map((tickIndex) => formatTickTime(tickIndex));

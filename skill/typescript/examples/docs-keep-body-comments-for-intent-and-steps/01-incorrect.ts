@@ -1,4 +1,4 @@
-const toMatchedProducts = (products: Product[], keyword: string) => {
+const filterMatchedProducts = (products: Product[], keyword: string) => {
 // [!code error]
 	// keyword를 소문자로 변환
 	const lowerKeyword = keyword.trim().toLowerCase();

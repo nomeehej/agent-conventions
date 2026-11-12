@@ -29,7 +29,7 @@
 **Incorrect 1 (지역 선언에 코드를 옮겨 적은 주석을 답니다):**
 
 ```ts
-const toMatchedProducts = (products: Product[], keyword: string) => {
+const filterMatchedProducts = (products: Product[], keyword: string) => {
 	// keyword를 소문자로 변환
 	const lowerKeyword = keyword.trim().toLowerCase();
 
@@ -40,7 +40,7 @@ const toMatchedProducts = (products: Product[], keyword: string) => {
 **Correct 1 (선언 이름이 이미 드러내는 내용만 적은 주석은 지웁니다):**
 
 ```ts
-const toMatchedProducts = (products: Product[], keyword: string) => {
+const filterMatchedProducts = (products: Product[], keyword: string) => {
 	const lowerKeyword = keyword.trim().toLowerCase();
 
 	return products.filter((product) => product.name.toLowerCase().includes(lowerKeyword));

@@ -1,6 +1,6 @@
 page/product-detail/_function/
-├── to-product-overview.ts
-│     toProductOverview      내보낸 함수
-│     toTrendChart           파일 최상위 비공개 const. toProductOverview가 차트 둘에서 부름
-│     toTrendPoints          파일 최상위 비공개 const. toTrendChart가 두 자리에서 부름
+├── build-product-overview.ts
+│     buildProductOverview   내보낸 함수
+│     buildTrendChart        파일 최상위 비공개 const. buildProductOverview가 차트 둘에서 부름
+│     toTrendPoints          파일 최상위 비공개 const. buildTrendChart가 두 자리에서 부름
 └── to-product-filter-request.ts

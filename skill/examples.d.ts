@@ -186,7 +186,7 @@ interface OrderSummary {
 	statusDescription: string;
 	totalAmount: Amount;
 }
-interface ToOrderSummaryParams {
+interface BuildOrderSummaryParams {
 	orderSummary: OrderSummary;
 	stockCount?: number;
 }
@@ -610,14 +610,14 @@ declare const subscribeToProductChanges: {
 declare const subscribeToUserJoined: (onJoined: (userId: string) => void) => () => void;
 declare const toChartPoints: (counts: DailyCount[]) => ChartPoint[];
 declare const toProductRows: (response: ProductListResponseDTO) => ProductRow[];
-declare const toSearchIndex: (products: Product[]) => SearchIndex;
+declare const buildSearchIndex: (products: Product[]) => SearchIndex;
 declare const toSubmitErrorMessage: (error: unknown) => string;
-declare const toTableColumns: (columns: TableColumn[]) => TableColumn[];
-declare const toTickTime: (index: number) => string;
+declare const buildTableColumns: (columns: TableColumn[]) => TableColumn[];
+declare const formatTickTime: (index: number) => string;
 declare const toTreeData: (node: ProductCategoryNode) => TreeItem;
 declare const toggleSelection: (id?: string) => void;
-declare const toProductCreateRequest: (values: ProductFormValues) => ProductCreateRequest;
-declare const toProductSaveRequest: (values: ProductFormValues, attachmentIds?: string[]) => ProductSaveRequest;
+declare const buildProductCreateRequest: (values: ProductFormValues) => ProductCreateRequest;
+declare const buildProductSaveRequest: (values: ProductFormValues, attachmentIds?: string[]) => ProductSaveRequest;
 declare const toSeriesColorToken: (role: string, index: number) => string;
 declare const formatAmount: (amount: Amount) => string;
 declare const formatPercent: (rate: number | null) => string;
@@ -820,8 +820,8 @@ declare module "@/page/product-detail/review-section" {
 declare module "@/page/product-detail/product-table-section" {
 	export const ProductTableSection: ProductTableSectionComponent;
 }
-declare module "@/page/profile/_function/to-profile-save-request" {
-	export const toProfileSaveRequest: (values: ProfileFormValues) => {displayName: string};
+declare module "@/page/profile/_function/build-profile-save-request" {
+	export const buildProfileSaveRequest: (values: ProfileFormValues) => {displayName: string};
 }
 declare module "@/type/user-profile" {
 	export type UserProfile = Profile;
@@ -920,8 +920,8 @@ declare module "@/service/msw/handlers" {
 declare module "@/service/msw/_constant/mock" {
 	export const mock_unhandled_api_prefix: typeof import("./testing/examples/network-detect-unhandled-api-requests/03-correct").mock_unhandled_api_prefix;
 }
-declare module "@test/_fixture/to-mock-route" {
-	export const toMockRoute: typeof import("./testing/examples/network-share-handlers-across-browser-and-node/03-correct").toMockRoute;
+declare module "@test/_fixture/create-mock-route" {
+	export const createMockRoute: typeof import("./testing/examples/network-share-handlers-across-browser-and-node/03-correct").createMockRoute;
 }
 declare module "@test/_fixture/test" {
 	export const test: typeof import("./testing/examples/network-share-handlers-across-browser-and-node/04-correct").test;

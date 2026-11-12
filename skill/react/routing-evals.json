@@ -97,10 +97,10 @@
 		},
 		{
 			"id": "RTE03-route-support-extraction",
-			"prompt": "move one real four-argument multi-line payload boundary out of src/page/products/products-page.tsx into src/page/products/_function/to-product-save-request.ts; do not create a hook, generic utils file, or helper soup.",
+			"prompt": "move one real four-argument multi-line payload boundary out of src/page/products/products-page.tsx into src/page/products/_function/build-product-save-request.ts; do not create a hook, generic utils file, or helper soup.",
 			"files": [
 				"src/page/products/products-page.tsx",
-				"src/page/products/_function/to-product-save-request.ts"
+				"src/page/products/_function/build-product-save-request.ts"
 			],
 			"expectedSkills": [
 				"react",

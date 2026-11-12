@@ -7,7 +7,7 @@ const handleSaveButtonClick: MouseEventHandler<HTMLButtonElement> = async (_even
 		const uploaded = await mutationAttachmentUpload.mutateAsync({files: draftFiles});
 
 		await mutationProductSave.mutateAsync({
-			data: toProductSaveRequest(props.formValues, uploaded.attachmentIds),
+			data: buildProductSaveRequest(props.formValues, uploaded.attachmentIds),
 		});
 
 		void navigate("/products");

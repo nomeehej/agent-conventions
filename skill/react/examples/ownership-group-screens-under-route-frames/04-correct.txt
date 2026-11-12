@@ -12,7 +12,7 @@ src/
         ├── main-frame.tsx
         ├── products/
         │   ├── _function/
-        │   │   └── to-product-save-request.ts
+        │   │   └── build-product-save-request.ts
         │   └── products-page.tsx
         └── orders/
             └── orders-page.tsx

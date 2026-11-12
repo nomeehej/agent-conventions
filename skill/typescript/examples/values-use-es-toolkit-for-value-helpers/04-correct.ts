@@ -1,6 +1,6 @@
 import {maxBy, minBy} from "es-toolkit";
 
-const toChartBounds = (points: readonly ChartPoint[]) => {
+const calculateChartBounds = (points: readonly ChartPoint[]) => {
 	const lowestPoint = minBy(points, (point) => point.y);
 	const highestPoint = maxBy(points, (point) => point.y);
 

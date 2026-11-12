@@ -1,4 +1,4 @@
-// page/product-detail/_function/to-active-users.ts
-export const toActiveUsers = (rows: UserRow[]) => {
+// page/product-detail/_function/filter-active-users.ts
+export const filterActiveUsers = (rows: UserRow[]) => {
 	// …
 };

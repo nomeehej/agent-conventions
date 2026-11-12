@@ -1,8 +1,8 @@
-// page/product-detail/_function/to-user-save-request.ts
+// page/product-detail/_function/build-user-save-request.ts
 
 // ----------------------------------------------------------------------------------------
 // 사용자 저장 요청 조립, 서버가 빈 문자열을 거부 → 빈 칸은 제외
 // ----------------------------------------------------------------------------------------
-export const toUserSaveRequest = (formValues: UserFormValues) => {
+export const buildUserSaveRequest = (formValues: UserFormValues) => {
 	// …
 };

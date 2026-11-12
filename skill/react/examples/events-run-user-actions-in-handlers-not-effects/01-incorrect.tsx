@@ -22,7 +22,7 @@ useEffect(() => {
 	}
 
 // [!code error]
-	mutationProductCreate.mutate({data: toProductCreateRequest(formValues)});
+	mutationProductCreate.mutate({data: buildProductCreateRequest(formValues)});
 // [!code error]
 }, [mutationProductCreate, formValues, shouldSubmit]);
 

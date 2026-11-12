@@ -15,7 +15,7 @@ const handleSaveButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => 
 		return;
 	}
 
-	mutationProductCreate.mutate({data: toProductCreateRequest(formValues)});
+	mutationProductCreate.mutate({data: buildProductCreateRequest(formValues)});
 };
 
 <Button disabled={mutationProductCreate.isPending} onClick={handleSaveButtonClick}>

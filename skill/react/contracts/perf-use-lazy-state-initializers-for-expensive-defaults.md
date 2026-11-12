@@ -19,14 +19,14 @@
 **Incorrect 1 (무거운 초기값 계산이 렌더마다 반복됩니다):**
 
 ```tsx
-const [searchIndex] = useState(toSearchIndex(product_list));
+const [searchIndex] = useState(buildSearchIndex(product_list));
 const [draftFilter] = useState(parseStoredProductFilter(localStorage.getItem("product-filter")));
 ```
 
 **Correct 1 (초기화 함수로 넘겨 이후 렌더에서 다시 계산하지 않습니다):**
 
 ```tsx
-const [searchIndex] = useState(() => toSearchIndex(product_list));
+const [searchIndex] = useState(() => buildSearchIndex(product_list));
 const [draftFilter] = useState(() => parseStoredProductFilter(localStorage.getItem("product-filter")));
 ```
 

@@ -68,11 +68,11 @@ const marks = markIds
 	.map((box, index) => `<i style="left:${percent(box.x - 6 - left, width)};top:${percent(box.y - 6 - top, height)};width:${percent(box.width + 12, width)};height:${percent(box.height + 12, height)}"><b>${index + 1}</b></i>`)
 	.join("");
 const name = path.basename(outPath, ".png");
-const toFigure = (alt, src) =>
+const buildFigure = (alt, src) =>
 	`<figure class="fx-shot" data-shot="${name}">\n<div class="fx-shot__frame"><img src="${src}" alt="${alt}" width="${Math.round(width)}" height="${Math.round(height)}"><div class="fx-shot__marks" aria-hidden="true">${marks}</div></div>\n<label class="fx-shot__toggle" title="구역 표시"><input type="checkbox" checked aria-label="구역 표시"></label>\n</figure>`;
 
 if (mdPath === undefined) {
-	console.info(toFigure("", path.basename(outPath)));
+	console.info(buildFigure("", path.basename(outPath)));
 } else {
 	const doc = readFileSync(mdPath, "utf8");
 	const found = new RegExp(`<figure class="fx-shot" data-shot="${name}">\\n<div class="fx-shot__frame"><img src="([^"]+)" alt="([^"]*)"[\\s\\S]*?</figure>`).exec(doc);
@@ -83,7 +83,7 @@ if (mdPath === undefined) {
 	}
 
 	// 교체 값은 함수로 전달. alt 안의 $가 치환 패턴으로 해석되는 것 방지
-	writeFileSync(mdPath, doc.replace(found[0], () => toFigure(found[2], found[1])));
+	writeFileSync(mdPath, doc.replace(found[0], () => buildFigure(found[2], found[1])));
 }
 
 console.info(`${outPath} 저장. Figma ${nodes.lastModified.slice(0, 10)} 판, 표시 ${markIds.length}개`);

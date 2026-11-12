@@ -1,3 +1,3 @@
 const columns = useMemo(() => {
-	return toTableColumns(props.columns);
+	return buildTableColumns(props.columns);
 }, [props.columns]);

@@ -1,6 +1,6 @@
 // test/_fixture/test.ts
 import { test as base, expect } from "@playwright/test";
-import { toMockRoute } from "@test/_fixture/to-mock-route";
+import { createMockRoute } from "@test/_fixture/create-mock-route";
 
 import type { RequestHandler } from "msw";
 
@@ -25,7 +25,7 @@ export { expect };
 export const test = base.extend<Fixtures>({
 	mockApi: [async ({ page }, use) => {
 		const handlers: RequestHandler[] = [...mockHandlers];
-		const route = toMockRoute(handlers);
+		const route = createMockRoute(handlers);
 		await page.route("**/api/**", route);
 		try {
 			await use({

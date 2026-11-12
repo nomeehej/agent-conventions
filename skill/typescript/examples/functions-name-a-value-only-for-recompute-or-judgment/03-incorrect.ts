@@ -6,7 +6,7 @@ const toNextPage = (page: number): number => {
 	return nextPage;
 };
 
-const toRowLabel = (row: Row): string => {
+const formatRowLabel = (row: Row): string => {
 // [!code error]
 	const rowLabel = `${row.name} (${row.id})`;
 

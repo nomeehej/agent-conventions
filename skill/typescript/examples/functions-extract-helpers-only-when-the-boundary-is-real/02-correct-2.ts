@@ -1,9 +1,9 @@
-// page/orders/_function/to-order-summary.ts
+// page/orders/_function/build-order-summary.ts
 
 // ----------------------------------------------------------------------------------------
 // 주문 요약 영역의 표시 데이터, 재고 카드는 재고 수량이 있을 때만
 // ----------------------------------------------------------------------------------------
-export const toOrderSummary = (params: ToOrderSummaryParams): OrderSummaryContent => {
+export const buildOrderSummary = (params: BuildOrderSummaryParams): OrderSummaryContent => {
 	// ----------------------------------------------------------------------------------------
 	// 비교 행, 고른 기간 기준으로 갱신되는 수치
 	// ----------------------------------------------------------------------------------------

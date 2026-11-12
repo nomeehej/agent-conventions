@@ -93,7 +93,7 @@ const objectLiteralMethod = /^\t+[a-z]\w*\([^)]*\)\s*(?::\s*[^{]+?)?\s*\{\s*$/;
 //
 // 호출은 보지 않고 우리가 짓는 선언 이름만 검사 → 외부 `createClient()`는 그대로 사용
 // ----------------------------------------------------------------------------------------
-const emptyVerbDeclaration = /^\s*(?:export\s+)?const\s+(build|create|make|process|manage|do|perform|execute|filter)[A-Z]/;
+const emptyVerbDeclaration = /^\s*(?:export\s+)?const\s+(make|process|manage|do|perform|execute)[A-Z]/;
 
 // ----------------------------------------------------------------------------------------
 // 상대경로 가져오기, 예제의 규범 위반 방지

@@ -1,4 +1,4 @@
 page/product-detail/_function/
-├── to-product-overview.ts
-├── to-product-digest.ts
-└── to-trend-chart.ts            toProductOverview만 부르는데 소유자의 공개 면에 놓임
+├── build-product-overview.ts
+├── build-product-digest.ts
+└── build-trend-chart.ts         buildProductOverview만 부르는데 소유자의 공개 면에 놓임

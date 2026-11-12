@@ -1,3 +1,3 @@
-const toRowLabel = (row: ProductRow): string => {
+const formatRowLabel = (row: ProductRow): string => {
 	return row.name.trim();
 };

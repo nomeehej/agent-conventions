@@ -6,7 +6,7 @@ const toOrderLine = (input: OrderLineInput): OrderLine => {
 	};
 };
 
-const toOrderTotal = (lines: OrderLine[]): OrderTotal => {
+const calculateOrderTotal = (lines: OrderLine[]): OrderTotal => {
 	return {
 		currency: pricing_default_currency,
 		amount: sumBy(lines, (line) => line.amount),

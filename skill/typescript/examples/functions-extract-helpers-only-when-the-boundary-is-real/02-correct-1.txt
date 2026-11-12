@@ -1,2 +1,2 @@
-page/orders/_function/to-order-summary.ts
-  toOrderSummary     내보낸 함수. 본문 안에 구획 상자 셋: 비교 행, 상태 그룹, 재고 수량
+page/orders/_function/build-order-summary.ts
+  buildOrderSummary  내보낸 함수. 본문 안에 구획 상자 셋: 비교 행, 상태 그룹, 재고 수량

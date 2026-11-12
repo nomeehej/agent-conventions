@@ -33,7 +33,7 @@ export const ProductListSection = () => {
 			return;
 		}
 
-		mutationProductSave.mutate({data: toProductSaveRequest(formValues)});
+		mutationProductSave.mutate({data: buildProductSaveRequest(formValues)});
 	};
 
 	return (

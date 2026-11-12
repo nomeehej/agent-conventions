@@ -1,4 +1,4 @@
-const toChartBounds = (points: readonly ChartPoint[]) => {
+const calculateChartBounds = (points: readonly ChartPoint[]) => {
 // [!code error]
 	const yValues = points.map((point) => point.y);
 

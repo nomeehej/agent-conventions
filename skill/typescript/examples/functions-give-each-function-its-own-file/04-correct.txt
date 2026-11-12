@@ -1,6 +1,6 @@
 page/product-detail/_function/
-├── to-product-overview.ts
-│     toProductOverview      내보낸 함수
-│       toTrendPoints        본문 첫머리의 지역 함수. toTrendChart가 두 자리에서 부름
-│       toTrendChart         그 아래 지역 함수. 차트 둘에서 부름
+├── build-product-overview.ts
+│     buildProductOverview   내보낸 함수
+│       toTrendPoints        본문 첫머리의 지역 함수. buildTrendChart가 두 자리에서 부름
+│       buildTrendChart      그 아래 지역 함수. 차트 둘에서 부름
 └── to-product-filter-request.ts

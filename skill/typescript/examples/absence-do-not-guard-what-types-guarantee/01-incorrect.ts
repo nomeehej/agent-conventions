@@ -1,4 +1,4 @@
-const toRowLabel = (row: ProductRow): string => {
+const formatRowLabel = (row: ProductRow): string => {
 // [!code error]
 	if (isNil(row.name)) {
 // [!code error]

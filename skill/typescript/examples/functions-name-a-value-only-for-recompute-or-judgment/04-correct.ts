@@ -3,7 +3,7 @@ const toNextPage = (page: number): number => {
 	return page + 1;
 };
 
-const toRowLabel = (row: Row): string => {
+const formatRowLabel = (row: Row): string => {
 // [!code ++]
 	return `${row.name} (${row.id})`;
 };

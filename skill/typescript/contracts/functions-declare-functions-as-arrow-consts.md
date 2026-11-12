@@ -35,11 +35,11 @@
 // ----------------------------------------------------------------------------------------
 // 제목 공백 정리, 검색어 비교에서 공백 차이 무시
 //
-// toTrimmedTitle("  초록   셔츠 ") → "초록 셔츠"
-// toTrimmedTitle("초록\n셔츠") → "초록 셔츠"
-// toTrimmedTitle("   ") → ""
+// normalizeTitle("  초록   셔츠 ") → "초록 셔츠"
+// normalizeTitle("초록\n셔츠") → "초록 셔츠"
+// normalizeTitle("   ") → ""
 // ----------------------------------------------------------------------------------------
-export function toTrimmedTitle(rawTitle: string): string {
+export function normalizeTitle(rawTitle: string): string {
 	return rawTitle.trim().replace(/\s+/g, " ");
 }
 ```
@@ -50,11 +50,11 @@ export function toTrimmedTitle(rawTitle: string): string {
 // ----------------------------------------------------------------------------------------
 // 제목 공백 정리, 검색어 비교에서 공백 차이 무시
 //
-// toTrimmedTitle("  초록   셔츠 ") → "초록 셔츠"
-// toTrimmedTitle("초록\n셔츠") → "초록 셔츠"
-// toTrimmedTitle("   ") → ""
+// normalizeTitle("  초록   셔츠 ") → "초록 셔츠"
+// normalizeTitle("초록\n셔츠") → "초록 셔츠"
+// normalizeTitle("   ") → ""
 // ----------------------------------------------------------------------------------------
-export const toTrimmedTitle = (rawTitle: string): string => {
+export const normalizeTitle = (rawTitle: string): string => {
 	return rawTitle.trim().replace(/\s+/g, " ");
 };
 ```

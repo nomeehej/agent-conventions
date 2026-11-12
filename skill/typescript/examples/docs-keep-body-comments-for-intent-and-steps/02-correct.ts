@@ -1,4 +1,4 @@
-const toMatchedProducts = (products: Product[], keyword: string) => {
+const filterMatchedProducts = (products: Product[], keyword: string) => {
 	const lowerKeyword = keyword.trim().toLowerCase();
 
 	return products.filter((product) => product.name.toLowerCase().includes(lowerKeyword));

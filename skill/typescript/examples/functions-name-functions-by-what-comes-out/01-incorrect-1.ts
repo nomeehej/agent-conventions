@@ -1,4 +1,4 @@
-// page/product-detail/_function/build-user-payload.ts
-export const buildUserPayload = (formValues: UserFormValues) => {
+// page/product-detail/_function/make-user-data.ts
+export const makeUserData = (formValues: UserFormValues) => {
 	// …
 };
