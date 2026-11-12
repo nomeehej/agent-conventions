@@ -55,7 +55,7 @@ tags: tooling
 
 | 플러그인 | 잡는 것 | 통과하는 것 |
 | --- | --- | --- |
-| `no-outside-non-entry-import.grit` | 폴더 밖에서 `ui`, `widget`의 진입 파일이 아닌 파일, 화면 폴더의 `-page`, `-outlet`이 아닌 파일을 가져옴 | 같은 폴더의 파일, 역할 폴더, `src` 밖의 테스트 |
+| `no-outside-non-entry-import.grit` | 폴더 밖에서 `ui`, `widget`의 진입 파일이 아닌 파일, 화면 폴더의 `-page`, `-frame`이 아닌 파일을 가져옴 | 같은 폴더의 파일, 역할 폴더, `src` 밖의 테스트 |
 | `one-component-per-file.grit` | 대문자 이름의 화살표 함수나 `NiceModal.create(…)` 선언이 한 파일에 둘 이상 | story 파일 |
 
 다른 라우트의 역할 폴더는 위 라우트 `overrides`가 막습니다.

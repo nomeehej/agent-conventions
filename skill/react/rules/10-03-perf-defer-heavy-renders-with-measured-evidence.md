@@ -33,14 +33,14 @@ flowchart LR
 | --- | --- |
 | 직접 호출하는 상태 갱신이 무거운 렌더를 일으킴 | `startTransition`으로 호출을 감쌉니다. 프롭으로 받은 갱신 함수도 같습니다 |
 | 값은 즉시 반응해야 하지만 파생 렌더는 미룰 수 있음 | `useDeferredValue`로 지연 값을 만듭니다 |
-| `Suspense` 쿼리의 키를 바꾸는 갱신으로 이미 보인 내용물이 대체 화면으로 바뀜 | 측정 없이 `startTransition`으로 감쌉니다. search 파라미터를 nuqs로 바꾸면 `setUrlParams` 호출을 직접 감쌉니다. 진행 표시는 `useTransition`의 `isPending`입니다 |
+| `Suspense` 쿼리의 키를 바꾸는 갱신으로 이미 보인 내용물이 대체 화면으로 바뀜 | 측정 없이 `startTransition`으로 감쌉니다. search 파라미터가 키이면 그 갱신 호출을 직접 감쌉니다. 진행 표시는 `useTransition`의 `isPending`입니다 |
 | 갱신 함수를 호출할 수 없고 프롭, 훅 반환값만 받음 | `useDeferredValue`를 씁니다 |
 | 트랜지션 진행 표시가 필요함 | 대기 상태를 주지 않는 `startTransition` 대신 `useTransition`의 `isPending`을 씁니다 |
 
 입력값 자체, 폼 오류, 즉시 비활성화 같은 급한 반응은 트랜지션에 넣지 않습니다.
 `await` 뒤에는 React가 트랜지션 문맥을 이어 가지 못하므로 상태 갱신을 다시 `startTransition`으로 감쌉니다.
-nuqs의 `startTransition` 옵션은 `shallow: false` 갱신이 서버나 로더를 기다리는 동안의 진행 표시용입니다.
-훅 자신의 상태 갱신은 감싸지 않습니다.
+URL 상태 라이브러리에 넘기는 `startTransition` 옵션은 갱신 호출을 감싸는 것을 대신하지 않습니다.
+그 옵션이 서버나 로더를 기다리는 동안의 진행 표시용이면 훅 자신의 상태 갱신은 감싸지 않습니다.
 옵션만 넘기면 `isPending`만 바뀌고 대체 화면은 그대로 나옵니다.
 
 ### 최적화 조건

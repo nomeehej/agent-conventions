@@ -22,7 +22,7 @@ tags: screen, errors
 
 ```mermaid
 flowchart LR
-	q1{"나머지 구역만으로도<br>쓸모가 있는가?"} -- 아니요 --> q2{"내비게이션과 Outlet 프레임은<br>남겨야 하는가?"} -- 아니요 --> r3("앱 경계")
+	q1{"나머지 구역만으로도<br>쓸모가 있는가?"} -- 아니요 --> q2{"내비게이션과 라우트 프레임은<br>남겨야 하는가?"} -- 아니요 --> r3("앱 경계")
 	q1 -- 예 --> r1("구역 경계")
 	q2 -- 예 --> r2("화면 경계")
 ```
@@ -30,7 +30,7 @@ flowchart LR
 | 층 | 위치 | 오류 뒤 남는 화면 |
 | --- | --- | --- |
 | 앱 | 루트에 한 번 | 없음. 마지막 안전망입니다 |
-| 화면 | 그 화면 모양의 대체 화면이 있으면 라우트 진입. 없으면 `Outlet` 프레임 | 내비게이션과 `Outlet` 프레임 |
+| 화면 | 그 화면 모양의 대체 화면이 있으면 라우트 진입. 없으면 라우트 프레임 | 내비게이션과 라우트 프레임 |
 | 구역 | `Suspense` 경계를 놓는 컴포넌트 | 같은 화면의 다른 구역 |
 
 목록 실패 후 옆 필터로 할 수 있는 일이 없다면 화면 경계로 충분합니다.
@@ -52,8 +52,6 @@ flowchart LR
 오류 포착 구현은 `ui`의 `ErrorBoundary`에서 한 번만 제공합니다.
 이 구현은 `react-error-boundary` 같은 라이브러리에 맡길 수 있습니다.
 라우터가 주는 라우트 오류 화면과 `ui`의 `ErrorBoundary`를 같은 실패 범위에 겹쳐 쓰지 않습니다.
-라우트 오류 화면의 이름은 라우터마다 다릅니다.
-React Router는 라우트의 `ErrorBoundary`, TanStack Router는 `errorComponent`, Next.js는 `error.js`입니다.
 `react-error-boundary`를 쓰면 정상 화면은 유지하면서 오류 상태만 초기화하도록 URL 변경을 `resetKeys`에 연결합니다.
 경계의 `key`는 바꾸지 않습니다.
 재시도 버튼은 대체 화면에서 오류 경계의 재시도 함수를 호출합니다.
@@ -62,7 +60,7 @@ React Router는 라우트의 `ErrorBoundary`, TanStack Router는 `errorComponent
 참고: [React 문서: Component, 오류 경계로 렌더 오류 잡기](https://react.dev/reference/react/Component),
 [TanStack Query 문서: Suspense와 오류 경계](https://tanstack.com/query/latest/docs/framework/react/guides/suspense),
 [react-error-boundary README: resetKeys와 onReset](https://github.com/bvaughn/react-error-boundary),
-[React Router 문서: 라우트 오류 경계](https://reactrouter.com/how-to/error-boundary),
+[React Router 문서: 라우트의 `ErrorBoundary`](https://reactrouter.com/how-to/error-boundary),
 [TanStack Router 문서: `errorComponent`로 오류
 처리](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading),
 [Next.js 문서: `error.js`](https://nextjs.org/docs/app/api-reference/file-conventions/error).
@@ -83,7 +81,7 @@ React Router는 라우트의 `ErrorBoundary`, TanStack Router는 `errorComponent
 
 <<< ../examples/runtime-place-error-boundaries-by-blast-radius/04-correct.tsx
 
-**Correct (`Outlet` 프레임이 화면 층 오류 경계와 로딩 경계를 조립합니다):**
+**Correct (라우트 프레임이 화면 층 오류 경계와 로딩 경계를 조립합니다):**
 
 <<< ../examples/runtime-place-error-boundaries-by-blast-radius/05-correct.tsx
 

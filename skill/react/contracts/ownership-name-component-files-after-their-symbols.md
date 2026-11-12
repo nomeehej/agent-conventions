@@ -15,7 +15,7 @@
 | 합성 부품 | `component/widget/profile-dialog/profile-dialog-header.tsx` | `ProfileDialogHeader` | 진입 파일의 `profileDialog`. 스타일도 진입 파일의 `.css` |
 | 화면 | `page/orders/orders-page.tsx` | `OrdersPage` | `ordersPage` |
 | 화면 안 컴포넌트 | `page/product-detail/product-table-section.tsx` | `ProductTableSection` | `productTableSection` |
-| `Outlet` 프레임 | `page/(main)/main-outlet.tsx` | `MainOutlet` | `mainOutlet` |
+| 라우트 프레임 | `page/(main)/main-frame.tsx` | `MainFrame` | `mainFrame` |
 
 `Page`는 라우터가 연결하는 화면 진입에만 붙이고 화면 폴더의 다른 컴포넌트에는 붙이지 않습니다.
 

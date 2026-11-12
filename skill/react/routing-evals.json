@@ -673,11 +673,11 @@
 			}
 		},
 		{
-			"id": "react-outlet-route-group-placement",
-			"prompt": "Move the existing products and orders screen folders under src/page/(main), move the shared list frame to src/page/(main)/main-outlet.tsx, and update only the matching route imports and nesting in src/route/app-routes.tsx. Preserve component bodies, styles, handlers, and runtime boundaries. Keep each screen folder flat; do not put a route group below a screen or import between sibling screens.",
+			"id": "react-route-frame-group-placement",
+			"prompt": "Move the existing products and orders screen folders under src/page/(main), move the shared list frame to src/page/(main)/main-frame.tsx, and update only the matching route imports and nesting in src/route/app-routes.tsx. Preserve component bodies, styles, handlers, and runtime boundaries. Keep each screen folder flat; do not put a route group below a screen or import between sibling screens.",
 			"files": [
 				"src/route/app-routes.tsx",
-				"src/page/(main)/main-outlet.tsx",
+				"src/page/(main)/main-frame.tsx",
 				"src/page/(main)/products/products-page.tsx",
 				"src/page/(main)/orders/orders-page.tsx"
 			],
@@ -690,7 +690,7 @@
 					"ownership-name-component-files-after-their-symbols",
 					"ownership-place-owner-files-in-role-folders",
 					"ownership-keep-component-imports-flowing-downward",
-					"ownership-group-route-frames-with-outlets"
+					"ownership-group-screens-under-route-frames"
 				],
 				"typescript": [
 					"naming-use-consistent-file-and-symbol-naming",

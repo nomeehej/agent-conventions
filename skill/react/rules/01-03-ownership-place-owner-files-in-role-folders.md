@@ -7,7 +7,7 @@ appliesWhen:
   - '`page`, `component` 아래 폴더나 `_constant`, `_function`, `_hook`, `_type` 폴더를 만들거나 옮길 때'
   - 새 컴포넌트, 함수, 타입 파일의 자리나 이름을 정할 때
   - 제외: 기존 파일 내부 구현만 바꾸는 경우
-reviewWith: ownership-keep-component-imports-flowing-downward, ownership-group-route-frames-with-outlets
+reviewWith: ownership-keep-component-imports-flowing-downward, ownership-group-screens-under-route-frames
 tags: ownership
 ---
 
@@ -17,7 +17,7 @@ tags: ownership
 
 폴더로 컴포넌트 계층을 나타내지 않습니다.
 화면 안의 호출 계층은 진입 파일의 조립과 가져오기로 드러납니다.
-라우트 그룹과 `Outlet` 프레임의 자리는 `ownership-group-route-frames-with-outlets`가 정합니다.
+라우트 그룹과 라우트 프레임의 자리는 `ownership-group-screens-under-route-frames`가 정합니다.
 
 ### 폴더와 파일 배치
 

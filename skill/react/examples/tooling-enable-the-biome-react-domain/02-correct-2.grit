@@ -12,7 +12,7 @@ language js
 		},
 		and {
 			$source <: r"[\"']@/page/(.+)/([a-z0-9-]+)[\"']"($route, $file),
-			not $file <: r".*-(?:page|outlet)",
+			not $file <: r".*-(?:page|frame)",
 			$folderPath = join(list = ["/page/", $route, "/"], separator = ""),
 			not $filename <: includes $folderPath
 		}

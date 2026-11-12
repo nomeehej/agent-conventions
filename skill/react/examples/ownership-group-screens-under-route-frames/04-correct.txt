@@ -7,9 +7,9 @@ src/
 │       ├── products.tsx
 │       └── orders.tsx
 └── page/
-    ├── root-outlet.tsx
+    ├── root-frame.tsx
     └── (main)/
-        ├── main-outlet.tsx
+        ├── main-frame.tsx
         ├── products/
         │   ├── _function/
         │   │   └── to-product-save-request.ts

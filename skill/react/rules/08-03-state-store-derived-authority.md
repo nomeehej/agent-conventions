@@ -22,7 +22,7 @@ tags: state, zustand
 | --- | --- |
 | 도메인 판별 | 초기화, 레이아웃 등 한 경계에 모으고 화면은 `permissionStore.canEditProduct` 같은 결과만 읽습니다 |
 | 스토어 채우기 | 쿼리에는 `onSuccess` 같은 성공 콜백이 없으므로 소유자가 분명한 경계의 `useEffect`에서 처리합니다 |
-| 채워지기 전 렌더 | 이펙트는 커밋 뒤에 돌므로 판단을 읽는 화면은 판단이 채워진 뒤에 렌더합니다. 프레임이 `Outlet`을 늦추는 방법은 `ownership-group-route-frames-with-outlets`를 따릅니다 |
+| 채워지기 전 렌더 | 이펙트는 커밋 뒤에 돌므로 판단을 읽는 화면은 판단이 채워진 뒤에 렌더합니다. 라우트 프레임이 자식 라우트를 늦게 그리는 방법은 `ownership-group-screens-under-route-frames`를 따릅니다 |
 | 이펙트 예외 근거 | `state-calculate-derived-values-during-render`의 예외이므로 `typescript/docs-justify-convention-exceptions-with-a-reason-comment`에 따라 공유 이유를 남깁니다 |
 | 이펙트의 스토어 접근 | 선택자로 `set` 함수만 꺼내고 값 의존성은 그대로 적습니다. 스토어 객체 전체에 의존하면 `set`마다 다시 실행됩니다 |
 

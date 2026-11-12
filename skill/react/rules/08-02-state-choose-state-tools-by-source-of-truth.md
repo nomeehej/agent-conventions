@@ -34,7 +34,7 @@ flowchart LR
 | 한 컴포넌트 묶음에서 공유하는 UI | `useState` + `Context` |
 | 전역 클라이언트 | `Zustand` |
 | 서버 | `@tanstack/react-query` |
-| 링크를 공유해도 같은 화면이 열려야 하는 값 | 라우트 search 파라미터. 라우터가 라우트마다 search 파라미터를 검증하면 그 라우터의 API, 아니면 `nuqs`의 `useQueryStates` |
+| 링크를 공유해도 같은 화면이 열려야 하는 값 | 라우트 search 파라미터. 라우터의 search API나 URL 상태 라이브러리로 읽고 씁니다 |
 
 ### 혼동하기 쉬운 상태
 

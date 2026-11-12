@@ -799,14 +799,14 @@ declare module "@/constant/retry" {
 declare module "@/page/(main)/orders/orders-page" {
 	export const OrdersPage: () => ReactElement;
 }
-declare module "@/page/(main)/main-outlet" {
-	export const MainOutlet: () => ReactElement;
+declare module "@/page/(main)/main-frame" {
+	export const MainFrame: () => ReactElement;
 }
 declare module "@/page/(main)/products/products-page" {
 	export const ProductsPage: () => ReactElement;
 }
-declare module "@/page/root-outlet" {
-	export const RootOutlet: () => ReactElement;
+declare module "@/page/root-frame" {
+	export const RootFrame: () => ReactElement;
 }
 declare module "@/page/product-detail/_function/to-summary" {
 	export const toSummary: (response: ApiResponse<ProductSummary>) => ProductSummary;

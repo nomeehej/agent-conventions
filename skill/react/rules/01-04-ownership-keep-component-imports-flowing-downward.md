@@ -8,7 +8,7 @@ appliesWhen:
   - 컴포넌트 파일이나 역할 폴더 파일의 가져오기 경로를 새로 쓰거나 바꿀 때
   - 제외: 같은 폴더 안의 파일끼리 가져오는 경우
 requiresSelected: typescript/naming-import-by-absolute-path
-reviewWith: ownership-layer-component-boundaries, ownership-group-route-frames-with-outlets
+reviewWith: ownership-layer-component-boundaries, ownership-group-screens-under-route-frames
 tags: ownership
 ---
 
@@ -52,8 +52,8 @@ flowchart LR
 | 가져오려는 대상 | 가져올 수 있는 파일 |
 | --- | --- |
 | `ui`, `widget`의 진입 파일과 역할 폴더 | 레이어 방향을 지키는 파일 |
-| 화면과 `Outlet` 프레임의 진입 파일 | 라우터 |
-| 다른 화면이나 `Outlet` 프레임 안의 파일 | 없음. 역할 폴더도 같고 같은 그룹 안의 화면끼리도 같습니다 |
+| 화면과 라우트 프레임의 진입 파일 | 라우터 |
+| 다른 화면이나 라우트 프레임 안의 파일 | 없음. 역할 폴더도 같고 같은 그룹 안의 화면끼리도 같습니다 |
 | 진입 파일이 아닌 컴포넌트 파일 | 같은 폴더의 파일 |
 
 테스트 파일과 `test/` 아래 gallery story는 마운트할 컴포넌트를 폴더 밖에서도 직접 가져옵니다.
