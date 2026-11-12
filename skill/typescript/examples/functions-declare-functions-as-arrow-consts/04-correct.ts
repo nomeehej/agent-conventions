@@ -1,9 +1,5 @@
 export const cellFormatterByValueType = {
-	text: (value: string): string => {
-		return value.trim();
-	},
+	text: (value: string): string => value.trim(),
 } as const;
 
-export const toProductIds = (products: Product[]): string[] => {
-	return products.map((product) => product.id);
-};
+export const toProductIds = (products: Product[]): string[] => products.map((product) => product.id);

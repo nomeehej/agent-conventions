@@ -6,9 +6,10 @@
 // ----------------------------------------------------------------------------------------
 import assert from "node:assert/strict";
 
-export const splitFrontmatter = (source: string): {frontmatter: string; body: string} => {
-	return {frontmatter: source.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? "", body: source.replace(/^---\n[\s\S]*?\n---\n?/, "")};
-};
+export const splitFrontmatter = (source: string): {frontmatter: string; body: string} => ({
+	frontmatter: source.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? "",
+	body: source.replace(/^---\n[\s\S]*?\n---\n?/, ""),
+});
 
 export const extractSection = (body: string, ordinal: number): string => {
 	// `m` 아래의 `$`는 줄 끝마다 걸림. 문서 끝은 `(?![\s\S])`로 잡아야 절 전체가 담김

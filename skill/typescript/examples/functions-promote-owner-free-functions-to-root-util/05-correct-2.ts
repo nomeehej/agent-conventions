@@ -8,6 +8,4 @@
 // formatSignedAmount({value: 0, currency: "USD"}) → "+$0.00"
 // formatSignedAmount({value: 1234.567, currency: "USD"}) → "+$1234.57"
 // ----------------------------------------------------------------------------------------
-export const formatSignedAmount = (amount: Amount): string => {
-	return `${amount.value < 0 ? "-" : "+"}$${Math.abs(amount.value).toFixed(2)}`;
-};
+export const formatSignedAmount = (amount: Amount): string => `${amount.value < 0 ? "-" : "+"}$${Math.abs(amount.value).toFixed(2)}`;

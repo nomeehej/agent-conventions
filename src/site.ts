@@ -125,9 +125,8 @@ const overviewLead = (metadata: SkillMetadata): string => {
 	return lead === "" ? metadata.title : lead;
 };
 
-const sectionPagePath = (skillName: string, section: SkillSection): string => {
-	return `${skillName}/${String(section.order).padStart(sectionNumberWidth, "0")}-${section.prefix}.md`;
-};
+const sectionPagePath = (skillName: string, section: SkillSection): string =>
+	`${skillName}/${String(section.order).padStart(sectionNumberWidth, "0")}-${section.prefix}.md`;
 
 const ruleDisplayTitle = (rule: SkillRule): string => rule.titleKo || normalizeHeadingTitle(rule.title);
 
@@ -188,13 +187,11 @@ interface RuleRenderContext {
 	copies: Map<string, string>;
 }
 
-const findRuleLocation = (reference: string, context: RuleRenderContext): RuleLocation | undefined => {
-	return context.locations.get(reference.includes("/") ? reference : `${context.document.skillName}/${reference}`);
-};
+const findRuleLocation = (reference: string, context: RuleRenderContext): RuleLocation | undefined =>
+	context.locations.get(reference.includes("/") ? reference : `${context.document.skillName}/${reference}`);
 
-const skillPrefix = (target: RuleLocation, context: RuleRenderContext): string => {
-	return target.skill === context.document.skillName ? "" : `${getPlacement(target.skill).name} `;
-};
+const skillPrefix = (target: RuleLocation, context: RuleRenderContext): string =>
+	target.skill === context.document.skillName ? "" : `${getPlacement(target.skill).name} `;
 
 // ----------------------------------------------------------------------------------------
 // 산문 속 규칙 ID를 사람이 읽는 링크로, 해석되지 않으면 코드 스팬 그대로

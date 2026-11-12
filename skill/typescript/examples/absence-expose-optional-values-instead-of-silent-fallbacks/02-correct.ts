@@ -1,5 +1,3 @@
 const supportEmail = settings.supportEmail ?? support_email_default;
 const displayName = user.nickname || empty_display_text;
-const buildPageRequest = (size = pagination_default_page_size): PageRequest => {
-	return {page: pagination_default_page, size};
-};
+const buildPageRequest = (size = pagination_default_page_size): PageRequest => ({page: pagination_default_page, size});

@@ -17,8 +17,7 @@ export interface TextFieldProps {
 	error?: MuiTextFieldProps["error"];
 }
 
-export const TextField = (props: TextFieldProps) => {
-	return (
+export const TextField = (props: TextFieldProps) => (
 		<MuiTextField
 			className={clsx("textField__root", props.className)}
 			id={props.id}
@@ -28,4 +27,3 @@ export const TextField = (props: TextFieldProps) => {
 			error={props.error}
 		/>
 	);
-};

@@ -5,6 +5,4 @@ interface UserFormatters {
 }
 
 // [!code ++]
-const toRoleLabel: UserFormatters["toRoleLabel"] = (role) => {
-	return role === "admin" ? "관리자" : "직원";
-};
+const toRoleLabel: UserFormatters["toRoleLabel"] = (role) => role === "admin" ? "관리자" : "직원";

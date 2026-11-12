@@ -3,6 +3,4 @@ export interface ProductToolbarProps {
 	children: ReactNode;
 }
 
-export const ProductToolbar = (props: ProductToolbarProps) => {
-	return <header className={clsx("productToolbar__root")}>{props.children}</header>;
-};
+export const ProductToolbar = (props: ProductToolbarProps) => <header className={clsx("productToolbar__root")}>{props.children}</header>;

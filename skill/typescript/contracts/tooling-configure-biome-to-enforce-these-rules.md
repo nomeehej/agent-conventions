@@ -12,6 +12,7 @@
 | `style/noEnum`, `style/useAsConstAssertion` | `typescript/types-replace-enum-with-as-const-objects` |
 | `style/noRestrictedImports` | `typescript/naming-import-by-absolute-path`. 심볼 없는 상대경로 예외는 `./*.css` 패턴으로 근사합니다 |
 | `style/useNamingConvention`, `style/useFilenamingConvention` | `typescript/naming-use-consistent-file-and-symbol-naming`의 심볼, 파일 표기 |
+| `style/useConsistentArrowReturn`의 `style: "asNeeded"` | `typescript/functions-declare-functions-as-arrow-consts`의 식 본문. 식 하나만 돌려주는 블록 본문을 고칩니다 |
 | `style/noParameterAssign`, `style/useConst`, `style/noNestedTernary` | `typescript/functions-avoid-imperative-assembly-in-wide-scopes`의 재할당, 중첩 삼항 제한 |
 | `correctness/noUnusedFunctionParameters` | `typescript/types-mark-unused-parameters-with-underscore` |
 | `complexity/useMaxParams` | `typescript/functions-use-named-object-params-for-complex-signatures`. 라이브러리 콜백이 매개변수를 다섯까지 넘기므로 `max`는 5입니다 |
@@ -38,7 +39,7 @@
 | 모듈 `const`, 객체 키의 역할 | 허용된 `snake_case`는 불변 데이터 상수와 그 키에만 적용됨 | 함수, 스키마, 요청 객체와의 구분은 리뷰합니다 |
 | 허용된 `PascalCase`의 용도 | 합성 컴포넌트의 `{Root, Header, Footer}`와 컴포넌트 선언 때문에 허용됨 | 일반 함수, 지역 변수의 `camelCase`는 리뷰합니다 |
 | 폴더 이름 | 단수 `kebab-case`는 파일 이름 검사 대상이 아님 | 리뷰합니다 |
-| `const` 화살표 선언, 이름 붙인 함수의 블록 본문 | `style/useConsistentArrowReturn`의 `style: "always"`는 예외까지 막음 | 켜지 않고 `typescript/functions-declare-functions-as-arrow-consts`를 리뷰합니다 |
+| `const` 화살표 선언 자체 | `function` 선언을 막는 규칙이 없음 | `typescript/functions-declare-functions-as-arrow-consts`에 따라 리뷰합니다 |
 | 넓은 스코프에서 `push`로 누적 | `useConst`는 재할당만 확인함 | 리뷰합니다 |
 | 선언 초기값, 객체 속성 값, 기본 매개변수의 정책 숫자 | `noMagicNumbers`가 검사에서 제외함 | 리뷰합니다 |
 | `10`, `24`, `60` 같은 허용 목록 숫자 | 정책 숫자여도 통과함 | 리뷰합니다 |
@@ -85,6 +86,7 @@ ESLint를 함께 쓰는 프로젝트는 `@stylistic/multiline-comment-style`을 
 				"noParameterAssign": "error",
 				"useConst": "error",
 				"useImportType": "error",
+				"useConsistentArrowReturn": {"level": "error", "options": {"style": "asNeeded"}},
 				"useFilenamingConvention": {
 					"level": "error",
 					"options": {"filenameCases": ["kebab-case"]}

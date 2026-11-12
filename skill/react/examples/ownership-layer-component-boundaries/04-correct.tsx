@@ -4,8 +4,7 @@ export interface ProductStatusBadgeProps {
 	children: ReactNode;
 }
 
-export const ProductStatusBadge = (props: ProductStatusBadgeProps) => {
-	return (
+export const ProductStatusBadge = (props: ProductStatusBadgeProps) => (
 		<span
 			className={clsx(
 				"productStatusBadge__root",
@@ -15,4 +14,3 @@ export const ProductStatusBadge = (props: ProductStatusBadgeProps) => {
 			{props.children}
 		</span>
 	);
-};

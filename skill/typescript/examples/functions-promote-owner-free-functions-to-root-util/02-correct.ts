@@ -5,6 +5,4 @@
 // ----------------------------------------------------------------------------------------
 // 서버가 앞뒤 공백이 붙은 displayName 거부
 // ----------------------------------------------------------------------------------------
-export const buildProfileSaveRequest = (values: ProfileFormValues) => {
-	return {body: {displayName: values.displayName.trim()}};
-};
+export const buildProfileSaveRequest = (values: ProfileFormValues) => ({body: {displayName: values.displayName.trim()}});

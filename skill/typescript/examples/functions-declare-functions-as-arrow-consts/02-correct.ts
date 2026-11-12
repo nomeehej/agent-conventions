@@ -6,7 +6,4 @@
 // normalizeTitle("   ") → ""
 // ----------------------------------------------------------------------------------------
 // [!code ++]
-export const normalizeTitle = (rawTitle: string): string => {
-	return rawTitle.trim().replace(/\s+/g, " ");
-// [!code ++]
-};
+export const normalizeTitle = (rawTitle: string): string => rawTitle.trim().replace(/\s+/g, " ");

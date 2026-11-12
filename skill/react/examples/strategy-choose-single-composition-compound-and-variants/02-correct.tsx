@@ -10,8 +10,7 @@ export interface ProfileDialogProps {
 	profile: Profile;
 }
 
-export const ProfileDialog = (props: ProfileDialogProps) => {
-	return (
+export const ProfileDialog = (props: ProfileDialogProps) => (
 		<section className={clsx("profileDialog__root")}>
 			<header className={clsx("profileDialog__header")}>
 				<h3>{props.title}</h3>
@@ -19,4 +18,3 @@ export const ProfileDialog = (props: ProfileDialogProps) => {
 			<ProfileSummary profile={props.profile} />
 		</section>
 	);
-};

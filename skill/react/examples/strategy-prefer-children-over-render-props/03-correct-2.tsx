@@ -3,8 +3,7 @@ import {Fragment} from "react";
 
 import {Panel} from "@/component/ui/panel/panel";
 
-export const ProductsPage = () => {
-	return (
+export const ProductsPage = () => (
 		<Fragment>
 			<Panel.Root>
 				<Panel.Header>
@@ -25,4 +24,3 @@ export const ProductsPage = () => {
 			</Panel.Root>
 		</Fragment>
 	);
-};

@@ -10,10 +10,8 @@
 // [!code ++]
 // tags: 한도 초과 시 저장 실패
 // ----------------------------------------------------------------------------------------
-export const buildProductSaveRequest = (draft: ProductDraft): ProductSaveRequest => {
-	return {
+export const buildProductSaveRequest = (draft: ProductDraft): ProductSaveRequest => ({
 		name: draft.name.trim(),
 		price: Math.round(draft.price),
 		tags: draft.tags.slice(0, product_tag_limit),
-	};
-};
+	});

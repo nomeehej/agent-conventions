@@ -5,6 +5,4 @@ export interface StatusBadgeProps {
 	label: string;
 }
 
-export const StatusBadge = (props: StatusBadgeProps) => {
-	return <span>{props.label}</span>;
-};
+export const StatusBadge = (props: StatusBadgeProps) => <span>{props.label}</span>;

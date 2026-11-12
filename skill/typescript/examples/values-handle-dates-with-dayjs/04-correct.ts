@@ -9,6 +9,4 @@ const date_input_format = "YYYY-MM-DD";
 // parseEntryDateText("2026-02-30") → undefined
 // parseEntryDateText("2026-2-3") → undefined
 // ----------------------------------------------------------------------------------------
-export const parseEntryDateText = (dateText: string): string | undefined => {
-	return dayjs(dateText).format(date_input_format) === dateText ? dateText : undefined;
-};
+export const parseEntryDateText = (dateText: string): string | undefined => dayjs(dateText).format(date_input_format) === dateText ? dateText : undefined;

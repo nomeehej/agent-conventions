@@ -1,17 +1,13 @@
-const toOrderLine = (input: OrderLineInput): OrderLine => {
-	return {
+const toOrderLine = (input: OrderLineInput): OrderLine => ({
 		id: input.product.id,
 		label: input.product.name,
 		amount: input.product.price * input.quantity,
-	};
-};
+	});
 
-const calculateOrderTotal = (lines: OrderLine[]): OrderTotal => {
-	return {
+const calculateOrderTotal = (lines: OrderLine[]): OrderTotal => ({
 		currency: pricing_default_currency,
 		amount: sumBy(lines, (line) => line.amount),
-	};
-};
+	});
 
 if (order.status === "cancelled") {
 	notify(order.ownerId);

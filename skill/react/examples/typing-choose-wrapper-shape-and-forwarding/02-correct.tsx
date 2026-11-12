@@ -12,8 +12,7 @@ export interface IconButtonProps {
 	onClick?: MouseEventHandler<HTMLButtonElement>;
 }
 
-export const IconButton = (props: IconButtonProps) => {
-	return (
+export const IconButton = (props: IconButtonProps) => (
 		<MuiButton
 			className={clsx("iconButton__root", props.className)}
 			aria-label={props.label}
@@ -23,4 +22,3 @@ export const IconButton = (props: IconButtonProps) => {
 			{props.icon}
 		</MuiButton>
 	);
-};

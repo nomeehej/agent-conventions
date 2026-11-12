@@ -47,14 +47,12 @@ export const ProductToolbar = (props: ProductToolbarProps) => {
 import {ProductToolbar} from "@/component/widget/product-toolbar/product-toolbar";
 
 // 변형이 조합 고정. isCompact, isEditing, showSearch 프롭 없음
-export const ProductBrowseToolbar = () => {
-	return (
+export const ProductBrowseToolbar = () => (
 		<ProductToolbar>
 			<ProductSearchField />
 			<ProductBrowseActions />
 		</ProductToolbar>
 	);
-};
 ```
 
 > 나머지 예시와 예외는 [full rule](../rules/04-03-strategy-avoid-boolean-prop-proliferation.md)에 있습니다.

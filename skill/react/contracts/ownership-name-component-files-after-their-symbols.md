@@ -61,9 +61,7 @@ export const ProductTable = (props: ProductTableProps) => {
 
 ```tsx
 // page/product-detail/product-table-section.tsx
-export const ProductTableSection = (props: ProductTableSectionProps) => {
-	return <section className={clsx("productTableSection__root")}>{props.children}</section>;
-};
+export const ProductTableSection = (props: ProductTableSectionProps) => <section className={clsx("productTableSection__root")}>{props.children}</section>;
 ```
 
 > 나머지 예시와 예외는 [full rule](../rules/01-02-ownership-name-component-files-after-their-symbols.md)에 있습니다.

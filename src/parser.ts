@@ -209,15 +209,13 @@ export const readSkillMetadata = async (skillPaths: SkillPaths): Promise<SkillMe
 	return metadataObject as unknown as SkillMetadata;
 };
 
-export const readSkillSections = async (skillPaths: SkillPaths): Promise<SkillSection[]> => {
-	return parseSections(await readFile(skillPaths.sectionsPath, "utf8"));
-};
+export const readSkillSections = async (skillPaths: SkillPaths): Promise<SkillSection[]> =>
+	parseSections(await readFile(skillPaths.sectionsPath, "utf8"));
 
-export const readSkillRuleFileNames = async (skillPaths: SkillPaths): Promise<string[]> => {
-	return (await readdir(skillPaths.rulesDir))
+export const readSkillRuleFileNames = async (skillPaths: SkillPaths): Promise<string[]> =>
+	(await readdir(skillPaths.rulesDir))
 		.filter((fileName) => fileName.endsWith(".md") && !fileName.startsWith("_") && fileName !== "README.md")
 		.sort();
-};
 
 export const readSkillRules = async (skillPaths: SkillPaths): Promise<SkillRule[]> => {
 	const ruleFileNames = await readSkillRuleFileNames(skillPaths);
@@ -276,12 +274,11 @@ const parseAppliesWhen = (value: string | undefined): {appliesWhen?: string; app
 	return {appliesWhen: `${bullets.map((bullet) => bullet.replace(/\.$/, "")).join(". ")}.`, appliesWhenBullets: bullets};
 };
 
-const splitScalarList = (value: string | undefined): string[] => {
-	return (value ?? "")
+const splitScalarList = (value: string | undefined): string[] =>
+	(value ?? "")
 		.split(",")
 		.map((item) => item.trim())
 		.filter(Boolean);
-};
 
 export const readSkillDocument = async (skillPaths: SkillPaths): Promise<LoadedSkillDocument> => {
 	await assertRealSkillDirectory(skillPaths);
@@ -371,6 +368,5 @@ const loadSkillDocuments = async (skillPaths: SkillPaths, lineage: string[], sta
 	return resolvedDocuments;
 };
 
-export const readResolvedSkillDocuments = async (skillPaths: SkillPaths, lineage: string[] = []): Promise<LoadedSkillDocument[]> => {
-	return await loadSkillDocuments(skillPaths, lineage, {documentCache: new Map(), resolvedDocumentCache: new Map()});
-};
+export const readResolvedSkillDocuments = async (skillPaths: SkillPaths, lineage: string[] = []): Promise<LoadedSkillDocument[]> =>
+	await loadSkillDocuments(skillPaths, lineage, {documentCache: new Map(), resolvedDocumentCache: new Map()});

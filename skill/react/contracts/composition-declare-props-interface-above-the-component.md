@@ -43,9 +43,7 @@ export interface ProductStatusBadgeProps {
 	status: ProductStatus;
 }
 
-export const ProductStatusBadge = (props: ProductStatusBadgeProps) => {
-	return <span className={clsx("productStatusBadge__root")}>{product_status_badge_label[props.status]}</span>;
-};
+export const ProductStatusBadge = (props: ProductStatusBadgeProps) => <span className={clsx("productStatusBadge__root")}>{product_status_badge_label[props.status]}</span>;
 ```
 
 > 나머지 예시와 예외는 [full rule](../rules/05-06-composition-declare-props-interface-above-the-component.md)에 있습니다.

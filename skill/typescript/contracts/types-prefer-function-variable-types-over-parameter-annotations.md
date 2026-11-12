@@ -40,9 +40,7 @@ interface UserFormatters {
 	toActiveLabel: (isActive: boolean) => string;
 }
 
-const toRoleLabel: UserFormatters["toRoleLabel"] = (role) => {
-	return role === "admin" ? "관리자" : "직원";
-};
+const toRoleLabel: UserFormatters["toRoleLabel"] = (role) => role === "admin" ? "관리자" : "직원";
 ```
 
 > 나머지 예시와 예외는 [full rule](../rules/01-03-types-prefer-function-variable-types-over-parameter-annotations.md)에 있습니다.

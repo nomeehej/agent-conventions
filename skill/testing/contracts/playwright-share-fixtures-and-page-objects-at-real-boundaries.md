@@ -63,12 +63,10 @@ import { expect, test } from "@playwright/test";
 
 import type { Page } from "@playwright/test";
 
-const orderRow = (page: Page, orderId: string) => {
-	return page
+const orderRow = (page: Page, orderId: string) => page
 		.getByRole("table", { name: "주문 목록" })
 		.getByRole("row")
 		.filter({ hasText: orderId });
-};
 
 test("목록에 주문이 표시된다", async ({ page }) => {
 	// WHEN 주문 목록 진입

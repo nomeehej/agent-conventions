@@ -23,9 +23,7 @@ const safeStableNamePattern = /^[A-Za-z0-9][A-Za-z0-9._@-]*$/;
 // toRuleStableId("03-02-name-things.md") → "name-things"
 // toRuleStableId("name-things.md") → "name-things"
 // ----------------------------------------------------------------------------------------
-export const toRuleStableId = (fileName: string): string => {
-	return fileName.replace(/\.md$/, "").replace(/^\d+-\d+-/, "");
-};
+export const toRuleStableId = (fileName: string): string => fileName.replace(/\.md$/, "").replace(/^\d+-\d+-/, "");
 
 export const assertMetadataObject = (value: unknown, skillName: string): Record<string, unknown> => {
 	if (typeof value !== "object" || value === null || Array.isArray(value)) {

@@ -55,9 +55,7 @@ export interface PanelRootProps {
 // ----------------------------------------------------------------------------------------
 // 패널 틀, 나머지 부품은 이 안에서만 렌더
 // ----------------------------------------------------------------------------------------
-export const PanelRoot = (props: PanelRootProps) => {
-	return <section className={clsx("panel__root")}>{props.children}</section>;
-};
+export const PanelRoot = (props: PanelRootProps) => <section className={clsx("panel__root")}>{props.children}</section>;
 ```
 
 > 나머지 예시와 예외는 [full rule](../rules/04-04-strategy-prefer-children-over-render-props.md)에 있습니다.

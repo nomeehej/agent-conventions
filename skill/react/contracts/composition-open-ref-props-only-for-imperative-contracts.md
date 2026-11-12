@@ -55,8 +55,7 @@ export interface SearchInputProps {
 	onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
-export const SearchInput = (props: SearchInputProps) => {
-	return (
+export const SearchInput = (props: SearchInputProps) => (
 		<input
 			ref={props.ref}
 			aria-label={props.label}
@@ -64,7 +63,6 @@ export const SearchInput = (props: SearchInputProps) => {
 			value={props.value}
 		/>
 	);
-};
 ```
 
 > 나머지 예시와 예외는 [full rule](../rules/05-04-composition-open-ref-props-only-for-imperative-contracts.md)에 있습니다.

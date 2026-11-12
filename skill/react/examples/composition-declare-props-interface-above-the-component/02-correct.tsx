@@ -6,6 +6,4 @@ export interface ProductStatusBadgeProps {
 	status: ProductStatus;
 }
 
-export const ProductStatusBadge = (props: ProductStatusBadgeProps) => {
-	return <span className={clsx("productStatusBadge__root")}>{product_status_badge_label[props.status]}</span>;
-};
+export const ProductStatusBadge = (props: ProductStatusBadgeProps) => <span className={clsx("productStatusBadge__root")}>{product_status_badge_label[props.status]}</span>;

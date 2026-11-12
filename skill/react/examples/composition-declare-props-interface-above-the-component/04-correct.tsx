@@ -5,6 +5,4 @@ export interface PanelHeaderProps {
 	children: ReactNode;
 }
 
-export const PanelHeader = (props: PanelHeaderProps) => {
-	return <header className={clsx("panel__header")}>{props.children}</header>;
-};
+export const PanelHeader = (props: PanelHeaderProps) => <header className={clsx("panel__header")}>{props.children}</header>;

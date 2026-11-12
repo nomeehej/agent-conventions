@@ -24,6 +24,7 @@
 				"noParameterAssign": "error",
 				"useConst": "error",
 				"useImportType": "error",
+				"useConsistentArrowReturn": {"level": "error", "options": {"style": "asNeeded"}},
 				"useFilenamingConvention": {"level": "error", "options": {"filenameCases": ["kebab-case"]}},
 				"noRestrictedImports": {
 					"level": "error",

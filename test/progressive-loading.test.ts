@@ -91,9 +91,7 @@ const defaultMetadata = {
 	abstract: "Fixture skill used by package integration tests.",
 } as const;
 
-const createFixtureRoot = async (): Promise<string> => {
-	return await mkdtemp(path.join(tmpdir(), "agent-conventions-progressive-"));
-};
+const createFixtureRoot = async (): Promise<string> => await mkdtemp(path.join(tmpdir(), "agent-conventions-progressive-"));
 
 const buildFrontmatter = (rule: RuleFixture): string => {
 	if (rule.frontmatter !== undefined) {

@@ -7,8 +7,7 @@ export interface ReadOnlyProfileDialogProps {
 	profile: Profile;
 }
 
-export const ReadOnlyProfileDialog = (props: ReadOnlyProfileDialogProps) => {
-	return (
+export const ReadOnlyProfileDialog = (props: ReadOnlyProfileDialogProps) => (
 		<ProfileDialog.Root>
 			<ProfileDialog.Header>프로필 보기</ProfileDialog.Header>
 			<ProfileDialog.Body>
@@ -16,4 +15,3 @@ export const ReadOnlyProfileDialog = (props: ReadOnlyProfileDialogProps) => {
 			</ProfileDialog.Body>
 		</ProfileDialog.Root>
 	);
-};

@@ -11,10 +11,8 @@ interface ProductPageRequest {
 	keyword?: string;
 }
 
-const fetchProductPage = (request: ProductPageRequest): Promise<ProductPage> => {
-	return client.get(`${request.baseUrl}/products`, {
+const fetchProductPage = (request: ProductPageRequest): Promise<ProductPage> => client.get(`${request.baseUrl}/products`, {
 		params: {page: request.page, pageSize: request.pageSize, keyword: request.keyword},
 	});
-};
 
 fetchProductPage({baseUrl: api_base_url, page: urlParams.page, pageSize: pagination_default_page_size});

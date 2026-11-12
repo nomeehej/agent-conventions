@@ -61,8 +61,7 @@ export interface ProfileDialogProps {
 	profile: Profile;
 }
 
-export const ProfileDialog = (props: ProfileDialogProps) => {
-	return (
+export const ProfileDialog = (props: ProfileDialogProps) => (
 		<section className={clsx("profileDialog__root")}>
 			<header className={clsx("profileDialog__header")}>
 				<h3>{props.title}</h3>
@@ -70,7 +69,6 @@ export const ProfileDialog = (props: ProfileDialogProps) => {
 			<ProfileSummary profile={props.profile} />
 		</section>
 	);
-};
 ```
 
 > 나머지 예시와 예외는 [full rule](../rules/04-01-strategy-choose-single-composition-compound-and-variants.md)에 있습니다.

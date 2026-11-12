@@ -21,14 +21,15 @@ tags: functions, declarations
 
 이름 붙인 함수는 `const` 화살표로 선언합니다.
 객체에 담는 함수도 화살표로 씁니다.
-본문은 블록으로 열고 값을 반환할 때 `return`을 적습니다.
-반환값이 없으면 `return`을 생략합니다.
+본문이 값을 돌려주는 식 하나뿐이면 중괄호와 `return` 없이 식 본문으로 씁니다.
+문장이 있으면 블록으로 열고 값을 반환할 때 `return`을 적습니다.
+식 본문이 객체 리터럴이면 `({…})`처럼 괄호로 감쌉니다.
 
 | 대상 | 선언, 본문 형식 |
 | --- | --- |
-| 이름 붙인 함수 | `const name = (…) => { … }` |
-| 객체에 담긴 함수 | `name: (…) => { … }`. 메서드 축약형은 쓰지 않습니다 |
-| 일회성 인라인 콜백 | `rows.map((row) => row.id)`처럼 표현식 본문을 허용합니다 |
+| 이름 붙인 함수 | 식 하나면 `const name = (…) => 식`, 문장이 있으면 `const name = (…) => { … }` |
+| 객체에 담긴 함수 | `name: (…) => 식`이나 `name: (…) => { … }`. 메서드 축약형은 쓰지 않습니다 |
+| 일회성 인라인 콜백 | 같은 기준입니다. `rows.map((row) => row.id)` |
 | 커링의 바깥 화살표 | `(id) => (event) => { … }`처럼 안쪽 함수만 블록으로 엽니다 |
 | 클래스 메서드 | 메서드 문법을 유지하고 화살표 필드로 바꾸지 않습니다 |
 | 제너레이터 | `function*` 문법을 씁니다 |
@@ -60,7 +61,7 @@ tags: functions, declarations
 
 <<< ../examples/functions-declare-functions-as-arrow-consts/01-incorrect.ts
 
-**Correct 1 (같은 함수를 `const` 화살표와 블록 본문으로 선언합니다):**
+**Correct 1 (같은 함수를 `const` 화살표와 식 본문으로 선언합니다):**
 
 <<< ../examples/functions-declare-functions-as-arrow-consts/02-correct.ts
 

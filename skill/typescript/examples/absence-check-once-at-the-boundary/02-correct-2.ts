@@ -7,6 +7,4 @@
 // formatSignedPercent(0) → "0%"
 // formatSignedPercent(-3) → "-3%"
 // ----------------------------------------------------------------------------------------
-export const formatSignedPercent = (value: number) => {
-	return `${value > 0 ? "+" : ""}${value}%`;
-};
+export const formatSignedPercent = (value: number) => `${value > 0 ? "+" : ""}${value}%`;

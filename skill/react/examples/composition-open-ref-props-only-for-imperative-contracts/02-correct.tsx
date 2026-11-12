@@ -12,8 +12,7 @@ export interface SearchInputProps {
 	onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
-export const SearchInput = (props: SearchInputProps) => {
-	return (
+export const SearchInput = (props: SearchInputProps) => (
 		<input
 			ref={props.ref}
 			aria-label={props.label}
@@ -21,4 +20,3 @@ export const SearchInput = (props: SearchInputProps) => {
 			value={props.value}
 		/>
 	);
-};

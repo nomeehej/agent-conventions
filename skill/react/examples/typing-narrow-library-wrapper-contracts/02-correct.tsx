@@ -15,6 +15,4 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	size?: MuiButtonProps["size"];
 }
 
-export const Button = (props: ButtonProps) => {
-	return <MuiButton {...props} className={clsx("button__root", props.className)} />;
-};
+export const Button = (props: ButtonProps) => <MuiButton {...props} className={clsx("button__root", props.className)} />;

@@ -7,8 +7,7 @@ export interface FieldProps {
 	onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
-export const Field = (props: FieldProps) => {
-	return (
+export const Field = (props: FieldProps) => (
 		<div className={clsx("field__root", props.className)}>
 			<label className={clsx("field__label")} htmlFor={props.inputId}>
 				{props.label}
@@ -17,4 +16,3 @@ export const Field = (props: FieldProps) => {
 			{props.helperText && <span className={clsx("field__helper")}>{props.helperText}</span>}
 		</div>
 	);
-};

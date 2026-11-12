@@ -11,6 +11,4 @@ export interface TableCellProps extends Omit<TdHTMLAttributes<HTMLTableCellEleme
 	padding?: MuiTableCellProps["padding"];
 }
 
-export const TableCell = (props: TableCellProps) => {
-	return <MuiTableCell {...props} className={clsx("tableCell__root", props.className)} />;
-};
+export const TableCell = (props: TableCellProps) => <MuiTableCell {...props} className={clsx("tableCell__root", props.className)} />;

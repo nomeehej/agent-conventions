@@ -20,9 +20,7 @@ const rulesIndexRendererVersion = 2;
 const contractRendererVersion = 4;
 const supportedImpactLevels = new Set(["CRITICAL", "HIGH", "MEDIUM"]);
 
-export const escapeMarkdownText = (value: string): string => {
-	return value.replace(/[\r\n]+/g, " ").replace(/([\\`*_[\]()<>!|])/g, "\\$1");
-};
+export const escapeMarkdownText = (value: string): string => value.replace(/[\r\n]+/g, " ").replace(/([\\`*_[\]()<>!|])/g, "\\$1");
 
 // ----------------------------------------------------------------------------------------
 // 표가 아닌 단독 줄에 넣을 scalar 정리, 스팬 밖의 링크와 강조 구문만 무력화
@@ -31,13 +29,12 @@ export const escapeMarkdownText = (value: string): string => {
 //
 // escapeMarkdownProse("`React.*` *굵게*") → "`React.*` \*굵게\*"
 // ----------------------------------------------------------------------------------------
-export const escapeMarkdownProse = (value: string): string => {
-	return value
+export const escapeMarkdownProse = (value: string): string =>
+	value
 		.replace(/[\r\n]+/g, " ")
 		.split(/(`[^`]*`)/)
 		.map((part, index) => (index % 2 === 1 ? part : part.replace(/([\\*_[\]()<>!|])/g, "\\$1")))
 		.join("");
-};
 
 const formatInlineCode = (value: string): string => {
 	const normalizedValue = value.replace(/[\r\n]+/g, " ");
@@ -82,8 +79,8 @@ export const sortRoutingTargets = (targets: string[]): string[] => [...targets].
 // ----------------------------------------------------------------------------------------
 // 섹션 접두사가 같은 local 규칙 목록, 제목과 ID는 en-US 로캘 순서로 비교
 // ----------------------------------------------------------------------------------------
-export const filterRulesForSection = (section: SkillSection, rules: SkillRule[]): SkillRule[] => {
-	return rules
+export const filterRulesForSection = (section: SkillSection, rules: SkillRule[]): SkillRule[] =>
+	rules
 		.filter((rule) => rule.prefix === section.prefix)
 		.sort(
 			(left, right) =>
@@ -91,13 +88,12 @@ export const filterRulesForSection = (section: SkillSection, rules: SkillRule[])
 				compareEnglishText(left.title, right.title) ||
 				compareEnglishText(toRuleId(left), toRuleId(right)),
 		);
-};
 
 // ----------------------------------------------------------------------------------------
 // compact index 전용, 제목과 ID는 로캘이 아닌 코드 포인트 순서로 비교
 // ----------------------------------------------------------------------------------------
-const filterRoutingRulesForSection = (section: SkillSection, rules: SkillRule[]): SkillRule[] => {
-	return rules
+const filterRoutingRulesForSection = (section: SkillSection, rules: SkillRule[]): SkillRule[] =>
+	rules
 		.filter((rule) => rule.prefix === section.prefix)
 		.sort(
 			(left, right) =>
@@ -105,7 +101,6 @@ const filterRoutingRulesForSection = (section: SkillSection, rules: SkillRule[])
 				compareRoutingText(left.title, right.title) ||
 				compareRoutingText(toRuleId(left), toRuleId(right)),
 		);
-};
 
 const exampleMarkerPattern = /^ {0,3}\*\*(Incorrect|Correct)(?:\s+\d+)?(?:\s+\(.+\))?:?\*\*[ \t]*$/;
 
@@ -318,9 +313,8 @@ export const generateRuleContractMarkdown = (rule: SkillRule): string => {
 		.filter((line): line is string => line !== undefined)
 		.join("\n\n");
 	const routingMetadataBlock = routingMetadata.length === 0 ? "" : `\n\n${routingMetadata}`;
-	const fullRuleNotice = (tail: string): string => {
-		return `# ${escapeMarkdownText(rule.title)}\n\n**Impact: ${rule.impact}**${routingMetadataBlock}\n\n> ${rule.impact} rule: must read the [full rule](${fullRuleLink}) in full, prose and every example, before implementation or review${tail}.\n`;
-	};
+	const fullRuleNotice = (tail: string): string =>
+		`# ${escapeMarkdownText(rule.title)}\n\n**Impact: ${rule.impact}**${routingMetadataBlock}\n\n> ${rule.impact} rule: must read the [full rule](${fullRuleLink}) in full, prose and every example, before implementation or review${tail}.\n`;
 
 	if (rule.impact === "CRITICAL") {
 		return fullRuleNotice(", and re-check the result against its Correct examples before completion");
@@ -333,28 +327,25 @@ export const generateRuleContractMarkdown = (rule: SkillRule): string => {
 	return `${normativeBody}${routingMetadataBlock}\n\n${firstExamplePair}\n\n> 나머지 예시와 예외는 [full rule](${fullRuleLink})에 있습니다.\n`;
 };
 
-const sortSections = (sections: SkillSection[]): SkillSection[] => {
-	return [...sections].sort(
+const sortSections = (sections: SkillSection[]): SkillSection[] =>
+	[...sections].sort(
 		(left, right) =>
 			left.order - right.order || compareRoutingText(left.title, right.title) || compareRoutingText(left.prefix, right.prefix),
 	);
-};
 
 // ----------------------------------------------------------------------------------------
 // compact index와 같은 순서의 local 규칙 stable ID 목록 계산
 // ----------------------------------------------------------------------------------------
-export const toCanonicalRoutingRuleIds = (document: LoadedSkillDocument): string[] => {
-	return sortSections(document.sections).flatMap((section) => filterRoutingRulesForSection(section, document.rules).map(toRuleId));
-};
+export const toCanonicalRoutingRuleIds = (document: LoadedSkillDocument): string[] =>
+	sortSections(document.sections).flatMap((section) => filterRoutingRulesForSection(section, document.rules).map(toRuleId));
 
-const sortCompanions = (companions: SkillCompanion[]): SkillCompanion[] => {
-	return [...companions].sort(
+const sortCompanions = (companions: SkillCompanion[]): SkillCompanion[] =>
+	[...companions].sort(
 		(left, right) =>
 			compareRoutingText(left.skill, right.skill) ||
 			compareRoutingText(left.mode, right.mode) ||
 			compareRoutingText(left.appliesWhen ?? "", right.appliesWhen ?? ""),
 	);
-};
 
 const assertRuleAssignments = (document: LoadedSkillDocument, sections: SkillSection[]): void => {
 	assertValidRoutingIdentifier(document.skillName, `${document.skillName}: routing index skill name`);

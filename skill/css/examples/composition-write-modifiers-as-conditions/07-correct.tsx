@@ -4,8 +4,7 @@ export interface UserCardProps {
 	description: string;
 }
 
-export const UserCard = (props: UserCardProps) => {
-	return (
+export const UserCard = (props: UserCardProps) => (
 		<div
 			className={clsx(
 				"userCard__root",
@@ -33,4 +32,3 @@ export const UserCard = (props: UserCardProps) => {
 			</p>
 		</div>
 	);
-};

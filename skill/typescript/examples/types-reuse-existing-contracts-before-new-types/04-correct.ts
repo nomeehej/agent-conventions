@@ -10,6 +10,4 @@ interface InviteDraft {
 	name?: UserRecord["name"];
 }
 
-export const sendInvite = (draft: InviteDraft): Promise<void> => {
-	return client.post("/invites", draft);
-};
+export const sendInvite = (draft: InviteDraft): Promise<void> => client.post("/invites", draft);

@@ -5,8 +5,7 @@ import {OrdersPage} from "@/page/(main)/orders/orders-page";
 import {ProductDetailPage} from "@/page/(main)/product-detail/product-detail-page";
 import {ProductsPage} from "@/page/(main)/products/products-page";
 
-export const AppRoutes = () => {
-	return (
+export const AppRoutes = () => (
 		<Routes>
 			<Route path="/" element={<RootFrame />}>
 				<Route element={<MainFrame />}>
@@ -17,4 +16,3 @@ export const AppRoutes = () => {
 			</Route>
 		</Routes>
 	);
-};

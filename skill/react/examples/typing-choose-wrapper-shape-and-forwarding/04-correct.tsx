@@ -5,8 +5,6 @@ export interface TableRowProps extends HTMLAttributes<HTMLTableRowElement> {
 	selected?: MuiTableRowProps["selected"];
 }
 
-export const TableRow = (props: TableRowProps) => {
-	return (
+export const TableRow = (props: TableRowProps) => (
 		<MuiTableRow {...props} className={clsx("tableRow__root", props.className)} />
 	);
-};
