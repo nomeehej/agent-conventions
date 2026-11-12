@@ -1,7 +1,7 @@
 # TypeScript 컨벤션 Rule Index
 
 - Skill: `typescript`
-- Routing digest: `sha256:92c65ce207578814249b2238d66792cb8f5c26479ce937b8ceb196f9e34b1e7e`
+- Routing digest: `sha256:5bf5b728cebf0de8b2cde731a32e8f0ad093ae10ef373901bf78456db016541c`
 
 ## Local Rules
 
@@ -20,7 +20,7 @@
 - T02-05 | naming-import-by-absolute-path | 다른 모듈을 가져오는 경로를 쓸 때. \`./\`나 \`../\`로 시작하는 경로를 쓰거나 별칭 경로를 상대경로로 바꾸려 할 때. \`src\` 바로 아래 레이어 루트 폴더를 새로 만들 때. | reviewWith: naming-use-direct-imports-and-public-entry-points
 - T02-06 | naming-read-environment-values-through-config-env | \`import.meta.env\`나 \`process.env\`를 읽는 코드를 추가, 이동할 때. 환경마다 달라지는 값이나 기능 플래그를 새로 들여올 때. | reviewWith: absence-expose-optional-values-instead-of-silent-fallbacks, naming-place-project-constants-in-the-root-constant-folder
 - T02-07 | naming-name-types-by-role-and-lifetime | 타입, \`interface\`나 그 파일의 이름을 새로 만들거나 바꿀 때. 타입을 소유자 폴더 안과 밖 사이에서 옮기며 이름을 바꿀 때. 제외: 외부, 생성된 계약 이름을 그대로 쓰는 경우. | reviewWith: naming-use-consistent-file-and-symbol-naming
-- T03-01 | functions-declare-functions-as-arrow-consts | 이름을 지어 선언하는 함수를 새로 만들거나 선언 형태나 본문 형태를 바꿀 때. 객체 속성에 함수를 담거나 그 형태를 바꿀 때. 제외: 인라인 콜백이나 커링의 바깥 화살표인 경우. 제외: 클래스 메서드, 제너레이터, 오버로드 선언인 경우. | reviewWith: functions-use-named-object-params-for-complex-signatures
+- T03-01 | functions-declare-functions-as-arrow-consts | 이름을 지어 선언하는 함수를 새로 만들거나 선언이나 본문 형태를 바꿀 때. 객체 속성에 함수를 담거나 그 형태를 바꿀 때. \`return\`만 있는 \`if\`를 쓰거나 바꿀 때. 제외: 인라인 콜백이나 커링의 바깥 화살표인 경우. 제외: 클래스 메서드, 제너레이터, 오버로드 선언인 경우. | reviewWith: functions-use-named-object-params-for-complex-signatures
 - T03-02 | functions-use-named-object-params-for-complex-signatures | 매개변수가 셋을 넘거나 바꿔 넣어도 컴파일되는 같은 타입 인자가 이웃한 함수를 추가, 변경할 때. 객체 매개변수의 필드를 읽는 방식을 바꿀 때. 제외: React 함수 컴포넌트가 프롭스를 받는 방식만 바꾸는 경우. | reviewWith: types-reuse-existing-contracts-before-new-types, values-read-objects-through-chains
 - T03-03 | functions-extract-helpers-only-when-the-boundary-is-real | 보조 함수를 빼내거나 옮기거나 내보내거나 공유할 때. 범용 보조 파일, 소유자 하나만 쓰는 변환 함수, 자잘한 정리 단계의 경계를 바꿀 때. 한 함수 안에서 같은 계산을 되풀이해 적거나 지역 함수로 묶을 때. | reviewWith: docs-put-boxes-on-groups-and-blocks, functions-give-each-function-its-own-file, values-decide-once-and-carry-the-result
 - T03-04 | functions-give-each-function-its-own-file | 이름 붙인 보조 함수를 대표 함수 안에 둘지 파일로 뺄지 정할 때. \`helper.ts\`, \`helpers.ts\`, \`utils.ts\` 같은 파일을 만들거나 거기에 함수를 더할 때. 보조를 부르는 대표 함수가 늘거나 줄 때. 보조 함수만 따로 테스트하려 할 때. | reviewWith: functions-order-declarations-top-down, functions-promote-owner-free-functions-to-root-util

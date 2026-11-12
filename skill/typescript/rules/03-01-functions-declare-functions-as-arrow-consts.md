@@ -4,8 +4,9 @@ titleKo: 함수는 `const` 화살표로 선언합니다
 impact: MEDIUM
 impactDescription: 함수 선언과 본문 형식을 통일해 변경 범위를 줄이고 선언 순서를 확인하기 쉽게 합니다
 appliesWhen:
-  - 이름을 지어 선언하는 함수를 새로 만들거나 선언 형태나 본문 형태를 바꿀 때
+  - 이름을 지어 선언하는 함수를 새로 만들거나 선언이나 본문 형태를 바꿀 때
   - 객체 속성에 함수를 담거나 그 형태를 바꿀 때
+  - `return`만 있는 `if`를 쓰거나 바꿀 때
   - 제외: 인라인 콜백이나 커링의 바깥 화살표인 경우
   - 제외: 클래스 메서드, 제너레이터, 오버로드 선언인 경우
 reviewWith: functions-use-named-object-params-for-complex-signatures
@@ -33,6 +34,18 @@ tags: functions, declarations
 | 제너레이터 | `function*` 문법을 씁니다 |
 | 오버로드 | `function` 선언을 허용합니다. 호출 시그니처 타입을 `const`에 붙일 수 있으면 그쪽을 씁니다 |
 
+### 분기 본문
+
+본문이 `return` 한 문장뿐인 `if`는 중괄호 없이 한 줄로 씁니다.
+분기마다 무엇을 돌려주는지 위에서 아래로 이어 읽힙니다.
+
+| 분기 본문 | 형식 |
+| --- | --- |
+| `return 값;`이나 빈 `return;` 한 문장 | `if (조건) return 값;` 한 줄 |
+| 문장이 둘 이상이거나 `return`이 아닌 문장 | 중괄호 블록 |
+
+한 줄 `if`가 이어지면 빈 줄 없이 붙이고 마지막 `return` 앞에만 빈 줄을 둡니다.
+
 ### `this`를 쓰는 함수
 
 **`this`를 쓰는 함수는 기계적으로 치환하지 않습니다.**
@@ -58,6 +71,14 @@ tags: functions, declarations
 **Correct 2 (객체 속성의 함수는 화살표, 인라인 콜백은 한 줄로 씁니다):**
 
 <<< ../examples/functions-declare-functions-as-arrow-consts/04-correct.ts
+
+**Incorrect 3 (`return` 한 문장뿐인 분기를 중괄호 블록으로 엽니다):**
+
+<<< ../examples/functions-declare-functions-as-arrow-consts/06-incorrect.ts
+
+**Correct 3 (`return` 한 문장뿐인 분기는 한 줄 `if`로 이어 씁니다):**
+
+<<< ../examples/functions-declare-functions-as-arrow-consts/07-correct.ts
 
 **Correct (클래스 메서드와 제너레이터는 그대로 둡니다):**
 

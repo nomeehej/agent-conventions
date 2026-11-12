@@ -438,6 +438,21 @@
 					"types-derive-subsets-with-indexed-access"
 				]
 			}
+		},
+		{
+			"id": "one-line-return-branch",
+			"prompt": "collapse the `if` branches in `toStatusTone` whose body is only a `return` into one-line `if (…) return …;` statements; no other changes.",
+			"files": [
+				"src/product/to-status-tone.ts"
+			],
+			"expectedSkills": [
+				"typescript"
+			],
+			"expectedSelected": {
+				"typescript": [
+					"functions-declare-functions-as-arrow-consts"
+				]
+			}
 		}
 	]
 }
