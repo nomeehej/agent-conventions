@@ -5,7 +5,8 @@ import type {SkillCompanion} from "./types.js";
 // ----------------------------------------------------------------------------------------
 // 검증을 마친 단일 skill 의존성 선언
 //
-// skillNames: 직접 companion의 skill 이름만 모은 목록
+//   skillNames
+//      직접 companion의 skill 이름만 모은 목록이다.
 // ----------------------------------------------------------------------------------------
 export interface DependencyDeclaration {
 	skillNames: string[];
@@ -16,9 +17,10 @@ export const maximumConditionLength = 160;
 const safeStableNamePattern = /^[A-Za-z0-9][A-Za-z0-9._@-]*$/;
 
 // ----------------------------------------------------------------------------------------
-// 규칙 파일 이름에서 stable ID 계산
+// 규칙 파일 이름에서 계산한 stable ID
 //
-// 사람이 번호로 찾도록 붙인 `NN-MM-` 접두사는 ID에서 제외 → 번호가 바뀌어도 참조 유지
+// 사람이 번호로 찾도록 붙인 `NN-MM-` 접두사는 ID에서 제외하므로 번호가 바뀌어도 참조가
+// 유지된다.
 //
 // toRuleStableId("03-02-name-things.md") → "name-things"
 // toRuleStableId("name-things.md") → "name-things"
@@ -55,7 +57,9 @@ export const assertValidSkillName = (value: unknown, owner: string = "Skill"): s
 };
 
 // ----------------------------------------------------------------------------------------
-// stable ID 형식 검증, Markdown 라우팅에서 코드 스팬과 경로 마디로 쓰이기 때문
+// stable ID 형식 검증
+//
+// Markdown 라우팅에서 코드 스팬과 경로 마디로 쓰이기 때문이다.
 // ----------------------------------------------------------------------------------------
 export const assertValidRoutingIdentifier = (value: unknown, owner: string): string => {
 	if (typeof value !== "string" || !safeStableNamePattern.test(value)) {
@@ -153,9 +157,7 @@ export const parseDependencyDeclaration = (skillName: string, metadata: unknown)
 		}
 	}
 
-	if (metadataObject.companions === undefined) {
-		return {skillNames: [], companions: []};
-	}
+	if (metadataObject.companions === undefined) return {skillNames: [], companions: []};
 
 	const companions = parseCompanions(skillName, metadataObject.companions);
 

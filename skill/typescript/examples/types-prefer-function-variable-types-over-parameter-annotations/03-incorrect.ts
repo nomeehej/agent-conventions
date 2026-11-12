@@ -16,6 +16,6 @@ export const sendRequest = (request: string, toBody: (request: string) => string
 	return client.post("/requests", toBody(request));
 };
 
-// 두 구현을 같은 자리에서 교체
+// 두 구현을 같은 자리에서 교체해 쓴다.
 sendRequest(" 초록 셔츠 ", toRequest);
 sendRequest(" 초록   셔츠 ", toSearchRequest);

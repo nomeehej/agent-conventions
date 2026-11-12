@@ -147,7 +147,8 @@ test("parseRuleBody handles every rule in the repository", async () => {
 });
 
 test("every example label is a 합쇼체 sentence", async () => {
-	// 라벨은 사이트에서 예시 제목으로 쓰임. validate 가 막지만 저장소 전체가 통과하는지 여기서도 센다
+	// 라벨은 사이트에서 예시 제목으로 쓰이므로 validate가 막더라도 저장소 전체가 통과하는지
+	// 여기서도 센다.
 	const offenders: string[] = [];
 	let labelCount = 0;
 
@@ -170,7 +171,9 @@ test("every example label is a 합쇼체 sentence", async () => {
 	}
 
 	assert.deepEqual(offenders, [], "합쇼체로 끝나지 않는 예시 라벨");
-	// 정확한 수는 예제를 손볼 때마다 바뀜. 문체가 검사 대상이고 개수는 검사가 살아 있다는 표시
+
+	// 정확한 수는 예제를 손볼 때마다 바뀐다. 문체가 검사 대상이고 개수는 검사가 살아 있다는
+	// 표시다.
 	assert.ok(labelCount > 380, `예시 라벨이 ${labelCount}개뿐이다. 검사가 대상을 못 찾고 있다`);
 });
 

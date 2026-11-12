@@ -43,7 +43,7 @@ useEffect(() => {
 **Correct 1 (비반응형 콜백은 `useEffectEvent`로 분리합니다):**
 
 ```tsx
-// 최신 onChange 실행, 구독은 productId가 바뀔 때만 다시 걸기
+// 최신 onChange를 실행하고 구독은 productId가 바뀔 때만 다시 건다.
 const handleProductChange = useEffectEvent((change: ProductChange) => {
 	props.onChange(change);
 });

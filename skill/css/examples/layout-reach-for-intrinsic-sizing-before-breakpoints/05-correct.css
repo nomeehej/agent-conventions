@@ -1,4 +1,4 @@
-/* form-footer.css: 한 번 쓰고 여러 화면에서 그대로 사용 */
+/* form-footer.css는 한 번 쓰고 여러 화면에서 그대로 쓴다. */
 .formFooter__root {
 	display: flex;
 	flex-wrap: wrap;

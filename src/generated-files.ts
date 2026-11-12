@@ -5,8 +5,11 @@ import path from "node:path";
 // ----------------------------------------------------------------------------------------
 // 생성 파일 하나의 쓰기 또는 삭제 계획
 //
-// targetPath: 절대 경로
-// content: 새 UTF-8 본문, undefined면 기존 생성 파일 삭제
+//   targetPath
+//      절대 경로다.
+//
+//   content
+//      새 UTF-8 본문이고 undefined면 기존 생성 파일을 삭제한다.
 // ----------------------------------------------------------------------------------------
 export interface GeneratedFileMutation {
 	targetPath: string;
@@ -14,7 +17,10 @@ export interface GeneratedFileMutation {
 }
 
 // ----------------------------------------------------------------------------------------
-// 생성 파일 쓰기 결과, deletedPaths는 있던 파일을 실제로 지운 경로만
+// 생성 파일 쓰기 결과
+//
+//   deletedPaths
+//      있던 파일을 실제로 지운 경로만 담는다.
 // ----------------------------------------------------------------------------------------
 export interface GeneratedFileWriteResult {
 	deletedPaths: string[];
@@ -24,9 +30,7 @@ const readTargetStats = async (targetPath: string): Promise<Stats | undefined> =
 	try {
 		return await lstat(targetPath);
 	} catch (error) {
-		if ((error as NodeJS.ErrnoException).code === "ENOENT") {
-			return undefined;
-		}
+		if ((error as NodeJS.ErrnoException).code === "ENOENT") return undefined;
 
 		throw error;
 	}
@@ -35,9 +39,7 @@ const readTargetStats = async (targetPath: string): Promise<Stats | undefined> =
 export const readGeneratedDirectoryFileNames = async (directoryPath: string): Promise<string[]> => {
 	const directoryStats = await readTargetStats(directoryPath);
 
-	if (directoryStats === undefined) {
-		return [];
-	}
+	if (directoryStats === undefined) return [];
 
 	if (!directoryStats.isDirectory()) {
 		throw new Error(`Generated file path must be a real directory: ${directoryPath}`);
@@ -65,10 +67,11 @@ export const readGeneratedRegularFile = async (targetPath: string): Promise<stri
 };
 
 // ----------------------------------------------------------------------------------------
-// 생성 파일 집합 쓰기와 삭제, 대상이 전부 일반 파일인지 먼저 확인
+// 생성 파일 집합 쓰기와 삭제
 //
-// 디렉터리나 링크 위에는 쓰지 않음
-// 본문은 호출하는 쪽이 전부 그린 뒤에 넘김 → 렌더링이 실패하면 아무것도 바뀌지 않음
+// 대상이 전부 일반 파일인지 먼저 확인하고 디렉터리나 링크 위에는 쓰지 않는다.
+//
+// 본문은 호출하는 쪽이 전부 그린 뒤에 넘기므로 렌더링이 실패하면 아무것도 바뀌지 않는다.
 // ----------------------------------------------------------------------------------------
 export const replaceGeneratedFiles = async (mutations: GeneratedFileMutation[]): Promise<GeneratedFileWriteResult> => {
 	const targetPaths = mutations.map((mutation) => path.resolve(mutation.targetPath));

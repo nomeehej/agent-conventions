@@ -1,7 +1,9 @@
 // page/products/product-list-section.tsx
 export const ProductListSection = () => {
 	// ----------------------------------------------------------------------------------------
-	// 상품 목록 조회, 삭제 요청은 초안 행의 삭제 버튼이 소유
+	// 상품 목록 조회
+	//
+	// 삭제 요청은 초안 행의 삭제 버튼이 소유한다.
 	// ----------------------------------------------------------------------------------------
 	const responseProductListSuspense = useProductListSuspense();
 

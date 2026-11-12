@@ -5,7 +5,7 @@ import {buildSite} from "../src/site.js";
 // ----------------------------------------------------------------------------------------
 // skill별 RULES_INDEX, contracts와 content/public/convention/ 생성
 //
-// --skill-root 지정 시 저장소 사이트 생성 제외
+// `--skill-root`를 지정하면 저장소 사이트 생성은 제외한다.
 // ----------------------------------------------------------------------------------------
 const args = process.argv.slice(2);
 

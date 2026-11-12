@@ -1,7 +1,9 @@
 // page/product-detail/_function/format-signed-percent.ts
 
 // ----------------------------------------------------------------------------------------
-// 변화율 표시 문자열, 양수에만 + 부호
+// 변화율 표시 문자열
+//
+// 양수에만 + 부호를 붙인다.
 //
 // formatSignedPercent(12.5) → "+12.5%"
 // formatSignedPercent(0) → "0%"

@@ -129,7 +129,9 @@ export const getOrderTotal = (lines: OrderLine[]) => {
 // page/product-detail/_function/build-user-save-request.ts
 
 // ----------------------------------------------------------------------------------------
-// 사용자 저장 요청 조립, 서버가 빈 문자열을 거부 → 빈 칸은 제외
+// 사용자 저장 요청 조립
+//
+// 서버가 빈 문자열을 거부하므로 빈 칸은 보내지 않는다.
 // ----------------------------------------------------------------------------------------
 export const buildUserSaveRequest = (formValues: UserFormValues) => {
 	// …

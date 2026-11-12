@@ -55,9 +55,7 @@ const mutationProductRemove = useProductRemove({
 });
 
 const handleRemoveProductButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
-	if (!selectedProduct || mutationProductRemove.isPending) {
-		return;
-	}
+	if (!selectedProduct || mutationProductRemove.isPending) return;
 
 	mutationProductRemove.mutate({params: {productId: selectedProduct.id}});
 };

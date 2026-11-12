@@ -1,6 +1,6 @@
 export const OrderToolbar = () => {
 // [!code error]
-	// selectedIds가 아직 초기화 전이라 의존성 배열을 평가하는 이 줄에서 오류
+	// selectedIds가 아직 초기화되지 않아 의존성 배열을 평가하는 이 줄에서 오류가 난다.
 // [!code error]
 	useEffect(() => {
 // [!code error]

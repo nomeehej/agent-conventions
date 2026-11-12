@@ -4,7 +4,7 @@ import { afterEach, expect, test, vi } from "vitest";
 
 import { normalizeDateRange } from "@/util/date/normalize-date-range";
 
-// Node 시간대: 러너 시작 전 TZ=Asia/Seoul 지정
+// Node 시간대는 러너 시작 전에 TZ=Asia/Seoul로 지정한다.
 afterEach(() => {
 	vi.useRealTimers();
 });

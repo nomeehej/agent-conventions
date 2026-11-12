@@ -1,4 +1,4 @@
-// 편집을 취소했다가 다시 들어가면 지난 입력이 그대로 남음
+// 편집을 취소했다가 다시 들어가면 지난 입력이 그대로 남는다.
 return (
 	<Fragment>
 		<Activity mode={isEditing ? "visible" : "hidden"}>

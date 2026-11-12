@@ -1,14 +1,13 @@
 // page/orders/_function/to-status-label.ts
 
 // ----------------------------------------------------------------------------------------
-// 주문 행의 상태 라벨, 취소가 임박보다 우선
+// 주문 행의 상태 라벨
+//
+// 취소가 임박보다 우선한다.
 // ----------------------------------------------------------------------------------------
 export const toStatusLabel = (order: OrderRow): StatusLabel => {
-	if (order.isCancelled) {
-		return "취소";
-	}
-	if (order.isDueSoon) {
-		return "임박";
-	}
+	if (order.isCancelled) return "취소";
+	if (order.isDueSoon) return "임박";
+
 	return "진행";
 };

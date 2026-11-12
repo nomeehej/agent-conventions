@@ -19,7 +19,7 @@
 	}
 }
 
-/* [data-theme]는 뒤에 오고 명시도도 높아 위 @media 블록보다 우선 */
+/* [data-theme]는 뒤에 오고 명시도도 높아서 위 @media 블록보다 우선한다. */
 :root[data-theme="light"] {
 	color-scheme: light;
 

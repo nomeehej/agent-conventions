@@ -5,13 +5,22 @@ import {fn} from "storybook/test";
 import {Button} from "@/component/ui/button/button";
 
 // ----------------------------------------------------------------------------------------
-// 버튼 story, Figma 속성과 이름이 다른 프롭 대응
+// 버튼 story
+//
+// Figma 속성과 이름이 다른 프롭의 대응을 적는다.
 //
 // [!code ++]
-// Variant=Fill: variant="primary"
+//   Variant=Fill
 // [!code ++]
-// Variant=Outline: variant="secondary"
-// State=Disabled: disabled
+//      variant="primary"로 대응한다.
+//
+// [!code ++]
+//   Variant=Outline
+// [!code ++]
+//      variant="secondary"로 대응한다.
+//
+//   State=Disabled
+//      disabled로 대응한다.
 // ----------------------------------------------------------------------------------------
 const meta = {
 	title: "component/ui/button",

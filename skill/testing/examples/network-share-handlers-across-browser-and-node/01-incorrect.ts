@@ -13,7 +13,9 @@ const browserHandlers = [http.get("*/api/orders", () => {
 })];
 
 // ----------------------------------------------------------------------------------------
-// mock 모드 진입에서만 호출하는 MSW worker 시작
+// MSW worker 시작
+//
+// mock 모드 진입에서만 호출한다.
 // ----------------------------------------------------------------------------------------
 export const startMockWorker = async () => {
 	return setupWorker(...browserHandlers).start({

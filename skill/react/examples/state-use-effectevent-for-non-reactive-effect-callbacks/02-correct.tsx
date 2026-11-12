@@ -1,4 +1,4 @@
-// 최신 onChange 실행, 구독은 productId가 바뀔 때만 다시 걸기
+// 최신 onChange를 실행하고 구독은 productId가 바뀔 때만 다시 건다.
 const handleProductChange = useEffectEvent((change: ProductChange) => {
 	props.onChange(change);
 });

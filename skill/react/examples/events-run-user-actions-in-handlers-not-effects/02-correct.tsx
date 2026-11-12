@@ -11,9 +11,7 @@ const mutationProductCreate = useProductCreate({
 
 // [!code ++]
 const handleSaveButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
-	if (mutationProductCreate.isPending) {
-		return;
-	}
+	if (mutationProductCreate.isPending) return;
 
 	mutationProductCreate.mutate({data: buildProductCreateRequest(formValues)});
 };

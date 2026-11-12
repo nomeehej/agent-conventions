@@ -12,14 +12,14 @@ const expectedSectionCount = 63;
 const expectedSkillCount = 7;
 
 // ----------------------------------------------------------------------------------------
-// frontmatter 키 하나의 값, 따옴표 scalar는 JSON으로 풀어 읽음
+// frontmatter 키 하나의 값
+//
+// 따옴표 scalar는 JSON으로 풀어 읽는다.
 // ----------------------------------------------------------------------------------------
 const readFrontmatter = (file: SiteFile, key: string): string | undefined => {
 	const match = new RegExp(`^${key}: (.+)$`, "m").exec(file.content.split("\n---\n")[0] ?? "");
 
-	if (!match) {
-		return undefined;
-	}
+	if (!match) return undefined;
 
 	const raw = match[1] ?? "";
 
@@ -27,7 +27,9 @@ const readFrontmatter = (file: SiteFile, key: string): string | undefined => {
 };
 
 // ----------------------------------------------------------------------------------------
-// for-humanity와 같은 규칙으로 페이지의 헤딩 앵커 집합 계산, 같은 글은 -1, -2
+// 페이지의 헤딩 앵커 집합 계산
+//
+// for-humanity와 같은 규칙으로 계산하고 같은 글에는 -1, -2를 붙인다.
 // ----------------------------------------------------------------------------------------
 const collectAnchors = (file: SiteFile): Set<string> => {
 	const slugger = new Slugger();
@@ -57,7 +59,7 @@ const isOverviewPage = (file: SiteFile): boolean => !file.path.includes("/") && 
 test("generateSiteFiles emits one overview per skill and one page per section, nothing else", async () => {
 	const files = await generateSiteFiles();
 
-	// 홈은 sync:readme 담당, 루트 사이트 설정은 수동 관리
+	// 홈은 sync:readme가 맡고 루트 사이트 설정은 수동으로 관리한다.
 	assert.equal(
 		files.some((file) => !file.path.endsWith(".md") && !isExampleCopy(file)),
 		false,
@@ -193,9 +195,7 @@ test("examples render as a sentence above a toned, numbered snippet whose copy e
 				assert.match(line, /^```(?:[a-z]+)?$/, `${file.path}: prose fences carry no meta: ${line}`);
 			}
 
-			if (!line.startsWith("<<< ")) {
-				return;
-			}
+			if (!line.startsWith("<<< ")) return;
 
 			snippets += 1;
 

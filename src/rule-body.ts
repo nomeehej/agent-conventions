@@ -1,12 +1,15 @@
 // ----------------------------------------------------------------------------------------
-// 코드 펜스를 여닫는 표시, 언어 이름은 이 길이만큼 잘라 낸 나머지
+// 코드 펜스를 여닫는 표시
+//
+// 언어 이름은 이 길이만큼 잘라 낸 나머지다.
 // ----------------------------------------------------------------------------------------
 const fenceMarker = "```";
 
 // ----------------------------------------------------------------------------------------
 // 규칙 본문 코드 블록 하나
 //
-// lang: 코드 펜스에 적힌 언어, 없으면 "text"
+//   lang
+//      코드 펜스에 적힌 언어이고 없으면 "text"다.
 // ----------------------------------------------------------------------------------------
 export interface RuleCodeBlock {
 	lang: string;
@@ -16,8 +19,11 @@ export interface RuleCodeBlock {
 // ----------------------------------------------------------------------------------------
 // Incorrect 또는 Correct 라벨 하나와 딸린 코드 블록 묶음
 //
-// label: 라벨 괄호 안 부연 설명, 없으면 빈 문자열
-// pair: 짝 번호(`**Incorrect 1**`과 `**Correct 1**`), 없으면 홀로 선 예시
+//   label
+//      라벨 괄호 안 부연 설명이고 없으면 빈 문자열이다.
+//
+//   pair
+//      짝 번호다(`**Incorrect 1**`과 `**Correct 1**`). 없으면 홀로 선 예시다.
 // ----------------------------------------------------------------------------------------
 export interface RuleExample {
 	kind: "incorrect" | "correct";
@@ -31,8 +37,11 @@ export type RuleProseNode = {type: "line"; text: string} | {type: "code"; lang: 
 // ----------------------------------------------------------------------------------------
 // 규칙 본문 분해 결과
 //
-// prose: 첫 예시 이전 산문, 표와 코드 블록 포함
-// examples: 문서 순서를 유지한 예시 목록
+//   prose
+//      첫 예시 이전 산문이고 표와 코드 블록을 포함한다.
+//
+//   examples
+//      문서 순서를 유지한 예시 목록이다.
 // ----------------------------------------------------------------------------------------
 export interface ParsedRuleBody {
 	prose: RuleProseNode[];
@@ -40,10 +49,12 @@ export interface ParsedRuleBody {
 }
 
 // ----------------------------------------------------------------------------------------
-// 라벨의 괄호 설명은 마지막 `)`까지 greedy로 매칭
+// 예시 라벨의 괄호 설명
 //
-// `clsx()`, `:is()`처럼 괄호가 들어가는 라벨이 있음
-// `[^)]*`면 첫 `)`에서 끊김 → 라벨을 못 찾고 예시가 앞 카드에 병합됨
+// 마지막 `)`까지 greedy로 매칭한다. `clsx()`, `:is()`처럼 괄호가 들어가는 라벨이 있기
+// 때문이다.
+//
+// `[^)]*`를 쓰면 첫 `)`에서 끊겨 라벨을 못 찾고 예시가 앞 카드에 병합된다.
 // ----------------------------------------------------------------------------------------
 const examplePattern = /^\*\*(Incorrect|Correct)(?:\s+(\d+))?\s*(?:\((.+)\))?\s*:?\*\*/;
 
@@ -51,9 +62,7 @@ const stripLeadingHeading = (prose: RuleProseNode[]): RuleProseNode[] => {
 	let headingDropped = false;
 
 	return prose.filter((node) => {
-		if (node.type !== "line") {
-			return true;
-		}
+		if (node.type !== "line") return true;
 
 		if (!headingDropped && node.text.startsWith("## ")) {
 			headingDropped = true;
@@ -104,7 +113,7 @@ export const parseRuleBody = (body: string): ParsedRuleBody => {
 		}
 
 		if (line.startsWith(fenceMarker)) {
-			// 여는 펜스 길이 이상의 백틱만 닫는 펜스. 안쪽의 더 짧은 펜스는 코드
+			// 여는 펜스 길이 이상의 백틱만 닫는 펜스이고 안쪽의 더 짧은 펜스는 코드다.
 			const opener = /^`+/.exec(line)?.[0] ?? fenceMarker;
 			const lang = line.slice(opener.length).trim() || "text";
 			const buffer: string[] = [];

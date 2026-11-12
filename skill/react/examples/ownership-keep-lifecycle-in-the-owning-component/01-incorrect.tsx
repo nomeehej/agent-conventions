@@ -1,6 +1,6 @@
 // component/widget/chart-card/chart-card.tsx
 // [!code error]
-// 생성, resize, 정리가 _hook/use-chart-instance.ts로 빠져 이 파일에서는 실행 흐름이 안 보임
+// 생성, resize, 정리가 _hook/use-chart-instance.ts로 빠져 이 파일에서 흐름이 안 보인다.
 export const ChartCard = (props: ChartCardProps) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 // [!code error]

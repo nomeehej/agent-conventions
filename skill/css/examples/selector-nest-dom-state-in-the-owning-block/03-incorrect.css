@@ -2,7 +2,7 @@
 	transform: rotate(0deg);
 
 /* [!code error] */
-	/* 링크 전체에 hover하면 로고가 기울어야 하는데 로고 위에서만 적용 */
+	/* 링크 전체에 hover하면 로고가 기울어야 하는데 로고 위에서만 적용된다. */
 /* [!code error] */
 	&:hover {
 /* [!code error] */

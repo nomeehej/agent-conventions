@@ -20,7 +20,7 @@
 **Incorrect 1 (계약이 있는데 시그니처를 다시 적습니다):**
 
 ```ts
-// 이미 있는 계약
+// 이미 있는 계약이다.
 interface UserFormatters {
 	toRoleLabel: (role: UserRole) => string;
 	toActiveLabel: (isActive: boolean) => string;
@@ -34,7 +34,7 @@ const toRoleLabel = (role: UserRole): string => {
 **Correct 1 (이미 있는 계약에서 시그니처를 가져와 함수 전체에 타입을 붙입니다):**
 
 ```ts
-// 이미 있는 계약
+// 이미 있는 계약이다.
 interface UserFormatters {
 	toRoleLabel: (role: UserRole) => string;
 	toActiveLabel: (isActive: boolean) => string;

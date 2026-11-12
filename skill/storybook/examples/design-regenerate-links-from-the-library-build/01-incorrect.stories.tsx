@@ -17,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 export const Placeholder: Story = {
 	args: {value: ""},
 	parameters: {
-		// DS 1.2.0 publish 뒤 손으로 고친 노드
+		// DS 1.2.0 publish 뒤 손으로 고친 노드를 가리킨다.
 		// [!code error]
 		design: {type: "figma", url: "https://www.figma.com/design/Lb12Cd34Ef56Gh78Ij90Kl/admin-ds?node-id=12-53"},
 	},

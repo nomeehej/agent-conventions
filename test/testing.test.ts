@@ -48,7 +48,7 @@ test("Playwright examples expose GIVEN, WHEN and THEN while Vitest examples stay
 		const caseCount = [...source.matchAll(/^\s*test(?:\(|\.each\()/gm)].length;
 		const phases = [...source.matchAll(/^\s*\/\/ (GIVEN|WHEN|THEN)\b/gm)].map((match) => match[1]);
 
-		// THEN Vitest 사례는 구간 표시 없음, Playwright 사례는 THEN으로 끝나는 순서대로의 구간과 설명
+		// THEN Vitest 사례는 구간 표시 없음, Playwright 사례는 THEN으로 끝나는 구간과 설명
 		assert.ok(caseCount > 0, `${path} has no executable case`);
 		if (/from "vitest"/.test(source)) {
 			assert.deepEqual(phases, [], `${path} is a Vitest case and keeps no GIVEN, WHEN, THEN blocks`);

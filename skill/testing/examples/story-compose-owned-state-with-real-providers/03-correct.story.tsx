@@ -5,7 +5,10 @@ import { AppProviders } from "@/app-providers";
 import { OrdersPage } from "@/page/(main)/orders/orders-page";
 
 // ----------------------------------------------------------------------------------------
-// URL 정렬 상태를 재현하는 입력, search는 `?`로 시작하는 초기 query 문자열
+// URL 정렬 상태를 재현하는 입력
+//
+//   search
+//      `?`로 시작하는 초기 query 문자열이다.
 // ----------------------------------------------------------------------------------------
 export interface WithSearchProps {
 	search: string;

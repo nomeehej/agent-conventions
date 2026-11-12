@@ -1,4 +1,5 @@
-// page/products/product-list-section.tsx: 초안 행에만 렌더하는 삭제 버튼의 뮤테이션을 목록이 부름
+// page/products/product-list-section.tsx
+// 초안 행에만 그리는 삭제 버튼의 뮤테이션을 목록이 부른다.
 export const ProductListSection = () => {
 	const [removeErrorMessage, setRemoveErrorMessage] = useState<string | null>(null);
 	const queryClient = useQueryClient();

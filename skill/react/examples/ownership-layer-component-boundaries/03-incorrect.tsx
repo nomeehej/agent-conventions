@@ -5,7 +5,7 @@ export interface ProductStatusBadgeProps {
 	children: ReactNode;
 }
 
-// 도메인 타입 하나만 알고 화면 타입과 훅은 모름. 이 화면에서만 쓴다는 이유로 page에 남아 있음
+// 도메인 타입만 알고 화면 타입과 훅은 모르는데 이 화면에서만 써서 page에 남아 있다.
 // [!code error]
 export const ProductStatusBadge = (props: ProductStatusBadgeProps) => {
 	return (

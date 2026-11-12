@@ -5,7 +5,9 @@ import { mock_unhandled_api_prefix } from "@/service/msw/_constant/mock";
 import { mockHandlers } from "@/service/msw/handlers";
 
 // ----------------------------------------------------------------------------------------
-// mock 모드 진입에서만 호출하는 MSW worker 시작
+// MSW worker 시작
+//
+// mock 모드 진입에서만 호출한다.
 // ----------------------------------------------------------------------------------------
 export const startMockWorker = async () => {
 	// [!code ++]

@@ -1,2 +1,2 @@
-// page/products/products-page.tsx: ProductTreeSection이 Suspense 쿼리를 부르는데 감싸는 경계 없음
+// page/products/products-page.tsx: ProductTreeSection의 Suspense 쿼리에 경계가 없다.
 return <ProductTreeSection />;

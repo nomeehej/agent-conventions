@@ -6,16 +6,21 @@ import {parseRuleBody} from "./rule-body.js";
 // ----------------------------------------------------------------------------------------
 // 사이트 본문에서 가로 스크롤 없이 읽히는 문자 격자 폭 상한
 //
-// 상한 초과 → 흐름도가 본문 밖으로 넘침
+// 상한을 넘으면 흐름도가 본문 밖으로 넘친다.
 // ----------------------------------------------------------------------------------------
 export const maxDiagramColumns = 125;
 
 // ----------------------------------------------------------------------------------------
 // 규칙 하나의 mermaid 펜스 하나를 격자로 그린 결과
 //
-// ruleId: 규칙 파일 이름
-// index: 규칙 안 mermaid 펜스 순번(0부터)
-// error: 렌더 실패 같은 오류 메시지, 있으면 columns와 rows는 0
+//   ruleId
+//      규칙 파일 이름이다.
+//
+//   index
+//      규칙 안 mermaid 펜스 순번이고 0부터 센다.
+//
+//   error
+//      렌더 실패 같은 오류 메시지이고 있으면 columns와 rows는 0이다.
 // ----------------------------------------------------------------------------------------
 export interface DiagramReport {
 	skill: string;
@@ -27,7 +32,9 @@ export interface DiagramReport {
 }
 
 // ----------------------------------------------------------------------------------------
-// 사이트와 같은 격자 렌더러로 그림, 한글은 전각이라 폭 0 문자를 덧붙여 두 칸 확보
+// 사이트와 같은 격자 렌더러로 그린 결과
+//
+// 한글은 전각이라 폭 0 문자를 덧붙여 두 칸을 확보한다.
 // ----------------------------------------------------------------------------------------
 const wideCharacter = /[ᄀ-ᇿ　-〿㄰-㆏가-힯一-鿿぀-ヿ＀-｠]/g;
 const widenCjk = (source: string): string => source.replace(wideCharacter, (character) => `${character}​`);
@@ -44,11 +51,9 @@ export const checkDiagrams = async (): Promise<DiagramReport[]> => {
 			const fences = parseRuleBody(rule.body).prose.filter((node) => node.type === "code" && node.lang === "mermaid");
 
 			fences.forEach((fence, index) => {
-				if (fence.type !== "code") {
-					return;
-				}
+				if (fence.type !== "code") return;
 
-				// 격자 렌더러는 라벨 안 괄호에서 글을 자름. 라벨에 괄호가 있으면 오류
+				// 격자 렌더러는 라벨 안 괄호에서 글을 자르므로 라벨에 괄호가 있으면 오류로 본다.
 				const parenthesizedLabel = [...fence.code.matchAll(/(?<=[[({])"([^"\n]*)"/g)].find((match) => /[()]/.test(match[1] ?? ""));
 
 				if (parenthesizedLabel) {

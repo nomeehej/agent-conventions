@@ -1,5 +1,7 @@
 // [!code ++]
-// page/products/delete-product-button.tsx: 초안 행에만 렌더, 이 버튼만 쓰는 라우터 훅 보유
+// page/products/delete-product-button.tsx
+// [!code ++]
+// 초안 행에만 그리고 이 버튼만 쓰는 라우터 훅을 가진다.
 // [!code ++]
 export const DeleteProductButton = () => {
 	const navigate = useNavigate();

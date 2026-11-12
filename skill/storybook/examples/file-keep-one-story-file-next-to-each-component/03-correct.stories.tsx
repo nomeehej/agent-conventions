@@ -14,7 +14,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-// Figma examples 칸 HeaderAndBody, 머리와 본문을 조립한 모습
+// Figma examples 칸 HeaderAndBody에 대응하며 머리와 본문을 조립한 모습이다.
 export const HeaderAndBody: Story = {
 	args: {
 		// [!code ++]

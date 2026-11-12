@@ -27,7 +27,7 @@ import {PanelHeaderInner} from "@/component/ui/panel/panel-header-inner";
 import {PanelRoot} from "@/component/ui/panel/panel-root";
 import {PanelSpacer} from "@/component/ui/panel/panel-spacer";
 
-// 사용처가 끼워 넣을 자리가 없는 래퍼와 여백 보정용 DOM까지 이름이 붙어 노출
+// 사용처가 끼워 넣을 자리가 없는 래퍼와 여백 보정용 DOM까지 이름이 붙어 노출된다.
 export const Panel = {
 	Root: PanelRoot,
 	Header: PanelHeader,
@@ -45,7 +45,7 @@ import {PanelBody} from "@/component/ui/panel/panel-body";
 import {PanelHeader} from "@/component/ui/panel/panel-header";
 import {PanelRoot} from "@/component/ui/panel/panel-root";
 
-// 사용처가 내용을 끼우는 Root, Header, Body만 공개, 안쪽 래퍼는 각 부품의 JSX로 둠
+// 사용처가 내용을 끼우는 Root, Header, Body만 공개하고 안쪽 래퍼는 각 부품의 JSX에 둔다.
 export const Panel = {
 	Root: PanelRoot,
 	Header: PanelHeader,

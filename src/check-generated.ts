@@ -9,9 +9,7 @@ import {generateRuleContractMarkdown, generateRulesIndexMarkdown, toRuleId} from
 import type {SkillPaths} from "./types.js";
 
 const checkGeneratedSkillTree = async (skillPaths: SkillPaths, visiting: Set<string>, completed: Set<string>): Promise<void> => {
-	if (completed.has(skillPaths.skillName)) {
-		return;
-	}
+	if (completed.has(skillPaths.skillName)) return;
 
 	if (visiting.has(skillPaths.skillName)) {
 		throw new Error(`Circular generated companion check detected at "${skillPaths.skillName}".`);
@@ -56,7 +54,7 @@ const checkGeneratedSkillTree = async (skillPaths: SkillPaths, visiting: Set<str
 		throw new Error(`${skillPaths.skillName}: stale generated RULES_INDEX.md at ${skillPaths.rulesIndexPath}. Run the skill build.`);
 	}
 
-	// contract 파일명은 번호 접두사 없는 stable ID 기준
+	// contract 파일명은 번호 접두사 없는 stable ID 기준이다.
 	const expectedContracts = new Map<string, string>(
 		localDocument.rules.map((rule) => [`${toRuleId(rule)}.md`, generateRuleContractMarkdown(rule)]),
 	);

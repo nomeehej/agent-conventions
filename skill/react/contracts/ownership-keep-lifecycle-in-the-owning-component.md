@@ -20,7 +20,7 @@
 
 ```tsx
 // component/widget/chart-card/chart-card.tsx
-// 생성, resize, 정리가 _hook/use-chart-instance.ts로 빠져 이 파일에서는 실행 흐름이 안 보임
+// 생성, resize, 정리가 _hook/use-chart-instance.ts로 빠져 이 파일에서 흐름이 안 보인다.
 export const ChartCard = (props: ChartCardProps) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const chart = useChartInstance(containerRef);
@@ -42,11 +42,9 @@ export const ChartCard = (props: ChartCardProps) => {
 	const chartRef = useRef<ChartInstance | null>(null);
 
 	useEffect(() => {
-		if (!containerRef.current) {
-			return;
-		}
+		if (!containerRef.current) return;
 
-		// 외부 차트 라이브러리 인스턴스. 만든 컴포넌트가 resize와 dispose까지 책임
+		// 외부 차트 라이브러리 인스턴스이므로 만든 컴포넌트가 resize와 dispose까지 책임진다.
 		const instance = mountChart(containerRef.current);
 		const handleResize = (_event: UIEvent) => {
 			instance.resize();

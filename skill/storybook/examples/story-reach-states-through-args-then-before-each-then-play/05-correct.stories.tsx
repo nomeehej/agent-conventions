@@ -8,9 +8,14 @@ import {getToday} from "@/util/date/get-today";
 // ----------------------------------------------------------------------------------------
 // 날짜 선택기 story
 //
-// getToday: preview에 spy로 등록한 모듈 → beforeEach에서 달력의 오늘 표시 고정
-// Open: open 프롭 없음 → play에서 달력 버튼 클릭
-// screen: 달력은 body 포털 → canvas 밖 조회
+//   getToday
+//      preview에 spy로 등록한 모듈이므로 beforeEach에서 달력의 오늘 표시를 고정한다.
+//
+//   Open
+//      open 프롭이 없으므로 play에서 달력 버튼을 클릭한다.
+//
+//   screen
+//      달력은 body 포털이므로 canvas 밖에서 조회한다.
 // ----------------------------------------------------------------------------------------
 const meta = {
 	title: "component/ui/date-picker",
@@ -32,7 +37,8 @@ export const Open: Story = {
 	// [!code ++]
 	play: async (context) => {
 		await context.userEvent.click(context.canvas.getByRole("button", {name: "달력 열기"}));
-		// MUI 전환 효과 → 보이는지는 waitFor 안에서 확인
+
+		// MUI 전환 효과가 끝나야 보이므로 waitFor 안에서 확인한다.
 		await waitFor(() => expect(screen.getByRole("dialog")).toBeVisible());
 	},
 };

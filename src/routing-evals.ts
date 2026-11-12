@@ -37,8 +37,11 @@ interface ParseStringArrayArgs {
 // ----------------------------------------------------------------------------------------
 // fixture 루트 skill 문서 조회 인자
 //
-// skillRootDir: fixture 또는 저장소의 skill 루트, 절대 경로
-// documents: 같은 매니페스트 검증 호출에서 공유하는 문서 캐시
+//   skillRootDir
+//      fixture 또는 저장소의 skill 루트이고 절대 경로다.
+//
+//   documents
+//      같은 매니페스트 검증 호출에서 공유하는 문서 캐시다.
 // ----------------------------------------------------------------------------------------
 interface ReadExpectedSkillDocumentArgs {
 	skillName: string;
@@ -55,8 +58,11 @@ interface ValidateRulePartitionArgs {
 // ----------------------------------------------------------------------------------------
 // 활성 skill 전체와 분할 검증 인자
 //
-// skillRootDir: fixture 또는 저장소의 skill 루트, 절대 경로
-// documents: 같은 매니페스트 검증 호출에서 공유하는 문서 캐시
+//   skillRootDir
+//      fixture 또는 저장소의 skill 루트이고 절대 경로다.
+//
+//   documents
+//      같은 매니페스트 검증 호출에서 공유하는 문서 캐시다.
 // ----------------------------------------------------------------------------------------
 interface ValidateExpectedPartitionArgs {
 	label: string;
@@ -223,9 +229,7 @@ const readExpectedSkillDocument = async (args: ReadExpectedSkillDocumentArgs): P
 	const {skillName, skillRootDir, documents} = args;
 	const cached = documents.get(skillName);
 
-	if (cached) {
-		return cached;
-	}
+	if (cached) return cached;
 
 	if (!(await isBuildableSkill(skillName, skillRootDir))) {
 		throw new Error(`Routing fixture references unknown skill "${skillName}".`);
@@ -416,8 +420,8 @@ export const validateRoutingEvalManifest = async (skillPaths: SkillPaths): Promi
 // ----------------------------------------------------------------------------------------
 // skill 루트의 모든 매니페스트와 매니페스트 간 적용 사례 커버리지 검증
 //
-// 시나리오 id는 매니페스트 사이에서도 유일
-// 모든 규칙이 어느 시나리오에서든 선택돼야 함
+// 시나리오 id는 매니페스트 사이에서도 유일해야 하고 모든 규칙이 어느 시나리오에서든
+// 선택돼야 한다.
 // ----------------------------------------------------------------------------------------
 export const validateRoutingEvalManifests = async (skillRootDir: string = packagePaths.skillRootDir): Promise<void> => {
 	const skillDocuments = new Map<string, LoadedSkillDocument>();

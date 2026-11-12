@@ -12,12 +12,15 @@ interface Fixtures {
 export { expect };
 
 // ----------------------------------------------------------------------------------------
-// mock 앱 E2E spec이 가져오는 test, 화면의 오류 처리와 별개로 API 누락 검출
+// mock 앱 E2E spec이 가져오는 test
+//
+// 화면의 오류 처리와 별개로 API 누락을 검출한다.
 // ----------------------------------------------------------------------------------------
 export const test = base.extend<Fixtures>({
 	mockApiFailures: [async ({ page }, use) => {
 		const unhandled: string[] = [];
-		// 브라우저 문서가 교체돼도 보존되는 Node 기록
+
+		// Node 쪽 기록은 브라우저 문서가 교체돼도 보존된다.
 		const collectMockError = (message: ConsoleMessage) => {
 			if (message.type() === "error" && message.text().startsWith(mock_unhandled_api_prefix)) {
 				unhandled.push(message.text());

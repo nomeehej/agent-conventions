@@ -19,8 +19,10 @@ import type {LoadedSkillDocument, SkillMetadata, SkillPaths} from "./types.js";
 // ----------------------------------------------------------------------------------------
 // 본문 백틱 안 규칙 ID 후보
 //
-// 화면에서 클릭 가능한 칩이라 해석되지 않으면 조용히 코드로 격하
-// 하이픈 3개 이상만 검사 → `import type`, `query.select` 같은 코드 조각과 가르는 기준
+// 화면에서 클릭 가능한 칩이라 해석되지 않으면 조용히 코드로 격하된다.
+//
+// 하이픈이 3개 이상인 것만 검사하므로 `import type`, `query.select` 같은 코드 조각과
+// 갈린다.
 // ----------------------------------------------------------------------------------------
 const proseRuleReferencePattern = /`((?:[a-z][a-z0-9]*\/)?[a-z][a-z0-9]*(?:-[a-z0-9]+){3,})`/g;
 
@@ -32,15 +34,17 @@ interface AssertProseRuleReferencesArgs {
 }
 
 // ----------------------------------------------------------------------------------------
-// 본문 산문의 규칙 ID 참조가 실재하는 규칙을 가리키는지 검증
+// 본문 산문의 규칙 ID 참조 검증
 //
-// frontmatter 참조만 검사하면 규칙을 지울 때 본문 참조가 남아 화면 링크가 사라짐
-// 외부 도구 규칙 이름과 가르려고 첫 마디가 우리 section 접두사인 것만 검사
-// 도구 설정을 담은 `tooling` 규칙은 stylelint, biome 규칙 이름을 대량 인용해 건너뜀
+// 실재하는 규칙을 가리키는지 확인한다. frontmatter 참조만 검사하면 규칙을 지울 때 본문
+// 참조가 남아 화면 링크가 사라지기 때문이다.
+//
+// 외부 도구 규칙 이름과 가르려고 첫 마디가 우리 section 접두사인 것만 검사한다. 도구
+// 설정을 담은 `tooling` 규칙은 stylelint, biome 규칙 이름을 대량 인용하므로 건너뛴다.
 // ----------------------------------------------------------------------------------------
 const assertProseRuleReferences = (args: AssertProseRuleReferencesArgs): void => {
 	for (const rule of args.document.rules) {
-		// 코드 펜스 안은 실제 코드라 검사 제외
+		// 코드 펜스 안은 실제 코드라 검사에서 제외한다.
 		const prose = rule.body.replace(/```[\s\S]*?```/g, "");
 
 		for (const [, reference] of prose.matchAll(proseRuleReferencePattern)) {
@@ -53,7 +57,8 @@ const assertProseRuleReferences = (args: AssertProseRuleReferencesArgs): void =>
 				);
 			}
 
-			// tooling 규칙은 stylelint, biome 규칙 이름이 우리 접두사와 겹쳐 ID 해석을 건너뜀 → 본문은 `css/…`처럼 소유 skill을 붙여 가리킴
+			// tooling 규칙은 stylelint, biome 규칙 이름이 우리 접두사와 겹치므로 ID 해석을 건너뛰고,
+			// 본문은 `css/…`처럼 소유 skill을 붙여 가리킨다.
 			if (rule.prefix === "tooling" && !reference.includes("/")) {
 				continue;
 			}
@@ -74,10 +79,12 @@ const assertProseRuleReferences = (args: AssertProseRuleReferencesArgs): void =>
 };
 
 // ----------------------------------------------------------------------------------------
-// companion 선언에서 이 skill보다 위 계층인 skill 이름 수집
+// 이 skill보다 위 계층인 skill 이름 수집
 //
-// 나를 companion으로 켜는 skill이 위 계층, `typescript`는 아무도 켜지 않아 가장 아래
-// 아래 계층이 위 계층 규칙 ID를 가리키면 아래 계층만 쓰는 프로젝트에서 그 참조가 끊김
+// companion 선언에서 모은다. 나를 companion으로 켜는 skill이 위 계층이고 `typescript`는
+// 아무도 켜지 않아 가장 아래다.
+//
+// 아래 계층이 위 계층 규칙 ID를 가리키면 아래 계층만 쓰는 프로젝트에서 그 참조가 끊긴다.
 // ----------------------------------------------------------------------------------------
 const collectSkillsAbove = async (skillName: string, skillRootDir?: string): Promise<Set<string>> => {
 	const parentsBySkill = new Map<string, Set<string>>();
@@ -146,7 +153,7 @@ const validateLocalSkill = async (skillPaths: SkillPaths): Promise<LocalValidati
 		throw new Error(`${skillPaths.skillName}: rules/_sections.md must define at least one section.`);
 	}
 
-	// 한국어 제목은 모든 skill에 필요
+	// 한국어 제목은 모든 skill에 필요하다.
 	for (const section of sections) {
 		if (!section.titleKo) {
 			throw new Error(`${skillPaths.skillName}: section "${section.title}" is missing "**TitleKo:**" in rules/_sections.md.`);
@@ -224,13 +231,15 @@ const validateLocalSkill = async (skillPaths: SkillPaths): Promise<LocalValidati
 			);
 		}
 
-		// Correct는 하나 이상 필수, Incorrect는 선택. 도구 설정처럼 대비가 뜻이 없는 규칙은 Correct만
+		// Correct는 하나 이상 필수이고 Incorrect는 선택이다. 도구 설정처럼 대비가 뜻이 없는 규칙은
+		// Correct만 둔다.
 		if (!rule.body.includes("**Correct")) {
 			throw new Error(`${skillPaths.skillName}: ${rule.fileName} must contain at least one Correct section.`);
 		}
 	}
 
-	// 파일명 번호 접두사(`NN-MM-`)는 사람용 탐색 표지. 섹션 번호와 어긋나거나 건너뛰면 표지가 거짓
+	// 파일명 번호 접두사(`NN-MM-`)는 사람용 탐색 표지라서 섹션 번호와 어긋나거나 건너뛰면
+	// 표지가 거짓이 된다.
 	for (const section of sections) {
 		const sectionRules = rules.filter((rule) => rule.prefix === section.prefix);
 		const numberedOrders: number[] = [];
@@ -320,9 +329,10 @@ const validateSkillTree = async (args: ValidateSkillTreeArgs): Promise<LocalVali
 };
 
 // ----------------------------------------------------------------------------------------
-// 저장소 전체 규칙 stable ID 수집, 산문 참조 검사용
+// 저장소 전체 규칙 stable ID 수집
 //
-// 의존성 트리로 좁히면 아래 계층이 위 계층을 알려 주는 배제 문장까지 막힘
+// 산문 참조 검사에 쓴다. 의존성 트리로 좁히면 아래 계층이 위 계층을 알려 주는 배제
+// 문장까지 막힌다.
 // ----------------------------------------------------------------------------------------
 const collectAllRuleIds = async (skillRootDir?: string): Promise<{ids: Set<string>; prefixes: Set<string>}> => {
 	const ids = new Set<string>();

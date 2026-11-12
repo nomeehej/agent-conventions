@@ -6,10 +6,16 @@ import {Button} from "@/component/ui/button/button";
 
 // ----------------------------------------------------------------------------------------
 // [!code ++]
-// 버튼 story, 사용 지침은 Figma 라이브러리의 button master 설명
+// 버튼 story
 //
-// Variant=Fill: variant="primary"
-// Variant=Outline: variant="secondary"
+// [!code ++]
+// 사용 지침은 Figma 라이브러리의 button master 설명에 둔다.
+//
+//   Variant=Fill
+//      variant="primary"로 대응한다.
+//
+//   Variant=Outline
+//      variant="secondary"로 대응한다.
 // ----------------------------------------------------------------------------------------
 const meta = {
 	title: "component/ui/button",

@@ -8,7 +8,7 @@ import {PanelRoot} from "@/component/ui/panel/panel-root";
 import {PanelSpacer} from "@/component/ui/panel/panel-spacer";
 
 // [!code error]
-// 사용처가 끼워 넣을 자리가 없는 래퍼와 여백 보정용 DOM까지 이름이 붙어 노출
+// 사용처가 끼워 넣을 자리가 없는 래퍼와 여백 보정용 DOM까지 이름이 붙어 노출된다.
 export const Panel = {
 	Root: PanelRoot,
 	Header: PanelHeader,

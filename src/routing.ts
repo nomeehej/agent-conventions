@@ -4,14 +4,14 @@ import {assertRoutingCondition, assertValidRoutingIdentifier, assertValidRuleTar
 import type {LoadedSkillDocument, SkillCompanion, SkillRule, SkillSection} from "./types.js";
 
 // ----------------------------------------------------------------------------------------
-// 섹션 하나에 둘 수 있는 규칙 수의 상한, 섹션 순서를 앞자리로 밀어 정렬 키 생성
+// 섹션 하나에 둘 수 있는 규칙 수의 상한
+//
+// 섹션 순서를 앞자리로 밀어 정렬 키를 만든다.
 // ----------------------------------------------------------------------------------------
 const sectionOrdinalStride = 1_000;
 
 const compareRoutingText = (left: string, right: string): number => {
-	if (left < right) {
-		return -1;
-	}
+	if (left < right) return -1;
 
 	return left > right ? 1 : 0;
 };
@@ -23,9 +23,11 @@ const supportedImpactLevels = new Set(["CRITICAL", "HIGH", "MEDIUM"]);
 export const escapeMarkdownText = (value: string): string => value.replace(/[\r\n]+/g, " ").replace(/([\\`*_[\]()<>!|])/g, "\\$1");
 
 // ----------------------------------------------------------------------------------------
-// 표가 아닌 단독 줄에 넣을 scalar 정리, 스팬 밖의 링크와 강조 구문만 무력화
+// 표가 아닌 단독 줄에 넣을 scalar 정리
 //
-// 코드 스팬 안은 그대로 둠 → `React.*` 같은 표기 유지
+// 스팬 밖의 링크와 강조 구문만 무력화한다.
+//
+// 코드 스팬 안은 그대로 두므로 `React.*` 같은 표기가 유지된다.
 //
 // escapeMarkdownProse("`React.*` *굵게*") → "`React.*` \*굵게\*"
 // ----------------------------------------------------------------------------------------
@@ -51,8 +53,11 @@ const encodePathSegment = (value: string): string => encodeURIComponent(value);
 // ----------------------------------------------------------------------------------------
 // 기준 라우팅 원본 조립 입력
 //
-// sections: sortSections로 정렬된 local section 목록
-// companions: sortCompanions로 정렬된 직접 companion 목록
+//   sections
+//      sortSections로 정렬된 local section 목록이다.
+//
+//   companions
+//      sortCompanions로 정렬된 직접 companion 목록이다.
 // ----------------------------------------------------------------------------------------
 interface CanonicalRoutingSourceArgs {
 	document: LoadedSkillDocument;
@@ -63,7 +68,9 @@ interface CanonicalRoutingSourceArgs {
 export const toRuleId = (rule: SkillRule): string => toRuleStableId(rule.fileName);
 
 // ----------------------------------------------------------------------------------------
-// 파일명 번호 접두사에서 section 안 정렬 키 계산, 번호가 없으면 제목 정렬
+// section 안 정렬 키
+//
+// 파일명 번호 접두사에서 계산하고 번호가 없으면 제목으로 정렬한다.
 // ----------------------------------------------------------------------------------------
 const calculateRuleFileOrder = (rule: SkillRule): number => {
 	const numbered = /^(\d+)-(\d+)-/.exec(rule.fileName);
@@ -72,12 +79,16 @@ const calculateRuleFileOrder = (rule: SkillRule): number => {
 };
 
 // ----------------------------------------------------------------------------------------
-// 라우팅 간선 대상을 생성물과 검증기가 공유하는 코드 포인트 순서로 정렬
+// 라우팅 간선 대상 정렬
+//
+// 생성물과 검증기가 공유하는 코드 포인트 순서로 정렬한다.
 // ----------------------------------------------------------------------------------------
 export const sortRoutingTargets = (targets: string[]): string[] => [...targets].sort(compareRoutingText);
 
 // ----------------------------------------------------------------------------------------
-// 섹션 접두사가 같은 local 규칙 목록, 제목과 ID는 en-US 로캘 순서로 비교
+// 섹션 접두사가 같은 local 규칙 목록
+//
+// 제목과 ID는 en-US 로캘 순서로 비교한다.
 // ----------------------------------------------------------------------------------------
 export const filterRulesForSection = (section: SkillSection, rules: SkillRule[]): SkillRule[] =>
 	rules
@@ -90,7 +101,9 @@ export const filterRulesForSection = (section: SkillSection, rules: SkillRule[])
 		);
 
 // ----------------------------------------------------------------------------------------
-// compact index 전용, 제목과 ID는 로캘이 아닌 코드 포인트 순서로 비교
+// compact index 전용 정렬
+//
+// 제목과 ID는 로캘이 아닌 코드 포인트 순서로 비교한다.
 // ----------------------------------------------------------------------------------------
 const filterRoutingRulesForSection = (section: SkillSection, rules: SkillRule[]): SkillRule[] =>
 	rules
@@ -107,29 +120,30 @@ const exampleMarkerPattern = /^ {0,3}\*\*(Incorrect|Correct)(?:\s+\d+)?(?:\s+\(.
 // ----------------------------------------------------------------------------------------
 // 규범 산문 안에 둘 수 있는 유일한 펜스 언어
 //
-// 흐름도는 예시가 아니라 산문의 일부 → Incorrect 경계 앞에 올 수 있음
+// 흐름도는 예시가 아니라 산문의 일부이므로 Incorrect 경계 앞에 올 수 있다.
 // ----------------------------------------------------------------------------------------
 const proseFenceLanguage = "mermaid";
 const fencePattern = /^ {0,3}(`{3,}|~{3,})(.*)$/;
 
 // ----------------------------------------------------------------------------------------
-// 생성 contract 줄 끝 공백 제거, Markdown 강제 줄바꿈 의미는 백슬래시로 보존
+// 생성 contract의 줄 끝 공백 제거
+//
+// Markdown 강제 줄바꿈 의미는 백슬래시로 보존한다.
 // ----------------------------------------------------------------------------------------
 const normalizeContractLine = (line: string): string => {
 	const hasMarkdownHardBreak = / {2,}$/.test(line);
 	const normalizedLine = line.trimEnd();
 
-	if (normalizedLine.length === 0) {
-		return "";
-	}
+	if (normalizedLine.length === 0) return "";
 
 	return hasMarkdownHardBreak ? `${normalizedLine}\\` : normalizedLine;
 };
 
 // ----------------------------------------------------------------------------------------
-// 여러 줄로 접어 쓴 `**Impact: ...**` 선언을 한 줄로 복원
+// 여러 줄로 접어 쓴 `**Impact: ...**` 선언의 복원
 //
-// 긴 선언은 소스에서 접어 쓰고 여기서 이어 붙임 → 계약 비교는 한 줄 기준 유지
+// 한 줄로 이어 붙인다. 긴 선언은 소스에서 접어 쓰고 여기서 이어 붙이므로 계약 비교는 한 줄
+// 기준으로 유지된다.
 // ----------------------------------------------------------------------------------------
 const joinFoldedImpactDeclaration = (lines: readonly string[]): string[] => {
 	const joined: string[] = [];
@@ -152,8 +166,11 @@ const joinFoldedImpactDeclaration = (lines: readonly string[]): string[] => {
 // ----------------------------------------------------------------------------------------
 // 전체 규칙 본문에서 뽑은 compact contract 조각
 //
-// normativeBody: 첫 예시 라벨 앞 규범 산문, 헤딩은 `#` 한 단계 올림
-// firstExamplePair: 첫 예시 라벨부터 첫 Correct 펜스 끝까지, MEDIUM contract에 그대로 실림
+//   normativeBody
+//      첫 예시 라벨 앞 규범 산문이고 헤딩은 `#` 한 단계 올린다.
+//
+//   firstExamplePair
+//      첫 예시 라벨부터 첫 Correct 펜스 끝까지이고 MEDIUM contract에 그대로 실린다.
 // ----------------------------------------------------------------------------------------
 interface NormativeRuleContract {
 	normativeBody: string;
@@ -161,7 +178,9 @@ interface NormativeRuleContract {
 }
 
 // ----------------------------------------------------------------------------------------
-// 전체 규칙 본문에서 펜스 예시 밖의 첫 Incorrect 경계와 규범 앞부분 검증
+// 규범 앞부분과 첫 Incorrect 경계 검증
+//
+// 전체 규칙 본문에서 펜스 예시 밖의 경계를 찾는다.
 // ----------------------------------------------------------------------------------------
 const readNormativeRuleContract = (rule: SkillRule): NormativeRuleContract => {
 	const normalizedBody = rule.body.replace(/\r\n?/g, "\n");
@@ -230,7 +249,8 @@ const readNormativeRuleContract = (rule: SkillRule): NormativeRuleContract => {
 					throw new Error(`${toRuleId(rule)}: ${pendingExampleMarker} marker must be followed by a fenced example.`);
 				}
 
-				// 첫 예시 라벨이 규범과 예시의 경계. 도구 설정처럼 대비가 뜻이 없는 규칙은 Correct만 가능
+				// 첫 예시 라벨이 규범과 예시의 경계이고, 도구 설정처럼 대비가 뜻이 없는 규칙은 Correct만
+				// 가능하다.
 				if (incorrectBoundaryOffset === undefined) {
 					incorrectBoundaryOffset = currentOffset;
 				}
@@ -295,7 +315,9 @@ const readNormativeRuleContract = (rule: SkillRule): NormativeRuleContract => {
 };
 
 // ----------------------------------------------------------------------------------------
-// Selected, Unknown 규칙이 기본 로드할 compact contract 생성
+// 기본 로드할 compact contract 생성
+//
+// Selected, Unknown 규칙이 대상이다.
 // ----------------------------------------------------------------------------------------
 export const generateRuleContractMarkdown = (rule: SkillRule): string => {
 	if (!supportedImpactLevels.has(rule.impact)) {
@@ -316,13 +338,8 @@ export const generateRuleContractMarkdown = (rule: SkillRule): string => {
 	const fullRuleNotice = (tail: string): string =>
 		`# ${escapeMarkdownText(rule.title)}\n\n**Impact: ${rule.impact}**${routingMetadataBlock}\n\n> ${rule.impact} rule: must read the [full rule](${fullRuleLink}) in full, prose and every example, before implementation or review${tail}.\n`;
 
-	if (rule.impact === "CRITICAL") {
-		return fullRuleNotice(", and re-check the result against its Correct examples before completion");
-	}
-
-	if (rule.impact === "HIGH") {
-		return fullRuleNotice("");
-	}
+	if (rule.impact === "CRITICAL") return fullRuleNotice(", and re-check the result against its Correct examples before completion");
+	if (rule.impact === "HIGH") return fullRuleNotice("");
 
 	return `${normativeBody}${routingMetadataBlock}\n\n${firstExamplePair}\n\n> 나머지 예시와 예외는 [full rule](${fullRuleLink})에 있습니다.\n`;
 };
@@ -334,7 +351,9 @@ const sortSections = (sections: SkillSection[]): SkillSection[] =>
 	);
 
 // ----------------------------------------------------------------------------------------
-// compact index와 같은 순서의 local 규칙 stable ID 목록 계산
+// local 규칙 stable ID 목록 계산
+//
+// compact index와 같은 순서로 계산한다.
 // ----------------------------------------------------------------------------------------
 export const toCanonicalRoutingRuleIds = (document: LoadedSkillDocument): string[] =>
 	sortSections(document.sections).flatMap((section) => filterRoutingRulesForSection(section, document.rules).map(toRuleId));
@@ -409,7 +428,7 @@ const assertDirectCompanions = (skillName: string, companions: SkillCompanion[])
 // ----------------------------------------------------------------------------------------
 // 라우팅에 영향을 주는 값만 정규 JSON으로 직렬화
 //
-// 결과의 sha256이 `RULES_INDEX.md`의 Routing digest
+// 결과의 sha256이 `RULES_INDEX.md`의 Routing digest다.
 // ----------------------------------------------------------------------------------------
 const createCanonicalRoutingSource = (args: CanonicalRoutingSourceArgs): string => {
 	const {document, sections, companions} = args;
@@ -452,10 +471,10 @@ export const toRoutingOrdinalPrefix = (skillName: string): string => {
 };
 
 // ----------------------------------------------------------------------------------------
-// 규칙 파일명의 `NN-MM-` 번호로 local 순번 계산
+// 규칙 파일명의 `NN-MM-` 번호로 계산한 local 순번
 //
-// 사이트 번호와 `rules/` 파일명 번호가 같아야 사람이 규칙을 바로 찾음
-// 파일명 번호는 validate에서 선택이라 번호가 없으면 예전처럼 순번
+// 사이트 번호와 `rules/` 파일명 번호가 같아야 사람이 규칙을 바로 찾는다. 파일명 번호는
+// validate에서 선택이라 번호가 없으면 파일 순번을 쓴다.
 //
 // formatRoutingOrdinal("react", "03-02-foo.md", 5) → "R03-02"
 // formatRoutingOrdinal("react", "foo.md", 5) → "R05"
@@ -464,9 +483,7 @@ export const formatRoutingOrdinal = (skillName: string, fileName: string, localO
 	const ordinalPrefix = toRoutingOrdinalPrefix(skillName);
 	const numberMatch = /^(\d+)-(\d+)-/.exec(fileName);
 
-	if (!numberMatch) {
-		return `${ordinalPrefix}${String(localOrdinal).padStart(2, "0")}`;
-	}
+	if (!numberMatch) return `${ordinalPrefix}${String(localOrdinal).padStart(2, "0")}`;
 
 	const [, sectionNumber, ruleNumber] = numberMatch;
 
@@ -474,7 +491,9 @@ export const formatRoutingOrdinal = (skillName: string, fileName: string, localO
 };
 
 // ----------------------------------------------------------------------------------------
-// compact `RULES_INDEX.md` 생성, 같은 입력은 항상 같은 결과
+// compact `RULES_INDEX.md` 생성
+//
+// 같은 입력은 항상 같은 결과를 낸다.
 // ----------------------------------------------------------------------------------------
 export const generateRulesIndexMarkdown = (document: LoadedSkillDocument, directCompanions: SkillCompanion[]): string => {
 	const orderedSections = sortSections(document.sections);

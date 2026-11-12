@@ -1,5 +1,7 @@
 // ----------------------------------------------------------------------------------------
-// 에이전트가 읽는 생성물과 라우터의 계약, 규칙 산문은 핀하지 않고 구조만 확인
+// 에이전트가 읽는 생성물과 라우터의 계약
+//
+// 규칙 산문은 핀하지 않고 구조만 확인한다.
 // ----------------------------------------------------------------------------------------
 import assert from "node:assert/strict";
 import {access, readFile} from "node:fs/promises";
@@ -60,7 +62,7 @@ test("TypeScript SKILL.md is a compact router without receipt or audit machinery
 	assertRouterProtocol(body);
 	assertRemovedApparatusStaysGone(body);
 
-	// companion 경계. typescript는 companion으로 들어오므로 React, CSS 경계만 되짚음
+	// companion 경계에서 typescript는 companion으로 들어오므로 React, CSS 경계만 되짚는다.
 	assertMentions(extractSection(body, 1), ["React", "CSS", "companion"], "typescript 1절");
 });
 
@@ -72,7 +74,7 @@ test("React SKILL.md is a compact router with required TypeScript and conditiona
 	assertRouterProtocol(body);
 	assertRemovedApparatusStaysGone(body);
 
-	// companion 경계. typescript는 무조건, css는 스타일 영역이 바뀔 때만 켬
+	// companion 경계에서 typescript는 무조건 켜고 css는 스타일 영역이 바뀔 때만 켠다.
 	const reactScope = extractSection(body, 1);
 
 	assertMentions(reactScope, ["`convention-typescript`", "`convention-css`", "class contract"], "react 1절");
@@ -90,7 +92,7 @@ test("CSS SKILL.md is a compact router with companion boundaries", async () => {
 	assertRouterProtocol(body);
 	assertRemovedApparatusStaysGone(body);
 
-	// companion 경계. 순수 CSS 변경이면 둘 다 켜지 않음
+	// 순수 CSS 변경이면 companion 둘을 다 켜지 않는다.
 	const cssScope = extractSection(body, 1);
 
 	assertMentions(cssScope, ["`convention-react`", "`convention-typescript`", "순수 CSS"], "css 1절");

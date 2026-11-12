@@ -12,7 +12,8 @@ test.use({ timezoneId: "Asia/Seoul" });
 test("응답과 화면이 같은 기준 날짜를 사용한다", async ({ page }) => {
 	// GIVEN 브라우저와 Node가 공유하는 날짜
 	await page.clock.setFixedTime(dayjs(scenario_clock.instant).toDate());
-	// 생성기 없는 프로젝트의 응답 덮어쓰기
+
+	// 생성기가 없는 프로젝트라서 응답을 직접 덮어쓴다.
 	await page.route("**/api/reports/range", async (route) => {
 		await route.fulfill({
 			json: { startDate: scenario_clock.date, endDate: scenario_clock.date },

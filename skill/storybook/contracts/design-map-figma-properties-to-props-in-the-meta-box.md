@@ -2,7 +2,7 @@
 
 **Impact: MEDIUM (Figma 값을 보고 story를 쓸 때 맞는 프롭 값을 그 자리에서 찾아 없는 값을 쓰지 않습니다)**
 
-Figma 속성과 프롭의 이름이나 값이 다르면 meta 위 상자에 `속성=값: 프롭` 목록으로 대응을 적습니다.
+Figma 속성과 프롭의 이름이나 값이 다르면 meta 위 상자에 `속성=값` 항목을 두고 설명에 대응하는 프롭을 적습니다.
 이름과 값이 같은 속성은 적지 않습니다.
 프롭 이름을 Figma에 맞출지는 부품 설계가 정하고 이 목록은 지금의 대응만 적습니다.
 
@@ -42,11 +42,18 @@ import {fn} from "storybook/test";
 import {Button} from "@/component/ui/button/button";
 
 // ----------------------------------------------------------------------------------------
-// 버튼 story, Figma 속성과 이름이 다른 프롭 대응
+// 버튼 story
 //
-// Variant=Fill: variant="primary"
-// Variant=Outline: variant="secondary"
-// State=Disabled: disabled
+// Figma 속성과 이름이 다른 프롭의 대응을 적는다.
+//
+//   Variant=Fill
+//      variant="primary"로 대응한다.
+//
+//   Variant=Outline
+//      variant="secondary"로 대응한다.
+//
+//   State=Disabled
+//      disabled로 대응한다.
 // ----------------------------------------------------------------------------------------
 const meta = {
 	title: "component/ui/button",

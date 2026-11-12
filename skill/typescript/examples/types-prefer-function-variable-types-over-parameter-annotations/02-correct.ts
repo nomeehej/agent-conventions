@@ -1,4 +1,4 @@
-// 이미 있는 계약
+// 이미 있는 계약이다.
 interface UserFormatters {
 	toRoleLabel: (role: UserRole) => string;
 	toActiveLabel: (isActive: boolean) => string;

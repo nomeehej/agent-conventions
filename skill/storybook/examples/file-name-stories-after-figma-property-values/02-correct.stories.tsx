@@ -20,7 +20,7 @@ export const Filled: Story = {};
 // [!code ++]
 export const Placeholder: Story = {args: {value: ""}};
 
-// 전역 Error와 이름 중첩 → 지역 이름만 변경
+// 전역 Error와 이름이 겹치므로 지역 이름만 바꾼다.
 const ErrorStory: Story = {args: {error: true, helperText: "상품명을 입력하세요"}};
 // [!code ++]
 export {ErrorStory as Error};

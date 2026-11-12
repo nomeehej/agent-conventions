@@ -32,7 +32,7 @@
 
 ```css
 .productDetailPage__toolbar {
-	/* 스크롤 컨테이너는 .productDetailPage__content */
+	/* 스크롤 컨테이너는 .productDetailPage__content다. */
 	position: sticky;
 	top: 0;
 	z-index: var(--app-z-index-sticky);

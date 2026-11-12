@@ -1,5 +1,5 @@
 /* [!code ++] */
-/* button.css: 폭 지정 없음 */
+/* button.css는 폭을 지정하지 않는다. */
 .button__root {
 	display: inline-flex;
 	align-items: center;

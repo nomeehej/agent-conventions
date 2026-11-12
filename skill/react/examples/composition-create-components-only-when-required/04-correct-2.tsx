@@ -1,4 +1,4 @@
-// page/products/delete-product-button.tsx: 초안 행에만 렌더, 이 버튼만 쓰는 삭제 뮤테이션 보유
+// page/products/delete-product-button.tsx: 초안 행에만 그리고 삭제 뮤테이션을 가진다.
 export interface DeleteProductButtonProps {
 	productId: string;
 }
@@ -8,9 +8,11 @@ export const DeleteProductButton = (props: DeleteProductButtonProps) => {
 	const queryClient = useQueryClient();
 
 	// ----------------------------------------------------------------------------------------
-	// 상품 삭제 요청, 초안 행이 아니면 이 구독도 없음
+	// 상품 삭제 요청
 	//
-	// 삭제가 목록과 요약 집계를 함께 바꿔 둘 다 무효화
+	// 초안 행이 아니면 이 훅도 호출되지 않는다.
+	//
+	// 삭제가 목록과 요약 집계를 함께 바꾸므로 둘 다 무효화한다.
 	// ----------------------------------------------------------------------------------------
 	// [!code ++]
 	const mutationProductRemove = useProductRemove({
@@ -26,9 +28,7 @@ export const DeleteProductButton = (props: DeleteProductButtonProps) => {
 	});
 
 	const handleDeleteButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
-		if (mutationProductRemove.isPending) {
-			return;
-		}
+		if (mutationProductRemove.isPending) return;
 
 		mutationProductRemove.mutate({params: {productId: props.productId}});
 	};

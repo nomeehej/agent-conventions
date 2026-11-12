@@ -9,7 +9,8 @@ import {fileURLToPath} from "node:url";
 
 const currentDir = path.dirname(fileURLToPath(import.meta.url));
 const repoDir = path.resolve(currentDir, "..");
-// package.json 이 저장소 루트에 있음
+
+// package.json이 저장소 루트에 있다.
 const packageDir = repoDir;
 const _repositoryAgentsPath = path.join(repoDir, "AGENTS.md");
 const _repositoryReadmePath = path.join(repoDir, "README.md");
@@ -18,7 +19,7 @@ const reactIndexPath = path.join(repoDir, "skill/react/RULES_INDEX.md");
 const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
 const packageBinDir = path.join(packageDir, "node_modules/.bin");
 const nodeBinDir = path.dirname(process.execPath);
-// biome-ignore lint/style/useNamingConvention: PATH는 OS가 정한 환경변수 이름이라 변경 불가
+// biome-ignore lint/style/useNamingConvention: PATH는 OS가 정한 환경변수 이름이다.
 const commandEnv = {...process.env, PATH: [packageBinDir, nodeBinDir, process.env.PATH ?? ""].join(path.delimiter)};
 const tsxCliPath = path.join(packageDir, "node_modules", "tsx", "dist", "cli.mjs");
 const buildModulePath = path.join(packageDir, "script", "build.ts");
@@ -27,7 +28,10 @@ const _expectedSkillScriptNames = ["react", "css", "typescript", "testing", "fig
 const _expectedProgressiveSkillNames = ["blueprint", "css", "figma", "react", "testing", "typescript"] as const;
 
 // ----------------------------------------------------------------------------------------
-// exact Markdown section 조회 조건, heading은 `#` prefix를 제외한 exact heading
+// exact Markdown section 조회 조건
+//
+//   heading
+//      `#` prefix를 제외한 exact heading이다.
 // ----------------------------------------------------------------------------------------
 interface MarkdownSectionQuery {
 	source: string;
@@ -36,7 +40,10 @@ interface MarkdownSectionQuery {
 }
 
 // ----------------------------------------------------------------------------------------
-// exact Markdown table 조회 조건, section은 table을 포함해야 하는 section body
+// exact Markdown table 조회 조건
+//
+//   section
+//      table을 포함해야 하는 section body다.
 // ----------------------------------------------------------------------------------------
 interface MarkdownTableQuery {
 	section: string;
@@ -86,7 +93,9 @@ const _listMarkdownFiles = async (dirPath: string): Promise<string[]> => {
 };
 
 // ----------------------------------------------------------------------------------------
-// fenced/indented code와 HTML 주석을 제외한 Markdown 렌더링 line 목록 생성
+// Markdown 렌더링 line 목록
+//
+// fenced/indented code와 HTML 주석은 제외한다.
 // ----------------------------------------------------------------------------------------
 const filterRenderableMarkdownLines = (sourceLines: readonly string[]): string[] => {
 	const renderableLines: string[] = [];
@@ -183,7 +192,9 @@ const filterRenderableMarkdownLines = (sourceLines: readonly string[]): string[]
 };
 
 // ----------------------------------------------------------------------------------------
-// 렌더링 가능한 exact heading으로 원본 Markdown section body 추출
+// 원본 Markdown section body 추출
+//
+// 렌더링 가능한 exact heading으로 찾는다.
 // ----------------------------------------------------------------------------------------
 const _extractMarkdownSection = (query: MarkdownSectionQuery): string => {
 	const {source, heading, level} = query;
@@ -229,7 +240,9 @@ const _extractMarkdownSection = (query: MarkdownSectionQuery): string => {
 };
 
 // ----------------------------------------------------------------------------------------
-// unfenced contiguous Markdown table을 exact header와 column shape로 검증
+// Markdown table 검증
+//
+// unfenced contiguous table을 exact header와 column shape로 검증한다.
 // ----------------------------------------------------------------------------------------
 const _parseMarkdownTableRows = (query: MarkdownTableQuery): string[][] => {
 	const {section, expectedHeader} = query;
@@ -290,9 +303,7 @@ const _parseMarkdownTableRows = (query: MarkdownTableQuery): string[][] => {
 const runPackageCommand = (args: string[]) => {
 	const npmCheckResult = spawnSync(npmCommand, ["--version"], {cwd: repoDir, encoding: "utf8", env: commandEnv});
 
-	if (npmCheckResult.status === 0) {
-		return spawnSync(npmCommand, args, {cwd: repoDir, encoding: "utf8", env: commandEnv});
-	}
+	if (npmCheckResult.status === 0) return spawnSync(npmCommand, args, {cwd: repoDir, encoding: "utf8", env: commandEnv});
 
 	const runIndex = args.indexOf("run");
 	const scriptName = args[runIndex + 1];

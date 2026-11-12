@@ -19,7 +19,7 @@ export const Open: Story = {
 		await context.userEvent.click(context.canvas.getByRole("button", { name: "달력 열기" }));
 		const grid = await screen.findByRole("grid");
 
-		// 전환 효과가 끝나기 전에는 opacity 0이라 보일 때까지 대기
+		// 전환 효과가 끝나기 전에는 opacity가 0이므로 보일 때까지 기다린다.
 		// [!code ++]
 		await waitFor(() => expect(grid).toBeVisible());
 	},

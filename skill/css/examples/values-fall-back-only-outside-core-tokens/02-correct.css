@@ -1,4 +1,4 @@
-/* src/style/token.css: 공통 토큰 목록의 단일 출처 */
+/* src/style/token.css는 공통 토큰 목록의 단일 출처다. */
 :root {
 	--app-space-inline: 12px;
 	--app-color-text-primary: #212529;

@@ -23,7 +23,9 @@ const tsxCliPath = path.join(packageDir, "node_modules", "tsx", "dist", "cli.mjs
 const validateModulePath = path.join(packageDir, "script", "validate.ts");
 
 // ----------------------------------------------------------------------------------------
-// 계약 생성이 반드시 실패하는 본문, build 트랜잭션이 기존 생성물을 덮지 않는지 확인용
+// 계약 생성이 반드시 실패하는 본문
+//
+// build 트랜잭션이 기존 생성물을 덮지 않는지 확인하는 용도다.
 // ----------------------------------------------------------------------------------------
 const EmptyExampleBody = [
 	"---",
@@ -94,16 +96,15 @@ const defaultMetadata = {
 const createFixtureRoot = async (): Promise<string> => await mkdtemp(path.join(tmpdir(), "agent-conventions-progressive-"));
 
 const buildFrontmatter = (rule: RuleFixture): string => {
-	if (rule.frontmatter !== undefined) {
-		return rule.frontmatter;
-	}
+	if (rule.frontmatter !== undefined) return rule.frontmatter;
 
 	return [
 		`title: ${rule.title ?? "Fixture Rule"}`,
 		`titleKo: ${rule.titleKo ?? "픽스처 규칙"}`,
 		`impact: ${rule.impact ?? "HIGH"}`,
 		`impactDescription: ${rule.impactDescription ?? "Fixture impact description."}`,
-		// null 은 키 자체를 뺀 fixture. 기본값은 유효한 조건
+
+		// null은 키 자체를 뺀 fixture이고 기본값은 유효한 조건이다.
 		rule.appliesWhen === null ? undefined : `appliesWhen: ${rule.appliesWhen ?? "Editing fixture code."}`,
 		rule.requiresSelected === undefined ? undefined : `requiresSelected: ${rule.requiresSelected.join(", ")}`,
 		rule.requiredOnCompletion === undefined ? undefined : `requiredOnCompletion: ${String(rule.requiredOnCompletion)}`,
@@ -216,7 +217,9 @@ const readFileTreeSnapshot = async (rootDir: string, currentDir: string = rootDi
 };
 
 // ----------------------------------------------------------------------------------------
-// renderer 단위 테스트용 progressive skill 문서 생성
+// progressive skill 문서 생성
+//
+// renderer 단위 테스트에 쓴다.
 // ----------------------------------------------------------------------------------------
 const createRoutingDocument = (): LoadedSkillDocument => ({
 	skillName: "react",
@@ -296,7 +299,7 @@ const readRoutingDigest = (source: string): string => {
 
 const readRealSkillGitStatus = (): string => {
 	const result = spawnSync("git", ["status", "--short", "--untracked-files=all", "--", "skill"], {
-		// package.json 이 저장소 루트에 있어 git 루트와 같음
+		// package.json이 저장소 루트에 있어 git 루트와 같다.
 		cwd: packageDir,
 		encoding: "utf8",
 	});
@@ -388,7 +391,7 @@ test("generated MEDIUM contract preserves the normative prefix and carries only 
 });
 
 test("long Impact and Description declarations may fold across source lines", () => {
-	// 규칙 본문. 접어 써도 계약에는 한 줄로 들어감
+	// 규칙 본문을 접어 써도 계약에는 한 줄로 들어간다.
 	const foldedRule = createRoutingDocument().rules[0];
 	foldedRule.impact = "MEDIUM";
 	foldedRule.body = [
@@ -414,14 +417,14 @@ test("long Impact and Description declarations may fold across source lines", ()
 
 	assert.match(generateRuleContractMarkdown(foldedRule), /^\*\*Impact: MEDIUM \(State impact\.\)\*\*$/m);
 
-	// 접었다고 frontmatter와 어긋나도 되는 건 아님
+	// 접었다고 frontmatter와 어긋나도 되는 것은 아니다.
 	const driftedRule = createRoutingDocument().rules[0];
 	driftedRule.impact = "MEDIUM";
 	driftedRule.body = foldedRule.body.replace("impact.)**", "impact drift.)**");
 
 	assert.throws(() => generateRuleContractMarkdown(driftedRule), /state-observe.*Impact declaration matching frontmatter/i);
 
-	// _sections.md의 Description도 마찬가지
+	// _sections.md의 Description도 마찬가지다.
 	const sections = parseSections(
 		[
 			"# 섹션",
@@ -450,7 +453,8 @@ test("generated rule contract rejects missing boundaries and oversized normative
 	unfencedExamplesRule.body = "## Observe State\n\n**Impact: HIGH (State impact.)**\n\nNormative guidance.\n\n**Incorrect**\n\n**Correct**";
 	assert.throws(() => generateRuleContractMarkdown(unfencedExamplesRule), /state-observe.*Incorrect.*fenced example/i);
 
-	// 도구 설정처럼 대비가 뜻이 없는 규칙은 Correct만 가능. MEDIUM 계약은 그 첫 Correct를 실음
+	// 도구 설정처럼 대비가 뜻이 없는 규칙은 Correct만 가능하고, MEDIUM 계약은 그 첫 Correct를
+	// 싣는다.
 	const correctOnlyRule = createRoutingDocument().rules[0];
 	correctOnlyRule.impact = "MEDIUM";
 	correctOnlyRule.body =
@@ -1333,7 +1337,8 @@ test("document resolver keeps a per-call document cache for diamond graphs", asy
 test("progressive rules require a short, non-empty, one-line appliesWhen", async () => {
 	const invalidConditions = [
 		{appliesWhen: null, expected: /appliesWhen.*one-line.*160/i},
-		// 값 없는 키는 block list 시작으로 읽혀 항목 없음 오류
+
+		// 값 없는 키는 block list 시작으로 읽혀 항목 없음 오류가 난다.
 		{appliesWhen: "", expected: /appliesWhen.*no "- " items/i},
 		{appliesWhen: `line one\nline two`, expected: /Invalid frontmatter line.*one line/i},
 		{appliesWhen: "x".repeat(161), expected: /appliesWhen.*one-line.*160/i},
@@ -1499,7 +1504,9 @@ test("diamond companion graphs validate and resolve each skill once", async () =
 				],
 			},
 		});
-		// validate 는 매니페스트까지 본다. 네 skill 을 모두 켜고 owner 규칙 하나를 고르는 시나리오 하나
+
+		// validate는 매니페스트까지 보므로 네 skill을 모두 켜고 owner 규칙 하나를 고르는
+		// 시나리오를 하나 둔다.
 		await writeFile(
 			path.join(skillRootDir, "owner", "routing-evals.json"),
 			`${JSON.stringify({

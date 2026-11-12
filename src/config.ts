@@ -8,14 +8,17 @@ import type {CliArgs, PackagePaths, SkillPaths} from "./types.js";
 
 const currentDir = path.dirname(fileURLToPath(import.meta.url));
 const packageDir = path.resolve(currentDir, "..");
-// package.json 이 저장소 루트에 있어 둘이 같음
+
+// package.json이 저장소 루트에 있어 packageDir과 repoDir이 같다.
 const repoDir = packageDir;
 const skillRootDir = path.join(repoDir, "skill");
 
 export const packagePaths: PackagePaths = {currentDir, packageDir, repoDir, skillRootDir};
 
 // ----------------------------------------------------------------------------------------
-// 공개 규칙 페이지 생성 경로, 생성물은 커밋 대상에서 제외
+// 공개 규칙 페이지 생성 경로
+//
+// 생성물은 커밋 대상에서 제외한다.
 // ----------------------------------------------------------------------------------------
 export const siteOutputDir = path.join(repoDir, "content", "public", "convention");
 
@@ -46,9 +49,7 @@ export const parseCliArgs = (args: string[]): CliArgs => {
 
 	const parsedSkillRoot = rawSkillRootDir ? {skillRootDir: path.resolve(rawSkillRootDir)} : {};
 
-	if (!all && !skill) {
-		return {all: true, skill: undefined, ...parsedSkillRoot};
-	}
+	if (!all && !skill) return {all: true, skill: undefined, ...parsedSkillRoot};
 
 	if (all && skill) {
 		throw new Error("Use either --all or --skill=<name>, not both.");
@@ -106,7 +107,9 @@ export const listSkillNames = async (targetSkillRootDir: string = skillRootDir):
 };
 
 // ----------------------------------------------------------------------------------------
-// CLI 인자가 가리키는 buildable skill 경로 목록, 이름을 지정했는데 buildable이 아니면 오류
+// CLI 인자가 가리키는 buildable skill 경로 목록
+//
+// 이름을 지정했는데 buildable이 아니면 오류다.
 // ----------------------------------------------------------------------------------------
 export const loadTargetSkillPaths = async (args: string[]): Promise<SkillPaths[]> => {
 	const {all, skill, skillRootDir: targetSkillRootDir = skillRootDir} = parseCliArgs(args);

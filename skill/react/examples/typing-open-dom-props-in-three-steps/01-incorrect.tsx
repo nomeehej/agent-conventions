@@ -1,4 +1,4 @@
-// id, role, tabIndex, aria-*, 이벤트를 전부 잃고 다섯 개만 남음
+// id, role, tabIndex, aria-*, 이벤트를 전부 잃고 다섯 개만 남는다.
 export interface ButtonProps {
 	className?: string;
 	children?: ReactNode;

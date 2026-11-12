@@ -20,14 +20,14 @@ const allowedRuleFrontmatterKeys = new Set([
 ]);
 
 // ----------------------------------------------------------------------------------------
-// 한 줄 scalar 외에 `- ` 항목 block list도 받는 frontmatter 키, 항목은 줄바꿈으로 연결
+// block list도 받는 frontmatter 키
+//
+// 한 줄 scalar 외에 `- ` 항목 block list도 받고 항목은 줄바꿈으로 연결한다.
 // ----------------------------------------------------------------------------------------
 const blockListCapableFrontmatterKeys = new Set(["appliesWhen"]);
 
 const parseBooleanScalar = (value: string | undefined, key: string): boolean => {
-	if (value === undefined) {
-		return false;
-	}
+	if (value === undefined) return false;
 
 	if (value !== "true" && value !== "false") {
 		throw new Error(`Frontmatter key "${key}" must be true or false.`);
@@ -40,9 +40,7 @@ const parseScalarValue = (rawValueSource: string, key: string): string => {
 	const rawValue = rawValueSource.trim();
 	const openingQuote = rawValue[0];
 
-	if (openingQuote !== '"' && openingQuote !== "'") {
-		return rawValue;
-	}
+	if (openingQuote !== '"' && openingQuote !== "'") return rawValue;
 
 	if (rawValue.length < 2 || rawValue.at(-1) !== openingQuote) {
 		throw new Error(`Unmatched quoted scalar for frontmatter key "${key}".`);
@@ -52,7 +50,9 @@ const parseScalarValue = (rawValueSource: string, key: string): string => {
 };
 
 // ----------------------------------------------------------------------------------------
-// YAML folded scalar 표기, 여러 줄 값을 공백 한 칸으로 접음
+// YAML folded scalar 표기
+//
+// 여러 줄 값을 공백 한 칸으로 접는다.
 // ----------------------------------------------------------------------------------------
 const foldedScalarMarker = /^\s*>-?\s*$/;
 
@@ -91,7 +91,7 @@ export const parseFrontmatter = (source: string): {frontmatter: Record<string, s
 			throw new Error(`Duplicate frontmatter key "${key}".`);
 		}
 
-		// YAML block list. 값 없이 키만 쓰면 이어지는 `- ` 항목을 조건 불렛으로 읽음
+		// 값 없이 키만 쓴 YAML block list는 이어지는 `- ` 항목을 조건 불렛으로 읽는다.
 		if (blockListCapableFrontmatterKeys.has(key) && (rawValueSource ?? "").trim().length === 0) {
 			const items: string[] = [];
 
@@ -104,12 +104,12 @@ export const parseFrontmatter = (source: string): {frontmatter: Record<string, s
 				throw new Error(`Block list frontmatter key "${key}" has no "- " items.`);
 			}
 
-			// 항목이 하나여도 scalar와 구분되도록 `- ` 접두사 유지
+			// 항목이 하나여도 scalar와 구분되도록 `- ` 접두사를 유지한다.
 			frontmatter[key] = items.map((item) => `- ${item}`).join("\n");
 			continue;
 		}
 
-		// YAML folded scalar. 긴 조건문을 소스에서는 여러 줄로, 값은 한 줄로 접음
+		// YAML folded scalar는 긴 조건문을 소스에서 여러 줄로 쓰고 값은 한 줄로 접는다.
 		if (rawValueSource !== undefined && foldedScalarMarker.test(rawValueSource)) {
 			const foldedLines: string[] = [];
 
@@ -146,7 +146,8 @@ export const parseSections = (source: string): SkillSection[] => {
 	const sections = blocks.map((block) => {
 		const headerMatch = block.match(/^## (\d+)\.\s+(.+?)\s+\(([^)]+)\)$/m);
 		const impactMatch = block.match(/^\*\*Impact:\*\*\s+(.+)$/m);
-		// Description 정규식이 탐욕적이라 TitleKo는 반드시 Description 앞
+
+		// Description 정규식이 탐욕적이므로 TitleKo는 반드시 Description 앞에 둔다.
 		const titleKoMatch = block.match(/^\*\*TitleKo:\*\*\s+(.+)$/m);
 		const leadMatch = block.match(/^\*\*Lead:\*\*\s+(.+)$/m);
 		const descriptionMatch = block.match(/^\*\*Description:\*\*\s+([\s\S]+)$/m);
@@ -165,7 +166,7 @@ export const parseSections = (source: string): SkillSection[] => {
 
 		const [, order, title, prefix] = headerMatch;
 
-		// description은 여러 줄로 써도 됨. 소스에서만 접고 값은 한 줄로 폄
+		// description은 소스에서만 여러 줄로 접어 쓰고 값은 한 줄로 편다.
 		const description = descriptionMatch[1].trim().replace(/\s+/g, " ");
 
 		return {
@@ -183,7 +184,9 @@ export const parseSections = (source: string): SkillSection[] => {
 };
 
 // ----------------------------------------------------------------------------------------
-// 헤딩, 목차 표시용 제목에서 Markdown 장식 제거, 코드 스팬 안은 그대로
+// 헤딩, 목차 표시용 제목
+//
+// Markdown 장식을 제거하고 코드 스팬 안은 그대로 둔다.
 //
 // normalizeHeadingTitle("**굵게** `a*b*` 제목") → "굵게 `a*b*` 제목"
 // ----------------------------------------------------------------------------------------
@@ -231,7 +234,8 @@ export const readSkillRules = async (skillPaths: SkillPaths): Promise<SkillRule[
 		} catch (error) {
 			throw new Error(`${skillPaths.skillName}: ${ruleFileName} ${error instanceof Error ? error.message : String(error)}`);
 		}
-		// 번호 접두사(`NN-MM-`)를 뗀 stable ID의 첫 토큰이 section 접두사
+
+		// 번호 접두사(`NN-MM-`)를 뗀 stable ID의 첫 토큰이 section 접두사다.
 		const prefix = toRuleStableId(ruleFileName).split("-")[0];
 
 		rules.push({
@@ -255,19 +259,19 @@ export const readSkillRules = async (skillPaths: SkillPaths): Promise<SkillRule[
 };
 
 // ----------------------------------------------------------------------------------------
-// appliesWhen 값을 라우팅용 한 줄 문장과 표시용 불렛 목록으로 해석
+// appliesWhen 값 해석
 //
-// block list: 불렛을 마침표로 이어 라우팅 문장 생성
-// scalar: 원문을 그대로 라우팅 문장으로 사용
+// 라우팅용 한 줄 문장과 표시용 불렛 목록으로 나눈다.
+//
+//   block list
+//      불렛을 마침표로 이어 라우팅 문장을 만든다.
+//
+//   scalar
+//      원문을 그대로 라우팅 문장으로 쓴다.
 // ----------------------------------------------------------------------------------------
 const parseAppliesWhen = (value: string | undefined): {appliesWhen?: string; appliesWhenBullets: string[]} => {
-	if (value === undefined) {
-		return {appliesWhenBullets: []};
-	}
-
-	if (!value.startsWith("- ")) {
-		return {appliesWhen: value, appliesWhenBullets: []};
-	}
+	if (value === undefined) return {appliesWhenBullets: []};
+	if (!value.startsWith("- ")) return {appliesWhen: value, appliesWhenBullets: []};
 
 	const bullets = value.split("\n").map((line) => line.replace(/^- /, ""));
 
@@ -295,9 +299,7 @@ const dedupeResolvedSkillDocuments = (documents: LoadedSkillDocument[]): LoadedS
 	const seenSkillNames = new Set<string>();
 
 	return documents.filter((document) => {
-		if (seenSkillNames.has(document.skillName)) {
-			return false;
-		}
+		if (seenSkillNames.has(document.skillName)) return false;
 
 		seenSkillNames.add(document.skillName);
 		return true;
@@ -307,8 +309,11 @@ const dedupeResolvedSkillDocuments = (documents: LoadedSkillDocument[]): LoadedS
 // ----------------------------------------------------------------------------------------
 // 해석 호출 한 번 안에서 재귀 호출이 공유하는 캐시
 //
-// documentCache: skill 이름 → 읽은 local 문서
-// resolvedDocumentCache: skill 이름 → 의존성까지 정렬을 마친 문서 배열
+//   documentCache
+//      skill 이름별로 읽은 local 문서다.
+//
+//   resolvedDocumentCache
+//      skill 이름별로 의존성까지 정렬을 마친 문서 배열이다.
 // ----------------------------------------------------------------------------------------
 interface ResolutionState {
 	documentCache: Map<string, LoadedSkillDocument>;
@@ -316,16 +321,17 @@ interface ResolutionState {
 }
 
 // ----------------------------------------------------------------------------------------
-// 의존성 문서 집합 재귀 해석, 재귀 호출이 state의 캐시를 공유
+// 의존성 문서 집합의 재귀 해석
 //
-// lineage: 지금까지 거쳐 온 skill 이름 → 순환 companion 검출
+// 재귀 호출이 state의 캐시를 공유한다.
+//
+//   lineage
+//      지금까지 거쳐 온 skill 이름이고 순환 companion을 검출하는 데 쓴다.
 // ----------------------------------------------------------------------------------------
 const loadSkillDocuments = async (skillPaths: SkillPaths, lineage: string[], state: ResolutionState): Promise<LoadedSkillDocument[]> => {
 	const cachedDocuments = state.resolvedDocumentCache.get(skillPaths.skillName);
 
-	if (cachedDocuments) {
-		return cachedDocuments;
-	}
+	if (cachedDocuments) return cachedDocuments;
 
 	let document = state.documentCache.get(skillPaths.skillName);
 

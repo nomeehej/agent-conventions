@@ -15,7 +15,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Scanning: Story = {
-	// 테스트 브라우저에 카메라가 없어 스캔 화면이 열리지 않음
+	// 테스트 브라우저에 카메라가 없어 스캔 화면이 열리지 않으므로 테스트에서 제외한다.
 	// [!code ++]
 	tags: ["!test"],
 };

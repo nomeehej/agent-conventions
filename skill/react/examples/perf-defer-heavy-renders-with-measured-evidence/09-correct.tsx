@@ -4,7 +4,7 @@ const [urlParams, setUrlParams] = useQueryStates(urlParsers);
 const responseProductListSuspense = useProductListSuspense({page: urlParams.page});
 
 const handleNextPageButtonClick: MouseEventHandler<HTMLButtonElement> = (_event) => {
-	// 조회 키 page 변경 시 보이던 목록이 대체 화면으로 복귀. 측정 없이 트랜지션 적용
+	// 조회 키 page가 바뀌면 보이던 목록이 대체 화면으로 돌아가 측정 없이 트랜지션을 적용한다.
 // [!code ++]
 	startTransition(() => {
 // [!code ++]

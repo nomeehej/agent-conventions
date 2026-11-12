@@ -6,7 +6,9 @@ import type { Route } from "@playwright/test";
 import type { RequestHandler } from "msw";
 
 // ----------------------------------------------------------------------------------------
-// API 전용 page.route 콜백, 미처리와 passthrough 요청은 외부로 보내지 않고 오류
+// API 전용 page.route 콜백
+//
+// 미처리와 passthrough 요청은 외부로 보내지 않고 오류를 던진다.
 // ----------------------------------------------------------------------------------------
 export const createMockRoute = (handlers: RequestHandler[]) => {
 	return async (route: Route) => {

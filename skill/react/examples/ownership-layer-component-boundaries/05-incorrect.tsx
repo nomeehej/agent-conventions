@@ -5,7 +5,7 @@ export interface LineChartProps {
 	points: ChartPoint[];
 }
 
-// 좌표 배열만 받고 도메인 타입을 모름. 조립 규모만 보고 widget에 둠
+// 좌표 배열만 받고 도메인 타입을 모르는데 조립 규모만 보고 widget에 뒀다.
 // [!code error]
 export const LineChart = (props: LineChartProps) => {
 	return (

@@ -1,7 +1,9 @@
-// page/products/product-list-section.tsx: 진입 파일의 경계 하나 아래 내용물, 요약 줄과 목록을 함께 렌더
+// page/products/product-list-section.tsx: 경계 하나 아래에서 요약 줄과 목록을 함께 그린다.
 export const ProductListSection = () => {
 	// ----------------------------------------------------------------------------------------
-	// 상품 목록 조회, 요약 줄과 목록이 같은 응답을 씀
+	// 상품 목록 조회
+	//
+	// 요약 줄과 목록이 같은 응답을 쓴다.
 	// ----------------------------------------------------------------------------------------
 	const responseProductListSuspense = useProductListSuspense();
 

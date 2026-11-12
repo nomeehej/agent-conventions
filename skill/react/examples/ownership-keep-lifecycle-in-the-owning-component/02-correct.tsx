@@ -4,11 +4,9 @@ export const ChartCard = (props: ChartCardProps) => {
 	const chartRef = useRef<ChartInstance | null>(null);
 
 	useEffect(() => {
-		if (!containerRef.current) {
-			return;
-		}
+		if (!containerRef.current) return;
 
-		// 외부 차트 라이브러리 인스턴스. 만든 컴포넌트가 resize와 dispose까지 책임
+		// 외부 차트 라이브러리 인스턴스이므로 만든 컴포넌트가 resize와 dispose까지 책임진다.
 		const instance = mountChart(containerRef.current);
 		const handleResize = (_event: UIEvent) => {
 			instance.resize();

@@ -18,13 +18,13 @@ export const Filled: Story = {};
 
 export const Placeholder: Story = {args: {value: ""}};
 
-// 전역 Error와 이름 중첩 → 지역 이름만 변경
+// 전역 Error와 이름이 겹치므로 지역 이름만 바꾼다.
 const ErrorStory: Story = {args: {error: true, helperText: "상품명을 입력하세요"}};
 export {ErrorStory as Error};
 
 // [!code ++]
 export const Disabled: Story = {args: {disabled: true}};
 
-// 상품 등록 폼이 쓰는 조합, Value=Placeholder와 State=Error를 합친 variant
+// 상품 등록 폼이 쓰는 조합이며 Value=Placeholder와 State=Error를 합친 variant이다.
 // [!code ++]
 export const PlaceholderError: Story = {args: {value: "", error: true, helperText: "상품명을 입력하세요"}};

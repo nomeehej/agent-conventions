@@ -2,7 +2,7 @@ export const OrderToolbar = () => {
 	const [selectedIds, setSelectedIds] = useState<string[]>([]);
 	const [isPanelOpen, setIsPanelOpen] = useState(false);
 // [!code error]
-	// 반환에서만 읽는 판정이 훅 구획에 있어 쓰는 자리와 멂
+	// 반환에서만 읽는 판정이 훅 구획에 있어 쓰는 자리와 멀다.
 // [!code error]
 	const isClearDisabled = selectedIds.length === 0 || isPanelOpen;
 

@@ -10,7 +10,7 @@ import type {SkillPaths} from "./types.js";
 // ----------------------------------------------------------------------------------------
 // `RULES_INDEX.md`와 규칙별 `contracts` 파일 생성
 //
-// companion 해석은 선언 오류를 build에서 잡으려고 그대로 돌림
+// companion 해석은 선언 오류를 build에서 잡으려고 그대로 돌린다.
 // ----------------------------------------------------------------------------------------
 export const buildSkill = async (skillPaths: SkillPaths): Promise<void> => {
 	const documents = await readResolvedSkillDocuments(skillPaths);
@@ -22,11 +22,14 @@ export const buildSkill = async (skillPaths: SkillPaths): Promise<void> => {
 
 	const dependencies = parseDependencyDeclaration(rootDocument.skillName, rootDocument.metadata);
 	const rulesIndexMarkdown = generateRulesIndexMarkdown(rootDocument, dependencies.companions);
-	// contract 파일명은 번호 접두사 없는 stable ID 기준. 규칙 파일 번호가 바뀌어도 참조 유지
+
+	// contract 파일명은 번호 접두사 없는 stable ID 기준이라 규칙 파일 번호가 바뀌어도 참조가
+	// 유지된다.
 	const contractMarkdownByFileName = new Map<string, string>(
 		rootDocument.rules.map((rule) => [`${toRuleId(rule)}.md`, generateRuleContractMarkdown(rule)]),
 	);
-	// 지워진 규칙의 옛 contract 는 content 없이 넘겨 함께 지움
+
+	// 지워진 규칙의 옛 contract는 content 없이 넘겨 함께 지운다.
 	const existingContractFileNames = await readGeneratedDirectoryFileNames(skillPaths.ruleContractsDir);
 	const contractFileNames = Array.from(new Set([...existingContractFileNames, ...contractMarkdownByFileName.keys()])).sort((left, right) =>
 		left.localeCompare(right, "en-US"),

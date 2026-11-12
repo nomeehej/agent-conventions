@@ -1,7 +1,7 @@
 // ----------------------------------------------------------------------------------------
 // routing-evals.json 매니페스트 읽기와 검증기의 단위 테스트
 //
-// 실제 skill 내용은 핀하지 않고 fixture로만 검사
+// 실제 skill 내용은 핀하지 않고 fixture로만 검사한다.
 // ----------------------------------------------------------------------------------------
 import assert from "node:assert/strict";
 import {mkdtemp, mkdir, rm, writeFile} from "node:fs/promises";
@@ -16,10 +16,15 @@ import type {RoutingEvalManifest, RoutingScopeDrift, SkillCompanion} from "../sr
 const fixtureRuleIds = ["fixture-first", "fixture-second"] as const;
 
 // ----------------------------------------------------------------------------------------
-// skill fixture 구성 옵션, ruleRouting과 ruleTitles는 stable ID가 키
+// skill fixture 구성 옵션
 //
-// companions: fixture metadata에 선언할 direct companion
-// ruleIds: fixture에 만들 local rule의 stable ID
+// ruleRouting과 ruleTitles는 stable ID가 키다.
+//
+//   companions
+//      fixture metadata에 선언할 direct companion이다.
+//
+//   ruleIds
+//      fixture에 만들 local rule의 stable ID다.
 // ----------------------------------------------------------------------------------------
 interface SkillFixtureOptions {
 	companions?: SkillCompanion[];
@@ -29,7 +34,10 @@ interface SkillFixtureOptions {
 }
 
 // ----------------------------------------------------------------------------------------
-// skill fixture 파일 생성 인자, skillRootDir은 격리된 fixture skill root 절대 경로
+// skill fixture 파일 생성 인자
+//
+//   skillRootDir
+//      격리된 fixture skill root 절대 경로다.
 // ----------------------------------------------------------------------------------------
 interface WriteFixtureSkillArgs {
 	skillRootDir: string;
@@ -40,9 +48,14 @@ interface WriteFixtureSkillArgs {
 // ----------------------------------------------------------------------------------------
 // routing-evals.json fixture 생성 인자
 //
-// skillRootDir: 격리된 fixture skill root 절대 경로
-// skillName: manifest를 소유하는 skill 디렉터리 이름
-// manifest: JSON으로 직렬화할 후보 값
+//   skillRootDir
+//      격리된 fixture skill root 절대 경로다.
+//
+//   skillName
+//      manifest를 소유하는 skill 디렉터리 이름이다.
+//
+//   manifest
+//      JSON으로 직렬화할 후보 값이다.
 // ----------------------------------------------------------------------------------------
 interface WriteManifestArgs {
 	skillRootDir: string;
@@ -114,7 +127,9 @@ const writeFixtureSkill = async (args: WriteFixtureSkillArgs): Promise<void> => 
 };
 
 // ----------------------------------------------------------------------------------------
-// 첫 시나리오의 `scopeDrift`, 없으면 fixture가 깨진 것이라 바로 던짐
+// 첫 시나리오의 `scopeDrift`
+//
+// 없으면 fixture가 깨진 것이라 바로 던진다.
 // ----------------------------------------------------------------------------------------
 const getFirstScopeDrift = (candidate: RoutingEvalManifest): RoutingScopeDrift => {
 	const drift = candidate.scenarios[0]?.scopeDrift;

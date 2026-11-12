@@ -1,5 +1,7 @@
 // [!code error]
-// component/widget/product-toolbar/product-toolbar-delete-button.tsx: 초안 행에만 렌더하는 버튼이 라우터 훅을 부름
+// component/widget/product-toolbar/product-toolbar-delete-button.tsx
+// [!code error]
+// 초안 행에만 그리는 버튼이 라우터 훅을 부른다.
 // [!code error]
 export const ProductToolbarDeleteButton = () => {
 	const navigate = useNavigate();

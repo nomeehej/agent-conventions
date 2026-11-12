@@ -6,8 +6,8 @@ export const ProductListSection = () => {
 	// ----------------------------------------------------------------------------------------
 	// 상품 목록 조회와 저장 요청
 	//
-	// 조회 키는 URL의 page
-	// 저장 뒤 목록을 다시 조회하고 첫 페이지로 이동 → 새 상품이 맨 앞
+	// 조회 키는 URL의 page다.
+	// 저장 뒤 목록을 다시 조회하고 첫 페이지로 이동하므로 새 상품이 맨 앞에 온다.
 	// ----------------------------------------------------------------------------------------
 	const responseProductListSuspense = useProductListSuspense(
 		{page: urlParams.page},
@@ -29,9 +29,7 @@ export const ProductListSection = () => {
 	});
 
 	const handleProductSave: TableProps["onSave"] = (formValues) => {
-		if (mutationProductSave.isPending) {
-			return;
-		}
+		if (mutationProductSave.isPending) return;
 
 		mutationProductSave.mutate({data: buildProductSaveRequest(formValues)});
 	};

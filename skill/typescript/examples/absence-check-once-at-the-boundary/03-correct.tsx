@@ -1,7 +1,9 @@
 // page/product-detail/product-detail-page.tsx
 
 // ----------------------------------------------------------------------------------------
-// 상품 요약 조회, 계산 전 변화율 null을 undefined로 제한
+// 상품 요약 조회
+//
+// 계산에 쓰기 전에 변화율의 null을 undefined로 바꾼다.
 // ----------------------------------------------------------------------------------------
 const responseSummarySuspense = useSuspenseQuery({
 	...productDetailSummaryQueryOptions(productId),

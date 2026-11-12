@@ -12,7 +12,7 @@ export default defineConfig({
 		},
 	],
 	webServer: {
-		// 프로젝트에서 앱과 gallery를 같은 테스트 빌드로 만드는 명령
+		// 프로젝트에서 앱과 gallery를 같은 테스트 빌드로 만드는 명령이다.
 		command: "npm run preview:test",
 		url: "http://localhost:5175/test/_gallery/index.html",
 	},

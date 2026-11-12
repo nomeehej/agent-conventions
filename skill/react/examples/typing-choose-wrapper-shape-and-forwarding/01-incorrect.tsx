@@ -4,7 +4,7 @@ export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>
 }
 
 // [!code error]
-// 안쪽 컴포넌트가 거르지 않으면 icon이 DOM까지 내려감. 컴파일은 통과
+// 안쪽 컴포넌트가 거르지 않으면 icon이 DOM까지 내려가지만 컴파일은 통과한다.
 export const IconButton = (props: IconButtonProps) => {
 	return (
 // [!code error]

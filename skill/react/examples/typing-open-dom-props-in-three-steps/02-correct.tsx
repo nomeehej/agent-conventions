@@ -4,7 +4,9 @@ import {clsx} from "clsx";
 import type {ButtonHTMLAttributes} from "react";
 
 // ----------------------------------------------------------------------------------------
-// color의 문자열 리터럴은 DOM의 string에 할당 가능 → Omit 불필요
+// color 프롭
+//
+// 문자열 리터럴이라 DOM의 string에 할당할 수 있으므로 Omit이 필요 없다.
 // ----------------------------------------------------------------------------------------
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	color?: MuiButtonProps["color"];

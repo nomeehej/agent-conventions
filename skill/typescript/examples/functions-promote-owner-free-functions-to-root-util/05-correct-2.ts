@@ -1,7 +1,9 @@
 // util/money/format-signed-amount.ts
 
 // ----------------------------------------------------------------------------------------
-// 화면 공통 금액 표시, 소수 두 자리와 부호 고정
+// 화면 공통 금액 표시
+//
+// 소수 두 자리와 부호를 고정한다.
 //
 // formatSignedAmount({value: 12.5, currency: "USD"}) → "+$12.50"
 // formatSignedAmount({value: -3, currency: "USD"}) → "-$3.00"

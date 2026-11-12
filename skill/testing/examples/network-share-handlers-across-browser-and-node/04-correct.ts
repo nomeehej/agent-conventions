@@ -7,7 +7,9 @@ import type { RequestHandler } from "msw";
 import { mockHandlers } from "@/service/msw/handlers";
 
 // ----------------------------------------------------------------------------------------
-// 사례별 응답 덮어쓰기, 등록한 handler는 공유 handler보다 먼저 해석
+// 사례별 응답 덮어쓰기
+//
+// 등록한 handler는 공유 handler보다 먼저 해석된다.
 // ----------------------------------------------------------------------------------------
 interface Fixtures {
 	mockApi: {
@@ -18,9 +20,12 @@ interface Fixtures {
 export { expect };
 
 // ----------------------------------------------------------------------------------------
-// 테스트마다 공유 handler 목록 복사와 route 수명 소유, 새 context 사용을 기본값으로 유지
+// 테스트마다 공유 handler 목록 복사와 route 수명 소유
 //
-// mockApi.use는 mount 전에 호출. gallery 진입 뒤 등록한 handler는 첫 조회에 반영 불가
+// 새 context 사용을 기본값으로 유지한다.
+//
+//   mockApi.use
+//      mount 전에 호출한다. gallery 진입 뒤 등록한 handler는 첫 조회에 반영되지 않는다.
 // ----------------------------------------------------------------------------------------
 export const test = base.extend<Fixtures>({
 	mockApi: [async ({ page }, use) => {
