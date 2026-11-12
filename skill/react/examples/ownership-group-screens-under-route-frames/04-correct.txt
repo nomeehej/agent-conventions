@@ -1,6 +1,6 @@
 src/
 # [!code ++]
-├── routes/
+├── route/
 │   ├── __root.tsx
 │   ├── _main.tsx
 │   └── _main/
