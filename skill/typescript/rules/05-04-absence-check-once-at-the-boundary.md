@@ -37,12 +37,14 @@ tags: absence, boundaries
 | --- | --- |
 | 경계에서 이미 확인한 없음, 유한 수 조건 | 반복하지 않습니다. 유한 수 검사가 필요한 값은 `absence-do-not-guard-what-types-guarantee`가 정합니다 |
 | 새 계산, 외부 호출로 만든 값, 검증 후 변경, 외부 값 혼합 | 기존 보장이 적용되지 않는 조건을 해당 경계에서 확인합니다 |
+| 한 함수가 같은 값의 없음을 두 번 이상 검사함 | 위에서 한 번 갈라 일찍 반환하고 아래는 좁혀진 값만 씁니다 |
 | 여러 입력 경로가 각각 외부 값을 받음 | 각 경계에서 검증합니다 |
 
 `unknown`은 검증 책임이 있는 경계에서 받고 공개 입력 계약을 내부 호출 하나에 맞춰 좁히지 않습니다.
 타입 좁히기는 `types-narrow-unknown-instead-of-asserting`을 따릅니다.
 
-참고: [Alexis King: Parse, don't validate](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/).
+참고: [Alexis King: Parse, don't validate](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/),
+[Kotlin 문서: 없으면 일찍 반환하는 `?: return`](https://kotlinlang.org/docs/null-safety.html#elvis-operator).
 
 **Incorrect 1 (경계가 타입을 좁히지 않아 아래 함수마다 같은 값을 다시 검사합니다):**
 

@@ -4,6 +4,18 @@ or {
 	`$left ?? $right`,
 	`$left || $right`
 } where {
-	$right <: or { string(), number(), `true`, `false`, `[]`, `{}` },
-	register_diagnostic(span = $right, message = "Do not put a literal on the right of ?? or ||. Reference a declared name.")
+	or {
+		and {
+			$right <: or { string(), number(), `true`, `false`, `{}` },
+			not and {
+				$right <: or { `0`, `""` },
+				$left <: or { `$map.get($key)`, `$list[$index]`, `$list?.[$index]`, `$list.at($index)`, `$list.find($test)` }
+			},
+			register_diagnostic(span = $right, message = "Do not put a literal on the right of ?? or ||. Reference a declared name, or write 0 or \"\" right after a lookup.")
+		},
+		and {
+			$left <: `$first ?? $second`,
+			register_diagnostic(span = $left, message = "Do not chain ??. Choose among the candidates in a function with return branches.")
+		}
+	}
 }

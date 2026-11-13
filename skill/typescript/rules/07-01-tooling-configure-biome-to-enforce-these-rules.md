@@ -29,7 +29,7 @@ tags: tooling
 | `complexity/useMaxParams` | `typescript/functions-use-named-object-params-for-complex-signatures`. 라이브러리 콜백이 매개변수를 다섯까지 넘기므로 `max`는 5입니다 |
 | `style/noMagicNumbers` | `typescript/values-declare-meaningful-numbers` |
 | `suspicious/noExplicitAny`, `style/noNonNullAssertion` | `typescript/types-narrow-unknown-instead-of-asserting` |
-| `plugins`의 GritQL 파일 | `typescript/absence-expose-optional-values-instead-of-silent-fallbacks`의 `??`, `\|\|` 오른쪽 리터럴 |
+| `plugins`의 GritQL 파일 | `typescript/absence-expose-optional-values-instead-of-silent-fallbacks`의 `??`, `\|\|` 오른쪽 리터럴과 이어진 `??`. `[]`와 조회 바로 뒤의 `0`, `""`는 통과합니다 |
 
 `typescript/naming-use-direct-imports-and-public-entry-points`의 가져오기, 이름 붙인 내보내기, 배럴 제한은
 아래 규칙이 담당합니다.
@@ -41,6 +41,7 @@ tags: tooling
 - `performance/noReExportAll`
 
 기본 매개변수, 삼항, 음수 리터럴(`?? -1`), 템플릿 리터럴, 문자열 연결의 대체값은 GritQL 검사 밖이므로 리뷰합니다.
+빈 값이 없을 때도 사실인지와 이어진 `||`도 리뷰합니다.
 `recommended`에 이미 든 규칙도 담당 컨벤션을 드러내려고 설정에 명시합니다.
 
 ### 리뷰가 담당하는 것
@@ -79,7 +80,7 @@ ESLint를 함께 쓰는 프로젝트는 `@stylistic/multiline-comment-style`을 
 
 <<< ../examples/tooling-configure-biome-to-enforce-these-rules/01-correct.json
 
-**Correct (`??`, `||` 오른쪽 리터럴은 GritQL 플러그인으로 잡습니다):**
+**Correct (`??`, `||` 오른쪽 리터럴과 이어진 `??`는 GritQL 플러그인으로 잡습니다):**
 
 <<< ../examples/tooling-configure-biome-to-enforce-these-rules/02-correct-1.json
 

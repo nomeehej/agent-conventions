@@ -127,9 +127,11 @@ const nonButtonClick = /<(?:li|div|span|td|tr|section|article)\b[^>]*\bonClick=/
 // ----------------------------------------------------------------------------------------
 // `??`, `||` 오른쪽의 리터럴
 //
-// `absence-expose-optional-values-instead-of-silent-fallbacks`가 선언된 이름만 허용한다.
+// `absence-expose-optional-values-instead-of-silent-fallbacks`가 선언된 이름과 조회 바로 뒤의
+// `0`, `""`, 그리고 `[]`만 허용한다.
 // ----------------------------------------------------------------------------------------
-const literalFallback = /(?:\?\?|\|\|)\s*(?:"[^"]*"|'[^']*'|\d+(?:\.\d+)?|\[\]|\{\})/;
+const literalFallback = /(?:\?\?|\|\|)\s*(?:"[^"]*"|'[^']*'|\d+(?:\.\d+)?|\{\})/;
+const lookupEmptyFallback = /(?:\.(?:get|at|find)\(.*\)|\])\s*\?\?\s*(?:""|0(?![\d.]))/;
 
 // ----------------------------------------------------------------------------------------
 // 손으로 쓴 값 보조
@@ -519,8 +521,10 @@ const collectRuleViolations = (rule: SkillRule): string[] => {
 					violations.push(`Correct 예제에서 누르는 요소는 button 이다: "${line.trim()}"`);
 				}
 
-				if (literalFallback.test(line)) {
-					violations.push(`Correct 예제의 \`??\`, \`||\` 오른쪽은 선언된 이름이다: "${line.trim()}"`);
+				if (literalFallback.test(line) && !lookupEmptyFallback.test(line)) {
+					violations.push(
+						`Correct 예제의 \`??\`, \`||\` 오른쪽은 선언된 이름, 빈 목록, 조회 바로 뒤의 0과 빈 문자열이다: "${line.trim()}"`,
+					);
 				}
 
 				if (handRolledValueHelper.test(line)) {

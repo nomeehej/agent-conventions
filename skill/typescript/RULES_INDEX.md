@@ -1,7 +1,7 @@
 # TypeScript 컨벤션 Rule Index
 
 - Skill: `typescript`
-- Routing digest: `sha256:226042f60cd9c3c03012b25a591f3c919ca6299d74c775f72919b380e1c0147d`
+- Routing digest: `sha256:d157f14d46dba2950ad9149ec02cd1ff5e20206c68a5da597567ff366d56381e`
 
 ## Local Rules
 
@@ -37,7 +37,7 @@
 - T04-06 | values-use-es-toolkit-for-value-helpers | 배열, 객체, 문자열, 숫자를 다루는 보조 코드를 추가, 변경할 때. \`reduce\`, \`Object.entries\`, \`Array.from\`, 정규식으로 값을 다시 짜는 코드를 쓸 때. 제외: 표에 없는 작업을 표준 메서드 하나로 끝내는 경우. | reviewWith: values-handle-dates-with-dayjs, values-prefer-immutable-array-sorting
 - T04-07 | values-handle-dates-with-dayjs | 날짜를 파싱하거나 형식을 맞추거나 더하고 뺄 때. \`new Date\`, \`getTime\(\)\`, \`setDate\(\)\`, \`toLocaleDateString\(\)\`을 쓸 때. 제외: 서버가 준 시각 문자열을 파싱 없이 그대로 보여 주는 경우. | reviewWith: naming-place-project-constants-in-the-root-constant-folder, values-use-es-toolkit-for-value-helpers
 - T04-08 | values-decide-once-and-carry-the-result | 한 소유자 안에서 같은 입력에 같은 판정, 정규화, 포맷을 두 자리 이상에서 할 때. 포맷하거나 정리한 값을 사용처에서 다시 파싱하거나 정리할 때. 한 소유자 안의 두 함수가 같은 판정 함수를 부르게 되어 공유 보조를 만들려 할 때. | reviewWith: absence-resolve-defaults-at-the-boundary, functions-extract-helpers-only-when-the-boundary-is-real
-- T05-01 | absence-expose-optional-values-instead-of-silent-fallbacks | 선택 값을 읽거나 정규화하거나 넘기는 방식을 바꿀 때. \`??\`, \`\|\|\`, 기본값, 빈 값 대체 분기를 추가, 변경할 때. | reviewWith: absence-resolve-defaults-at-the-boundary, naming-place-owner-constants-in-the-owner-constant-folder, naming-place-project-constants-in-the-root-constant-folder
+- T05-01 | absence-expose-optional-values-instead-of-silent-fallbacks | 선택 값을 읽거나 정규화하거나 넘기는 방식을 바꿀 때. \`??\`, \`\|\|\`, 기본값, 빈 값 대체 분기를 추가, 변경할 때. | reviewWith: absence-check-once-at-the-boundary, absence-resolve-defaults-at-the-boundary, naming-place-owner-constants-in-the-owner-constant-folder, naming-place-project-constants-in-the-root-constant-folder
 - T05-02 | absence-resolve-defaults-at-the-boundary | 선택 값의 기본값을 어디서 채울지 정할 때. 같은 선택 값에 \`??\` 기본값 해소가 둘 이상의 사용처에 흩어질 때. search 스키마, 응답 매핑, 쿼리 \`select\`에 기본값 채움을 추가, 변경할 때. | reviewWith: absence-expose-optional-values-instead-of-silent-fallbacks, functions-name-a-value-only-for-recompute-or-judgment, values-read-objects-through-chains
 - T05-03 | absence-do-not-guard-what-types-guarantee | \`isNil\`, \`typeof\`, 옵셔널 체이닝으로 값을 검사하는 분기를 추가, 변경할 때. 선택 필드에 값을 넣으면서 \`undefined\`를 피하려고 조건부 스프레드를 쓸 때. 제외: \`unknown\`이나 앱 밖에서 온 값을 좁히는 경우. | reviewWith: absence-check-once-at-the-boundary, absence-expose-optional-values-instead-of-silent-fallbacks, types-narrow-unknown-instead-of-asserting
 - T05-04 | absence-check-once-at-the-boundary | \`isNil\`, \`Number.isFinite\` 같은 검사를 함수에 넣을 때. \`null\`, \`undefined\`, \`unknown\`을 매개변수, 반환 타입에 넣거나 뺄 때. 응답 매핑, 쿼리, search 스키마에서 없음, 유한 수 검사로 타입을 좁힐 때. | reviewWith: absence-do-not-guard-what-types-guarantee, absence-resolve-defaults-at-the-boundary, values-decide-once-and-carry-the-result

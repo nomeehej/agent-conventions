@@ -35,7 +35,19 @@ flowchart LR
 | 3. 경계에서 처리할 수 없는가 | 사용처에 `fetchProducts({pageSize: query.pageSize ?? pagination_default_page_size})`처럼 적습니다 |
 | 4. 같은 기본값을 둘 이상의 사용처가 읽는가 | `pageSize` 대신 `effectivePageSize`처럼 고른 결과임을 드러내는 이름으로 한 번 받습니다. 사용처가 하나면 그대로 적습니다 |
 
-소비처가 배열을 요구하면 경계의 `select`가 선언된 기본값으로 채웁니다.
+없음은 값마다 한 번 처리하고 경계는 없음이 어디서 왔는지에 따라 정합니다.
+들어오는 자리에서 채울 수 있으면 채우고 채울 값이 없으면 보이는 자리까지 선택 값 그대로 넘깁니다.
+그 사이의 함수와 컴포넌트는 없음을 다시 읽지 않습니다.
+
+| 없음의 출처 | 한 번 처리하는 자리 | 방법 |
+| --- | --- | --- |
+| 서버 응답의 선택 필드, `null` 필드 | 쿼리의 `select`나 응답 매핑 | 목록과 정책 기본값은 채우고 `null`은 `undefined`로 바꿉니다 |
+| search 파라미터, 폼 입력 | 파서 | `.withDefault(선언된 상수)`나 파싱 함수가 채웁니다 |
+| 선택 프롭, 옵션 객체 | 그 컴포넌트나 함수 | 여러 함수가 같은 프롭을 읽으면 진입점에서 한 번 채워 넘깁니다 |
+| `Map.get`, 인덱스 접근, `at`, `find` | 조회한 자리 | 빈 값이나 선언된 이름으로 채웁니다 |
+| 채울 값이 없는 없음 | 렌더하는 자리 | `absence-check-once-at-the-boundary`에 따라 한 번 분기합니다 |
+
+소비처가 배열을 요구하면 경계의 `select`가 `[]`로 채웁니다.
 이름을 붙일지는 `functions-name-a-value-only-for-recompute-or-judgment`가 정합니다.
 
 참고: [nuqs 문서: 기본값(Default values)](https://nuqs.dev/docs/basic-usage#default-values),
@@ -56,6 +68,10 @@ flowchart LR
 **Correct 2 (값이 들어오는 경계에서 한 번 채워 이후 코드에서 기본값을 반복하지 않습니다):**
 
 <<< ../examples/absence-resolve-defaults-at-the-boundary/04-correct.ts
+
+**Correct (응답의 없는 목록은 `select`에서 한 번 채워 아래에서는 필수 값으로 읽습니다):**
+
+<<< ../examples/absence-resolve-defaults-at-the-boundary/07-correct.ts
 
 **Correct (경계에서 못 하고 사용처가 하나면 쓰는 자리에 그대로 적습니다):**
 

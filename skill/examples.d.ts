@@ -186,6 +186,10 @@ interface OrderSummary {
 	statusDescription: string;
 	totalAmount: Amount;
 }
+interface ChooseRowLabelParams {
+	label?: string;
+	rowLabel?: string;
+}
 interface BuildOrderSummaryParams {
 	orderSummary: OrderSummary;
 	stockCount?: number;
@@ -329,6 +333,7 @@ declare const token_expiry_hours: number;
 declare const pricing_default_currency: string;
 declare const locale_supported_values: readonly string[];
 declare const editable_order_statuses: readonly OrderStatus[];
+declare const orderCountByStatus: Map<OrderStatus, number>;
 declare const product_list: Product[];
 declare const productColumns: TableColumn[];
 
@@ -538,6 +543,7 @@ declare const queryClient: import("@tanstack/react-query").QueryClient;
 declare const productListQueryKey: () => readonly unknown[];
 declare const productSummaryQueryKey: () => readonly unknown[];
 declare const productListQueryOptions: () => ExampleQueryOptions<ProductListResponse>;
+declare const productSearchQueryOptions: () => ExampleQueryOptions<{rows?: ProductRow[]}>;
 declare const categoryListQueryOptions: () => ExampleQueryOptions<{categories: ProductCategory[]}>;
 declare const productDetailSummaryQueryOptions: (productId: string) => ExampleQueryOptions<ProductSummary>;
 declare const useProductListSuspense: <TData = ProductListResponse>(
@@ -621,6 +627,7 @@ declare const buildProductSaveRequest: (values: ProductFormValues, attachmentIds
 declare const toSeriesColorToken: (role: string, index: number) => string;
 declare const formatAmount: (amount: Amount) => string;
 declare const formatPercent: (rate: number | null) => string;
+declare const formatSignedPercent: (value: number) => string;
 declare const handleListItemClick: (productId: string) => MouseEventHandler<HTMLButtonElement>;
 declare const handleChange: (value: string) => void;
 declare const handleFilterToggleClick: MouseEventHandler<HTMLButtonElement>;

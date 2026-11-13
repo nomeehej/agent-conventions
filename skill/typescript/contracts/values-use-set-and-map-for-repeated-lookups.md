@@ -23,6 +23,7 @@
 `groupBy`는 목록을 묶어 재구성할 때 씁니다.
 `keyBy`는 결과 객체를 조회가 아니라 직렬화나 `Record` 입력으로 쓸 때만 씁니다.
 조회용 색인은 `Map`입니다.
+`Map.get()`의 없음은 `absence-expose-optional-values-instead-of-silent-fallbacks`에 따라 조회한 자리에서 채웁니다.
 목록 연산의 선택은 `values-use-es-toolkit-for-value-helpers`가 정합니다.
 
 참고: [MDN: Set 객체](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set),
